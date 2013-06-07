@@ -24,7 +24,6 @@ Location: REDIRECT_URI?code=...
   {
       "access_token": "ACCESS_TOKEN",
       "token_type": "bearer",
-      "expires_in": 1209600,
       "refresh_token": "REFRESH_TOKEN"
   }
   ```
