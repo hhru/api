@@ -4,7 +4,7 @@
 HH.ru разрешение доступа к их персональным данным, без получения и хранения их логина и пароля.
 
 1. Приложение направляет пользователя по адресу:
-`http://m.hh.ru/oauth/authorize?response_type=code&client_id=...`
+`https://m.hh.ru/oauth/authorize?response_type=code&client_id=...`
 
 2. После прохождения авторизации на сайте, мы запрашиваем у пользователя разрешение доступа приложения к его 
 персональным данным.
@@ -16,7 +16,7 @@ Location: REDIRECT_URI?code=...
 ```
 4. Приложение делает сервер-сервер запрос для обмена полученного `authorization_code` на `access_token`:
         
-        POST http://m.hh.ru/oauth/token
+        POST https://m.hh.ru/oauth/token
         grant_type=authorization_code&client_id=...&client_secret=...&code=...
         
     Ответ:
@@ -55,7 +55,7 @@ JSON в ответе:
 ```
 6. `access_token` имеет срок жизни, при его истечении приложение делает запрос с `refresh_token` для получения нового:
 
-        POST http://m.hh.ru/oauth/token
+        POST https://m.hh.ru/oauth/token
         grant_type=refresh_token&refresh_token=...
 
 ## Примечания
