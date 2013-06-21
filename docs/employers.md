@@ -5,10 +5,10 @@
 ```json
 {
   "id": "ID",
-  "name": "HeadHunter",
+  "name": "Название компании",
   "site_url": "http://www.example.com/",
   "type": "company",
-  "vacancies_url": "https://api.hh.ru/vacancy?employer_id=ID",
+  "vacancies_url": "https://api.hh.ru/vacancies?employer_id=ID",
   "description": "<p>Описание в HTML</p>",
   "alternate_url": "http://example.com/employer/ID",
   "trusted": true,
