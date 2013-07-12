@@ -69,7 +69,7 @@
 
 #### <a name="site_lang"/> Ключ `site_lang` - язык сайта
 
-#### <a name="site_type"/> Ключ `site_type` - тип сайта
+#### <a name="resume_contacts_site_type"/> Ключ `site_type` - тип сайта
 
 #### <a name="travel_time"/> Ключ `travel_time` - время в пути
 
