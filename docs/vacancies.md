@@ -19,7 +19,7 @@
   ID справочника [specializations](specializations.md);
 * `employer_id` — идентификатор [компании](employers.md) (множественный);
 * `currency` — идентификатор [валюты](dictionaries.md#currency);
-* `salary` — желаемая зарплата. Если указан `compensation`,
+* `salary` — желаемая зарплата. Если указан `salary`,
   а `currency` не указан, то `currency` равен 'RUR';
 * `label` — фильтр по тегам вакансий (множественный). ID справочника [vacancy_label](dictionaries.md#vacancy_label);
 * `clusters` — отборажать кластеры (true) или нет (false);
