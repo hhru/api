@@ -80,3 +80,5 @@
 #### <a name="vacancy_search_field"/> Ключ `vacancy_search_field` - область поиска в вакансии
 
 #### <a name="vacancy_search_order"/> Ключ `vacancy_search_order` - тип сортировки вакансии
+
+#### <a name="business_trip_readiness"/> Ключ `business_trip_readiness` - готовность к командировкам
