@@ -83,4 +83,4 @@
 
 #### <a name="business_trip_readiness"/> Ключ `business_trip_readiness` - готовность к командировкам
 
-#### <a name="vacancy_type"/> Ключ `vacancy_type` - готовность к командировкам
+#### <a name="vacancy_type"/> Ключ `vacancy_type` - тип вакансии
