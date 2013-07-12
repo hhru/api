@@ -69,7 +69,7 @@
 
 #### <a name="site_lang"/> Ключ `site_lang` - язык сайта
 
-#### <a name="site_type"/> Ключ `site_type` - тип сайта
+#### <a name="resume_contacts_site_type"/> Ключ `site_type` - тип сайта
 
 #### <a name="travel_time"/> Ключ `travel_time` - время в пути
 
@@ -80,3 +80,7 @@
 #### <a name="vacancy_search_field"/> Ключ `vacancy_search_field` - область поиска в вакансии
 
 #### <a name="vacancy_search_order"/> Ключ `vacancy_search_order` - тип сортировки вакансии
+
+#### <a name="business_trip_readiness"/> Ключ `business_trip_readiness` - готовность к командировкам
+
+#### <a name="vacancy_type"/> Ключ `vacancy_type` - тип вакансии
