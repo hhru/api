@@ -1,82 +1,39 @@
-# Справочники
+Справочники
+===========
 
-### `GET /dictionaries` - справочники
+`GET /dictionaries` возвращает объект со справочниками полей и сущностей, используемых в нашем сервисе.
+Чаще всего, каждый справочник состоит из списка объектов, содержащих `id` и `name`.
 
-```json
-{
-  "key": [
-    {
-      "id": "code1",
-      "name": "Значение 1"
-    },
-    {
-      "id": "code2",
-      "name": "Значение 2"
-    }
-  ]
-}
-```
+Пример: [https://api.hh.ru/areas](https://api.hh.ru/areas)
 
-Где:
-* `key` - один из ключей описанных ниже
-* `id` - уникальный идентификатор
-* `name` - значение
+Справочники для полей, используемых в резюме
+--------------------------------------------
+* `education_level` - образование в резюме
+* `gender` - пол
+* `language_level` - уровень владения языком
+* `preferred_contact_type` - желаемый способ связи
+* `relocation_type` - готовность к переезду
+* `travel_time` - время в пути
+* `resume_access_type` - уровень доступа к резюме
+* `business_trip_readiness` - готовность к командировкам
+* `resume_contacts_site_type` - тип сайта в поле «контакты»
 
-#### <a name="currency"/> Ключ `currency` - cправочник валют
 
-Для справочника валют также указываются:
-* `default` – валюта со значением `true` используется по-умолчанию в других запросах к API
-* `name` – сокращение валюты
-* `full_name` – полное название валюты
-* `rate` – курс
+Справочники для полей вакансии
+------------------------------
+* `employment` - тип занятости
+* `experience` - опыт работы
+* `schedule` - график работы
+* `vacancy_type` - тип вакансии
+* `vacancy_label` - метки вакансии
 
-```json
-{
-  "currency": [
-    {
-      "default": true,
-      "rate": 1.0,
-      "code": "RUR",
-      "name": "руб.",
-      "full_name": "Рубли"
-    },
-    {
-      "default": false,
-      "rate": 0.031372,
-      "code": "USD",
-      "name": "USD",
-      "full_name": "Доллары"
-    }
-  ]
-}
-```
+Справочники для параметров поиска вакансий
+------------------------------------------
+* `vacancy_search_fields` - область поиска в вакансии
+* `vacancy_search_order` - тип сортировки вакансии
 
-#### <a name="education_level"/> Ключ `education_level` - образование
 
-#### <a name="employment"/> Ключ `employment` - тип занятости
-
-#### <a name="experience"/> Ключ `experience` - опыт работы
-
-#### <a name="gender"/> Ключ `gender` - пол
-
-#### <a name="language_level"/> Ключ `language_level` - уровень владения языком
-
-#### <a name="prefered_contact_type"/> Ключ `prefered_contact_type` - желаемый способ связи
-
-#### <a name="relocation_type"/> Ключ `relocation_type` - готовность к переезду
-
-#### <a name="schedule"/> Ключ `schedule` - график работы
-
-#### <a name="site_lang"/> Ключ `site_lang` - язык сайта
-
-#### <a name="site_type"/> Ключ `site_type` - тип сайта
-
-#### <a name="travel_time"/> Ключ `travel_time` - время в пути
-
-#### <a name="resume_access_type"/> Ключ `resume_access_type` - уровень доступа к резюме
-
-#### <a name="vacancy_label"/> Ключ `vacancy_label` - пометка к вакансии
-
-#### <a name="vacancy_search_field"/> Ключ `vacancy_search_field` - область поиска в вакансии
-
-#### <a name="vacancy_search_order"/> Ключ `vacancy_search_order` - тип сортировки вакансии
+Остальные справочники
+---------------------
+* `site_lang` - язык сайта
+* `currency` - cправочник валют

@@ -1,155 +1,223 @@
-# Вакансии
+Вакансии
+========
 
-### `GET /vacancies` — поиск по вакансиям
-Параметры:
-* `text` — текстовый запрос ваканисии. Поиск происходиит по полям вакансии, указанные в `search_field`;
-* `search_field` — область поиска (множественный).
-  ID справочника [vacancy_search_field](dictionaries.md#vacancy_search_field).
-  По умолчанию ищется во всех полях;
-* `experience` — опыт работы (множественный).
-  ID справочника [experience](dictionaries.md#experience). По умолчанию — 'noExperience';
-* `employment` — тип занятости (множественный).
-  ID справочника [employment](dictionaries.md#employment);
-* `schedule` — тип графика работы (множественный).
-  ID справочника [schedule](dictionaries.md#schedule);
-* `area` — идентификатор региона (множественный). ID справочника [areas](areas.md);
-* `metro` — идентификатор ветки или станции метро (множественный).
-  ID ветки или станции метро из справочника [metro](metro.md);
-* `specialization` — идентификатор профобласти или специализации(множественный).
-  ID справочника [specializations](specializations.md);
-* `employer_id` — идентификатор [компании](employers.md) (множественный);
-* `currency` — идентификатор [валюты](dictionaries.md#currency);
-* `compensation` — желаемая зарплата. Если указан `compensation`,
-  а `currency` не указан, то `currency` равен 'RUR';
-* `label` — фильтр по тегам вакансий (множественный). ID справочника [vacancy_label](dictionaries.md#vacancy_label);
-* `clusters` — отборажать кластеры (true) или нет (false);
-* `only_with_salary` — показывать вакансии только с указанием зарплаты (true или false);
-* `period` — количество дней, в пределах которых нужно найти ваканции с датой публикации начиная
-  с сегодняшнего дня (максимум 30);
-* `left_lng` — левое значение долготы. Принимаемое значение — градусы и доли градусов.
-  Имеет смысл передавать все четыре параметра гео-координат, иначе вернется ошибка.
-  Область задается двумя значениями — левой верхней и правой нижней координатами;
-* `top_lat` — верхнее значение широты;
-* `right_lng` — правое значение долготы;
-* `bottom_lat` — нижнее значение широты;
-* `page` — номер страницы отображения для постраничной навигации, начиная с 0;
-* `per_page` — количество элементов на странице, но не более 500.
-  При этом общее количество возвращаемых вакансий не может быть дальше 2000-й;
-* `order_by` — сортировка списка вакансий. ID справочника [vacancy_search_order](dictionaries.md#vacancy_search_order);
+* Просмотр вакансии
+* Отобранные вакансии
+* Поиск по компаниям
 
-Все поля не обязательные, но часть полей имеет смысл задавать только вместе, например,
-`left_lng, top_lat, right_lng, bottom_lat`.
-Если параметры переданы с ошибкой, то ответ вернется с `400 Bad request`.
-При положительном ответе объект с найденными вакансиями.
+Просмотр вакансии
+-----------------
+
+`GET /vacancies/{vacancy_id}` вернёт подробную информацию по указанной вакансии
+
+Пример: [https://api.hh.ru/vacancies/8331228](https://api.hh.ru/vacancies/8331228)
 
 ```json
 {
-    "found": 100500,
-    "pages": 5025,
-    "per_page": 20,
-    "page": 0,
-    "items":[
-        {
-           "id": "123",
-           "name": "Заголовок вакансии",
-           "area": {
-              "id": "1",
-              "name": "Москва"
-           },
-           "url": "https://api.hh.ru/vacancies/123",
-           "created_at": "2013-04-02T12:28:16.199+04:00",
-           "employer":{
-              "id": "321",
-              "name": "Название работодателя",
-              "logo_urls":{
-                 "90": "http://hh.ru/employer-logo/309201.png",
-                 "240": "http://hh.ru/employer-logo/382058.png",
-                 "original": "http://hh.ru/file/727526.gif"
-              },
-              "hrbrand": null,
-              "url": "https://api.hh.ru/employers/321",
-              "site_url": "http://hh.ru/employer/321"
-           },
-           "response_letter_required": false,
-           "compensation": null,
-           "address": null,
-           "site_url": "http://hh.ru/vacancy/123",
-           "type": "open"
-        }
-    ]
-}
-```
-
-
-### `GET /vacancies/{vacancy_id}` — вакансия
-
-```json
-{
-  "name": "Ведущий инженер в отдел главного энергетика",
-  "id": "235",
-  "created_at": "2003-05-14T14:53:23.000+04:00",
-  "response_letter_required": false,
-  "archived": true,
-  "area": {
-    "id": "1",
-    "name": "Москва"
-  },
-  "url": "http://hh.ru/vacancy/235",
-  "employment": {
-    "id": "full",
-    "name": "Полная занятость"
-  },
+  "description": "...",
   "schedule": {
     "id": "fullDay",
-    "name": "полный день"
+    "name": "Полный день"
   },
+  "accept_handicapped": false,
   "experience": {
     "id": "between1And3",
     "name": "1–3 года"
   },
-  "compensation": {
-    "to": 400,
-    "from": null,
-    "currency": "USD"
+  "address": null,
+  "alternate_url": "http://hh.ru/vacancy/8331228",
+  "employment": {
+    "id": "full",
+    "name": "Полная занятость"
   },
-  "accept_handicapped": false,
-  "address": {
-    "building": "9с15",
-    "city": "Москва",
-    "street": "улица Годовикова",
-    "description": "",
-    "metro": {
-        "line_name": "Калужско-Рижская",
-        "station_id": "6.8",
-        "line_id": "6",
-        "lat": 55.807794,
-        "station_name": "Алексеевская",
-        "lng": 37.638699
-    },
-    "raw": "",
-    "lat": 55.807434,
-    "lng": 37.630346
+  "id": "8331228",
+  "salary": {
+    "to": null,
+    "from": 30000,
+    "currency": "RUR"
   },
-  "company": {
-    "name": "Москабельмет",
-    "id": "2494",
-    "hrbrand": null,
-    "url": "https://api.hh.ru/employers/2494",
-    "site_url": "http://hh.ru/employer/2494",
+  "archived": false,
+  "name": "Секретарь",
+  "area": {
+    "url": "https://api.hh.ru/areas/1",
+    "id": "1",
+    "name": "Москва"
+  },
+  "created_at": "2013-07-08T16:17:21+0400",
+  "relations": [ ],
+  "employer": {
     "logo_urls": {
-      "90": "http://hh.ru/employer-logo/859961.jpeg",
-      "240": "http://hh.ru/employer-logo/859962.jpeg",
-      "original": "http://hh.ru/file/10909689.JPG"
-    }
+      "90": "http://hh.ru/employer-logo/289027.png",
+      "240": "http://hh.ru/employer-logo/289169.png",
+      "original": "http://hh.ru/file/2352807.png"
+    },
+    "name": "HeadHunter",
+    "url": "https://api.hh.ru/employers/1455",
+    "alternate_url": "http://hh.ru/employer/1455",
+    "id": "1455",
+    "trusted": true
+  },
+  "response_letter_required": true,
+  "type": {
+    "id": "open",
+    "name": "Открытая"
   },
   "specializations": [
     {
-      "id": "361",
-      "name": "Энергетик производства",
-      "profarea_id": "18",
-      "profarea_name": "Производство",
+      "profarea_id": "4",
+      "profarea_name": "Административный персонал",
+      "id": "4.255",
+      "name": "Ресепшен"
+    },
+    {
+      "profarea_id": "4",
+      "profarea_name": "Административный персонал",
+      "id": "4.429",
+      "name": "Делопроизводство"
+    },
+    {
+      "profarea_id": "4",
+      "profarea_name": "Административный персонал",
+      "id": "4.264",
+      "name": "Секретарь"
+    },
+    {
+      "profarea_id": "4",
+      "profarea_name": "Административный персонал",
+      "id": "4.181",
+      "name": "Начальный уровень, Мало опыта"
     }
-  ],
-  "description": "Требования:\r<br />\nМужчина 26-45 лет.\r<br />..."
+  ]
 }
 ```
+
+Отобранные вакансии
+-------------------
+`GET /vacancies/favorited` возвращает подмножество вакансий, добавленных пользователем в отобранные. Требует авторизации, иначе вернёт `403 Forbidden`. Пейджинг работает по стандартным `page&per_page`, страницы нумеруются с нуля.
+
+`PUT /vacancies/favorited/{vacancy_id}` добавит указанную вакансию в список. Данная операция — идемпотентная: при добавлении вакансии, которая уже есть в отобранных, вернётся также `204 No Content`, как и в случае первичного добавления. Если вакансия не найдена, то сервер вернёт `404 Not Found`, если по каким-либо причинам не хватает прав положить вакансию в избранное — `403 Forbidden`.
+
+
+`DELETE /vacancies/favorited/{vacancy_id}` удалит вакансию из списка отобранных авторизованного пользователя. Операция также идемпотентна. При успешном удалении метод возвращает `204 No Content`.
+
+Поиск по вакансиям
+------------------
+
+`GET /vacancies` вернёт результаты поиска вакансий.
+
+Принимаемые параметры:
+
+Некоторые параметры принимают множественные значения: `key=value&key=value`.
+
+* `text` — текстовое поле.  
+переданное значение ищется в полях вакансии, указанных в параметре `search_field`.  
+
+* `search_field` — область поиска.  
+Справочник с возможными значениями: `vacancy_search_fields` в [/dictionaries](dictionaries.md).  
+По умолчанию, используется все поля.  
+Возможно указание нескольких значений.  
+
+* `experience` — опыт работы.  
+Справочник с возможными значениями: `experience` в [/dictionaries](dictionaries.md).  
+
+* `employment` — тип занятости.  
+Справочник с возможными значениями: `employment` в [/dictionaries](dictionaries.md).  
+Возможно указание нескольких значений.  
+
+* `schedule` — график работы.  
+Справочник с возможными значениями: `schedule` в [/dictionaries](dictionaries.md).  
+Возможно указание нескольких значений.  
+
+* `area` — регион.
+Справочник с возможными значениями: [/areas](areas.md).    
+Возможно указание нескольких значений.  
+
+* `metro` — ветка или станция метро.  
+Справочник с возможными значениями: [/metro](metro.md).    
+Возможно указание нескольких значений.  
+
+* `specialization` — профобласть или специализация.  
+Справочник с возможными значениями: [/specializations](specializations.md).    
+Возможно указание нескольких значений.  
+  
+* `employer_id` — идентификатор [компании](employers.md).  
+Возможно указание нескольких значений.  
+
+* `currency` — код валюты.  
+Справочник с возможными значениями: `currency` (ключ code) в [/dictionaries](dictionaries.md).  
+
+* `salary` — размер заработной платы.  
+Если указано это поле, но не указано `currency`, то используется значение RUR у `currency`.
+
+* `label` — фильтр по меткам вакансий.   
+Справочник с возможными значениями: `vacancy_label` в [/dictionaries](dictionaries.md).  
+Возможно указание нескольких значений.  
+
+* `only_with_salary` — показывать вакансии только с указанием зарплаты.  
+Возможные значения: true или false.  
+По умолчанию, используется false.  
+
+* `period` — количество дней, в пределах которых нужно найти вакансии.  
+Максимальное значение: 30.
+
+* `top_lat`, `bottom_lat`, `left_lng`, `right_lng` — значение гео-координат.  
+При поиске используется значение указанного в вакансии адреса.  
+Принимаемое значение — градусы в виде десятичной дроби.  
+Необходимо передавать одновременно все четыре параметра гео-координат, иначе вернется ошибка.  
+
+* `order_by` — сортировка списка вакансий.  
+Справочник с возможными значениями: `vacancy_search_order` в [/dictionaries](dictionaries.md).   
+
+При указании параметров пэйджинга (page, per_page) работает ограничение: общее кол-во возвращаемых вакансий не может быть больше 2000.
+
+Если параметры переданы с ошибкой, то в ответ вернется `400 Bad request` с описанием ошибки в теле.
+Неизвестные параметры и параметры с ошибкой в названии игнорируются.
+
+```json
+{
+  "per_page": 1,
+  "items": [
+    {
+      "salary": {
+        "to": null,
+        "from": 30000,
+        "currency": "RUR"
+      },
+      "name": "Секретарь",
+      "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Москва"
+      },
+      "url": "https://api.hh.ru/vacancies/8331228",
+      "created_at": "2013-07-08T16:17:21+0400",
+      "relations": [ ],
+      "employer": {
+        "logo_urls": {
+          "90": "http://hh.ru/employer-logo/289027.png",
+          "240": "http://hh.ru/employer-logo/289169.png",
+          "original": "http://hh.ru/file/2352807.png"
+        },
+        "name": "HeadHunter",
+        "url": "https://api.hh.ru/employers/1455",
+        "alternate_url": "http://hh.ru/employer/1455",
+        "id": "1455",
+        "trusted": true
+      },
+      "response_letter_required": true,
+      "address": null,
+      "alternate_url": "http://hh.ru/vacancy/8331228",
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "id": "8331228"
+    }
+  ],
+  "page": 0,
+  "pages": 13,
+  "found": 13
+}
+```
+
+Пример: [https://api.hh.ru/vacancies](https://api.hh.ru/vacancies)
