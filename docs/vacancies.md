@@ -10,7 +10,7 @@
 
 `GET /vacancies/{vacancy_id}` вернёт подробную информацию по указанной вакансии
 
-Пример: [https://api.hh.ru/vacancies/8331228](https://api.hh.ru/vacancies/8331228)
+Пример: [https://api.hh.ru/vacancies/8252535](https://api.hh.ru/vacancies/8252535)
 
 ```json
 {
