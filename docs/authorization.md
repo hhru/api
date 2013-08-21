@@ -50,6 +50,7 @@ Authorization: Bearer ACCESS_TOKEN
 JSON в ответе:
 ```json
 {
+  "id": "12345678",
   "first_name": "Имя",
   "last_name": "Фамилия",
   "is_admin": false,

@@ -5,6 +5,7 @@
 
 ```json
 {
+    "id": "12345678",
     "first_name": "Имя",
     "last_name": "Фамилия",
     "is_admin": false,
@@ -14,7 +15,8 @@
     "email": "contact@example.com",
     "employer": {
         "id": "1455",
-        "name": "HeadHunter"
+        "name": "HeadHunter",
+        "manager_id": "87654321"
     }
 }
 ```
