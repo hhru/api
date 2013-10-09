@@ -5,36 +5,34 @@
 HH.ru разрешение доступа к их персональным данным, без получения и хранения их логина и пароля.
 
 1. Приложение направляет пользователя по адресу:
-`https://m.hh.ru/oauth/authorize?response_type=code&client_id=CLIENT_ID&state=STATE`. Параметр `state` опционален, в случае
+`https://m.hh.ru/oauth/authorize?response_type=code&client_id={CLIENT_ID}&state={STATE}`. Параметр `state` опционален, в случае
 его указания, он будет включен в ответный редирект — это позволяет исключить возможность взлома путём подделки межсайтовых запросов. Подробнее об этом: 
 [RFC 6749. Section 10.12](http://tools.ietf.org/html/rfc6749#section-10.12)
 
 2. После прохождения авторизации на сайте, мы запрашиваем у пользователя разрешение доступа приложения к его 
 персональным данным.
 
-3. Если пользователь не разрешает доступ приложению, мы перенаправляем  пользователя на указанный `redirect_uri` с `?error=access_denied` и `state=STATE`, если таковой был указан при первом запросе.
+3. Если пользователь не разрешает доступ приложению, мы перенаправляем  пользователя на указанный `redirect_uri` с `?error=access_denied` и `state={STATE}`, если таковой был указан при первом запросе.
 Иначе в редиректе мы указываем временный `authorization_code`:
 ```http
 HTTP/1.1 302 FOUND
-Location: REDIRECT_URI?code=...
+Location: {REDIRECT_URI}?code=...
 ```
 
 4. Приложение делает сервер-сервер POST-запрос на `https://m.hh.ru/oauth/token` для обмена полученного `authorization_code` на `access_token`.
 В запросе необходимо передать:
 ```
-grant_type=authorization_code
-client_id=%CLIENT_ID%
-client_secret=%CLIENT_SECRET%
-code=%CODE%
+grant_type=authorization_code&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code={CODE}
 ```
 Тело запроса необходимо передавать в стандартном `application/x-www-form-urlencoded` с указанием соответствующего заголовка  `Content-Type`.
         
     Ответ:
   ```json
   {
-      "access_token": "ACCESS_TOKEN",
+      "access_token": "{ACCESS_TOKEN}",
       "token_type": "bearer",
-      "refresh_token": "REFRESH_TOKEN"
+      "refresh_token": "{REFRESH_TOKEN}",
+      "expires_in": 1209600
   }
   ```
 
@@ -66,7 +64,7 @@ JSON в ответе:
 6. `access_token` имеет срок жизни, при его истечении приложение делает запрос с `refresh_token` для получения нового. Запрос необходимо делать в `application/x-www-form-urlencoded` по аналогии с п.4 
 
         POST https://m.hh.ru/oauth/token
-        grant_type=refresh_token&refresh_token=...
+        grant_type=refresh_token&refresh_token={REFRESH_TOKEN}
 
 
 
