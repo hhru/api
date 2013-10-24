@@ -4,6 +4,7 @@
 * [Просмотр вакансии](#Просмотр-вакансии)
 * [Отобранные вакансии](#Отобранные-вакансии)
 * [Поиск по вакансиям](#Поиск-по-вакансиям)
+* [Короткое представление вакансии](#nano)
 
 Просмотр вакансии
 -----------------
@@ -221,3 +222,64 @@
 ```
 
 Пример: [https://api.hh.ru/vacancies](https://api.hh.ru/vacancies)
+
+<a name="nano"></a>
+Короткое представление вакансии
+-------------------------------
+```json
+{
+    "id": "7760476",
+    "premium": true,
+    "address": null,
+    "alternate_url": "http://hh.ru/vacancy/7760476",
+    "salary": {
+        "to": null,
+        "from": 100000,
+        "currency": "RUR"
+    },
+    "name": "Специалист по автоматизации тестирования (Java, Selenium)",
+    "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Москва"
+    },
+    "url": "https://api.hh.ru/vacancies/7760476",
+    "created_at": "2013-10-11T13:27:16+0400",
+    "relations": [ ],
+    "employer": {
+        "url": "https://api.hh.ru/employers/1455",
+        "alternate_url": "http://hh.ru/employer/1455",
+        "logo_urls": {
+            "90": "http://hh.ru/employer-logo/289027.png",
+            "240": "http://hh.ru/employer-logo/289169.png",
+            "original": "http://hh.ru/file/2352807.png"
+        },
+        "name": "HeadHunter",
+        "id": "1455"
+    },
+    "response_letter_required": false,
+    "type": {
+        "id": "open",
+        "name": "Открытая"
+    }
+}
+```
+
+Здесь: 
+
+ Имя | Тип | Описание
+ --- | --- | ---
+ id | строка | Идентификатор вакансии
+ premium | логический | Является ли премиум вакансией
+ address | объект, null | [Адрес вакансии](address.md#Адрес)
+ alternate_url | строка | Ссылка на представление вакансии на сайте
+ salary | объект, null | Оклад
+ name | строка | Название вакансии
+ area | объект | Регион размещения вакансии 
+ url | строка | Ссылка на полное представление вакансии в api
+ created_at | строка | Дата и время создания вакансии
+ employer | объект | Короткое представление работодателя
+ response\_letter\_required | логический | Обязательно ли заполнять сообщение при отклике
+ type | объект | Тип вакансии, один из элементов `vacancy_type` в [Справочнике](dictionaries.md)
+ 
+ 

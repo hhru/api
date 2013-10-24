@@ -6,6 +6,7 @@
 * [Вакансия](vacancies.md)
 * [Работодатель / Компания](employers.md)
 * [Резюме](resumes.md)
+* [Отклики/Приглашения](negotiations.md)
 * [Текущий пользователь](me.md)
 * [Регионы](areas.md)
 * [Специализации](specializations.md)

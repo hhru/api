@@ -11,6 +11,7 @@ HeadHunter API — это бесплатный инструментарий дл
 * [Вакансия](docs/vacancies.md)
 * [Работодатель / Компания](docs/employers.md)
 * [Резюме](docs/resumes.md)
+* [Отклики/Приглашения](docs/negotiations.md)
 * [Текущий пользователь](docs/me.md)
 * [Регионы](docs/areas.md)
 * [Специализации](docs/specializations.md)
