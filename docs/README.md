@@ -14,3 +14,4 @@
 * [Справочники](dictionaries.md)
 * [Локализация](locales.md)
 * [Отрасли компаний](industries.md)
+* [Языки](languages.md)
