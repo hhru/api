@@ -12,3 +12,5 @@
 * [Специализации](specializations.md)
 * [Метро](metro.md)
 * [Справочники](dictionaries.md)
+* [Локализация](locales.md)
+* [Отрасли компаний](industries.md)

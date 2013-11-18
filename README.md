@@ -17,6 +17,8 @@ HeadHunter API — это бесплатный инструментарий дл
 * [Специализации](docs/specializations.md)
 * [Метро](docs/metro.md)
 * [Справочники](docs/dictionaries.md)
+* [Локализация](docs/locales.md)
+* [Отрасли компаний](docs/industries.md)
 
 ## Поддержка, обратная связь, новости
 Общайтесь с нами через twitter [@apihhru](https://twitter.com/apihhru) или через почту api@hh.ru.  
