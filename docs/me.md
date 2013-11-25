@@ -29,6 +29,7 @@
     },
     "is_in_search": true,
     "resumes_url": "https://api.hh.ru/resumes/mine",
+    "negotiations_url": "https://api.hh.ru/negotiations"
 }
 ```
 
@@ -45,6 +46,7 @@
  employer | объект, null | информация о компании, если текущий пользователь — работодатель
  is_in_search | логический, null | флаг «ищу / не ищу работу», если текущий пользователь - соискатель
  resumes_url | строка | ссылка на api-сервис списка резюме текущего пользователя
+ negotiations_url | строка | ссылка на api-сервис списка откликов/приглашений текущего пользователя
 
 #### Объект `employer`:
 
