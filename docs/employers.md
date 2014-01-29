@@ -31,6 +31,7 @@
             "name": "HeadHunter",
             "url": "https://api.hh.ru/employers/1455",
             "alternate_url": "http://hh.ru/employer/1455",
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
             "open_vacancies": 19
         }
     ]
@@ -53,6 +54,7 @@
  name | строка | название работодателя
  url | строка | ссылка на детальное описание работодателя
  alternate_url | строка | ссылка на описание работодателя на сайте
+ vacancies_url  | строка | cсылка на поисковую выдачу вакансий данной компании
  open_vacancies | число | количество открытых вакансий у работодателя
 
 В случае, когда в параметрах были переданы неправильные значения, будет возвращён код ответа `400 Bad Request`.
