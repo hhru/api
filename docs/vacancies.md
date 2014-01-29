@@ -46,6 +46,7 @@
   },
   "created_at": "2013-07-08T16:17:21+0400",
   "relations": [ ],
+  "negotiations_url": "https://api.hh.ru/negotiations?vacancy_id=8331228",
   "employer": {
     "logo_urls": {
       "90": "http://hh.ru/employer-logo/289027.png",
@@ -108,8 +109,9 @@
 }
 ```
 
-При запросе с авторизацией ключ relations возвращает значения из справочника `vacancy_relations` в [/dictionaries](dictionaries.md).
+При запросе с авторизацией ключ `relations` возвращает значения из справочника `vacancy_relations` в [/dictionaries](dictionaries.md).
 
+В ключе `negotiations_url` возвращается ссылка для получения списка откликов/приглашений по данной вакансии текущего пользователя-соискателя (для других типов пользователей возвращается `null`).
 
 На вакансии с типом `direct` нельзя откликнуться на сайте hh.ru, у этих вакансий в ключе `response_url` выдаётся URL внешнего сайта (чаще всего это сайт работодателя с формой отклика) [Подробнее в документации по откликам](negotiations.md#post_negotiation)
 
