@@ -59,6 +59,7 @@
     "trusted": true
   },
   "response_letter_required": true,
+  "response_url": null,
   "type": {
     "id": "open",
     "name": "Открытая"
@@ -93,6 +94,8 @@
 ```
 
 При запросе с авторизацией ключ relations возвращает значения из справочника `vacancy_relations` в [/dictionaries](dictionaries.md).
+
+Для вакансий у которых тип `direct` ключ `response_url` не пустой. На такую вакансию нельзя откликнуться используюя api. [Подробнее в откликах.](negotiations.md#post_negotiation)
 
 
 Отобранные вакансии
