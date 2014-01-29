@@ -59,6 +59,7 @@
     "trusted": true
   },
   "response_letter_required": true,
+  "response_url": null,
   "type": {
     "id": "open",
     "name": "Открытая"
@@ -93,6 +94,8 @@
 ```
 
 При запросе с авторизацией ключ relations возвращает значения из справочника `vacancy_relations` в [/dictionaries](dictionaries.md).
+
+На вакансии с типом `direct` нельзя откликнуться на сайте hh.ru, у этих вакансий в ключе `response_url` выдаётся URL внешнего сайта (чаще всего это сайт работодателя с формой отклика) [Подробнее в документации по откликам](negotiations.md#post_negotiation)
 
 
 Отобранные вакансии
