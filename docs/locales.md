@@ -21,3 +21,13 @@
 ----
 
 Пример: https://api.hh.ru/dictionaries?locale=EN
+
+
+## Локали резюме
+
+`GET /locales/resume` возвращает справочник возможных локалей резюме. Подколлекция справочника локалей.
+
+Изменив локаль, можно, например, создать резюме на английском языке.
+
+Пример: [https://api.hh.ru/locales/resume](https://api.hh.ru/locales/resume)
+
