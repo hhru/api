@@ -15,6 +15,7 @@
 * `resume_access_type` - уровень доступа к резюме
 * `business_trip_readiness` - готовность к командировкам
 * `resume_contacts_site_type` - тип сайта в поле «контакты»
+* `resume_status` - статус резюме
 
 ## Справочники для параметров поиска резюме
 * `resume_search_order` - тип сортировки резюме
