@@ -11,14 +11,37 @@
 В начале приложению необходимо направить пользователя (открыть страницу) по адресу:
 
 ```
-https://m.hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={state}
+https://m.hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={state}&redirect_uri={redirect_uri}
 ```
 
-В параметрах к запросу необходимо указать `client_id`, полученный при регистрации приложения.
+Обязательные параметры:
 
-Параметр `state` опционален, в случае его указания, он будет включен в ответный редирект — это позволяет исключить
+* `response_type=code` — указание на способ получение авторизации, используя authorization code;
+* `client_id={client_id}` — идентификатор, полученный при создании приложения;
+
+Необязательные параметры:
+
+* `state={state}` — в случае указания, будет включен в ответный редирект. Это позволяет исключить
 возможность взлома путём подделки межсайтовых запросов. Подробнее об этом:
 [RFC 6749. Section 10.12](http://tools.ietf.org/html/rfc6749#section-10.12)
+
+* `redirect_uri={redirect_uri}` — uri для перенаправления пользователя после авторизации. Если не указать,
+используется из настроек приложения. При наличии происходит валидация значения.
+
+К примеру, если в настройках сохранен `http://example.com/oauth`, то разрешено указывать:
+* `http://www.example.com/oauth` — поддомен;
+* `http://www.example.com/oauth/sub/path` — уточнение пути;
+* `http://example.com/oauth?lang=RU` — дополнительный параметр;
+* `http://www.example.com/oauth/sub/path?lang=RU` — всё вместе.
+
+Запрещено:
+* `https://example.com/oauth` — различные протоколы;
+* `http://wwwexample.com/oauth` — различные домены;
+* `http://wwwexample.com/` — другой путь;
+* `http://example.com/oauths` — другой путь;
+* `http://example.com:80/oauths` — указание изначально отсутствующего порта;
+
+---
 
 Если пользователь не авторизован на сайте, ему будет показана форма авторизации на сайте.
 После прохождения авторизации на сайте, пользователю будет выведена форма с запросом разрешения доступа вашего
@@ -43,25 +66,35 @@ Location: {redirect_uri}?code={authorization_code}
 В запросе необходимо передать:
 
 ```
-grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={authorization_code}
+grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={authorization_code}&redirect_uri={redirect_uri}
 ```
+
+Если при получении `authorization_code` был указан `redirect_uri`, то в запросе необходимо обязательно передать это значение (происходит
+сравнение строк), иначе этот параметр необязателен.
 
 Тело запроса необходимо передавать в стандартном `application/x-www-form-urlencoded` с указанием соответствующего
 заголовка `Content-Type`.
         
-Ответ:
+В ответе вернётся JSON:
 
 ```json
 {
   "access_token": "{access_token}",
   "token_type": "bearer",
+  "expires_in": 1209600,
   "refresh_token": "{refresh_token}",
-  "expires_in": 1209600
 }
 ```
 
 `authorization_code` имеет довольно короткий срок жизни, при его истечении необходимо запросить новый.
-`expires_in` указан в секундах.
+
+`access_token` также имеет срок жизни (ключ `expires_in`, в секундах), при его истечении приложение делает запрос с `refresh_token` для получения нового.
+Запрос необходимо делать в `application/x-www-form-urlencoded` по аналогии с пунктом 4.
+
+```
+POST https://m.hh.ru/oauth/token
+grant_type=refresh_token&refresh_token={refresh_token}
+```
 
 ---
 
@@ -77,14 +110,6 @@ Authorization: Bearer ACCESS_TOKEN
 ```
 
 Документация по ответу от `/me` [в соответствующем разделе](me.md).
-
-`access_token` имеет срок жизни, при его истечении приложение делает запрос с `refresh_token` для получения нового.
-Запрос необходимо делать в `application/x-www-form-urlencoded` по аналогии с пунктом 4.
-
-```
-POST https://m.hh.ru/oauth/token
-grant_type=refresh_token&refresh_token={refresh_token}
-```
 
 ## Запрос авторизации под другим пользователем
 
