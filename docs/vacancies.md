@@ -44,7 +44,7 @@
     "id": "1",
     "name": "Москва"
   },
-  "created_at": "2013-07-08T16:17:21+0400",
+  "published_at": "2013-07-08T16:17:21+0400",
   "relations": [ ],
   "negotiations_url": "https://api.hh.ru/negotiations?vacancy_id=8331228",
   "employer": {
@@ -219,7 +219,7 @@
         "name": "Москва"
       },
       "url": "https://api.hh.ru/vacancies/8331228",
-      "created_at": "2013-07-08T16:17:21+0400",
+      "published_at": "2013-07-08T16:17:21+0400",
       "relations": [ ],
       "employer": {
         "logo_urls": {
@@ -272,7 +272,7 @@
         "name": "Москва"
     },
     "url": "https://api.hh.ru/vacancies/7760476",
-    "created_at": "2013-10-11T13:27:16+0400",
+    "published_at": "2013-10-11T13:27:16+0400",
     "relations": [ ],
     "employer": {
         "url": "https://api.hh.ru/employers/1455",
@@ -305,7 +305,7 @@
  name | строка | Название вакансии
  area | объект | Регион размещения вакансии
  url | строка, null | Ссылка на полное представление вакансии в api
- created_at | строка | Дата и время создания вакансии
+ published_at | строка | Дата и время публикации вакансии
  employer | объект | Короткое представление работодателя
  response\_letter\_required | логический | Обязательно ли заполнять сообщение при отклике
  type | объект | Тип вакансии, один из элементов `vacancy_type` в [Справочнике](dictionaries.md)
