@@ -11,6 +11,7 @@
 * [Текущий пользователь](me.md)
 * [Регионы](areas.md)
 * [Специализации](specializations.md)
+* [Сохраненные поиски (автопоиски)](saved_search.md)
 * [Метро](metro.md)
 * [Справочники](dictionaries.md)
 * [Локализация](locales.md)
