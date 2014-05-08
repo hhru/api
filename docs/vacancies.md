@@ -48,6 +48,7 @@
   "published_at": "2013-07-08T16:17:21+0400",
   "relations": [ ],
   "negotiations_url": "https://api.hh.ru/negotiations?vacancy_id=8331228",
+  "suitable_resumes_url": "https://api.hh.ru/vacancies/8331228/suitable_resumes",
   "employer": {
     "logo_urls": {
       "90": "http://hh.ru/employer-logo/289027.png",

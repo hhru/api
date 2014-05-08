@@ -8,6 +8,7 @@
 * [Работодатель / Компания](employers.md)
 * [Резюме](resumes.md)
 * [Отклики/Приглашения](negotiations.md)
+* [Список резюме для отклика на указанную вакансию](suitable_resumes.md)
 * [Текущий пользователь](me.md)
 * [Регионы](areas.md)
 * [Специализации](specializations.md)
