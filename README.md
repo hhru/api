@@ -12,7 +12,7 @@ HeadHunter API — это бесплатный инструментарий дл
 * [Скрытые вакансии](docs/blacklisted.md)
 * [Работодатель / Компания](docs/employers.md)
 * [Резюме](docs/resumes.md)
-* [Отклики/Приглашения](docs/negotiations.md)
+* [Отклики / Приглашения](docs/negotiations.md)
 * [Список резюме для отклика на указанную вакансию](docs/suitable_resumes.md)
 * [Текущий пользователь](docs/me.md)
 * [Регионы](docs/areas.md)
@@ -23,6 +23,7 @@ HeadHunter API — это бесплатный инструментарий дл
 * [Локализация](docs/locales.md)
 * [Отрасли компаний](docs/industries.md)
 * [Языки](docs/languages.md)
+* [Подсказки (autosuggest, autocomplete)](docs/suggests.md)
 
 ## Поддержка, обратная связь, новости
 Общайтесь с нами через twitter [@apihhru](https://twitter.com/apihhru) или через почту api@hh.ru.  

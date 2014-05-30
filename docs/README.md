@@ -7,7 +7,7 @@
 * [Скрытые вакансии](blacklisted.md)
 * [Работодатель / Компания](employers.md)
 * [Резюме](resumes.md)
-* [Отклики/Приглашения](negotiations.md)
+* [Отклики / Приглашения](negotiations.md)
 * [Список резюме для отклика на указанную вакансию](suitable_resumes.md)
 * [Текущий пользователь](me.md)
 * [Регионы](areas.md)
@@ -18,3 +18,4 @@
 * [Локализация](locales.md)
 * [Отрасли компаний](industries.md)
 * [Языки](languages.md)
+* [Подсказки (autosuggest, autocomplete)](suggests.md)
