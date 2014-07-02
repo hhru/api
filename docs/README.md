@@ -17,3 +17,4 @@
 * [Справочники](dictionaries.md)
 * [Локализация](locales.md)
 * [Отрасли компаний](industries.md)
+* [Справочники работодателя](employer_dictionaries.md)
