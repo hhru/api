@@ -12,7 +12,7 @@ HeadHunter API — это бесплатный инструментарий дл
 * [Скрытые вакансии](docs/blacklisted.md)
 * [Работодатель / Компания](docs/employers.md)
 * [Резюме](docs/resumes.md)
-* [Отклики/Приглашения](docs/negotiations.md)
+* [Переписка (отклики/приглашения)](docs/negotiations.md)
 * [Список резюме для отклика на указанную вакансию](docs/suitable_resumes.md)
 * [Текущий пользователь](docs/me.md)
 * [Регионы](docs/areas.md)
