@@ -1,14 +1,14 @@
-Вакансии
-========
+# Вакансии
 
-* [Просмотр вакансии](#Просмотр-вакансии)
-* [Отобранные вакансии](#Отобранные-вакансии)
+* [Просмотр вакансии](#item)
+* [Отобранные вакансии](#favorited)
 * [Поиск по вакансиям](#search)
 * [Короткое представление вакансии](#nano)
 * [Скрытые вакансии](blacklisted.md)
+* [Публикация вакансий](#creation) _beta_
 
-Просмотр вакансии
------------------
+<a name="item"/>
+## Просмотр вакансии
 
 `GET /vacancies/{vacancy_id}` вернёт подробную информацию по указанной вакансии
 
@@ -123,8 +123,9 @@
 
 В данный момент отклик на вакансии с обязательным тестом через API невозможен.
 
-Отобранные вакансии
--------------------
+<a name="favorited"/>
+## Отобранные вакансии
+
 `GET /vacancies/favorited` возвращает подмножество вакансий, добавленных пользователем в отобранные. Требует авторизации, иначе вернёт `403 Forbidden`. Пейджинг работает по стандартным `page&per_page`, страницы нумеруются с нуля.
 
 `PUT /vacancies/favorited/{vacancy_id}` добавит указанную вакансию в список. Данная операция — идемпотентная: при добавлении вакансии, которая уже есть в отобранных, вернётся также `204 No Content`, как и в случае первичного добавления. Если вакансия не найдена, то сервер вернёт `404 Not Found`, если по каким-либо причинам не хватает прав положить вакансию в избранное — `403 Forbidden`.
@@ -132,8 +133,7 @@
 `DELETE /vacancies/favorited/{vacancy_id}` удалит вакансию из списка отобранных авторизованного пользователя. Операция также идемпотентна. При успешном удалении метод возвращает `204 No Content`.
 
 <a name="search"/>
-Поиск по вакансиям
-------------------
+## Поиск по вакансиям
 
 `GET /vacancies` вернёт результаты поиска вакансий.
 
@@ -260,9 +260,9 @@
 
 Пример: [https://api.hh.ru/vacancies](https://api.hh.ru/vacancies)
 
-<a name="nano"></a>
-Короткое представление вакансии
--------------------------------
+<a name="nano"/>
+## Короткое представление вакансии
+
 ```json
 {
     "id": "7760476",
@@ -321,3 +321,188 @@
  
 `url` и `alternate_url` могут принимать значение `null` в случае если подробная информация о вакансии недоступна
 (например, вакансия была удалена)
+
+<a name="creation"/>
+## Публикация вакансий
+
+`POST /vacancies`
+
+### Внимание, beta!
+
+------
+
+**В данный момент api метода может незначительно изменяться.**
+**Вы уже можете начинать разрабатывать ваши приложения на основе данного 
+метода, однако дождитесь окончательного релиза перед использованием в production окружении.**
+
+**На время бета версии вам необходимо добавлять к запросу специальный 
+параметр `POST /vacancies?beta`.** **В противном случае вы получите 
+ошибку `405 Method Not Allowed`.**
+
+------
+
+
+### Общая информация
+
+В качестве тела запроса необходимо передавать 
+[json](general.md#request-body) с данными размещаемой вакансии, 
+формат данных аналогичен [просмотру вакансии](#item), но также содержит 
+некоторые дополнительные поля.
+
+> В соответствии с 
+[законом РФ № 1032-1 от 19.04.1991 в ред. от 02.07.2013 г.](http://hh.ru/article/13967) 
+запрещено размещать информацию, ограничивающую права или устанавливающую 
+преимущества для соискателей по полу, возрасту, семейному положению и другим 
+обстоятельствам, не связанным с деловыми качествами работников.
+
+* при успешной публикации будут списана соответствующая услуга.
+* все вакансии проходят ручную модерацию.
+* в течение нескольких минут после публикации вакансия станет доступна в поиске.
+
+### Полезные ссылки
+
+* [правила размещения вакансий](http://hh.ru/article/341).
+* [как составить хорошее описание вакансии](http://hh.ru/employer/popupHowToVacancy.do).
+
+
+### Результат запроса
+
+* `204 No Content` - успешное добавление. В заголовке `Location` будет 
+  содержаться ссылка на добавленную вакансию.
+* `403 Forbidden` - добавление вакансий недоступно данному пользователю.
+* `409 Conflict` - добавление вакансии недоступно, так как вакансия с похожими
+  данными уже опубликована у данного работодателя. Если вы уверены, что 
+  добавление необходимо вы можете добавить к запросу параметр 
+  `POST /vacancies?ignore_duplicates=true`.
+* `400 Bad Request` - ошибки при добавлении вакансии. Ошибка могут быть связаны 
+  как с неверными полями, так и с недостатком купленных услуг у данного 
+  работодателя, либо превышения лимитов на публикацию данного пользователя.
+
+
+### Пример тела запроса
+
+```json
+{
+  "description": "<p>— Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, 
+  des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas 
+  que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, 
+  toutes les atrocités de cet Antichrist (ma parole, j'y crois) — je ne vous connais plus, 
+  vous n'êtes plus mon ami, vous n'êtes plus мой верный раб, comme vous dites. Ну, 
+  здравствуйте, здравствуйте. Je vois que je vous fais peur, садитесь и рассказывайте.</p>",
+  "schedule": {
+    "id": "flyInFlyOut"
+  },
+  "experience": {
+    "id": "moreThan6"
+  },
+  "employment": {
+    "id": "full"
+  },
+  "name": "Менеджер по продажам",
+  "area": {
+    "id": "1"
+  },
+  "type": {
+    "id": "open"
+  },
+  "employer": {
+    "id": "1455"
+  },
+  "specializations": [
+    {
+      "id": "17.324"
+    },
+    {
+      "id": "3.148",
+    }
+  ],
+  "response_letter_required": true,
+  "salary": {
+    "from": 100,
+    "to": 500,
+    "currency": "USD"
+  },
+  "contacts": {
+    "name": "Иванов Иван",
+    "email": "i.ivanov@example.com",
+    "phones": [
+      {
+        "country": "7",
+        "city": "495",
+        "number": "1234567",
+        "comment": "с 10 до 20"
+      }
+    ]
+  },
+  "accept_handicapped": true,
+  "code": "код-1234",
+  "notify": true,
+  "allow_messages": true,
+  "billing_type": {
+    "id": "standard"
+  },
+  "site": {
+    "id": "hh"
+  },
+  "address": {
+    "id": "123",
+    "show_metro_only": true
+  },
+  "employer_manager": {
+    "id": "321"
+  },
+  "test": {
+    "id": "42",
+    "required": true
+  }
+}
+```
+
+### Поля запроса
+
+* `[]` (например, в полях специализации и контактах) обозначает, что значение данного ключа является массивом объектов.  
+* `a.b` обозначает объект `a` с ключом `b` описанного типа.
+
+Путь | json тип | Описание
+---- | -------- | --------
+name | string | название
+description | string | описание в html, не менее 200 символов
+specializations | array | список специализаций
+specializations[].id | string | специализация [из справочника](specializations.md)
+area.id | string | регион публикации [из справочника](areas.md)
+type.id | string | тип из [справочника vacancy_type](dictionaries.md)
+billing_type.id | string | биллинговый тип [из справочника vacancy_billing_type](dictionaries.md)
+site.id | string | сайт для публикации [из справочника vacancy_site](dictionaries.md)
+code | string | внутренний код вашей компании
+department.id | string | департамент [из справочника](employer_departments.md), от имени которого размещается вакансия (если данная возможность доступна для компании)
+salary | object или null | зарплата 
+salary.from | numeric или null | нижняя граница зарплаты
+salary.to | numeric или null | верхняя граница зарплаты
+salary.currency | string | код валюты из [справочника currency](dictionaries.md)
+address | object или null | адрес 
+address.id | string | адрес из [списка доступных адресов работодателя](employer_addresses.md)
+address.show_metro_only | boolean | показывать только метро для указанного адреса
+experience.id | string | требуемый опыт работы из [справочника experience](dictionaries.md)
+schedule.id | string | график работы из [справочника schedule](dictionaries.md)
+employment.id | string | тип занятости из [справочника employment](dictionaries.md)
+contacts | object | контактная информация для рабочих специальностей
+contacts.name | string | контактное лицо
+contacts.email | string | email
+contacts.phones | array | список телефонов для связи
+contacts.phones[].country | string | код страны
+contacts.phones[].city | string | код города
+contacts.phones[].number | string | телефон
+contacts.phones[].comment | string или null | комментарий (удобное время для звонка по этому номеру)
+test | object | тест для вакансии
+test.id | string | тест, который будет добавлен в вакансию
+test.required | boolean | требовать прохождение теста для отклика на вакансию
+response_url | string | URL отклика для прямых вакансий (`type.id=direct`)
+custom_employer_name | string | название компании для анонимных вакансий (`type.id=anonymous`), например "крупный российский банк"
+employer.id | string | работодатель, для которого размещается вакансия
+employer_manager.id | string | контактное лицо (менеджер) по размещаемой вакансии, по-умолчанию текущий пользователь
+substitute_employer_manager.id | string | менеджер, с которого будут списаны квоты при публикации (для групп компаний)
+response_notifications | boolean | уведомлять о новых откликах
+allow_messages | boolean | возможность [переписки с кандидатами](http://inboxemp.hh.ru/) по данной вакансии
+response_letter_required | boolean | требовать сопроводительное письмо
+accept_handicapped | boolean | указание, что вакансия доступна для соискателей с инвалидностью
+
