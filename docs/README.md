@@ -18,3 +18,5 @@
 * [Локализация](locales.md)
 * [Отрасли компаний](industries.md)
 * [Справочники работодателя](employer_dictionaries.md)
+* [Языки](languages.md)
+* [Подсказки (autosuggest, autocomplete)](suggests.md)
