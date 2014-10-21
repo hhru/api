@@ -76,3 +76,11 @@ API поддерживает технологию CORS для запроса д�
 * [CORS on dev.opera.com](http://dev.opera.com/articles/view/dom-access-control-using-cross-origin-resource-sharing/)
 * [CORS on caniuse.com](http://caniuse.com/#feat=cors)
 * [CORS on en.wikipedia.org](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
+
+## Внешние ссылки
+* [HTTP/1.1](http://tools.ietf.org/html/rfc2616)
+* [JSON](http://json.org/)
+* [URI Template](http://tools.ietf.org/html/rfc6570)
+* [OAuth 2.0](http://tools.ietf.org/html/rfc6749)
+* [REST](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)
+* [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)
