@@ -240,10 +240,18 @@
         "name": "Мужской"
     },
     "photo": {
-        "40": "http://i.hh.ru/css/ambient/blocks/head/logo.png&s=e3f9b6438866b5f3c3f39e50d001d410",
-        "100": "http://hh.ru/employer-logo/289169.png&s=fcbdb9381041df31fa989b6303ed0edd",
-        "500": "http://hh.ru/employer-logo/289169.png&s=f43f564da166f9586d09666f72114413"
+        "small": "http://hh.ru/...",
+        "medium": "http://hh.ru/...",
+        "id": "1337"
     },
+    "portfolio": [
+        {
+            "small": "http://hh.ru/...",
+            "medium": "http://hh.ru/...",
+            "id": "1337",
+            "description": "..."
+        },
+    ],
     "area": {
         "url": "https://api.hh.ru/areas/1",
         "id": "1",
@@ -558,7 +566,8 @@
 * `middle_name` — отчество;
 * `birth_date` — день рождения (ГГГГ-ММ-ДД);
 * `gender` — пол. Элемент справочника [gender](dictionaries.md);
-* `photo` — набор фотографий пользователя. 
+* `photo` — фотография пользователя. см. [артефакты](artifacts.md);
+* `portfolio` — портфолио пользователя. см. [артефакты](artifacts.md);
 * `area` — город проживания. Элемент справочника [areas](areas.md);
 * `metro` — ближайшая станция метро. Элемент справочника [metro](metro.md). Имеет смысл указывать только для `area` с метро;
 * `relocation` — возможен ли переезд в другой город. Состоит из полей:
