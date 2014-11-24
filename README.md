@@ -14,7 +14,7 @@ HeadHunter API — это бесплатный инструментарий дл
 * [Вакансии работодателя/менеджера](docs/employer_vacancies.md)
 * [Работодатель / Компания](docs/employers.md)
 * [Резюме](docs/resumes.md)
-* [Артефакты (фото,портфолио)](docs/artifacts.md)
+* [Артефакты (фото, портфолио)](docs/artifacts.md)
 * [Переписка (отклики/приглашения)](docs/negotiations.md)
 * [Сохраненные поиски (автопоиски)](docs/saved_search.md)
 * [Скрытые вакансии](docs/blacklisted.md)
