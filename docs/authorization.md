@@ -114,7 +114,7 @@ grant_type=authorization_code&client_id={client_id}&client_secret={client_secret
 `application/x-www-form-urlencoded` с указанием соответствующего заголовка
 `Content-Type`.
 
-В ответе вернётся JSON:
+В ответе вернётся json:
 
 ```json
 {
@@ -127,6 +127,19 @@ grant_type=authorization_code&client_id={client_id}&client_secret={client_secret
 
 `authorization_code` имеет довольно короткий срок жизни, при его истечении
 необходимо запросить новый.
+
+Если обмен `authorization_code` произвести не удалось, то вернётся ответ `400 Bad Request` с телом:
+```json
+{
+    "error": "...",
+    "error_description": "..."
+}
+```
+где:
+* `error` будет иметь одно из значений,
+  [описанных в стандарте RFC 6749](http://tools.ietf.org/html/rfc6749#section-5.2).
+  Например, `invalid_request`, если какой либо из обязательных параметров не был передан.
+* `error_description` будет содержать дополнительное описание ошибки.
 
 
 <a name="refresh_token" />
@@ -164,7 +177,9 @@ grant_type=refresh_token&refresh_token={refresh_token}
 ### Использование и проверка access_token
 
 Приложение использует полученный `access_token` для авторизации, передавая его
-в заголовке.
+в заголовке в формате:
+
+```Authorization: Bearer access_token```
 
 Для тестирования токена, удобно использовать метод `/me` (это необязательный
 шаг).
@@ -174,10 +189,12 @@ GET /me HTTP/1.1
 User-Agent: MyApp/1.0 (my-app-feedback@example.com)
 Host: api.hh.ru
 Accept: */*
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer access_token
 ```
 
 Документация по ответу от `/me` [в соответствующем разделе](me.md).
+
+[Описание ошибок авторизации](errors.md#oauth).
 
 
 ### Запрос авторизации под другим пользователем
