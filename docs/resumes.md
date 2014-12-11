@@ -19,6 +19,7 @@
 ## Cписок резюме авторизованного пользователя
 
 `GET /resumes/mine` возвращает список резюме авторизованного пользователя. Без авторизации вернёт `403 Forbidden`.
+
 ```json
 {
     "items": [
@@ -72,29 +73,73 @@
 
 ```json
 {
+    "found": 2099341,
     "per_page": 20,
-    "items": [{
-        "title": "Дизайнер резюме",
-        "url": "https://api.hh.ru/resumes/14831542000d1f366b4c5a6a751b329b70039e",
-        "created_at": "2013-11-03T00:43:20+0400",
-        "updated_at": "2013-11-22T12:25:18+0400",
-        "alternate_url": "http://hh.ru/resume/14831542000d1f366b4c5a6a751b329b70039e",
-        "id": "14831542000d1f366b4c5a6a751b329b70039e"
-    }, {
-        "title": "HTML директор",
-        "url": "https://api.hh.ru/resumes/5db24b460001706d4f69759aace70039ed1f6d",
-        "created_at": "2013-08-29T10:56:48+0400",
-        "updated_at": "2013-11-22T12:25:17+0400",
-        "alternate_url": "http://hh.ru/resume/5db24b460001706d4f69759aace70039ed1f6d",
-        "id": "5db24b460001706d4f69759aace70039ed1f6d"
-    }],
     "page": 0,
     "pages": 250,
-    "found": 2099341
+    "items": [
+        {
+            "title": "Дизайнер резюме",
+            "url": "https://api.hh.ru/resumes/14831542000d1f366b4c5a6a751b329b70039e",
+            "created_at": "2013-11-03T00:43:20+0400",
+            "updated_at": "2013-11-22T12:25:18+0400",
+            "alternate_url": "http://hh.ru/resume/14831542000d1f366b4c5a6a751b329b70039e",
+            "id": "14831542000d1f366b4c5a6a751b329b70039e",
+            "salary": {
+                "amount": 1,
+                "currency": "EUR"
+            },
+            "first_name": "Иван",
+            "last_name": "Васин",
+            "middle_name": "Петрович",
+            "gender": {
+                "id": "male",
+                "name": "Мужской"
+            },
+            "area": {
+                "id": "1",
+                "name": "Город",
+                "url": "https://api.hh.ru/areas/1"
+            },
+            "age": 33,
+            "experience": [
+                {
+                    "industries": [ ],
+                    "start": "2013-07-29",
+                    "position": "Position",
+                    "end": "2014-12-11",
+                    "area": null,
+                    "company_url": "",
+                    "industry": null,
+                    "company": "Organization",
+                    "company_id": null,
+                    "employer": null
+                }
+            ],
+            "education": {
+                "primary": [
+                    {
+                        "organization_id": null,
+                        "name_id": null,
+                        "name": "Education Name",
+                        "year": 2012,
+                        "organization": "Faculty",
+                        "result_id": null,
+                        "result": "Diploma"
+                    }
+                ]  
+            }
+        }
+    ]
 }
 ```
 
-Принимаемые параметры:
+Настройки вывода полей в поиске резюме на сайте не влияют на выдачу в API. Резюме выводится не целиком.
+В объекте опыта отсутствует описание (поле `description`), а также должность (поле `position`) доступно только в 
+последнем опыте. Образование выводится только основное.  
+Контактная информация (ФИО) будет присутствовать только при оплаченном доступе.
+
+### Принимаемые параметры
 
 Некоторые параметры принимают множественные значения: `key=value&key=value`.
 
