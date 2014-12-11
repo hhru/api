@@ -4,6 +4,7 @@
 ---
 
 * [Вакансия](vacancies.md)
+* [Вакансии работодателя/менеджера](employer_vacancies.md)
 * [Скрытые вакансии](blacklisted.md)
 * [Работодатель / Компания](employers.md)
 * [Резюме](resumes.md)

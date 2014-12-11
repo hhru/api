@@ -8,4 +8,5 @@
 * [справочник менеджеров](employer_managers.md)
 * [справочник департаментов](employer_departments.md)
 * [справочник тестов](employer_tests.md)
+* [список регионов, в которых есть активные вакансии](employer_vacancy_areas_active.md)
 
