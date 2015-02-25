@@ -122,7 +122,8 @@
   "department": {
     "id": "HH-1455-TECH",
     "name": "HeadHunter::Технический департамент"
-  }
+  },
+  "hidden": null
 }
 ```
 
@@ -155,7 +156,8 @@
   "manager": {
     "id": "1337"
   },
-  "allow_messages": true
+  "allow_messages": true,
+  "hidden": false
 }
 ```
 
@@ -164,6 +166,7 @@
 | expires_at | string | дата+время окончания публикации вакансии |
 | response_notifications | boolean | уведомлять ли менеджера о новых откликах |
 | allow_messages | boolean | включена ли возможность соискателю писать сообщения после приглашения |
+| hidden | boolean | удалена ли вакансия (скрыта из архива)
 
 В объекте `manager` — информация о менеджере, который разместил данную вакансию.
 
