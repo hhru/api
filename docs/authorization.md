@@ -8,10 +8,14 @@
 
 ---
 
+До 1 апреля 2015 года основной домен API был m.hh.ru. Авторизация через m.hh.ru будет доступна, однако теперь рекоммендуется использовать домен hh.ru. Документация была обновлена в соответствии с новым адресом.
+
+---
+
 В начале приложению необходимо направить пользователя (открыть страницу) по адресу:
 
 ```
-https://m.hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={state}&redirect_uri={redirect_uri}
+https://hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={state}&redirect_uri={redirect_uri}
 ```
 
 Обязательные параметры:
@@ -62,7 +66,7 @@ Location: {redirect_uri}?code={authorization_code}
 ---
 
 После получения `AUTH_CODE` приложению необходимо сделать сервер-сервер POST-запрос на
-`https://m.hh.ru/oauth/token` для обмена полученного `authorization_code` на `access_token`.
+`https://hh.ru/oauth/token` для обмена полученного `authorization_code` на `access_token`.
 В запросе необходимо передать:
 
 ```
@@ -92,7 +96,7 @@ grant_type=authorization_code&client_id={client_id}&client_secret={client_secret
 Запрос необходимо делать в `application/x-www-form-urlencoded` по аналогии с пунктом 4.
 
 ```
-POST https://m.hh.ru/oauth/token
+POST https://hh.ru/oauth/token
 grant_type=refresh_token&refresh_token={refresh_token}
 ```
 
