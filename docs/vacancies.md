@@ -20,6 +20,10 @@
 ```json
 {
   "description": "...",
+  "key_skills": [
+    {"name": "Прием посетителей"},
+    {"name": "Первичный документооборот"}
+  ],
   "schedule": {
     "id": "fullDay",
     "name": "Полный день"
@@ -136,6 +140,8 @@
 В ключе `contacts` содержится контактная информация. В вакансиях, где контакты не указаны, возвращается `null`. Все внутренние ключи являются строками либо null. Список телефонов может быть пустым.
 
 В ключе `test` возвращается информация о прикрепленном тестовом задании к вакансии. В случае отсутствия теста — `null`, в противном случае объект с ключом `required`, который указывает на необходимость заполнения теста для отклика. 
+
+В ключе `key_skills` возвращается информация о ключевых навыках, заявленных в вакансии.
 
 ------
 
@@ -461,6 +467,10 @@
   toutes les atrocités de cet Antichrist (ma parole, j'y crois) — je ne vous connais plus, 
   vous n'êtes plus mon ami, vous n'êtes plus мой верный раб, comme vous dites. Ну, 
   здравствуйте, здравствуйте. Je vois que je vous fais peur, садитесь и рассказывайте.</p>",
+  "key_skills": [
+    {"name": "Холодные продажи"},
+    {"name": "Проведение промо акций"}
+  ],
   "schedule": {
     "id": "flyInFlyOut"
   },
@@ -540,6 +550,8 @@
 ---- | -------- | --------
 name | string | название
 description | string | описание в html, не менее 200 символов
+key_skills | array | список ключевых навыков, не более 30
+key_skills[].name | string | название ключевого навыка
 specializations | array | список специализаций
 specializations[].id | string | специализация [из справочника](specializations.md)
 area.id | string | регион публикации [из справочника](areas.md)
@@ -594,6 +606,7 @@ Cоставные поля (например, `salary`, `contacts`, `specializat
 -----|----------
 name | название 
 description | описание
+key_skills | ключевые навыки
 schedule | график работы
 experience | требуемый опыт работы
 employment | тип занятости
