@@ -42,7 +42,7 @@ GET /negotiations
 ### Ответ
 
 ```javascript
-{ 
+{
     "found": 1,
     "pages": 1,
     "per_page": 20,

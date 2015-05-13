@@ -570,7 +570,7 @@
 ```json
     "language": [
         {
-            "id": "34",
+            "id": "rus",
             "name": "Русский",
             "level": {
                 "id": "native",
@@ -972,7 +972,7 @@ max_date | строка с датой | Верхняя граница диапо
             "employer": {
                 "logo_urls": {
                     "90": "http://hh.ru/employer/logo/1455",
-                }
+                },
                 "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455",
