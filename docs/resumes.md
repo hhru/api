@@ -211,6 +211,9 @@
 * `experience` — опыт работы.
 Справочник с возможными значениями: `experience` в [/dictionaries](dictionaries.md).
 
+* `skill` - ключевые навыки.
+Можно указать несколько значений.
+
 * `gender` — пол.
 Справочник с возможными значениями: `gender` в [/dictionaries](dictionaries.md).
 
