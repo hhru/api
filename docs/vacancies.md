@@ -534,7 +534,7 @@
   },
   "accept_handicapped": true,
   "code": "код-1234",
-  "notify": true,
+  "response_notifications": true,
   "allow_messages": true,
   "billing_type": {
     "id": "standard"

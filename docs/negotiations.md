@@ -248,7 +248,7 @@ GET /negotiations/{nid}/messages
 ### Запрос
 
 ```
-POST /negotiations/{nid}/messages/{mid}
+PUT /negotiations/{nid}/messages/{mid}
 ```
 
 где:
