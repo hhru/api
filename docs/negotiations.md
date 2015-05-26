@@ -60,8 +60,8 @@ GET /negotiations
             "url": "https://api.hh.ru/negotiations/123",
             "resume": {},
             "vacancy": {},
-            "has_new_messsages": true,
-            "read": true
+            "has_updates": true,
+            "viewed_by_opponent": true
         }
         // , .....
     ]
@@ -89,7 +89,8 @@ GET /negotiations
  url | строка | Ссылка на полную версию отклика
  resume | объект, null | [Короткое представление резюме] (resumes.md#resume-nano)
  vacancy | объект, null | [Короткое представление вакансии] (vacancies.md#nano)
- has_new_messages | логический | Есть ли в отклике новые сообщения
+ has_updates | логический | Есть ли в отклике обновления, требующие внимания
+ viewed_by_opponent | логический | Был ли отклик просмотрен работодателем
 
 В объекте вакансии ключи `url` и `alternate_url` могут быть `null`, если вакансия недоступна (удалена).
 
@@ -201,12 +202,32 @@ GET /negotiations/{nid}/messages
     "items": [
         {
             "id": "123",
-            "read": true,
+            "viewed_by_me": true,
+            "viewed_by_opponent": true,
             "created_at": "2013-10-07T18:30:57+0400",
             "text": "Вас приглашает очень крупный иностранный банк на зарплату, о которой мечтают арабские шейхи",
             "state": {
                 "id": "invitation",
                 "name": "Приглашение"
+            },
+            "author": {
+                "participant_type": "employer"
+            },
+            "address": null,
+            "editable": false
+        },
+        {
+            "id": "124",
+            "viewed_by_me": true,
+            "viewed_by_opponent": false,
+            "created_at": "2013-10-08T10:12:23+0400",
+            "text": "Верблюда и коня мне!",
+            "state": {
+                "id": "text",
+                "name": "Текст"
+            },
+            "author": {
+                "participant_type": "applicant"
             },
             "address": null,
             "editable": false
@@ -230,11 +251,14 @@ GET /negotiations/{nid}/messages
  Имя | Тип | Описание
  --- | --- | ---
  id | строка | Идентификатор сообщения
- read | логический | Прочитано ли сообщение принимающей стороной
+ viewed_by_me | логический | Прочитано ли сообщение смотрящим (для сообщений отправеленных соискателем - всегда `true`)
+ viewed_by_opponent | логический | Прочитанно ли сообщение работодателем (для сообщений работодателя - `true`) 
  editable | логический | Можно ли редактировать текст сообщения
  created_at | строка | Дата и время создания сообщения
  text | строка | Текст сообщения
  state | объект | Текущее состояние отклика. Разрешенные значения находятся в справочнике [/dictionaries] (./dictionaries.md) в разделе `negotiations_state`
+ author | объект | Кто автор сообщения
+ author.participant_type | строка | Роль автора сообщения
  address | объект, null | [Адрес] (./address.md), привязанный к отклику/приглашению
  
 
@@ -267,5 +291,3 @@ PUT /negotiations/{nid}/messages/{mid}
 В случае успешного обновления текста сообщения вернётся статус HTTP `204 No Content`.
 В случае, когда редактирование сообщения запрещено будет возвращён HTTP статус `403 Forbidden`.
 Если сообщение не было найдено, то будет возвращён HTTP статус `404 Not Found`.
-
-
