@@ -4,8 +4,8 @@
 * Авторизация осуществляется по протоколу OAuth2.
 * Все данные доступны только в формате JSON.
 * Базовый URL — `https://api.hh.ru/`
-* Даты форматируются в соответствии с
-  [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601): `YYYY-MM-HHThh:mm:ss±hhmm`.
+* <a name="date-format"/> Даты форматируются в соответствии с
+  [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601): `YYYY-MM-DDThh:mm:ss±hhmm`.
 
 
 <a name="request-requirements" />
