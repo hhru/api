@@ -49,6 +49,7 @@
 * `negotiations_order` - типы порядка отображения откликов
 * `negotiations_state` - типы состояний откликов
 * `messaging_status` — статус возможности отправки сообщения в переписке
+* `negotiations_participant_type` – типы участников переписки
 
 ## Остальные справочники
 * `site_lang` - язык сайта
