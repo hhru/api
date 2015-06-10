@@ -148,24 +148,55 @@ per_page | нет | Количество выдаваемых элементов
                 },
                 "experience": [
                     {
+                        "position": "пастух",
+                        "start": "2010-01-01",
+                        "end": null,
+                        "company": "Рога и копыта",
+                        "industries": [
+                            {
+                                "id": "51.643",
+                                "name": "Благоустройство и уборка территорий и зданий"
+                            },
+                            {
+                                "id": "29.503",
+                                "name": "Земледелие, растениеводство, животноводство"
+                            }
+                        ],
+                        "company_url": "http://example.com/",
                         "area": {
                             "id": "1",
                             "name": "Москва",
                             "url": "https://api.hh.ru/areas/1"
                         },
-                        "company": "Рога и копыта",
                         "company_id": null,
-                        "company_url": "http://example.com/",
-                        "employer": null,
-                        "end": "1999-03-01",
+                        "employer": null
+                    },
+                    {
+                        "start": "2005-01-01",
+                        "end": "2009-03-01",
+                        "company": "HeadHunter",
+                        "area": {
+                            "id": "1",
+                            "name": "Москва",
+                            "url": "https://api.hh.ru/areas/1"
+                        },
                         "industries": [
                             {
-                                "id": "45.507",
-                                "name": "Добыча и обогащение руд черных, цветных, драгоценных, благородных, редких металлов"
+                                "id": "7.513",
+                                "name": "Интернет-компания  (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
                             }
                         ],
-                        "industry": null,
-                        "start": "1998-01-01"
+                        "company_url": "http://hh.ru",
+                        "company_id": "1455",
+                        "employer": {
+                            "alternate_url": "http://hh.ru/employer/1455",
+                            "id": "1455",
+                            "logo_urls": {
+                                "90": "http://hh.ru/employer/logo/1455"
+                            },
+                            "name": "HeadHunter",
+                            "url": "https://api.hh.ru/employers/1455"
+                        }
                     }
                 ],
                 "gender": {
@@ -175,6 +206,11 @@ per_page | нет | Количество выдаваемых элементов
                 "salary": {
                     "amount": 1000000,
                     "currency": "RUR"
+                },
+                "photo": {
+                    "medium": "http://hh.ru/...",
+                    "small": "http://hh.ru/...",
+                    "id": "1337"
                 }
             }
         }
