@@ -43,6 +43,11 @@ HeadHunter API — это бесплатный инструментарий дл
 * [Локализация](docs/locales.md)
 * [Отрасли компаний](docs/industries.md)
 * [Справочники работодателя](docs/employer_dictionaries.md)
+  * [Адреса](employer_addresses.md)
+  * [Менеджеры](employer_managers.md)
+  * [Департаменты](employer_departments.md)
+  * [Тесты](employer_tests.md)
+  * [Регионы вакансий](employer_vacancy_areas_active.md)
 * [Языки](docs/languages.md)
 * [Подсказки (autosuggest, autocomplete)](docs/suggests.md)
 

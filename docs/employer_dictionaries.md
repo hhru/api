@@ -4,8 +4,8 @@
 В различных запросах может использоваться ранее введённая работодателем информация, к примеру, адреса офисов компании.
 Для того, чтобы предоставить доступ к этой информации, используются справочники работодателя:
 
-* [адреса](employer_addresses.md)
-* [менеджеры](employer_managers.md)
-* [департаменты](employer_departments.md)
-* [тесты](employer_tests.md)
-* [регионы вакансий](employer_vacancy_areas_active.md)
+* [Адреса](employer_addresses.md)
+* [Менеджеры](employer_managers.md)
+* [Департаменты](employer_departments.md)
+* [Тесты](employer_tests.md)
+* [Регионы вакансий](employer_vacancy_areas_active.md)
