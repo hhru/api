@@ -88,7 +88,7 @@ GET /negotiations
  url | строка | Ссылка на полную версию отклика
  resume | объект, null | [Короткое представление резюме] (resumes.md#resume-nano)
  vacancy | объект, null | [Короткое представление вакансии] (vacancies.md#nano)
- has_updates | логический | Есть ли в отклике обновления, требующие внимания
+ has_updates | логический | Есть ли в отклике обновления, требующие внимания. Флаг сбрасывается при различных действиях по отклику, например, [просмотре списка сообщений](#get_messages).
  viewed_by_opponent | логический | Был ли отклик просмотрен работодателем
 
 В объекте вакансии ключи `url` и `alternate_url` могут быть `null`, если вакансия недоступна (удалена).
@@ -256,8 +256,8 @@ GET /negotiations/{nid}/messages
  created_at | строка | Дата и время создания сообщения
  text | строка | Текст сообщения
  state | объект | Текущее состояние отклика. Возможные значения находятся в справочнике [/dictionaries] (./dictionaries.md) в разделе `negotiations_state`
- author | объект | Кто автор сообщения. Возможные значения находятся в справочнике [/dictionaries] (./dictionaries.md) в разделе `negotiations_participant_type`
- author.participant_type | строка | Роль автора сообщения
+ author | объект | Кто автор сообщения
+ author.participant_type | строка | Роль автора сообщения. Возможные значения находятся в справочнике [/dictionaries] (./dictionaries.md) в разделе `negotiations_participant_type`
  address | объект, null | [Адрес] (./address.md), привязанный к отклику/приглашению
  
 
