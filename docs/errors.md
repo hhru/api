@@ -142,3 +142,16 @@ HTTP code | type | value | описание
 403 | negotiations | edit_forbidden | редактирование сообщения недоступно
 403 | negotiations | application_denied | общая ошибка запрета отклика в случае, когда дополнительная информация недоступна
 400 | negotiations | limit_exceeded | превышен лимит количества откликов
+
+
+<a name="vacancies_favorited"/>
+### Отобранные вакансии
+
+Помимо кода ошибки при
+[добавлении в список отобранных вакансий](vacancies.md#favorited) могут
+быть возвращены следующие ошибки:
+
+HTTP code | type | value | описание
+----------|------|-------|-----------
+403 | vacancies_favorited | vacancy_archived | вакансия уже архивирована и не может быть добавлена в отобранное
+403 | vacancies_favorited | limit_exceeded | превышен лимит количества отобранных вакансий
