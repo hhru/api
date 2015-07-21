@@ -16,6 +16,7 @@ HeadHunter API — это бесплатный инструментарий дл
 ## Содержание
 
 * [Общая информация](docs/general.md)
+* [Условия использования сервиса API](https://dev.hh.ru/admin/developer_agreement)
 * [Требования к использованию логотипов и названию приложений](docs/brand_guidelines.md)
 * [Авторизация](docs/authorization.md)
 * [Ошибки и коды ответов](docs/errors.md)
