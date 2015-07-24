@@ -57,6 +57,8 @@ HeadHunter API — это бесплатный инструментарий дл
  * [по ключевым навыкам](docs/suggests.md#key-skills)
  * [по должностям](docs/suggests.md#positions)
  * [по регионам](docs/suggests.md#areas)
+ * [по ключевым словам поиска резюме](docs/suggests.md#resume-search-keyword)
+ * [по ключевым словам поиска вакансий](docs/suggests.md#vacancy-search-keyword)
 
 
 <a name="feedback" />
