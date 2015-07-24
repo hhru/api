@@ -51,6 +51,12 @@ HeadHunter API — это бесплатный инструментарий дл
   * [Регионы вакансий](docs/employer_vacancy_areas_active.md)
 * [Языки](docs/languages.md)
 * [Подсказки (autosuggest, autocomplete)](docs/suggests.md)
+ * [по названиям университетов](docs/suggests.md#educational_institutions)
+ * [по организациям](docs/suggests.md#companies)
+ * [по специализациям](docs/suggests.md#specializations)
+ * [по ключевым навыкам](docs/suggests.md#key-skills)
+ * [по должностям](docs/suggests.md#positions)
+ * [по регионам](docs/suggests.md#areas)
 
 
 <a name="feedback" />
