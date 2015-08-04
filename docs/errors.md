@@ -129,19 +129,24 @@ HTTP code | type | value | описание
 <a name="negotiations"/>
 ### Переписка (отклики/приглашения)
 
-Помимо общих ошибок `400` с `bad argument` (проблемы с передачей обязательных
-параметров), могут быть возвращены следующие ошибки:
+Помимо [общих ошибок](#general-errors), могут быть возвращены следующие ошибки:
 
 HTTP code | type | value | описание
 ----------|------|-------|-----------
 400 | negotiations | vacancy_not_found | вакансия не найдена
-400 | negotiations | resume_not_found | резюме не найдено
+403 | negotiations | invalid_vacancy | вакансия из отклика/приглашения была архивирована либо скрыта
+400 / 403 | negotiations | resume_not_found | резюме из отклика/приглашения было скрыто, либо удалено, либо не найдено
 403 | negotiations | already_applied | уже есть отклик/приглашение на указанную связку resume_id+vacancy_id
 403 | negotiations | test_required | для отклика необходимо пройти тест (в данный момент, отклик на такие вакансии через API недоступен)
 403 | negotiations | resume_visibility_conflict | невозможно откликнуться на анонимную вакансию резюме с видимостью "белый список"
 403 | negotiations | edit_forbidden | редактирование сообщения недоступно
 403 | negotiations | application_denied | общая ошибка запрета отклика в случае, когда дополнительная информация недоступна
-400 | negotiations | limit_exceeded | превышен лимит количества откликов
+400 / 403 | negotiations | limit_exceeded | превышен лимит количества откликов/приглашений
+403 | negotiations | wrong_state | действие по отклику/приглашению в данном статусе невозможно
+403 | negotiations | empty_mail_text | передан пустой текст письма
+403 | negotiations | too_long_mail_text | передан слишком длинный текст письма
+403 | negotiations | address_not_found | переданный к действию по адрес не существует, либо принадлежит другому работодателю
+
 
 
 <a name="vacancies_favorited"/>
