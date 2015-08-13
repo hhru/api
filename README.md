@@ -34,6 +34,7 @@ HeadHunter API — это бесплатный инструментарий дл
 * Переписка (отклики/приглашения)
   * [Для соискателя](docs/negotiations.md)
   * [Для работодателя](docs/employer_negotiations.md)
+  * [Тексты сообщений](docs/negotiation_message_templates.md)
 * [Сохраненные поиски (автопоиски)](docs/saved_search.md)
 * [Скрытые вакансии](docs/blacklisted.md)
 * [Список резюме для отклика на указанную вакансию](docs/suitable_resumes.md)
