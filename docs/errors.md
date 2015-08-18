@@ -146,6 +146,7 @@ HTTP code | type | value | описание
 403 | negotiations | empty_mail_text | передан пустой текст письма
 403 | negotiations | too_long_mail_text | передан слишком длинный текст письма
 403 | negotiations | address_not_found | переданный к действию по адрес не существует, либо принадлежит другому работодателю
+403 | negotiations | not_enough_purchased_services | не хватает оплаченных услуг, обычно [доступа к базе резюме](http://hh.ru/price#dbaccess)
 
 
 
