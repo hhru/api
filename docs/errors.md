@@ -147,6 +147,9 @@ HTTP code | type | value | описание
 403 | negotiations | too_long_mail_text | передан слишком длинный текст письма
 403 | negotiations | address_not_found | переданный к действию по адрес не существует, либо принадлежит другому работодателю
 403 | negotiations | not_enough_purchased_services | не хватает оплаченных услуг, обычно [доступа к базе резюме](http://hh.ru/price#dbaccess)
+403 | negotiations | in_a_row_limit | превышено количество последовательных сообщений в переписке, оппонент должен ответить на сообщение, чтобы появилась возможность писать вновь
+403 | negotiations | overall_limit | превышен лимит сообщений
+403 | negotiations | no_invitation | переписка недоступна, так как в отклике ещё не было приглашения
 
 
 
@@ -176,7 +179,7 @@ HTTP code | type | value | описание
 403 | vacancies | not_enough_purchased_services | купленных услуг для публикации или обновления данного типа вакансии не достаточно
 403 | vacancies | quota_exceeded | квота менеджера на публикацию данного типа вакансии закончилась
 409 | vacancies | duplicate | аналогичная вакансия уже опубликована, данную ошибку можно [форсировано отключить](vacancies.md#creation-results)
-403 | vacancies | creation_forbidden | публикация вакансий не доступна текущему менеджеру
-403 | vacancies | unavailable_for_archived | редактирование не доступно для архивной вакансии
+403 | vacancies | creation_forbidden | публикация вакансий недоступна текущему менеджеру
+403 | vacancies | unavailable_for_archived | редактирование недоступно для архивной вакансии
 403 | vacancies | conflict_changes | конфликтные изменения данных вакансии ([подробнее](vacancies.md#edit_more))
 
