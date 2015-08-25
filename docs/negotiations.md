@@ -213,6 +213,20 @@ GET /negotiations/{nid}/messages
                 "participant_type": "employer"
             },
             "address": null,
+            "assessments": [
+                {
+                    "id": "123",
+                    "name": "Динамический тест числовых способностей",
+                    "actions": [
+                        {
+                            "id": "proceed",
+                            "name": "Перейти к тестированию",
+                            "enabled": true,
+                            "alternate_url": "http://hh.ru/applicant/assessment/123"
+                        }
+                    ]
+                }
+            ],
             "editable": false
         },
         {
@@ -237,16 +251,16 @@ GET /negotiations/{nid}/messages
 
 где:
 
- Имя | Тип  | Описание 
+ Имя | Тип  | Описание
  --- | --- | ---
  found | число | Количество найденных сообщений
  pages | число | Количество найденных страниц с сообщениями
  per_page | число | Количество элементов на страницу
  page | число | Номер текущией страницы (начинается с 0)
  items | массив | Массив сообщений, см. ниже
- 
+
  Отдельное сообщение имеет следующую структуру:
- 
+
  Имя | Тип | Описание
  --- | --- | ---
  id | строка | Идентификатор сообщения
@@ -259,7 +273,8 @@ GET /negotiations/{nid}/messages
  author | объект | Кто автор сообщения
  author.participant_type | строка | Роль автора сообщения. Возможные значения находятся в справочнике [/dictionaries] (./dictionaries.md) в разделе `negotiations_participant_type`
  address | объект, null | [Адрес] (./address.md), привязанный к отклику/приглашению
- 
+ assessments | массив | [инструменты оценки](assessment.md), привязанные к сообщению
+
 
 <a name='edit_message' />
 ## Редактирование сообщений в отклике
