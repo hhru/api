@@ -4,6 +4,7 @@
 * Авторизация осуществляется по протоколу OAuth2.
 * Все данные доступны только в формате JSON.
 * Базовый URL — `https://api.hh.ru/`
+* Возможны запросы к данным [любого сайта группы компаний HeadHunter](hosts.md)
 * <a name="date-format"/> Даты форматируются в соответствии с
   [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601): `YYYY-MM-DDThh:mm:ss±hhmm`.
 
