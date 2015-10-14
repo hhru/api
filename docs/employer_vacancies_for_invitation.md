@@ -30,7 +30,7 @@
             "can_invite": true,
             "templates": [
                 {
-                    "url": "http://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&vacancy_id=123456",
+                    "url": "https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&vacancy_id=123456",
                     "id": "invite"
                 }
             ],
