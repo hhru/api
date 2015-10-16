@@ -127,6 +127,7 @@ per_page | нет | Количество выдаваемых элементов
                 "last_name": "Иванов",
                 "middle_name": "Иванович",
                 "age": 19,
+                "can_view_full_info": true,
                 "alternate_url": "http://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
                 "created_at": "2015-02-06T12:00:00+0300",
                 "updated_at": "2015-04-20T16:24:15+0300",
