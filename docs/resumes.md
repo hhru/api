@@ -836,6 +836,53 @@ url, GET запрос на который возвращает
 [список комментариев к владельцу резюме](applicant_comments.md#list).
 
 
+<a name="paid-services"/>
+### Платные услуги связанные с резюме
+
+Работодателю может быть предложен список платных услуг по резюме.
+
+Например, если полные данные по резюме недоступны, то будет выдано
+предложение покупки рекомендованной услуги, чтобы такой доступ получить.
+
+```json
+{
+    "can_view_full_info": false,
+    "paid_services": [
+        {
+            "id": "resume_database_access",
+            "name": "Доступ к базе резюме",
+            "price_list": {
+                "alternate_url": "http://hh.ru/price#dbaccess"
+            },
+            "quick_purchase": {
+                "alternate_url": "http://hh.ru/employer/invoice/purchase?code=FA&hhAreaId=1&period=1&profAreaIds=0",
+                "currency": {
+                    "abbr": "руб.",
+                    "code": "RUR",
+                    "name": "Рубли"
+                },
+                "name": "Купить за 5000 руб.",
+                "price": 5000
+            }
+        }
+    ]
+}
+```
+
+`paid_services` – список услуг.
+
+По каждой услуге выдаются поля:
+
+Имя | Тип | Описание
+--- | --- | ---
+id | строка | идентификатор услуги
+name | строка | название услуги
+price_list.alternate_url | строка | ссылка на сайт, по которой доступен полный прайс на услугу
+quick_purchase | объект, null | описание быстрой покупки услуги, если доступно
+quick_purchase.alternate_url | строка | ссылка на сайт, по которой будет предложено купить услугу
+quick_purchase.name | строка | название действия по заказу услуги
+quick_purchase.price | число | цена услуги
+quick_purchase.currency | объект | валюта услуги
 
 
 <a name="create_edit" />
