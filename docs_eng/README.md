@@ -34,7 +34,7 @@
 * [Specialization directory](specializations.md)
 * [Metro directory](metro.md)
 * [Directories](dictionaries.md)
-* [Localization](locales.md)
+* [Locales](locales.md)
 * [Site choice](hosts.md)
 * [Language directory](languages.md)
 * [Company branches](industries.md)

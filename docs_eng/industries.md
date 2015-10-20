@@ -1,4 +1,22 @@
-Documentation translation for this article is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/industries.md) powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+# Company branches
+
+`GET /industries` returns two-level directory of all branches.
+
+```json
+[
+  {
+    "id": "49",
+    "name": "Public Services",
+    "industries": [
+        {
+            "id": "49.408",
+            "name": "Funeral Services"
+        }
+    ]
+  }
+]
+```
+
+The directory may have other values.
+
+Example: [https://api.hh.ru/industries?locale=EN](https://api.hh.ru/industries?locale=EN)

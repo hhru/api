@@ -1,4 +1,25 @@
-Documentation translation for this article is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/languages.md) powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+# Language directory
+
+
+## Obtaining available languages
+
+`GET /languages` returns the list of all languages.
+
+```json
+[
+    {
+        "id": "ita",
+        "name": "Italian"
+    },
+    {
+        "id": "nld",
+        "name": "Dutch"
+    },
+    {
+        "id": "ell",
+        "name": "Greek"
+    }
+]
+```
+
+Example: [https://api.hh.ru/languages?locale=EN](https://api.hh.ru/languages?locale=EN)

@@ -1,4 +1,36 @@
-Documentation translation for this article is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/locales.md) powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+# Locales
+
+In any request to the API, you can indicate the `?locale=` parameter to give the
+value of the locale (language).
+
+`GET /locales` returns the list of possible values (available locales) in the
+id field.
+
+
+```json
+[
+    {
+        "id": "RU",
+        "name": "Russian"
+    },
+    {
+        "id": "EN",
+        "name": "English"
+    }
+]
+```
+
+The directory may have other values.
+
+Example: [https://api.hh.ru/locales?locale=EN](https://api.hh.ru/locales?locale=EN)
+
+
+## Resume locales
+
+`GET /locales/resume` returns the directory of possible resume locales.
+The subcollection of the locale directory.
+
+By changing a locale you can, for example, create a CV in English.
+
+Example: [https://api.hh.ru/locales/resume?locale=EN](https://api.hh.ru/locales/resume?locale=EN)
+
