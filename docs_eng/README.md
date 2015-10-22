@@ -7,7 +7,8 @@
 
 * [General information](general.md)
 * [API Service Terms of Use](https://dev.hh.ru/admin/developer_agreement)
-* [Logo use and application name requirements](brand_guidelines.md)
+* [Logo use requirements](https://dev.hh.ru/articles/logos)
+* [Application name requirements](https://dev.hh.ru/articles/apps)
 * [Authorization](authorization.md)
 * [Errors and response codes](errors.md)
 

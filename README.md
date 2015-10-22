@@ -6,8 +6,8 @@ HeadHunter API — это бесплатный инструментарий дл
 [HeadHunter](http://hh.ru/) в ваш продукт.
 
 Для начала ознакомьтесь с [общей информацией](docs/general.md) по работе API и
-с [требованиями](docs/brand_guidelines.md) к использованию логотипов и
-названию приложений.
+с требованиями к [использованию логотипов](https://dev.hh.ru/articles/logos) и
+[названию приложений](https://dev.hh.ru/articles/apps).
 
 Для использования сервисов, требующих авторизацию пользователя, вам необходимо
 зарегистрировать приложение по адресу [https://dev.hh.ru](https://dev.hh.ru)
@@ -19,7 +19,8 @@ HeadHunter API — это бесплатный инструментарий дл
 
 * [Общая информация](docs/general.md)
 * [Условия использования сервиса API](https://dev.hh.ru/admin/developer_agreement)
-* [Требования к использованию логотипов и названию приложений](docs/brand_guidelines.md)
+* [Требования к использованию логотипов](https://dev.hh.ru/articles/logos)
+* [Требования к названию приложений](https://dev.hh.ru/articles/apps)
 * [Авторизация](docs/authorization.md)
 * [Ошибки и коды ответов](docs/errors.md)
 
