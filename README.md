@@ -1,6 +1,6 @@
 # HeadHunter API
 
-_По-русски_ | [In english](docs_eng/README.md)
+**По-русски** | [In english](docs_eng/README.md)
 
 HeadHunter API — это бесплатный инструментарий для интеграции
 [HeadHunter](http://hh.ru/) в ваш продукт.

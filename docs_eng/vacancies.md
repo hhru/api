@@ -21,6 +21,7 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
 ```json
 {
       "description": "...",
+      "branded_description": "<style>...</style><div>...</div><script></script>",
       "key_skills": [
         {"name": "Visitor reception"},
         {"name": "Source document circulation"}
@@ -56,6 +57,7 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
       "published_at": "2013-07-08T16:17:21+0400",
       "relations": [ ],
       "negotiations_url": "https://api.hh.ru/negotiations?vacancy_id=8331228&locale=EN",
+      "allow_messages": true,
       "suitable_resumes_url": "https://api.hh.ru/vacancies/8331228/suitable_resumes?locale=EN",
       "employer": {
         "logo_urls": {

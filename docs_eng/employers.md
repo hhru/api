@@ -23,6 +23,7 @@ Possible parameters:
 Maximum number of employers displayed – 2000.
 
 Response:
+
 ```json
 {
     "per_page": 20,
@@ -69,7 +70,7 @@ and additionally indicates the number of open vacancies.
 In case incorrect values are given in the parameters, the `400 Bad Request`
 response code will be returned. At the same time the response body will contain
 the information saying which parameter had the error in it. For example: to the
-request `http://api.hh.ru/employers?type=abracadabra` the `400 Bad Request`
+request `https://api.hh.ru/employers?type=abracadabra` the `400 Bad Request`
 response will be returned with the body:
 
 ```json

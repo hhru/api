@@ -941,6 +941,7 @@ quick_purchase.currency | объект | валюта услуги
 
 <a name="resume-keys" />
 Параметры:
+
 * `last_name` — фамилия;
 * `first_name` — имя;
 * `middle_name` — отчество;
@@ -1030,7 +1031,7 @@ quick_purchase.currency | объект | валюта услуги
 * `work_ticket` — разрешение на работу (список). Элемента справочника
   [areas](areas.md);
 * `travel_time` — желательное время в пути до работы. Элемент справочника
-  [travel_time] (dictionaries.md);
+  [travel_time](dictionaries.md);
 * `recommendation` — рекомендации (список). Состоит из полей:
     * `name` — имя;
     * `position` — должность;

@@ -132,7 +132,8 @@ returned:
 | HTTP code | type         | value                        | description  |
 |-----------|--------------|------------------------------|--------------|
 | 400       | negotiations | vacancy_not_found            | the vacancy has not been found  |
-| 400       | negotiations | resume_not_found             | the CV has not been found |
+| 403       | negotiations | invalid_vacancy              | the vacancy has been archived or hidden |
+| 400 / 403 | negotiations | resume_not_found             | the CV has not been found or hidden or deleted |
 | 403       | negotiations | already_applied              | the indicated resume_id+vacancy_id pair already has an application/invitation |
 | 403       | negotiations | test_required                | a test must be passed to apply (at the moment, application for such vacancies in not available via API) |
 | 403       | negotiations | resume_visibility_conflict   | it is impossible to apply for an anonymous vacancy with a CV that has a "white list" visibility |

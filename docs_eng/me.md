@@ -54,7 +54,7 @@ incorrect authorization, the server will return the `403 Forbidden` response.
 | counters          | no object     | information on counters, if the current user is an applicant |
 
 
-#### Object `employer`:
+#### Object `employer`
 
 | Name        | Type   | Description |
 |-------------|--------|-------------|

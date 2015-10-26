@@ -57,6 +57,7 @@ then it is permitted to indicate:
 * `http://www.example.com/oauth/sub/path?lang=RU` — all at once.
 
 It is not permitted to indicate:
+
 * `https://example.com/oauth` — various protocols;
 * `http://wwwexample.com/oauth` — various domains;
 * `http://wwwexample.com/` — another path;

@@ -4,6 +4,8 @@
 * Authorization is performed via the OAuth2 protocol.
 * All data is available only in the JSON format.
 * The basic URL is `https://api.hh.ru/`
+* Requests for [any site of HeadHunter Groups of Companies](hosts.md)
+  are available
 * <a name="date-format"/> Dates are formatted according to
   [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601): `YYYY-MM-DDThh:mm:ss±hhmm`.
 
@@ -27,6 +29,7 @@ More detail on [errors in the User-Agent title](errors.md#user-agent).
 ### Request body format when sending JSON
 
 Data transferred in the request body must meet the requirements:
+
 * Valid JSON (it is acceptable to transfer both minified and
   pretty-printed variants with extra whitespace and line breaks).
 

@@ -11,7 +11,7 @@
 ### Запрос
 
 Нет необходимости собирать url запроса вручную, его нужно получать из
-[поля owner в резюме] (resumes.md#owner-field)
+[поля owner в резюме](resumes.md#owner-field)
 
 `GET /applicant_comments/{applicant_id}`
 

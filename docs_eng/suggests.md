@@ -58,7 +58,7 @@ send a GET request to `/suggests/educational_institutions` with the following
 parameters:
 
 * `text` – a text for searching a university
-* `locale` – a CV language
+* `locale` – a suggestion language
 
 If the request is performed successfully, such a JSON will be returned:
 
@@ -93,7 +93,7 @@ To receive suggestions on organizations, you should send a
 `GET /suggests/companies` request with the following parameters:
 
 * `text` – a text for searching
-* `locale` – a CV language
+* `locale` – a suggestion language
 
 If the request is performed successfully, such a response will be returned:
 
@@ -132,7 +132,7 @@ To see the list of relevant specializations, you should send a
 `GET` request to `/suggests/fields_of_study` with the following parameters:
 
 * `text` – a text for searching specializations
-* `locale` – a CV language.
+* `locale` – a suggestion language.
 
 If the request is performed successfully, such a response will be returned:
 

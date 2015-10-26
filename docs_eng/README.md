@@ -1,6 +1,6 @@
 # HeadHunter API
 
-[По-русски](../README.md) | __In english__
+[По-русски](../README.md) | **In english**
 
 <a name="content" />
 ## Content

@@ -70,3 +70,5 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `currency` - currency directory
 * `employer_type` - employer type
 * `employer_relation` - methods of contacting applicants
+* `applicant_comments_order` - sorting type of the 
+  [applicant comment list](applicant_comments.md#list)

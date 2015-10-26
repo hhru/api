@@ -56,6 +56,7 @@ https://hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={st
 * `http://www.example.com/oauth/sub/path?lang=RU` — всё вместе.
 
 Запрещено:
+
 * `https://example.com/oauth` — различные протоколы;
 * `http://wwwexample.com/oauth` — различные домены;
 * `http://wwwexample.com/` — другой путь;

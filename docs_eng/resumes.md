@@ -195,6 +195,10 @@ The applicant will have the CV request displayed in the view history.
 CV fields are similar to the
 [fields that are displayed when editing the CV](#resume-keys).
 
+The employer will have an additional field `owner.comments.url`.
+containing url. GET request on it will return
+[applicant comment list of CV owner](applicant_comments.md#list).
+
 When indicating paging parameters (page, per_page), a restriction takes effect:
 the number of results returned can't exceed 2000. For instance, a request
 `per_page=10&page=199` (displaying CVs from 1991 to 2000) is possible, but a
@@ -211,7 +215,8 @@ Some parameters take multiple values: `key=value&key=value`.
   Several values can be indicated. Each additional
   `text` refines the search. You can use
   [search query language](http://hh.ru/article.xml?articleId=1175) as a search
-  phrase. To tune the phrase settings, you can use the following parameters:
+  phrase. There is [autocompletion](suggests.md#resume-search-keyword) special
+  for the field. To tune the phrase settings, you can use the following parameters:
   `text.logic`, `text.field`, `text.period`. When using extra `text.*` fields,
   you must indicate the whole set (triad) of parameters. If parameters are
   indicated incorrectly or there is an incorrect parameter set,
@@ -232,6 +237,7 @@ Some parameters take multiple values: `key=value&key=value`.
   be indicated when indicating other `text.*` parameters. In this case it can
   be empty.
 
+---
 
 For example:
 
@@ -253,11 +259,15 @@ For example:
   are indicated for `text=project%20manager`, and
   `text.logic=all&text.field=everywhere&text.period=all_time` for the
   `text=responsible` parameter.
+
+---
+
 * `age_from`, `age_to` – the applicant's age in years, in the "from... to" range.
 * `area` – a region. Directory with possible values: [/areas](areas.md).
   You can indicate several values.
 * `relocation` – willingness to relocate. Directory with possible values:
-  `resume_search_relocation` in [/dictionaries](dictionaries.md).
+  `resume_search_relocation` in [/dictionaries](dictionaries.md). You can
+  indicate it only with `area` parameter.
 * `period` – in days, searches CVs published in the given time period.
    If not indicated, the search is performed without any restrictions on
    the publication date.
@@ -328,8 +338,11 @@ If the user is authorized, more detailed information is available, including
 visibility type and moderators' comments.
 
 If the CV doesn't exist or unavailable for the user, `404 Not Found` will be
-returned. If the contacts view is unavailable with the current authorization,
-the corresponding fields will have `null`.
+returned.
+
+If the full info of the CV is unavailable with the current authorization,
+the corresponding fields will have `null` and field `can_view_full_info`
+will have `false` value.
 
 ```json
 {
@@ -492,7 +505,7 @@ the corresponding fields will have `null`.
         ],
         "primary": [
             {
-                "name": K.I. Skryabin Moscow State Academy of Veterinary Medicine, Moscow",
+                "name": "K.I. Skryabin Moscow State Academy of Veterinary Medicine, Moscow",
                 "name_id": "39464",
                 "organization": "Faculty of Zootechnology and agrobusiness",
                 "organization_id": "25181",

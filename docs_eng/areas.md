@@ -1,5 +1,10 @@
 # Region directory
 
+See also:
+
+* [Region suggestions](suggests.md#areas)
+
+
 <a name="areas" />
 ## Tree view of all regions
 
