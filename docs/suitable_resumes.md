@@ -4,6 +4,7 @@
 необходимо отправить запрос `GET` на `/vacancies/{vacancy_id}/suitable_resumes`.
 
 В случае успеха придёт ответ со статусом HTTP '200 OK' следующего вида:
+
 ```json
 {
   "found": 1,

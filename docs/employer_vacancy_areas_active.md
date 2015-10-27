@@ -4,6 +4,7 @@
 `GET /employers/{employer_id}/vacancy_areas/active` выдаст список регионов, в которых на данный момент есть активные вакансии.
 
 Пример успешного ответа:
+
 ```json
 {
     "found": 1,
@@ -15,7 +16,7 @@
     ],
     "page": 0,
     "pages": 1,
-    "per_page": 1    
+    "per_page": 1
 }
 ```
 

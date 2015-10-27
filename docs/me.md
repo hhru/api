@@ -99,6 +99,7 @@ new_resume_views | Общее кол-во новых просмотров все
     POST /me
     last_name=Иванов&first_name=Иван&middle_name=
 ```
+
 Если передать не все поля, то в ответ придёт `400 Bad Request`.
 
 
@@ -108,6 +109,7 @@ new_resume_views | Общее кол-во новых просмотров все
  is_in_search | строка | true/false
 
 Пример:
+
 ```
  POST /me
  is_in_search=true

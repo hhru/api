@@ -81,6 +81,7 @@ https://hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={st
 
 В случае разрешения прав, в редиректе будет указан
 временный `authorization_code`:
+
 ```http
 HTTP/1.1 302 FOUND
 Location: {redirect_uri}?code={authorization_code}
@@ -129,6 +130,7 @@ grant_type=authorization_code&client_id={client_id}&client_secret={client_secret
 необходимо запросить новый.
 
 Если обмен `authorization_code` произвести не удалось, то вернётся ответ `400 Bad Request` с телом:
+
 ```json
 {
     "error": "...",
@@ -219,6 +221,7 @@ Authorization: Bearer access_token
 другую учетную запись.
 
 Также, после авторизации приложение может показать пользователю сообщение:
+
 ```
 Вы вошли как %Имя_Фамилия%. Это не вы?
 ```
