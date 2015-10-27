@@ -1,0 +1,2012 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Вакансии</title>
+        <style>
+        .codehilite .hll { background-color: #ffffcc }
+.codehilite .c { color: #999988; font-style: italic } /* Comment */
+.codehilite .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.codehilite .k { color: #000000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #000000; font-weight: bold } /* Operator */
+.codehilite .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+.codehilite .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.codehilite .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #aa0000 } /* Generic.Error */
+.codehilite .gh { color: #999999 } /* Generic.Heading */
+.codehilite .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #555555 } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #aaaaaa } /* Generic.Subheading */
+.codehilite .gt { color: #aa0000 } /* Generic.Traceback */
+.codehilite .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+.codehilite .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.codehilite .m { color: #009999 } /* Literal.Number */
+.codehilite .s { color: #d01040 } /* Literal.String */
+.codehilite .na { color: #008080 } /* Name.Attribute */
+.codehilite .nb { color: #0086B3 } /* Name.Builtin */
+.codehilite .nc { color: #445588; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #008080 } /* Name.Constant */
+.codehilite .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+.codehilite .ni { color: #800080 } /* Name.Entity */
+.codehilite .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #990000; font-weight: bold } /* Name.Function */
+.codehilite .nl { color: #990000; font-weight: bold } /* Name.Label */
+.codehilite .nn { color: #555555 } /* Name.Namespace */
+.codehilite .nt { color: #000080 } /* Name.Tag */
+.codehilite .nv { color: #008080 } /* Name.Variable */
+.codehilite .ow { color: #000000; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mf { color: #009999 } /* Literal.Number.Float */
+.codehilite .mh { color: #009999 } /* Literal.Number.Hex */
+.codehilite .mi { color: #009999 } /* Literal.Number.Integer */
+.codehilite .mo { color: #009999 } /* Literal.Number.Oct */
+.codehilite .sb { color: #d01040 } /* Literal.String.Backtick */
+.codehilite .sc { color: #d01040 } /* Literal.String.Char */
+.codehilite .sd { color: #d01040 } /* Literal.String.Doc */
+.codehilite .s2 { color: #d01040 } /* Literal.String.Double */
+.codehilite .se { color: #d01040 } /* Literal.String.Escape */
+.codehilite .sh { color: #d01040 } /* Literal.String.Heredoc */
+.codehilite .si { color: #d01040 } /* Literal.String.Interpol */
+.codehilite .sx { color: #d01040 } /* Literal.String.Other */
+.codehilite .sr { color: #009926 } /* Literal.String.Regex */
+.codehilite .s1 { color: #d01040 } /* Literal.String.Single */
+.codehilite .ss { color: #990073 } /* Literal.String.Symbol */
+.codehilite .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.codehilite .vc { color: #008080 } /* Name.Variable.Class */
+.codehilite .vg { color: #008080 } /* Name.Variable.Global */
+.codehilite .vi { color: #008080 } /* Name.Variable.Instance */
+.codehilite .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff');
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+
+.markdown-body {
+    min-width: 200px;
+    max-width: 790px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+        </style>
+    </head>
+    <body>
+    <article class="markdown-body">
+    <h1>Вакансии</h1>
+
+<ul>
+<li><a href="#item">Просмотр вакансии</a></li>
+<li><a href="#author">Дополнительные поля для автора вакансии</a></li>
+<li><a href="#favorited">Отобранные вакансии</a></li>
+<li><a href="#search">Поиск по вакансиям</a></li>
+<li><a href="#nano">Короткое представление вакансии</a></li>
+<li><a href="blacklisted.md.html">Скрытые вакансии</a></li>
+<li><a href="#creation">Публикация вакансий</a></li>
+<li><a href="#conditions">Условия заполнения полей при добавлении и редактировании вакансий</a></li>
+<li><a href="#edit">Редактирование вакансий</a></li>
+<li><a href="#prolongate">Продление вакансий</a></li>
+</ul>
+
+<p><a name="item"/></p>
+
+<h2 id="-2">Просмотр вакансии</h2>
+
+<p><code>GET /vacancies/{vacancy_id}</code> вернёт подробную информацию по указанной вакансии</p>
+
+<p>Пример: <a href="https://api.hh.ru/vacancies/8252535">https://api.hh.ru/vacancies/8252535</a></p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;branded_description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;style&gt;...&lt;/style&gt;&lt;div&gt;...&lt;/div&gt;&lt;script&gt;&lt;/script&gt;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Прием посетителей&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Первичный документооборот&quot;</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;fullDay&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Полный день&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;between1And3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1–3 года&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Полная занятость&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+  <span class="nt">&quot;negotiations_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations?vacancy_id=8331228&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;suitable_resumes_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/8331228/suitable_resumes&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/2352807.png&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;response_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Административный персонал&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.255&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ресепшен&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Административный персонал&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.429&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Делопроизводство&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Административный персонал&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.264&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Административный персонал&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.181&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Начальный уровень, Мало опыта&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Имя&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;phones&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;985&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;000-00-00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Стандарт&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hh&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hh.ru&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;HH-1455-TECH&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter::Технический департамент&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><code>branded_description</code> - строка с кодом HTML (возможно наличие <code>&lt;script/&gt;</code> и
+<code>&lt;style/&gt;</code>), которая является альтернативой стандартному описанию вакансии.
+HTML адаптирован для мобильных устройств и корректно отображается без поддержки
+javascript. При этом:</p>
+
+<ul>
+<li>Контент тянется по ширине на 100% ширины контейнера, и умещается без
+прокрутки в 300px.</li>
+<li>Контент рассчитан на то, что он будет вставлен в обвязку, в которую входит
+название, требуемый опыт работы, регион, тип занятости и рабочего дня
+вакансии, а также ссылка на компанию, опубликовавушю вакансию.</li>
+<li>Изображения, которые могут встретиться в таком описании, адаптированы под
+retina дисплеи.</li>
+<li>Размер шрифта не меньше 12px, размер межстрочного интервала не меньше 16px.</li>
+</ul>
+
+<p>Значение может быть null, если у вакансии отсутствует индивидуальное описание.</p>
+
+<p>При запросе с авторизацией ключ <code>relations</code> возвращает значения из справочника
+<code>vacancy_relations</code> в <a href="dictionaries.md.html">/dictionaries</a>.</p>
+
+<p>В ключе <code>negotiations_url</code> возвращается ссылка для получения списка
+откликов/приглашений по данной вакансии текущего пользователя-соискателя (для
+других типов пользователей возвращается <code>null</code>).</p>
+
+<p>На вакансии с типом <code>direct</code> нельзя откликнуться на сайте hh.ru, у этих вакансий
+в ключе <code>response_url</code> выдаётся URL внешнего сайта (чаще всего это сайт
+работодателя с формой отклика)
+<a href="negotiations.md.html#post_negotiation">Подробнее в документации по откликам</a></p>
+
+<p>В ключе <code>contacts</code> содержится контактная информация. В вакансиях, где контакты
+не указаны, возвращается <code>null</code>. Все внутренние ключи являются строками либо
+null. Список телефонов может быть пустым.</p>
+
+<p>В ключе <code>test</code> возвращается информация о прикрепленном тестовом задании к
+вакансии. В случае отсутствия теста — <code>null</code>, в противном случае объект с ключом
+<code>required</code>, который указывает на необходимость заполнения теста для отклика.</p>
+
+<hr />
+
+<p><strong>В данный момент отклик на вакансии с обязательным тестом через API невозможен.</strong></p>
+
+<hr />
+
+<p>В ключе <code>key_skills</code> возвращается информация о ключевых навыках, заявленных в
+вакансии.</p>
+
+<p>Возможные значения <code>billing_type</code> и <code>site</code> доступны в справочниках в
+<a href="dictionaries.md.html">/dictionaries</a> (<code>vacancy_billing_type</code> и <code>vacancy_site</code>
+соответственно).</p>
+
+<p>В ключе <code>allow_messages</code> указано включена ли возможность соискателю писать
+сообщения после приглашения.</p>
+
+<p><a name="author"/></p>
+
+<h2 id="-3">Дополнительные поля вакансии</h2>
+
+<p>В случае с запросом вакансии с авторизацией автора, в объекте будут выданы
+дополнительные поля:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-09T17:03:35+0300&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>ключ</th>
+  <th>тип</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>expires_at</td>
+  <td>строка</td>
+  <td>дата и время окончания публикации вакансии</td>
+</tr>
+<tr>
+  <td>response_notifications</td>
+  <td>логический</td>
+  <td>уведомлять ли менеджера о новых откликах</td>
+</tr>
+<tr>
+  <td>hidden</td>
+  <td>логический</td>
+  <td>удалена ли вакансия (скрыта из архива)</td>
+</tr>
+</tbody>
+</table>
+
+<p>В объекте <code>manager</code> — информация о менеджере, который разместил данную вакансию.</p>
+
+<p>Также для автора вакансии в объекте <code>test</code> доступен ключ <code>id</code>, а в объекте
+<code>address</code> доступны:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1448&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;show_metro_only&quot;</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Подробнее об этих полях вы можете прочитать в разделе о
+<a href="#creation_fields">публикации вакансии</a>.</p>
+
+<p><a name="favorited"/></p>
+
+<h2 id="-4">Отобранные вакансии</h2>
+
+<p>Данные методы требуют авторизации соискателем, иначе вернут <code>403 Forbidden</code>.</p>
+
+<p><code>GET /vacancies/favorited</code> - возвращает подмножество вакансий, добавленных
+пользователем в отобранные.  Пейджинг работает по стандартным page&amp;per_page,
+страницы нумеруются с нуля.</p>
+
+<p><code>PUT /vacancies/favorited/{vacancy_id}</code> добавит указанную вакансию в список.
+Данная операция — идемпотентная: при добавлении вакансии, которая уже есть в
+отобранных, вернётся также <code>204 No Content</code>, как и в случае первичного
+добавления. Если вакансия не найдена, то сервер вернёт <code>404 Not Found</code>, если по
+каким-либо причинам не хватает прав положить вакансию в избранное —
+<code>403 Forbidden</code>. Дополнительно к HTTP коду сервер может вернуть
+описание <a href="errors.md.html#vacancies_favorited">причины ошибки</a>.</p>
+
+<p><code>DELETE /vacancies/favorited/{vacancy_id}</code> удалит вакансию из списка отобранных
+авторизованного пользователя. Операция также идемпотентна. При успешном
+удалении метод возвращает <code>204 No Content</code>.</p>
+
+<p><a name="search"/></p>
+
+<h2 id="-5">Поиск по вакансиям</h2>
+
+<p><code>GET /vacancies</code> вернёт результаты поиска вакансий.</p>
+
+<p>Принимаемые параметры:</p>
+
+<p>Некоторые параметры принимают множественные значения: <code>key=value&amp;key=value</code>.</p>
+
+<ul>
+<li><p><code>text</code> — текстовое поле. <br />
+Переданное значение ищется в полях вакансии, указанных в параметре <code>search_field</code>. <br />
+Доступен язык запросов, как и на основном сайте: <a href="http://hh.ru/article/1175">http://hh.ru/article/1175</a>. <br />
+Специально для этого поля есть <a href="suggests.md.html#vacancy-search-keyword">автодополнение</a>.</p></li>
+<li><p><code>search_field</code> — область поиска. <br />
+Справочник с возможными значениями: <code>vacancy_search_fields</code> в <a href="dictionaries.md.html">/dictionaries</a>. <br />
+По умолчанию, используется все поля. <br />
+Возможно указание нескольких значений.  </p></li>
+<li><p><code>experience</code> — опыт работы. <br />
+Справочник с возможными значениями: <code>experience</code> в <a href="dictionaries.md.html">/dictionaries</a>.  </p></li>
+<li><p><code>employment</code> — тип занятости. <br />
+Справочник с возможными значениями: <code>employment</code> в <a href="dictionaries.md.html">/dictionaries</a>. <br />
+Возможно указание нескольких значений.  </p></li>
+<li><p><code>schedule</code> — график работы. <br />
+Справочник с возможными значениями: <code>schedule</code> в <a href="dictionaries.md.html">/dictionaries</a>. <br />
+Возможно указание нескольких значений.  </p></li>
+<li><p><a name="field-area"/> <code>area</code> — регион.
+Справочник с возможными значениями: <a href="areas.md.html">/areas</a>. <br />
+Возможно указание нескольких значений.  </p></li>
+<li><p><code>metro</code> — ветка или станция метро. <br />
+Справочник с возможными значениями: <a href="metro.md.html">/metro</a>. <br />
+Возможно указание нескольких значений.  </p></li>
+<li><p><code>specialization</code> — профобласть или специализация. <br />
+Справочник с возможными значениями: <a href="specializations.md.html">/specializations</a>. <br />
+Возможно указание нескольких значений.</p></li>
+<li><p><code>industry</code> - индустрия компании, разместившей вакансию.
+Справочник с возможными значениями: <a href="industries.md.html">/industries</a>.
+Возможно указание нескольких значений.</p></li>
+<li><p><code>employer_id</code> — идентификатор <a href="employers.md.html">компании</a>. <br />
+Возможно указание нескольких значений.  </p></li>
+<li><p><code>currency</code> — код валюты. <br />
+Справочник с возможными значениями: <code>currency</code> (ключ code) в <a href="dictionaries.md.html">/dictionaries</a>.  </p></li>
+<li><p><code>salary</code> — размер заработной платы. <br />
+Если указано это поле, но не указано <code>currency</code>, то используется значение RUR у <code>currency</code>.</p></li>
+<li><p><code>label</code> — фильтр по меткам вакансий. <br />
+Справочник с возможными значениями: <code>vacancy_label</code> в <a href="dictionaries.md.html">/dictionaries</a>. <br />
+Возможно указание нескольких значений.  </p></li>
+<li><p><code>only_with_salary</code> — показывать вакансии только с указанием зарплаты. <br />
+Возможные значения: true или false. <br />
+По умолчанию, используется false.  </p></li>
+<li><p><code>period</code> — количество дней, в пределах которых нужно найти вакансии. <br />
+Максимальное значение: 30.</p></li>
+<li><p><code>date_from</code> – дата, которая ограничивает снизу диапазон дат публикации
+вакансий. <br />
+Нельзя передавать вместе с параметром <code>period</code>. <br />
+Значение указывается в формате <a href="general.md.html#date-format">ISO 8601</a> -
+<code>YYYY-MM-DD</code> или с точность до секунды <code>YYYY-MM-DDThh:mm:ss±hhmm</code>.</p></li>
+<li><p><code>date_to</code> – дата, которая ограничивает сверху диапазон дат публикации
+вакансий. <br />
+Необходимо передавать только в паре с параметром <code>date_from</code>. <br />
+Нельзя передавать вместе с параметром <code>period</code>. <br />
+Значение указывается в формате <a href="general.md.html#date-format">ISO 8601</a> -
+<code>YYYY-MM-DD</code> или с точность до секунды <code>YYYY-MM-DDThh:mm:ss±hhmm</code>.</p></li>
+<li><p><code>top_lat</code>, <code>bottom_lat</code>, <code>left_lng</code>, <code>right_lng</code> — значение гео-координат. <br />
+При поиске используется значение указанного в вакансии адреса. <br />
+Принимаемое значение — градусы в виде десятичной дроби. <br />
+Необходимо передавать одновременно все четыре параметра гео-координат, иначе вернется ошибка.  </p></li>
+<li><p><code>order_by</code> — сортировка списка вакансий. <br />
+Справочник с возможными значениями: <code>vacancy_search_order</code> в <a href="dictionaries.md.html">/dictionaries</a>. <br />
+Если выбрана сортировка по удалённости от гео-точки <code>distance</code>, необходимо также задать её координаты <code>sort_point_lat</code>,<code>sort_point_lng</code>.</p></li>
+<li><p><code>sort_point_lat</code>, <code>sort_point_lng</code> - значение гео-координат точки, по расстоянию от которой будут отсортированы вакансии. Необходимо указывать только, если <code>order_by</code> установлено в <code>distance</code>.</p></li>
+<li><p><code>clusters</code> — возвращать ли список кластеров для данного поиска, по умолчанию: <code>false</code>. Подробнее <a href="clusters.md.html">/docs/clusters.md</a>.</p></li>
+</ul>
+
+<p>При указании параметров пэйджинга (page, per_page) работает ограничение: глубина
+возвращаемых результатов не может быть больше 2000. Например, возможен запрос
+<code>per_page=10&amp;page=199</code> (выдача с 1991 по 2000 вакансию), но запрос с
+<code>per_page=10&amp;page=200</code> вернёт ошибку (выдача с 2001 до 2010 вакансию).</p>
+
+<p>Если параметры переданы с ошибкой, то в ответ вернется <code>400 Bad request</code> с
+описанием ошибки в теле. Неизвестные параметры и параметры с ошибкой в названии
+игнорируются.</p>
+
+<p>В зависимости от текущей авторизации выдача может отличаться, так как для
+соискателей применяется фильтрация по
+<a href="blacklisted.md.html">списку скрытых вакансий и компаний</a>.</p>
+
+<p>Выдача может отличаться при выборе <a href="hosts.md.html">различных сайтов</a>. Однако выбор
+регионального сайта, например <code>hh.kz</code>, не сужает выборку до данного региона,
+для ограничения выборки по региону используйте параметр <a href="#field-area"><code>area</code></a>.</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+      <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/2352807.png&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+  <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+  <span class="nt">&quot;clusters&quot;</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Пример: <a href="https://api.hh.ru/vacancies">https://api.hh.ru/vacancies</a></p>
+
+<p><a name="nano"/></p>
+
+<h2 id="-6">Короткое представление вакансии</h2>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7760476&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/7760476&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Специалист по автоматизации тестирования (Java, Selenium)&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/7760476&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-11T13:27:16+0400&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/2352807.png&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Здесь: </p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>строка</td>
+  <td>Идентификатор вакансии</td>
+</tr>
+<tr>
+  <td>premium</td>
+  <td>логический</td>
+  <td>Является ли премиум вакансией</td>
+</tr>
+<tr>
+  <td>address</td>
+  <td>объект, null</td>
+  <td><a href="address.md.html#Адрес">Адрес вакансии</a></td>
+</tr>
+<tr>
+  <td>alternate_url</td>
+  <td>строка, null</td>
+  <td>Ссылка на представление вакансии на сайте</td>
+</tr>
+<tr>
+  <td>salary</td>
+  <td>объект, null</td>
+  <td>Оклад</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>строка</td>
+  <td>Название вакансии</td>
+</tr>
+<tr>
+  <td>area</td>
+  <td>объект</td>
+  <td>Регион размещения вакансии</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>строка, null</td>
+  <td>Ссылка на полное представление вакансии в api</td>
+</tr>
+<tr>
+  <td>published_at</td>
+  <td>строка</td>
+  <td>Дата и время публикации вакансии</td>
+</tr>
+<tr>
+  <td>employer</td>
+  <td>объект</td>
+  <td>Короткое представление работодателя</td>
+</tr>
+<tr>
+  <td>response_letter_required</td>
+  <td>логический</td>
+  <td>Обязательно ли заполнять сообщение при отклике</td>
+</tr>
+<tr>
+  <td>type</td>
+  <td>объект</td>
+  <td>Тип вакансии, один из элементов <code>vacancy_type</code> в <a href="dictionaries.md.html">Справочнике</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><code>url</code> и <code>alternate_url</code> могут принимать значение <code>null</code> в случае если подробная информация о вакансии недоступна
+(например, вакансия была удалена)</p>
+
+<p><a name="creation"/></p>
+
+<h2 id="-7">Публикация вакансий</h2>
+
+<p><code>POST /vacancies</code></p>
+
+<h3 id="-8">Общая информация</h3>
+
+<p>В качестве тела запроса необходимо передавать
+<a href="general.md.html#request-body">JSON</a> с данными размещаемой вакансии,
+формат данных аналогичен <a href="#item">просмотру вакансии</a>, но также содержит
+некоторые дополнительные поля.</p>
+
+<blockquote>
+  <p>В соответствии с
+  <a href="http://hh.ru/article/13967">законом РФ № 1032-1 от 19.04.1991 в ред. от 02.07.2013 г.</a>
+  запрещено размещать информацию, ограничивающую права или устанавливающую
+  преимущества для соискателей по полу, возрасту, семейному положению и другим
+  обстоятельствам, не связанным с деловыми качествами работников.</p>
+</blockquote>
+
+<ul>
+<li>при успешной публикации будут списана соответствующая услуга.</li>
+<li>все вакансии проходят ручную модерацию.</li>
+<li>в течение нескольких минут после публикации вакансия станет доступна в поиске.</li>
+</ul>
+
+<h3 id="-9">Полезные ссылки</h3>
+
+<ul>
+<li><a href="http://hh.ru/article/341">правила размещения вакансий</a></li>
+<li><a href="http://hh.ru/article/16239">как составить хорошее описание вакансии</a></li>
+<li><a href="employer_vacancies.md.html#active">список опубликованных вакансий</a></li>
+<li><a href="employer_vacancies.md.html#archived">список архивных вакансий</a></li>
+<li><a href="employer_vacancies.md.html#hidden">список удаленных вакансий</a></li>
+<li><a href="#conditions">условия заполнения полей</a></li>
+</ul>
+
+<p><a name="creation-example"/></p>
+
+<h3 id="-10">Пример тела запроса</h3>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;— Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, toutes les atrocités de cet Antichrist (ma parole, j&#39;y crois) — je ne vous connais plus, vous n&#39;êtes plus mon ami, vous n&#39;êtes plus мой верный раб, comme vous dites. Ну, здравствуйте, здравствуйте.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Je vois que je vous fais peur&lt;/em&gt;, садитесь и рассказывайте.&lt;/p&gt;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Холодные продажи&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Проведение промо акций&quot;</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;flyInFlyOut&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;moreThan6&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Менеджер по продажам&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;17.324&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3.148&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;i.ivanov@example.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;phones&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;495&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1234567&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;с 10 до 20&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;код-1234&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hh&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;show_metro_only&quot;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;321&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;42&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><a name="creation_fields"/></p>
+
+<h3 id="-11">Поля запроса</h3>
+
+<ul>
+<li><code>[]</code> (например, в полях специализации и контактах) обозначает, что значение данного ключа является массивом объектов.  </li>
+<li><code>a.b</code> обозначает объект <code>a</code> с ключом <code>b</code> описанного типа.</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+  <th>Путь</th>
+  <th>JSON тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>название</td>
+</tr>
+<tr>
+  <td>description</td>
+  <td>string</td>
+  <td>описание в html, не менее 200 символов</td>
+</tr>
+<tr>
+  <td>key_skills</td>
+  <td>array</td>
+  <td>список ключевых навыков, не более 30</td>
+</tr>
+<tr>
+  <td>key_skills[].name</td>
+  <td>string</td>
+  <td>название ключевого навыка</td>
+</tr>
+<tr>
+  <td>specializations</td>
+  <td>array</td>
+  <td>список специализаций</td>
+</tr>
+<tr>
+  <td>specializations[].id</td>
+  <td>string</td>
+  <td>специализация <a href="specializations.md.html">из справочника</a></td>
+</tr>
+<tr>
+  <td>area.id</td>
+  <td>string</td>
+  <td>регион публикации <a href="areas.md.html">из справочника</a></td>
+</tr>
+<tr>
+  <td>type.id</td>
+  <td>string</td>
+  <td>тип из <a href="dictionaries.md.html">справочника vacancy_type</a></td>
+</tr>
+<tr>
+  <td>billing_type.id</td>
+  <td>string</td>
+  <td>биллинговый тип <a href="dictionaries.md.html">из справочника vacancy_billing_type</a></td>
+</tr>
+<tr>
+  <td>site.id</td>
+  <td>string</td>
+  <td>сайт для публикации <a href="dictionaries.md.html">из справочника vacancy_site</a></td>
+</tr>
+<tr>
+  <td>code</td>
+  <td>string</td>
+  <td>внутренний код вакансии</td>
+</tr>
+<tr>
+  <td>department.id</td>
+  <td>string</td>
+  <td>департамент <a href="employer_departments.md.html">из справочника</a>, от имени которого размещается вакансия (если данная возможность доступна для компании)</td>
+</tr>
+<tr>
+  <td>salary</td>
+  <td>object или null</td>
+  <td>зарплата</td>
+</tr>
+<tr>
+  <td>salary.from</td>
+  <td>numeric или null</td>
+  <td>нижняя граница зарплаты</td>
+</tr>
+<tr>
+  <td>salary.to</td>
+  <td>numeric или null</td>
+  <td>верхняя граница зарплаты</td>
+</tr>
+<tr>
+  <td>salary.currency</td>
+  <td>string</td>
+  <td>код валюты из <a href="dictionaries.md.html">справочника currency</a></td>
+</tr>
+<tr>
+  <td>address</td>
+  <td>object или null</td>
+  <td>адрес</td>
+</tr>
+<tr>
+  <td>address.id</td>
+  <td>string</td>
+  <td>адрес из <a href="employer_addresses.md.html">списка доступных адресов работодателя</a></td>
+</tr>
+<tr>
+  <td>address.show_metro_only</td>
+  <td>boolean</td>
+  <td>показывать только метро для указанного адреса</td>
+</tr>
+<tr>
+  <td>experience.id</td>
+  <td>string</td>
+  <td>требуемый опыт работы из <a href="dictionaries.md.html">справочника experience</a></td>
+</tr>
+<tr>
+  <td>schedule.id</td>
+  <td>string</td>
+  <td>график работы из <a href="dictionaries.md.html">справочника schedule</a></td>
+</tr>
+<tr>
+  <td>employment.id</td>
+  <td>string</td>
+  <td>тип занятости из <a href="dictionaries.md.html">справочника employment</a></td>
+</tr>
+<tr>
+  <td>contacts</td>
+  <td>object</td>
+  <td>контактная информация (для вакансий рабочих специальностей)</td>
+</tr>
+<tr>
+  <td>contacts.name</td>
+  <td>string</td>
+  <td>контактное лицо</td>
+</tr>
+<tr>
+  <td>contacts.email</td>
+  <td>string</td>
+  <td>email</td>
+</tr>
+<tr>
+  <td>contacts.phones</td>
+  <td>array</td>
+  <td>список телефонов для связи</td>
+</tr>
+<tr>
+  <td>contacts.phones[].country</td>
+  <td>string</td>
+  <td>код страны</td>
+</tr>
+<tr>
+  <td>contacts.phones[].city</td>
+  <td>string</td>
+  <td>код города</td>
+</tr>
+<tr>
+  <td>contacts.phones[].number</td>
+  <td>string</td>
+  <td>телефон</td>
+</tr>
+<tr>
+  <td>contacts.phones[].comment</td>
+  <td>string или null</td>
+  <td>комментарий (удобное время для звонка по этому номеру)</td>
+</tr>
+<tr>
+  <td>test</td>
+  <td>object</td>
+  <td>тест для вакансии</td>
+</tr>
+<tr>
+  <td>test.id</td>
+  <td>string</td>
+  <td>тест, который будет добавлен в вакансию</td>
+</tr>
+<tr>
+  <td>test.required</td>
+  <td>boolean</td>
+  <td>требовать прохождение теста для отклика на вакансию</td>
+</tr>
+<tr>
+  <td>response_url</td>
+  <td>string</td>
+  <td>URL отклика для прямых вакансий (<code>type.id=direct</code>)</td>
+</tr>
+<tr>
+  <td>custom_employer_name</td>
+  <td>string</td>
+  <td>название компании для анонимных вакансий (<code>type.id=anonymous</code>), например "крупный российский банк"</td>
+</tr>
+<tr>
+  <td>employer.id</td>
+  <td>string</td>
+  <td>работодатель, для которого размещается вакансия</td>
+</tr>
+<tr>
+  <td>manager.id</td>
+  <td>string</td>
+  <td>контактное лицо (менеджер) по размещаемой вакансии, по-умолчанию текущий пользователь</td>
+</tr>
+<tr>
+  <td>response_notifications</td>
+  <td>boolean</td>
+  <td>уведомлять о новых откликах</td>
+</tr>
+<tr>
+  <td>allow_messages</td>
+  <td>boolean</td>
+  <td>возможность <a href="http://inboxemp.hh.ru/">переписки с кандидатами</a> по данной вакансии</td>
+</tr>
+<tr>
+  <td>response_letter_required</td>
+  <td>boolean</td>
+  <td>требовать сопроводительное письмо</td>
+</tr>
+<tr>
+  <td>accept_handicapped</td>
+  <td>boolean</td>
+  <td>указание, что вакансия доступна для соискателей с инвалидностью</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="creation-results"/></p>
+
+<h3 id="-12">Результат запроса</h3>
+
+<ul>
+<li><code>204 No Content</code> - успешное добавление. В заголовке <code>Location</code> будет
+содержаться ссылка на добавленную вакансию.</li>
+<li><code>403 Forbidden</code> - добавление вакансий недоступно данному пользователю или
+добавление вакансии недоступно, так как вакансия с похожими
+данными уже опубликована у данного работодателя. Если вы уверены, что
+добавление дубликата необходимо, вы можете добавить к запросу параметр
+<code>POST /vacancies?ignore_duplicates=true</code>.</li>
+<li><code>400 Bad Request</code> - ошибки в полях при добавлении вакансии.</li>
+</ul>
+
+<p>Дополнительно к HTTP коду сервер может вернуть описание
+<a href="errors.md.html#vacancies-create-n-edit">причины ошибки</a>.</p>
+
+<p><a name="conditions"/></p>
+
+<h2 id="-13">Условия заполнения полей при добавлении и редактировании вакансий</h2>
+
+<p><code>GET /vacancy_conditions</code></p>
+
+<p>Каждое конечное поле описано объектом правил. Если поле состоит из
+объекта с несколькими полями, эти поля описаны в <code>fields</code>.</p>
+
+<p>Условия полей вакансии доступны только работодателям, в противном случае
+вернётся код ответа <code>403 Forbidden</code>.</p>
+
+<p>Для всех полей и их частей указано, являются ли они необходимыми (<code>required</code>).</p>
+
+<h3 id="-14">Пример ответа</h3>
+
+<p>Успешный ответ содержит код ответа <code>200 OK</code> и тело.</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;show_metro_only&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+                <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+                <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;phones&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^\\d{0,6}$&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^\\+?\\d{0,5}$&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^[\\d -]{4,32}$&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;custom_employer_name&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">220</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">511</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^(http|https)://.+$&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="-15">Правила</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>required</td>
+  <td>логический</td>
+  <td>Является ли поле вакансии или поле объекта необходимым?</td>
+</tr>
+<tr>
+  <td>min_length</td>
+  <td>целое</td>
+  <td>Минимальная длина для текстовых полей.</td>
+</tr>
+<tr>
+  <td>max_length</td>
+  <td>целое</td>
+  <td>Максимальная длина для текстовых полей.</td>
+</tr>
+<tr>
+  <td>min_count</td>
+  <td>целое</td>
+  <td>Минимальное количество объектов, для полей, где необходимо передавать список.</td>
+</tr>
+<tr>
+  <td>max_count</td>
+  <td>целое или <code>null</code></td>
+  <td>Максимально количество объектов, для полей, где необходимо передавать список. <code>null</code> – если количество не ограничено.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="edit"/></p>
+
+<h2 id="-16">Редактирование вакансий</h2>
+
+<p><code>PUT /vacancies/{vacancy_id}</code></p>
+
+<p>Редактирование происходит по аналогии с созданием вакансии, но есть возможность
+передачи отдельных полей в объекте для частичного редактирования вакансии.
+Cоставные поля (например, <code>salary</code>, <code>contacts</code>, <code>specializations</code>) можно
+редактировать только целиком, передавая полный объект. Например, для изменения
+валюты в зарплате, необходимо передавать также и значения зарплаты, а
+для изменения специализации необходимо передать полный список.</p>
+
+<h3 id="-17">Поля доступные для редактирования</h3>
+
+<table>
+<thead>
+<tr>
+  <th>поле</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>name</td>
+  <td>название</td>
+</tr>
+<tr>
+  <td>description</td>
+  <td>описание</td>
+</tr>
+<tr>
+  <td>key_skills</td>
+  <td>ключевые навыки</td>
+</tr>
+<tr>
+  <td>schedule</td>
+  <td>график работы</td>
+</tr>
+<tr>
+  <td>experience</td>
+  <td>требуемый опыт работы</td>
+</tr>
+<tr>
+  <td>employment</td>
+  <td>тип занятости</td>
+</tr>
+<tr>
+  <td>specializations</td>
+  <td>список специализаций</td>
+</tr>
+<tr>
+  <td>salary</td>
+  <td>зарплата</td>
+</tr>
+<tr>
+  <td>address</td>
+  <td>адрес</td>
+</tr>
+<tr>
+  <td>test</td>
+  <td>тестовое задание</td>
+</tr>
+<tr>
+  <td>department</td>
+  <td>департамент</td>
+</tr>
+<tr>
+  <td>code</td>
+  <td>внутренний код вакансии</td>
+</tr>
+<tr>
+  <td>response_letter_required</td>
+  <td>необходимость сопроводительного письма при отклике</td>
+</tr>
+<tr>
+  <td>accept_handicapped</td>
+  <td>указание, что вакансия доступна для соискателей с инвалидностью</td>
+</tr>
+<tr>
+  <td>response_notifications</td>
+  <td>настройка уведомления о новых откликах</td>
+</tr>
+<tr>
+  <td>allow_messages</td>
+  <td>возможность переписки с кандидатами по данной вакансии</td>
+</tr>
+<tr>
+  <td>contacts</td>
+  <td>контактная информация (для вакансий рабочих специальностей)</td>
+</tr>
+<tr>
+  <td>custom_employer_name</td>
+  <td>название компании для анонимных вакансий</td>
+</tr>
+<tr>
+  <td>response_url</td>
+  <td>URL отклика для прямых вакансий</td>
+</tr>
+</tbody>
+</table>
+
+<p>Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.</p>
+
+<p><a name="edit-results"/></p>
+
+<h3 id="-18">Результат запроса</h3>
+
+<ul>
+<li><code>204 No Content</code> - успешное обновление.</li>
+<li><code>404 Not Found</code> - редактируемая вакансия не найдена.</li>
+<li><code>403 Forbidden</code> - редактирование вакансий недоступно данному пользователю.</li>
+<li><code>400 Bad Request</code> - ошибки в полях при редактировании вакансии.</li>
+</ul>
+
+<p>Дополнительно к HTTP коду сервер может вернуть описание
+<a href="errors.md.html#vacancies-create-n-edit">причины ошибки</a>.</p>
+
+<p><a name="edit_more"/></p>
+
+<h3 id="-">Смена биллинг-типа, менеджера вакансии</h3>
+
+<p>Изменение биллингового типа вакансии, а также передача вакансии другому
+менеджеру компании происходит по аналогии с редактированием
+<code>POST /vacancies/{vacancy_id}</code>. Единственная особенность — эти поля
+(<code>billing_type</code> и <code>manager</code>) необходимо отправлять отдельно от остальных полей
+вакансии.</p>
+
+<pre><code>PUT /vacancies/{vacancy_id}
+{"billing_type":{"id":"premium"}
+</code></pre>
+
+<pre><code>PUT /vacancies/{vacancy_id}
+{"manager":{"id":"1337"}
+</code></pre>
+
+<p>При передачи этих полей вместе с любыми другими вернется ошибка.</p>
+
+<p><a name="other-actions" /></p>
+
+<h3 id="-19">Прочие действия</h3>
+
+<ul>
+<li><a href="employer_vacancies.md.html#archive">архивация</a></li>
+<li><a href="employer_vacancies.md.html#hide">удаление</a></li>
+<li><a href="employer_vacancies.md.html#restore">восстановление из удаленных</a></li>
+</ul>
+
+<p><a name="prolongate"/></p>
+
+<h2 id="-20">Продление вакансий</h2>
+
+<p><strong>Продление вакансии по стоимости приравнивается к новой публикации</strong></p>
+
+<p>Для продления публикации вакансии необходимо отправить запрос <code>POST /vacancies/{vacancy_id}/prolongate</code>. </p>
+
+<p>Существуют ограничения по продлению вакансии, они могут меняться, на данный момент работают следующие правила:</p>
+
+<ul>
+<li>стандартные вакансии можно продлевать, если с предыдущего продления прошло не менее 3 дней.</li>
+<li>вакансии "стандарт-плюс" возможно продлевать не ранее 5 дней до окончания публикации.</li>
+</ul>
+
+    </article>
+    </body>
+    </html>
+    
