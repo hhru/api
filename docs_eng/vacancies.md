@@ -647,7 +647,7 @@ vacancy being posted. The format of the data is similar to the
 <a name="creation-results"/>
 ### Request result
 
-* `204 No Content` – successful addition. The `Location` title will contain a
+* `201 Created` – successful addition. The `Location` title will contain a
   link to the vacancy added.
 * `403 Forbidden` – vacancy addition is not permitted for this user or vacancy
   addition is not permitted, as a vacancy with similar data has already been
