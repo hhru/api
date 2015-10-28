@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Комментарии к соискателю</title>
+        <title>Headhunter API</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,60 +735,51 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Комментарии к соискателю</h1>
+    <h1 id="employerscompanies">Employers/companies</h1>
 
-<p><a name="list" /></p>
+<p><a name="search" /></p>
 
-<h2 id="-2">Список комментариев</h2>
+<h2 id="company-search">Company search</h2>
 
-<p>Получение списка комментариев доступно только работодателю. Список будет
-содержать комментарии текущего пользователя, а также комментарии других
-менеджеров компании, если они открыли доступ к ним при публикации.</p>
+<p><code>GET /employers</code> will return the company search results.</p>
 
-<h3 id="-3">Запрос</h3>
-
-<p>Нет необходимости собирать url запроса вручную, его нужно получать из
-<a href="resumes.md.html#owner-field">поля owner в резюме</a></p>
-
-<p><code>GET /applicant_comments/{applicant_id}</code></p>
-
-<p>где <code>applicant_id</code> – идентификатор соискателя.</p>
-
-<p>Дополнительные параметры запроса:</p>
+<p>Possible parameters:</p>
 
 <ul>
-<li><a href="general.md.html#pagination">параметры пагинации <code>page</code>, <code>per_page</code></a></li>
-<li><code>order_by</code> - сортировка комментариев, доступные значения в
-<a href="dictionaries.md.html">справочнике <code>applicant_comments_order</code></a></li>
+<li>text – a text field, the given value is searched in the company name and
+description.</li>
+<li>area – a multiple parameter, identifier of the employer's region. You can
+find region identifiers in the <a href="areas.md.html">region directory</a></li>
+<li>type – a multiple parameter, employer type. Permitted values – keys in the
+<code>employer_type</code> section in <a href="dictionaries.md.html">/dictionaries</a></li>
+<li>only_with_vacancies – return only the employers that currently
+have open vacancies (<code>true</code>) or all employers (<code>false</code>); by default it is
+set to <code>false</code></li>
+<li>page – the number of the page with employers (counted from 0, by default
+set to 0)</li>
+<li>per_page – number of elements per page (by default – 20)</li>
 </ul>
 
-<h3 id="-4">Ответ</h3>
+<p>Maximum number of employers displayed – 2000.</p>
 
-<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
+<p>Response:</p>
 
 <div class="codehilite"><pre><code><span class="p">{</span>
-    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
     <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:19:55+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;обратить внимание на данного кандидата\nсрочно!&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванова Мария Ивановна&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:30:14+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123654&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;не считаю нужным&quot;</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;vacancies_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?employer_id=1455&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;open_vacancies&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;90&quot;</span><span class="p">:</span>  <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span>
+            <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -797,47 +788,164 @@
 <table>
 <thead>
 <tr>
-  <th>ключ</th>
-  <th>тип</th>
-  <th>описание</th>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>author.full_name</td>
-  <td>строка</td>
-  <td>ФИО автора комментария</td>
+  <td>per_page</td>
+  <td>number</td>
+  <td>number of elements displayed per page</td>
 </tr>
 <tr>
-  <td>created_at</td>
-  <td>строка, дата</td>
-  <td>дата создания комментария</td>
+  <td>page</td>
+  <td>number</td>
+  <td>number of page displayed</td>
 </tr>
 <tr>
-  <td>id</td>
-  <td>строка</td>
-  <td>уникальный идентификатор комментария</td>
+  <td>pages</td>
+  <td>number</td>
+  <td>number of pages with data</td>
 </tr>
 <tr>
-  <td>is_mine</td>
-  <td>логический</td>
-  <td>комментарий написан текущем пользователем?</td>
+  <td>found</td>
+  <td>number</td>
+  <td>number of employers found by the given search criteria</td>
 </tr>
 <tr>
-  <td>text</td>
-  <td>строка</td>
-  <td>содержание комментария, текст, который может содержать символы новой строки</td>
+  <td>items</td>
+  <td>array of objects</td>
+  <td>found employers (maximum of per_page elements)</td>
 </tr>
 </tbody>
 </table>
 
-<h3 id="-5">Ошибки</h3>
+<p>Each element of the items array contains a short presentation of the employer
+and additionally indicates the number of open vacancies.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>employer identifier</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>employer name</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>string</td>
+  <td>link to the detailed employer description</td>
+</tr>
+<tr>
+  <td>alternate_url</td>
+  <td>string</td>
+  <td>link to the employer description on the website</td>
+</tr>
+<tr>
+  <td>vacancies_url</td>
+  <td>string</td>
+  <td>link to the search results of the company's vacancies</td>
+</tr>
+<tr>
+  <td>open_vacancies</td>
+  <td>number</td>
+  <td>number of the employer's open vacancies</td>
+</tr>
+<tr>
+  <td>logo_urls</td>
+  <td>object, null</td>
+  <td>company's logos (see below)</td>
+</tr>
+</tbody>
+</table>
+
+<p>In case incorrect values are given in the parameters, the <code>400 Bad Request</code>
+response code will be returned. At the same time the response body will contain
+the information saying which parameter had the error in it. For example: to the
+request <code>https://api.hh.ru/employers?type=abracadabra</code> the <code>400 Bad Request</code>
+response will be returned with the body:</p>
+
+<div class="codehilite"><pre><code>    <span class="p">{</span>
+        <span class="nt">&quot;bad_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown type&quot;</span>
+            <span class="p">}</span>
+         <span class="p">]</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p><a name="item" /></p>
+
+<h2 id="employercompany">Employer/company</h2>
+
+<p><code>GET /employers/{employer_id}</code> returns the data about the company with a link
+to the company's vacancies.</p>
+
+<div class="codehilite"><pre><code>    <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;company&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;site_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;branded_description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;style&gt;...&lt;/style&gt;&lt;div&gt;...&lt;/div&gt;&lt;script&gt;&lt;/script&gt;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vacancies_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?employer_id=1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/2352807.png&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p><code>branded_description</code> – a string with the HTML code (<code>&lt;script/&gt;</code> and <code>&lt;style/&gt;</code>
+presence is possible), which is an alternative to the standard company
+description. HTML is adapted for mobile devices and is displayed correctly
+without any javascript support. At that:</p>
 
 <ul>
-<li><code>404 Not Found</code> – указанный соискатель не найден.</li>
-<li><code>403 Forbidden</code> – получение комментариев не доступно для текущего
-пользователя.</li>
+<li>Content width extends for 100% of the container width and is fit in 300px
+without any scrolling.</li>
+<li>Content is intended to be put in a binding that consists of the name, logo,
+website and a link to the company's vacancies.</li>
+<li>Images that can be found in such a description are adapted for retina
+displays.</li>
+<li>Font size is no less than 12px, line spacing is no less than 16px.</li>
 </ul>
+
+<p>The value can be null, if the company doesn't have an individual description.</p>
+
+<p><code>vacancies_url</code> – a link to the search results of the company's vacancies.</p>
+
+<p><code>logo_urls</code> – company logo images of different sizes.</p>
+
+<p><code>original</code> – an unedited logo, which can be big in size. If the originally
+uploaded logo is smaller than 240px and/or 90px in its smaller side,
+the corresponding keys will have links to the original images. Object
+can be null, if the company hasn't uploaded its logo. The client should foresee
+the possibility of the logo missing in the indicated link (response with the
+<code>404 Not Found</code> code).</p>
+
+<p><code>type</code> – company type (direct employer, employment agency, etc). Possible values
+are described in the <a href="dictionaries.md.html">directory collection</a> under the
+employer_type key.</p>
+
+<p>Example: <a href="https://api.hh.ru/employers/1455?locale=EN">https://api.hh.ru/employers/1455?locale=EN</a></p>
 
     </article>
     </body>

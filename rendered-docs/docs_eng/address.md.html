@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Комментарии к соискателю</title>
+        <title>Headhunter API</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,109 +735,10 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Комментарии к соискателю</h1>
-
-<p><a name="list" /></p>
-
-<h2 id="-2">Список комментариев</h2>
-
-<p>Получение списка комментариев доступно только работодателю. Список будет
-содержать комментарии текущего пользователя, а также комментарии других
-менеджеров компании, если они открыли доступ к ним при публикации.</p>
-
-<h3 id="-3">Запрос</h3>
-
-<p>Нет необходимости собирать url запроса вручную, его нужно получать из
-<a href="resumes.md.html#owner-field">поля owner в резюме</a></p>
-
-<p><code>GET /applicant_comments/{applicant_id}</code></p>
-
-<p>где <code>applicant_id</code> – идентификатор соискателя.</p>
-
-<p>Дополнительные параметры запроса:</p>
-
-<ul>
-<li><a href="general.md.html#pagination">параметры пагинации <code>page</code>, <code>per_page</code></a></li>
-<li><code>order_by</code> - сортировка комментариев, доступные значения в
-<a href="dictionaries.md.html">справочнике <code>applicant_comments_order</code></a></li>
-</ul>
-
-<h3 id="-4">Ответ</h3>
-
-<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
-
-<div class="codehilite"><pre><code><span class="p">{</span>
-    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:19:55+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;обратить внимание на данного кандидата\nсрочно!&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванова Мария Ивановна&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:30:14+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123654&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;не считаю нужным&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<table>
-<thead>
-<tr>
-  <th>ключ</th>
-  <th>тип</th>
-  <th>описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>author.full_name</td>
-  <td>строка</td>
-  <td>ФИО автора комментария</td>
-</tr>
-<tr>
-  <td>created_at</td>
-  <td>строка, дата</td>
-  <td>дата создания комментария</td>
-</tr>
-<tr>
-  <td>id</td>
-  <td>строка</td>
-  <td>уникальный идентификатор комментария</td>
-</tr>
-<tr>
-  <td>is_mine</td>
-  <td>логический</td>
-  <td>комментарий написан текущем пользователем?</td>
-</tr>
-<tr>
-  <td>text</td>
-  <td>строка</td>
-  <td>содержание комментария, текст, который может содержать символы новой строки</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="-5">Ошибки</h3>
-
-<ul>
-<li><code>404 Not Found</code> – указанный соискатель не найден.</li>
-<li><code>403 Forbidden</code> – получение комментариев не доступно для текущего
-пользователя.</li>
-</ul>
+    <p>Documentation translation for this article is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/address.md.html.html">machine translation</a> powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
 
     </article>
     </body>

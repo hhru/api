@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Комментарии к соискателю</title>
+        <title>Headhunter API</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,109 +735,275 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Комментарии к соискателю</h1>
-
-<p><a name="list" /></p>
-
-<h2 id="-2">Список комментариев</h2>
-
-<p>Получение списка комментариев доступно только работодателю. Список будет
-содержать комментарии текущего пользователя, а также комментарии других
-менеджеров компании, если они открыли доступ к ним при публикации.</p>
-
-<h3 id="-3">Запрос</h3>
-
-<p>Нет необходимости собирать url запроса вручную, его нужно получать из
-<a href="resumes.md.html#owner-field">поля owner в резюме</a></p>
-
-<p><code>GET /applicant_comments/{applicant_id}</code></p>
-
-<p>где <code>applicant_id</code> – идентификатор соискателя.</p>
-
-<p>Дополнительные параметры запроса:</p>
+    <h1 id="current-user">Current user</h1>
 
 <ul>
-<li><a href="general.md.html#pagination">параметры пагинации <code>page</code>, <code>per_page</code></a></li>
-<li><code>order_by</code> - сортировка комментариев, доступные значения в
-<a href="dictionaries.md.html">справочнике <code>applicant_comments_order</code></a></li>
+<li><a href="#info">Obtaining information on the current user</a></li>
+<li><a href="#edit">Editing information on the current user</a></li>
 </ul>
 
-<h3 id="-4">Ответ</h3>
+<p><a name="info" /></p>
 
-<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
+<h2 id="obtaining-information-on-the-current-user">Obtaining information on the current user</h2>
+
+<p><code>GET /me</code> will return information on the current authorized user. In case of
+incorrect authorization, the server will return the <code>403 Forbidden</code> response.</p>
 
 <div class="codehilite"><pre><code><span class="p">{</span>
-    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:19:55+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;обратить внимание на данного кандидата\nсрочно!&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванова Мария Ивановна&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:30:14+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123654&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;не считаю нужным&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Last name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;First name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Middle name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;is_admin&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;is_applicant&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;is_employer&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;contact@example.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;manager_id&quot;</span><span class="p">:</span> <span class="s2">&quot;87654321&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;unread_negotiations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;new_resume_views&quot;</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;is_in_search&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;resumes_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/mine&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;negotiations_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <table>
 <thead>
 <tr>
-  <th>ключ</th>
-  <th>тип</th>
-  <th>описание</th>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>author.full_name</td>
-  <td>строка</td>
-  <td>ФИО автора комментария</td>
-</tr>
-<tr>
-  <td>created_at</td>
-  <td>строка, дата</td>
-  <td>дата создания комментария</td>
-</tr>
-<tr>
   <td>id</td>
-  <td>строка</td>
-  <td>уникальный идентификатор комментария</td>
+  <td>string</td>
+  <td>user identifier</td>
 </tr>
 <tr>
-  <td>is_mine</td>
-  <td>логический</td>
-  <td>комментарий написан текущем пользователем?</td>
+  <td>last_name</td>
+  <td>string</td>
+  <td>last name</td>
 </tr>
 <tr>
-  <td>text</td>
-  <td>строка</td>
-  <td>содержание комментария, текст, который может содержать символы новой строки</td>
+  <td>first_name</td>
+  <td>string</td>
+  <td>first name</td>
+</tr>
+<tr>
+  <td>middle_name</td>
+  <td>string</td>
+  <td>middle name</td>
+</tr>
+<tr>
+  <td>is_admin</td>
+  <td>logical</td>
+  <td>whether the user is the website administrator</td>
+</tr>
+<tr>
+  <td>is_applicant</td>
+  <td>logical</td>
+  <td>true, if the user is an applicant</td>
+</tr>
+<tr>
+  <td>is_employer</td>
+  <td>logical</td>
+  <td>true, if the user is an employer</td>
+</tr>
+<tr>
+  <td>email</td>
+  <td>string</td>
+  <td>email</td>
+</tr>
+<tr>
+  <td>employer</td>
+  <td>object, null</td>
+  <td>information on the company, if the current user is an employer</td>
+</tr>
+<tr>
+  <td>personal_manager</td>
+  <td>object, null</td>
+  <td>information on the personal manger, if the current user is an employer</td>
+</tr>
+<tr>
+  <td>is_in_search</td>
+  <td>logical, null</td>
+  <td>checkbox "looking/not looking for a job", if the current user is an applicant</td>
+</tr>
+<tr>
+  <td>resumes_url</td>
+  <td>string</td>
+  <td>link to the api-service of the current user's resume list</td>
+</tr>
+<tr>
+  <td>negotiations_url</td>
+  <td>string</td>
+  <td>link to the api-service of the current user's application/invitation list</td>
+</tr>
+<tr>
+  <td>counters</td>
+  <td>no object</td>
+  <td>information on counters, if the current user is an applicant</td>
 </tr>
 </tbody>
 </table>
 
-<h3 id="-5">Ошибки</h3>
+<h4 id="object-employer">Object <code>employer</code></h4>
 
-<ul>
-<li><code>404 Not Found</code> – указанный соискатель не найден.</li>
-<li><code>403 Forbidden</code> – получение комментариев не доступно для текущего
-пользователя.</li>
-</ul>
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>company identifier</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>company name</td>
+</tr>
+<tr>
+  <td>manager_id</td>
+  <td>string</td>
+  <td>identifier of the current user as the company manager</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="object-personal_manager">Object <code>personal_manager</code></h4>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Personal manager's identifier</td>
+</tr>
+<tr>
+  <td>email</td>
+  <td>string</td>
+  <td>Personal manager's email</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="object-counters">Object <code>counters</code></h4>
+
+<p>All key values are numbers.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>unread_negotiations</td>
+  <td>The number of new unread messages (which have <code>has_updates: true</code>)</td>
+</tr>
+<tr>
+  <td>new_resume_views</td>
+  <td>General number of new views of all the resumes of the current user</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="edit" /></p>
+
+<h2 id="editing-information-on-the-current-user">Editing information on the current user</h2>
+
+<p>To edit the last name, first name or middle name, and also to check or uncheck
+the check box "looking/not looking for a job", you should send a POST request to
+<code>/me</code>. Data can be edited only in groups:</p>
+
+<h3 id="full-name">Full name</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>last_name</td>
+  <td>string</td>
+  <td>last name, the field can't be empty</td>
+</tr>
+<tr>
+  <td>first_name</td>
+  <td>string</td>
+  <td>first name, the field can't be empty</td>
+</tr>
+<tr>
+  <td>middle_name</td>
+  <td>string</td>
+  <td>middle name, the field can't be empty</td>
+</tr>
+</tbody>
+</table>
+
+<p>All the group fields must be sent in the request, for example:</p>
+
+<pre><code>POST /me
+last_name=Ivanov&amp;first_name=Ivan&amp;middle_name=
+</code></pre>
+
+<p>If not all the fields are indicated in the request, then the <code>400 Bad Request</code>
+response will be returned.</p>
+
+<h3 id="checkbox-lookingnot-looking-for-a-job">Checkbox "looking/not looking for a job"</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>is_in_search</td>
+  <td>string</td>
+  <td>true/false</td>
+</tr>
+</tbody>
+</table>
+
+<p>Example:</p>
+
+<pre><code>POST /me
+is_in_search=true
+</code></pre>
+
+<p>A request with parameters from different groups will have the <code>400 Bad Request</code>
+response returned.</p>
 
     </article>
     </body>

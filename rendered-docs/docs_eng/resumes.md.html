@@ -1,0 +1,1516 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Headhunter API</title>
+        <style>
+        .codehilite .hll { background-color: #ffffcc }
+.codehilite .c { color: #999988; font-style: italic } /* Comment */
+.codehilite .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.codehilite .k { color: #000000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #000000; font-weight: bold } /* Operator */
+.codehilite .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+.codehilite .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.codehilite .ge { color: #000000; font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #aa0000 } /* Generic.Error */
+.codehilite .gh { color: #999999 } /* Generic.Heading */
+.codehilite .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #555555 } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #aaaaaa } /* Generic.Subheading */
+.codehilite .gt { color: #aa0000 } /* Generic.Traceback */
+.codehilite .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+.codehilite .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.codehilite .m { color: #009999 } /* Literal.Number */
+.codehilite .s { color: #d01040 } /* Literal.String */
+.codehilite .na { color: #008080 } /* Name.Attribute */
+.codehilite .nb { color: #0086B3 } /* Name.Builtin */
+.codehilite .nc { color: #445588; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #008080 } /* Name.Constant */
+.codehilite .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+.codehilite .ni { color: #800080 } /* Name.Entity */
+.codehilite .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #990000; font-weight: bold } /* Name.Function */
+.codehilite .nl { color: #990000; font-weight: bold } /* Name.Label */
+.codehilite .nn { color: #555555 } /* Name.Namespace */
+.codehilite .nt { color: #000080 } /* Name.Tag */
+.codehilite .nv { color: #008080 } /* Name.Variable */
+.codehilite .ow { color: #000000; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mf { color: #009999 } /* Literal.Number.Float */
+.codehilite .mh { color: #009999 } /* Literal.Number.Hex */
+.codehilite .mi { color: #009999 } /* Literal.Number.Integer */
+.codehilite .mo { color: #009999 } /* Literal.Number.Oct */
+.codehilite .sb { color: #d01040 } /* Literal.String.Backtick */
+.codehilite .sc { color: #d01040 } /* Literal.String.Char */
+.codehilite .sd { color: #d01040 } /* Literal.String.Doc */
+.codehilite .s2 { color: #d01040 } /* Literal.String.Double */
+.codehilite .se { color: #d01040 } /* Literal.String.Escape */
+.codehilite .sh { color: #d01040 } /* Literal.String.Heredoc */
+.codehilite .si { color: #d01040 } /* Literal.String.Interpol */
+.codehilite .sx { color: #d01040 } /* Literal.String.Other */
+.codehilite .sr { color: #009926 } /* Literal.String.Regex */
+.codehilite .s1 { color: #d01040 } /* Literal.String.Single */
+.codehilite .ss { color: #990073 } /* Literal.String.Symbol */
+.codehilite .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.codehilite .vc { color: #008080 } /* Name.Variable.Class */
+.codehilite .vg { color: #008080 } /* Name.Variable.Global */
+.codehilite .vi { color: #008080 } /* Name.Variable.Instance */
+.codehilite .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff');
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+
+.markdown-body {
+    min-width: 200px;
+    max-width: 790px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+        </style>
+    </head>
+    <body>
+    <article class="markdown-body">
+    <h1 id="cv">CV</h1>
+
+<ul>
+<li><a href="#mine">List of CVs for current user</a></li>
+<li><a href="#search">Search for a CV</a></li>
+<li><a href="#item">View a CV</a></li>
+<li><a href="#paid-services">Paid services related to CVs</a></li>
+<li><a href="#create_edit">CV creation &amp; editing</a></li>
+<li><a href="#publish">CV publication &amp; prolongation</a></li>
+<li><a href="#clone">CV cloning</a></li>
+<li><a href="#conditions">CV fields conditions for editing</a></li>
+<li><a href="#init-conditions">CV fields conditions for creating</a></li>
+<li><a href="#conditions-contacts">CV contact fields conditions</a></li>
+<li><a href="#conditions-other">Additional CV conditions</a></li>
+<li><a href="#resume-nano">CV short representation</a></li>
+<li><a href="#status">CV status</a></li>
+<li><a href="#access_type">CV access type</a></li>
+<li><a href="#views">CV view history</a></li>
+</ul>
+
+<p><a name="mine" /></p>
+
+<h2 id="list-of-cvs-for-current-user">List of CVs for current user</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#mine">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="search" /></p>
+
+<h2 id="search-for-a-cv">Search for a CV</h2>
+
+<p><code>GET /resumes</code> will return the results of CV search.</p>
+
+<hr />
+
+<p><a name="resume-search-request" />
+<strong>CV search is available only when the authorized user is an employer and</strong>
+<strong>the application is in the approved list.</strong></p>
+
+<p>To include your application in this list, send a request in any format to
+<a href="&#x6d;&#x61;i&#108;&#x74;o&#x3a;&#97;&#112;&#x69;&#64;&#x68;&#104;&#46;&#114;&#117;">&#97;&#112;&#x69;&#64;&#x68;&#104;&#46;&#114;&#117;</a>. In the letter, describe:</p>
+
+<ul>
+<li>your application, its purpose and functions,</li>
+<li>Client ID of your application (you can get it
+<a href="https://dev.hh.ru/admin">in your account</a>),</li>
+<li>the reasons why you need access to CV search, how you are going to use CV
+search results,</li>
+<li>if possible, attach models/screenshots/prototypes to your letter.</li>
+</ul>
+
+<p>Inclusion in the list is free of charge. All the other API capabilities, except
+CV search, are available immediately without the need of approval.</p>
+
+<hr />
+
+<p>When the authorized user is an applicant or anonymous, a <code>403</code> error will return.</p>
+
+<p><a name="search-results" /></p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2099341</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Aspiring specialist&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanovich&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;can_view_full_info&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/resume/0123456789abcdef&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-06T12:00:00+0300&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-20T16:24:15+0300&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-01&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;primary&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russian State Social University, Moscow&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name_id&quot;</span><span class="p">:</span> <span class="s2">&quot;39420&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Faculty of Information Technology&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;organization_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;Computer science&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;result_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2012</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">118</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;shepherd&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2010-01-01&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Horns and Hoofs&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;51.643&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Land and building improvement and cleaning&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;29.503&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Farming, plant cultivation, cattle breeding&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="kc">null</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2005-01-01&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-03-01&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7.513&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Internet company (search engines, payment systems, social networks, educational resources, website promotion, etc)&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/logo/1455&quot;</span>
+                        <span class="p">},</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Male&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">,</span>
+                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/applicant_comments/123456&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Field output settings in CV search don't affect output in the API.</p>
+
+<p>CV is not fully displayed. The experience object lacks the description (the
+<code>description</code> field), and the position (the <code>position</code> field) is available only
+in the latest experience. Only the main education is displayed.</p>
+
+<p>Contact information (full name) will be displayed only with paid access.</p>
+
+<p>To obtain full information, you should request <a href="#item">the full CV</a>.
+The applicant will have the CV request displayed in the view history.</p>
+
+<p>CV fields are similar to the
+<a href="#resume-keys">fields that are displayed when editing the CV</a>.</p>
+
+<p>The employer will have an additional field <code>owner.comments.url</code>.
+containing url. GET request on it will return
+<a href="applicant_comments.md.html#list">applicant comment list of CV owner</a>.</p>
+
+<p>When indicating paging parameters (page, per_page), a restriction takes effect:
+the number of results returned can't exceed 2000. For instance, a request
+<code>per_page=10&amp;page=199</code> (displaying CVs from 1991 to 2000) is possible, but a
+request with <code>per_page=10&amp;page=200</code> will return an error (displaying CVs from
+2001 to 2010).</p>
+
+<p><a name="search-params"/></p>
+
+<h3 id="acceptable-parameters">Acceptable parameters</h3>
+
+<p>Some parameters take multiple values: <code>key=value&amp;key=value</code>.</p>
+
+<ul>
+<li><p><code>text</code> – search phrase. Finds CVs that have all the words from the set phrase.
+Several values can be indicated. Each additional
+<code>text</code> refines the search. You can use
+<a href="http://hh.ru/article.xml?articleId=1175">search query language</a> as a search
+phrase. There is <a href="suggests.md.html#resume-search-keyword">autocompletion</a> special
+for the field. To tune the phrase settings, you can use the following parameters:
+<code>text.logic</code>, <code>text.field</code>, <code>text.period</code>. When using extra <code>text.*</code> fields,
+you must indicate the whole set (triad) of parameters. If parameters are
+indicated incorrectly or there is an incorrect parameter set,
+<code>400 Bad request</code> will be returned.</p></li>
+<li><p><code>text.logic</code> – describes how the search works. Directory with possible values:
+<code>resume_search_logic</code> in <a href="dictionaries.md.html">/dictionaries</a>.</p></li>
+<li><p><code>text.field</code> – describes where words from the <code>text</code> search
+phrase should be found. In the text.field parameter you can
+indicate several values separated by commas, e.g.
+<code>?text.field=education,keywords</code>. Directory with possible values:
+<code>resume_search_fields</code> in <a href="dictionaries.md.html">/dictionaries</a>.</p></li>
+<li><p><code>text.period</code> – a period for searching in work experience. The parameter
+works only when <code>text.field</code> equals one of: <code>experience</code>, <code>experience_company</code>,
+<code>experience_position</code>, <code>experience_description</code> parameters, but is must always
+be indicated when indicating other <code>text.*</code> parameters. In this case it can
+be empty.</p></li>
+</ul>
+
+<hr />
+
+<p>For example:</p>
+
+<ul>
+<li><code>GET /resumes?text=programmer</code> – will return all CVs that have the given word
+'programmer' in any place.</li>
+<li><code>GET /resumes?text=programmer&amp;text=java</code> – finds all CVs that have the words
+'programmer' and 'java' in any place.</li>
+<li><code>GET /resumes?text=programmer%20java&amp;text.logic=any&amp;text.field=everywhere&amp;text.period=all_time</code> –
+will find a CV that has a word from the given phrase in the <code>text</code> parameter
+('programmer' or 'java') in any place. If extra fields are used, all of them
+must be indicated.</li>
+<li><code>GET /resumes?text=Headhunter&amp;text.logic=all&amp;text.field=experience&amp;text.period=last_three_years</code> –
+will find all CVs that have the word 'Headhunter' in the last 3 years' work experience.</li>
+<li><code>GET /resumes?text=project%20manager&amp;text.logic=all&amp;text.field=experience%2Cskills&amp;text.period=last_year&amp;text=responsible&amp;text.logic=all&amp;text.field=everywhere&amp;text.period=all_time</code> –
+will find all CVs that have the words 'project' and 'manager', and also
+'responsible' in any place of the work experience and key skills fields.
+It should be noted that extra parameters
+<code>text.logic=all&amp;text.field=experience%2Cskills&amp;text.period=last_year</code>
+are indicated for <code>text=project%20manager</code>, and
+<code>text.logic=all&amp;text.field=everywhere&amp;text.period=all_time</code> for the
+<code>text=responsible</code> parameter.</li>
+</ul>
+
+<hr />
+
+<ul>
+<li><code>age_from</code>, <code>age_to</code> – the applicant's age in years, in the "from... to" range.</li>
+<li><code>area</code> – a region. Directory with possible values: <a href="areas.md.html">/areas</a>.
+You can indicate several values.</li>
+<li><code>relocation</code> – willingness to relocate. Directory with possible values:
+<code>resume_search_relocation</code> in <a href="dictionaries.md.html">/dictionaries</a>. You can
+indicate it only with <code>area</code> parameter.</li>
+<li><code>period</code> – in days, searches CVs published in the given time period.
+If not indicated, the search is performed without any restrictions on
+the publication date.</li>
+<li><code>date_from</code> – the date the search should start from. The value is indicated
+in the <code>dd.mm.yyyy</code> format. You can't indicate it with the <code>period</code> parameter.</li>
+<li><code>date_to</code> – a date until which the search should be performed. The value is
+indicated in the <code>dd.mm.yyyy</code> format. You can indicate it only with the
+<code>date_from</code> parameter. You can't indicate it with the <code>period</code> parameter.</li>
+<li><code>education_level</code> – a level of education. Directory with possible values:
+<code>education_level</code> in <a href="dictionaries.md.html">/dictionaries</a>. If not indicated,
+the search is performed without any restrictions on the education level.</li>
+<li><code>employment</code> – employment type.
+Directory with possible values: <code>employment</code> in
+<a href="dictionaries.md.html">/dictionaries</a>. You can indicate several values.</li>
+<li><code>experience</code> – work experience. Directory with possible values: <code>experience</code>
+in <a href="dictionaries.md.html">/dictionaries</a>.</li>
+<li><code>skill</code> – key skills. At least one key skill identifier is indicated. You
+can get values from the <code>id</code> field in the
+<a href="suggests.md.html#key-skills">key skills suggestion</a>.</li>
+<li><code>gender</code> – a gender. Directory with possible values: <code>gender</code> in
+<a href="dictionaries.md.html">/dictionaries</a>.</li>
+<li><code>label</code> – an extra filter. Directory with possible values:
+<code>resume_search_label</code> in <a href="dictionaries.md.html">/dictionaries</a>. You can indicate
+several values.</li>
+<li><code>language</code> – knowledge of a language. You can indicate several values. It is
+set in the language.level format, where:
+<ul>
+<li><code>language</code> is a value from the <a href="languages.md.html">/languages</a> directory,</li>
+<li><code>level</code> is a value from the <code>language_level</code>
+<a href="dictionaries.md.html">/dictionaries</a> directory.</li>
+</ul></li>
+<li><code>metro</code> – a metro line or station. Directory with possible values:
+<a href="metro.md.html">/metro</a>.</li>
+<li><code>currency</code> – a currency code. Directory with possible values: <code>currency</code>
+(code key) in <a href="dictionaries.md.html">/dictionaries</a>.</li>
+<li><code>salary_from</code>, <code>salary_to</code> – desired salary range, from...to.</li>
+<li><code>schedule</code> – work schedule. Directory with possible values:
+<code>schedule</code> in <a href="dictionaries.md.html">/dictionaries</a>. You can indicate
+several values.</li>
+<li><code>specialization</code> – a professional area or specialization. Directory with
+possible values: <a href="specializations.md.html">/specializations</a>. You can indicate
+several values.</li>
+<li><code>order_by</code> – CV list sorting. Directory with possible values:
+<code>resume_search_order</code> in <a href="dictionaries.md.html">/dictionaries</a>.</li>
+<li><code>per_page</code> – the number of results per page (cannot exceed 50).</li>
+<li><code>page</code> – a page number.</li>
+<li><code>citizenship</code> – a desired country of citizenship. You can find possible
+values in the directory of countries. Several values can be indicated.</li>
+<li><code>work_ticket</code> – a country which the applicant is permitted to work in.
+You can find possible values in the directory of countries. Several
+values can be indicated.</li>
+<li><code>educational_institution</code> – the applicant's educational institutions.
+Suggestions on university names are used as parameters:
+<a href="suggests.md.html">/suggests/educational_institutions</a>. Several values can be indicated.</li>
+</ul>
+
+<p>If parameters contain an error, <code>400 Bad request</code> will be returned in response
+with the error description in the body. Unknown parameters and parameters with
+an error in the name are ignored.</p>
+
+<p><a name="item" /></p>
+
+<h2 id="view-a-cv">View a CV</h2>
+
+<p><code>GET /resumes/{resume_id}</code> returns an indicated CV. If the CV visibility is set
+to "visible to entire Internet" or "by direct link" (<code>everyone</code> and <code>direct</code>
+respectively), it is possible to request the CV without being authorized.</p>
+
+<p>If the user is authorized, more detailed information is available, including
+visibility type and moderators' comments.</p>
+
+<p>If the CV doesn't exist or unavailable for the user, <code>404 Not Found</code> will be
+returned.</p>
+
+<p>If the full info of the CV is unavailable with the current authorization,
+the corresponding fields will have <code>null</code> and field <code>can_view_full_info</code>
+will have <code>false</code> value.</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678901234567890123456789012abcdef&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Last Name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;First Name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Middle Name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;birth_date&quot;</span><span class="p">:</span> <span class="s2">&quot;1980-05-08&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Male&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;portfolio&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;metro&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.658147</span><span class="p">,</span>
+        <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.540957</span><span class="p">,</span>
+        <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;6.41&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kaluzhskaya&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;relocation&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;relocation_possible&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ready to relocate&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;St Petersburg&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/76&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;76&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Rostov-on-Don&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;business_trip_readiness&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;ready&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ready for business trips&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;cell&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cellphone number&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;preferred&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4567890&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Email&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;preferred&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;applicant@example.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;echo123&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;skype&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Skype&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;icq&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ICQ&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Python programmer&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;specialization&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1.221&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Programming, Development&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Information technology, Internet, telecom&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1.89&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Internet&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Information technology, Internet, telecom&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1.9&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Web engineer&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Information technology, Internet, telecom&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Full time&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;schedules&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;fullDay&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Full time&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;flexible&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Flexible schedule&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;elementary&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;School №1923&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2003</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;additional&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Refresher course&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Responsible organization&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;Specialization&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2006</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;attestation&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;IQ test&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;IQ center&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;Intellect qualification&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2005</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;primary&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;K.I. Skryabin Moscow State Academy of Veterinary Medicine, Moscow&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name_id&quot;</span><span class="p">:</span> <span class="s2">&quot;39464&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Faculty of Zootechnology and agrobusiness&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;organization_id&quot;</span><span class="p">:</span> <span class="s2">&quot;25181&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;Social Psychology&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;result_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2000</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;higher&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Higher&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;language&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;rus&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russian&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;native&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;native&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;eng&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;English&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;can_read&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;I read professional literature&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">94</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Employer name&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/113&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;113&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russia&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.rbc.ru&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7.540&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Software development&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;9.399&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mobile communication&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Position&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2005-04-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description of activity in the company&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;skills&quot;</span><span class="p">:</span> <span class="s2">&quot;Additional information: key skills&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;skill_set&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;HTML&quot;</span><span class="p">,</span> <span class="s2">&quot;CSS&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;citizenship&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/113&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;113&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russia&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;work_ticket&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/113&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;113&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russia&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;travel_time&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;any&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Doesn&#39;t matter&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;recommendation&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Petrov Pyotr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;senior research scientist&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Roskosmos&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;contact&quot;</span><span class="p">:</span> <span class="s2">&quot;+7 495 123 45 67&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/resume/12345678901234567890123456789012abcdef&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;resume_locale&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;RU&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russian&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-31T14:27:04+0400&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-17T15:22:55+0400&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;blocked&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;total_views&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;new_views&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;finished&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;not_published&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;not published&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/applicant_comments/123456&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;can_view_full_info&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;_progress&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+        <span class="nt">&quot;mandatory&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;citizenship&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;language&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;skills&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contact&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;education&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;specialization&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;recommended&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;salary&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;middle_name&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;work_ticket&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;site&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;recommendation&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;birth_date&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Documentation translation for this section is in progress.
+For all information see
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#item">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="paid-services"/></p>
+
+<h3 id="paid-services-related-to-cvs">Paid services related to CVs</h3>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#paid-services">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="create_edit" /></p>
+
+<h2 id="cv-creation-editing">CV creation &amp; editing</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#create_edit">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="publish" /></p>
+
+<h2 id="cv-publication-prolongation">CV publication &amp; prolongation</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#publish">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="clone" /></p>
+
+<h2 id="cv-cloning">CV cloning</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#clone">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="conditions" /></p>
+
+<h2 id="cv-fields-conditions-for-editing">CV fields conditions for editing</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#conditions">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="init-conditions" /></p>
+
+<h2 id="cv-fields-conditions-for-creating">CV fields conditions for creating</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#init-conditions">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="conditions-contacts" /></p>
+
+<h2 id="cv-contact-fields-conditions">CV contact fields conditions</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#conditions-contacts">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="conditions-other" /></p>
+
+<h2 id="additional-cv-conditions">Additional CV conditions</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#conditions-other">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="resume-nano" /></p>
+
+<h2 id="cv-short-representation">CV short representation</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#resume-nano">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="status" /></p>
+
+<h2 id="cv-status">CV status</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#status">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="access_type" /></p>
+
+<h2 id="cv-access-type">CV access type</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#access_type">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="views" /></p>
+
+<h2 id="cv-view-history">CV view history</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#views">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+    </article>
+    </body>
+    </html>
+    

@@ -797,12 +797,15 @@ authorization code;</li>
 <li><code>http://www.example.com/oauth/sub/path?lang=RU</code> — всё вместе.</li>
 </ul>
 
-<p>Запрещено:
-* <code>https://example.com/oauth</code> — различные протоколы;
-* <code>http://wwwexample.com/oauth</code> — различные домены;
-* <code>http://wwwexample.com/</code> — другой путь;
-* <code>http://example.com/oauths</code> — другой путь;
-* <code>http://example.com:80/oauths</code> — указание изначально отсутствующего порта;</p>
+<p>Запрещено:</p>
+
+<ul>
+<li><code>https://example.com/oauth</code> — различные протоколы;</li>
+<li><code>http://wwwexample.com/oauth</code> — различные домены;</li>
+<li><code>http://wwwexample.com/</code> — другой путь;</li>
+<li><code>http://example.com/oauths</code> — другой путь;</li>
+<li><code>http://example.com:80/oauths</code> — указание изначально отсутствующего порта;</li>
+</ul>
 
 <p><a name="get-auth-process" /></p>
 

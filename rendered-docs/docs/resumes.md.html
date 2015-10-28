@@ -1716,104 +1716,131 @@ url, GET запрос на который возвращает
 Каждый параметр можно отправлять отдельно от остальных.</p>
 
 <p><a name="resume-keys" />
-Параметры:
-* <code>last_name</code> — фамилия;
-* <code>first_name</code> — имя;
-* <code>middle_name</code> — отчество;
-* <code>birth_date</code> — день рождения (ГГГГ-ММ-ДД);
-* <code>gender</code> — пол. Элемент справочника <a href="dictionaries.md.html">gender</a>;
-* <code>photo</code> — фотография пользователя. см. <a href="artifacts.md.html">артефакты</a>;
-* <code>portfolio</code> — портфолио пользователя. см. <a href="artifacts.md.html">артефакты</a>;
-* <code>area</code> — город проживания. Элемент справочника <a href="areas.md.html">areas</a>;
-* <code>metro</code> — ближайшая станция метро. Элемент справочника <a href="metro.md.html">metro</a>.
-  Имеет смысл указывать только для <code>area</code> с метро;
-* <code>relocation</code> — возможен ли переезд в другой город. Состоит из полей:
-    * <code>type</code> — элемент справочника <a href="dictionaries.md.html">relocation_type</a>;
-    * <code>areas</code> — город, в который возможен переезд (список). Имеет смысл
-      только с соответствующим полем <code>type</code>. Элемент справочника
-      <a href="areas.md.html">areas</a>;
-* <code>business_trip_readiness</code> — готовность к командировкам. Элемент справочника
-  <a href="dictionaries.md.html#resume_trip_readiness">resume_trip_readiness</a>
-* <code>contact</code> — контактная информация (список). Состоит из полей:
-    * <code>type</code> — элемент справочника <a href="dictionaries.md.html">prefered_contact_type</a>
-    * <code>value</code> — значение контакта. Для телефона состоит из трех полей,
-      для электронного адреса — строка.
-    * <code>preferred</code> — предпочитаемый вид связи (<code>true</code> или <code>false</code>);
-    * <code>comment</code> — комментарий к контакту;
-* <code>site</code> — присутствие на других сайтах. Состоит из полей:
-    * <code>type</code> — тип сайта. Элемент справочника
-      <a href="dictionaries.md.html">resume_contacts_site_type</a>;
-    * <code>url</code> — ссылка на профиль, либо идентификатор на строннем сайте/сервисе;
-* <code>title</code> — желаемая должность;
-* <code>specialization</code> — специализация соискателя (список). Элемент справочника
-  <a href="specializations.md.html">specializations</a>;
-* <code>salary</code> — желаемая зарпалат. Состоит из полей:
-    * <code>amount</code> — сумма;
-    * <code>currency</code> — идентификатор <a href="dictionaries.md.html">валюты</a>;
-* <code>employment</code> — занятость. Элемет справочника <a href="dictionaries.md.html">employment</a>
-* <code>schedules</code> — график работы. Список из элементов справочника <a href="dictionaries.md.html">schedule</a>
-* <code>education</code> — образование. Состоит из полей:
-    * <code>elementary</code> — среднее образование (список). Обычно заполняется только
-       при отсутствии высшего образования. Состоит из полей:
-        * <code>year</code> — год окончания;
-        * <code>name</code> — название учебного заведения;
-    * <code>additional</code> — курсы повышения квалификации (список). Состоит из полей:
-        * <code>organization</code> — организация, проводившая курс;
-        * <code>name</code> — название курса;
-        * <code>result</code> — специальность / специализация;
-        * <code>year</code> — год окончания;
-    * <code>attestation</code> — тесты, экзамены (список):
-        * <code>organization</code> — организация, проводившая тест или экзамен;
-        * <code>name</code> — название тест или экзамена;
-        * <code>result</code> — специальность / специализация;
-        * <code>year</code> — год сдачи;
-    * <code>primary</code> — образование выше среднего (список). Состоит из полей:
-        * <code>name</code> — название учебного заведения;
-        * <code>name_id</code> — идентификатор учебного заведения, можно получить из
-          <a href="suggests.md.html#universities">подсказок по названиям вузов</a>;
-        * <code>organization</code> — факультет;
-        * <code>organization_id</code> — идентификатор факультета, можно получить из
-          <a href="faculties.md.html">справочника факультетов</a>;
-        * <code>result</code> — специальность / специализация;
-        * <code>result_id</code> — идентификатор специальности / специализации, можно
-          получить из
-          <a href="suggests.md.html#specializations">подсказок по специализациям</a>;
-        * <code>year</code> — год окончания;
-    * <code>level</code> — уровень образования. Элемент справочника
-      <a href="dictionaries.md.html">education_level</a>
-* <code>language</code> — владение языками (список). Состоит из элемента справочника
-  <a href="languages.md.html">languages</a> с добавлением <a href="dictionaries.md.html">language_level</a>
-  в поле <code>level</code>;
-* <code>experience</code> — опыт работы (список). Состоит из полей:
-    * <code>company</code> — организация;
-    * <code>company_id</code> — идентификатор организации, можно получить из
-      <a href="suggets.md.html#companies">подсказок по организациям</a>;
-    * <code>area</code> — регион расположения орагнизации. Элемента справочника
-      <a href="areas.md.html">areas</a>;
-    * <code>company_url</code> — сайт компании;
-    * <code>industries</code> — отрасли компании. Элемент справочника
-      <a href="industries.md.html">/industries</a>
-    * <code>position</code> — должность;
-    * <code>start</code> — начало работы (ГГГГ-ММ-ДД);
-    * <code>end</code> — окончание работы (ГГГГ-ММ-ДД);
-    * <code>description</code> — обязанности, функции, достижения;
-* <code>total_experience</code> — общий опыт работы. <code>null</code> - если опыта работы нет. Если
-  опыт есть - объект из полей:
-    * <code>months</code> — целое число, количество месяцев общего опыта работы с округлением до месяца;
-* <code>skills</code> — дополнительная информация, описание навыков в свободной форме;
-* <code>skill_set</code> — ключевые навыки (список уникальных строк).
-* <code>citizenship</code> — гражданство (список). Элемента справочника <a href="areas.md.html">areas</a>;
-* <code>work_ticket</code> — разрешение на работу (список). Элемента справочника
-  <a href="areas.md.html">areas</a>;
-* <code>travel_time</code> — желательное время в пути до работы. Элемент справочника
-  [travel_time] (dictionaries.md);
-* <code>recommendation</code> — рекомендации (список). Состоит из полей:
-    * <code>name</code> — имя;
-    * <code>position</code> — должность;
-    * <code>organization</code> — организация;
-    * <code>contact</code> — телефон;
-* <code>resume_locale</code> — локаль резюме. Элемент справочника
-  <a href="locales.md.html">локали резюме</a>.</p>
+Параметры:</p>
+
+<ul>
+<li><code>last_name</code> — фамилия;</li>
+<li><code>first_name</code> — имя;</li>
+<li><code>middle_name</code> — отчество;</li>
+<li><code>birth_date</code> — день рождения (ГГГГ-ММ-ДД);</li>
+<li><code>gender</code> — пол. Элемент справочника <a href="dictionaries.md.html">gender</a>;</li>
+<li><code>photo</code> — фотография пользователя. см. <a href="artifacts.md.html">артефакты</a>;</li>
+<li><code>portfolio</code> — портфолио пользователя. см. <a href="artifacts.md.html">артефакты</a>;</li>
+<li><code>area</code> — город проживания. Элемент справочника <a href="areas.md.html">areas</a>;</li>
+<li><code>metro</code> — ближайшая станция метро. Элемент справочника <a href="metro.md.html">metro</a>.
+Имеет смысл указывать только для <code>area</code> с метро;</li>
+<li><code>relocation</code> — возможен ли переезд в другой город. Состоит из полей:
+<ul>
+<li><code>type</code> — элемент справочника <a href="dictionaries.md.html">relocation_type</a>;</li>
+<li><code>areas</code> — город, в который возможен переезд (список). Имеет смысл
+только с соответствующим полем <code>type</code>. Элемент справочника
+<a href="areas.md.html">areas</a>;</li>
+</ul></li>
+<li><code>business_trip_readiness</code> — готовность к командировкам. Элемент справочника
+<a href="dictionaries.md.html#resume_trip_readiness">resume_trip_readiness</a></li>
+<li><code>contact</code> — контактная информация (список). Состоит из полей:
+<ul>
+<li><code>type</code> — элемент справочника <a href="dictionaries.md.html">prefered_contact_type</a></li>
+<li><code>value</code> — значение контакта. Для телефона состоит из трех полей,
+для электронного адреса — строка.</li>
+<li><code>preferred</code> — предпочитаемый вид связи (<code>true</code> или <code>false</code>);</li>
+<li><code>comment</code> — комментарий к контакту;</li>
+</ul></li>
+<li><code>site</code> — присутствие на других сайтах. Состоит из полей:
+<ul>
+<li><code>type</code> — тип сайта. Элемент справочника
+<a href="dictionaries.md.html">resume_contacts_site_type</a>;</li>
+<li><code>url</code> — ссылка на профиль, либо идентификатор на строннем сайте/сервисе;</li>
+</ul></li>
+<li><code>title</code> — желаемая должность;</li>
+<li><code>specialization</code> — специализация соискателя (список). Элемент справочника
+<a href="specializations.md.html">specializations</a>;</li>
+<li><code>salary</code> — желаемая зарпалат. Состоит из полей:
+<ul>
+<li><code>amount</code> — сумма;</li>
+<li><code>currency</code> — идентификатор <a href="dictionaries.md.html">валюты</a>;</li>
+</ul></li>
+<li><code>employment</code> — занятость. Элемет справочника <a href="dictionaries.md.html">employment</a></li>
+<li><code>schedules</code> — график работы. Список из элементов справочника <a href="dictionaries.md.html">schedule</a></li>
+<li><code>education</code> — образование. Состоит из полей:
+<ul>
+<li><code>elementary</code> — среднее образование (список). Обычно заполняется только
+при отсутствии высшего образования. Состоит из полей:
+<ul>
+<li><code>year</code> — год окончания;</li>
+<li><code>name</code> — название учебного заведения;</li>
+</ul></li>
+<li><code>additional</code> — курсы повышения квалификации (список). Состоит из полей:
+<ul>
+<li><code>organization</code> — организация, проводившая курс;</li>
+<li><code>name</code> — название курса;</li>
+<li><code>result</code> — специальность / специализация;</li>
+<li><code>year</code> — год окончания;</li>
+</ul></li>
+<li><code>attestation</code> — тесты, экзамены (список):
+<ul>
+<li><code>organization</code> — организация, проводившая тест или экзамен;</li>
+<li><code>name</code> — название тест или экзамена;</li>
+<li><code>result</code> — специальность / специализация;</li>
+<li><code>year</code> — год сдачи;</li>
+</ul></li>
+<li><code>primary</code> — образование выше среднего (список). Состоит из полей:
+<ul>
+<li><code>name</code> — название учебного заведения;</li>
+<li><code>name_id</code> — идентификатор учебного заведения, можно получить из
+<a href="suggests.md.html#universities">подсказок по названиям вузов</a>;</li>
+<li><code>organization</code> — факультет;</li>
+<li><code>organization_id</code> — идентификатор факультета, можно получить из
+<a href="faculties.md.html">справочника факультетов</a>;</li>
+<li><code>result</code> — специальность / специализация;</li>
+<li><code>result_id</code> — идентификатор специальности / специализации, можно
+получить из
+<a href="suggests.md.html#specializations">подсказок по специализациям</a>;</li>
+<li><code>year</code> — год окончания;</li>
+</ul></li>
+<li><code>level</code> — уровень образования. Элемент справочника
+<a href="dictionaries.md.html">education_level</a></li>
+</ul></li>
+<li><code>language</code> — владение языками (список). Состоит из элемента справочника
+<a href="languages.md.html">languages</a> с добавлением <a href="dictionaries.md.html">language_level</a>
+в поле <code>level</code>;</li>
+<li><code>experience</code> — опыт работы (список). Состоит из полей:
+<ul>
+<li><code>company</code> — организация;</li>
+<li><code>company_id</code> — идентификатор организации, можно получить из
+<a href="suggets.md.html#companies">подсказок по организациям</a>;</li>
+<li><code>area</code> — регион расположения орагнизации. Элемента справочника
+<a href="areas.md.html">areas</a>;</li>
+<li><code>company_url</code> — сайт компании;</li>
+<li><code>industries</code> — отрасли компании. Элемент справочника
+<a href="industries.md.html">/industries</a></li>
+<li><code>position</code> — должность;</li>
+<li><code>start</code> — начало работы (ГГГГ-ММ-ДД);</li>
+<li><code>end</code> — окончание работы (ГГГГ-ММ-ДД);</li>
+<li><code>description</code> — обязанности, функции, достижения;</li>
+</ul></li>
+<li><code>total_experience</code> — общий опыт работы. <code>null</code> - если опыта работы нет. Если
+опыт есть - объект из полей:
+<ul>
+<li><code>months</code> — целое число, количество месяцев общего опыта работы с округлением до месяца;</li>
+</ul></li>
+<li><code>skills</code> — дополнительная информация, описание навыков в свободной форме;</li>
+<li><code>skill_set</code> — ключевые навыки (список уникальных строк).</li>
+<li><code>citizenship</code> — гражданство (список). Элемента справочника <a href="areas.md.html">areas</a>;</li>
+<li><code>work_ticket</code> — разрешение на работу (список). Элемента справочника
+<a href="areas.md.html">areas</a>;</li>
+<li><code>travel_time</code> — желательное время в пути до работы. Элемент справочника
+<a href="dictionaries.md.html">travel_time</a>;</li>
+<li><code>recommendation</code> — рекомендации (список). Состоит из полей:
+<ul>
+<li><code>name</code> — имя;</li>
+<li><code>position</code> — должность;</li>
+<li><code>organization</code> — организация;</li>
+<li><code>contact</code> — телефон;</li>
+</ul></li>
+<li><code>resume_locale</code> — локаль резюме. Элемент справочника
+<a href="locales.md.html">локали резюме</a>.</li>
+</ul>
 
 <p>Параметры, берущиеся из <a href="suggests.md.html">подсказок</a> (<code>name_id</code>, <code>organization_id</code>,
 <code>result_id</code>, <code>faculty_id</code>, <code>company_id</code>), являются опциональными. При этом, если

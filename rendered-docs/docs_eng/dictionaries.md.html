@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Комментарии к соискателю</title>
+        <title>Headhunter API</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,108 +735,86 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Комментарии к соискателю</h1>
+    <h1 id="directories">Directories</h1>
 
-<p><a name="list" /></p>
+<p><code>GET /dictionaries</code> returns the object with the directories of fields and entities used in our service.
+Most often, each directory consists of a list of objects containing an <code>id</code> and a <code>name</code>.</p>
 
-<h2 id="-2">Список комментариев</h2>
+<p>Example: <a href="https://api.hh.ru/dictionaries?locale=EN">https://api.hh.ru/dictionaries?locale=EN</a></p>
 
-<p>Получение списка комментариев доступно только работодателю. Список будет
-содержать комментарии текущего пользователя, а также комментарии других
-менеджеров компании, если они открыли доступ к ним при публикации.</p>
-
-<h3 id="-3">Запрос</h3>
-
-<p>Нет необходимости собирать url запроса вручную, его нужно получать из
-<a href="resumes.md.html#owner-field">поля owner в резюме</a></p>
-
-<p><code>GET /applicant_comments/{applicant_id}</code></p>
-
-<p>где <code>applicant_id</code> – идентификатор соискателя.</p>
-
-<p>Дополнительные параметры запроса:</p>
+<h2 id="directories-for-fields-used-in-cvs">Directories for fields used in CVs</h2>
 
 <ul>
-<li><a href="general.md.html#pagination">параметры пагинации <code>page</code>, <code>per_page</code></a></li>
-<li><code>order_by</code> - сортировка комментариев, доступные значения в
-<a href="dictionaries.md.html">справочнике <code>applicant_comments_order</code></a></li>
+<li><code>education_level</code> - education</li>
+<li><code>gender</code> - gender</li>
+<li><code>language_level</code> - language level</li>
+<li><code>preferred_contact_type</code> - preferred method of communication</li>
+<li><code>relocation_type</code> - willingness to relocate</li>
+<li><code>travel_time</code> - travel time to work</li>
+<li><code>resume_access_type</code> - CV access level</li>
+<li><code>business_trip_readiness</code> - willingness to travel</li>
+<li><code>resume_contacts_site_type</code> - website type in the "contacts" field</li>
+<li><code>resume_status</code> - CV status</li>
+<li><code>resume_moderation_note</code> - moderator's comment</li>
 </ul>
 
-<h3 id="-4">Ответ</h3>
-
-<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
-
-<div class="codehilite"><pre><code><span class="p">{</span>
-    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:19:55+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;обратить внимание на данного кандидата\nсрочно!&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванова Мария Ивановна&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:30:14+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123654&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;не считаю нужным&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<table>
-<thead>
-<tr>
-  <th>ключ</th>
-  <th>тип</th>
-  <th>описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>author.full_name</td>
-  <td>строка</td>
-  <td>ФИО автора комментария</td>
-</tr>
-<tr>
-  <td>created_at</td>
-  <td>строка, дата</td>
-  <td>дата создания комментария</td>
-</tr>
-<tr>
-  <td>id</td>
-  <td>строка</td>
-  <td>уникальный идентификатор комментария</td>
-</tr>
-<tr>
-  <td>is_mine</td>
-  <td>логический</td>
-  <td>комментарий написан текущем пользователем?</td>
-</tr>
-<tr>
-  <td>text</td>
-  <td>строка</td>
-  <td>содержание комментария, текст, который может содержать символы новой строки</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="-5">Ошибки</h3>
+<h2 id="directories-for-cv-search-parameters">Directories for CV search parameters</h2>
 
 <ul>
-<li><code>404 Not Found</code> – указанный соискатель не найден.</li>
-<li><code>403 Forbidden</code> – получение комментариев не доступно для текущего
-пользователя.</li>
+<li><code>resume_search_order</code> - CV sorting type</li>
+<li><code>resume_search_label</code> - additional filter of CV search results</li>
+<li><code>resume_search_relocation</code> - willingness to relocate</li>
+<li><code>resume_search_experience_period</code> - search in work experience for the indicated period</li>
+<li><code>resume_search_logic</code> - search logic by phrase</li>
+<li><code>resume_search_fields</code> - parts of CV to search in</li>
+</ul>
+
+<h2 id="directories-for-vacancy-fields">Directories for vacancy fields</h2>
+
+<ul>
+<li><code>employment</code> - employment type</li>
+<li><code>experience</code> - work experience</li>
+<li><code>schedule</code> - work schedule</li>
+<li><code>vacancy_type</code> - vacancy type</li>
+<li><code>vacancy_label</code> - vacancy tags</li>
+<li><code>vacancy_relation</code> - types of vacancy connection to the user</li>
+<li><code>vacancy_billing_type</code> - vacancy placement options with relation to billing</li>
+<li><code>vacancy_site</code> - possible website values for vacancy placement</li>
+</ul>
+
+<h2 id="directories-for-vacancy-search-parameters">Directories for vacancy search parameters</h2>
+
+<ul>
+<li><code>vacancy_search_fields</code> - vacancy search field</li>
+<li><code>vacancy_search_order</code> - vacancy sorting type</li>
+<li><code>vacancy_cluster</code> - cluster type</li>
+</ul>
+
+<h2 id="directories-for-sorting-employers-vacancies">Directories for sorting employer's vacancies</h2>
+
+<ul>
+<li><code>employer_active_vacancies_order</code> - sorting type of the published vacancy list</li>
+<li><code>employer_archived_vacancies_order</code> - sorting type of the archived vacancy list</li>
+</ul>
+
+<h2 id="directories-for-applications-and-invitations-messaging">Directories for applications and invitations (messaging)</h2>
+
+<ul>
+<li><code>negotiations_order</code> - application display order types</li>
+<li><code>negotiations_state</code> - application state types</li>
+<li><code>messaging_status</code> - status of the message sending possibility in messaging</li>
+<li><code>negotiations_participant_type</code> - types of messaging participants</li>
+</ul>
+
+<h2 id="other-directories">Other directories</h2>
+
+<ul>
+<li><code>site_lang</code> - website language</li>
+<li><code>currency</code> - currency directory</li>
+<li><code>employer_type</code> - employer type</li>
+<li><code>employer_relation</code> - methods of contacting applicants</li>
+<li><code>applicant_comments_order</code> - sorting type of the 
+<a href="applicant_comments.md.html#list">applicant comment list</a></li>
 </ul>
 
     </article>
