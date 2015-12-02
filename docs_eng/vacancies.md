@@ -11,6 +11,7 @@
 * [Vacancy editing](#edit)
 * [Vacancy prolongation](#prolongate)
 
+
 <a name="item"/>
 ## View a vacancy
 
@@ -185,7 +186,11 @@ following fields:
   "manager": {
     "id": "1337"
   },
-  "hidden": false
+  "hidden": false,
+  "branded_template": {
+    "id": "marketing",
+    "name": "Marketing"
+  }
 }
 ```
 
@@ -197,6 +202,10 @@ following fields:
 
 The `manager` object contains information about the manager who posted the
 vacancy.
+
+The `branded_template` object contains information about the
+[branded template](employer_vacancy_branded_templates.md) which is used in
+the vacancy.
 
 The author of the vacancy can also access the `id` key in the `test` object, and
 in the `address` object, they can access:
@@ -586,6 +595,9 @@ vacancy being posted. The format of the data is similar to the
   "test": {
     "id": "42",
     "required": true
+  },
+  "branded_template": {
+    "id": "marketing"
   }
 }
 ```
@@ -642,6 +654,7 @@ vacancy being posted. The format of the data is similar to the
 | allow_messages              | boolean         | ability to [message candidates](http://inboxemp.hh.ru/) on the subject of the vacancy |
 | response_letter_required    | boolean         | demand a cover letter |
 | accept_handicapped          | boolean         | indication that the vacancy is available for disabled applicants |
+| branded_template.id         | string          | <a name="branded-template-field" /> branded template from the [directory](employer_vacancy_branded_templates.md#list) |
 
 
 <a name="creation-results"/>

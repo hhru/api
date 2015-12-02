@@ -200,7 +200,11 @@ null. Список телефонов может быть пустым.
   "manager": {
     "id": "1337"
   },
-  "hidden": false
+  "hidden": false,
+  "branded_template": {
+    "id": "marketing",
+    "name": "Маркетинг"
+  }
 }
 ```
 
@@ -211,6 +215,9 @@ response_notifications | логический | уведомлять ли мен
 hidden | логический | удалена ли вакансия (скрыта из архива)
 
 В объекте `manager` — информация о менеджере, который разместил данную вакансию.
+
+В объекте `branded_template` — информация об используемом в вакансии
+[брендированном шаблоне](employer_vacancy_branded_templates.md).
 
 Также для автора вакансии в объекте `test` доступен ключ `id`, а в объекте
 `address` доступны:
@@ -583,6 +590,9 @@ hidden | логический | удалена ли вакансия (скрыт
   "test": {
     "id": "42",
     "required": true
+  },
+  "branded_template": {
+    "id": "marketing"
   }
 }
 ```
@@ -637,6 +647,7 @@ response_notifications | boolean | уведомлять о новых откли
 allow_messages | boolean | возможность [переписки с кандидатами](http://inboxemp.hh.ru/) по данной вакансии
 response_letter_required | boolean | требовать сопроводительное письмо
 accept_handicapped | boolean | указание, что вакансия доступна для соискателей с инвалидностью
+branded_template.id | string | <a name="branded-template-field" /> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
 
 
 <a name="creation-results"/>
