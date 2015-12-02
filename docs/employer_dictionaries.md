@@ -9,3 +9,4 @@
 * [Департаменты](employer_departments.md)
 * [Тесты](employer_tests.md)
 * [Регионы вакансий](employer_vacancy_areas_active.md)
+* [Брендированные шаблоны вакансий](employer_vacancy_branded_templates.md)

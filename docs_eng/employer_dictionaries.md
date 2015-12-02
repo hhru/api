@@ -1,4 +1,8 @@
-Documentation translation for this article is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_dictionaries.md.html) powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+# Employer directories
+
+* [Address directory](employer_addresses.md)
+* [Manager directory](employer_managers.md)
+* [Department directory](employer_departments.md)
+* [Test directory](employer_tests.md)
+* [List of regions with active vacancies](employer_vacancy_areas_active.md)
+* [List of vacancy branded templates](employer_vacancy_branded_templates.md)
