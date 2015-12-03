@@ -924,7 +924,11 @@ following fields:</p>
   <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;branded_template&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;marketing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marketing&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -957,6 +961,10 @@ following fields:</p>
 
 <p>The <code>manager</code> object contains information about the manager who posted the
 vacancy.</p>
+
+<p>The <code>branded_template</code> object contains information about the
+<a href="employer_vacancy_branded_templates.md.html">branded template</a> which is used in
+the vacancy.</p>
 
 <p>The author of the vacancy can also access the <code>id</code> key in the <code>test</code> object, and
 in the <code>address</code> object, they can access:</p>
@@ -1380,6 +1388,9 @@ for search.</li>
   <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;42&quot;</span><span class="p">,</span>
     <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;branded_template&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;marketing&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1608,6 +1619,11 @@ the key is an array of objects.</p></li>
   <td>boolean</td>
   <td>indication that the vacancy is available for disabled applicants</td>
 </tr>
+<tr>
+  <td>branded_template.id</td>
+  <td>string</td>
+  <td><a name="branded-template-field" /> branded template from the <a href="employer_vacancy_branded_templates.md.html#list">directory</a></td>
+</tr>
 </tbody>
 </table>
 
@@ -1616,7 +1632,7 @@ the key is an array of objects.</p></li>
 <h3 id="request-result">Request result</h3>
 
 <ul>
-<li><code>204 No Content</code> – successful addition. The <code>Location</code> title will contain a
+<li><code>201 Created</code> – successful addition. The <code>Location</code> title will contain a
 link to the vacancy added.</li>
 <li><code>403 Forbidden</code> – vacancy addition is not permitted for this user or vacancy
 addition is not permitted, as a vacancy with similar data has already been

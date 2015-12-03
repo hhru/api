@@ -940,7 +940,11 @@ null. Список телефонов может быть пустым.</p>
   <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;branded_template&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;marketing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Маркетинг&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -972,6 +976,9 @@ null. Список телефонов может быть пустым.</p>
 </table>
 
 <p>В объекте <code>manager</code> — информация о менеджере, который разместил данную вакансию.</p>
+
+<p>В объекте <code>branded_template</code> — информация об используемом в вакансии
+<a href="employer_vacancy_branded_templates.md.html">брендированном шаблоне</a>.</p>
 
 <p>Также для автора вакансии в объекте <code>test</code> доступен ключ <code>id</code>, а в объекте
 <code>address</code> доступны:</p>
@@ -1382,6 +1389,9 @@ null. Список телефонов может быть пустым.</p>
   <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;42&quot;</span><span class="p">,</span>
     <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;branded_template&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;marketing&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1609,6 +1619,11 @@ null. Список телефонов может быть пустым.</p>
   <td>boolean</td>
   <td>указание, что вакансия доступна для соискателей с инвалидностью</td>
 </tr>
+<tr>
+  <td>branded_template.id</td>
+  <td>string</td>
+  <td><a name="branded-template-field" /> брендированное оформление вакансии из <a href="employer_vacancy_branded_templates.md.html#list">справочника</a></td>
+</tr>
 </tbody>
 </table>
 
@@ -1617,7 +1632,7 @@ null. Список телефонов может быть пустым.</p>
 <h3 id="-12">Результат запроса</h3>
 
 <ul>
-<li><code>204 No Content</code> - успешное добавление. В заголовке <code>Location</code> будет
+<li><code>201 Created</code> - успешное добавление. В заголовке <code>Location</code> будет
 содержаться ссылка на добавленную вакансию.</li>
 <li><code>403 Forbidden</code> - добавление вакансий недоступно данному пользователю или
 добавление вакансии недоступно, так как вакансия с похожими

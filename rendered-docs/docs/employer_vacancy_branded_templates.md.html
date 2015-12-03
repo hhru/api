@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Справочники работодателя</title>
+        <title>Брендированные шаблоны вакансий работодателя</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,18 +735,60 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Справочники работодателя</h1>
+    <h1>Брендированные шаблоны вакансий работодателя</h1>
 
-<p>В различных запросах может использоваться ранее введённая работодателем информация, к примеру, адреса офисов компании.
-Для того, чтобы предоставить доступ к этой информации, используются справочники работодателя:</p>
+<p>Использование брендированных шаблонов вакансии доступно работодателям,
+оплатившим и активировавшим соответствующую услугу.
+Подробнее <a href="http://hh.ru/article/2069">на сайте hh.ru</a>.</p>
+
+<p>Брендированные шаблоны можно использовать при
+<a href="vacancies.md.html#branded-template-field">публикации и редактировании вакансий</a>.</p>
+
+<p><a name="list"/></p>
+
+<h2 id="-2">Список</h2>
+
+<p>Список всех шаблонов, которые доступы у работодателя.</p>
+
+<p><a name="list-request"/></p>
+
+<h3 id="-3">Запрос</h3>
+
+<p><code>GET /employers/{employer_id}/vacancy_branded_templates</code></p>
+
+<p>где <code>employer_id</code> – идентификатор компании, который можно узнать при
+<a href="me.md.html#employer-info">получении информации о текущем пользователе</a>.</p>
+
+<p><a name="list-response"/></p>
+
+<h3 id="-4">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит список шаблонов с
+идентификатором и именем шаблона.</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;marketing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Маркетинг&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;tech&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Тех. отдел&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><a name="list-errors"/></p>
+
+<h3 id="-5">Ошибки</h3>
 
 <ul>
-<li><a href="employer_addresses.md.html">Адреса</a></li>
-<li><a href="employer_managers.md.html">Менеджеры</a></li>
-<li><a href="employer_departments.md.html">Департаменты</a></li>
-<li><a href="employer_tests.md.html">Тесты</a></li>
-<li><a href="employer_vacancy_areas_active.md.html">Регионы вакансий</a></li>
-<li><a href="employer_vacancy_branded_templates.md.html">Брендированные шаблоны вакансий</a></li>
+<li><code>404 Not Found</code> – если получение шаблонов по данной компании не доступно или
+компания не существует.</li>
+<li><code>403 Forbidden</code> – если текущий пользователь не авторизован или не является
+работодателем.</li>
 </ul>
 
     </article>
