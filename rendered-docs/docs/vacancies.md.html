@@ -748,6 +748,7 @@
 <li><a href="#conditions">Условия заполнения полей при добавлении и редактировании вакансий</a></li>
 <li><a href="#edit">Редактирование вакансий</a></li>
 <li><a href="#prolongate">Продление вакансий</a></li>
+<li><a href="#prolongate-info">Информация о возможности продления вакансии</a></li>
 </ul>
 
 <p><a name="item"/></p>
@@ -2012,13 +2013,108 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 
 <p><strong>Продление вакансии по стоимости приравнивается к новой публикации</strong></p>
 
-<p>Для продления публикации вакансии необходимо отправить запрос <code>POST /vacancies/{vacancy_id}/prolongate</code>. </p>
-
-<p>Существуют ограничения по продлению вакансии, они могут меняться, на данный момент работают следующие правила:</p>
+<p>Существуют ограничения по продлению вакансии, они могут меняться, на данный
+момент работают следующие правила:</p>
 
 <ul>
 <li>стандартные вакансии можно продлевать, если с предыдущего продления прошло не менее 3 дней.</li>
 <li>вакансии "стандарт-плюс" возможно продлевать не ранее 5 дней до окончания публикации.</li>
+</ul>
+
+<h3 id="-21">Запрос</h3>
+
+<p><code>POST /vacancies/{vacancy_id}/prolongate</code></p>
+
+<p>где <code>vacancy_id</code> - идентификатор вакансии.</p>
+
+<h3 id="-22">Ответ</h3>
+
+<ul>
+<li><code>204 No Content</code> – вакансия продлена успешно</li>
+<li><code>403 Forbidden</code> – текущий пользователь не является работодателем или
+продление невозможно.</li>
+<li><code>404 Not Found</code> – вакансия не существует или текущему пользователю
+недоступно её продление.</li>
+</ul>
+
+<p>Дополнительно к HTTP коду сервер может вернуть
+описание <a href="errors.md.html#vacancies-prolongate">причины ошибки</a>.</p>
+
+<p><a name="prolongate-info"/></p>
+
+<h2 id="-23">Информация о возможности продления вакансии</h2>
+
+<h3 id="-24">Запрос</h3>
+
+<p><code>GET /vacancies/{vacancy_id}/prolongate</code></p>
+
+<p>где <code>vacancy_id</code> - идентификатор вакансии.</p>
+
+<h3 id="-25">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code>.</p>
+
+<p>Пример ответа, когда продление невозможно:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-11-19T17:10:48+0300&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;disable_reason&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard_plus_publication_is_updated_automatically&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Вакансия \&quot;Стандарт Плюс\&quot; не может быть обновлена, это происходит автоматически раз в три дня.&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Пример ответа, когда продление возможно:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-11-19T17:10:48+0300&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/123456789/prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Где:</p>
+
+<ul>
+<li><code>actions</code> – список действий, которые можно предпринять для продления
+вакансии. В данный момент поддерживается только обычное продление.</li>
+<li><code>id</code> – идентификатор вакансии.</li>
+<li><code>expires_at</code> – дата и время окончания публикации вакансии.</li>
+</ul>
+
+<p>По действию доступны данные:</p>
+
+<ul>
+<li><code>id</code> - идентификатор действия,</li>
+<li><code>enabled</code> - возможно ли действие,</li>
+<li><code>disable_reason</code> - причина, по которой совершить действие невозможно.
+Возможные причины перечислены <a href="dictionaries.md.html">в справочнике</a>
+<code>vacancy_not_prolonged_reason</code>.</li>
+<li><code>url</code> и <code>method</code> – url и HTTP метод, с которыми нужно сделать запрос,
+чтобы совершить действие.</li>
+</ul>
+
+<h3 id="-26">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – текущий пользователь не является работодателем.</li>
+<li><code>404 Not Found</code> – вакансия несуществует или текущему пользователю
+недоступно получение информации о вакансии.</li>
 </ul>
 
     </article>

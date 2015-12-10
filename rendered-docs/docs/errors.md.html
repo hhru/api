@@ -1176,6 +1176,56 @@
 </tbody>
 </table>
 
+<p><a name="vacancies-prolongate"/></p>
+
+<h3 id="-12">Продление вакансии</h3>
+
+<p>Помимо кода ошибки при <a href="vacancies.md.html#prolongate">продлении</a> вакансии могут быть
+возвращены следующие ошибки:</p>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>not_enough_purchased_services</td>
+  <td>купленных услуг для продления данного типа вакансии не достаточно</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>quota_exceeded</td>
+  <td>квота менеджера на публикацию данного типа вакансии закончилась</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>prolongation_forbidden</td>
+  <td>продление вакансий недоступно текущему менеджеру</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>unavailable_for_archived</td>
+  <td>продление недоступно для архивной вакансии</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>too_early</td>
+  <td>продление раньше времени</td>
+</tr>
+</tbody>
+</table>
+
     </article>
     </body>
     </html>
