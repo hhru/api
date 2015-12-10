@@ -186,3 +186,17 @@ HTTP code | type | value | описание
 403 | vacancies | unavailable_for_archived | редактирование недоступно для архивной вакансии
 403 | vacancies | conflict_changes | конфликтные изменения данных вакансии ([подробнее](vacancies.md#edit_more))
 
+
+<a name="vacancies-prolongate"/>
+### Продление вакансии
+
+Помимо кода ошибки при [продлении](vacancies.md#prolongate) вакансии могут быть
+возвращены следующие ошибки:
+
+HTTP code | type | value | описание
+----------|------|-------|---------
+403 | vacancies | not_enough_purchased_services | купленных услуг для продления данного типа вакансии не достаточно
+403 | vacancies | quota_exceeded | квота менеджера на публикацию данного типа вакансии закончилась
+403 | vacancies | prolongation_forbidden | продление вакансий недоступно текущему менеджеру
+403 | vacancies | unavailable_for_archived | продление недоступно для архивной вакансии
+403 | vacancies | too_early | продление раньше времени
