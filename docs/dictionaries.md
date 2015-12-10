@@ -58,5 +58,7 @@
 * `currency` - справочник валют
 * `employer_type` - тип работодателя
 * `employer_relation` — типы связи компании с пользователем
+* `vacancy_not_prolonged_reason` — причины, из-за которых невозможно
+  [продлить вакансию](vacancies.md#prolongate-info).
 * `applicant_comments_order` — типы сортировки
   [списка комментариев к соискателю](applicant_comments.md#list)
