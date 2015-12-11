@@ -1,4 +1,25 @@
-Documentation translation for this article is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_vacancy_areas_active.md.html) powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+# List of regions with active vacancies
+
+To filter the list of active vacancies, you can indicate a region in the `area`
+parameter. `GET /employers/{employer_id}/vacancy_areas/active` will show the
+list of regions that currently have active vacancies.
+
+An example of a successful response:
+
+```json
+{
+    "found": 1,
+    "items": [
+        {
+            "id": "1",
+            "name": "Moscow"
+        }
+    ],
+    "page": 0,
+    "pages": 1,
+    "per_page": 1
+}
+```
+
+As opposed to the region directory (`/areas`), this list is a flat, non-treeview
+list. It only contains the tree "leaves", without any "embedded" region objects.
