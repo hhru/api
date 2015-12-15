@@ -735,10 +735,30 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_vacancy_areas_active.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="list-of-regions-with-active-vacancies">List of regions with active vacancies</h1>
+
+<p>To filter the list of active vacancies, you can indicate a region in the <code>area</code>
+parameter. <code>GET /employers/{employer_id}/vacancy_areas/active</code> will show the
+list of regions that currently have active vacancies.</p>
+
+<p>An example of a successful response:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>As opposed to the region directory (<code>/areas</code>), this list is a flat, non-treeview
+list. It only contains the tree "leaves", without any "embedded" region objects.</p>
 
     </article>
     </body>

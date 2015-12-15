@@ -735,10 +735,189 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_vacancies.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="vacancies-for-the-employer">Vacancies for the employer</h1>
+
+<ul>
+<li><a href="#active">Published vacancy list</a></li>
+<li><a href="#archive">Storing vacancies</a></li>
+<li><a href="#archived">Archived vacancy list</a></li>
+<li><a href="#hide">Deleting vacancies</a></li>
+<li><a href="#hidden">Deleted vacancy list</a></li>
+<li><a href="#restore">Restoring deleted vacancies</a></li>
+</ul>
+
+<p>See also:</p>
+
+<ul>
+<li><a href="vacancies.md.html#creation">Vacancy posting</a></li>
+<li><a href="vacancies.md.html#edit">Vacancy editing</a></li>
+<li><a href="vacancies.md.html#prolongate">Vacancy extension</a></li>
+</ul>
+
+<p><a name="active"/></p>
+
+<h2 id="published-vacancy-list">Published vacancy list</h2>
+
+<p><code>GET /employers/{employer_id}/vacancies/active?manager_id={manager_id}</code></p>
+
+<p>To view the list of published vacancies, you should indicate the manager ID even
+if you need to make a request for the current manager (the value can be taken
+from <code>/me</code>).</p>
+
+<p>In addition to the standard vacancy fields, additional fields will be returned:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
+        <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;unread_responses&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;invitations&quot;</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;has_updates&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>key</th>
+  <th>type</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>counters.views</td>
+  <td>number</td>
+  <td>number of vacancy views</td>
+</tr>
+<tr>
+  <td>counters.responses</td>
+  <td>number</td>
+  <td>number of applications for a vacancy</td>
+</tr>
+<tr>
+  <td>counters.unread_responses</td>
+  <td>number</td>
+  <td>number of unread applications for a vacancy</td>
+</tr>
+<tr>
+  <td>counters.invitations</td>
+  <td>number</td>
+  <td>number of invitations for a vacancy</td>
+</tr>
+<tr>
+  <td>expires_at</td>
+  <td>string</td>
+  <td>expiration date for a vacancy posting</td>
+</tr>
+<tr>
+  <td>has_updates</td>
+  <td>boolean</td>
+  <td>Whether there are updates calling for attention in the applications/invitations for the vacancy</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="supported-parameters">Supported parameters</h3>
+
+<p>Apart from standard parameters for pagination <code>per_page</code> and <code>page</code>, the
+collection supports:</p>
+
+<ul>
+<li><code>text</code> – string for searching by vacancy name</li>
+<li><code>area</code> – region id (see
+<a href="employer_vacancy_areas_active.md.html">the list of regions with active vacancies</a>)</li>
+<li><code>order_by</code> – sorting of vacancies, possible options are available in the
+<code>employer_active_vacancies_order</code> directory</li>
+</ul>
+
+<p><a name="archive"/></p>
+
+<h2 id="storing-vacancies">Storing vacancies</h2>
+
+<p>To archive a vacancy, you should send a PUT request:</p>
+
+<p><code>PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}</code></p>
+
+<p>If archived successfully, <code>204 No Content</code> will be returned.</p>
+
+<p><a name="archived"/></p>
+
+<h2 id="archived-vacancy-list">Archived vacancy list</h2>
+
+<p><code>GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}</code></p>
+
+<p>To view the list of archived vacancies, you also need to indicated manager id,
+even if you need to make request for the current manager (the value can be taken
+from <code>/me</code>). Pagination (<code>per_page</code> and <code>page</code>) and sorting (<code>order_by</code>) are
+supported. Possible sorting values are available in the
+<code>employer_archived_vacancies_order</code> (<code>/dictionaries</code>) directory. As opposed to
+the list of published vacancies, this collection does not support search (the
+parameters <code>text</code> and <code>area</code>).</p>
+
+<p>In addition to the standard vacancy fields, additional fields will be returned:</p>
+
+<div class="codehilite"><pre><code>    <span class="p">{</span>
+      <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;archived_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>key</th>
+  <th>type</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>counters.responses</td>
+  <td>number</td>
+  <td>number of applications for a vacancy</td>
+</tr>
+<tr>
+  <td>archived_at</td>
+  <td>string</td>
+  <td>vacancy archivation date</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="hide"/></p>
+
+<h2 id="deleting-vacancies">Deleting vacancies</h2>
+
+<p><code>PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}</code></p>
+
+<p>You can delete only an archived vacancy.
+If performed successfully, <code>204 No Content</code> will be returned.</p>
+
+<p><a name="hidden"/></p>
+
+<h2 id="deleted-vacancy-list">Deleted vacancy list</h2>
+
+<p><code>GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}</code></p>
+
+<p>Pagination (<code>per_page</code> and <code>page</code>) and sorting (<code>order_by</code>) are supported.
+Possible sorting values are available in the <code>employer_hidden_vacancies_order</code>
+(<code>/dictionaries</code>) directory. As opposed to the list of published vacancies, this
+collection does not support search (the parameters <code>text</code> and <code>area</code>).</p>
+
+<p><a name="restore"/></p>
+
+<h2 id="restoring-deleted-vacancies">Restoring deleted vacancies</h2>
+
+<p><code>DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}</code></p>
+
+<p>You can restore only a vacancy deleted from the archive.
+If performed successfully, <code>204 No Content</code> will be returned.
+The vacancy will be returned to the archive.</p>
 
     </article>
     </body>

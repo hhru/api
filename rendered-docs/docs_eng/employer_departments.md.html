@@ -735,10 +735,56 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_departments.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="employers-department-directory">Employer's department directory</h1>
+
+<p>To learn the employer's department list, one should send the <code>GET</code> request to
+<code>/employers/{employer_id}/departments</code>.</p>
+
+<p>This directory is available only for employers.</p>
+
+<p>In case the request is performed successfully, the status <code>HTTP 200 OK</code> 
+will be returned, and the employer's department list will be returned in
+the response body, for example:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18320489-18320489-dept1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DEPT#1&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18320489-18320489-dept2&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DEPT#2&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The <code>items</code> element contains the employer's department list.
+Each element from <code>items</code> has the following fields:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Department identifier</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Department name</td>
+</tr>
+</tbody>
+</table>
+
+<p>In case the current user is not allowed to view the departments of the employer, the code <code>HTTP 403 Forbidden</code> will be returned.</p>
 
     </article>
     </body>

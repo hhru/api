@@ -735,10 +735,57 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_tests.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="employers-test-directory">Employer's test directory</h1>
+
+<p>To learn the list of employer's saved tests, you should send the <code>GET</code> request
+to <code>/employers/{employer_id}/tests</code>.</p>
+
+<p>This directory is available only for employers.</p>
+
+<p>If the request is performed successfully, the status <code>HTTP 200 OK</code>
+will be returned. The employer's test list will be returned in the response
+body, for example:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;75169&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Basic test of C++ knowledge&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;75168&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Logical test&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The <code>items</code> element contains the list of employer's tests.
+Each element from <code>items</code> has the following fields:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Test identifier</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Test title</td>
+</tr>
+</tbody>
+</table>
+
+<p>In case the current user is not allowed to view the employer's tests, the
+<code>HTTP 403 Forbidden</code> code will be returned.</p>
 
     </article>
     </body>

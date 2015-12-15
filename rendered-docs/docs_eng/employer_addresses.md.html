@@ -735,10 +735,59 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_addresses.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="employers-address-directory">Employer's address directory</h1>
+
+<p>Every employer can have several addresses. To learn the address list of a
+particular employer, one should send the <code>GET</code> request to
+<code>/employers/{employer_id}/addresses</code>.</p>
+
+<p>In case of success, the <code>HTTP 200 OK</code> code will be returned, and the response
+body will contain the company address list.</p>
+
+<p>In case the current user is not allowed to view employer's addresses, the <code>HTTP
+403 Forbidden</code> code will be returned.</p>
+
+<p>An example of a successful response:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;117&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;St Petersburg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;Nevsky pr.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;244030&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;metro_stations&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;Kozhevnikova ul.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">35.752123</span><span class="p">,</span>
+            <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">30.610388</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;244029&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;metro_stations&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;line_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sokolnicheskaya&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;station_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1.4&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;line_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.752123</span><span class="p">,</span>
+                    <span class="nt">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Biblioteka imeni Lenina&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.610388</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In a successful response, the <code>items</code> field contains the company address list.
+This list is similar to the <a href="address.md.html">address in the vacancy</a>.
+The <code>id</code> field – address string identifier – is added to each address.</p>
 
     </article>
     </body>
