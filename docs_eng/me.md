@@ -48,7 +48,7 @@ incorrect authorization, the server will return the `403 Forbidden` response.
 | email             | string        | email |
 | employer          | object, null  | information on the company, if the current user is an employer |
 | personal_manager  | object, null  | information on the personal manger, if the current user is an employer |
-| is_in_search      | logical, null | checkbox "looking/not looking for a job", if the current user is an applicant |
+| is_in_search      | logical, null | flag "looking/not looking for a job", if the current user is an applicant |
 | resumes_url       | string        | link to the api-service of the current user's resume list |
 | negotiations_url  | string        | link to the api-service of the current user's application/invitation list |
 | counters          | no object     | information on counters, if the current user is an applicant |
@@ -84,8 +84,8 @@ All key values are numbers.
 <a name="edit" />
 ## Editing information on the current user
 
-To edit the last name, first name or middle name, and also to check or uncheck
-the check box "looking/not looking for a job", you should send a POST request to
+To edit the last name, first name or middle name, and also to set
+the flag "looking/not looking for a job", you should send a POST request to
 `/me`. Data can be edited only in groups:
 
 
@@ -108,7 +108,7 @@ If not all the fields are indicated in the request, then the `400 Bad Request`
 response will be returned.
 
 
-### Checkbox "looking/not looking for a job"
+### Flag "looking/not looking for a job"
 
 | Name           | Type   | Description |
 |----------------|--------|-------------|
