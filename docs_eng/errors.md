@@ -124,29 +124,24 @@ powered by
 
 
 <a name="negotiations"/>
-### Messaging (applications/invitations)
+### Negotiations (responses/invitations)
 
-Apart from [general errors](#general-errors), the following errors may be
+In addition to [general errors](#general-errors), the following errors may be
 returned:
 
-| HTTP code | type         | value                        | description  |
-|-----------|--------------|------------------------------|--------------|
-| 400       | negotiations | vacancy_not_found            | the vacancy has not been found  |
-| 403       | negotiations | invalid_vacancy              | the vacancy has been archived or hidden |
-| 400 / 403 | negotiations | resume_not_found             | the CV has not been found or hidden or deleted |
-| 403       | negotiations | already_applied              | the indicated resume_id+vacancy_id pair already has an application/invitation |
-| 403       | negotiations | test_required                | a test must be passed to apply (at the moment, application for such vacancies in not available via API) |
-| 403       | negotiations | resume_visibility_conflict   | it is impossible to apply for an anonymous vacancy with a CV that has a "white list" visibility |
-| 403       | negotiations | edit_forbidden               | message editing is not permitted |
-| 403       | negotiations | application_denied           | a general application denial error in case when additional information is not available |
-| 400       | negotiations | limit_exceeded               | the application number limit is exceeded |
-
-
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html#negotiations)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+HTTP code| type| value| description
+----------|------|-------|-----------
+403| negotiations| invalid_vacancy| the vacancy from the response/invitation was archived or hidden
+400 / 403| negotiations| resume_not_found| the CV from the response/invitation was hidden or deleted, or not found
+400 / 403| negotiations| limit_exceeded| the limit on the responses/invitations number was exceeded
+403| negotiations| wrong_state| the action on the response/invitation in this status is impossible
+403| negotiations| empty_mail_text| the empty message text was sent
+403| negotiations| too_long_mail_text| the too long message text was sent
+403| negotiations| address_not_found| the address sent for the action does not exist or belongs to another employer
+403| negotiations| not_enough_purchased_services| the paid services are insufficient, usually [CV database service](http://hh.ru/price#dbaccess)
+403| negotiations| in_a_row_limit| the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
+403| negotiations| overall_limit| messages limit exceeded
+403| negotiations| no_invitation| negotiations are unavailable as there was no invitation in the response
 
 
 <a name="vacancies_favorited"/>
@@ -160,11 +155,19 @@ powered by
 
 
 <a name="vacancies-create-n-edit"/>
-### Vacancy posting & editing
+### Vacancy posting and editing
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html#vacancies-create-n-edit)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+In addition to an error code, the following errors may be returned when
+[posting](vacancies.md#creation) and [editing](vacancies.md#edit) a vacancy:
+
+HTTP code| type| value| description
+----------|------|-------|---------
+400| vacancies| *field_name*| error in the vacancy field, where *field_name* – key of the higher level field
+403| vacancies| not_enough_purchased_services| the purchased services are insufficient for posting or update of this type of vacancy
+403| vacancies| quota_exceeded| the manager's quota for posting of this type of vacancies exceeded
+409| vacancies| duplicate| the same vacancy has already been posted, this error can be [disabled forcefully](vacancies.md#creation-results)
+403| vacancies| creation_forbidden| posting of vacancies is unavailable for the current manager
+403| vacancies| unavailable_for_archived| editing of vacancies is unavailable for the archived vacancy
+403| vacancies| conflict_changes| conflicting changes in the vacancy data ([read more](vacancies.md#edit_more))
+
 
