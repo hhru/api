@@ -64,9 +64,9 @@ application at [https://dev.hh.ru](https://dev.hh.ru) and set up the
  * [Specialization suggestions](suggests.md#specializations)
  * [Key skills suggestions](suggests.md#key-skills)
  * [Position suggestions](suggests.md#positions)
- * [Region suggestions](suggests.md#areas)
- * [Resume search keyword suggestions](suggests.md#resume-search-keyword)
- * [Vacancy search keyword suggestions](suggests.md#vacancy-search-keyword)
+ * [Region tips](suggests.md#areas)
+ * [Tips for CV search key words](suggests.md#resume-search-keyword)
+ * [Tips for vacancy search key words](suggests.md#vacancy-search-keyword)
 
 
 <a name="feedback" />

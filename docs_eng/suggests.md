@@ -1,8 +1,7 @@
 # Suggestions
 
-When filling out experience fields, we recommend using suggestion features
-(autocomplete, autosuggest). At the moment, available suggestions cover names of
-universities, faculties, companies, specializations.
+When filling in the experience and education fields, it is recommended to use
+the tips services (autocomplete, autosuggest).
 
 All suggestions work in the same way: they receive text that is a part of the
 suggested meaning, and return a list of relevant elements. The text being
@@ -22,12 +21,11 @@ response body:
 }
 ```
 
-Some suggestions take the `locale` mandatory element – a language of
-suggestions; the list of available languages is similar to the list of CV
-languages and is available on <https://api.hh.ru/locales/resume>. In case a
-suggestion needs a language but it has not been given in the query, `RU` is used
-by default. If an unsupported language is given, the `400 Bad Request`
-error will be returned, with a detailed error description in the response body:
+Some tips accept the required element `locale` – the tip language. Supported
+languages: `RU`, `EN`, `UA`, `AZ`, `KZ`. In case the tip requires a language,
+but it was not included in the request, `RU` language will be used. If an
+unsupported language is specified, the `400 Bad Request` error will be
+returned with detailed error description in the response body:
 
 ```json
 {
@@ -45,9 +43,9 @@ error will be returned, with a detailed error description in the response body:
 * [Specialization suggestions](#specializations)
 * [Key skills suggestions](#key-skills)
 * [Position suggestions](#positions)
-* [Region suggestions](#areas)
-* [Resume search keyword suggestions](#resume-search-keyword)
-* [Vacancy search keyword suggestions](#vacancy-search-keyword)
+* [Region tips](#areas)
+* [Tips for CV search key words](#resume-search-keyword)
+* [Tips for vacancy search key words](#vacancy-search-keyword)
 
 
 <a name="educational_institutions"/>
@@ -206,31 +204,105 @@ If the request is performed successfully, such a response will be returned:
 }
 ```
 
-<a name="areas" />
-## Region suggestions
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/suggests.md.html#areas)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+<a name="areas" />
+## Region tips
+
+`GET /suggests/areas` – tip for all regions.
+
+`GET /suggests/area_leaves – tip for all regions that are leaves in the region
+`tree.
+
+Both tips accept the following parameters:
+
+* `text` – text for searching a region
+* `locale` – tip language
+
+In addition to the region tip, load of the [full region tree](areas.md#areas)
+and [a part of the tree from a specific element](areas.md#item) is available.
+
+Response example:
+
+```json
+{
+  "items": [
+    {
+      "url": "https://api.hh.ru/areas/1",
+      "text": "Moscow",
+      "id": "1"
+    },
+    {
+      "url": "https://api.hh.ru/areas/2019",
+      "text": "Moscow Region",
+      "id": "2019"
+    }
+  ]
+}
+```
 
 
 <a name="resume-search-keyword" />
-## Resume search keyword suggestions
+## Tips for CV search key words
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/suggests.md.html#resume-search-keyword)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+This tip is intended for use in the `text` field when
+[searching for CVs](resumes.md#search-params). The tip displays title names,
+company names, and other phrases that are often used when searching for CVs.
+
+`GET /suggests/resume_search_keyword`
+
+Parameters:
+
+* `text` – text for searching a keyword
+
+
+Response example:
+
+```json
+{
+  "items": [
+    {
+      "text": "Moscow"
+    },
+    {
+      "text": "Bridges"
+    }
+    {
+      "text": "Moscow State Law Academy"
+    }
+  ]
+}
+```
 
 
 <a name="vacancy-search-keyword" />
-## Vacancy search keyword suggestions
+## Tips for vacancy search key words
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/suggests.md.html#vacancy-search-keyword)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+This tip is intended for use in the `text` field when
+[searching for vacancies](vacancies.md#search). The tip displays title names,
+company names, and other phrases that are often used when searching
+for vacancies.
+
+`GET /suggests/vacancy_search_keyword`
+
+Parameters:
+
+* `text` – text for searching a keyword
+
+
+Response example:
+
+```json
+{
+  "items": [
+    {
+      "text": "Java"
+    },
+    {
+      "text": "JavaScript"
+    },
+    {
+      "text": "Java programmer"
+    }
+  ]
+}
+```
