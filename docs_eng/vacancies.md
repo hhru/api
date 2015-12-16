@@ -135,8 +135,24 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
     }
 ```
 
-When requested by an authorized user, the `relations` key returns values from
-the `vacancy_relations` director in [/dictionaries](dictionaries.md).
+`branded_description` – a string with HTML code ( `<script/>` and `<style/>` may
+be present) that is an alternative to a standard vacancy description. The HTML
+code is adapted for mobile devices and displays correctly without javascript
+support enabled. Whereas:
+
+* The content stretches to 100% of the container width and fits within 300px
+  without scrolling.
+* The content is designed to be inserted in a binding including the vacancy
+  name, required experience, region, employment type and work schedule, as well
+  as a link to the company that posted the vacancy.
+* Images that can found in such description are adapted to retina displays.
+* Font size should be at least 12px, line spacing – at least 16px.
+
+The value may be null if the vacancy has no individual description.
+
+If case of an authorized request, the `relations` key returns values from the
+`vacancy_relations` reference in [/dictionaries](dictionaries.md).
+
 
 The `negotiations_url` key returns a link to a list of applications/invitations
 for the vacancy of the current applicant user (for other user types, `null` is
@@ -155,23 +171,22 @@ The `test` key contains information about the test attached to the vacancy. If
 there is no test, `null` is returned. Otherwise, an object with the `required`
 key is returned, which means a test must be taken to complete the application.
 
-The `key_skills` key returns information about key skills indicated in the
-vacancy.
+-----
 
 **At the moment, it is impossible to apply for vacancies that require to take a test via the API.**
+
+-----
+
+The returned `key_skills` key contains information about key skills specified in
+the vacancy.
 
 Possible values `billing_type` and `site` are available in directories in
 [/dictionaries](dictionaries.md) (`vacancy_billing_type` and `vacancy_site`
 respectively).
 
-`allow_messages` - whether the applicant is allowed to write messages after an
-invitation.
+The returned `allow_messages` key specifies whether the applicant will have the
+possibility to create messages after the invitation.
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/vacancies.md.html#item)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
 
 <a name="author"/>
 ## Extra vacancy fields
@@ -258,11 +273,10 @@ Acceptable parameters:
 
 Some parameters take multiple values: `key=value&key=value`.
 
-* `text` – a text field.
-  The given value is searched for in vacancy fields indicated
-  in the `search_field` parameter.
-  Query language is available, as on the main website:
-  [http://hh.ru/article/1175](http://hh.ru/article/1175).
+* `text` – text field.  
+  The sent value is searched in the vacancy fields specified in the `search_field` parameter.  
+  As with the main website, a query language is available: [http://hh.ru/article/1175](http://hh.ru/article/1175).  
+  There is [autoaddition](suggests.md#vacancy-search-keyword) especially for this field.
 
 * `search_field` – an area of search.
   Directory with possible values: `vacancy_search_fields` in
@@ -513,11 +527,11 @@ vacancy being posted. The format of the data is similar to the
 ### Useful links
 
 * [rules for posting vacancies](http://hh.ru/article/341)
-* [how do I formulate a good vacancy description?](http://hh.ru/article/16239)
-* [published vacancy list](employer_vacancies.md#active)
-* [archived vacancies list](employer_vacancies.md#archived)
-* [deleted vacancies list](employer_vacancies.md#hidden)
-* [vacancy fields conditions](#conditions)
+* [how do I formulate a good vacancy description](http://hh.ru/article/16239)
+* [list of posted vacancies](employer_vacancies.md#active)
+* [list of archived vacancies](employer_vacancies.md#archived)
+* [list of deleted vacancies](employer_vacancies.md#hidden)
+* [field filling conditions](#conditions)
 
 
 <a name="creation-example"/>
@@ -660,26 +674,197 @@ vacancy being posted. The format of the data is similar to the
 <a name="creation-results"/>
 ### Request result
 
-* `201 Created` – successful addition. The `Location` title will contain a
-  link to the vacancy added.
-* `403 Forbidden` – vacancy addition is not permitted for this user or vacancy
-  addition is not permitted, as a vacancy with similar data has already been
-  posted by this employer. If you are sure that you want to add the vacancy,
-  you can add the
-  `POST /vacancies?ignore_duplicates=true` query to the request.
-* `400 Bad Request` – errors with incorrect fields when adding a vacancy.
+* `204 No Content` – added successfully. The `Location` header will contain a
+  link to the added vacancy.
+* `403 Forbidden` – addition of vacancies is not available for this user or
+  is not available because a vacancy with similar data had already been posted
+  by this employer. If you are sure that addition of the duplicate is necessary,
+  you can add the `POST /vacancies?ignore_duplicates=true` parameter to
+  your request.
+* `400 Bad Request` – errors in fields when adding a vacancy.
 
-[More detail on possible errors](errors.md#vacancies-create-n-edit).
+In addition to an HTTP code, the server can return
+[error reasons](errors.md#vacancies-create-n-edit).
 
 
 <a name="conditions"/>
-## Vacancy fields conditions
+## Field filling and vacancy editing conditions
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/vacancies.md.html#conditions)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+`GET /vacancy_conditions`
+
+Each end field is described by the rules object. If the field consists of the
+object with a number of fields, these fields are described in the `fields`.
+
+The vacancy fields conditions are available only to employers, otherwise `403
+Forbidden` error code will be returned.
+
+For all the fields and their parts it is specified whether they are required
+(`required`).
+
+
+### Response example
+
+Successful response will include the `200 OK` response code and will have a
+body:
+
+```json
+{
+    "accept_handicapped": {
+        "required": false
+    },
+    "address": {
+        "fields": {
+            "show_metro_only": {
+                "required": false
+            }
+        },
+        "required": false
+    },
+    "allow_messages": {
+        "required": false
+    },
+    "area": {
+        "required": true
+    },
+    "billing_type": {
+        "required": true
+    },
+    "code": {
+        "max_length": 50,
+        "min_length": 0,
+        "required": false
+    },
+    "contacts": {
+        "fields": {
+            "email": {
+                "max_length": 255,
+                "min_length": 0,
+                "required": false
+            },
+            "name": {
+                "max_length": 255,
+                "min_length": 0,
+                "required": true
+            },
+            "phones": {
+                "fields": {
+                    "city": {
+                        "max_length": 6,
+                        "min_length": 1,
+                        "regexp": "^\\d{0,6}$",
+                        "required": true
+                    },
+                    "comment": {
+                        "max_length": 255,
+                        "min_length": 0,
+                        "required": false
+                    },
+                    "country": {
+                        "max_length": 6,
+                        "min_length": 1,
+                        "regexp": "^\\+?\\d{0,5}$",
+                        "required": true
+                    },
+                    "number": {
+                        "max_length": 32,
+                        "min_length": 4,
+                        "regexp": "^[\\d -]{4,32}$",
+                        "required": true
+                    }
+                },
+                "max_count": 2,
+                "min_count": 0,
+                "required": true
+            }
+        },
+        "required": false
+    },
+    "custom_employer_name": {
+        "max_length": 150,
+        "min_length": 0,
+        "required": false
+    },
+    "department": {
+        "max_length": 32,
+        "min_length": 0,
+        "required": false
+    },
+    "description": {
+        "max_length": 10000,
+        "min_length": 200,
+        "required": true
+    },
+    "employment": {
+        "required": false
+    },
+    "experience": {
+        "required": false
+    },
+    "key_skills": {
+        "max_count": 30,
+        "min_count": 0,
+        "required": false
+    },
+    "manager": {
+        "required": false
+    },
+    "name": {
+        "max_length": 220,
+        "min_length": 0,
+        "required": true
+    },
+    "response_letter_required": {
+        "required": false
+    },
+    "response_notifications": {
+        "required": false
+    },
+    "response_url": {
+        "max_length": 511,
+        "min_length": 0,
+        "regexp": "^(http|https)://.+$",
+        "required": false
+    },
+    "salary": {
+        "fields": {
+            "currency": {
+                "required": false
+            },
+            "from": {
+                "required": false
+            },
+            "to": {
+                "required": false
+            }
+        },
+        "required": false
+    },
+    "schedule": {
+        "required": false
+    },
+    "site": {
+        "required": true
+    },
+    "specializations": {
+        "max_count": null,
+        "min_count": 1,
+        "required": true
+    },
+    "test": {
+        "fields": {
+            "required": {
+                "required": false
+            }
+        },
+        "required": false
+    },
+    "type": {
+        "required": true
+    }
+}
+
+```
+
 
 
 <a name="edit"/>
@@ -717,15 +902,17 @@ Composite fields (e.g. `salary`, `contacts`, `specializations`) can be edited on
 
 Other fields are either read-only or can be set only when creating a vacancy.
 
-<a name="edit-results"/>
+
 ### Request result
 
-* `204 No Content` - successful update.
-* `404 Not Found` - vacancy not found.
-* `403 Forbidden` - vacancy edition is not permitted for this user.
-* `400 Bad Request` - errors with incorrect fields when adding a vacancy.
+* `204 No Content` – updated successfully.
+* `404 Not Found` – the edited vacancy is not found.
+* `403 Forbidden` – vacancy editing is not available for this user.
+* `400 Bad Request` – errors in fields when editing a vacancy.
 
-[More detail on possible errors](errors.md#vacancies-create-n-edit).
+In addition to an HTTP code, the server can return
+[error reasons](errors.md#vacancies-create-n-edit).
+
 
 <a name="edit_more"/>
 ### Changing the billing type, vacancy manager
