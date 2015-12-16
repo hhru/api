@@ -2,6 +2,18 @@
 
 [По-русски](../README.md) | **In english**
 
+HeadHunter API is a free toolset for integration of
+[HeadHunter](http://hh.ru/) with your product.
+
+First of all, read the [general information](docs/general.md) on work with API
+and the [requirements](docs/brand_guidelines.md) for logos and application names
+use.
+
+To use services that require user authorization, you should register the
+application at [https://dev.hh.ru](https://dev.hh.ru) and set up the
+[authorization](docs/authorization.md) process.
+
+
 <a name="content" />
 ## Content
 
@@ -60,9 +72,14 @@
 <a name="feedback" />
 ## Support, feedback, news
 
+Stay in touch with us via twitter [@apihhru](https://twitter.com/apihhru) or
+email api@hh.ru.
+
 If you found a bug, please look at
 [issues](https://github.com/hhru/api/issues). We probably know and are fixing it
 already. If we don't, it's better to report the bug there. There you can also
-leave your wishes.
+leave your wishes and suggestions.
 
-[RSS](https://github.com/hhru/api/commits/master.atom)
+You can follow the news by [commits](https://github.com/hhru/api/commits/master)
+in this repository. [RSS](https://github.com/hhru/api/commits/master.atom).
+
