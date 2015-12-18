@@ -735,10 +735,125 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/assessment.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="assessment-tools">Assessment tools</h1>
+
+<p>Assessment tools are tests and questionnaires designed to be taken by
+applicants.</p>
+
+<p>Information about them may be present in messages sent by an
+<a href="employer_negotiations.md.html#get-messages">employer</a> to an
+<a href="negotiations.md.html#get_messages">applicant</a> within the responses/invitations.</p>
+
+<p>The object looks as follows:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dynamic numerical ability test&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;proceed&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Go to testing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/assessment/123&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>where:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Tool unique ID</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Tool name</td>
+</tr>
+<tr>
+  <td>actions</td>
+  <td>array</td>
+  <td>Array of possible <a href="#actions">actions on the tool</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="actions"/></p>
+
+<h2 id="action-on-the-tool">Action on the tool</h2>
+
+<p>Depending on the assessment tool state, specific actions on it can be
+available or not.</p>
+
+<p>Available action example:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;proceed&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Go to testing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/assessment/123&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Unavailable action example:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;proceed&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Go to testing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;disable_reason&quot;</span><span class="p">:</span> <span class="s2">&quot;Testing completed&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>where:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Action type</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Action description</td>
+</tr>
+<tr>
+  <td>enabled</td>
+  <td>boolean</td>
+  <td>Whether the action is available</td>
+</tr>
+<tr>
+  <td>alternate_url</td>
+  <td>string</td>
+  <td>Link to a website clicking on which will initiate the action</td>
+</tr>
+<tr>
+  <td>disable_reason</td>
+  <td>string</td>
+  <td>Explanation why the action is unavailable</td>
+</tr>
+</tbody>
+</table>
 
     </article>
     </body>

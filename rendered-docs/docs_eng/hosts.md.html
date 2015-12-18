@@ -735,10 +735,33 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/hosts.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="website-selection">Website selection</h1>
+
+<p>HeadHunter API allows you to obtain data from all of the HeadHunter group of
+companies websites.</p>
+
+<p>In particular:</p>
+
+<ul>
+<li>hh.ru</li>
+<li>career.ru</li>
+<li>rabota.mail.ru</li>
+<li>hh.ua</li>
+<li>jobs.tut.by</li>
+<li>jobs.day.az</li>
+<li>hh.uz</li>
+<li>hh.kz</li>
+<li>headhunter.ge</li>
+<li>headhunter.kg</li>
+</ul>
+
+<p>Requests for data on all the websites should be made to <code>https://api.hh.ru/</code>.</p>
+
+<p>If you need to track the specific websites, you can add <code>?host=</code> parameter to
+your request. Default is <code>hh.ru</code>.</p>
+
+<p>Example: to obtain <a href="locales.md.html">localizations</a> available on hh.kz, you should
+make a GET-request to <code>https://api.hh.ru/locales?host=hh.kz</code>.</p>
 
     </article>
     </body>

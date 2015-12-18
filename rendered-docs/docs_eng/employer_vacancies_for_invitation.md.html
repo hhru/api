@@ -735,10 +735,124 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_vacancies_for_invitation.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="vacancies-suitable-for-invitation">Vacancies suitable for invitation</h1>
+
+<p>The request is used for selection of a suitable vacancy when
+<a href="employer_negotiations.md.html#add-invite">inviting an applicant</a>.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code>GET /employers/{employer_id}/vacancies/active?resume_id={resume_id}</code></p>
+
+<p>where
+* <code>employer_id</code> – the employer ID that can be found using the
+  <a href="me.md.html#info">current user information request</a>,
+* <code>resume_id</code> – the CV ID.</p>
+
+<p>Additionally, <a href="general.md.html#pagination">pagination parameters</a> <code>page</code>, <code>per_page</code>
+are supported.</p>
+
+<h3 id="response">Response</h3>
+
+<p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;negotiations_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;can_invite&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&amp;vacancy_id=123456&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
+                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Testing automation specialist (Java, Selenium)&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-11T13:27:16+0400&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+            <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/1455.png&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/1455.png&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/1455.png&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Open&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Returned is a list similar to
+<a href="employer_vacancies.md.html#active">published vacancies of the current manager</a>
+with <a href="vacancies.md.html#nano">standard fields</a>, as well as additional fields:</p>
+
+<ul>
+<li><code>negotiations_state</code>-- response/invitation status for this vacancy or <code>null</code>
+if there was no response/invitation</li>
+<li><code>can_invite</code>-- The flag that determines whether it is possible to invite
+the specified CV to this vacancy</li>
+<li><code>templates</code>-- list of <a href="negotiation_message_templates.md.html">templates</a> with
+texts for invitation</li>
+</ul>
+
+<p>When deciding whether to grant a user the possibility to invite a selected CV
+for the vacancy, you should not rely on the fact that <code>negotiations_state</code> has
+the <code>null</code> value and should use the <code>can_invite</code> flag.</p>
+
+<p>Presence of the <code>can_invite</code> = <code>true</code> flag in the vacancy means the invitation
+process will be successful. For example, in the meantime between obtaining a
+list of suitable vacancies and invitation, an applicant may delete his/her CV.</p>
+
+<p>In case the vacancy with specified CV already has a response/invitation, its
+state will be specified as:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;negotiations_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Response&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Possible values of the state/invitation are available in the
+<a href="dictionaries.md.html">negotiations_state reference</a>.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>When the request is made without any authorization or with the applicant
+authorization, <code>403 Forbidden</code> code will be returned.</p>
+
+<p>If the specified employer does not exist, or its vacancies are unavailable,
+<code>404 Not Found</code> error will be returned.</p>
 
     </article>
     </body>

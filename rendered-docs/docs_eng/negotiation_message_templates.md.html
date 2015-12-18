@@ -735,10 +735,169 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/negotiation_message_templates.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="message-texts">Message texts</h1>
+
+<p>An employer can obtain template texts for use in vacancy invitations sent to applicants or <a href="employer_negotiations.md.html#actions">actions on responses/invitations</a>.</p>
+
+<p>The number of available templates depends on specific response/invitation or vacancy and their statuses. Currently, the following templates are available:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>invite</td>
+  <td>text for invitation of the applicant for a vacancy</td>
+</tr>
+<tr>
+  <td>invite_after_response</td>
+  <td>text <a href="employer_negotiations.md.html#invite">for invitation after the applicant's response</a></td>
+</tr>
+<tr>
+  <td>quick_discard_after_response</td>
+  <td>text suitable for <a href="employer_negotiations.md.html#discard">quick rejection</a> (without displaying the rejection text confirmation to the user)</td>
+</tr>
+<tr>
+  <td>discard_after_response</td>
+  <td>text for <a href="employer_negotiations.md.html#discard">rejection after the response</a></td>
+</tr>
+<tr>
+  <td>discard_after_interview</td>
+  <td>text for <a href="employer_negotiations.md.html#discard">rejection after invitation of the applicant for an interview</a></td>
+</tr>
+</tbody>
+</table>
+
+<p>In the future, the list of templates may be extended.</p>
+
+<p><a name="request"/></p>
+
+<h2 id="request">Request</h2>
+
+<p>Rather than construct the url on your own, it is recommended to use the url included in the <code>templates</code> object in the
+<a href="employer_negotiations.md.html#negotiations-list">list of responses/invitations</a> and suitable vacancies:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&amp;vacancy_id=123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<pre><code>GET /message_templates/{template}?topic_id={topic_id}
+GET /message_templates/{template}?vacancy_id={vacancy_id}&amp;resume_id={resume_id}
+</code></pre>
+
+<p>where <code>template</code> is the name of the template from the list above.</p>
+
+<p>Parameters:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>topic_id</td>
+  <td>ID of the existing response/invitation. Simultaneous sending with other parameters is not allowed.</td>
+</tr>
+<tr>
+  <td>vacancy_id</td>
+  <td>ID of the vacancy for invitation. Requires sending of the <code>resume_id</code> parameter.</td>
+</tr>
+<tr>
+  <td>resume_id</td>
+  <td>ID of the CV for invitation to the vacancy. Requires sending of the <code>vacancy_id</code> parameter.</td>
+</tr>
+</tbody>
+</table>
+
+<p>In case the conflicting parameters are sent – <code>topic_id</code> with <code>resume_id</code> or <code>vacancy_id</code>, or no parameters are sent at all – an error will be returned.</p>
+
+<p><a name="response"/></p>
+
+<h2 id="response">Response</h2>
+
+<p>Successful server response is returned with <code>200 OK</code> code and contains</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;mail&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello Ivan Ivanovich! Thank you for your response to the vacancy... &quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>text</td>
+  <td>String</td>
+  <td>Text of the message sent to the applicant by email when inviting/rejecting the applicant. It may vary depending on the vacancy type (e.g. for anonymous vacancy).</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="errors"/></p>
+
+<h2 id="errors">Errors</h2>
+
+<ul>
+<li><code>404 Not Found</code> – if a non-existent template is used.</li>
+<li><code>403 Forbidden</code> – the request is fulfilled anonymously, with authorization of the applicant or the employer without enabled CV database access service.</li>
+<li><code>400 Bad Request</code> – invalid request parameters.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return <a href="errors.md.html#general-errors">error reasons</a>.</p>
+
+<p>In particular:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>bad_argument</td>
+  <td>topic_id</td>
+  <td><ul><li>ID of the non-existent response/invitation was sent; ID of the response/invitation of another employer was sent or the response/invitation which the current manager doesn't have access to</li><li>vacancy from the response/invitation was archived</li><li>the CV from the response/invitation was hidden/deleted</li></ul></td>
+</tr>
+<tr>
+  <td>400</td>
+  <td>bad_argument</td>
+  <td>resume_id</td>
+  <td>ID sent is the ID of a non-existent CV or a CV that is inaccessible for the employer</td>
+</tr>
+<tr>
+  <td>400</td>
+  <td>bad_argument</td>
+  <td>vacancy_id</td>
+  <td>ID sent is the ID of a non-existent, hidden or archived vacancy, a vacancy of another employer or a vacancy that is inaccessible for the current manager</td>
+</tr>
+</tbody>
+</table>
 
     </article>
     </body>

@@ -735,10 +735,1087 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_negotiations.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="messaging-applicationsinvitations-for-the-employer">Messaging (applications/invitations) for the employer</h1>
+
+<p><em>Documentation on messaging for the applicant is available in the <a href="negotiations.md.html">separate article</em></a>.*</p>
+
+<ul>
+<li><a href="#collections">Application/invitation collections</a></li>
+<li><a href="#negotiations-list">Application/invitation list</a></li>
+<li><a href="#get-negotiation">Viewing an application/invitation</a></li>
+<li><a href="#get-messages">Viewing a message list in an application/invitation</a></li>
+<li><a href="#add-messages">Sending a message in the response/invitation</a></li>
+<li><a href="#add-invite">Inviting an applicant for a vacancy</a></li>
+<li><a href="#actions">Actions on a response/invitation</a>
+<ul>
+<li><a href="#put-on-hold">Put the response on hold (move to the "Think" list)</a></li>
+<li><a href="#invite">Invitation of the applicant for an interview in response to his/her response</a></li>
+<li><a href="#discard">Reject an applicant</a></li>
+</ul></li>
+</ul>
+
+<p><a name="collections" /></p>
+
+<h2 id="applicationinvitation-collections">Application/invitation collections</h2>
+
+<p>Employer has accessible collections of applications and invitations. Each
+collection contains applications/invitations in a certain state. The list of
+these collections can change depending on the particular vacancy.</p>
+
+<p>Vacancies available in the current user account can be seen in the
+<a href="employer_vacancies.md.html#active">employer's vacancy list</a>.</p>
+
+<p>If you need to get the full list of applications/invitations for the vacancy,
+request all collections one by one.</p>
+
+<p>The most frequently met collections:</p>
+
+<ul>
+<li><code>inbox</code> – unsorted</li>
+<li><code>hold</code> – need to think</li>
+<li><code>invited</code> – invited</li>
+<li><code>discarded</code> – discarded</li>
+</ul>
+
+<h3 id="request-for-obtaining-the-collection-list">Request for obtaining the collection list</h3>
+
+<p><code>GET /negotiations?vacancy_id={vacancy_id}</code></p>
+
+<p>where <code>vacancy_id</code> is a vacancy id.</p>
+
+<h3 id="response">Response</h3>
+
+<p>Successful response comes with the <code>200 OK</code> code and contains:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;states&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;inbox&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Inbox&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/inbox?vacancy_id=123456&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invited&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invited&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited?vacancy_id=123456&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Collection ID, unique for this vacancy at the least</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>collection name</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>string</td>
+  <td>url, which GET request must be made to get applications/invitations of this collection</td>
+</tr>
+</tbody>
+</table>
+
+<p>If the <code>vacancy_id</code> parameter is not sent, the response will return with the
+<code>400 Bad Request</code> code.</p>
+
+<p><a name="negotiations-list" /></p>
+
+<h2 id="applicationinvitation-list">Application/invitation list</h2>
+
+<h3 id="request">Request</h3>
+
+<p>When url from the <a href="#collections">collection list</a> is obtained, you should make a
+GET request for it, for example:</p>
+
+<p><code>GET https://api.hh.ru/negotiations/invited?vacancy_id=123456</code></p>
+
+<p>Parameters:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Mandatory</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>vacancy_id</td>
+  <td>yes</td>
+  <td>Vacancy identifier</td>
+</tr>
+<tr>
+  <td>page</td>
+  <td>no</td>
+  <td>Defaul page number: 0</td>
+</tr>
+<tr>
+  <td>per_page</td>
+  <td>no</td>
+  <td>Default number of elements shown per page 20</td>
+</tr>
+</tbody>
+</table>
+
+<p>The <code>inbox</code> collection, if available for this vacancy, supports
+the optional parameter <code>with_updates_only``=true</code> – to show only
+applications/invitations that have updates.</p>
+
+<h3 id="response-2">Response</h3>
+
+<p>Successful response comes with the <code>200 OK</code> code and contains:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T00:00:00+0300&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T12:00:05+0300&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;has_updates&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;messages_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789/messages&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;resume&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Aspiring specialist&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef?topic_id=123456789&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivan&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanovich&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+                <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/resume/0123456789abcdef?vacancyId=123456&amp;t=123456789&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-06T12:00:00+0300&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-20T16:24:15+0300&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-01&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;primary&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russian State Social University, Moscow&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name_id&quot;</span><span class="p">:</span> <span class="s2">&quot;39420&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Faculty of Information Technology&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;organization_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                            <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;result_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2012</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;shepherd&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2010-01-01&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Horns and Hoofs&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span>
+                                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;51.643&quot;</span><span class="p">,</span>
+                                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Land and building improvement and cleaning&quot;</span>
+                            <span class="p">},</span>
+                            <span class="p">{</span>
+                                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;29.503&quot;</span><span class="p">,</span>
+                                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Farming, plant cultivation, cattle breeding&quot;</span>
+                            <span class="p">}</span>
+                        <span class="p">],</span>
+                        <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                        <span class="p">},</span>
+                        <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="kc">null</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2005-01-01&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-03-01&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                        <span class="p">},</span>
+                        <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span>
+                                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7.513&quot;</span><span class="p">,</span>
+                                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Internet company (search engines, payment systems, social networks, educational and entertainment resources, website promotion, and more)&quot;</span>
+                            <span class="p">}</span>
+                        <span class="p">],</span>
+                        <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/logo/1455&quot;</span>
+                            <span class="p">},</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Male&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">,</span>
+                    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/discard_after_interview?topic_id=123456789&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discard_after_interview&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>where:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>found</td>
+  <td>number</td>
+  <td>Number of applications found (≥ 0)</td>
+</tr>
+<tr>
+  <td>pages</td>
+  <td>number</td>
+  <td>Number of pages with applications (≥ 1)</td>
+</tr>
+<tr>
+  <td>per_page</td>
+  <td>number</td>
+  <td>Number of elements per page (&gt; 0)</td>
+</tr>
+<tr>
+  <td>page</td>
+  <td>number</td>
+  <td>Number of the current page (≥ 0)</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="negotiations-list-item" />
+The <code>items</code> element contains data on applications/invitations and corresponding
+CVs:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Application identifier</td>
+</tr>
+<tr>
+  <td>created_at</td>
+  <td>string</td>
+  <td>Application/invitation creation date and time</td>
+</tr>
+<tr>
+  <td>updated_at</td>
+  <td>string</td>
+  <td>Last application/invitation update date and time</td>
+</tr>
+<tr>
+  <td>state</td>
+  <td>object</td>
+  <td>Current state of the application. Possible values are in the [/dictionaries] (./dictionaries.md) directory in the <code>negotiations_state</code> section.</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>string</td>
+  <td>url for getting <a href="#get-negotiation">the full version of an application/invitation</a></td>
+</tr>
+<tr>
+  <td>messages_url</td>
+  <td>string</td>
+  <td>url for getting <a href="#get-messages">the message list in the application</a></td>
+</tr>
+<tr>
+  <td>CV</td>
+  <td>object, null</td>
+  <td>CV. The fields shown are similar to the <a href="resumes.md.html#search-results">CV search</a>. To get the full CV, you should request it with a GET request using the url from the <code>url</code> key. It can be <code>null</code>, if the applicant deleted the CV or restricted access to it.</td>
+</tr>
+<tr>
+  <td>has_updates</td>
+  <td>logical</td>
+  <td>Any updates in the application/invitation that call for attention. The flag becames <code>false</code> when various actions are performed with the application/invitation, such as <a href="#get-messages">viewing the message list</a>, and also <a href="#view-resume">when the CV is viewed correctly from the application/invitation</a>.</td>
+</tr>
+<tr>
+  <td>viewed_by_opponent</td>
+  <td>logical</td>
+  <td>Whether the application has been viewed by the applicant</td>
+</tr>
+<tr>
+  <td>templates</td>
+  <td>array</td>
+  <td>Letter templates. Contains the template ID and url for <a href="message_templates.md.html">obtaining text according to the template</a>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="view-resume" /></p>
+
+<p>The application/invitation list contains only the main information on the CV. To
+obtain the full information, particularly the applicant's contacts, you should
+request the full CV. The applicant will have the CV request displayed in the
+view history.</p>
+
+<p><strong>Take note!</strong> The additional request for CV data <strong>must</strong> be performed using
+exactly the url from the JSON response. Only in this case the request will be
+registered correctly in the view history. For instance, if a CV is requested
+from the application for an anonymous vacancy, the history will display the
+anonymous name of the company.</p>
+
+<p>In case the vacancy the applications are requested for doesn't exist or is not
+accessible for the current user, the <code>404 Not Found</code> response returns.</p>
+
+<p><a name="get-negotiation" /></p>
+
+<h2 id="viewing-an-applicationinvitation">Viewing an application/invitation</h2>
+
+<h3 id="request-2">Request</h3>
+
+<p><code>GET /negotiations/{nid}</code></p>
+
+<p>where <code>nid</code> is an application/invitation identifier.</p>
+
+<p>It is usually obtained from the <code>url</code> key in the
+<a href="#negotiations-list">application/invitation list</a>.</p>
+
+<h3 id="response-3">Response</h3>
+
+<p>Successful response comes with the <code>200 OK</code> code and contains:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T00:00:00+0300&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T12:00:05+0300&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;has_updates&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;messages_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789/messages&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;resume&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Aspiring specialist&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef?topic_id=123456789&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivan&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanovich&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/resume/0123456789abcdef?vacancyId=123456&amp;t=123456789&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-06T12:00:00+0300&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-20T16:24:15+0300&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-01&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;тест&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;primary&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russian State Social University, Moscow&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name_id&quot;</span><span class="p">:</span> <span class="s2">&quot;39420&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Faculty of Information Technology&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;organization_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;result_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2012</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Horns and Hoofs&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;1999-03-01&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;45.507&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Extraction and processing of ore, black, base, precious, noble and rare metal&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;industry&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;1998-01-01&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Male&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">,</span>
+            <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;vacancy&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T11:00:00+0300&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/1111.jpeg&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/1111.jpeg&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo-original/1111.jpeg&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Horns and Hoofs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;vacancies_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?employer_id=1&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Manager&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T10:00:00+0300&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;closed&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Closed&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/123456?host=hh.ru&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Response body is similar to
+<a href="#negotiations-list-item">the element in the application/invitation list</a>,
+and also contains the <code>vacancy</code> key, which has some
+<a href="vacancies.md.html#nano">brief information on the vacancy</a>.</p>
+
+<p><a name="messaging_status"/></p>
+
+<p>Additionally, <code>messaging_status</code> field specifying the messaging state is
+returned for a response/invitation. Possible values are provided in the
+<a href="dictionaries.md.html">messaging_status</a> reference.</p>
+
+<p>In case the response/invitation does not exist or is unavailable for the current
+user, '404 Not Found' server response will be returned.</p>
+
+<p><a name="get-messages" /></p>
+
+<h2 id="viewing-a-message-list-in-an-applicationinvitation">Viewing a message list in an application/invitation</h2>
+
+<p>Messages in an application/invitation can be:</p>
+
+<ul>
+<li>a cover letter written by the applicant when applying for the vacancy</li>
+<li>some text sent by the employer when inviting for the vacancy, inviting for
+the interview or declining</li>
+<li>a part of free messaging between the applicant and the employer</li>
+</ul>
+
+<h3 id="request-3">Request</h3>
+
+<p><code>GET /negotiations/{nid}/messages</code></p>
+
+<p>where <code>nid</code> is an application/invitation identifier.</p>
+
+<p>Usually the url is obtained from the <code>messages_url</code> key in the
+<a href="#negotiations-list">application/invitation list</a> or when
+<a href="#get-negotiation">viewing an application/invitation</a>.</p>
+
+<h3 id="response-4">Response</h3>
+
+<p>Successful response comes with the <code>200 OK</code> code and contains:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+   <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+   <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;We are inviting you for our vacancy...&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-15T19:23:35+0300&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nt">&quot;participant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;employer&quot;</span>
+           <span class="p">},</span>
+           <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+           <span class="nt">&quot;viewed_by_me&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+           <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+           <span class="p">},</span>
+           <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;To the Right, Under the Sign&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">35.0</span><span class="p">,</span>
+                <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">30.0</span><span class="p">,</span>
+                <span class="nt">&quot;metro&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.789704</span><span class="p">,</span>
+                    <span class="nt">&quot;line_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;line_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Zamoskvoretskaya&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.558212</span><span class="p">,</span>
+                    <span class="nt">&quot;station_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2.34&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dinamo&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;metro_stations&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.789704</span><span class="p">,</span>
+                        <span class="nt">&quot;line_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;line_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Zamoskvoretskaya&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.558212</span><span class="p">,</span>
+                        <span class="nt">&quot;station_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2.34&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dinamo&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;ul. Dinamo&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;assessments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dynamic numerical ability test&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;proceed&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Go to testing&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/assessment/123&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;321&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Great, it will be my pleasure to attend the interview...&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-15T19:23:35+0300&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nt">&quot;participant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;applicant&quot;</span>
+           <span class="p">},</span>
+           <span class="nt">&quot;viewed_by_me&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+           <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+           <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+               <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Text&quot;</span>
+           <span class="p">},</span>
+           <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span>
+       <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>where:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>found</td>
+  <td>number</td>
+  <td>Number of messages in messaging (≥ 0)</td>
+</tr>
+<tr>
+  <td>pages</td>
+  <td>number</td>
+  <td>Number of pages with messages (≥ 1)</td>
+</tr>
+<tr>
+  <td>per_page</td>
+  <td>number</td>
+  <td>Number of messages per page (&gt; 0)</td>
+</tr>
+<tr>
+  <td>page</td>
+  <td>number</td>
+  <td>Number of the current page (≥ 0)</td>
+</tr>
+<tr>
+  <td>assessments</td>
+  <td>array</td>
+  <td><a href="assessment.md.html">assessment tools</a> linked to the message</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="negotiations-message-item" /></p>
+
+<p>The <code>items</code> element contains the data about messages:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Message identifier</td>
+</tr>
+<tr>
+  <td>viewed_by_me</td>
+  <td>logical</td>
+  <td>Whether the message is read by the viewer (for messages sent by the employer it is always <code>true</code>)</td>
+</tr>
+<tr>
+  <td>viewed_by_opponent</td>
+  <td>logical</td>
+  <td>Whether the message is read by the applicant (for the applicant's messages it is always <code>true</code>)</td>
+</tr>
+<tr>
+  <td>created_at</td>
+  <td>string</td>
+  <td>Message creation date and time</td>
+</tr>
+<tr>
+  <td>text</td>
+  <td>string, null</td>
+  <td>Message text. <code>null</code> can be in case when the applicant didn't send a cover letter with their application.</td>
+</tr>
+<tr>
+  <td>state</td>
+  <td>object</td>
+  <td>Current state of the application. Possible values are in the <a href="./dictionaries.md.html">/dictionaries</a> directory in the <code>negotiations_state</code> section</td>
+</tr>
+<tr>
+  <td>author</td>
+  <td>object</td>
+  <td>Who the author of the message is</td>
+</tr>
+<tr>
+  <td>author.participant_type</td>
+  <td>string</td>
+  <td>The role of the author of the message. Possible values are in the <a href="./dictionaries.md.html">/dictionaries</a> directory in the <code>negotiations_participant_type</code> section</td>
+</tr>
+<tr>
+  <td>address</td>
+  <td>object, null</td>
+  <td><a href="./address.md.html">Address</a>, bound to the application/invitation</td>
+</tr>
+</tbody>
+</table>
+
+<p>In case the application/invitation doesn't exist or the current user can't
+access messaging, the <code>404 Not Found</code> response is returned.</p>
+
+<p><a name="add-messages" /></p>
+
+<h2 id="sending-a-message-in-the-responseinvitation">Sending a message in the response/invitation</h2>
+
+<p>Messaging is possible after invitation of the applicant. Possibility to create a
+message is determined by the
+<a href="#messaging_status"><code>messages_status</code> field in the response/invitation</a>.</p>
+
+<h3 id="request-4">Request</h3>
+
+<p><code>POST /negotiations/{nid}/messages</code></p>
+
+<p>where <code>nid</code> is the response/invitation ID.</p>
+
+<p>Additionally, the <code>message</code> parameter – message text – must be specified.</p>
+
+<h3 id="response-5">Response</h3>
+
+<p>Successful server response is returned with <code>201 Created</code> code and does not have
+a body.</p>
+
+<h3 id="errors">Errors</h3>
+
+<ul>
+<li><code>400 Bad Request</code> – error in the request parameters.</li>
+<li><code>403 Forbidden</code> – message cannot be sent.</li>
+<li><code>404 Not Found</code> – the sent response/invitation doe not exist or the current
+manager is not authorized to handle it.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#negotiations">error reasons</a>.</p>
+
+<p>For example:</p>
+
+<ul>
+<li><code>resume_not_found</code> – if the CV in the response/invitation was hidden or deleted</li>
+<li><code>invalid_vacancy</code> – if the vacancy in the response/invitation was archived or deleted</li>
+<li><code>no_invitation</code> – if the response/invitation is not in the "invitation"
+status. For example, it is already in the "rejected" status or still in the "response" status.</li>
+<li><code>in_a_row_limit</code> – if the number of successive messages is exceeded.
+The applicant must reply to the message in order the employer is able to send new messages.</li>
+<li><code>overall_limit</code> – if the messages limit is exceeded</li>
+</ul>
+
+<p><a name="add-invite" /></p>
+
+<h2 id="inviting-an-applicant-for-a-vacancy">Inviting an applicant for a vacancy</h2>
+
+<p>The invitation is initiated between a employer's vacancy and applicant's CV by
+the employer.</p>
+
+<p>In order to find out what vacancies are available for applicant invitation, use
+<a href="employer_vacancies_for_invitation.md.html">the list of vacancies suitable for invitation</a>.</p>
+
+<p>Also see <a href="#invite">invitation of the applicant for an interview after the response</a>.</p>
+
+<h3 id="request-5">Request</h3>
+
+<p><code>POST /negotiations</code></p>
+
+<p>Parameters:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Required</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>vacancy_id</td>
+  <td>yes</td>
+  <td>ID of the vacancy which the applicant is invited for.</td>
+</tr>
+<tr>
+  <td>resume_id</td>
+  <td>yes</td>
+  <td>ID of the CV which the applicant is invited for.</td>
+</tr>
+<tr>
+  <td>send_sms</td>
+  <td>no</td>
+  <td>Whether to notify the applicant of the invitation via SMS. In order to send specify <code>true</code>, default value is <code>false</code>.</td>
+</tr>
+<tr>
+  <td>message</td>
+  <td>yes</td>
+  <td>The message that will be sent to the applicant's email. Use <a href="negotiation_message_templates.md.html">templates</a> to obtain texts.</td>
+</tr>
+<tr>
+  <td>address_id</td>
+  <td>no</td>
+  <td>ID of the <a href="employer_addresses.md.html">address</a> that will be specified in the invitation.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response-6">Response</h3>
+
+<p>Successful server response is accompanied by <code>201 Created</code> code, does not have any body and contains the <code>Location</code> header pointing to the created invitation:</p>
+
+<pre><code>HTTP/1.1 201 Created
+
+Location: /negotiations/321
+</code></pre>
+
+<h3 id="errors-2">Errors</h3>
+
+<ul>
+<li><code>400 Bad Request</code> – error in the request parameters.</li>
+<li><code>403 Forbidden</code> – invitation is impossible.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return <a href="errors.md.html#negotiations">error reasons</a>.</p>
+
+<p>For example:</p>
+
+<ul>
+<li><code>already_invited</code> – if the response between the sent CV and the vacancy
+already exists</li>
+<li><code>resume_not_found</code> – if the sent CV was hidden or deleted</li>
+<li><code>invalid_vacancy</code> – if the sent vacancy was archived or hidden</li>
+<li><code>limit_exceeded</code> – if the manager's number of invitations per day limit was
+exceeded</li>
+<li><code>application_denied</code> – general invitation denial error in case the additional
+information is unavailable</li>
+<li><code>address_not_found</code> – if the sent address does not exist or belongs to
+another employer</li>
+<li><code>not_enough_purchased_services</code> – if the paid services are insufficient,
+usually <a href="http://hh.ru/price#dbaccess">CV database services</a></li>
+</ul>
+
+<p><a name="actions" /></p>
+
+<h2 id="actions-on-a-responseinvitation">Actions on a response/invitation</h2>
+
+<p>Action on the response is equivalent to its movement to a specific
+<a href="#collections">collection</a>. Request:</p>
+
+<p><code>PUT /negotiations/{collection}/{nid}</code></p>
+
+<p>where
+* <code>nid</code> is the response ID
+* <code>collection</code> is the collection</p>
+
+<p>There may be additional required and optional movement parameters.</p>
+
+<p>Action examples:</p>
+
+<ul>
+<li><a href="#put-on-hold">Put the response on hold</a></li>
+<li><a href="#invite">Invitation of the applicant for an interview in response to his/her response</a></li>
+<li><a href="#discard">Reject an applicant</a></li>
+</ul>
+
+<p><a name="put-on-hold"/></p>
+
+<h2 id="put-the-response-on-hold-move-to-the-think-list">Put the response on hold (move to the "Think" list)</h2>
+
+<p>The action is possible if the <code>hold</code> <a href="#collections">collection is available</a> for
+the vacancy responses.</p>
+
+<p>The response movement to the "Think" list is possible if the applicant has not
+yet been invited and was not rejected. The response movement information is not
+disclosed to the applicant.</p>
+
+<h3 id="request-6">Request</h3>
+
+<p><code>PUT /negotiations/hold/{nid}</code></p>
+
+<p>where <code>nid</code> is the response ID.</p>
+
+<h3 id="response-7">Response</h3>
+
+<p>Successful server response is returned with <code>204 No Content</code> code and does not
+have a body.</p>
+
+<h3 id="errors-3">Errors</h3>
+
+<ul>
+<li><code>404 Not Found</code> – the response does not exist, belongs to another employer,
+or the current manager is not authorized to handle it.</li>
+<li><code>403 Forbidden</code> – movement to the "Think" list is impossible.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#negotiations">error reasons</a>. For example, <code>wrong_state</code>
+if the movement from the current response status to the on hold list
+is impossible.</p>
+
+<p><a name="invite"/></p>
+
+<h2 id="invitation-of-the-applicant-for-an-interview-in-response-to-hisher-response">Invitation of the applicant for an interview in response to his/her response</h2>
+
+<p>The action is possible if the <code>invited</code> <a href="#collections">collection is available</a>
+for the vacancy responses.</p>
+
+<p>The invitation is possible if the applicant has not yet been invited and was not
+rejected. Upon the invitation, the applicant will receive a corresponding email.</p>
+
+<p>Also see <a href="#add-invite">invitation of the applicant for a vacancy</a>.</p>
+
+<h3 id="request-7">Request</h3>
+
+<p><code>PUT /negotiations/invited/{nid}</code></p>
+
+<p>where <code>nid</code> is the response ID.</p>
+
+<p>Parameters:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Required</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>send_sms</td>
+  <td>no</td>
+  <td>whether to notify the applicant of the invitation via SMS. In order to send specify <code>true</code>, default value is <code>false</code>.</td>
+</tr>
+<tr>
+  <td>message</td>
+  <td>yes</td>
+  <td>The message that will be sent to the applicant's email. Use <a href="negotiation_message_templates.md.html">templates</a> to obtain texts.</td>
+</tr>
+<tr>
+  <td>address_id</td>
+  <td>no</td>
+  <td>ID of the <a href="employer_addresses.md.html">address</a> that will be specified in the invitation.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response-8">Response</h3>
+
+<p>Successful server response is returned with <code>204 No Content</code> code and does not
+have a body.</p>
+
+<h3 id="errors-4">Errors</h3>
+
+<ul>
+<li><code>404 Not Found</code> – the response does not exist, belongs to another employer,
+or the current manager is not authorized to handle it.</li>
+<li><code>403 Forbidden</code> – invitation is impossible.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#negotiations">error reasons</a>.</p>
+
+<p>For example:</p>
+
+<ul>
+<li><code>wrong_state</code> – if the movement from the current response status to the
+invited list is impossible</li>
+<li><code>resume_not_found</code> – if the CV from the response was hidden or deleted</li>
+<li><code>empty_mail_text</code> and <code>too_long_mail_text</code> – if the text length limit is exceeded</li>
+<li><code>address_not_found</code> – if the sent address does not exist or belongs to another
+employer</li>
+<li><code>invalid_vacancy</code> – if the response vacancy was archived or hidden</li>
+<li><code>limit_exceeded</code> – if the manager`s number of invitations per day limit
+was exceeded</li>
+</ul>
+
+<p><a name="discard"/></p>
+
+<h2 id="reject-an-applicant">Reject an applicant</h2>
+
+<p>The action is possible if the <code>discarded</code>
+<a href="#collections">collection is available</a> for this vacancy responses.</p>
+
+<p>The rejection is possible if the applicant had not been rejected earlier.
+Upon rejection, the applicant will receive a corresponding email.</p>
+
+<h3 id="request-8">Request</h3>
+
+<p><code>PUT /negotiations/discarded/{nid}</code></p>
+
+<p>where <code>nid</code> is the response/invitation ID.</p>
+
+<p>Parameters</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>message</td>
+  <td>The message that will be sent to the applicant's email. Use <a href="negotiation_message_templates.md.html">templates</a> to obtain texts.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response-9">Response</h3>
+
+<p>Successful server response is returned with <code>204 No Content</code> code and does not
+have a body.</p>
+
+<h3 id="errors-5">Errors</h3>
+
+<ul>
+<li><code>404 Not Found</code> – the sent response/invitation does not exist, belongs to
+another employer, or the current manager is not authorized to handle it.</li>
+<li><code>403 Forbidden</code> – rejection is impossible.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#negotiations">error reasons</a>.</p>
+
+<p>For example:</p>
+
+<ul>
+<li><code>wrong_state</code> – if the movement from the current response status to the
+discarded list is impossible</li>
+<li><code>empty_mail_text</code> and <code>too_long_mail_text</code> – if the text length limit
+is exceeded</li>
+</ul>
 
     </article>
     </body>

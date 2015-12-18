@@ -835,7 +835,7 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 <tr>
   <td>is_in_search</td>
   <td>logical, null</td>
-  <td>checkbox "looking/not looking for a job", if the current user is an applicant</td>
+  <td>flag "looking/not looking for a job", if the current user is an applicant</td>
 </tr>
 <tr>
   <td>resumes_url</td>
@@ -935,8 +935,8 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 
 <h2 id="editing-information-on-the-current-user">Editing information on the current user</h2>
 
-<p>To edit the last name, first name or middle name, and also to check or uncheck
-the check box "looking/not looking for a job", you should send a POST request to
+<p>To edit the last name, first name or middle name, and also to set
+the flag "looking/not looking for a job", you should send a POST request to
 <code>/me</code>. Data can be edited only in groups:</p>
 
 <h3 id="full-name">Full name</h3>
@@ -977,7 +977,7 @@ last_name=Ivanov&amp;first_name=Ivan&amp;middle_name=
 <p>If not all the fields are indicated in the request, then the <code>400 Bad Request</code>
 response will be returned.</p>
 
-<h3 id="checkbox-lookingnot-looking-for-a-job">Checkbox "looking/not looking for a job"</h3>
+<h3 id="flag-lookingnot-looking-for-a-job">Flag "looking/not looking for a job"</h3>
 
 <table>
 <thead>

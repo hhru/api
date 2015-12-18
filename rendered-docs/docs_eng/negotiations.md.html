@@ -735,10 +735,583 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/negotiations.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="negotiations-responsesinvitations-for-applicants">Negotiations (responses/invitations) for applicants</h1>
+
+<p>_Negotiations documentation for the employer is available in the <a href="employer_negotiations.md.html">separate article</a>._</p>
+
+<p>Using the website, applicants choose vacancies. In order to contact an employer
+for vacancy details, an applicant can respond to the chosen vacancy. An
+employer, on his part, can offer an applicant to consider a vacancy (invitation).</p>
+
+<p>For these purposes, there are special entities – responses and invitations.
+They can include a vacancy, CV and negotiations with employer; at any given time
+such entities have one of the states. Transition between the states is
+accompanied by appearance of messages with optional text descriptions and other
+fields. Messages with <code>null</code> status do not transit the whole respond to a new
+state.</p>
+
+<ul>
+<li><a href="#get_negotiations">Receiving the list of responses</a></li>
+<li><a href="#get_negotiations_active">Receiving the list of active responses</a></li>
+<li><a href="#post_negotiation">Respond to the vacancy</a></li>
+<li><a href="#get_negotiation">View the response/invitation</a></li>
+<li><a href="#hide_message">Hide the response</a></li>
+<li><a href="#get_messages">View the list of messages in the response</a></li>
+<li><a href="#edit_message">Edit a message in the response</a></li>
+</ul>
+
+<p><a name="get_negotiations"/></p>
+
+<h2 id="receiving-the-list-of-responses">Receiving the list of responses</h2>
+
+<h3 id="request">Request</h3>
+
+<pre><code>GET /negotiations
+</code></pre>
+
+<p>Parameters:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Required</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>page</td>
+  <td>no</td>
+  <td>Page number, default: 0</td>
+</tr>
+<tr>
+  <td>per_page</td>
+  <td>no</td>
+  <td>Number of elements displayed per page, default is 20.</td>
+</tr>
+<tr>
+  <td>order_by</td>
+  <td>no</td>
+  <td>The field to sort the displayed data by. Possible values: <code>updated_at</code>, <code>created_at</code>. Default: <code>updated_at</code></td>
+</tr>
+<tr>
+  <td>order</td>
+  <td>no</td>
+  <td>Sort order. Possible values: <code>asc</code>, <code>desc</code>. Default: <code>desc</code></td>
+</tr>
+<tr>
+  <td>vacancy_id</td>
+  <td>no</td>
+  <td>filter by a vacancy id</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="s2">&quot;found&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;pages&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;per_page&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;page&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Invitation&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;hidden&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;created_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2013-10-05T19:51:38+0400&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2013-10-07T18:30:57+0400&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;resume&quot;</span><span class="o">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;vacancy&quot;</span><span class="o">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;has_updates&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;viewed_by_opponent&quot;</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">}</span>
+        <span class="c1">// , .....</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>where:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>found</td>
+  <td>number</td>
+  <td>Number of responses found ( ≥ 0 )</td>
+</tr>
+<tr>
+  <td>pages</td>
+  <td>number</td>
+  <td>Number of pages with responses ( ≥ 1 )</td>
+</tr>
+<tr>
+  <td>per_page</td>
+  <td>number</td>
+  <td>Number of elements per page ( &gt; 0 )</td>
+</tr>
+<tr>
+  <td>page</td>
+  <td>number</td>
+  <td>Number of the current page ( ≥ 0 )</td>
+</tr>
+</tbody>
+</table>
+
+<p>The <code>items</code> entity contains response data:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Response ID</td>
+</tr>
+<tr>
+  <td>state</td>
+  <td>object</td>
+  <td>Current state of the application. Allowed values are listed in the [/dictionaries] (./dictionaries.md) reference, section <code>negotiations_state</code></td>
+</tr>
+<tr>
+  <td>hidden</td>
+  <td>logical</td>
+  <td>Whether the current response is hidden (True – the response is hidden, False – the response is active)</td>
+</tr>
+<tr>
+  <td>created_at</td>
+  <td>string</td>
+  <td>Response creation date and time</td>
+</tr>
+<tr>
+  <td>updated_at</td>
+  <td>string</td>
+  <td>Response update date and time</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>string</td>
+  <td>Link to the full response</td>
+</tr>
+<tr>
+  <td>resume</td>
+  <td>object, null</td>
+  <td>[CV short view] (resumes.md#resume-nano)</td>
+</tr>
+<tr>
+  <td>vacancy</td>
+  <td>object, null</td>
+  <td>[Vacancy short view] (vacancies.md#nano)</td>
+</tr>
+<tr>
+  <td>has_updates</td>
+  <td>logical</td>
+  <td>Whether the response includes updates that require attention. The flag is reset by various actions on the response, e.g. <a href="#get_messages">messages list view</a>.</td>
+</tr>
+<tr>
+  <td>viewed_by_opponent</td>
+  <td>logical</td>
+  <td>Whether the response was viewed by the employer</td>
+</tr>
+</tbody>
+</table>
+
+<p>Within the vacancy object, keys <code>url</code> and <code>alternate_url</code> can be <code>null</code> if the
+vacancy is unavailable (deleted).</p>
+
+<p><a name="get_negotiations_active"/></p>
+
+<h2 id="receiving-the-list-of-active-responses">Receiving the list of active responses</h2>
+
+<h3 id="request-2">Request</h3>
+
+<pre><code>GET /negotiations/active
+</code></pre>
+
+<p>Optional parameters and the response are the same as in the
+[list of responses] (#get_negotiations)</p>
+
+<p><a name="post_negotiation"/></p>
+
+<h2 id="respond-to-the-vacancy">Respond to the vacancy</h2>
+
+<p>In order to know with which CVs the specific vacancy can be responded to, one
+can use the [list of suitable CVs] (suitable_resumes.md).</p>
+
+<h3 id="request-3">Request</h3>
+
+<pre><code>POST /negotiations
+</code></pre>
+
+<p>Parameters</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Required</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>vacancy_id</td>
+  <td>yes</td>
+  <td>ID of the vacancy that was responded</td>
+</tr>
+<tr>
+  <td>resume_id</td>
+  <td>yes</td>
+  <td>ID of the CV an applicant responded with</td>
+</tr>
+<tr>
+  <td>message</td>
+  <td>yes</td>
+  <td>Response cover letter. Is required if the vacancy specifies the cover letter as mandatory</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
+
+<p>If successful, the status <code>201 Created</code> will be returned and the response
+<code>Location</code> header will contain a link to the response created (except for
+<code>direct</code> see below)</p>
+
+<pre><code>HTTP/1.1 201 Created
+...
+Location: /negotiations/123
+...
+</code></pre>
+
+<p>For vacancies with <code>direct</code> type, a response with <code>303 See Other</code> code will be
+returned.</p>
+
+<pre><code>HTTP/1.1 303 See Other
+...
+Location: http://example.com/respond/vacancy
+...
+</code></pre>
+
+<p>Vacancies with <code>direct</code> type are vacancies with direct responses. Such vacancies
+have non-empty <code>response_url</code> – an external url of the employer website that is
+returned in the <code>Location</code> header at the response attempt. Use <code>response_url</code> to
+offer a user to respond to the vacancy via the employer website instead of the
+standard response mechanism.</p>
+
+<p>Some possible error messages are provided in the
+<a href="errors.md.html#negotiations">corresponding section</a>.</p>
+
+<p><a name="get_negotiation" /></p>
+
+<h2 id="view-the-responseinvitation">View the response/invitation</h2>
+
+<h3 id="request-4">Request</h3>
+
+<p><code>
+GET /negotiations/{nid}
+</code>
+where nid is the response ID.</p>
+
+<h3 id="response-3">Response</h3>
+
+<p>The object returned is identical to a separate response received in the
+<a href="#get_negotiations">list of responses</a></p>
+
+<p><a name="hide_message" /></p>
+
+<h2 id="hide-the-response">Hide the response</h2>
+
+<p>To hide the response, use the following request:</p>
+
+<pre><code>DELETE /negotiations/active/{nid}
+</code></pre>
+
+<p>where:</p>
+
+<ul>
+<li>nid is the response ID</li>
+</ul>
+
+<p>HTTP status <code>204 No Content</code> will be returned</p>
+
+<p><a name="get_messages" /></p>
+
+<h2 id="view-the-list-of-messages-in-the-response">View the list of messages in the response</h2>
+
+<h3 id="request-5">Request</h3>
+
+<pre><code>GET /negotiations/{nid}/messages
+</code></pre>
+
+<p>where:</p>
+
+<ul>
+<li>nid is the response ID</li>
+</ul>
+
+<p>Optional parameters</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Required</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>page</td>
+  <td>number</td>
+  <td>no</td>
+  <td>Page number, default is 0</td>
+</tr>
+<tr>
+  <td>per_page</td>
+  <td>number</td>
+  <td>no</td>
+  <td>Number of elements per page, default is 20</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response-4">Response</h3>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;viewed_by_me&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-07T18:30:57+0400&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;A major bank invites you for a job with salary that Arab sheikhs can only dream of&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;participant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;employer&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;assessments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dynamic numerical ability test&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;proceed&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Go to testing&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/assessment/123&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;editable&quot;</span><span class="p">:</span> <span class="kc">false</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;124&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;viewed_by_me&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-08T10:12:23+0400&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Give me a camel and a horse!&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Text&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;participant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;applicant&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;editable&quot;</span><span class="p">:</span> <span class="kc">false</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>where:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>found</td>
+  <td>number</td>
+  <td>Number of messages found</td>
+</tr>
+<tr>
+  <td>pages</td>
+  <td>number</td>
+  <td>Number of pages with messages found</td>
+</tr>
+<tr>
+  <td>per_page</td>
+  <td>number</td>
+  <td>Number of elements per page</td>
+</tr>
+<tr>
+  <td>page</td>
+  <td>number</td>
+  <td>Current page number (starts with 0)</td>
+</tr>
+<tr>
+  <td>items</td>
+  <td>array</td>
+  <td>Message array, see below</td>
+</tr>
+</tbody>
+</table>
+
+<p>Individual message has the following structure:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Message ID</td>
+</tr>
+<tr>
+  <td>viewed_by_me</td>
+  <td>logical</td>
+  <td>Whether the message was read by the viewer (for messages sent by applicants, the value is always <code>true</code>)</td>
+</tr>
+<tr>
+  <td>viewed_by_opponent</td>
+  <td>logical</td>
+  <td>Whether the message was read by the employer (for messages sent by employers, the value is always <code>true</code>)</td>
+</tr>
+<tr>
+  <td>editable</td>
+  <td>logical</td>
+  <td>Whether the message text can be edited</td>
+</tr>
+<tr>
+  <td>created_at</td>
+  <td>string</td>
+  <td>Message creation date and time</td>
+</tr>
+<tr>
+  <td>text</td>
+  <td>string</td>
+  <td>Message text</td>
+</tr>
+<tr>
+  <td>state</td>
+  <td>object</td>
+  <td>Current state of the application. Possible values are listed in the [/dictionaries] (./dictionaries.md) reference, section <code>negotiations_state</code></td>
+</tr>
+<tr>
+  <td>author</td>
+  <td>object</td>
+  <td>Who is the message author</td>
+</tr>
+<tr>
+  <td>author.participant_type</td>
+  <td>string</td>
+  <td>Message author role. Possible values are listed in the [/dictionaries] (./dictionaries.md) reference, section <code>negotiations_participant_type</code></td>
+</tr>
+<tr>
+  <td>address</td>
+  <td>object, null</td>
+  <td>[Address] (./address.md) linked to the response/invitation</td>
+</tr>
+<tr>
+  <td>assessments</td>
+  <td>array</td>
+  <td><a href="assessment.md.html">assessment tools</a> linked to the message</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="edit_message" /></p>
+
+<h2 id="edit-messages-in-the-response">Edit messages in the response</h2>
+
+<p>Under certain conditions, the message text can be edited after it is sent. To
+allow editing of the message, use the <code>editable:true</code> flag.</p>
+
+<blockquote>
+  <p>Currently, message editing is available only at the moment of responding;
+  besides, the message should not have been read by another party, the vacancy
+  should be active (not archived) and the CV should not be deleted. However,
+  these conditions are subject to change.</p>
+</blockquote>
+
+<h3 id="request-6">Request</h3>
+
+<pre><code>PUT /negotiations/{nid}/messages/{mid}
+</code></pre>
+
+<p>where:</p>
+
+<ul>
+<li>nid is the response ID</li>
+<li>mid is the response message ID</li>
+</ul>
+
+<p>Parameters</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Required</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>message</td>
+  <td>yes</td>
+  <td>Message text</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response-5">Response</h3>
+
+<p>If the message text is updated successfully, HTTP status <code>204 No Content</code> will
+be returned. If the message editing is forbidden, HTTP status<code>403 Forbidden</code>
+will be returned. If the message is not found, HTTP status <code>404 Not Found</code> will
+be returned.</p>
 
     </article>
     </body>

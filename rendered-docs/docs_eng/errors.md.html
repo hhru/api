@@ -909,9 +909,9 @@ powered by
 
 <p><a name="negotiations"/></p>
 
-<h3 id="messaging-applicationsinvitations">Messaging (applications/invitations)</h3>
+<h3 id="negotiations-responsesinvitations">Negotiations (responses/invitations)</h3>
 
-<p>Apart from <a href="#general-errors">general errors</a>, the following errors may be
+<p>In addition to <a href="#general-errors">general errors</a>, the following errors may be
 returned:</p>
 
 <table>
@@ -925,67 +925,73 @@ returned:</p>
 </thead>
 <tbody>
 <tr>
-  <td>400</td>
-  <td>negotiations</td>
-  <td>vacancy_not_found</td>
-  <td>the vacancy has not been found</td>
-</tr>
-<tr>
   <td>403</td>
   <td>negotiations</td>
   <td>invalid_vacancy</td>
-  <td>the vacancy has been archived or hidden</td>
+  <td>the vacancy from the response/invitation was archived or hidden</td>
 </tr>
 <tr>
   <td>400 / 403</td>
   <td>negotiations</td>
   <td>resume_not_found</td>
-  <td>the CV has not been found or hidden or deleted</td>
+  <td>the CV from the response/invitation was hidden or deleted, or not found</td>
 </tr>
 <tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>already_applied</td>
-  <td>the indicated resume_id+vacancy_id pair already has an application/invitation</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>test_required</td>
-  <td>a test must be passed to apply (at the moment, application for such vacancies in not available via API)</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>resume_visibility_conflict</td>
-  <td>it is impossible to apply for an anonymous vacancy with a CV that has a "white list" visibility</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>edit_forbidden</td>
-  <td>message editing is not permitted</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>application_denied</td>
-  <td>a general application denial error in case when additional information is not available</td>
-</tr>
-<tr>
-  <td>400</td>
+  <td>400 / 403</td>
   <td>negotiations</td>
   <td>limit_exceeded</td>
-  <td>the application number limit is exceeded</td>
+  <td>the limit on the responses/invitations number was exceeded</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>wrong_state</td>
+  <td>the action on the response/invitation in this status is impossible</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>empty_mail_text</td>
+  <td>the empty message text was sent</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>too_long_mail_text</td>
+  <td>the too long message text was sent</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>address_not_found</td>
+  <td>the address sent for the action does not exist or belongs to another employer</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>not_enough_purchased_services</td>
+  <td>the paid services are insufficient, usually <a href="http://hh.ru/price#dbaccess">CV database service</a></td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>in_a_row_limit</td>
+  <td>the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>overall_limit</td>
+  <td>messages limit exceeded</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>no_invitation</td>
+  <td>negotiations are unavailable as there was no invitation in the response</td>
 </tr>
 </tbody>
 </table>
-
-<p>Documentation translation for this section is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html.html#negotiations">machine translation</a>
-powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
 
 <p><a name="vacancies_favorited"/></p>
 
@@ -999,13 +1005,65 @@ powered by
 
 <p><a name="vacancies-create-n-edit"/></p>
 
-<h3 id="vacancy-posting-editing">Vacancy posting &amp; editing</h3>
+<h3 id="vacancy-posting-and-editing">Vacancy posting and editing</h3>
 
-<p>Documentation translation for this section is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html.html#vacancies-create-n-edit">machine translation</a>
-powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+<p>In addition to an error code, the following errors may be returned when
+<a href="vacancies.md.html#creation">posting</a> and <a href="vacancies.md.html#edit">editing</a> a vacancy:</p>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>vacancies</td>
+  <td><em>field_name</em></td>
+  <td>error in the vacancy field, where <em>field_name</em> – key of the higher level field</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>not_enough_purchased_services</td>
+  <td>the purchased services are insufficient for posting or update of this type of vacancy</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>quota_exceeded</td>
+  <td>the manager's quota for posting of this type of vacancies exceeded</td>
+</tr>
+<tr>
+  <td>409</td>
+  <td>vacancies</td>
+  <td>duplicate</td>
+  <td>the same vacancy has already been posted, this error can be <a href="vacancies.md.html#creation-results">disabled forcefully</a></td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>creation_forbidden</td>
+  <td>posting of vacancies is unavailable for the current manager</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>unavailable_for_archived</td>
+  <td>editing of vacancies is unavailable for the archived vacancy</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>conflict_changes</td>
+  <td>conflicting changes in the vacancy data (<a href="vacancies.md.html#edit_more">read more</a>)</td>
+</tr>
+</tbody>
+</table>
 
     </article>
     </body>

@@ -737,9 +737,8 @@
     <article class="markdown-body">
     <h1 id="suggestions">Suggestions</h1>
 
-<p>When filling out experience fields, we recommend using suggestion features
-(autocomplete, autosuggest). At the moment, available suggestions cover names of
-universities, faculties, companies, specializations.</p>
+<p>When filling in the experience and education fields, it is recommended to use
+the tips services (autocomplete, autosuggest).</p>
 
 <p>All suggestions work in the same way: they receive text that is a part of the
 suggested meaning, and return a list of relevant elements. The text being
@@ -757,12 +756,11 @@ response body:</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Some suggestions take the <code>locale</code> mandatory element – a language of
-suggestions; the list of available languages is similar to the list of CV
-languages and is available on <a href="https://api.hh.ru/locales/resume">https://api.hh.ru/locales/resume</a>. In case a
-suggestion needs a language but it has not been given in the query, <code>RU</code> is used
-by default. If an unsupported language is given, the <code>400 Bad Request</code>
-error will be returned, with a detailed error description in the response body:</p>
+<p>Some tips accept the required element <code>locale</code> – the tip language. Supported
+languages: <code>RU</code>, <code>EN</code>, <code>UA</code>, <code>AZ</code>, <code>KZ</code>. In case the tip requires a language,
+but it was not included in the request, <code>RU</code> language will be used. If an
+unsupported language is specified, the <code>400 Bad Request</code> error will be
+returned with detailed error description in the response body:</p>
 
 <div class="codehilite"><pre><code><span class="p">{</span>
   <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -780,9 +778,9 @@ error will be returned, with a detailed error description in the response body:<
 <li><a href="#specializations">Specialization suggestions</a></li>
 <li><a href="#key-skills">Key skills suggestions</a></li>
 <li><a href="#positions">Position suggestions</a></li>
-<li><a href="#areas">Region suggestions</a></li>
-<li><a href="#resume-search-keyword">Resume search keyword suggestions</a></li>
-<li><a href="#vacancy-search-keyword">Vacancy search keyword suggestions</a></li>
+<li><a href="#areas">Region tips</a></li>
+<li><a href="#resume-search-keyword">Tips for CV search key words</a></li>
+<li><a href="#vacancy-search-keyword">Tips for vacancy search key words</a></li>
 </ul>
 
 <p><a name="educational_institutions"/></p>
@@ -943,33 +941,107 @@ specializations, and all of them must be from the same professional area.</p>
 
 <p><a name="areas" /></p>
 
-<h2 id="region-suggestions">Region suggestions</h2>
+<h2 id="region-tips">Region tips</h2>
 
-<p>Documentation translation for this section is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/suggests.md.html.html#areas">machine translation</a>
-powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+<p><code>GET /suggests/areas</code> – tip for all regions.</p>
+
+<p><code>GET /suggests/area_leaves – tip for all regions that are leaves in the region
+</code>tree.</p>
+
+<p>Both tips accept the following parameters:</p>
+
+<ul>
+<li><code>text</code> – text for searching a region</li>
+<li><code>locale</code> – tip language</li>
+</ul>
+
+<p>In addition to the region tip, load of the <a href="areas.md.html#areas">full region tree</a>
+and <a href="areas.md.html#item">a part of the tree from a specific element</a> is available.</p>
+
+<p>Response example:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/2019&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow Region&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2019&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <p><a name="resume-search-keyword" /></p>
 
-<h2 id="resume-search-keyword-suggestions">Resume search keyword suggestions</h2>
+<h2 id="tips-for-cv-search-key-words">Tips for CV search key words</h2>
 
-<p>Documentation translation for this section is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/suggests.md.html.html#resume-search-keyword">machine translation</a>
-powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+<p>This tip is intended for use in the <code>text</code> field when
+<a href="resumes.md.html#search-params">searching for CVs</a>. The tip displays title names,
+company names, and other phrases that are often used when searching for CVs.</p>
+
+<p><code>GET /suggests/resume_search_keyword</code></p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><code>text</code> – text for searching a keyword</li>
+</ul>
+
+<p>Response example:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Bridges&quot;</span>
+    <span class="p">}</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow State Law Academy&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <p><a name="vacancy-search-keyword" /></p>
 
-<h2 id="vacancy-search-keyword-suggestions">Vacancy search keyword suggestions</h2>
+<h2 id="tips-for-vacancy-search-key-words">Tips for vacancy search key words</h2>
 
-<p>Documentation translation for this section is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/suggests.md.html.html#vacancy-search-keyword">machine translation</a>
-powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+<p>This tip is intended for use in the <code>text</code> field when
+<a href="vacancies.md.html#search">searching for vacancies</a>. The tip displays title names,
+company names, and other phrases that are often used when searching
+for vacancies.</p>
+
+<p><code>GET /suggests/vacancy_search_keyword</code></p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><code>text</code> – text for searching a keyword</li>
+</ul>
+
+<p>Response example:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Java&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;JavaScript&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Java programmer&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 
     </article>
     </body>

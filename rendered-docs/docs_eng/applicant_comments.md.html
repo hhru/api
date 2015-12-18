@@ -735,10 +735,109 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/applicant_comments.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="applicant-comments">Applicant comments</h1>
+
+<p><a name="list" /></p>
+
+<h2 id="list-of-comments">List of comments</h2>
+
+<p>Receiving the list of comments is available only for an employer. The list will
+contain comments of the current user as well as comments of other company
+managers provided that the managers made these comments accessible to others at
+the moment of posting.</p>
+
+<h3 id="request">Request</h3>
+
+<p>No need to construct the request url on your own – it should be received from
+the [owner CV field] (resumes.md#owner-field)</p>
+
+<p><code>GET /applicant_comments/{applicant_id}</code></p>
+
+<p>where <code>applicant_id</code> is the applicant ID.</p>
+
+<p>Additional request parameters:</p>
+
+<ul>
+<li><a href="general.md.html#pagination"><code>page</code> and <code>per_page</code> pagination parameters</a></li>
+<li><code>order_by</code> – comments sorting, available values are provided in the
+<a href="dictionaries.md.html"><code>applicant_comments_order</code> reference</a></li>
+</ul>
+
+<h3 id="response">Response</h3>
+
+<p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov Ivan Ivanovich&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:19:55+0300&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;pay attention to this candidate\nimmediately!&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanova Maria Ivanovna&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:30:14+0300&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123654&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;do not consider necessary&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>key</th>
+  <th>type</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>author.full_name</td>
+  <td>string</td>
+  <td>comment author full name</td>
+</tr>
+<tr>
+  <td>created_at</td>
+  <td>string, date</td>
+  <td>comment creation date</td>
+</tr>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>comment unique ID</td>
+</tr>
+<tr>
+  <td>is_mine</td>
+  <td>logical</td>
+  <td>was the comment written by the current user?</td>
+</tr>
+<tr>
+  <td>text</td>
+  <td>string</td>
+  <td>comment content, text that can contain newline characters</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="errors">Errors</h3>
+
+<ul>
+<li><code>404 Not Found</code> – the specified applicant was not found.</li>
+<li><code>403 Forbidden</code> – receiving comments is not available for the current user.</li>
+</ul>
 
     </article>
     </body>
