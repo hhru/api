@@ -150,7 +150,7 @@ If the request is performed successfully, such a response will be returned:
 ## Key skills suggestions
 
 In order to obtain a suggestion on key skills, you should send a `GET` request
-to `/suggests/skill_set` with the mandatory parameter `text`,
+to `/suggests/skill_set` with the mandatory parameter `text`.
 
 If the request is performed successfully, such a response will be returned:
 
@@ -195,7 +195,7 @@ If the request is performed successfully, such a response will be returned:
         {
           "id": "17.149",
           "name": "Customer relationship manager",
-          "profarea_id": "26",
+          "profarea_id": "17",
           "profarea_name": "Procurement"
         }
       ]

@@ -151,7 +151,7 @@ support enabled. Whereas:
 The value may be null if the vacancy has no individual description.
 
 If case of an authorized request, the `relations` key returns values from the
-`vacancy_relations` reference in [/dictionaries](dictionaries.md).
+`vacancy_relation` reference in [/dictionaries](dictionaries.md).
 
 
 The `negotiations_url` key returns a link to a list of applications/invitations
