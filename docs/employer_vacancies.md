@@ -23,21 +23,72 @@
 даже если необходимо сделать запрос для текущего менеджера (значение можно
 взять из `/me`).
 
-Помимо [стандартных полей вакансии](vacancies.md#nano) вернутся дополнительные
-поля:
+
+### Ответ
+
+Успешный ответ приходит с кодом `200 OK` и содержит:
 
 ```json
 {
-  "counters": {
-    "views": 100500,
-    "responses": 5,
-    "unread_responses": 3,
-    "invitations": 10
-  },
-  "expires_at": "2013-07-08T16:17:21+0400",
-  "has_updates": false
+    "found": 1,
+    "page": 0,
+    "pages": 1,
+    "per_page": 20,
+    "items": [
+    {
+      "salary": {
+        "to": null,
+        "from": 30000,
+        "currency": "RUR"
+      },
+      "name": "Секретарь",
+      "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Москва"
+      },
+      "url": "https://api.hh.ru/vacancies/8331228",
+      "published_at": "2013-07-08T16:17:21+0400",
+      "relations": [],
+      "employer": {
+        "logo_urls": {
+          "90": "http://hh.ru/employer-logo/289027.png",
+          "240": "http://hh.ru/employer-logo/289169.png",
+          "original": "http://hh.ru/file/2352807.png"
+        },
+        "name": "HeadHunter",
+        "url": "https://api.hh.ru/employers/1455",
+        "alternate_url": "http://hh.ru/employer/1455",
+        "id": "1455",
+        "trusted": true
+      },
+      "response_letter_required": true,
+      "address": null,
+      "alternate_url": "http://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "premium": false,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "id": "8331228",
+      "archived": false,
+
+      "counters": {
+        "views": 100500,
+        "responses": 5,
+        "unread_responses": 3,
+        "invitations": 10
+      },
+      "expires_at": "2013-07-08T16:17:21+0400",
+      "has_updates": false
+    }
+  ]
 }
 ```
+
+Где помимо [стандартных полей вакансии](vacancies.md#nano) вернутся
+дополнительные поля:
 
 ключ | тип | описание
 -----|-----|---------
@@ -50,6 +101,7 @@ has_updates | boolean | Есть ли в откликах/приглашения
 
 Также доступен
 [список опубликованных вакансий, подходящих для приглашения соискателя](employer_vacancies_for_invitation.md).
+
 
 ### Поддерживаемые параметры
 
@@ -85,18 +137,69 @@ has_updates | boolean | Есть ли в откликах/приглашения
 опубликованных вакансий, данная коллекция не поддерживает поиск (параметры
 `text` и `area`).
 
-Помимо [стандартных полей вакансии](vacancies.md#nano) вернутся дополнительные
-поля:
+
+### Ответ
+
+Успешный ответ приходит с кодом `200 OK` и содержит:
 
 ```json
 {
-  "counters": {
-    "responses": 3,
-    "invitations_and_responses": 5
-  },
-  "archived_at": "2013-07-08T16:17:21+0400"
+    "found": 1,
+    "page": 0,
+    "pages": 1,
+    "per_page": 20,
+    "items": [
+    {
+      "salary": {
+        "to": null,
+        "from": 30000,
+        "currency": "RUR"
+      },
+      "name": "Секретарь",
+      "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Москва"
+      },
+      "url": "https://api.hh.ru/vacancies/8331228",
+      "published_at": "2013-07-08T16:17:21+0400",
+      "relations": [],
+      "employer": {
+        "logo_urls": {
+          "90": "http://hh.ru/employer-logo/289027.png",
+          "240": "http://hh.ru/employer-logo/289169.png",
+          "original": "http://hh.ru/file/2352807.png"
+        },
+        "name": "HeadHunter",
+        "url": "https://api.hh.ru/employers/1455",
+        "alternate_url": "http://hh.ru/employer/1455",
+        "id": "1455",
+        "trusted": true
+      },
+      "response_letter_required": true,
+      "address": null,
+      "alternate_url": "http://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "premium": false,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "id": "8331228",
+      "archived": true,
+
+      "counters": {
+        "responses": 3,
+        "invitations_and_responses": 5
+      },
+      "archived_at": "2013-08-08T16:17:21+0400"
+    }
+  ]
 }
 ```
+
+Где помимо [стандартных полей вакансии](vacancies.md#nano) вернутся
+дополнительные поля:
 
 ключ | тип | описание
 ---- |---- |---------
@@ -124,6 +227,63 @@ archived_at | строка | дата архивации вакансии
 `employer_hidden_vacancies_order` (`/dictionaries`). В отличие от списка
 опубликованных вакансий, данная коллекция не поддерживает поиск (параметры
 `text` и `area`).
+
+
+### Ответ
+
+Успешный ответ приходит с кодом `200 OK` и содержит:
+
+```json
+{
+    "found": 1,
+    "page": 0,
+    "pages": 1,
+    "per_page": 20,
+    "items": [
+    {
+      "salary": {
+        "to": null,
+        "from": 30000,
+        "currency": "RUR"
+      },
+      "name": "Секретарь",
+      "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Москва"
+      },
+      "url": "https://api.hh.ru/vacancies/8331228",
+      "published_at": "2013-07-08T16:17:21+0400",
+      "relations": [],
+      "employer": {
+        "logo_urls": {
+          "90": "http://hh.ru/employer-logo/289027.png",
+          "240": "http://hh.ru/employer-logo/289169.png",
+          "original": "http://hh.ru/file/2352807.png"
+        },
+        "name": "HeadHunter",
+        "url": "https://api.hh.ru/employers/1455",
+        "alternate_url": "http://hh.ru/employer/1455",
+        "id": "1455",
+        "trusted": true
+      },
+      "response_letter_required": true,
+      "address": null,
+      "alternate_url": "http://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "premium": false,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "id": "8331228",
+      "archived": true
+    }
+  ]
+}
+```
+
+Ответ состоит из [стандартных полей вакансии](vacancies.md#nano).
 
 
 <a name="restore"/>
