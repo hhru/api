@@ -23,7 +23,8 @@ To view the list of published vacancies, you should indicate the manager ID even
 if you need to make a request for the current manager (the value can be taken
 from `/me`).
 
-In addition to the standard vacancy fields, additional fields will be returned:
+In addition to [the standard vacancy fields](vacancies.md#nano), additional
+fields will be returned:
 
 ```json
 {
@@ -83,7 +84,8 @@ supported. Possible sorting values are available in the
 the list of published vacancies, this collection does not support search (the
 parameters `text` and `area`).
 
-In addition to the standard vacancy fields, additional fields will be returned:
+In addition to [the standard vacancy fields](vacancies.md#nano), additional
+fields will be returned:
 
 ```json
     {

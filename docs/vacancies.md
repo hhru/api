@@ -38,6 +38,7 @@
   },
   "address": null,
   "alternate_url": "http://hh.ru/vacancy/8331228",
+  "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
   "employment": {
     "id": "full",
     "name": "Полная занятость"
@@ -402,6 +403,8 @@ hidden | логический | удалена ли вакансия (скрыт
       "response_letter_required": true,
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+
       "type": {
         "id": "open",
         "name": "Открытая"
@@ -428,6 +431,7 @@ hidden | логический | удалена ли вакансия (скрыт
     "premium": true,
     "address": null,
     "alternate_url": "http://hh.ru/vacancy/7760476",
+    "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=7760476",
     "salary": {
         "to": null,
         "from": 100000,
@@ -469,6 +473,7 @@ hidden | логический | удалена ли вакансия (скрыт
  premium | логический | Является ли премиум вакансией
  address | объект, null | [Адрес вакансии](address.md#Адрес)
  alternate_url | строка, null | Ссылка на представление вакансии на сайте
+ apply_alternate_url | строка, null | Ссылка на отклик на вакансию на сайте
  salary | объект, null | Оклад
  name | строка | Название вакансии
  area | объект | Регион размещения вакансии

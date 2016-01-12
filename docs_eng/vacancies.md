@@ -38,6 +38,7 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
       },
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "employment": {
         "id": "full",
         "name": "Full time"
@@ -444,6 +445,7 @@ Example: [https://api.hh.ru/vacancies?locale=EN](https://api.hh.ru/vacancies?loc
     "premium": true,
     "address": null,
     "alternate_url": "http://hh.ru/vacancy/7760476",
+    "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=7760476",
     "salary": {
         "to": null,
         "from": 100000,
@@ -485,6 +487,7 @@ Name| Type| Description
  premium | logical| Whether it is a premium vacancy
  address | object, null | [vacancy address](address.md#Address)
  alternate_url | string, null | Link to the full vacancy presentation in web site
+ apply_alternate_url | string, null | Link to the vacancy respond page in web site
  salary | object, null | Wage
  name | string | Vacancy name
  area | object | Region of vacancy posting
