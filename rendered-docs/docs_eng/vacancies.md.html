@@ -776,6 +776,7 @@
       <span class="p">},</span>
       <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
       <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Full time&quot;</span>
@@ -891,7 +892,7 @@ as a link to the company that posted the vacancy.</li>
 <p>The value may be null if the vacancy has no individual description.</p>
 
 <p>If case of an authorized request, the <code>relations</code> key returns values from the
-<code>vacancy_relations</code> reference in <a href="dictionaries.md.html">/dictionaries</a>.</p>
+<code>vacancy_relation</code> reference in <a href="dictionaries.md.html">/dictionaries</a>.</p>
 
 <p>The <code>negotiations_url</code> key returns a link to a list of applications/invitations
 for the vacancy of the current applicant user (for other user types, <code>null</code> is
@@ -1178,6 +1179,7 @@ used for applicants.</p>
     <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/7760476&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=7760476&quot;</span><span class="p">,</span>
     <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
@@ -1241,6 +1243,11 @@ used for applicants.</p>
   <td>alternate_url</td>
   <td>string, null</td>
   <td>Link to the full vacancy presentation in web site</td>
+</tr>
+<tr>
+  <td>apply_alternate_url</td>
+  <td>string, null</td>
+  <td>Link to the vacancy respond page in web site</td>
 </tr>
 <tr>
   <td>salary</td>

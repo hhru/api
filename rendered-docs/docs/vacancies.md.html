@@ -777,6 +777,7 @@
   <span class="p">},</span>
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
   <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Полная занятость&quot;</span>
@@ -893,7 +894,7 @@ retina дисплеи.</li>
 <p>Значение может быть null, если у вакансии отсутствует индивидуальное описание.</p>
 
 <p>При запросе с авторизацией ключ <code>relations</code> возвращает значения из справочника
-<code>vacancy_relations</code> в <a href="dictionaries.md.html">/dictionaries</a>.</p>
+<code>vacancy_relation</code> в <a href="dictionaries.md.html">/dictionaries</a>.</p>
 
 <p>В ключе <code>negotiations_url</code> возвращается ссылка для получения списка
 откликов/приглашений по данной вакансии текущего пользователя-соискателя (для
@@ -1142,11 +1143,16 @@ null. Список телефонов может быть пустым.</p>
       <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
       <span class="p">},</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;snippet&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;requirement&quot;</span><span class="p">:</span> <span class="s2">&quot;Высшее образование. Опыт работы в качестве &lt;highlighttext&gt;секретаря&lt;/highlighttext&gt;, офис-менеджера. Знание делопроизводства, документооборота. Коммуникативные навыки.&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;responsibility&quot;</span><span class="p">:</span> <span class="s2">&quot;Документооборот (регистрация, отправка, контроль исполнения писем, ведение протоколов, отчетность). Распределение корреспонденции. Прием и распределение телефонных звонков.&quot;</span>
+      <span class="p">},</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1158,6 +1164,35 @@ null. Список телефонов может быть пустым.</p>
 
 <p>Пример: <a href="https://api.hh.ru/vacancies">https://api.hh.ru/vacancies</a></p>
 
+<p>Где помимо <a href="#nano">стандартных полей вакансии</a> вернутся дополнительные поля:</p>
+
+<table>
+<thead>
+<tr>
+  <th>ключ</th>
+  <th>тип</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>snippet</td>
+  <td>объект</td>
+  <td>Дополнительные текстовые снипеты по найденной вакансии. Если в тексте снипета встретилась поисковая фраза (параметр <code>text</code>), она будет подсвечена тегом <code>highlighttext</code>.</td>
+</tr>
+<tr>
+  <td>snippet.requirement</td>
+  <td>строка, null</td>
+  <td>Требования по вакансии, если они найдены в тексте описания.</td>
+</tr>
+<tr>
+  <td>snippet.responsibility</td>
+  <td>строка, null</td>
+  <td>Обязанности по вакансии, если они найдены в тексте описания.</td>
+</tr>
+</tbody>
+</table>
+
 <p><a name="nano"/></p>
 
 <h2 id="-6">Короткое представление вакансии</h2>
@@ -1167,6 +1202,7 @@ null. Список телефонов может быть пустым.</p>
     <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/7760476&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=7760476&quot;</span><span class="p">,</span>
     <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
@@ -1196,11 +1232,12 @@ null. Список телефонов может быть пустым.</p>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Здесь: </p>
+<p>Здесь:</p>
 
 <table>
 <thead>
@@ -1230,6 +1267,11 @@ null. Список телефонов может быть пустым.</p>
   <td>alternate_url</td>
   <td>строка, null</td>
   <td>Ссылка на представление вакансии на сайте</td>
+</tr>
+<tr>
+  <td>apply_alternate_url</td>
+  <td>строка, null</td>
+  <td>Ссылка на отклик на вакансию на сайте</td>
 </tr>
 <tr>
   <td>salary</td>
@@ -1270,6 +1312,11 @@ null. Список телефонов может быть пустым.</p>
   <td>type</td>
   <td>объект</td>
   <td>Тип вакансии, один из элементов <code>vacancy_type</code> в <a href="dictionaries.md.html">Справочнике</a></td>
+</tr>
+<tr>
+  <td>archived</td>
+  <td>логический</td>
+  <td>Находится ли данная вакансия в архиве</td>
 </tr>
 </tbody>
 </table>

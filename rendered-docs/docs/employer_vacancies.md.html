@@ -764,19 +764,70 @@
 даже если необходимо сделать запрос для текущего менеджера (значение можно
 взять из <code>/me</code>).</p>
 
-<p>Помимо стандартных полей вакансии вернутся дополнительные поля:</p>
+<h3 id="-3">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
 <div class="codehilite"><pre><code><span class="p">{</span>
-  <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
-    <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="nt">&quot;unread_responses&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="nt">&quot;invitations&quot;</span><span class="p">:</span> <span class="mi">10</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;has_updates&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/2352807.png&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+
+      <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
+        <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;unread_responses&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;invitations&quot;</span><span class="p">:</span> <span class="mi">10</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;has_updates&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
+
+<p>Где помимо <a href="vacancies.md.html#nano">стандартных полей вакансии</a> вернутся
+дополнительные поля:</p>
 
 <table>
 <thead>
@@ -823,7 +874,7 @@
 <p>Также доступен
 <a href="employer_vacancies_for_invitation.md.html">список опубликованных вакансий, подходящих для приглашения соискателя</a>.</p>
 
-<h3 id="-3">Поддерживаемые параметры</h3>
+<h3 id="-4">Поддерживаемые параметры</h3>
 
 <p>Помимо стандартных параметров для пагинации <code>per_page</code> и <code>page</code>, коллекция поддерживает:</p>
 
@@ -837,7 +888,7 @@
 
 <p><a name="archive"/></p>
 
-<h2 id="-4">Архивация вакансий</h2>
+<h2 id="-5">Архивация вакансий</h2>
 
 <p>Для переноса вакансии в архив необходимо отправить запрос PUT:</p>
 
@@ -847,7 +898,7 @@
 
 <p><a name="archived"/></p>
 
-<h2 id="-5">Список архивных вакансий</h2>
+<h2 id="-6">Список архивных вакансий</h2>
 
 <p><code>GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}</code></p>
 
@@ -859,16 +910,67 @@
 опубликованных вакансий, данная коллекция не поддерживает поиск (параметры
 <code>text</code> и <code>area</code>).</p>
 
-<p>Помимо стандартных полей вакансии вернутся дополнительные поля:</p>
+<h3 id="-7">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
 <div class="codehilite"><pre><code><span class="p">{</span>
-  <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="nt">&quot;invitations_and_responses&quot;</span><span class="p">:</span> <span class="mi">5</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;archived_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/2352807.png&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+
+      <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;invitations_and_responses&quot;</span><span class="p">:</span> <span class="mi">5</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;archived_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-08-08T16:17:21+0400&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
+
+<p>Где помимо <a href="vacancies.md.html#nano">стандартных полей вакансии</a> вернутся
+дополнительные поля:</p>
 
 <table>
 <thead>
@@ -899,7 +1001,7 @@
 
 <p><a name="hide"/></p>
 
-<h2 id="-6">Удаление вакансии</h2>
+<h2 id="-8">Удаление вакансии</h2>
 
 <p><code>PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}</code></p>
 
@@ -908,7 +1010,7 @@
 
 <p><a name="hidden"/></p>
 
-<h2 id="-7">Список удаленных вакансий</h2>
+<h2 id="-9">Список удаленных вакансий</h2>
 
 <p><code>GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}</code></p>
 
@@ -918,9 +1020,64 @@
 опубликованных вакансий, данная коллекция не поддерживает поиск (параметры
 <code>text</code> и <code>area</code>).</p>
 
+<h3 id="-10">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/2352807.png&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Ответ состоит из <a href="vacancies.md.html#nano">стандартных полей вакансии</a>.</p>
+
 <p><a name="restore"/></p>
 
-<h2 id="-8">Восстановление из удаленных</h2>
+<h2 id="-11">Восстановление из удаленных</h2>
 
 <p><code>DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}</code></p>
 

@@ -739,14 +739,17 @@
 
 <p><em>Документация по переписке для работодателя доступна в <a href="employer_negotiations.md.html">отдельной статье</a>.</em></p>
 
-<p>В процессе использования сайта соискатели выбирают вакансии. 
-Для того чтобы связаться с работодателем на предмет трудоустройства соискатель может откликнуться на выбранную вакансию.
-Так же и работодатель, найдя интересное резюме, может предложить соискателю рассмотреть вакансию (приглашение). </p>
+<p>В процессе использования сайта соискатели выбирают вакансии.  Для того чтобы
+связаться с работодателем на предмет трудоустройства, соискатель может
+откликнуться на выбранную вакансию. Так же и работодатель, найдя интересное
+резюме, может предложить соискателю рассмотреть вакансию (приглашение).</p>
 
-<p>Для указанных целей служат специальные сущности — отклики/приглашения. 
-В них может быть указана вакансия, резюме и переписка соискателя с работодателем, в каждый момент времени такие сущности находятся в одном из состояний.
-Переход между состояниями сопровождается появлением сообщений с опциональным текстовым описанием и прочими полями.
-Сообщения со статусом <code>null</code> не переводят весь отклик в новое состояние.</p>
+<p>Для указанных целей служат специальные сущности — отклики/приглашения.  В них
+может быть указана вакансия, резюме и переписка соискателя с работодателем, в
+каждый момент времени такие сущности находятся в одном из состояний. Переход
+между состояниями сопровождается появлением сообщений с опциональным текстовым
+описанием и прочими полями. Сообщения со статусом <code>null</code> не переводят весь
+отклик в новое состояние.</p>
 
 <ul>
 <li><a href="#get_negotiations">Получение списка откликов</a></li>
@@ -755,6 +758,7 @@
 <li><a href="#get_negotiation">Просмотр отклика/приглашения</a></li>
 <li><a href="#hide_message">Скрыть отклик</a></li>
 <li><a href="#get_messages">Просмотр списка сообщений в отклике</a></li>
+<li><a href="#send_message">Отправка нового сообщения</a></li>
 <li><a href="#edit_message">Редактирование сообщения в отклике</a></li>
 </ul>
 
@@ -767,7 +771,7 @@
 <pre><code>GET /negotiations
 </code></pre>
 
-<p>Параметры:</p>
+<p>Помимо стандартных параметров пагинации <code>page</code> и <code>per_page</code>, поддерживаются:</p>
 
 <table>
 <thead>
@@ -779,24 +783,14 @@
 </thead>
 <tbody>
 <tr>
-  <td>page</td>
-  <td>нет</td>
-  <td>Номер страницы, по умолчанию: 0</td>
-</tr>
-<tr>
-  <td>per_page</td>
-  <td>нет</td>
-  <td>Количество выдаваемых элементов на страницу, по умолчанию 20.</td>
-</tr>
-<tr>
   <td>order_by</td>
   <td>нет</td>
-  <td>Поле, по которому проводить сортировку выдаваемых данных. Возможные значения: <code>updated_at</code>, <code>created_at</code>. По умолчанию: <code>updated_at</code></td>
+  <td>тип сортировки, возможные значения указаны в <a href="dictionaries.md.html">справочнике <code>negotiations_order</code></a></td>
 </tr>
 <tr>
   <td>order</td>
   <td>нет</td>
-  <td>Направление сортировки. Возможные значения: <code>asc</code>, <code>desc</code>. По умолчанию: <code>desc</code></td>
+  <td>направление сортировки. Возможные значения: <code>asc</code>, <code>desc</code>.</td>
 </tr>
 <tr>
   <td>vacancy_id</td>
@@ -806,7 +800,11 @@
 </tbody>
 </table>
 
+<p>По-умолчанию отклики сортируются по последнему обновлению от новых к старым.</p>
+
 <h3 id="-4">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
 <div class="codehilite"><pre><code><span class="p">{</span>
     <span class="s2">&quot;found&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -834,7 +832,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>где: </p>
+<p>где:</p>
 
 <table>
 <thead>
@@ -934,7 +932,7 @@
 
 <p>В объекте вакансии ключи <code>url</code> и <code>alternate_url</code> могут быть <code>null</code>, если вакансия недоступна (удалена).</p>
 
-<p><a name="get_negotiations_active"/> </p>
+<p><a name="get_negotiations_active"/></p>
 
 <h2 id="-5">Получение списка активных откликов</h2>
 
@@ -945,12 +943,12 @@
 
 <p>Опциональные параметры и ответ такие же, как и в <a href="#get_negotiations">списке откликов</a></p>
 
-<p><a name="post_negotiation"/> </p>
+<p><a name="post_negotiation"/></p>
 
 <h2 id="-7">Откликнуться на вакансию</h2>
 
-<p>Для того чтобы узнать, какими резюме возможно откликнуться на конкретную вакансию, можно воспользоваться 
-<a href="suitable_resumes.md.html">списком подходящих резюме</a>.</p>
+<p>Для того чтобы узнать, какими резюме возможно откликнуться на конкретную
+вакансию, можно воспользоваться <a href="suitable_resumes.md.html">списком подходящих резюме</a>.</p>
 
 <h3 id="-8">Запрос</h3>
 
@@ -988,7 +986,8 @@
 
 <h3 id="-9">Ответ</h3>
 
-<p>В случае успеха приходит статус <code>201 Created</code>, а в заголовке <code>Location</code> ответа будет содержаться ссылка на созданный отклик (кроме <code>direct</code> вакансий, см. ниже)</p>
+<p>В случае успеха приходит статус <code>201 Created</code>, а в заголовке <code>Location</code> ответа
+будет содержаться ссылка на созданный отклик (кроме <code>direct</code> вакансий, см. ниже)</p>
 
 <pre><code>HTTP/1.1 201 Created
 ...
@@ -996,7 +995,10 @@ Location: /negotiations/123
 ...
 </code></pre>
 
-<p>Для вакансий у которых тип <code>direct</code> ответ будет приходить с кодом <code>303 See Other</code>.</p>
+<h3 id="-10">Вакансии с прямым откликом</h3>
+
+<p>Для вакансий, у которых тип <code>direct</code>, ответ будет приходить с кодом
+<code>303 See Other</code>.</p>
 
 <pre><code>HTTP/1.1 303 See Other
 ...
@@ -1004,28 +1006,64 @@ Location: http://example.com/respond/vacancy
 ...
 </code></pre>
 
-<p>Вакансии с типом <code>direct</code> – это вакансии с прямым откликом. У данных вакансий непустой <code>response_url</code> – внешний url на сайт работодателя, который отдается в заголовке <code>Location</code> при попытке откликнуться. Используйте <code>response_url</code>, чтобы предложить пользователю откликнуться на вакансию на сайте работодателя вместо стандартного механизма откликов.</p>
+<p>Вакансии с типом <code>direct</code> – это вакансии с прямым откликом. У данных вакансий
+непустой <code>response_url</code> – внешний url на сайт работодателя, который отдается в
+заголовке <code>Location</code> при попытке откликнуться. Используйте <code>response_url</code>, чтобы
+предложить пользователю откликнуться на вакансию на сайте работодателя вместо
+стандартного механизма откликов.</p>
 
-<p>Некоторые возможные сообщения об ошибках указаны в <a href="errors.md.html#negotiations">соответствующем разделе</a>.</p>
+<h3 id="-11">Ошибки</h3>
+
+<ul>
+<li><code>400 Bad Request</code> – если указанные вакансия или резюме не существуют;
+либо для отклика необходимо пройти тест или заполнить сопроводительное письмо;
+либо работодатель закрыл возможность присылать отклики на вакансию;
+либо количество откликов в день для пользователя превышено.</li>
+<li><code>403 Forbidden</code> - если на указанную вакансию не возможно откликнуться, по
+причине отсутствия доступа к ней или из-за того, что уже был отклик ранее
+или если настройки видимости выбранного резюме не позволяют откликнуться на
+вакансию.</li>
+</ul>
+
+<p>Дополнительно к HTTP коду сервер может вернуть описание
+<a href="errors.md.html#negotiations">причины ошибки</a>.</p>
 
 <p><a name="get_negotiation" /></p>
 
-<h2 id="-10">Просмотр отклика/приглашения</h2>
+<h2 id="-12">Просмотр отклика/приглашения</h2>
 
-<h3 id="-11">Запрос</h3>
+<h3 id="-13">Запрос</h3>
 
 <pre><code>GET /negotiations/{nid}
 </code></pre>
 
 <p>где nid - идентификатор отклика.</p>
 
-<h3 id="-12">Ответ</h3>
+<h3 id="-14">Ответ</h3>
 
-<p>Возвращаемый объект полностью идентичен отдельному отклику, получаемому в <a href="#get_negotiations">списке откликов</a></p>
+<p>Возвращаемый объект полностью идентичен отдельному отклику, получаемому в
+<a href="#get_negotiations">списке откликов</a>, за исключением поля <code>messaging_status</code>.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>messaging_status</td>
+  <td>строка</td>
+  <td>Текущий статус переписки. Возможные значения находятся в <a href="./dictionaries.md.html">справочнике <code>messaging_status</code></a>.</td>
+</tr>
+</tbody>
+</table>
 
 <p><a name="hide_message" /></p>
 
-<h2 id="-13">Скрыть отклик</h2>
+<h2 id="-15">Скрыть отклик</h2>
 
 <p>Для скрытия отклика необходимо выполнить запрос:</p>
 
@@ -1038,13 +1076,13 @@ Location: http://example.com/respond/vacancy
 <li>nid - идентификатор отклика</li>
 </ul>
 
-<p>В качестве ответа придёт HTTP статус <code>204 No Content</code></p>
+<p>Успешный ответ приходит с кодом <code>204 No Content</code>.</p>
 
 <p><a name="get_messages" /></p>
 
-<h2 id="-14">Просмотр списка сообщений в отклике</h2>
+<h2 id="-16">Просмотр списка сообщений в отклике</h2>
 
-<h3 id="-15">Запрос</h3>
+<h3 id="-17">Запрос</h3>
 
 <pre><code>GET /negotiations/{nid}/messages
 </code></pre>
@@ -1082,9 +1120,9 @@ Location: http://example.com/respond/vacancy
 </tbody>
 </table>
 
-<h3 id="-16">Ответ:</h3>
+<h3 id="-18">Ответ:</h3>
 
-<div class="codehilite"><pre><code><span class="p">{</span> 
+<div class="codehilite"><pre><code><span class="p">{</span>
     <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
@@ -1248,17 +1286,95 @@ Location: http://example.com/respond/vacancy
 </tbody>
 </table>
 
-<p><a name='edit_message' /></p>
+<p><a name="send_message" /></p>
 
-<h2 id="-17">Редактирование сообщений в отклике</h2>
+<h2 id="-19">Отправка нового сообщения</h2>
 
-<p>При некоторых условиях текст сообщения можно редактировать после отправки. Чтобы определить доступно ли редактирование сообщения, необходимо использовать флаг <code>editable:true</code>.</p>
+<p>Отправка нового сообщения работодателю возможна после того, как работодатель
+пригласил соискателя на вакансию. Сообщения можно отправлять и в случае отказа
+после собеседования. Если вакансия была отправлена в архив или соискатель удалил
+резюме, переписка будет недоступна. Работодатель также может вручную отключить
+переписку для вакансии.</p>
+
+<h3 id="-20">Запрос</h3>
+
+<pre><code>POST /negotiations/{nid}/messages
+</code></pre>
+
+<p>где:</p>
+
+<ul>
+<li>nid - идентификатор отклика</li>
+</ul>
+
+<p>Параметры</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Обязательный</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>message</td>
+  <td>да</td>
+  <td>Текст сообщения</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="-21">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>201 Created</code> и содержит добавленный
+комментарий:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;124&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;viewed_by_me&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-08T10:12:23+0400&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Верблюда и коня мне!&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Текст&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;participant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;applicant&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;editable&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="-22">Ошибки</h3>
+
+<ul>
+<li><code>404 Not Found</code> - при отсутствии отклика с указанным идентификатором</li>
+<li><code>403 Bad Request</code> – если отправить сообщение не удалось</li>
+</ul>
+
+<p>Дополнительно к HTTP коду сервер может вернуть описание
+<a href="errors.md.html#negotiations">причины ошибки</a>.</p>
+
+<p><a name="edit_message" /></p>
+
+<h2 id="-23">Редактирование сообщений в отклике</h2>
+
+<p>При некоторых условиях текст сообщения можно редактировать после отправки. Чтобы
+определить, доступно ли редактирование сообщения, необходимо использовать флаг
+<code>editable</code>.</p>
 
 <blockquote>
-  <p>На данный момент редактирование доступно только сообщения при отклике, причём оно должно быть еще не прочитано другой стороной, вакансия должна быть активна (не в архиве), а резюме быть не удалено. Но эти условия могут измениться.</p>
+  <p>На данный момент редактирование доступно только сообщения при отклике,
+  причём оно должно быть еще не прочитано другой стороной, вакансия должна
+  быть активна (не в архиве), а резюме быть не удалено. Но эти условия могут
+  измениться.</p>
 </blockquote>
 
-<h3 id="-18">Запрос</h3>
+<h3 id="-24">Запрос</h3>
 
 <pre><code>PUT /negotiations/{nid}/messages/{mid}
 </code></pre>
@@ -1289,11 +1405,21 @@ Location: http://example.com/respond/vacancy
 </tbody>
 </table>
 
-<h3 id="-19">Ответ</h3>
+<h3 id="-25">Ответ</h3>
 
-<p>В случае успешного обновления текста сообщения вернётся статус HTTP <code>204 No Content</code>.
-В случае, когда редактирование сообщения запрещено будет возвращён HTTP статус <code>403 Forbidden</code>.
-Если сообщение не было найдено, то будет возвращён HTTP статус <code>404 Not Found</code>.</p>
+<p>В случае успешного обновления текста сообщения вернётся HTTP-статус
+<code>204 No Content</code>.</p>
+
+<h3 id="-26">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> - в случае, когда редактирование сообщения запрещено.
+Например, принимающая сторона уже успела прочитать сообщение.</li>
+<li><code>404 Not Found</code> - если сообщение не было найдено.</li>
+</ul>
+
+<p>Дополнительно к HTTP коду сервер может вернуть описание
+<a href="errors.md.html#negotiations">причины ошибки</a>.</p>
 
     </article>
     </body>
