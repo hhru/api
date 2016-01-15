@@ -40,6 +40,8 @@ HeadHunter API — это бесплатный инструментарий дл
   * [Тексты сообщений](docs/negotiation_message_templates.md)
   * [Инструменты оценки](docs/assessment.md)
 * [Сохраненные поиски (автопоиски)](docs/saved_search.md)
+  * [Сохраненные поиски вакансий](docs/saved_search.md#vacancies-saved-search-list)
+  * [Сохраненные поиски резюме](docs/saved_search.md#resumes-saved-search-list)
 * [Скрытые вакансии](docs/blacklisted.md)
 * [Список резюме для отклика на указанную вакансию](docs/suitable_resumes.md)
 * [Комментарии к соискателю](docs/applicant_comments.md)
