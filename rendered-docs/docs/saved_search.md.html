@@ -737,19 +737,43 @@
     <article class="markdown-body">
     <h1>Сохраненные поиски</h1>
 
-<p>Сохраненный поиск (автопоиск) — это сохраненный набор параметров поиска, по которому можно отслеживать новые вакансии по заданному запросу. Помимо сохранения параметров поисковых запросов, автопоиск позволяет получать оповещения по почте о новых вакансиях. Для удобства автопоиску можно задавать имя.</p>
+<p>Сохраненный поиск (автопоиск) — это сохраненный набор параметров поиска, по
+которому можно отслеживать новые вакансии или резюме по заданному запросу.
+Помимо сохранения параметров поисковых запросов, автопоиск позволяет получать
+оповещения по почте о новых результатах поиска. Для удобства автопоиску можно
+задавать имя.</p>
 
-<p>Во всех запросах по созданию, редактированию, получению, удалению автопоисков необходимо указывать авторизацию (заголовок <code>Authorization</code>), в противном случае вернется статус <code>HTTP 403 Forbidden</code>.</p>
+<ul>
+<li>Сохраненные поиски вакансий
+<ul>
+<li><a href="#vacancies-saved-search-list">Список сохраненных поисков вакансий</a></li>
+<li><a href="#vacancies-saved-search-item">Получение единичного сохраненного поиска вакансий</a></li>
+<li><a href="#vacancies-saved-search-create">Создание нового сохраненного поиска вакансий</a></li>
+<li><a href="#vacancies-saved-search-update">Обновление сохраненного поиска вакансий</a></li>
+<li><a href="#vacancies-saved-search-delete">Удаление сохраненного поиска вакансий</a></li>
+</ul></li>
+<li>Сохраненные поиски резюме
+<ul>
+<li><a href="#resumes-saved-search-list">Список сохраненных поисков резюме</a></li>
+<li><a href="#resumes-saved-search-item">Получение единичного сохраненного поиска резюме</a></li>
+</ul></li>
+</ul>
+
+<p><a name="vacancies-saved-search-list" /></p>
 
 <h2 id="-2">Список сохраненных поисков вакансий</h2>
 
 <p><code>GET /saved_searches/vacancies</code> вернет список автопоисков с пагинацией.</p>
 
+<p>Запрос доступен только при авторизации соискателем, иначе вернётся ошибка
+<code>403 Forbidden</code>.</p>
+
 <p>Принимаемые параметры:</p>
 
 <ul>
-<li><p><code>page</code> - номер страницы (считается от 0, по умолчанию - 0)</p></li>
-<li><p><code>per_page</code> - количество элементов (по умолчанию - 10, максимальное значение - 10)</p></li>
+<li><code>page</code> - номер страницы (считается от 0, по умолчанию - 0)</li>
+<li><code>per_page</code> - количество элементов (по умолчанию - 10,
+максимальное значение - 10)</li>
 </ul>
 
 <p>Ответом будет стандартная коллекция элементов с пагинацией.</p>
@@ -822,12 +846,23 @@
 </tbody>
 </table>
 
-<p>В данных о списке вакансий содержится количество элементов в поиске (<code>count</code>) и ссылка на получение данных элементов. При переходе по ссылке из <code>new_items</code> счетчик новых вакансий будет сброшен (сброс значения возможен с небольшой задержкой во времени).</p>
+<p>В данных о списке вакансий содержится количество элементов в поиске (<code>count</code>) и
+ссылка на получение данных элементов. При переходе по ссылке из <code>new_items</code>
+счетчик новых вакансий будет сброшен (сброс значения возможен с небольшой
+задержкой во времени).</p>
 
-<h2 id="-3">Получение единичного сохраненного поиска</h2>
+<p><a name="vacancies-saved-search-item" /></p>
 
-<p>Для получения автопоиска по идентификатору неоходимо отправить <code>GET /saved_searches/vacancies/{id}</code>
-В случае успеха вернется статус <code>HTTP 200 OK</code> с единичным объектом автопоиска в теле. Например:</p>
+<h2 id="-3">Получение единичного сохраненного поиска вакансий</h2>
+
+<p>Для получения автопоиска по идентификатору неоходимо отправить
+<code>GET /saved_searches/vacancies/{id}</code>.</p>
+
+<p>Запрос доступен только при авторизации соискателем, иначе вернётся ошибка
+<code>403 Forbidden</code>.</p>
+
+<p>В случае успеха вернется статус <code>200 OK</code> с единичным объектом автопоиска в
+теле. Например:</p>
 
 <div class="codehilite"><pre><code><span class="p">{</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
@@ -845,33 +880,178 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>В случае, если автопоиск не найден - вернется статус <code>HTTP 404 Not Found</code>.</p>
+<p>В случае, если автопоиск не найден - вернется статус <code>404 Not Found</code>.</p>
 
-<h2 id="-4">Создание нового сохраненного поиска</h2>
+<p><a name="vacancies-saved-search-create" /></p>
 
-<p>Для создания автопоиска неоходимо отправить <code>POST</code> запрос на <code>/saved_searches/vacancies</code> со следующими параметрами:</p>
+<h2 id="-4">Создание нового сохраненного поиска вакансий</h2>
+
+<p>Для создания автопоиска неоходимо отправить <code>POST</code> запрос на
+<code>/saved_searches/vacancies</code> со следующими параметрами:</p>
 
 <ul>
-<li>параметры поиска вакансий. Соответствуют параметрам, передаваемым в поиск вакансий <a href="vacancies.md.html">/vacancies</a></li>
+<li>параметры поиска вакансий. Соответствуют параметрам,
+передаваемым в поиск вакансий <a href="vacancies.md.html">/vacancies</a></li>
 </ul>
 
-<p>В случае успешного создания вернется ответ <code>HTTP 201 Created</code> с заголовком <code>Location</code> указывающим на созданный автопоиск (например <code>/saved_searches/vacancies/123</code>, где 123 - id созданного автопоиска).</p>
+<p>В случае успешного создания вернется ответ <code>201 Created</code> с заголовком
+<code>Location</code>, указывающим на созданный автопоиск (например
+<code>/saved_searches/vacancies/123</code>, где 123 - id созданного автопоиска).</p>
 
-<h2 id="-5">Обновление сохраненного поиска</h2>
+<p>Запрос доступен только при авторизации соискателем, иначе вернётся ошибка
+<code>403 Forbidden</code>.</p>
 
-<p>У сохраненного поиска возможно изменить имя и статус подписки, для этого необходимо послать <code>PUT /saved_searches/vacancies/{id}</code>, где id - идентификатор сохраненного поиска.</p>
+<p><a name="vacancies-saved-search-update" /></p>
 
-<p>За один заход можно изменять только имя (параметр <code>name</code>) или только статус подписки (параметр <code>email_subscription=false</code>).</p>
+<h2 id="-5">Обновление сохраненного поиска вакансий</h2>
 
-<p>При попытке изменить оба параметра сразу придет ответ <code>HTTP 409 Conflict</code>. В случае, когда автопоиск не найден, вернется ответ <code>HTTP 404 Not Found</code>.</p>
+<p>У сохраненного поиска возможно изменить имя и статус подписки, для этого
+необходимо послать <code>PUT /saved_searches/vacancies/{id}</code>, где id -
+идентификатор сохраненного поиска.</p>
 
-<h2 id="-6">Удаление сохраненного поиска</h2>
+<p>За один заход можно изменять только имя (параметр <code>name</code>) или только статус
+подписки (параметр <code>email_subscription=false</code>).</p>
 
-<p>Для того, чтобы удалить автопоиск, необходимо послать <code>DELETE /saved_searches/vacancies/{id}</code>, где id - идентификатор автопоиска. </p>
+<p>При попытке изменить оба параметра сразу придет ответ <code>409 Conflict</code>.
+В случае, когда автопоиск не найден, вернется ответ <code>404 Not Found</code>.
+Запрос доступен только при авторизации соискателем, иначе вернётся ошибка
+<code>403 Forbidden</code>.</p>
 
-<p>В случае, когда автопоиск не был найден, вернется статус <code>HTTP 404 Not Found</code>. </p>
+<p><a name="vacancies-saved-search-delete" /></p>
 
-<p>При успешном удалении автопоиска вернется статус <code>HTTP 204 No Content</code>.</p>
+<h2 id="-6">Удаление сохраненного поиска вакансий</h2>
+
+<p>Для того, чтобы удалить автопоиск, необходимо выполнить запрос
+<code>DELETE /saved_searches/vacancies/{id}</code>, где id - идентификатор автопоиска.</p>
+
+<p>В случае, когда автопоиск не был найден, вернется статус <code>404 Not Found</code>.</p>
+
+<p>Запрос доступен только при авторизации соискателем, иначе вернётся ошибка
+<code>403 Forbidden</code>.</p>
+
+<p>При успешном удалении автопоиска, вернется статус <code>204 No Content</code>.</p>
+
+<p><a name="resumes-saved-search-list" /></p>
+
+<h2 id="-7">Список сохраненных поисков резюме</h2>
+
+<p><code>GET /saved_searches/resumes</code></p>
+
+<p>Запрос доступен только при авторизации работодателем, иначе вернётся ошибка
+<code>403 Forbidden</code>.</p>
+
+<p>Дополнительно можно указать
+<a href="general.md.html#pagination">стандартные параметры пагинации</a> <code>page</code> и <code>per_page</code>.
+По-умолчанию <code>per_page</code> - <code>5</code>, максимальное значение - <code>10</code>.</p>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
+
+<div class="codehilite"><pre><code><span class="p">{</span>
+  <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;609535&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Managers in Moscow&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-01T13:12:17+0400&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;email_subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes?order_by=publication_time&amp;saved_search_id=123456&amp;text=manager&amp;area=1&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;new_items&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes?order_by=publication_time&amp;saved_search_id=123456&amp;text=manager&amp;area=1&amp;date_from=2015-11-12T18%3A06%3A04%2B0300&quot;</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><a name="resumes-saved-search-object" />
+Каждый элемент коллекции содержит следующую информацию:</p>
+
+<table>
+<thead>
+<tr>
+  <th>название</th>
+  <th>тип</th>
+  <th>комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>строка</td>
+  <td>идентификатор</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>строка</td>
+  <td>название</td>
+</tr>
+<tr>
+  <td>email_subscription</td>
+  <td>логический</td>
+  <td>подключена ли email подписка</td>
+</tr>
+<tr>
+  <td>items</td>
+  <td>объект</td>
+  <td>данные о найденных резюме</td>
+</tr>
+<tr>
+  <td>new_items</td>
+  <td>объект</td>
+  <td>данные о найденных резюме, появившихся с момента последнего просмотра автопоиска</td>
+</tr>
+</tbody>
+</table>
+
+<p>Объекты <code>items</code> и <code>new_items</code> содержат следующие поля:</p>
+
+<table>
+<thead>
+<tr>
+  <th>название</th>
+  <th>тип</th>
+  <th>комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>count</td>
+  <td>int</td>
+  <td>количество результатов сохраненного поиска</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>строка</td>
+  <td>ссылка на результаты сохраненного поиска, присутствует, если активирован доступ к поиску резюме</td>
+</tr>
+</tbody>
+</table>
+
+<p>Обратите внимание, для получения результатов автопоиска (списка резюме),
+необходимо, чтобы приложение, через которое авторизуется работодатель, прошло
+<a href="resumes.md.html#resume-search-request">процедуру получения доступа к поиску резюме</a>.</p>
+
+<p><a name="resumes-saved-search-item" /></p>
+
+<h1 id="-8">Получение единичного сохраненного поиска резюме</h1>
+
+<p><code>GET /saved_searches/resumes/{id}</code></p>
+
+<p>где <code>id</code> – идентификатор автопоиска.</p>
+
+<p>Запрос доступен только при авторизации работодателем, иначе вернётся ошибка
+<code>403 Forbidden</code>. Если автопоиск не найден или не доступен текущему пользователю,
+вернётся ошибка <code>404 Not Found</code>.</p>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит единичный объект автопоиска,
+аналогичный <a href="#resumes-saved-search-object">объектам в списке автопоисков резюме</a>.</p>
 
     </article>
     </body>
