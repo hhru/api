@@ -146,8 +146,8 @@ HTTP code | type | value | описание
 403 | negotiations | application_denied | общая ошибка запрета отклика в случае, когда дополнительная информация недоступна
 400 / 403 | negotiations | limit_exceeded | превышен лимит количества откликов/приглашений
 403 | negotiations | wrong_state | действие по отклику/приглашению в данном статусе невозможно
-403 | negotiations | empty_mail_text | передан пустой текст письма
-403 | negotiations | too_long_mail_text | передан слишком длинный текст письма
+403 | negotiations | empty_message | передан пустой текст письма
+403 | negotiations | too_long_message | передан слишком длинный текст письма
 403 | negotiations | address_not_found | переданный к действию по адрес не существует, либо принадлежит другому работодателю
 403 | negotiations | not_enough_purchased_services | не хватает оплаченных услуг, обычно [доступа к базе резюме](http://hh.ru/price#dbaccess)
 403 | negotiations | in_a_row_limit | превышено количество последовательных сообщений в переписке, оппонент должен ответить на сообщение, чтобы появилась возможность писать вновь

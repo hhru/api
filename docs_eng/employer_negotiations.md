@@ -763,6 +763,7 @@ have a body.
 * `404 Not Found` – the response does not exist, belongs to another employer,
   or the current manager is not authorized to handle it.
 * `403 Forbidden` – invitation is impossible.
+* `400 Bad Request` – error in the request parameters.
 
 
 In addition to an HTTP code, the server can return
@@ -773,7 +774,7 @@ For example:
 * `wrong_state` – if the movement from the current response status to the
   invited list is impossible
 * `resume_not_found` – if the CV from the response was hidden or deleted
-* `empty_mail_text` and `too_long_mail_text` – if the text length limit is exceeded
+* `empty_message` и `too_long_message` – if the text length limit is exceeded
 * `address_not_found` – if the sent address does not exist or belongs to another
   employer
 * `invalid_vacancy` – if the response vacancy was archived or hidden
@@ -815,6 +816,7 @@ have a body.
 * `404 Not Found` – the sent response/invitation does not exist, belongs to
   another employer, or the current manager is not authorized to handle it.
 * `403 Forbidden` – rejection is impossible.
+* `400 Bad Request` – error in the request parameters.
 
 In addition to an HTTP code, the server can return
 [error reasons](errors.md#negotiations).
@@ -823,5 +825,5 @@ For example:
 
 * `wrong_state` – if the movement from the current response status to the
   discarded list is impossible
-* `empty_mail_text` and `too_long_mail_text` – if the text length limit
+* `empty_message` и `too_long_message` – if the text length limit
   is exceeded

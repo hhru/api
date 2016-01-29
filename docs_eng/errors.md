@@ -135,8 +135,8 @@ HTTP code| type| value| description
 400 / 403| negotiations| resume_not_found| the CV from the response/invitation was hidden or deleted, or not found
 400 / 403| negotiations| limit_exceeded| the limit on the responses/invitations number was exceeded
 403| negotiations| wrong_state| the action on the response/invitation in this status is impossible
-403| negotiations| empty_mail_text| the empty message text was sent
-403| negotiations| too_long_mail_text| the too long message text was sent
+403| negotiations| empty_message | the empty message text was sent
+403| negotiations| too_long_message | the too long message text was sent
 403| negotiations| address_not_found| the address sent for the action does not exist or belongs to another employer
 403| negotiations| not_enough_purchased_services| the paid services are insufficient, usually [CV database service](http://hh.ru/price#dbaccess)
 403| negotiations| in_a_row_limit| the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
