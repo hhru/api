@@ -745,7 +745,7 @@ additional information that helps the developer to learn the cause of the error.
 
 <p>All errors are displayed in the format:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -772,7 +772,7 @@ The <code>value</code> key is optional and provides more detail on the error.</p
 <code>404 Not Found</code> response will be returned and the <code>errors</code> array will have
 the object:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;not_found&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -782,7 +782,7 @@ the object:</p>
 <code>400 Bad Request</code> response will be returned, and the error array will have
 the object:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bad_argument&quot;</span><span class="p">,</span>
     <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;employer_id&quot;</span>
 <span class="p">}</span>
@@ -951,13 +951,13 @@ returned:</p>
 <tr>
   <td>403</td>
   <td>negotiations</td>
-  <td>empty_mail_text</td>
+  <td>empty_message</td>
   <td>the empty message text was sent</td>
 </tr>
 <tr>
   <td>403</td>
   <td>negotiations</td>
-  <td>too_long_mail_text</td>
+  <td>too_long_message</td>
   <td>the too long message text was sent</td>
 </tr>
 <tr>

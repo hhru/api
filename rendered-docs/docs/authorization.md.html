@@ -827,7 +827,7 @@ authorization code;</li>
 <p>В случае разрешения прав, в редиректе будет указан
 временный <code>authorization_code</code>:</p>
 
-<div class="codehilite"><pre><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">FOUND</span>
+<div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">FOUND</span>
 <span class="na">Location</span><span class="o">:</span> <span class="l">{redirect_uri}?code={authorization_code}</span>
 </code></pre></div>
 
@@ -860,7 +860,7 @@ POST-запрос на <code>https://hh.ru/oauth/token</code> для обмен�
 
 <p>В ответе вернётся JSON:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{access_token}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
   <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span>
@@ -873,7 +873,7 @@ POST-запрос на <code>https://hh.ru/oauth/token</code> для обмен�
 
 <p>Если обмен <code>authorization_code</code> произвести не удалось, то вернётся ответ <code>400 Bad Request</code> с телом:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;error_description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>
@@ -901,7 +901,7 @@ grant_type=refresh_token&amp;refresh_token={refresh_token}
 
 <p>Ответ будет идентичен ответу на получения токенов в первый раз:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{access_token}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
   <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span>
@@ -927,7 +927,7 @@ grant_type=refresh_token&amp;refresh_token={refresh_token}
 <p>Для тестирования токена, удобно использовать метод <code>/me</code> (это необязательный
 шаг).</p>
 
-<div class="codehilite"><pre><code><span class="nf">GET</span> <span class="nn">/me</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/me</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="o">:</span> <span class="l">MyApp/1.0 (my-app-feedback@example.com)</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.hh.ru</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>

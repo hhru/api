@@ -781,7 +781,7 @@
 <p>Rather than construct the url on your own, it is recommended to use the url included in the <code>templates</code> object in the
 <a href="employer_negotiations.md.html#negotiations-list">list of responses/invitations</a> and suitable vacancies:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&amp;vacancy_id=123456&quot;</span><span class="p">,</span>
@@ -830,7 +830,7 @@ GET /message_templates/{template}?vacancy_id={vacancy_id}&amp;resume_id={resume_
 
 <p>Successful server response is returned with <code>200 OK</code> code and contains</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;mail&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello Ivan Ivanovich! Thank you for your response to the vacancy... &quot;</span>
     <span class="p">}</span>

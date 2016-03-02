@@ -758,7 +758,7 @@
 
 <p>Ответ:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
     <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -868,15 +868,13 @@
 <p>В случае, когда в параметрах были переданы неправильные значения, будет возвращён код ответа <code>400 Bad Request</code>.
 При этом в теле ответа будет содержаться информация о том, в каком параметре была допущена ошибка.</p>
 
-<p>Например: на запрос <code>https://api.hh.ru/employers?type=abracadabra</code> придёт ответ <code>400 Bad Request</code> с телом:</p>
-
-<div class="codehilite"><pre><code><span class="p">{</span>
-    <span class="nt">&quot;bad_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown type&quot;</span>
-        <span class="p">}</span>
-     <span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bad_argument&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;type&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -886,7 +884,7 @@
 
 <p><code>GET /employers/{employer_id}</code> возвращает данные о компании с ссылкой на выдачу вакансий этой компании.</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;company&quot;</span><span class="p">,</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
@@ -900,6 +898,11 @@
         <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
         <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
         <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/file/2352807.png&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/113&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;113&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Россия&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -925,6 +928,8 @@ HTML адаптирован для мобильных устройств и ко
 логотип. Клиент должен предусмотреть возможность отсутствия логотипа по указанной ссылке (ответ с кодом <code>404 Not Found</code>).</p>
 
 <p><code>type</code> — тип компании (прямой работодатель, кадровое агентство и т.п.). Возможные значения описаны в <a href="dictionaries.md.html">коллекции справочников</a> под ключом <code>employer_type</code>. </p>
+
+<p><code>area</code> — регион работодателя.</p>
 
 <hr />
 

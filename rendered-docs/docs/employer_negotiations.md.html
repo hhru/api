@@ -787,7 +787,7 @@
 
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;states&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;inbox&quot;</span><span class="p">,</span>
@@ -880,7 +880,7 @@
 
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
     <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1149,7 +1149,7 @@
 
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
     <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T00:00:00+0300&quot;</span><span class="p">,</span>
     <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T12:00:05+0300&quot;</span><span class="p">,</span>
@@ -1310,7 +1310,7 @@
 
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1749,6 +1749,7 @@ Location: /negotiations/321
 <li><code>404 Not Found</code> – отклик не существует, принадлежит другому работодателю,
 либо у текущего менеджера нет прав для работы с переданным откликом.</li>
 <li><code>403 Forbidden</code> – приглашение невозможно.</li>
+<li><code>400 Bad Request</code> – один из обязательных параметров не передан.</li>
 </ul>
 
 <p>Дополнительно к HTTP коду сервер может вернуть описание
@@ -1760,8 +1761,8 @@ Location: /negotiations/321
 <li><code>wrong_state</code> – если перемещение из текущего статуса отклика в список
 приглашённых невозможно</li>
 <li><code>resume_not_found</code> – если резюме из отклика было скрыто либо удалено</li>
-<li><code>empty_mail_text</code> и <code>too_long_mail_text</code> – если нарушены ограничения на
-размер текста</li>
+<li><code>empty_message</code> и <code>too_long_message</code> – если нарушены ограничения на размер
+текста</li>
 <li><code>address_not_found</code> – если переданный адрес не существует, либо принадлежит
 другому работодателю</li>
 <li><code>invalid_vacancy</code> - если вакансия из отклика была архивирована либо скрыта</li>
@@ -1813,6 +1814,7 @@ Location: /negotiations/321
 работодателю, либо у текущего менеджера нет прав для работы с переданным
 откликом.</li>
 <li><code>403 Forbidden</code> – отказ невозможен.</li>
+<li><code>400 Bad Request</code> – один из обязательных параметров не передан.</li>
 </ul>
 
 <p>Дополнительно к HTTP коду сервер может вернуть описание
@@ -1823,7 +1825,7 @@ Location: /negotiations/321
 <ul>
 <li><code>wrong_state</code> – если перемещение из текущего статуса отклика в список
 отказанных невозможно</li>
-<li><code>empty_mail_text</code> и <code>too_long_mail_text</code> – если нарушены ограничения на
+<li><code>empty_message</code> и <code>too_long_message</code> – если нарушены ограничения на
 размер текста</li>
 </ul>
 

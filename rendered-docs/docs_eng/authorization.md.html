@@ -824,7 +824,7 @@ the indicated <code>redirect_uri</code> with <code>?error=access_denied</code> a
 <p>If access is allowed, a temporary <code>authorization_code</code> will be indicated in the
 redirect:</p>
 
-<div class="codehilite"><pre><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">FOUND</span>
+<div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">FOUND</span>
 <span class="na">Location</span><span class="o">:</span> <span class="l">{redirect_uri}?code={authorization_code}</span>
 </code></pre></div>
 
@@ -857,7 +857,7 @@ with the indication of a corresponding title <code>Content-Type</code>.</p>
 
 <p>JSON will be returned in the response:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{access_token}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
   <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span>
@@ -871,7 +871,7 @@ one must be requested.</p>
 <p>If the <code>authorization_code</code> exchange fails, then the <code>400 Bad Request</code>
 response returns with the body:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;error_description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>
@@ -904,7 +904,7 @@ grant_type=refresh_token&amp;refresh_token={refresh_token}
 <p>The response will be identical to the one received when obtaining tokens for the
 first time:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{access_token}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
   <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span>
@@ -930,7 +930,7 @@ it in the title in the format:</p>
 <p>To test the token, it is convenient to use the <code>/me</code> method (it is an optional
 step).</p>
 
-<div class="codehilite"><pre><code><span class="nf">GET</span> <span class="nn">/me</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/me</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="o">:</span> <span class="l">MyApp/1.0 (my-app-feedback@example.com)</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">api.hh.ru</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>

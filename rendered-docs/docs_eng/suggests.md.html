@@ -746,7 +746,7 @@ searched must contain at least two symbols. In case too short a text is given,
 <code>400 Bad Request</code> will be returned with the error description in the
 response body:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bad_argument&quot;</span><span class="p">,</span>
@@ -762,7 +762,7 @@ but it was not included in the request, <code>RU</code> language will be used. I
 unsupported language is specified, the <code>400 Bad Request</code> error will be
 returned with detailed error description in the response body:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bad_argument&quot;</span><span class="p">,</span>
@@ -798,7 +798,7 @@ parameters:</p>
 
 <p>If the request is performed successfully, such a JSON will be returned:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;acronym&quot;</span><span class="p">:</span> <span class="s2">&quot;Bauman MSTU&quot;</span><span class="p">,</span>
@@ -833,7 +833,7 @@ parameters:</p>
 
 <p>If the request is performed successfully, such a response will be returned:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
@@ -872,7 +872,7 @@ companies</a>.</p>
 
 <p>If the request is performed successfully, such a response will be returned:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;382&quot;</span><span class="p">,</span>
@@ -891,7 +891,7 @@ to <code>/suggests/skill_set</code> with the mandatory parameter <code>text</cod
 
 <p>If the request is performed successfully, such a response will be returned:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Heat and refrigeration supply systems&quot;</span><span class="p">,</span>
@@ -921,7 +921,7 @@ specializations, and all of them must be from the same professional area.</p>
 
 <p>If the request is performed successfully, such a response will be returned:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Business Development Manager&quot;</span><span class="p">,</span>
@@ -960,7 +960,7 @@ and <a href="areas.md.html#item">a part of the tree from a specific element</a> 
 
 <p>Response example:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
@@ -994,7 +994,7 @@ company names, and other phrases that are often used when searching for CVs.</p>
 
 <p>Response example:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span>
@@ -1028,7 +1028,7 @@ for vacancies.</p>
 
 <p>Response example:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Java&quot;</span>

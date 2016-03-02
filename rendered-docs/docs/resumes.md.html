@@ -761,7 +761,7 @@
 <p><code>GET /resumes/mine</code> возвращает список резюме авторизованного пользователя. Без
 авторизации вернёт <code>403 Forbidden</code>.</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -965,7 +965,7 @@ API, кроме поиска резюме, доступны сразу, без �
 
 <p><a name="search-results" /></p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2099341</span><span class="p">,</span>
     <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
     <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1249,7 +1249,7 @@ url, GET запрос на который возвращает
 некоторых полях будет <code>null</code>, а поле <code>can_view_full_info</code> будет иметь
 значение <code>false</code>.</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678901234567890123456789012abcdef&quot;</span><span class="p">,</span>
     <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Фамилия&quot;</span><span class="p">,</span>
     <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Имя&quot;</span><span class="p">,</span>
@@ -1584,7 +1584,7 @@ url, GET запрос на который возвращает
 <p>Например, если полные данные по резюме недоступны, то будет выдано
 предложение покупки рекомендованной услуги, чтобы такой доступ получить.</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;can_view_full_info&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;paid_services&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1676,7 +1676,7 @@ url, GET запрос на который возвращает
 используются только id передаваемых данных. Например, в резюме в поле владения
 языками, указан русский как родной:</p>
 
-<div class="codehilite"><pre><code>    <span class="s2">&quot;language&quot;</span><span class="err">:</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><code>    <span class="s2">&quot;language&quot;</span><span class="err">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;rus&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Русский&quot;</span><span class="p">,</span>
@@ -1691,7 +1691,7 @@ url, GET запрос на который возвращает
 <p>Для того, чтобы добавить английский с уровнем знания «читаю профессиональную
 литературу», необходимо отправить следующий JSON:</p>
 
-<div class="codehilite"><pre><code>    <span class="s2">&quot;language&quot;</span><span class="err">:</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><code>    <span class="s2">&quot;language&quot;</span><span class="err">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;rus&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Русский&quot;</span><span class="p">,</span>
@@ -1903,7 +1903,7 @@ url, GET запрос на который возвращает
 
 <p>Пример:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="s2">&quot;max_length&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
@@ -2087,7 +2087,7 @@ url, GET запрос на который возвращает
 
 <p>Формат поля value для телефона:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
     <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
     <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4567890&quot;</span>
@@ -2129,7 +2129,7 @@ POST/PUT на /resumes.</p></li>
 
 <p>Самое короткое представление резюме:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;502ff8b100018bddf30039ed1f63735f4dda66&quot;</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;консультант&quot;</span><span class="p">,</span>
     <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/502ff8b100018bddf30039ed1f63735f4dda66&quot;</span>
@@ -2256,7 +2256,7 @@ POST/PUT на /resumes.</p></li>
 резюме и списка резюме. Счетчик новых просмотров обнуляется при запросе данного
 ресурса.</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
     <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>

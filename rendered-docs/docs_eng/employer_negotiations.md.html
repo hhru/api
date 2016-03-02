@@ -787,7 +787,7 @@ request all collections one by one.</p>
 
 <p>Successful response comes with the <code>200 OK</code> code and contains:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;states&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;inbox&quot;</span><span class="p">,</span>
@@ -881,7 +881,7 @@ applications/invitations that have updates.</p>
 
 <p>Successful response comes with the <code>200 OK</code> code and contains:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
     <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1148,7 +1148,7 @@ accessible for the current user, the <code>404 Not Found</code> response returns
 
 <p>Successful response comes with the <code>200 OK</code> code and contains:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
     <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T00:00:00+0300&quot;</span><span class="p">,</span>
     <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T12:00:05+0300&quot;</span><span class="p">,</span>
@@ -1306,7 +1306,7 @@ the interview or declining</li>
 
 <p>Successful response comes with the <code>200 OK</code> code and contains:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1740,6 +1740,7 @@ have a body.</p>
 <li><code>404 Not Found</code> – the response does not exist, belongs to another employer,
 or the current manager is not authorized to handle it.</li>
 <li><code>403 Forbidden</code> – invitation is impossible.</li>
+<li><code>400 Bad Request</code> – error in the request parameters.</li>
 </ul>
 
 <p>In addition to an HTTP code, the server can return
@@ -1751,7 +1752,7 @@ or the current manager is not authorized to handle it.</li>
 <li><code>wrong_state</code> – if the movement from the current response status to the
 invited list is impossible</li>
 <li><code>resume_not_found</code> – if the CV from the response was hidden or deleted</li>
-<li><code>empty_mail_text</code> and <code>too_long_mail_text</code> – if the text length limit is exceeded</li>
+<li><code>empty_message</code> и <code>too_long_message</code> – if the text length limit is exceeded</li>
 <li><code>address_not_found</code> – if the sent address does not exist or belongs to another
 employer</li>
 <li><code>invalid_vacancy</code> – if the response vacancy was archived or hidden</li>
@@ -1803,6 +1804,7 @@ have a body.</p>
 <li><code>404 Not Found</code> – the sent response/invitation does not exist, belongs to
 another employer, or the current manager is not authorized to handle it.</li>
 <li><code>403 Forbidden</code> – rejection is impossible.</li>
+<li><code>400 Bad Request</code> – error in the request parameters.</li>
 </ul>
 
 <p>In addition to an HTTP code, the server can return
@@ -1813,7 +1815,7 @@ another employer, or the current manager is not authorized to handle it.</li>
 <ul>
 <li><code>wrong_state</code> – if the movement from the current response status to the
 discarded list is impossible</li>
-<li><code>empty_mail_text</code> and <code>too_long_mail_text</code> – if the text length limit
+<li><code>empty_message</code> и <code>too_long_message</code> – if the text length limit
 is exceeded</li>
 </ul>
 

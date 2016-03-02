@@ -746,7 +746,7 @@
 
 <p>Все ошибки выдаются в формате:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -773,7 +773,7 @@
 <p>В случае невозможности найти запрашиваемый ресурс вернётся ответ
 <code>404 Not Found</code> и в массиве <code>errors</code> будет объект:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;not_found&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -782,7 +782,7 @@
 <code>GET https://api.hh.ru/vacancies/?employer_id=foo</code>) в ответ придёт
 <code>400 Bad Request</code>, в массиве ошибок будет объект:</p>
 
-<div class="codehilite"><pre><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bad_argument&quot;</span><span class="p">,</span>
     <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;employer_id&quot;</span>
 <span class="p">}</span>
@@ -1038,13 +1038,13 @@
 <tr>
   <td>403</td>
   <td>negotiations</td>
-  <td>empty_mail_text</td>
+  <td>empty_message</td>
   <td>передан пустой текст письма</td>
 </tr>
 <tr>
   <td>403</td>
   <td>negotiations</td>
-  <td>too_long_mail_text</td>
+  <td>too_long_message</td>
   <td>передан слишком длинный текст письма</td>
 </tr>
 <tr>
