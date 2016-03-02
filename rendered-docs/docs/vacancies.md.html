@@ -996,6 +996,51 @@ null. Список телефонов может быть пустым.</p>
 <p>Подробнее об этих полях вы можете прочитать в разделе о
 <a href="#creation_fields">публикации вакансии</a>.</p>
 
+<p>При запросе с авторизацией менеджера, имеющего доступ к откликам по вакансии,
+в объекте будет выдано дополнительное поле с различными счётчиками по вакансии:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
+    <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="nt">&quot;unread_responses&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;invitations&quot;</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>ключ</th>
+  <th>тип</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>counters.views</td>
+  <td>number</td>
+  <td>количество просмотров вакансии</td>
+</tr>
+<tr>
+  <td>counters.responses</td>
+  <td>number</td>
+  <td>количество откликов на вакансию</td>
+</tr>
+<tr>
+  <td>counters.unread_responses</td>
+  <td>number</td>
+  <td>количество непросмотренных откликов на вакансию</td>
+</tr>
+<tr>
+  <td>counters.invitations</td>
+  <td>number</td>
+  <td>количество приглашений на вакансию</td>
+</tr>
+</tbody>
+</table>
+
 <p><a name="favorited"/></p>
 
 <h2 id="-4">Отобранные вакансии</h2>
