@@ -47,6 +47,7 @@
   вакансий
 * `employer_archived_vacancies_order` - тип сортировки списка архивных вакансий
 
+<a name="negotiations" />
 ## Справочники для откликов/приглашений (переписка)
 * `negotiations_order` - типы порядка отображения откликов
 * `negotiations_state` - типы состояний откликов
