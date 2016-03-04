@@ -9,12 +9,13 @@
 `GET /employers/{employer_id}/vacancies/active?resume_id={resume_id}`
 
 где
+
 * `employer_id` - идентификатор работодателя, который можно узнать в
   [запросе информации о текущем пользователе](me.md#info),
 * `resume_id` – идентификатор резюме.
 
-Дополнительно поддерживаются
-[параметры пагинации](general.md#pagination) `page`, `per_page`.
+Дополнительно поддерживаются [параметры пагинации](general.md#pagination)
+`page`, `per_page`.
 
 
 ### Ответ
@@ -27,11 +28,62 @@
     "items": [
         {
             "negotiations_state": null,
+            "negotiations_employer_state": null,
             "can_invite": true,
-            "templates": [
+            "negotiations_actions": [
                 {
-                    "url": "https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&vacancy_id=123456",
-                    "id": "invite"
+                    "id": "invitation",
+                    "name": "Пригласить",
+                    "enabled": true,
+                    "method": "POST",
+                    "url": "https://api.hh.ru/negotiations/invited",
+                    "resulting_employer_state": {
+                        "id": "invitation",
+                        "name": "Приглашение"
+                    },
+                    "templates": [
+                        {
+                            "id": "invite",
+                            "name": "Приглашение на вакансию",
+                            "quick": false,
+                            "url": "https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&vacancy_id=123456"
+                        }
+                    ],
+                    "arguments": [
+                        {
+                            "id": "resume_id",
+                            "required": true,
+                            "required_arguments": []
+                        },
+                        {
+                            "id": "vacancy_id",
+                            "required": true,
+                            "required_arguments": []
+                        },
+                        {
+                            "id": "message",
+                            "required": true,
+                            "required_arguments": []
+                        },
+                        {
+                            "id": "send_sms",
+                            "required": false,
+                            "required_arguments": [
+                                {
+                                    "id": "message"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "address_id",
+                            "required": false,
+                            "required_arguments": [
+                                {
+                                    "id": "message"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
 
@@ -81,16 +133,25 @@
 [опубликованным вакансиям текущего менеджера](employer_vacancies.md#active)
 со [стандартными полями](vacancies.md#nano), а также дополнительные поля:
 
- * `negotiations_state` -- статус отклика/приглашения для этой вакансии
-   с указанным резюме, либо `null` если отклика/приглашения не было
- * `can_invite` -- флаг, говорящий о возможности или невозможности пригласить
-   указанное резюме на эту вакансию
- * `templates` -- список [шаблонов](negotiation_message_templates.md)
-   с текстами для приглашения
+* `negotiations_state` – состояние отклика/приглашения для этой вакансии
+  с указанным резюме, либо `null` если отклика/приглашения не было
+* `employer_negotiations_state` – работодательское состояние
+  отклика/приглашения для этой вакансии с указанным резюме, либо `null` если
+  отклика/приглашения не было
+* `can_invite` – флаг, говорящий о возможности или невозможности пригласить
+  указанное резюме на эту вакансию
+* `negotiations_actions` – действия, для
+  [создания отклика](employer_negotiations.md#add-invite). Формат выдачи
+  действий аналогичен
+  [действиям по отклику/приглашению](employer_negotiations.md#actions-info).
+  Дополнительно будут указаны аргументы `vacancy_id` и `resume_id`.
+  Также в отличие от действий по отклику/приглашению используется `POST`
+  HTTP метод.
 
 При принятии решении, дать ли пользователю возможность пригласить на вакансию по
-выбранному резюме, нельзя полагаться на то, что `negotiations_state` имеет
-значение `null`, нужно использовать флаг `can_invite`.
+выбранному резюме, нельзя полагаться на то, что
+`negotiations_state` или `employer_negotiations_state` имеет значение `null`,
+нужно использовать флаг `can_invite`.
 
 Наличие у вакансии флага `can_invite` = `true` не означает, что приглашение
 пройдет успешно. Например, в момент между получением списка подходящих вакансий
@@ -104,12 +165,18 @@
     "negotiations_state": {
         "id": "response",
         "name": "Отклик"
+    },
+    "negotiations_employer_state": {
+        "id": "response",
+        "name": "Отклик"
     }
 }
 ```
 
-Возможные значения состояния отклика/приглашения доступны в
-[справочнике negotiations_state](dictionaries.md).
+Возможные значения состояния отклика/приглашения для соискателя доступны в
+[справочнике negotiations_state](dictionaries.md), а для работодателя – в
+[списке работодательских состояний по вакансии](employer_negotiations.md#states)
+(могут различаться в разных вакансиях).
 
 
 ### Ошибки
