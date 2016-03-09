@@ -1,6 +1,6 @@
 # Employers/companies
 
-<a name="search" />
+<a name="search"></a>
 ## Company search
 
 `GET /employers` will return the company search results.
@@ -85,7 +85,7 @@ response will be returned with the body:
 ```
 
 
-<a name="item" />
+<a name="item"></a>
 ## Employer/company
 
 `GET /employers/{employer_id}` returns the data about the company with a link

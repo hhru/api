@@ -27,7 +27,7 @@ The `value` key is optional and provides more detail on the error.
 > left for backward compatibility. **It is not recommended to use them.**
 
 
-<a name="general-errors" />
+<a name="general-errors"></a>
 ## General errors
 
 If the requested resource can't be found, the
@@ -52,7 +52,7 @@ the object:
 }
 ```
 
-<a name="system-errors" />
+<a name="system-errors"></a>
 ## System error
 
 If the service can't process the request at the moment, but understood it
@@ -68,7 +68,7 @@ response code.
 
 ## General request errors
 
-<a name="user-agent" />
+<a name="user-agent"></a>
 ### Incorrect User-Agent
 
 More detail on the [User-Agent title](general.md#request-requirements).
@@ -84,7 +84,7 @@ More detail on the [User-Agent title](general.md#request-requirements).
 More detail on [authorization](authorization.md).
 
 
-<a name="oauth" />
+<a name="oauth"></a>
 ### Authorization use errors
 
 In case you [make an authorized request](authorization.md#check-access_token) in
@@ -99,7 +99,7 @@ api and your authorization is not valid for any reason, an error with `type`
 | 403       | oauth | application_not_found  | your application has been deleted
 
 
-<a name="service-errors" />
+<a name="service-errors"></a>
 ## Errors of separate resources
 
 If the service can return more detailed information on the
@@ -112,7 +112,7 @@ the response type that has come. The tables listed below contain an incomplete
 error list; it can be extended.
 
 
-<a name="artifacts"/>
+<a name="artifacts"></a>
 ### Artifacts
 
 Documentation translation for this section is in progress.
@@ -123,7 +123,7 @@ powered by
 
 
 
-<a name="negotiations"/>
+<a name="negotiations"></a>
 ### Negotiations (responses/invitations)
 
 In addition to [general errors](#general-errors), the following errors may be
@@ -144,7 +144,7 @@ HTTP code| type| value| description
 403| negotiations| no_invitation| negotiations are unavailable as there was no invitation in the response
 
 
-<a name="vacancies_favorited"/>
+<a name="vacancies_favorited"></a>
 ### Favorited vacancies
 
 Documentation translation for this section is in progress.
@@ -154,7 +154,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="vacancies-create-n-edit"/>
+<a name="vacancies-create-n-edit"></a>
 ### Vacancy posting and editing
 
 In addition to an error code, the following errors may be returned when

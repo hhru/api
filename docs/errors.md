@@ -29,7 +29,7 @@ API широко использует информирование при пом
 > оставленные для обратной совместимости. **Использовать их не рекомендуется.**
 
 
-<a name="general-errors" />
+<a name="general-errors"></a>
 ## Ошибка в запросе
 
 В случае невозможности найти запрашиваемый ресурс вернётся ответ
@@ -52,7 +52,7 @@ API широко использует информирование при пом
 }
 ```
 
-<a name="system-errors" />
+<a name="system-errors"></a>
 ## Системная ошибка
 
 Если в данный момент сервис не может обработать запрос, но он его корректно
@@ -68,7 +68,7 @@ API широко использует информирование при пом
 
 ## Общие ошибки запроса
 
-<a name="user-agent" />
+<a name="user-agent"></a>
 ### Неверный User-Agent
 
 Подробнее про [заголовок User-Agent](general.md#request-requirements).
@@ -84,7 +84,7 @@ HTTP code | type | value | описание
 Подробнее [про авторизацию](authorization.md).
 
 
-<a name="oauth" />
+<a name="oauth"></a>
 ### Ошибки использования авторизации
 
 В случае, если вы
@@ -100,7 +100,7 @@ HTTP code | type | value | описание
 403 | oauth | application_not_found | ваше приложение было удалено
 
 
-<a name="service-errors" />
+<a name="service-errors"></a>
 ## Ошибки отдельных ресурсов
 
 В тех случаях, когда сервис способен выдать более подробную информацию об
@@ -113,7 +113,7 @@ HTTP code | type | value | описание
 он может расширяться.
 
 
-<a name="artifacts"/>
+<a name="artifacts"></a>
 ### Артефакты
 
 При загрузке артефактов помимо прочих возможны следующие ошибки:
@@ -129,7 +129,7 @@ HTTP code | type | value | описание
 403 | forbidden | — | ошибка прав доступа
 
 
-<a name="negotiations"/>
+<a name="negotiations"></a>
 ### Переписка (отклики/приглашения)
 
 Помимо [общих ошибок](#general-errors), могут быть возвращены следующие ошибки:
@@ -160,7 +160,7 @@ HTTP code | type | value | описание
 
 
 
-<a name="vacancies_favorited"/>
+<a name="vacancies_favorited"></a>
 ### Отобранные вакансии
 
 Помимо кода ошибки при
@@ -173,7 +173,7 @@ HTTP code | type | value | описание
 403 | vacancies_favorited | limit_exceeded | превышен лимит количества отобранных вакансий
 
 
-<a name="vacancies-create-n-edit"/>
+<a name="vacancies-create-n-edit"></a>
 ### Публикация и редактирование вакансий
 
 Помимо кода ошибки при [публикации](vacancies.md#creation) и
@@ -191,7 +191,7 @@ HTTP code | type | value | описание
 403 | vacancies | conflict_changes | конфликтные изменения данных вакансии ([подробнее](vacancies.md#edit_more))
 
 
-<a name="vacancies-prolongate"/>
+<a name="vacancies-prolongate"></a>
 ### Продление вакансии
 
 Помимо кода ошибки при [продлении](vacancies.md#prolongate) вакансии могут быть

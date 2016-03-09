@@ -34,7 +34,7 @@ where:
  actions| array| Array of possible [actions on the tool](#actions)
 
 
-<a name="actions"/>
+<a name="actions"></a>
 ## Action on the tool
 
 Depending on the assessment tool state, specific actions on it can be

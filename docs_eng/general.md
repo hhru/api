@@ -6,11 +6,11 @@
 * The basic URL is `https://api.hh.ru/`
 * Requests for [any site of HeadHunter Groups of Companies](hosts.md)
   are available
-* <a name="date-format"/> Dates are formatted according to
+* <a name="date-format"></a> Dates are formatted according to
   [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601): `YYYY-MM-DDThh:mm:ss±hhmm`.
 
 
-<a name="request-requirements" />
+<a name="request-requirements"></a>
 ### Request requirements
 
 A request must have the `User-Agent` title in it, otherwise the
@@ -25,7 +25,7 @@ User-Agent: MyApp/1.0 (my-app-feedback@example.com)
 More detail on [errors in the User-Agent title](errors.md#user-agent).
 
 
-<a name="request-body" />
+<a name="request-body"></a>
 ### Request body format when sending JSON
 
 Data transferred in the request body must meet the requirements:
@@ -44,7 +44,7 @@ Data transferred in the request body must meet the requirements:
   `boolean`, `null`, `object`, `array`.
 
 
-<a name="errors-and-codes" />
+<a name="errors-and-codes"></a>
 ### Errors and response codes
 
 API extensively uses informing through response codes.
@@ -60,7 +60,7 @@ to learn the cause of a particular response.
 [More detail on possible errors](errors.md).
 
 
-<a name="deprecated" />
+<a name="deprecated"></a>
 ### Undocumented fields and request parameters
 
 In responses and API parameters you can find keys that are not described in the
@@ -69,7 +69,7 @@ versions. It is not recommended to use them. If your application already uses
 such keys, switch to using desirable keys described in the documentation.
 
 
-<a name="pagination" />
+<a name="pagination"></a>
 ### Pagination
 
 For every request that presupposes the return of object list you can indicate
@@ -87,7 +87,7 @@ pagination is available, the uniform root object:
 }
 ```
 
-<a name="cors" />
+<a name="cors"></a>
 ### CORS (Cross-Origin Resource Sharing)
 
 API supports the CORS technology for requesting browser data from any domain.
@@ -102,7 +102,7 @@ debug CORS, a [special method](cors.md) is available. To use JSONP, transfer the
 * [CORS on en.wikipedia.org](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 
 
-<a name="links" />
+<a name="links"></a>
 ## External links to articles and standards
 
 * [HTTP/1.1](http://tools.ietf.org/html/rfc2616)

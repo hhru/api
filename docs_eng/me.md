@@ -4,7 +4,7 @@
 * [Editing information on the current user](#edit)
 
 
-<a name="info" />
+<a name="info"></a>
 ## Obtaining information on the current user
 
 `GET /me` will return information on the current authorized user. In case of
@@ -81,7 +81,7 @@ All key values are numbers.
 | new_resume_views    | General number of new views of all the resumes of the current user |
 
 
-<a name="edit" />
+<a name="edit"></a>
 ## Editing information on the current user
 
 To edit the last name, first name or middle name, and also to set

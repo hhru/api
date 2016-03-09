@@ -14,7 +14,7 @@ HeadHunter API — это бесплатный инструментарий дл
 и настроить процесс [авторизации](docs/authorization.md).
 
 
-<a name="content" />
+<a name="content"></a>
 ## Содержание
 
 * [Общая информация](docs/general.md)
@@ -25,7 +25,7 @@ HeadHunter API — это бесплатный инструментарий дл
 * [Ошибки и коды ответов](docs/errors.md)
 
 
-<a name="resources" />
+<a name="resources"></a>
 ### Ресурсы
 
 * [Информация об авторизованном пользователе](docs/me.md)
@@ -72,7 +72,7 @@ HeadHunter API — это бесплатный инструментарий дл
  * [по ключевым словам поиска вакансий](docs/suggests.md#vacancy-search-keyword)
 
 
-<a name="feedback" />
+<a name="feedback"></a>
 ## Поддержка, обратная связь, новости
 
 Общайтесь с нами через twitter [@apihhru](https://twitter.com/apihhru) или

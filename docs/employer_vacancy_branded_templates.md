@@ -8,13 +8,13 @@
 [публикации и редактировании вакансий](vacancies.md#branded-template-field).
 
 
-<a name="list"/>
+<a name="list"></a>
 ## Список
 
 Список всех шаблонов, которые доступы у работодателя.
 
 
-<a name="list-request"/>
+<a name="list-request"></a>
 ### Запрос
 
 `GET /employers/{employer_id}/vacancy_branded_templates`
@@ -23,7 +23,7 @@
 [получении информации о текущем пользователе](me.md#employer-info).
 
 
-<a name="list-response"/>
+<a name="list-response"></a>
 ### Ответ
 
 Успешный ответ приходит с кодом `200 OK` и содержит список шаблонов с
@@ -44,7 +44,7 @@
 }
 ```
 
-<a name="list-errors"/>
+<a name="list-errors"></a>
 ### Ошибки
 
 * `404 Not Found` – если получение шаблонов по данной компании не доступно или

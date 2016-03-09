@@ -1,6 +1,6 @@
 # Авторизация
 
-<a name="general" />
+<a name="general"></a>
 Авторизация осуществляется по протоколу OAuth 2.0. Подробная документация по
 протоколу: [RFC 6749](http://tools.ietf.org/html/rfc6749).
 
@@ -17,7 +17,7 @@
 ---
 
 
-<a name="get-auth" />
+<a name="get-auth"></a>
 ## Получение авторизации
 В начале приложению необходимо направить пользователя (открыть страницу)
 по адресу:
@@ -44,7 +44,7 @@ https://hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={st
   наличии происходит валидация значения.
 
 
-<a name="redirect_uri" />
+<a name="redirect_uri"></a>
 ### Правила формирования специального redirect_uri
 
 К примеру, если в настройках сохранен `http://example.com/oauth`, то разрешено
@@ -64,7 +64,7 @@ https://hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={st
 * `http://example.com:80/oauths` — указание изначально отсутствующего порта;
 
 
-<a name="get-auth-process" />
+<a name="get-auth-process"></a>
 ### Процесс авторизации
 
 Если пользователь не авторизован на сайте, ему будет показана форма
@@ -77,7 +77,7 @@ https://hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={st
 `state={state}`, если таковой был указан при первом запросе.
 
 
-<a name="get-authorization_code" />
+<a name="get-authorization_code"></a>
 ### Успешное получение временного `authorization_code`
 
 В случае разрешения прав, в редиректе будет указан
@@ -93,7 +93,7 @@ Location: {redirect_uri}?code={authorization_code}
 (без показа формы логина и выдачи прав).
 
 
-<a name="get-tokens" />
+<a name="get-tokens"></a>
 ### Получение access и refresh токенов
 
 После получения `authorization_code` приложению необходимо сделать сервер-сервер
@@ -145,7 +145,7 @@ grant_type=authorization_code&client_id={client_id}&client_secret={client_secret
 * `error_description` будет содержать дополнительное описание ошибки.
 
 
-<a name="refresh_token" />
+<a name="refresh_token"></a>
 ## Обновление пары access и refresh токенов
 `access_token` также имеет срок жизни (ключ `expires_in`, в секундах), при его
 истечении приложение должно сделать запрос с `refresh_token` для получения
@@ -176,7 +176,7 @@ grant_type=refresh_token&refresh_token={refresh_token}
 в дальнейших запросах в api и запросах на продление токена.
 
 
-<a name="check-access_token" />
+<a name="check-access_token"></a>
 ### Использование и проверка access_token
 
 Приложение должно использовать полученный `access_token` для авторизации, 

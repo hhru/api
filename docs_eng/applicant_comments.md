@@ -1,6 +1,6 @@
 # Applicant comments
 
-<a name="list" />
+<a name="list"></a>
 ## List of comments
 
 Receiving the list of comments is available only for an employer. The list will

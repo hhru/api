@@ -1,6 +1,6 @@
 # Authorization
 
-<a name="general" />
+<a name="general"></a>
 Authorization is done via the OAuth 2.0 protocol. Detailed documentation on the
 protocol: [RFC 6749](http://tools.ietf.org/html/rfc6749).
 
@@ -16,7 +16,7 @@ domain. Documentation has been updated in accordance with the new address.
 ---
 
 
-<a name="get-auth" />
+<a name="get-auth"></a>
 ## Obtaining authorization
 
 First, the application needs to direct the user (open the page) to the address:
@@ -45,7 +45,7 @@ Optional parameters:
 
 
 
-<a name="redirect_uri" />
+<a name="redirect_uri"></a>
 ### Special redirect_uri formation rules
 
 For example, if `http://example.com/oauth` is saved in the application settings,
@@ -65,7 +65,7 @@ It is not permitted to indicate:
 * `http://example.com:80/oauths` — an originally absent port;
 
 
-<a name="get-auth-process" />
+<a name="get-auth-process"></a>
 ### Authorization process
 
 If the user is not authorized on the website, they will be showed the website
@@ -77,7 +77,7 @@ the indicated `redirect_uri` with `?error=access_denied` and
 `state={state}`, if such was indicated in the first request.
 
 
-<a name="get-authorization_code" />
+<a name="get-authorization_code"></a>
 ### Obtaining a temporary `authorization_code` successfully
 
 If access is allowed, a temporary `authorization_code` will be indicated in the
@@ -94,7 +94,7 @@ application once before, then there will be an immediate redirect with the
 rights).
 
 
-<a name="get-tokens" />
+<a name="get-tokens"></a>
 ### Obtaining access and refresh tokens
 
 After obtaining the `authorization_code`, the application needs to send a
@@ -149,7 +149,7 @@ where:
 * `error_description` will contain an additional description of the error.
 
 
-<a name="refresh_token" />
+<a name="refresh_token"></a>
 ## Refreshing the access and refresh token pair
 
 access_token also has a validity period (key `expires_in`, in seconds). When it
@@ -182,7 +182,7 @@ When a new access and refresh token pair is received, it should be used in
 further api requests and token renewal requests.
 
 
-<a name="check-access_token" />
+<a name="check-access_token"></a>
 ### Using and testing access_token
 
 The application must use the obtained `access_token` for authorization, sending

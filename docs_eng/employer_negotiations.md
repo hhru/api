@@ -14,7 +14,7 @@
   * [Reject an applicant](#discard)
 
 
-<a name="collections" />
+<a name="collections"></a>
 ## Application/invitation collections
 
 Employer has accessible collections of applications and invitations. Each
@@ -71,7 +71,7 @@ If the `vacancy_id` parameter is not sent, the response will return with the
 `400 Bad Request` code.
 
 
-<a name="negotiations-list" />
+<a name="negotiations-list"></a>
 ## Application/invitation list
 
 
@@ -243,7 +243,7 @@ where:
 | per_page  | number | Number of elements per page (&gt; 0)    |
 | page      | number | Number of the current page (≥ 0)        |
 
-<a name="negotiations-list-item" />
+<a name="negotiations-list-item"></a>
 The `items` element contains data on applications/invitations and corresponding
 CVs:
 
@@ -260,7 +260,7 @@ CVs:
 | viewed_by_opponent   | logical      | Whether the application has been viewed by the applicant                                                                                                                                                                                                                                                         |
 | templates            | array        | Letter templates. Contains the template ID and url for [obtaining text according to the template](message_templates.md).                                                                                                                                                                                         |
 
-<a name="view-resume" />
+<a name="view-resume"></a>
 
 The application/invitation list contains only the main information on the CV. To
 obtain the full information, particularly the applicant's contacts, you should
@@ -277,7 +277,7 @@ In case the vacancy the applications are requested for doesn't exist or is not
 accessible for the current user, the `404 Not Found` response returns.
 
 
-<a name="get-negotiation" />
+<a name="get-negotiation"></a>
 ## Viewing an application/invitation
 
 ### Request
@@ -417,7 +417,7 @@ and also contains the `vacancy` key, which has some
 [brief information on the vacancy](vacancies.md#nano).
 
 
-<a name="messaging_status"/>
+<a name="messaging_status"></a>
 
 Additionally, `messaging_status` field specifying the messaging state is
 returned for a response/invitation. Possible values are provided in the
@@ -427,7 +427,7 @@ In case the response/invitation does not exist or is unavailable for the current
 user, '404 Not Found' server response will be returned.
 
 
-<a name="get-messages" />
+<a name="get-messages"></a>
 ## Viewing a message list in an application/invitation
 
 Messages in an application/invitation can be:
@@ -544,7 +544,7 @@ where:
 | page      | number | Number of the current page (≥ 0)      |
 | assessments | array| [assessment tools](assessment.md) linked to the message |
 
-<a name="negotiations-message-item" />
+<a name="negotiations-message-item"></a>
 
 The `items` element contains the data about messages:
 
@@ -565,7 +565,7 @@ access messaging, the `404 Not Found` response is returned.
 
 
 
-<a name="add-messages" />
+<a name="add-messages"></a>
 ## Sending a message in the response/invitation
 
 Messaging is possible after invitation of the applicant. Possibility to create a
@@ -607,7 +607,7 @@ For example:
 * `overall_limit` – if the messages limit is exceeded
 
 
-<a name="add-invite" />
+<a name="add-invite"></a>
 ## Inviting an applicant for a vacancy
 
 The invitation is initiated between a employer's vacancy and applicant's CV by
@@ -668,7 +668,7 @@ For example:
   usually [CV database services](http://hh.ru/price#dbaccess)
 
 
-<a name="actions" />
+<a name="actions"></a>
 ## Actions on a response/invitation
 
 Action on the response is equivalent to its movement to a specific
@@ -689,7 +689,7 @@ Action examples:
 * [Reject an applicant](#discard)
 
 
-<a name="put-on-hold"/>
+<a name="put-on-hold"></a>
 ## Put the response on hold (move to the "Think" list)
 
 The action is possible if the `hold` [collection is available](#collections) for
@@ -725,7 +725,7 @@ if the movement from the current response status to the on hold list
 is impossible.
 
 
-<a name="invite"/>
+<a name="invite"></a>
 ## Invitation of the applicant for an interview in response to his/her response
 
 The action is possible if the `invited` [collection is available](#collections)
@@ -782,7 +782,7 @@ For example:
   was exceeded
 
 
-<a name="discard"/>
+<a name="discard"></a>
 ## Reject an applicant
 
 The action is possible if the `discarded`

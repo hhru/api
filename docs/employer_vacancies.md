@@ -14,7 +14,7 @@
 * [Продление вакансий](vacancies.md#prolongate)
 
 
-<a name="active"/>
+<a name="active"></a>
 ## Список опубликованных вакансий
 
 `GET /employers/{employer_id}/vacancies/active?manager_id={manager_id}`
@@ -114,7 +114,7 @@ has_updates | boolean | Есть ли в откликах/приглашения
   `employer_active_vacancies_order`
 
 
-<a name="archive"/>
+<a name="archive"></a>
 ## Архивация вакансий
 
 Для переноса вакансии в архив необходимо отправить запрос PUT:
@@ -124,7 +124,7 @@ has_updates | boolean | Есть ли в откликах/приглашения
 При успешной архивации вернётся `204 No Content`.
 
 
-<a name="archived"/>
+<a name="archived"></a>
 ## Список архивных вакансий
 
 `GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}`
@@ -208,7 +208,7 @@ counters.invitations_and_responses | числовой | количество о�
 archived_at | строка | дата архивации вакансии
 
 
-<a name="hide"/>
+<a name="hide"></a>
 ## Удаление вакансии
 
 `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}`
@@ -217,7 +217,7 @@ archived_at | строка | дата архивации вакансии
 При успешной операции вернётся `204 No Content`.
 
 
-<a name="hidden"/>
+<a name="hidden"></a>
 ## Список удаленных вакансий
 
 `GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}`
@@ -286,7 +286,7 @@ archived_at | строка | дата архивации вакансии
 Ответ состоит из [стандартных полей вакансии](vacancies.md#nano).
 
 
-<a name="restore"/>
+<a name="restore"></a>
 ## Восстановление из удаленных
 
 `DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}`

@@ -17,7 +17,7 @@
  * [Получение единичного сохраненного поиска резюме](#resumes-saved-search-item)
 
 
-<a name="vacancies-saved-search-list" />
+<a name="vacancies-saved-search-list"></a>
 ## Список сохраненных поисков вакансий
 
 `GET /saved_searches/vacancies` вернет список автопоисков с пагинацией.
@@ -77,7 +77,7 @@
 задержкой во времени).
 
 
-<a name="vacancies-saved-search-item" />
+<a name="vacancies-saved-search-item"></a>
 ## Получение единичного сохраненного поиска вакансий
 
 Для получения автопоиска по идентификатору неоходимо отправить
@@ -109,7 +109,7 @@
 В случае, если автопоиск не найден - вернется статус `404 Not Found`.
 
 
-<a name="vacancies-saved-search-create" />
+<a name="vacancies-saved-search-create"></a>
 ## Создание нового сохраненного поиска вакансий
 
 Для создания автопоиска неоходимо отправить `POST` запрос на
@@ -126,7 +126,7 @@
 `403 Forbidden`.
 
 
-<a name="vacancies-saved-search-update" />
+<a name="vacancies-saved-search-update"></a>
 ## Обновление сохраненного поиска вакансий
 
 У сохраненного поиска возможно изменить имя и статус подписки, для этого
@@ -142,7 +142,7 @@
 `403 Forbidden`.
 
 
-<a name="vacancies-saved-search-delete" />
+<a name="vacancies-saved-search-delete"></a>
 ## Удаление сохраненного поиска вакансий
 
 Для того, чтобы удалить автопоиск, необходимо выполнить запрос
@@ -156,7 +156,7 @@
 При успешном удалении автопоиска, вернется статус `204 No Content`.
 
 
-<a name="resumes-saved-search-list" />
+<a name="resumes-saved-search-list"></a>
 ##  Список сохраненных поисков резюме
 
 `GET /saved_searches/resumes`
@@ -195,7 +195,7 @@
 }
 ```
 
-<a name="resumes-saved-search-object" />
+<a name="resumes-saved-search-object"></a>
 Каждый элемент коллекции содержит следующую информацию:
 
 название | тип | комментарий
@@ -218,7 +218,7 @@ url | строка | ссылка на результаты сохраненно
 [процедуру получения доступа к поиску резюме](resumes.md#resume-search-request).
 
 
-<a name="resumes-saved-search-item" />
+<a name="resumes-saved-search-item"></a>
 # Получение единичного сохраненного поиска резюме
 
 `GET /saved_searches/resumes/{id}`

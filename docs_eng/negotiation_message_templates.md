@@ -15,7 +15,7 @@ discard_after_interview| text for [rejection after invitation of the applicant f
 In the future, the list of templates may be extended.
 
 
-<a name="request"/>
+<a name="request"></a>
 ## Request
 
 Rather than construct the url on your own, it is recommended to use the url included in the `templates` object in the
@@ -50,7 +50,7 @@ resume_id| ID of the CV for invitation to the vacancy. Requires sending of the `
 In case the conflicting parameters are sent – `topic_id` with `resume_id` or `vacancy_id`, or no parameters are sent at all – an error will be returned.
 
 
-<a name="response"/>
+<a name="response"></a>
 ## Response
 
 Successful server response is returned with `200 OK` code and contains
@@ -68,7 +68,7 @@ Name| Type| Description
 text| String| Text of the message sent to the applicant by email when inviting/rejecting the applicant. It may vary depending on the vacancy type (e.g. for anonymous vacancy).
 
 
-<a name="errors"/>
+<a name="errors"></a>
 ## Errors
 
 * `404 Not Found` – if a non-existent template is used.

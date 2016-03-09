@@ -17,7 +17,7 @@
 * [CV view history](#views)
 
 
-<a name="mine" />
+<a name="mine"></a>
 ## List of CVs for current user
 Documentation translation for this section is in progress.
 See
@@ -26,14 +26,14 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="search" />
+<a name="search"></a>
 ## Search for a CV
 
 `GET /resumes` will return the results of CV search.
 
 ------
 
-<a name="resume-search-request" />
+<a name="resume-search-request"></a>
 **CV search is available only when the authorized user is an employer and**
 **the application is in the approved list.**
 
@@ -54,7 +54,7 @@ CV search, are available immediately without the need of approval.
 
 When the authorized user is an applicant or anonymous, a `403` error will return.
 
-<a name="search-results" />
+<a name="search-results"></a>
 
 ```json
 {
@@ -206,7 +206,7 @@ request with `per_page=10&page=200` will return an error (displaying CVs from
 2001 to 2010).
 
 
-<a name="search-params"/>
+<a name="search-params"></a>
 ### Acceptable parameters
 
 Some parameters take multiple values: `key=value&key=value`.
@@ -327,7 +327,7 @@ an error in the name are ignored.
 
 
 
-<a name="item" />
+<a name="item"></a>
 ## View a CV
 
 `GET /resumes/{resume_id}` returns an indicated CV. If the CV visibility is set
@@ -647,7 +647,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="paid-services"/>
+<a name="paid-services"></a>
 ### Paid services related to CVs
 Documentation translation for this section is in progress.
 See
@@ -656,7 +656,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="create_edit" />
+<a name="create_edit"></a>
 ## CV creation & editing
 Documentation translation for this section is in progress.
 See
@@ -665,7 +665,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="publish" />
+<a name="publish"></a>
 ## CV publication & prolongation
 Documentation translation for this section is in progress.
 See
@@ -674,7 +674,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="clone" />
+<a name="clone"></a>
 ## CV cloning
 Documentation translation for this section is in progress.
 See
@@ -683,7 +683,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="conditions" />
+<a name="conditions"></a>
 ## CV fields conditions for editing
 Documentation translation for this section is in progress.
 See
@@ -692,7 +692,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="init-conditions" />
+<a name="init-conditions"></a>
 ## CV fields conditions for creating
 
 Documentation translation for this section is in progress.
@@ -702,7 +702,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="conditions-contacts" />
+<a name="conditions-contacts"></a>
 ## CV contact fields conditions
 Documentation translation for this section is in progress.
 See
@@ -711,7 +711,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="conditions-other" />
+<a name="conditions-other"></a>
 ## Additional CV conditions
 Documentation translation for this section is in progress.
 See
@@ -720,7 +720,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="resume-nano" />
+<a name="resume-nano"></a>
 ## CV short representation
 Documentation translation for this section is in progress.
 See
@@ -728,7 +728,7 @@ See
 powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
-<a name="status" />
+<a name="status"></a>
 ## CV status
 Documentation translation for this section is in progress.
 See
@@ -737,7 +737,7 @@ powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
 
-<a name="access_type" />
+<a name="access_type"></a>
 ## CV access type
 Documentation translation for this section is in progress.
 See
@@ -745,7 +745,7 @@ See
 powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
-<a name="views" />
+<a name="views"></a>
 ## CV view history
 Documentation translation for this section is in progress.
 See

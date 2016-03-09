@@ -14,7 +14,7 @@ See also:
 * [Vacancy extension](vacancies.md#prolongate)
 
 
-<a name="active"/>
+<a name="active"></a>
 ## Published vacancy list
 
 `GET /employers/{employer_id}/vacancies/active?manager_id={manager_id}`
@@ -61,7 +61,7 @@ collection supports:
   `employer_active_vacancies_order` directory
 
 
-<a name="archive"/>
+<a name="archive"></a>
 ## Storing vacancies
 
 To archive a vacancy, you should send a PUT request:
@@ -71,7 +71,7 @@ To archive a vacancy, you should send a PUT request:
 If archived successfully, `204 No Content` will be returned.
 
 
-<a name="archived"/>
+<a name="archived"></a>
 ## Archived vacancy list
 
 `GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}`
@@ -102,7 +102,7 @@ fields will be returned:
 | archived_at        | string | vacancy archivation date             |
 
 
-<a name="hide"/>
+<a name="hide"></a>
 ## Deleting vacancies
 
 `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}`
@@ -111,7 +111,7 @@ You can delete only an archived vacancy.
 If performed successfully, `204 No Content` will be returned.
 
 
-<a name="hidden"/>
+<a name="hidden"></a>
 ## Deleted vacancy list
 
 `GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}`
@@ -122,7 +122,7 @@ Possible sorting values are available in the `employer_hidden_vacancies_order`
 collection does not support search (the parameters `text` and `area`).
 
 
-<a name="restore"/>
+<a name="restore"></a>
 ## Restoring deleted vacancies
 
 `DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}`

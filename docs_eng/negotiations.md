@@ -22,7 +22,7 @@ state.
 * [Edit a message in the response](#edit_message)
 
 
-<a name="get_negotiations"/>
+<a name="get_negotiations"></a>
 ## Receiving the list of responses
 
 ### Request
@@ -98,7 +98,7 @@ Within the vacancy object, keys `url` and `alternate_url` can be `null` if the
 vacancy is unavailable (deleted).
 
 
-<a name="get_negotiations_active"/>
+<a name="get_negotiations_active"></a>
 ## Receiving the list of active responses
 
 ### Request
@@ -111,7 +111,7 @@ Optional parameters and the response are the same as in the
 [list of responses] (#get_negotiations)
 
 
-<a name="post_negotiation"/>
+<a name="post_negotiation"></a>
 ## Respond to the vacancy
 
 In order to know with which CVs the specific vacancy can be responded to, one
@@ -164,7 +164,7 @@ Some possible error messages are provided in the
 [corresponding section](errors.md#negotiations).
 
 
-<a name="get_negotiation" />
+<a name="get_negotiation"></a>
 ## View the response/invitation
 
 
@@ -181,7 +181,7 @@ The object returned is identical to a separate response received in the
 [list of responses](#get_negotiations)
 
 
-<a name="hide_message" />
+<a name="hide_message"></a>
 ## Hide the response
 To hide the response, use the following request:
 
@@ -196,7 +196,7 @@ where:
 HTTP status `204 No Content` will be returned
 
 
-<a name="get_messages" />
+<a name="get_messages"></a>
 ## View the list of messages in the response
 
 ### Request
@@ -303,7 +303,7 @@ where:
  assessments| array| [assessment tools](assessment.md) linked to the message
 
 
-<a name="edit_message" />
+<a name="edit_message"></a>
 ## Edit messages in the response
 
 Under certain conditions, the message text can be edited after it is sent. To

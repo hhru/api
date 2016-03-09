@@ -48,7 +48,7 @@ returned with detailed error description in the response body:
 * [Tips for vacancy search key words](#vacancy-search-keyword)
 
 
-<a name="educational_institutions"/>
+<a name="educational_institutions"></a>
 ## University name suggestions
 
 In order to obtain university name options from the inserted symbols, you should
@@ -83,7 +83,7 @@ To see the list of college faculties, you can use the
 [method of obtaining faculties](faculties.md).
 
 
-<a name="companies" />
+<a name="companies"></a>
 ## Organization suggestions
 
 
@@ -123,7 +123,7 @@ companies](employers.md#search).
 
 
 
-<a name="specializations" />
+<a name="specializations"></a>
 ## Specialization suggestions
 
 To see the list of relevant specializations, you should send a
@@ -146,7 +146,7 @@ If the request is performed successfully, such a response will be returned:
 ```
 
 
-<a name="key-skills" />
+<a name="key-skills"></a>
 ## Key skills suggestions
 
 In order to obtain a suggestion on key skills, you should send a `GET` request
@@ -174,7 +174,7 @@ If the request is performed successfully, such a response will be returned:
 ```
 
 
-<a name="positions" />
+<a name="positions"></a>
 ## Position suggestions
 
 In order to obtain a suggestion on positions, you should send a `GET` request to
@@ -205,7 +205,7 @@ If the request is performed successfully, such a response will be returned:
 ```
 
 
-<a name="areas" />
+<a name="areas"></a>
 ## Region tips
 
 `GET /suggests/areas` – tip for all regions.
@@ -241,7 +241,7 @@ Response example:
 ```
 
 
-<a name="resume-search-keyword" />
+<a name="resume-search-keyword"></a>
 ## Tips for CV search key words
 
 This tip is intended for use in the `text` field when
@@ -274,7 +274,7 @@ Response example:
 ```
 
 
-<a name="vacancy-search-keyword" />
+<a name="vacancy-search-keyword"></a>
 ## Tips for vacancy search key words
 
 This tip is intended for use in the `text` field when

@@ -14,7 +14,7 @@ application at [https://dev.hh.ru](https://dev.hh.ru) and set up the
 [authorization](docs/authorization.md) process.
 
 
-<a name="content" />
+<a name="content"></a>
 ## Content
 
 * [General information](general.md)
@@ -25,7 +25,7 @@ application at [https://dev.hh.ru](https://dev.hh.ru) and set up the
 * [Errors and response codes](errors.md)
 
 
-<a name="resources" />
+<a name="resources"></a>
 ### Resources
 
 * [Current user](me.md)
@@ -69,7 +69,7 @@ application at [https://dev.hh.ru](https://dev.hh.ru) and set up the
  * [Tips for vacancy search key words](suggests.md#vacancy-search-keyword)
 
 
-<a name="feedback" />
+<a name="feedback"></a>
 ## Support, feedback, news
 
 Stay in touch with us via twitter [@apihhru](https://twitter.com/apihhru) or

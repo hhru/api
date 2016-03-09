@@ -24,7 +24,7 @@
 * [Редактирование сообщения в отклике](#edit_message)
 
 
-<a name="get_negotiations"/>
+<a name="get_negotiations"></a>
 ## Получение списка откликов
 
 ### Запрос
@@ -102,7 +102,7 @@ GET /negotiations
 В объекте вакансии ключи `url` и `alternate_url` могут быть `null`, если вакансия недоступна (удалена).
 
 
-<a name="get_negotiations_active"/>
+<a name="get_negotiations_active"></a>
 ## Получение списка активных откликов
 
 ### Запрос
@@ -114,7 +114,7 @@ GET /negotiations/active
 Опциональные параметры и ответ такие же, как и в [списке откликов](#get_negotiations)
 
 
-<a name="post_negotiation"/>
+<a name="post_negotiation"></a>
 ## Откликнуться на вакансию
 
 Для того чтобы узнать, какими резюме возможно откликнуться на конкретную
@@ -181,7 +181,7 @@ Location: http://example.com/respond/vacancy
 [причины ошибки](errors.md#negotiations).
 
 
-<a name="get_negotiation" />
+<a name="get_negotiation"></a>
 ## Просмотр отклика/приглашения
 
 
@@ -203,7 +203,7 @@ GET /negotiations/{nid}
  messaging_status | строка | Текущий статус переписки. Возможные значения находятся в [справочнике `messaging_status`](./dictionaries.md).
 
 
-<a name="hide_message" />
+<a name="hide_message"></a>
 ## Скрыть отклик
 Для скрытия отклика необходимо выполнить запрос:
 
@@ -218,7 +218,7 @@ DELETE /negotiations/active/{nid}
 Успешный ответ приходит с кодом `204 No Content`.
 
 
-<a name="get_messages" />
+<a name="get_messages"></a>
 ## Просмотр списка сообщений в отклике
 
 ### Запрос
@@ -323,7 +323,7 @@ GET /negotiations/{nid}/messages
  assessments | массив | [инструменты оценки](assessment.md), привязанные к сообщению
 
 
-<a name="send_message" />
+<a name="send_message"></a>
 ## Отправка нового сообщения
 
 Отправка нового сообщения работодателю возможна после того, как работодатель
@@ -383,7 +383,7 @@ message | да | Текст сообщения
 [причины ошибки](errors.md#negotiations).
 
 
-<a name="edit_message" />
+<a name="edit_message"></a>
 ## Редактирование сообщений в отклике
 
 При некоторых условиях текст сообщения можно редактировать после отправки. Чтобы

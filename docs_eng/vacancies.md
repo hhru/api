@@ -12,7 +12,7 @@
 * [Vacancy prolongation](#prolongate)
 
 
-<a name="item"/>
+<a name="item"></a>
 ## View a vacancy
 
 `GET /vacancies/{vacancy_id}` will return a detailed information on the indicated vacancy
@@ -189,7 +189,7 @@ The returned `allow_messages` key specifies whether the applicant will have the
 possibility to create messages after the invitation.
 
 
-<a name="author"/>
+<a name="author"></a>
 ## Extra vacancy fields
 
 If a vacancy is requested by an authorized user, the object will return the
@@ -240,7 +240,7 @@ You can find more information about these fields in the section about
 [vacancy posting](#creation_fields).
 
 
-<a name="favorited"/>
+<a name="favorited"></a>
 ## Selected vacancies
 
 These methods require applicant authorization, otherwise `403 Forbidden` will be
@@ -265,7 +265,7 @@ successfully, the method returns `204 No Content`.
 
 
 
-<a name="search"/>
+<a name="search"></a>
 ## Search by vacancies
 
 `GET /vacancies` will return the results of vacancy search.
@@ -299,7 +299,7 @@ Some parameters take multiple values: `key=value&key=value`.
   [/dictionaries](dictionaries.md).
   Several values can be indicated.
 
-* <a name="field-area"/> `area` – a region.
+* <a name="field-area"></a> `area` – a region.
   Directory with possible values: [/areas](areas.md).
   Several values can be indicated.
 
@@ -436,7 +436,7 @@ used for applicants.
 Example: [https://api.hh.ru/vacancies?locale=EN](https://api.hh.ru/vacancies?locale=EN)
 
 
-<a name="nano"/>
+<a name="nano"></a>
 ## Short description of the vacancy
 
 ```json
@@ -503,7 +503,7 @@ been deleted)
 
 
 
-<a name="creation"/>
+<a name="creation"></a>
 ## Vacancy posting
 
 `POST /vacancies`
@@ -537,7 +537,7 @@ vacancy being posted. The format of the data is similar to the
 * [field filling conditions](#conditions)
 
 
-<a name="creation-example"/>
+<a name="creation-example"></a>
 ### Request body example
 
 ```json
@@ -620,7 +620,7 @@ vacancy being posted. The format of the data is similar to the
 ```
 
 
-<a name="creation_fields"/>
+<a name="creation_fields"></a>
 ### Request body
 
 * `[]` (e.g. in specialization fields and in contacts) means that the value of
@@ -671,10 +671,10 @@ vacancy being posted. The format of the data is similar to the
 | allow_messages              | boolean         | ability to [message candidates](http://inboxemp.hh.ru/) on the subject of the vacancy |
 | response_letter_required    | boolean         | demand a cover letter |
 | accept_handicapped          | boolean         | indication that the vacancy is available for disabled applicants |
-| branded_template.id         | string          | <a name="branded-template-field" /> branded template from the [directory](employer_vacancy_branded_templates.md#list) |
+| branded_template.id         | string          | <a name="branded-template-field"></a> branded template from the [directory](employer_vacancy_branded_templates.md#list) |
 
 
-<a name="creation-results"/>
+<a name="creation-results"></a>
 ### Request result
 
 * `204 No Content` – added successfully. The `Location` header will contain a
@@ -690,7 +690,7 @@ In addition to an HTTP code, the server can return
 [error reasons](errors.md#vacancies-create-n-edit).
 
 
-<a name="conditions"/>
+<a name="conditions"></a>
 ## Field filling and vacancy editing conditions
 
 `GET /vacancy_conditions`
@@ -870,7 +870,7 @@ body:
 
 
 
-<a name="edit"/>
+<a name="edit"></a>
 ## Vacancy editing
 
 `PUT /vacancies/{vacancy_id}`
@@ -917,7 +917,7 @@ In addition to an HTTP code, the server can return
 [error reasons](errors.md#vacancies-create-n-edit).
 
 
-<a name="edit_more"/>
+<a name="edit_more"></a>
 ### Changing the billing type, vacancy manager
 
 Changing the vacancy billing type as well as transferring the vacancy to another
@@ -938,7 +938,7 @@ PUT /vacancies/{vacancy_id}
 If sent with any other fields, an error will be returned.
 
 
-<a name="other-actions" />
+<a name="other-actions"></a>
 ### Other actions
 
 * [archiving](employer_vacancies.md#archive)
@@ -946,7 +946,7 @@ If sent with any other fields, an error will be returned.
 * [restoring deleted vacancies](employer_vacancies.md#restore)
 
 
-<a name="prolongate"/>
+<a name="prolongate"></a>
 ## Vacancy prolongation
 
 **Prolongation of the vacancy costs the same as a new posting**
