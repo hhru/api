@@ -140,7 +140,7 @@
   отклика/приглашения не было
 * `can_invite` – флаг, говорящий о возможности или невозможности пригласить
   указанное резюме на эту вакансию
-* `negotiations_actions` – действия, для
+* <a name="actions"/> `negotiations_actions` – действия, для
   [создания отклика](employer_negotiations.md#add-invite). Формат выдачи
   действий аналогичен
   [действиям по отклику/приглашению](employer_negotiations.md#actions-info).
