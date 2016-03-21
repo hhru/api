@@ -742,7 +742,7 @@
 <li><a href="#edit">Редактирование информации о текущем пользователе</a></li>
 </ul>
 
-<p><a name="info" /></p>
+<p><a name="info"></a></p>
 
 <h2 id="-2">Получение информации о текущем пользователе</h2>
 
@@ -761,7 +761,12 @@
     <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;manager_id&quot;</span><span class="p">:</span> <span class="s2">&quot;87654321&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;87654321&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;has_admin_rights&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;is_main_contact_person&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;manager_settings_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455/managers/87654321/settings&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;unread_negotiations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -815,7 +820,7 @@
 <tr>
   <td>is_employer</td>
   <td>логический</td>
-  <td>true, если пользователь работодатель</td>
+  <td>true, если пользователь – работодатель</td>
 </tr>
 <tr>
   <td>email</td>
@@ -825,12 +830,17 @@
 <tr>
   <td>employer</td>
   <td>объект, null</td>
-  <td>информация о компании, если текущий пользователь — работодатель</td>
+  <td><a href="#employer-info">информация о компании</a>, если текущий пользователь — работодатель, или null в остальных случаях</td>
 </tr>
 <tr>
   <td>personal_manager</td>
   <td>объект, null</td>
-  <td>Информация о персональнои менеджере, если текущий пользователь — работодатель</td>
+  <td><a href="#personal-manager-info">информация о персональном менеджере</a>, если текущий пользователь — работодатель, или null в остальных случаях</td>
+</tr>
+<tr>
+  <td>manager</td>
+  <td>объект, null</td>
+  <td><a href="#manager-info">информация о пользователе как о менеджере компании</a>, если текущий пользователь — работодатель, или null в остальных случаях</td>
 </tr>
 <tr>
   <td>is_in_search</td>
@@ -850,12 +860,12 @@
 <tr>
   <td>counters</td>
   <td>объект, отсутствует</td>
-  <td>информация о счетчиках, если текущий пользователь — соискатель</td>
+  <td><a href="#counters-info">информация о счетчиках</a>, если текущий пользователь — соискатель</td>
 </tr>
 </tbody>
 </table>
 
-<p><a name="employer-info"/></p>
+<p><a name="employer-info"></a></p>
 
 <h4 id="employer">Объект <code>employer</code></h4>
 
@@ -878,13 +888,46 @@
   <td>строка</td>
   <td>название компании</td>
 </tr>
+</tbody>
+</table>
+
+<p><a name="manager-info"></a></p>
+
+<h4 id="manager">Объект <code>manager</code></h4>
+
+<table>
+<thead>
 <tr>
-  <td>manager_id</td>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
   <td>строка</td>
-  <td>идентификатор текущего пользователя как менеджера компании</td>
+  <td>идентификатор менеджера</td>
+</tr>
+<tr>
+  <td>has_admin_rights</td>
+  <td>логический</td>
+  <td>обладает ли текущий менеджер правами администратора</td>
+</tr>
+<tr>
+  <td>is_main_contact_person</td>
+  <td>логический</td>
+  <td>является ли текущий менеджер главным контактным лицом компании</td>
+</tr>
+<tr>
+  <td>manager_settings_url</td>
+  <td>строка</td>
+  <td>url, на который нужно сделать GET запрос, чтобы получить <a href="manager_settings.md.html">предпочтения менеджера</a></td>
 </tr>
 </tbody>
 </table>
+
+<p><a name="personal-manager-info"></a></p>
 
 <h4 id="personal_manager">Объект <code>personal_manager</code></h4>
 
@@ -910,6 +953,8 @@
 </tbody>
 </table>
 
+<p><a name="counters-info"></a></p>
+
 <h4 id="counters">Объект <code>counters</code></h4>
 
 <p>Все значения ключей — числа.</p>
@@ -924,7 +969,7 @@
 <tbody>
 <tr>
   <td>unread_negotiations</td>
-  <td>Кол-во новых непрочтенных переписок (у которых <code>has_updates: true</code>)</td>
+  <td>Кол-во новых непрочитанных переписок (у которых <code>has_updates: true</code>)</td>
 </tr>
 <tr>
   <td>new_resume_views</td>
@@ -933,7 +978,7 @@
 </tbody>
 </table>
 
-<p><a name="edit" /></p>
+<p><a name="edit"></a></p>
 
 <h2 id="-3">Редактирование информации о текущем пользователе</h2>
 
@@ -1002,7 +1047,7 @@
  is_in_search=true
 </code></pre>
 
-<p>На запрос с параметрами из разных груп придёт ошибка <code>400 Bad Request</code>.</p>
+<p>На запрос с параметрами из разных групп придёт ошибка <code>400 Bad Request</code>.</p>
 
     </article>
     </body>

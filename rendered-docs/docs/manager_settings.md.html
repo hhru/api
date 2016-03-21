@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Общая информация</title>
+        <title>Предпочтения менеджера</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,121 +735,80 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Общая информация</h1>
+    <h1>Предпочтения менеджера</h1>
+
+<p><a name="manager_settings"></a></p>
+
+<h3 id="-2">Запрос</h3>
+
+<p><code>GET /employers/{employer_id}/managers/{manager_id}/settings</code></p>
+
+<p>где:</p>
 
 <ul>
-<li>Всё API работает по протоколу HTTPS.</li>
-<li>Авторизация осуществляется по протоколу OAuth2.</li>
-<li>Все данные доступны только в формате JSON.</li>
-<li>Базовый URL — <code>https://api.hh.ru/</code></li>
-<li>Возможны запросы к данным <a href="hosts.md.html">любого сайта группы компаний HeadHunter</a></li>
-<li><a name="date-format"></a> Даты форматируются в соответствии с
-<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>: <code>YYYY-MM-DDThh:mm:ss±hhmm</code>.</li>
+<li><code>employer_id</code> – идентификатор работодателя,</li>
+<li><code>manager_id</code> – идентификатор менеджера.</li>
 </ul>
 
-<p><a name="request-requirements"></a></p>
+<p>Проще всего получить url из поля <code>manager_settings_url</code> в
+<a href="me.md.html#manager-info">информации о текущем пользователе (объект <code>manager</code>)</a>.</p>
 
-<h3 id="-2">Требования к запросам</h3>
+<h3 id="-3">Ответ</h3>
 
-<p>В запросе необходимо передавать заголовок <code>User-Agent</code>, в противном случае
-ответом будет <code>400 Bad Request</code>. Указание в заголовке названия приложения и
-контактной почты разработчика позволит нам оперативно с вами связаться в случае
-необходимости.</p>
-
-<pre><code>User-Agent: MyApp/1.0 (my-app-feedback@example.com)
-</code></pre>
-
-<p>Подробнее про <a href="errors.md.html#user-agent">ошибки в заголовке User-Agent</a>.</p>
-
-<p><a name="request-body"></a></p>
-
-<h3 id="json">Формат тела запроса при отправке JSON</h3>
-
-<p>Данные, передающиеся в теле запроса, должны удовлетворять требованиям:</p>
-
-<ul>
-<li>Валидный JSON (допускается передача как минифицированного варианта, так и
-pretty print варианта с дополнительными пробелами и сбросами строк).</li>
-<li>Рекомендуется использование кодировки UTF-8 без дополнительного экранирования
-(<code>{"name": "Иванов Иван"}</code>).</li>
-<li>Также возможно использовать ascii кодировку с экранированием
-(<code>{"name": "\u0418\u0432\u0430\u043d\u043e\u0432 \u0418\u0432\u0430\u043d"}</code>).</li>
-<li>К типам данных в определённым полях накладываются дополнительные условия,
-описанные в каждом конкретном методе. В JSON типами данных являются <code>string</code>,
-<code>number</code>, <code>boolean</code>, <code>null</code>, <code>object</code>, <code>array</code>.</li>
-</ul>
-
-<p><a name="errors-and-codes"></a></p>
-
-<h3 id="-3">Ошибки и коды ответов</h3>
-
-<p>API широко использует информирование при помощи кодов ответов.
-Приложение должно корректно их обрабатывать.</p>
-
-<p>В случае неполадок и сбоев, возможны ответы с кодом <code>503</code> и <code>500</code>.</p>
-
-<p>При каждой ошибке, помимо кода ответа, в теле ответа может быть выдана
-дополнительная информация, позволяющая разработчику понять
-причину соответствующего ответа.</p>
-
-<p><a href="errors.md.html">Более подробно про возможные ошибки</a>.</p>
-
-<p><a name="deprecated"></a></p>
-
-<h3 id="-4">Недокументированные поля и параметры запросов</h3>
-
-<p>В ответах и параметрах API можно найти ключи не описанные в документации.
-Обычно это означает, что они оставлены для совместимости со старыми версиями.
-Их использование не рекомендуется. Если ваше приложение использует такие ключи,
-перейдите на использование актуальных ключей описанных в документации.</p>
-
-<p><a name="pagination"></a></p>
-
-<h3 id="-5">Пагинация</h3>
-
-<p>К любому запросу, подразумевающему выдачу списка объектов, можно в параметрах
-указать <code>page=N&amp;per_page=M</code>. Нумерация идёт с нуля, по умолчанию выдаётся
-первая (нулевая) страница с 20 объектами на странице. Во всех ответах, где
-доступна пагинация, единообразный корневой объект:</p>
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[{}]</span>
+  <span class="nt">&quot;default_currency&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;abbr&quot;</span><span class="p">:</span> <span class="s2">&quot;руб.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Рубли&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;default_vacancy_branded_template&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Стандартный шаблон&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;use_sms_notification&quot;</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p><a name="cors"></a></p>
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>default_currency</td>
+  <td>объект</td>
+  <td>предпочитаемая валюта при <a href="vacancies.md.html#creation">публикации вакансии</a></td>
+</tr>
+<tr>
+  <td>default_vacancy_branded_template</td>
+  <td>объект, null</td>
+  <td>предпочитаемый <a href="employer_vacancy_branded_templates.md.html">брендированный шаблон вакансий работодателя</a>. <code>null</code> – если у компании не используются брендированные шаблоны вакансий.</td>
+</tr>
+<tr>
+  <td>use_sms_notification</td>
+  <td>логический</td>
+  <td>предпочтение по использованию флага <code>send_sms</code> <a href="employer_negotiations.md.html#add-invite">при приглашении соискателя</a></td>
+</tr>
+</tbody>
+</table>
 
-<h3 id="cors-cross-origin-resource-sharing">CORS (Cross-Origin Resource Sharing)</h3>
+<p>Данные предпочтения <strong>не влияют</strong> на действия в API по умолчанию. Например,
+брендированный шаблон оформления (<code>default_vacancy_branded_template</code>) не будет
+применён автоматически при публикации вакансии, если шаблон не передан.
+Предпочтения может использовать ваше приложение, чтобы реализовать логику
+предзаполнения полей.</p>
 
-<p>API поддерживает технологию CORS для запроса данных из
-браузера с произвольного домена. Этот метод более предпочтителен, чем
-использование JSONP. Он не ограничен методом GET. Для отладки CORS доступен
-<a href="cors.md.html">специальный метод</a>. Для использования JSONP передайте параметр
-<code>?callback=callback_name</code>.</p>
+<h3 id="-4">Ошибки</h3>
 
 <ul>
-<li><a href="http://www.w3.org/TR/cors/">CORS specification on w3.org</a></li>
-<li><a href="http://www.html5rocks.com/en/tutorials/cors/">HTML5Rocks CORS Tutorial</a></li>
-<li><a href="http://dev.opera.com/articles/view/dom-access-control-using-cross-origin-resource-sharing/">CORS on dev.opera.com</a></li>
-<li><a href="http://caniuse.com/#feat=cors">CORS on caniuse.com</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS on en.wikipedia.org</a></li>
-</ul>
-
-<p><a name="links"></a></p>
-
-<h2 id="-6">Внешние ссылки на статьи и стандарты</h2>
-
-<ul>
-<li><a href="http://tools.ietf.org/html/rfc2616">HTTP/1.1</a></li>
-<li><a href="http://json.org/">JSON</a></li>
-<li><a href="http://tools.ietf.org/html/rfc6570">URI Template</a></li>
-<li><a href="http://tools.ietf.org/html/rfc6749">OAuth 2.0</a></li>
-<li><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">REST</a></li>
-<li><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></li>
+<li><code>404 Not Found</code> – менеджер не существует, либо просмотр его настроек не доступен.</li>
+<li><code>403 Forbidden</code> – текущий пользователь не является менеджером.</li>
 </ul>
 
     </article>

@@ -737,7 +737,7 @@
     <article class="markdown-body">
     <h1 id="authorization">Authorization</h1>
 
-<p><a name="general" />
+<p><a name="general"></a>
 Authorization is done via the OAuth 2.0 protocol. Detailed documentation on the
 protocol: <a href="http://tools.ietf.org/html/rfc6749">RFC 6749</a>.</p>
 
@@ -752,7 +752,7 @@ domain. Documentation has been updated in accordance with the new address.</p>
 
 <hr />
 
-<p><a name="get-auth" /></p>
+<p><a name="get-auth"></a></p>
 
 <h2 id="obtaining-authorization">Obtaining authorization</h2>
 
@@ -781,7 +781,7 @@ authorization. If not indicated, used from the application settings. If
 present, the value is validated.</p></li>
 </ul>
 
-<p><a name="redirect_uri" /></p>
+<p><a name="redirect_uri"></a></p>
 
 <h3 id="special-redirect_uri-formation-rules">Special redirect_uri formation rules</h3>
 
@@ -805,7 +805,7 @@ then it is permitted to indicate:</p>
 <li><code>http://example.com:80/oauths</code> — an originally absent port;</li>
 </ul>
 
-<p><a name="get-auth-process" /></p>
+<p><a name="get-auth-process"></a></p>
 
 <h3 id="authorization-process">Authorization process</h3>
 
@@ -817,7 +817,7 @@ requesting access for your application to their personal data.</p>
 the indicated <code>redirect_uri</code> with <code>?error=access_denied</code> and
 <code>state={state}</code>, if such was indicated in the first request.</p>
 
-<p><a name="get-authorization_code" /></p>
+<p><a name="get-authorization_code"></a></p>
 
 <h3 id="obtaining-a-temporary-authorization_code-successfully">Obtaining a temporary <code>authorization_code</code> successfully</h3>
 
@@ -833,7 +833,7 @@ application once before, then there will be an immediate redirect with the
 <code>authorization_code</code> described above (without showing the login form and giving
 rights).</p>
 
-<p><a name="get-tokens" /></p>
+<p><a name="get-tokens"></a></p>
 
 <h3 id="obtaining-access-and-refresh-tokens">Obtaining access and refresh tokens</h3>
 
@@ -887,7 +887,7 @@ been sent.</li>
 <li><code>error_description</code> will contain an additional description of the error.</li>
 </ul>
 
-<p><a name="refresh_token" /></p>
+<p><a name="refresh_token"></a></p>
 
 <h2 id="refreshing-the-access-and-refresh-token-pair">Refreshing the access and refresh token pair</h2>
 
@@ -918,7 +918,7 @@ period expires.</p>
 <p>When a new access and refresh token pair is received, it should be used in
 further api requests and token renewal requests.</p>
 
-<p><a name="check-access_token" /></p>
+<p><a name="check-access_token"></a></p>
 
 <h3 id="using-and-testing-access_token">Using and testing access_token</h3>
 

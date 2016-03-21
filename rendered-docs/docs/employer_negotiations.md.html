@@ -740,64 +740,157 @@
 <p><em>Документация по переписке для соискателя доступна в <a href="negotiations.md.html">отдельной статье</a>.</em></p>
 
 <ul>
-<li><a href="#collections">Коллекции откликов/приглашений</a></li>
+<li><a href="#model">Модель работы, термины и процедуры</a></li>
+<li><a href="#flow">Общее описание процесса работы с откликами/приглашениями</a></li>
+<li><a href="#collections">Коллекции и работодательские состояния откликов/приглашений</a></li>
 <li><a href="#negotiations-list">Список откликов/приглашений</a></li>
 <li><a href="#get-negotiation">Просмотр отклика/приглашения</a></li>
 <li><a href="#get-messages">Просмотр списка сообщений в отклике/приглашении</a></li>
 <li><a href="#add-messages">Отправка сообщения в отклике/приглашении</a></li>
 <li><a href="#add-invite">Приглашение соискателя на вакансию</a></li>
-<li><a href="#actions">Действия от отклику/приглашению</a>
-<ul>
-<li><a href="#put-on-hold">Отложить отклик (перенос в список «Подумать»)</a></li>
-<li><a href="#invite">Приглашение соискателя на интервью в ответ на отклик</a></li>
-<li><a href="#discard">Отказ соискателю</a></li>
-</ul></li>
+<li><a href="#actions">Действия по отклику/приглашению (смена состояния)</a></li>
 </ul>
 
-<p><a name="collections" /></p>
+<p><a name="model"></a></p>
 
-<h2 id="-2">Коллекции откликов/приглашений</h2>
+<h2 id="-2">Модель работы и термины</h2>
 
-<p>У работодателя доступны коллекции откликов и приглашений. Каждая коллекция
-содержит отклики/приглашения в определённом состоянии. Список этих коллекций
+<p>Отклики и приглашения соответствуют модели, которая выражается в запросах и
+ответах API. Если приложение использует модель правильно, то изменение
+бизнес-логики откликов и приглашений не будет требовать переработки или
+исправления.</p>
+
+<p>В откликах и приглашениях используются понятия:</p>
+
+<ul>
+<li><p><em>отклик</em> – объект, порождённый по инициативе соискателя (отклик на вакансию).
+Отклик всегда происходит на одно резюме к одной вакансии.</p></li>
+<li><p><em>приглашение</em> – объект, порождённый по инициативе работодателя (приглашение
+на вакансию). Приглашение всегда происходит на одну вакансию одним резюме.</p></li>
+</ul>
+
+<p>Кроме процесса появления объекта, работа с откликом или приглашением происходит
+одинаково.</p>
+
+<ul>
+<li><p><a name="term-collection"></a> <em>коллекция</em> – набор откликов/приглашений,
+объединённых по определённым критериям. Коллекции используются, когда в вашем
+приложении требуется <strong>отобразить</strong> список откликов/приглашений. Не стоит
+полагаться на то, что в определённые этапы обработки отклика/приглашения
+оно будет входить в известные коллекции, так как эта логика может изменяться.</p></li>
+<li><p><a name="term-state"></a> <em>соискательское состояние отклика/приглашения</em> –
+статус отклика/приглашения, который <strong>видит соискатель</strong>. Возможные значения
+выдаются <a href="dictionaries.md.html#negotiations">в справочнике <code>negotiations_state</code></a> и
+не зависят от вакансии в отклике/приглашении.</p></li>
+<li><p><a name="term-employer-state"></a> <em>работодательское состояние отклика/приглашения</em> –
+статус отклика/приглашения у работодателя. Может отличаться от
+соискательского. Список возможных статусов
+<strong>зависит от вакансии и работодателя</strong>, поэтому список
+<a href="#states">необходимо запрашивать</a>, передавая нужную вакансию.</p></li>
+<li><p><a name="term-action"></a> <em>действие по отклику/приглашению</em> – действие, которое
+можно выполнить над откликом/приглашением. В результате действия
+работодательское и соискательское состояния отклика/приглашения могут как
+поменяться, так и остаться прежними.</p></li>
+</ul>
+
+<p>Не следует путать <em>действие</em>, <em>коллекцию</em> и <em>состояние</em> – они могут быть похожи,
+но предназначены для разных целей.</p>
+
+<p><a name="flow"></a></p>
+
+<h2 id="-3">Общее описание процесса работы с откликами/приглашениями</h2>
+
+<p>Вся работа с откликами/приглашениями происходит в рамках
+<strong>одной выбранной вакансии</strong>. Даже у одного работодателя могут быть вакансии
+с различными правилами работы по откликам/приглашениям.</p>
+
+<p>Сначала необходимо получить список
+<a href="#collections">коллекций и работодательских состояний</a>. Используйте коллекции
+для <strong>получения списков откликов/приглашений</strong>. Предлагайте пользователю
+выбирать, какую из коллекций он хочет получить. Для получения всех
+откликов/приглашений нужно последовательно получить все коллекции. Список
+состояний используется только как справочник.</p>
+
+<p>Для <strong>создания приглашения</strong> необходимо выбрать резюме, например,
+<a href="resumes.md.html#search">в поиске</a>, а затем запросить вакансии работодателя,
+применимые к этому резюме. Получить эту информацию можно в
+<a href="employer_vacancies_for_invitation.md.html">списке вакансий работодателя</a>, там же
+будут указаны необходимые параметры (ключ <code>arguments</code>) и состояние созданного
+отклика (ключ <code>resulting_employer_state</code>). У разных работодателей и разных
+вакансий могут быть различные правила и состояния добавляемого отклика. Для
+каждой пары <em>вакансия + резюме</em> может быть только один отклик/приглашение.</p>
+
+<p>Для создания приглашения, работодатель должен иметь активированный доступ к базе
+резюме. Для работы с существующим откликом/приглашением доступ не требуется. Это
+позволяет обрабатывать отклики на вакансии, даже не имея доступ к базе резюме.</p>
+
+<p>Если вам необходимо <strong>совершить действие</strong> по отклику/приглашению,
+ориентируйтесь на <a href="#actions-info">список действий</a>, который будет доступен в
+<a href="#negotiations-list">списке (коллекции) откликов/приглашений</a> и в
+<a href="#get-negotiation">отдельном отклике/приглашении</a>. Если действие приводит
+к смене состояния по отклику/приглашению, это будет явно указано в ключе
+<code>resulting_employer_state</code>. Не все действия приводят к смене состояния.</p>
+
+<p>После приглашения соискателя вы можете начать с ним
+<a href="#get-messages">свободную переписку</a>. Вы сможете
+<a href="#add-messages">отправлять сообщения</a>, а соискатель – вам отвечать.
+При необходимости переписку для конкретной вакансии
+<a href="vacancies.md.html#allow_messages">можно отключить</a> (поле <code>allow_messages</code>).</p>
+
+<p><a name="states"></a>
+<a name="collections"></a></p>
+
+<h2 id="-4">Коллекции и работодательские состояния откликов/приглашений по вакансии</h2>
+
+<p>У работодателя доступны коллекции откликов и приглашений. Список этих коллекций
 может меняться в зависимости от конкретной вакансии.</p>
 
 <p>Получить доступные у текущего пользователя вакансии можно через
 <a href="employer_vacancies.md.html#active">списки вакансий работодателя</a>.</p>
 
-<p>Если вам необходимо получить полный список откликов/приглашений по вакансии,
-запросите последовательно все коллекции.</p>
+<p>В данный момент нет коллекции, которая объединяла бы все отклики/приглашения по
+вакансии. Если вам необходимо получить полный список – запросите последовательно
+все коллекции.</p>
 
-<p>Примеры встречающихся коллекций:</p>
-
-<ul>
-<li><code>inbox</code> - неразобранные</li>
-<li><code>hold</code> - подумать</li>
-<li><code>invited</code> - приглашенные</li>
-<li><code>discarded</code> - отклоненные</li>
-</ul>
-
-<h3 id="-3">Запрос на получение списка коллекций</h3>
+<h3 id="-5">Запрос</h3>
 
 <p><code>GET /negotiations?vacancy_id={vacancy_id}</code></p>
 
 <p>где <code>vacancy_id</code> - id вакансии.</p>
 
-<h3 id="-4">Ответ</h3>
+<h3 id="-6">Ответ</h3>
 
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;states&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nt">&quot;collections&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;inbox&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Неразобранные&quot;</span><span class="p">,</span>
             <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/inbox?vacancy_id=123456&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invited&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашенные&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited?vacancy_id=123456&quot;</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discarded&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклоненные&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/discarded?vacancy_id=123456&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;employer_states&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклик&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discard&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отказ&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discard_after_interview&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отказ после интервью&quot;</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -813,30 +906,51 @@
 </thead>
 <tbody>
 <tr>
-  <td>id</td>
-  <td>строка</td>
-  <td>Идентификатор коллекции, уникальный как минимум для данной вакансии</td>
+  <td>collections</td>
+  <td>список</td>
+  <td><a href="#term-collection">коллекции</a> откликов/приглашений для данной вакансии</td>
 </tr>
 <tr>
-  <td>name</td>
+  <td>collections.id</td>
+  <td>строка</td>
+  <td>идентификатор коллекции, уникальный как минимум для данной вакансии</td>
+</tr>
+<tr>
+  <td>collections.name</td>
   <td>строка</td>
   <td>название коллекции</td>
 </tr>
 <tr>
-  <td>url</td>
+  <td>collections.url</td>
   <td>строка</td>
-  <td>url на который необходимо делать GET запрос для получения откликов/приглашений данной коллекции</td>
+  <td>url, на который необходимо делать GET запрос для получения откликов/приглашений данной коллекции</td>
+</tr>
+<tr>
+  <td>employer_states</td>
+  <td>список</td>
+  <td><a href="#term-employer-state">работодательские состояния</a> откликов/приглашений данной вакансии</td>
+</tr>
+<tr>
+  <td>employer_states.id</td>
+  <td>строка</td>
+  <td>идентификатор состояния, уникальный как минимум для данной вакансии</td>
+</tr>
+<tr>
+  <td>employer_states.name</td>
+  <td>строка</td>
+  <td>название состояния</td>
 </tr>
 </tbody>
 </table>
 
-<p>Если параметр <code>vacancy_id</code> не передан вернётся ответ с кодом <code>400 Bad Request</code>.</p>
+<p>Если параметр <code>vacancy_id</code> не передан – вернётся ответ с кодом
+<code>400 Bad Request</code>.</p>
 
-<p><a name="negotiations-list" /></p>
+<p><a name="negotiations-list"></a></p>
 
-<h2 id="-5">Список откликов/приглашений</h2>
+<h2 id="-7">Список откликов/приглашений</h2>
 
-<h3 id="-6">Запрос</h3>
+<h3 id="-8">Запрос</h3>
 
 <p>Получив url из <a href="#collections">списка коллекций</a> нужно сделать GET запрос на
 него, например:</p>
@@ -867,16 +981,12 @@
 <tr>
   <td>per_page</td>
   <td>нет</td>
-  <td>Количество выдаваемых элементов на страницу, по умолчанию 20</td>
+  <td>Количество выдаваемых элементов на страницу, по умолчанию: 20</td>
 </tr>
 </tbody>
 </table>
 
-<p>Коллекция <code>inbox</code>, если она доступна для данной вакансии, поддерживает
-дополнительный параметр <code>with_updates_only=true</code> – показывать только
-отклики/приглашения, имеющие обновления.</p>
-
-<h3 id="-7">Ответ</h3>
+<h3 id="-9">Ответ</h3>
 
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
@@ -892,9 +1002,69 @@
             <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T12:00:05+0300&quot;</span><span class="p">,</span>
             <span class="nt">&quot;has_updates&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение&quot;</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклик&quot;</span>
             <span class="p">},</span>
+            <span class="nt">&quot;employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклик&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Пригласить&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited/123456789&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite_after_response&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение откликнувшегося соискателя&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;quick&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite_after_response?topic_id=123456789&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;send_sms&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                                <span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;address_id&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                                <span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hold&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Подумать&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/hold/123456789&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
             <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789&quot;</span><span class="p">,</span>
             <span class="nt">&quot;messages_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789/messages&quot;</span><span class="p">,</span>
             <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -1052,7 +1222,7 @@
 </tbody>
 </table>
 
-<p><a name="negotiations-list-item" />
+<p><a name="negotiations-list-item"></a>
 В элементе <code>items</code> содержатся данные о откликах/приглашениях и резюме к ним:</p>
 
 <table>
@@ -1082,7 +1252,17 @@
 <tr>
   <td>state</td>
   <td>объект</td>
-  <td>Текущее состояние отклика. Возможные значения находятся в справочнике <a href="./dictionaries.md.html">/dictionaries</a> в разделе <code>negotiations_state</code>.</td>
+  <td>Текущее <a href="#term-state">соискательское состояние отклика</a>.</td>
+</tr>
+<tr>
+  <td>employer_state</td>
+  <td>объект</td>
+  <td>Текущее <a href="#term-employer-state">работодательское состояние отклика</a>.</td>
+</tr>
+<tr>
+  <td>actions</td>
+  <td>список</td>
+  <td>возможные <a href="#actions-info">действия по отклику/приглашению</a></td>
 </tr>
 <tr>
   <td>url</td>
@@ -1109,15 +1289,10 @@
   <td>логический</td>
   <td>Был ли отклик просмотрен соискателем</td>
 </tr>
-<tr>
-  <td>templates</td>
-  <td>массив</td>
-  <td>Шаблоны писем. Содержит идентификатор шаблона и url для <a href="/message_templates.md.html">получения текста по шаблону</a>.</td>
-</tr>
 </tbody>
 </table>
 
-<p><a name="view-resume" /></p>
+<p><a name="view-resume"></a></p>
 
 <p>В списке откликов/приглашений предоставлена только основная информация о резюме.
 Для получения полной информации, в частности контактной информации соискателя,
@@ -1130,13 +1305,116 @@
 на анонимную вакансию, в истории будет отражено анонимное название компании.</p>
 
 <p>В случае, когда вакансия, по которой запрашиваются отклики, не существует или
-недоступна текущему пользователю возвращается ответ <code>404 Not Found</code>.</p>
+недоступна текущему пользователю, возвращается ответ <code>404 Not Found</code>.</p>
 
-<p><a name="get-negotiation" /></p>
+<p><a name="actions-info"></a></p>
 
-<h2 id="-8">Просмотр отклика/приглашения</h2>
+<h3 id="actions">Действия по отклику/приглашению (<code>actions</code>)</h3>
 
-<h3 id="-9">Запрос</h3>
+<p>Количество действий может быть разное, в том числе список действий может быть
+пустым.</p>
+
+<p>По каждому действию указано:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>строка</td>
+  <td>Идентификатор действия</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>строка</td>
+  <td>Название действия</td>
+</tr>
+<tr>
+  <td>enabled</td>
+  <td>логический</td>
+  <td>Возможно ли действие совершить</td>
+</tr>
+<tr>
+  <td>method</td>
+  <td>строка</td>
+  <td>HTTP метод, который необходимо выполнить</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>строка</td>
+  <td>url, на который необходимо выполнить запрос</td>
+</tr>
+<tr>
+  <td>resulting_employer_state</td>
+  <td>объект, null</td>
+  <td><a href="#term-employer-state">работодательское состояние</a> по отклику/приглашению, которое будет после совершения действия. Если действие не меняет состояние – <code>null</code>.</td>
+</tr>
+<tr>
+  <td>templates</td>
+  <td>список</td>
+  <td>Шаблоны писем. Содержит идентификатор шаблона и url для <a href="/message_templates.md.html">получения текста по шаблону</a>.</td>
+</tr>
+<tr>
+  <td>agruments</td>
+  <td>список</td>
+  <td>Обязательные и дополнительные аргументы для запроса</td>
+</tr>
+</tbody>
+</table>
+
+<p>К действию прилагается список аргументов, на данный момент могут встретиться
+такие:</p>
+
+<ul>
+<li><code>message</code> - сообщение, которое будет отправлено соискателю на электронную почту. Используйте <a href="negotiation_message_templates.md.html">шаблоны</a> для получения текстов.</li>
+<li><code>address_id</code> - идентификатор <a href="employer_addresses.md.html">адреса</a>, который будет указан в приглашении</li>
+<li><code>send_sms</code> – уведомлять ли соискателя о приглашении с помощью sms. Чтобы отправить – передайте <code>true</code>, значение по умолчанию — <code>false</code>.</li>
+</ul>
+
+<p>Приложение должно уметь заполнять данные аргументы. В будущем могут появляться
+и другие аргументы, но они не будут обязательными. Обязательность аргументов
+может быть разная для разных откликов/приглашений.</p>
+
+<p>По каждому аргументу будет указано:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>строка</td>
+  <td>Идентификатор аргумента</td>
+</tr>
+<tr>
+  <td>required</td>
+  <td>логический</td>
+  <td>Обязательность аргумента</td>
+</tr>
+<tr>
+  <td>required_arguments</td>
+  <td>список</td>
+  <td>Аргументы, которые необходимо приложить, если указан данный аргумент. Например, адрес является необязательным, но при его указании необходимо указать также и сообщение.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="get-negotiation"></a></p>
+
+<h2 id="-10">Просмотр отклика/приглашения</h2>
+
+<h3 id="-11">Запрос</h3>
 
 <p><code>GET /negotiations/{nid}</code></p>
 
@@ -1145,7 +1423,7 @@
 <p>Обычно получается из ключа <code>url</code> в
 <a href="#negotiations-list">списке откликов/приглашений</a>.</p>
 
-<h3 id="-10">Ответ</h3>
+<h3 id="-12">Ответ</h3>
 
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
@@ -1157,9 +1435,69 @@
     <span class="nt">&quot;messages_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789/messages&quot;</span><span class="p">,</span>
     <span class="nt">&quot;messaging_status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
     <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение&quot;</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклик&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклик&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Пригласить&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited/123456789&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite_after_response&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение откликнувшегося соискателя&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;quick&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite_after_response?topic_id=123456789&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;send_sms&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;address_id&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hold&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Подумать&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/hold/123456789&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;resume&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
@@ -1275,7 +1613,7 @@
 содержит ключ <code>vacancy</code> в котором выдаётся
 <a href="vacancies.md.html#nano">краткая информация о вакансии</a>.</p>
 
-<p><a name="messaging_status"/>
+<p><a name="messaging_status"></a>
 Дополнительно по отклику/приглашению возвращается поле <code>messaging_status</code>,
 которое указывает на состояние переписки. Возможные значения
 содержатся в <a href="dictionaries.md.html">справочнике messaging_status</a>.</p>
@@ -1283,9 +1621,9 @@
 <p>В случае, когда отклик/приглашение не существует или недоступен текущему
 пользователю возвращается ответ <code>404 Not Found</code>.</p>
 
-<p><a name="get-messages" /></p>
+<p><a name="get-messages"></a></p>
 
-<h2 id="-11">Просмотр списка сообщений в отклике/приглашении</h2>
+<h2 id="-13">Просмотр списка сообщений в отклике/приглашении</h2>
 
 <p>Сообщения в отклике/приглашении могут быть:</p>
 
@@ -1296,7 +1634,7 @@
 <li>сообщениями свободной переписки между соискателем и работодателем</li>
 </ul>
 
-<h3 id="-12">Запрос</h3>
+<h3 id="-14">Запрос</h3>
 
 <p><code>GET /negotiations/{nid}/messages</code></p>
 
@@ -1306,7 +1644,7 @@
 <a href="#negotiations-list">списке откликов/приглашений</a> или в
 <a href="#get-negotiation">просмотре отклика/приглашения</a>.</p>
 
-<h3 id="-13">Ответ</h3>
+<h3 id="-15">Ответ</h3>
 
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
@@ -1424,7 +1762,7 @@
 </tbody>
 </table>
 
-<p><a name="negotiations-message-item" />
+<p><a name="negotiations-message-item"></a>
 В элементе <code>items</code> содержатся данные о сообщениях:</p>
 
 <table>
@@ -1492,15 +1830,15 @@
 <p>В случае, когда отклик/приглашение не существует или переписка недоступна
 текущему пользователю возвращается ответ <code>404 Not Found</code>.</p>
 
-<p><a name="add-messages" /></p>
+<p><a name="add-messages"></a></p>
 
-<h2 id="-14">Отправка сообщения в отклике/приглашении</h2>
+<h2 id="-16">Отправка сообщения в отклике/приглашении</h2>
 
 <p>Обмен сообщениями возможен после приглашения соискателя. О возможности написать
 сообщение можно узнать из
 <a href="#messaging_status">поля <code>messages_status</code> в отклике/приглашении</a>.</p>
 
-<h3 id="-15">Запрос</h3>
+<h3 id="-17">Запрос</h3>
 
 <p><code>POST /negotiations/{nid}/messages</code></p>
 
@@ -1508,11 +1846,11 @@
 
 <p>Дополнительно необходимо передать параметр <code>message</code> - текст сообщения.</p>
 
-<h3 id="-16">Ответ</h3>
+<h3 id="-18">Ответ</h3>
 
 <p>Успешный ответ приходит с кодом <code>201 Created</code> и не содержит тело.</p>
 
-<h3 id="-17">Ошибки</h3>
+<h3 id="-19">Ошибки</h3>
 
 <ul>
 <li><code>400 Bad Request</code> – ошибка в параметрах запроса.</li>
@@ -1539,63 +1877,28 @@
 <li><code>overall_limit</code> – если превышен лимит сообщений</li>
 </ul>
 
-<p><a name="add-invite" /></p>
+<p><a name="add-invite"></a></p>
 
-<h2 id="-18">Приглашение соискателя на вакансию</h2>
+<h2 id="-20">Приглашение соискателя на вакансию</h2>
 
 <p>Приглашение устанавливается между вакансией работодателя и резюме соискателя по
-инициативе работодателя.</p>
+инициативе работодателя. Чтобы выполнить запрос, нужно узнать начальное
+состояние для данной пары вакансии и резюме. Подробнее в
+<a href="#flow">общем описании процесса работы</a>.</p>
 
-<p>Для того, чтобы узнать, какие вакансии доступны для приглашения соискателя,
-используйте
-<a href="employer_vacancies_for_invitation.md.html">список подходящих для приглашения вакансий</a>.</p>
+<h3 id="-21">Запрос</h3>
 
-<p>Смотрите также <a href="#invite">приглашение соискателя на интервью после отклика</a>.</p>
+<p><code>POST /negotiations/{state}</code></p>
 
-<h3 id="-19">Запрос</h3>
+<p>где <code>state</code> – начальное состояния приглашения.</p>
 
-<p><code>POST /negotiations</code></p>
+<p>Параметры приглашения можно получить в
+<a href="employer_vacancies_for_invitation.md.html#actions-info">списке действий</a>.</p>
 
-<p>Параметры:</p>
+<p>Параметры необходимо отправлять в стандартном формате
+<code>application/x-www-form-urlencoded</code>.</p>
 
-<table>
-<thead>
-<tr>
-  <th>Имя</th>
-  <th>Обязательный</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>vacancy_id</td>
-  <td>да</td>
-  <td>Идентификатор вакансии, на которую происходит приглашение.</td>
-</tr>
-<tr>
-  <td>resume_id</td>
-  <td>да</td>
-  <td>Идентификатор резюме, на которое происходит приглашение.</td>
-</tr>
-<tr>
-  <td>send_sms</td>
-  <td>нет</td>
-  <td>Уведомлять ли соискателя о приглашении с помощью sms. Чтобы отправить передайте <code>true</code>, значение по умолчанию — <code>false</code>.</td>
-</tr>
-<tr>
-  <td>message</td>
-  <td>да</td>
-  <td>Сообщение, которое будет отправлено соискателю на электронную почту. Используйте <a href="negotiation_message_templates.md.html">шаблоны</a> для получения текстов.</td>
-</tr>
-<tr>
-  <td>address_id</td>
-  <td>нет</td>
-  <td>идентификатор <a href="employer_addresses.md.html">адреса</a>, который будет указан в приглашении.</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="-20">Ответ</h3>
+<h3 id="-22">Ответ</h3>
 
 <p>Успешный ответ приходит с кодом <code>201 Created</code>, не содержит тело и содержит
 заголовок <code>Location</code>, указывающий на созданное приглашение:</p>
@@ -1605,7 +1908,7 @@
 Location: /negotiations/321
 </code></pre>
 
-<h3 id="-21">Ошибки</h3>
+<h3 id="-23">Ошибки</h3>
 
 <ul>
 <li><code>400 Bad Request</code> – ошибка в параметрах запроса.</li>
@@ -1632,12 +1935,14 @@ Location: /negotiations/321
 <a href="http://hh.ru/price#dbaccess">доступа к базе резюме</a></li>
 </ul>
 
-<p><a name="actions" /></p>
+<p><a name="actions"></a>
+<a name="put-on-hold"></a>
+<a name="invite"></a>
+<a name="discard"></a></p>
 
-<h2 id="-22">Действия от отклику/приглашению</h2>
+<h2 id="-24">Действия по отклику/приглашению (смена состояния)</h2>
 
-<p>Действие по отклику равнозначно перемещению его в определённую
-<a href="#collections">коллекцию</a>. Запрос:</p>
+<h3 id="-25">Запрос</h3>
 
 <p><code>PUT /negotiations/{collection}/{nid}</code></p>
 
@@ -1648,108 +1953,35 @@ Location: /negotiations/321
 <li><code>collection</code> – коллекция</li>
 </ul>
 
-<p>При перемещении могут быть дополнительные обязательные или опциональные
-параметры.</p>
+<p>Точный url для запроса, обязательные и опциональные
+параметры нужно получать в <a href="#actions-info">списке действий</a>
+по отклику/приглашению.</p>
+
+<p>Параметры необходимо отправлять в стандартном формате
+<code>application/x-www-form-urlencoded</code>.</p>
 
 <p>Примеры действий:</p>
 
 <ul>
-<li><a href="#put-on-hold">Отложить отклик</a></li>
-<li><a href="#invite">Приглашение соискателя на интервью в ответ на отклик</a></li>
-<li><a href="#discard">Отказ соискателю</a></li>
+<li>Отложить отклик</li>
+<li>Приглашение соискателя на интервью в ответ на отклик</li>
+<li>Отказ соискателю</li>
 </ul>
 
-<p><a name="put-on-hold"/></p>
+<p>Возможные действия могут отличаться для каждого отклика/приглашения, в том числе
+указанные выше действия могут быть недоступны.</p>
 
-<h2 id="-23">Отложить отклик (перенос в список «Подумать»)</h2>
-
-<p>Действие возможно, если по откликам данной вакансии
-<a href="#collections">доступна коллекция</a> <code>hold</code>.</p>
-
-<p>Перенос отклика в список «Подумать» возможен в случае, если соискатель еще не
-был приглашен и не получил отказ. Информация о переносе отклика не раскрывается
-соискателю.</p>
-
-<h3 id="-24">Запрос</h3>
-
-<p><code>PUT /negotiations/hold/{nid}</code></p>
-
-<p>где <code>nid</code> – идентификатор отклика.</p>
-
-<h3 id="-25">Ответ</h3>
+<h3 id="-26">Ответ</h3>
 
 <p>Успешный ответ приходит с кодом <code>204 No Content</code> и не содержит тела.</p>
 
-<h3 id="-26">Ошибки</h3>
+<h3 id="-27">Ошибки</h3>
 
 <ul>
 <li><code>404 Not Found</code> – отклик не существует, принадлежит другому работодателю,
 либо у текущего менеджера нет прав для работы с переданным откликом.</li>
-<li><code>403 Forbidden</code> – перенос в список «Подумать» невозможен.</li>
-</ul>
-
-<p>Дополнительно к HTTP коду сервер может вернуть описание
-<a href="errors.md.html#negotiations">причины ошибки</a>. Например, <code>wrong_state</code>, если
-перемещение из текущего статуса отклика в список отложенных невозможно.</p>
-
-<p><a name="invite"/></p>
-
-<h2 id="-27">Приглашение соискателя на интервью в ответ на отклик</h2>
-
-<p>Действие возможно, если по откликам данной вакансии
-<a href="#collections">доступна коллекция</a> <code>invited</code>.</p>
-
-<p>Приглашение возможно, если соискатель еще не был приглашен и не получил отказ.
-При приглашении соискатель получит письмо на электронную почту.</p>
-
-<p>Смотрите также <a href="#add-invite">приглашение соискателя на вакансию</a>.</p>
-
-<h3 id="-28">Запрос</h3>
-
-<p><code>PUT /negotiations/invited/{nid}</code></p>
-
-<p>где <code>nid</code> – идентификатор отклика.</p>
-
-<p>Параметры:</p>
-
-<table>
-<thead>
-<tr>
-  <th>Имя</th>
-  <th>Обязательный</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>send_sms</td>
-  <td>нет</td>
-  <td>уведомлять ли соискателя о приглашении с помощью sms. Чтобы отправить передайте <code>true</code>, значение по умолчанию — <code>false</code>.</td>
-</tr>
-<tr>
-  <td>message</td>
-  <td>да</td>
-  <td>Сообщение, которое будет отправлено соискателю на электронную почту. Используйте <a href="negotiation_message_templates.md.html">шаблоны</a> для получения текстов.</td>
-</tr>
-<tr>
-  <td>address_id</td>
-  <td>нет</td>
-  <td>идентификатор <a href="employer_addresses.md.html">адреса</a>, который будет указан в приглашении.</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="-29">Ответ</h3>
-
-<p>Успешный ответ приходит с кодом <code>204 No Content</code> и не содержит тела.</p>
-
-<h3 id="-30">Ошибки</h3>
-
-<ul>
-<li><code>404 Not Found</code> – отклик не существует, принадлежит другому работодателю,
-либо у текущего менеджера нет прав для работы с переданным откликом.</li>
-<li><code>403 Forbidden</code> – приглашение невозможно.</li>
 <li><code>400 Bad Request</code> – один из обязательных параметров не передан.</li>
+<li><code>403 Forbidden</code> – действие по отклику невозможно.</li>
 </ul>
 
 <p>Дополнительно к HTTP коду сервер может вернуть описание
@@ -1758,9 +1990,9 @@ Location: /negotiations/321
 <p>Например:</p>
 
 <ul>
-<li><code>wrong_state</code> – если перемещение из текущего статуса отклика в список
-приглашённых невозможно</li>
-<li><code>resume_not_found</code> – если резюме из отклика было скрыто либо удалено</li>
+<li><code>wrong_state</code> – если действие невозможно из-за текущего состояния отклика</li>
+<li><code>resume_not_found</code> – если резюме из отклика было скрыто либо удалено
+соискателем</li>
 <li><code>empty_message</code> и <code>too_long_message</code> – если нарушены ограничения на размер
 текста</li>
 <li><code>address_not_found</code> – если переданный адрес не существует, либо принадлежит
@@ -1768,65 +2000,6 @@ Location: /negotiations/321
 <li><code>invalid_vacancy</code> - если вакансия из отклика была архивирована либо скрыта</li>
 <li><code>limit_exceeded</code> - если превышен лимит менеджера на количество приглашений
 в сутки</li>
-</ul>
-
-<p><a name="discard"/></p>
-
-<h2 id="-31">Отказ соискателю</h2>
-
-<p>Действие возможно, если по откликам данной вакансии
-<a href="#collections">доступна коллекция</a> <code>discarded</code>.</p>
-
-<p>Отказ возможен, если соискатель еще не получал отказ ранее.
-При отказе соискатель получит письмо на электронную почту.</p>
-
-<h3 id="-32">Запрос</h3>
-
-<p><code>PUT /negotiations/discarded/{nid}</code></p>
-
-<p>где <code>nid</code> – идентификатор отклика/приглашения.</p>
-
-<p>Параметры</p>
-
-<table>
-<thead>
-<tr>
-  <th>Имя</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>message</td>
-  <td>Сообщение, которое будет отправлено соискателю на электронную почту. Используйте <a href="negotiation_message_templates.md.html">шаблоны</a> для получения текстов.</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="-33">Ответ</h3>
-
-<p>Успешный ответ приходит с кодом <code>204 No Content</code> и не содержит тела.</p>
-
-<h3 id="-34">Ошибки</h3>
-
-<ul>
-<li><code>404 Not Found</code> – отклик/приглашение не существует, принадлежит другому
-работодателю, либо у текущего менеджера нет прав для работы с переданным
-откликом.</li>
-<li><code>403 Forbidden</code> – отказ невозможен.</li>
-<li><code>400 Bad Request</code> – один из обязательных параметров не передан.</li>
-</ul>
-
-<p>Дополнительно к HTTP коду сервер может вернуть описание
-<a href="errors.md.html#negotiations">причины ошибки</a>.</p>
-
-<p>Например:</p>
-
-<ul>
-<li><code>wrong_state</code> – если перемещение из текущего статуса отклика в список
-отказанных невозможно</li>
-<li><code>empty_message</code> и <code>too_long_message</code> – если нарушены ограничения на
-размер текста</li>
 </ul>
 
     </article>

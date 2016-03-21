@@ -744,13 +744,16 @@
 
 <p><code>GET /employers/{employer_id}/vacancies/active?resume_id={resume_id}</code></p>
 
-<p>где
-* <code>employer_id</code> - идентификатор работодателя, который можно узнать в
-  <a href="me.md.html#info">запросе информации о текущем пользователе</a>,
-* <code>resume_id</code> – идентификатор резюме.</p>
+<p>где</p>
 
-<p>Дополнительно поддерживаются
-<a href="general.md.html#pagination">параметры пагинации</a> <code>page</code>, <code>per_page</code>.</p>
+<ul>
+<li><code>employer_id</code> - идентификатор работодателя, который можно узнать в
+<a href="me.md.html#info">запросе информации о текущем пользователе</a>,</li>
+<li><code>resume_id</code> – идентификатор резюме.</li>
+</ul>
+
+<p>Дополнительно поддерживаются <a href="general.md.html#pagination">параметры пагинации</a>
+<code>page</code>, <code>per_page</code>.</p>
 
 <h3 id="-3">Ответ</h3>
 
@@ -761,11 +764,62 @@
     <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;negotiations_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;negotiations_employer_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
             <span class="nt">&quot;can_invite&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;negotiations_actions&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&amp;vacancy_id=123456&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite&quot;</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Пригласить&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Приглашение на вакансию&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;quick&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&amp;vacancy_id=123456&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_id&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;vacancy_id&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;send_sms&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                                <span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;address_id&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                                <span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
                 <span class="p">}</span>
             <span class="p">],</span>
 
@@ -816,17 +870,26 @@
 со <a href="vacancies.md.html#nano">стандартными полями</a>, а также дополнительные поля:</p>
 
 <ul>
-<li><code>negotiations_state</code> -- статус отклика/приглашения для этой вакансии
+<li><code>negotiations_state</code> – состояние отклика/приглашения для этой вакансии
 с указанным резюме, либо <code>null</code> если отклика/приглашения не было</li>
-<li><code>can_invite</code> -- флаг, говорящий о возможности или невозможности пригласить
+<li><code>employer_negotiations_state</code> – работодательское состояние
+отклика/приглашения для этой вакансии с указанным резюме, либо <code>null</code> если
+отклика/приглашения не было</li>
+<li><code>can_invite</code> – флаг, говорящий о возможности или невозможности пригласить
 указанное резюме на эту вакансию</li>
-<li><code>templates</code> -- список <a href="negotiation_message_templates.md.html">шаблонов</a>
-с текстами для приглашения</li>
+<li><a name="actions"></a> <code>negotiations_actions</code> – действия, для
+<a href="employer_negotiations.md.html#add-invite">создания отклика</a>. Формат выдачи
+действий аналогичен
+<a href="employer_negotiations.md.html#actions-info">действиям по отклику/приглашению</a>.
+Дополнительно будут указаны аргументы <code>vacancy_id</code> и <code>resume_id</code>.
+Также в отличие от действий по отклику/приглашению используется <code>POST</code>
+HTTP метод.</li>
 </ul>
 
 <p>При принятии решении, дать ли пользователю возможность пригласить на вакансию по
-выбранному резюме, нельзя полагаться на то, что <code>negotiations_state</code> имеет
-значение <code>null</code>, нужно использовать флаг <code>can_invite</code>.</p>
+выбранному резюме, нельзя полагаться на то, что
+<code>negotiations_state</code> или <code>employer_negotiations_state</code> имеет значение <code>null</code>,
+нужно использовать флаг <code>can_invite</code>.</p>
 
 <p>Наличие у вакансии флага <code>can_invite</code> = <code>true</code> не означает, что приглашение
 пройдет успешно. Например, в момент между получением списка подходящих вакансий
@@ -839,12 +902,18 @@
     <span class="nt">&quot;negotiations_state&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклик&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;negotiations_employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклик&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Возможные значения состояния отклика/приглашения доступны в
-<a href="dictionaries.md.html">справочнике negotiations_state</a>.</p>
+<p>Возможные значения состояния отклика/приглашения для соискателя доступны в
+<a href="dictionaries.md.html">справочнике negotiations_state</a>, а для работодателя – в
+<a href="employer_negotiations.md.html#states">списке работодательских состояний по вакансии</a>
+(могут различаться в разных вакансиях).</p>
 
 <h3 id="-4">Ошибки</h3>
 

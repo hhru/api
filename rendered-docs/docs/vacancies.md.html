@@ -751,7 +751,7 @@
 <li><a href="#prolongate-info">Информация о возможности продления вакансии</a></li>
 </ul>
 
-<p><a name="item"/></p>
+<p><a name="item"></a></p>
 
 <h2 id="-2">Просмотр вакансии</h2>
 
@@ -929,7 +929,7 @@ null. Список телефонов может быть пустым.</p>
 <p>В ключе <code>allow_messages</code> указано включена ли возможность соискателю писать
 сообщения после приглашения.</p>
 
-<p><a name="author"/></p>
+<p><a name="author"></a></p>
 
 <h2 id="-3">Дополнительные поля вакансии</h2>
 
@@ -1041,7 +1041,7 @@ null. Список телефонов может быть пустым.</p>
 </tbody>
 </table>
 
-<p><a name="favorited"/></p>
+<p><a name="favorited"></a></p>
 
 <h2 id="-4">Отобранные вакансии</h2>
 
@@ -1063,7 +1063,7 @@ null. Список телефонов может быть пустым.</p>
 авторизованного пользователя. Операция также идемпотентна. При успешном
 удалении метод возвращает <code>204 No Content</code>.</p>
 
-<p><a name="search"/></p>
+<p><a name="search"></a></p>
 
 <h2 id="-5">Поиск по вакансиям</h2>
 
@@ -1090,7 +1090,7 @@ null. Список телефонов может быть пустым.</p>
 <li><p><code>schedule</code> — график работы. <br />
 Справочник с возможными значениями: <code>schedule</code> в <a href="dictionaries.md.html">/dictionaries</a>. <br />
 Возможно указание нескольких значений.  </p></li>
-<li><p><a name="field-area"/> <code>area</code> — регион.
+<li><p><a name="field-area"></a> <code>area</code> — регион.
 Справочник с возможными значениями: <a href="areas.md.html">/areas</a>. <br />
 Возможно указание нескольких значений.  </p></li>
 <li><p><code>metro</code> — ветка или станция метро. <br />
@@ -1238,7 +1238,7 @@ null. Список телефонов может быть пустым.</p>
 </tbody>
 </table>
 
-<p><a name="nano"/></p>
+<p><a name="nano"></a></p>
 
 <h2 id="-6">Короткое представление вакансии</h2>
 
@@ -1369,7 +1369,7 @@ null. Список телефонов может быть пустым.</p>
 <p><code>url</code> и <code>alternate_url</code> могут принимать значение <code>null</code> в случае если подробная информация о вакансии недоступна
 (например, вакансия была удалена)</p>
 
-<p><a name="creation"/></p>
+<p><a name="creation"></a></p>
 
 <h2 id="-7">Публикация вакансий</h2>
 
@@ -1407,7 +1407,7 @@ null. Список телефонов может быть пустым.</p>
 <li><a href="#conditions">условия заполнения полей</a></li>
 </ul>
 
-<p><a name="creation-example"/></p>
+<p><a name="creation-example"></a></p>
 
 <h3 id="-10">Пример тела запроса</h3>
 
@@ -1489,7 +1489,7 @@ null. Список телефонов может быть пустым.</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<p><a name="creation_fields"/></p>
+<p><a name="creation_fields"></a></p>
 
 <h3 id="-11">Поля запроса</h3>
 
@@ -1698,7 +1698,7 @@ null. Список телефонов может быть пустым.</p>
   <td>уведомлять о новых откликах</td>
 </tr>
 <tr>
-  <td>allow_messages</td>
+  <td><a name="allow_messages"></a> allow_messages</td>
   <td>boolean</td>
   <td>возможность <a href="http://inboxemp.hh.ru/">переписки с кандидатами</a> по данной вакансии</td>
 </tr>
@@ -1715,12 +1715,12 @@ null. Список телефонов может быть пустым.</p>
 <tr>
   <td>branded_template.id</td>
   <td>string</td>
-  <td><a name="branded-template-field" /> брендированное оформление вакансии из <a href="employer_vacancy_branded_templates.md.html#list">справочника</a></td>
+  <td><a name="branded-template-field"></a> брендированное оформление вакансии из <a href="employer_vacancy_branded_templates.md.html#list">справочника</a></td>
 </tr>
 </tbody>
 </table>
 
-<p><a name="creation-results"/></p>
+<p><a name="creation-results"></a></p>
 
 <h3 id="-12">Результат запроса</h3>
 
@@ -1738,7 +1738,7 @@ null. Список телефонов может быть пустым.</p>
 <p>Дополнительно к HTTP коду сервер может вернуть описание
 <a href="errors.md.html#vacancies-create-n-edit">причины ошибки</a>.</p>
 
-<p><a name="conditions"/></p>
+<p><a name="conditions"></a></p>
 
 <h2 id="-13">Условия заполнения полей при добавлении и редактировании вакансий</h2>
 
@@ -1951,7 +1951,7 @@ null. Список телефонов может быть пустым.</p>
 </tbody>
 </table>
 
-<p><a name="edit"/></p>
+<p><a name="edit"></a></p>
 
 <h2 id="-16">Редактирование вакансий</h2>
 
@@ -2055,7 +2055,7 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 
 <p>Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.</p>
 
-<p><a name="edit-results"/></p>
+<p><a name="edit-results"></a></p>
 
 <h3 id="-18">Результат запроса</h3>
 
@@ -2069,7 +2069,7 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 <p>Дополнительно к HTTP коду сервер может вернуть описание
 <a href="errors.md.html#vacancies-create-n-edit">причины ошибки</a>.</p>
 
-<p><a name="edit_more"/></p>
+<p><a name="edit_more"></a></p>
 
 <h3 id="-">Смена биллинг-типа, менеджера вакансии</h3>
 
@@ -2089,7 +2089,7 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 
 <p>При передачи этих полей вместе с любыми другими вернется ошибка.</p>
 
-<p><a name="other-actions" /></p>
+<p><a name="other-actions"></a></p>
 
 <h3 id="-19">Прочие действия</h3>
 
@@ -2099,7 +2099,7 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 <li><a href="employer_vacancies.md.html#restore">восстановление из удаленных</a></li>
 </ul>
 
-<p><a name="prolongate"/></p>
+<p><a name="prolongate"></a></p>
 
 <h2 id="-20">Продление вакансий</h2>
 
@@ -2132,7 +2132,7 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 <p>Дополнительно к HTTP коду сервер может вернуть
 описание <a href="errors.md.html#vacancies-prolongate">причины ошибки</a>.</p>
 
-<p><a name="prolongate-info"/></p>
+<p><a name="prolongate-info"></a></p>
 
 <h2 id="-23">Информация о возможности продления вакансии</h2>
 

@@ -737,7 +737,7 @@
     <article class="markdown-body">
     <h1>Авторизация</h1>
 
-<p><a name="general" />
+<p><a name="general"></a>
 Авторизация осуществляется по протоколу OAuth 2.0. Подробная документация по
 протоколу: <a href="http://tools.ietf.org/html/rfc6749">RFC 6749</a>.</p>
 
@@ -753,7 +753,7 @@
 
 <hr />
 
-<p><a name="get-auth" /></p>
+<p><a name="get-auth"></a></p>
 
 <h2 id="-2">Получение авторизации</h2>
 
@@ -783,7 +783,7 @@ authorization code;</li>
 наличии происходит валидация значения.</li>
 </ul>
 
-<p><a name="redirect_uri" /></p>
+<p><a name="redirect_uri"></a></p>
 
 <h3 id="redirect_uri">Правила формирования специального redirect_uri</h3>
 
@@ -807,7 +807,7 @@ authorization code;</li>
 <li><code>http://example.com:80/oauths</code> — указание изначально отсутствующего порта;</li>
 </ul>
 
-<p><a name="get-auth-process" /></p>
+<p><a name="get-auth-process"></a></p>
 
 <h3 id="-3">Процесс авторизации</h3>
 
@@ -820,7 +820,7 @@ authorization code;</li>
 перенаправлен на указанный <code>redirect_uri</code> с <code>?error=access_denied</code> и
 <code>state={state}</code>, если таковой был указан при первом запросе.</p>
 
-<p><a name="get-authorization_code" /></p>
+<p><a name="get-authorization_code"></a></p>
 
 <h3 id="authorization_code">Успешное получение временного <code>authorization_code</code></h3>
 
@@ -835,7 +835,7 @@ authorization code;</li>
 ранее выдан, ответом будет сразу вышеописанный редирект с <code>authorization_code</code>
 (без показа формы логина и выдачи прав).</p>
 
-<p><a name="get-tokens" /></p>
+<p><a name="get-tokens"></a></p>
 
 <h3 id="access-refresh">Получение access и refresh токенов</h3>
 
@@ -885,7 +885,7 @@ POST-запрос на <code>https://hh.ru/oauth/token</code> для обмен�
   Например, <code>invalid_request</code>, если какой либо из обязательных параметров не был передан.
 * <code>error_description</code> будет содержать дополнительное описание ошибки.</p>
 
-<p><a name="refresh_token" /></p>
+<p><a name="refresh_token"></a></p>
 
 <h2 id="access-refresh-2">Обновление пары access и refresh токенов</h2>
 
@@ -915,7 +915,7 @@ grant_type=refresh_token&amp;refresh_token={refresh_token}
 <p>После получения новой пары access и refresh токенов, их необходимо использовать
 в дальнейших запросах в api и запросах на продление токена.</p>
 
-<p><a name="check-access_token" /></p>
+<p><a name="check-access_token"></a></p>
 
 <h3 id="access_token">Использование и проверка access_token</h3>
 
