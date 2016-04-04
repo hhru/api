@@ -22,8 +22,13 @@ incorrect authorization, the server will return the `403 Forbidden` response.
     "email": "contact@example.com",
     "employer": {
         "id": "1455",
-        "name": "HeadHunter",
-        "manager_id": "87654321"
+        "name": "HeadHunter"
+    },
+    "manager": {
+        "id": "87654321",
+        "has_admin_rights": true,
+        "is_main_contact_person": true,
+        "manager_settings_url": "https://api.hh.ru/employers/1455/managers/87654321/settings"
     },
     "counters": {
         "unread_negotiations": 0,
