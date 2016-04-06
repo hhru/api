@@ -54,6 +54,7 @@
 * `messaging_status` — статус возможности отправки сообщения в переписке
 * `negotiations_participant_type` – типы участников переписки
 
+<a name="etc"></a>
 ## Остальные справочники
 * `site_lang` - язык сайта
 * `currency` - справочник валют
@@ -63,3 +64,4 @@
   [продлить вакансию](vacancies.md#prolongate-info).
 * `applicant_comments_order` — типы сортировки
   [списка комментариев к соискателю](applicant_comments.md#list)
+* `applicant_comment_access_type` - тип доступа для комментария к соискателю
