@@ -59,8 +59,7 @@
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455",
-        "trusted": true
+        "id": "1455"
       },
       "response_letter_required": true,
       "address": null,
@@ -173,8 +172,7 @@ has_updates | boolean | Есть ли в откликах/приглашения
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455",
-        "trusted": true
+        "id": "1455"
       },
       "response_letter_required": true,
       "address": null,
@@ -264,8 +262,7 @@ archived_at | строка | дата архивации вакансии
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455",
-        "trusted": true
+        "id": "1455"
       },
       "response_letter_required": true,
       "address": null,

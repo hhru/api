@@ -89,7 +89,6 @@
 	"description": "...",
 	"branded_description": "<style>...</style><div>...</div><script></script>",
 	"vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
-	"trusted": true,
 	"alternate_url": "http://hh.ru/employer/1455",
 	"logo_urls": {
 		"90": "http://hh.ru/employer-logo/289027.png",
