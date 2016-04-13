@@ -17,27 +17,79 @@ See also:
 <a name="active"></a>
 ## Published vacancy list
 
+
+### Request
+
 `GET /employers/{employer_id}/vacancies/active?manager_id={manager_id}`
 
 To view the list of published vacancies, you should indicate the manager ID even
 if you need to make a request for the current manager (the value can be taken
 from `/me`).
 
-In addition to [the standard vacancy fields](vacancies.md#nano), additional
-fields will be returned:
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
-    "counters": {
+    "found": 1,
+    "page": 0,
+    "pages": 1,
+    "per_page": 20,
+    "items": [
+    {
+      "salary": {
+        "to": null,
+        "from": 30000,
+        "currency": "RUR"
+      },
+      "name": "Secretary",
+      "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Moscow"
+      },
+      "url": "https://api.hh.ru/vacancies/8331228",
+      "published_at": "2013-07-08T16:17:21+0400",
+      "relations": [],
+      "employer": {
+        "logo_urls": {
+          "90": "http://hh.ru/employer-logo/289027.png",
+          "240": "http://hh.ru/employer-logo/289169.png",
+          "original": "http://hh.ru/file/2352807.png"
+        },
+        "name": "HeadHunter",
+        "url": "https://api.hh.ru/employers/1455",
+        "alternate_url": "http://hh.ru/employer/1455",
+        "id": "1455"
+      },
+      "response_letter_required": true,
+      "address": null,
+      "alternate_url": "http://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "premium": false,
+      "type": {
+        "id": "open",
+        "name": "Open"
+      },
+      "id": "8331228",
+      "archived": false,
+
+      "counters": {
         "views": 100500,
         "responses": 5,
         "unread_responses": 3,
         "invitations": 10
-    },
-    "expires_at": "2013-07-08T16:17:21+0400",
-    "has_updates": false
+      },
+      "expires_at": "2013-07-08T16:17:21+0400",
+      "has_updates": false
+    }
+  ]
 }
 ```
+
+In addition to [the standard vacancy fields](vacancies.md#nano), additional
+fields will be returned:
 
 | key                        | type    | description                                                                                     |
 |----------------------------|---------|-------------------------------------------------------------------------------------------------|
@@ -74,6 +126,9 @@ If archived successfully, `204 No Content` will be returned.
 <a name="archived"></a>
 ## Archived vacancy list
 
+
+### Request
+
 `GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}`
 
 To view the list of archived vacancies, you also need to indicated manager id,
@@ -84,17 +139,68 @@ supported. Possible sorting values are available in the
 the list of published vacancies, this collection does not support search (the
 parameters `text` and `area`).
 
-In addition to [the standard vacancy fields](vacancies.md#nano), additional
-fields will be returned:
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
+{
+    "found": 1,
+    "page": 0,
+    "pages": 1,
+    "per_page": 20,
+    "items": [
     {
-      "counters": {
-        "responses": 0
+      "salary": {
+        "to": null,
+        "from": 30000,
+        "currency": "RUR"
       },
-      "archived_at": "2013-07-08T16:17:21+0400"
+      "name": "Secretary",
+      "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Moscow"
+      },
+      "url": "https://api.hh.ru/vacancies/8331228",
+      "published_at": "2013-07-08T16:17:21+0400",
+      "relations": [],
+      "employer": {
+        "logo_urls": {
+          "90": "http://hh.ru/employer-logo/289027.png",
+          "240": "http://hh.ru/employer-logo/289169.png",
+          "original": "http://hh.ru/file/2352807.png"
+        },
+        "name": "HeadHunter",
+        "url": "https://api.hh.ru/employers/1455",
+        "alternate_url": "http://hh.ru/employer/1455",
+        "id": "1455"
+      },
+      "response_letter_required": true,
+      "address": null,
+      "alternate_url": "http://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "premium": false,
+      "type": {
+        "id": "open",
+        "name": "Open"
+      },
+      "id": "8331228",
+      "archived": true,
+
+      "counters": {
+        "responses": 3,
+        "invitations_and_responses": 5
+      },
+      "archived_at": "2013-08-08T16:17:21+0400"
     }
+  ]
+}
 ```
+
+In addition to [the standard vacancy fields](vacancies.md#nano), additional
+fields will be returned:
 
 | key                | type   | description                          |
 |--------------------|--------|--------------------------------------|
@@ -114,12 +220,72 @@ If performed successfully, `204 No Content` will be returned.
 <a name="hidden"></a>
 ## Deleted vacancy list
 
+### Request
+
 `GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}`
 
 Pagination (`per_page` and `page`) and sorting (`order_by`) are supported.
 Possible sorting values are available in the `employer_hidden_vacancies_order`
 (`/dictionaries`) directory. As opposed to the list of published vacancies, this
 collection does not support search (the parameters `text` and `area`).
+
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
+
+```json
+
+{
+    "found": 1,
+    "page": 0,
+    "pages": 1,
+    "per_page": 20,
+    "items": [
+    {
+      "salary": {
+        "to": null,
+        "from": 30000,
+        "currency": "RUR"
+      },
+      "name": "Secretary",
+      "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Moscow"
+      },
+      "url": "https://api.hh.ru/vacancies/8331228",
+      "published_at": "2013-07-08T16:17:21+0400",
+      "relations": [],
+      "employer": {
+        "logo_urls": {
+          "90": "http://hh.ru/employer-logo/289027.png",
+          "240": "http://hh.ru/employer-logo/289169.png",
+          "original": "http://hh.ru/file/2352807.png"
+        },
+        "name": "HeadHunter",
+        "url": "https://api.hh.ru/employers/1455",
+        "alternate_url": "http://hh.ru/employer/1455",
+        "id": "1455"
+      },
+      "response_letter_required": true,
+      "address": null,
+      "alternate_url": "http://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "premium": false,
+      "type": {
+        "id": "open",
+        "name": "Open"
+      },
+      "id": "8331228",
+      "archived": true
+    }
+  ]
+}
+
+```
+
+Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
 
 
 <a name="restore"></a>

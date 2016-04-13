@@ -1,5 +1,9 @@
 # Region directory
 
+* [Tree view of all regions](#areas)
+* [Region directory, starting from the indicated region](#item)
+* [Countries](#countries)
+
 See also:
 
 * [Region suggestions](suggests.md#areas)
@@ -39,3 +43,24 @@ Example: [https://api.hh.ru/areas?locale=EN](https://api.hh.ru/areaslocale=EN)
 indicated region.
 
 Example: [https://api.hh.ru/areas/1146?locale=EN](https://api.hh.ru/areas/1146?locale=EN)
+
+
+<a name="countries" />
+## Countires
+
+`GET /areas/countries` returns the regions list with countries.
+
+```json
+[
+  {
+    "url": "https://api.hh.ru/areas/113",
+    "id": "113",
+    "name": "Russia"
+  },
+  {
+    "url": "https://api.hh.ru/areas/5",
+    "id": "5",
+    "name": "Ukraine"
+  }
+]
+ ```

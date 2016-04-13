@@ -92,21 +92,26 @@ response will be returned with the body:
 to the company's vacancies.
 
 ```json
-    {
-        "name": "HeadHunter",
-        "type": "company",
-        "id": "1455",
-        "site_url": "http://hh.ru",
-        "description": "...",
-        "branded_description": "<style>...</style><div>...</div><script></script>",
-        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
-        "alternate_url": "http://hh.ru/employer/1455",
-        "logo_urls": {
-            "90": "http://hh.ru/employer-logo/289027.png",
-            "240": "http://hh.ru/employer-logo/289169.png",
-            "original": "http://hh.ru/file/2352807.png"
-        }
+{
+    "name": "HeadHunter",
+    "type": "company",
+    "id": "1455",
+    "site_url": "http://hh.ru",
+    "description": "...",
+    "branded_description": "<style>...</style><div>...</div><script></script>",
+    "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
+    "alternate_url": "http://hh.ru/employer/1455",
+    "logo_urls": {
+        "90": "http://hh.ru/employer-logo/289027.png",
+        "240": "http://hh.ru/employer-logo/289169.png",
+        "original": "http://hh.ru/file/2352807.png"
+    },
+    "area": {
+        "url": "https://api.hh.ru/areas/113",
+        "id": "113",
+        "name": "Russia"
     }
+}
 ```
 
 `branded_description` – a string with the HTML code (`<script/>` and `<style/>`
@@ -138,5 +143,7 @@ the possibility of the logo missing in the indicated link (response with the
 `type` – company type (direct employer, employment agency, etc). Possible values
 are described in the [directory collection](dictionaries.md) under the
 employer_type key.
+
+`area` — employer's region.
 
 Example: [https://api.hh.ru/employers/1455?locale=EN](https://api.hh.ru/employers/1455?locale=EN)

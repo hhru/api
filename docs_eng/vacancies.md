@@ -191,8 +191,8 @@ possibility to create messages after the invitation.
 <a name="author"></a>
 ## Extra vacancy fields
 
-If a vacancy is requested by an authorized user, the object will return the
-following fields:
+For the vacancy request with initiator authorization, optional fields will be
+displayed:
 
 ```json
 {
@@ -209,22 +209,19 @@ following fields:
 }
 ```
 
-| key                     | JSON type | description                                                            |
-|-------------------------|-----------|------------------------------------------------------------------------|
-| expires_at              | string    | date+vacancy posting expiration date                                   |
-| response_notifications  | boolean   | whether to notify the manager about new applications                   |
-| hidden                  | boolean   | whether the vacancy is deleted (hidden from the archive)               |
+key | type | description
+---- | --- | --------
+expires_at| string | date and time of vacancy posting termination
+response_notifications | logical | whether to notify manager on new responses
+hidden | logical | whether the vacancy is deleted (hidden from the archive)
 
-The `manager` object contains information about the manager who posted the
-vacancy.
+In object `manager` – the information on the manager posted the vacancy.
 
-The `branded_template` object contains information about the
-[branded template](employer_vacancy_branded_templates.md) which is used in
-the vacancy.
+In object `branded_template` – info on
+[branded template](employer_vacancy_branded_templates.md) used in vacancy.
 
-The author of the vacancy can also access the `id` key in the `test` object, and
-in the `address` object, they can access:
-
+In object `test` key `id` is available for the initiator, in object
+`address` following objects are available:
 
 ```json
 {
@@ -235,8 +232,29 @@ in the `address` object, they can access:
 }
 ```
 
-You can find more information about these fields in the section about 
+More information on these fields see in section
 [vacancy posting](#creation_fields).
+
+For request with authorization of a manager having access to responses on a vacancy,
+optional field with different counters on vacancy will be displayed in the object:
+
+```json
+{
+  "counters": {
+    "views": 100500,
+    "responses": 5,
+    "unread_responses": 3,
+    "invitations": 10
+  }
+}
+```
+
+key | type | description
+---- | --- | --------
+counters.views | number | number of vacancy views
+counters.responses | number | number of responses to the vacancy
+counters.unread_responses | number | number of non-viewed responses to the vacancy
+counters.invitations | number | number of invitations to the vacancy
 
 
 <a name="favorited"></a>
@@ -421,7 +439,11 @@ used for applicants.
         "id": "open",
         "name": "Open"
       },
-      "id": "8331228"
+      "id": "8331228",
+      "snippet": {
+        "requirement": "...experience as <highlighttext>secretary</highlighttext> / office manager. - presentable appearance. - knowledge of Excel, Lotus Notes and office appliances. - oral and written English.",
+        "responsibility": "Keeping private zone order (meeting rooms, kitchen). - ordering necessary goods (stationery, marketing materials, products, flowers, household goods, cleaning services, etc."
+      }
     }
   ],
   "page": 0,
@@ -432,6 +454,14 @@ used for applicants.
 ```
 
 Example: [https://api.hh.ru/vacancies?locale=EN](https://api.hh.ru/vacancies?locale=EN)
+
+In addition to [standard vacancy fields](#nano) following optional fields will be displayed:
+
+key | type | description
+---- |---- |---------
+snippet | object | Additional text snippets on found vacancy. If snippet text contains search term (parameter `text`), it will be highlighted with tag `highlighttext`.
+snippet.requirement | string, null | Vacancy requirements if available in the description text.
+snippet.responsibility | string, null | Vacancy responsibilities if available in the description text.
 
 
 <a name="nano"></a>
@@ -473,7 +503,8 @@ Example: [https://api.hh.ru/vacancies?locale=EN](https://api.hh.ru/vacancies?loc
     "type": {
         "id": "open",
         "name": "Open"
-    }
+    },
+    "archived": "false"
 }
 ```
 
@@ -482,7 +513,7 @@ Here:
 Name| Type| Description
 --- | --- | -----------
  id | string| Vacancy identifier
- premium | logical| Whether it is a premium vacancy
+ premium | logical | Whether it is a premium vacancy
  address | object, null | [vacancy address](address.md#Address)
  alternate_url | string, null | Link to the full vacancy presentation in web site
  apply_alternate_url | string, null | Link to the vacancy respond page in web site
@@ -494,6 +525,7 @@ Name| Type| Description
  employer | object | Short description of the employer
  response_letter_required | logical | Whether the message must be written when applying
  type | object | Vacancy type, one of the elements `vacancy_type` in the [Directory](dictionaries.md)
+ archived | logical | Whether it is an archived vacancy
 
 `url` and `alternate_url` can have the `null` meaning if the detailed
 information on the vacancy is unavailable (for instance, when the vacancy has
@@ -945,17 +977,120 @@ If sent with any other fields, an error will be returned.
 
 
 <a name="prolongate"></a>
-## Vacancy prolongation
+## Vacancy extension
 
-**Prolongation of the vacancy costs the same as a new posting**
+**Extension of the vacancy costs the same as a new posting**
 
-To extend a vacancy posting, a `POST /vacancies/{vacancy_id}/prolongate` request
-must be sent.
+Vacancy extension has variable limits, and at the moment, the
+following rules are applied:
 
-There are limitations on vacancy extension, which are subject to change. At the
-moment, the following rules are in force:
+* standard vacancies can be extended if no less than 3 days have passed since the last extension.
+* "Standard Plus" vacancies can be extended no earlier than 5 days before the posting end date.
 
-* standard vacancies can be extended if no less than 3 days have passed since
-  the last extension.
-* "standard plus" vacancies can be extended no earlier than 5 days before the
-  posting end date.
+
+### Request
+
+`POST /vacancies/{vacancy_id}/prolongate`
+
+where `vacancy_id` – ID of the vacancy.
+
+
+### Response
+
+* `204 No Content` – vacancy was extended successfully
+* `403 Forbidden` – current user is not an employer or
+  extension is impossible.
+* `404 Not Found` – vacancy doesn't exist or current user
+  is not eligible for extension.
+
+In addition to an HTTP code, the server can return
+[error reason](errors.md#vacancies-prolongate).
+
+
+<a name="prolongate-info"></a>
+## Info on vacancy extension availability
+
+
+### Request
+
+`GET /vacancies/{vacancy_id}/prolongate`
+
+where `vacancy_id` – ID of the vacancy.
+
+
+### Response
+
+Successful response is returned with `200 OK` code.
+
+Example of the response if the extension is not possible:
+
+```json
+{
+  "id": "123456789",
+  "expires_at": "2015-11-19T17:10:48+0300",
+  "actions": [
+    {
+      "id": "prolongate",
+      "enabled": false,
+      "disable_reason": {
+        "id": "standard_plus_publication_is_updated_automatically",
+        "name": "The \"Standard Plus\" vacancy cannot be updated: it is updated automatically every three days."
+      }
+    }
+  ]
+}
+```
+
+Example of the response if the extension is possible:
+
+```json
+{
+  "id": "123456789",
+  "expires_at": "2015-11-19T17:10:48+0300",
+  "actions": [
+    {
+      "id": "prolongate",
+      "enabled": true,
+      "url": "https://api.hh.ru/vacancies/123456789/prolongate",
+      "method": "POST"
+    }
+  ]
+}
+```
+
+where:
+
+* `actions` – list of actions available for vacancy
+  extension. At the moment, only regular extension is possible.
+* `id` – vacancy ID.
+* `expires_at` – date and time of vacancy posting termination.
+
+Data available for the action:
+
+* `id` – action ID,
+* `enabled` – action is possible,
+* `disable_reason` – reason of action disable.
+  Possible reasons are listed [in reference guide](dictionaries.md)
+  `vacancy_not_prolonged_reason`.
+* `url` and `method` – url and HTTP method for the request to
+  perform an action.
+
+### Errors
+
+* `403 Forbidden` – current user is not an employer.
+* `404 Not Found` – vacancy doesn't exist or current user
+  is not eligible to get the vacancy info.
+
+
+<a name="conditions"></a>
+## Field filling and vacancy editing conditions
+
+### Rules
+
+Name | Type | Description
+--- | --- | --------
+required | logical | Is the vacancy field or object field mandatory?
+min_length | integer | Min length of text field.
+max_length | integer | Max length of text field.
+min_count | integer | Min number of objects for the fields with list transferring.
+max_count | integer or `null` | Max number of objects for the fields with list transferring. `null` – the number is not limited.

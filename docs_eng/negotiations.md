@@ -19,6 +19,7 @@ state.
 * [View the response/invitation](#get_negotiation)
 * [Hide the response](#hide_message)
 * [View the list of messages in the response](#get_messages)
+* [Sending new message](#send_message)
 * [Edit a message in the response](#edit_message)
 
 
@@ -160,8 +161,20 @@ returned in the `Location` header at the response attempt. Use `response_url` to
 offer a user to respond to the vacancy via the employer website instead of the
 standard response mechanism.
 
-Some possible error messages are provided in the
-[corresponding section](errors.md#negotiations).
+
+### Errors
+
+* `400 Bad Request` – indicated vacancy or CV doesn't exist;
+  or you need to pass the test or fill in the cover letter to respond;
+  or employer closed the option to respond to the vacancy;
+  or number of responses per day is exceeded for the user.
+* `403 Forbidden` – you can't respond to indicated vacancy because you
+  don't have access to it, responded to the vacancy beforehand or
+  display visibility settings of selected CV prevent from responding to
+  vacancy.
+
+In addition to an HTTP code, the server can return
+[error reason](errors.md#negotiations).
 
 
 <a name="get_negotiation"></a>
@@ -169,6 +182,7 @@ Some possible error messages are provided in the
 
 
 ### Request
+
 ```
 GET /negotiations/{nid}
 ```
@@ -177,8 +191,12 @@ where nid is the response ID.
 
 ### Response
 
-The object returned is identical to a separate response received in the
-[list of responses](#get_negotiations)
+The object returned is identical to a separate response received in
+[the list of responses](#get_negotiations), excl. `messaging_status` field.
+
+ Name | Type | Description
+ --- | --- | ---
+ messaging_status | string | Current negotiation status. Possible values are provided in the [`messaging_status` reference guide](./dictionaries.md).
 
 
 <a name="hide_message"></a>
@@ -303,16 +321,76 @@ where:
  assessments| array| [assessment tools](assessment.md) linked to the message
 
 
+<a name="send_message"></a>
+## Sending new message
+
+You can send new message to employer only after the employer
+invited the applicant for a vacancy. Also, messages can be sent if there is a rejection
+after the interview. Negotiation is unavailable if the vacancy is archived or
+the applicant deleted the CV. Employer can also disable the negotiation for
+the vacation manually.
+
+
+### Request
+
+```
+POST /negotiations/{nid}/messages
+```
+
+where:
+
+ * nid is the response ID
+
+Parameters
+
+Name | Required | Description
+--- | ------------ | --------
+message | yes | Message text
+
+
+### Response
+
+Successful response is returned with `201 Created` code and contains added
+comment:
+
+```json
+{
+    "id": "124",
+    "viewed_by_me": true,
+    "viewed_by_opponent": false,
+    "created_at": "2013-10-08T10:12:23+0400",
+    "text": "Give me a camel and a horse!",
+    "state": {
+        "id": "text",
+        "name": "Text"
+    },
+    "author": {
+        "participant_type": "applicant"
+    },
+    "address": null,
+    "editable": false
+}
+```
+
+### Errors
+
+* `404 Not Found` – response with this ID doesn't exist
+* `403 Bad Request` – the message is not sent
+
+In addition to an HTTP code, the server can return
+[error reason](errors.md#negotiations).
+
+
 <a name="edit_message"></a>
 ## Edit messages in the response
 
-Under certain conditions, the message text can be edited after it is sent. To
-allow editing of the message, use the `editable:true` flag.
+Under certain conditions, the message text can be edited after it is sent. In
+order to allow message editing, use the flag `editable`.
 
-> Currently, message editing is available only at the moment of responding;
-> besides, the message should not have been read by another party, the vacancy
-> should be active (not archived) and the CV should not be deleted. However,
-> these conditions are subject to change.
+> At the moment, editing is available for response message only,
+> and such message should not be read by the other party, the vacancy should be
+> active (not archived) and CV should not be deleted. However, these conditions
+> are subject to change.
 
 
 ### Request
@@ -328,13 +406,22 @@ where:
 
 Parameters
 
- Name| Required| Description
+ Name | Required | Description
  --- | --- | ---
- message| yes| Message text
+ message | yes | Message text
+
 
 ### Response
 
-If the message text is updated successfully, HTTP status `204 No Content` will
-be returned. If the message editing is forbidden, HTTP status`403 Forbidden`
-will be returned. If the message is not found, HTTP status `404 Not Found` will
-be returned.
+In case of successful message text update the HTTP status
+`204 No Content` is returned.
+
+
+### Errors
+
+* `403 Forbidden` – editing is prohibited.
+  For example, if receiving party has already read the message.
+* `404 Not Found` – the message is not found.
+
+In addition to an HTTP code, the server can return
+[error reason](errors.md#negotiations).

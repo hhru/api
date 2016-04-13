@@ -142,6 +142,10 @@ HTTP code| type| value| description
 403| negotiations| in_a_row_limit| the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
 403| negotiations| overall_limit| messages limit exceeded
 403| negotiations| no_invitation| negotiations are unavailable as there was no invitation in the response
+403| negotiations | message_cannot_be_empty | negotiation message cannot be empty
+403| negotiations | disabled_by_employer | negotiation by response is disabled by the employer
+403| negotiations | resume_deleted | the message can't be sent as the CV referenced in the response is deleted or hidden
+403| negotiations | archived | the message can't be sent as the vacancy referenced in the response is archived
 
 
 <a name="vacancies_favorited"></a>
@@ -169,5 +173,20 @@ HTTP code| type| value| description
 403| vacancies| creation_forbidden| posting of vacancies is unavailable for the current manager
 403| vacancies| unavailable_for_archived| editing of vacancies is unavailable for the archived vacancy
 403| vacancies| conflict_changes| conflicting changes in the vacancy data ([read more](vacancies.md#edit_more))
+
+
+<a name="vacancies-prolongate"></a>
+### Vacancy extension
+
+Despite of the error code, the vacancy [extension](vacancies.md#prolongate) may return the
+following errors:
+
+HTTP code | type | value | description
+----------|------|-------|---------
+403 | vacancies | not_enough_purchased_services | the purchased services are insufficient for prolongation of this type of vacancy
+403 | vacancies | quota_exceeded | the manager's quota for posting of this type of vacancies has been exceeded
+403 | vacancies | prolongation_forbidden | extension of vacancies is unavailable for the current manager
+403 | vacancies | unavailable_for_archived | extension of vacancies is unavailable for the archived vacancy
+403 | vacancies | too_early | premature extension
 
 

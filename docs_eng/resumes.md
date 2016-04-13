@@ -263,8 +263,10 @@ For example:
 ---
 
 * `age_from`, `age_to` – the applicant's age in years, in the "from... to" range.
-* `area` – a region. Directory with possible values: [/areas](areas.md).
-  You can indicate several values.
+* `area` – region. Possible values reference: [/areas](areas.md).
+  You can indicate several values. CVs of applicants from
+  indicated regions or those who ready to move to such regions
+  are selected by default. Enter field `relocation` to change this behavior.
 * `relocation` – willingness to relocate. Directory with possible values:
   `resume_search_relocation` in [/dictionaries](dictionaries.md). You can
   indicate it only with `area` parameter.
