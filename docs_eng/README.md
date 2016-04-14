@@ -29,6 +29,7 @@ application at [https://dev.hh.ru](https://dev.hh.ru) and set up the
 ### Resources
 
 * [Current user](me.md)
+  * [Manager preferences](manager_settings.md)
 * [Vacancies: search, view, posting](vacancies.md)
 * [Vacancies for the employer / manager](employer_vacancies.md)
 * [Employers / companies](employers.md)
@@ -57,7 +58,7 @@ application at [https://dev.hh.ru](https://dev.hh.ru) and set up the
   * [Department directory](employer_departments.md)
   * [Test directory](employer_tests.md)
   * [List of regions with active vacancies](employer_vacancy_areas_active.md)
-  * [List of vacancy branded templates](employer_vacancy_branded_templates.md)
+  * [List of branded vacancy templates](employer_vacancy_branded_templates.md)
 * [Suggestions (autosuggest, autocomplete)](suggests.md)
  * [University name suggestions](suggests.md#educational_institutions)
  * [Organization suggestions](suggests.md#companies)
