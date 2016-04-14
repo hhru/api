@@ -27,11 +27,62 @@ Successful server response is returned with `200 OK` code and contains:
     "items": [
         {
             "negotiations_state": null,
+            "negotiations_employer_state": null,
             "can_invite": true,
-            "templates": [
+            "negotiations_actions": [
                 {
-                    "url": "https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&vacancy_id=123456",
-                    "id": "invite"
+                    "id": "invitation",
+                    "name": "Invite",
+                    "enabled": true,
+                    "method": "POST",
+                    "url": "https://api.hh.ru/negotiations/invited",
+                    "resulting_employer_state": {
+                        "id": "invitation",
+                        "name": "Invitation"
+                    },
+                    "templates": [
+                        {
+                            "id": "invite",
+                            "name": "Invite",
+                            "quick": false,
+                            "url": "https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&vacancy_id=123456"
+                        }
+                    ],
+                    "arguments": [
+                        {
+                            "id": "resume_id",
+                            "required": true,
+                            "required_arguments": []
+                        },
+                        {
+                            "id": "vacancy_id",
+                            "required": true,
+                            "required_arguments": []
+                        },
+                        {
+                            "id": "message",
+                            "required": true,
+                            "required_arguments": []
+                        },
+                        {
+                            "id": "send_sms",
+                            "required": false,
+                            "required_arguments": [
+                                {
+                                    "id": "message"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "address_id",
+                            "required": false,
+                            "required_arguments": [
+                                {
+                                    "id": "message"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
 
@@ -85,8 +136,14 @@ with [standard fields](vacancies.md#nano), as well as additional fields:
    if there was no response/invitation
  * `can_invite`-- The flag that determines whether it is possible to invite
    the specified CV to this vacancy
+ * `employer_negotiations_state` - current employer status of
+   the response/invitation or `null` if there was no response/invitation
  * `templates`-- list of [templates](negotiation_message_templates.md) with
    texts for invitation
+ * <a name="actions"></a> `negotiations_actions`-- list of possible actions on
+   response/invitation for [creating invitation](employer_negotiations.md#add-invite).
+   Response format is similar to
+   [the responses/invitations actions](employer_negotiations.md#actions-info).
 
 When deciding whether to grant a user the possibility to invite a selected CV
 for the vacancy, you should not rely on the fact that `negotiations_state` has
@@ -104,12 +161,17 @@ state will be specified as:
     "negotiations_state": {
         "id": "response",
         "name": "Response"
-    }
+    },
+    "negotiations_employer_state": {
+        "id": "response",
+        "name": "Response"
+     }
 }
 ```
 
-Possible values of the state/invitation are available in the
-[negotiations_state reference](dictionaries.md).
+Possible values of the state/invitation for an applicant are available in the
+[negotiations_state reference](dictionaries.md), for employer in the
+[employer statuses for responses/invitations on vacancy](employer_negotiations.md#collection).
 
 
 ### Errors

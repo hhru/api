@@ -1,103 +1,204 @@
-# Messaging (applications/invitations) for the employer
+# Negotiations (responses/invitations) for employers
 
-*Documentation on messaging for the applicant is available in the [separate article*](negotiations.md).*
 
-* [Application/invitation collections](#collections)
-* [Application/invitation list](#negotiations-list)
-* [Viewing an application/invitation](#get-negotiation)
-* [Viewing a message list in an application/invitation](#get-messages)
+*Negotiations documentation for the applicant is available in the [separate article](negotiations.md).*
+
+* [Processing model, terms and procedures](#model)
+* [General description of processing responses/invitations](#flow)
+* [Collections and employer statuses for responses/invitations](#collections)
+* [List of responses/invitation](#negotiations-list)
+* [View the response/invitation](#get-negotiation)
+* [View the list of messages in the response/invitation](#get-messages)
 * [Sending a message in the response/invitation](#add-messages)
 * [Inviting an applicant for a vacancy](#add-invite)
-* [Actions on a response/invitation](#actions)
-  * [Put the response on hold (move to the "Think" list)](#put-on-hold)
-  * [Invitation of the applicant for an interview in response to his/her response](#invite)
-  * [Reject an applicant](#discard)
+* [Response/invitation actions (status change)](#actions)
 
 
+<a name="model"></a>
+## Processing model, terms and procedures
+
+Responses and invitations correspond to the model displayed in API
+requests and responses. If the application uses the model correctly, the change
+of response and invitation business logics won't require their reprocessing or
+corrections.
+
+Responses and invitations contain following terms:
+
+* *response* – object generated on the initiative of the applicant (response to the vacancy).
+  Response is always sent with single CV on single vacancy.
+
+* *invitation* – object generated on the initiative of the employer (vacancy
+  invitation). Invitation is always sent for one vacancy for one CV.
+
+Except of the object appearance process, the response and invitation processing is made
+identically.
+
+* <a name="term-collection"></a> *collection* – the set of responses/invitations,
+  combined by certain criteria. Collections are used when your
+  application needs **to display** the list of responses/invitations.
+  The logic response/invitation processing is subject to change,
+  so don't rely on having response/invitation in certain collection during processing.
+
+* <a name="term-state"></a> *applicant status of response/invitation* –
+  response/invitation status **displayed for the applicant**. Possible values
+  are given in [`negotiations_state` reference guide](dictionaries.md#negotiations) and
+  don't depend on vacancy in response/invitation.
+
+* <a name="term-employer-state"></a> *employer status of response/invitation* –
+  employer status of response/invitation. May differ from the
+  applicant's. The list of possible statuses
+  **depends on the vacancy and the employer**, so the list
+  [should be requested](#states) upon transferring proper vacancy.
+
+* <a name="term-action"></a> *respond/invitation action* – the action to be
+  performed for response/invitation. As the result,
+  the employer and the applicant statuses of response/invitation may be
+  changed or leaved as is.
+
+Don't confuse *action*, *collection* and *status* – they can look similar, but
+designed for different purposes.
+
+
+<a name="flow"></a>
+## General description of processing responses/invitations
+
+All actions on processing responses/invitations are made within
+**one selected vacancy**. One employer can have vacancies
+with different rules on processing responses/invitations.
+
+First, you need to get the list
+[of collections and employer statuses](#collections). Use collections
+to **get the list of responses/invitations**. Ask user
+to select the preferred collections. Retrive all
+collection successively to receive all responses/invitations. List
+of statuses should be used for reference only.
+
+Select the CV to **create the invitation**, e.g.
+[in the search](resumes.md#search), then request the vacancies related to this CV
+from the employer. See
+[employer vacancy list](employer_vacancies_for_invitation.md) for this data as well as required
+parameters (key `arguments`) and status of generated
+response (key `resulting_employer_state`). Different employers and vacancies
+may employ different rules and statuses for added response. Each
+pair *vacancy + CV* can have only one response/invitation.
+
+To generate the invitation, the employer should have enabled access to
+CV database. No access required to process the existing response/invitation. This
+allows processing vacancy responses without access to CV database.
+
+To **make an action** on response/invitation,
+see [the list of actions](#actions-info) available in
+[the list (collection) of responses/invitations](#negotiations-list) and in
+[individual response/invitation](#get-negotiation). If this action results in
+change of response/invitation status, it will be displayed in key
+`resulting_employer_state`. Not all actions result in status change.
+
+Invite the applicant to initiate
+[free negotiation](#get-messages). You can
+[send messages](#add-messages), and applicant can respond on them.
+When necessary, the negotiation on certain vacancy may be
+[disabled](vacancies.md#allow_messages) (field `allow_messages`).
+
+
+<a name="states"></a>
 <a name="collections"></a>
-## Application/invitation collections
+## Collections and employer statuses for responses/invitations on vacancy
 
-Employer has accessible collections of applications and invitations. Each
-collection contains applications/invitations in a certain state. The list of
-these collections can change depending on the particular vacancy.
+Employer has available collections of responses and invitations. The list of these collections
+may be changed depending on the vacancy.
 
-Vacancies available in the current user account can be seen in the
-[employer's vacancy list](employer_vacancies.md#active).
+You can get available vacancies of the current user through
+[employer vacancy list](employer_vacancies.md#active).
 
-If you need to get the full list of applications/invitations for the vacancy,
-request all collections one by one.
-
-The most frequently met collections:
-
-* `inbox` – unsorted
-* `hold` – need to think
-* `invited` – invited
-* `discarded` – discarded
-
-### Request for obtaining the collection list
-
-`GET /negotiations?vacancy_id={vacancy_id}`
-
-where `vacancy_id` is a vacancy id.
-
-### Response
-
-Successful response comes with the `200 OK` code and contains:
-
-```json
-{
-    "states": [
-        {
-            "id": "inbox",
-            "name": "Inbox",
-            "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456"
-        },
-        {
-            "id": "invited",
-            "name": "Invited",
-            "url": "https://api.hh.ru/negotiations/invited?vacancy_id=123456"
-        }
-    ]
-}
-```
-
-| Name | Type   | Description                                                                            |
-|------|--------|----------------------------------------------------------------------------------------|
-| id   | string | Collection ID, unique for this vacancy at the least                                    |
-| name | string | collection name                                                                        |
-| url  | string | url, which GET request must be made to get applications/invitations of this collection |
-
-If the `vacancy_id` parameter is not sent, the response will return with the
-`400 Bad Request` code.
-
-
-<a name="negotiations-list"></a>
-## Application/invitation list
+Presently, there is no collection combining all responses/invitations on the vacancy
+available. Request all collections successively to get
+the full list.
 
 
 ### Request
 
-When url from the [collection list](#collections) is obtained, you should make a
-GET request for it, for example:
+`GET /negotiations?vacancy_id={vacancy_id}`
+
+where `vacancy_id` – ID of the vacancy.
+
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
+
+```json
+{
+    "collections": [
+        {
+            "id": "inbox",
+            "name": "Unsorted",
+            "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456"
+        },
+        {
+            "id": "discarded",
+            "name": "Declined",
+            "url": "https://api.hh.ru/negotiations/discarded?vacancy_id=123456"
+        }
+    ],
+    "employer_states": [
+        {
+            "id": "response",
+            "name": "Response"
+        },
+        {
+            "id": "invitation",
+            "name": "Invitation"
+        },
+        {
+            "id": "discard",
+            "name": "Rejection"
+        },
+        {
+            "id": "discard_after_interview",
+            "name": "Rejected after interview"
+        }
+    ]
+}
+
+```
+
+Name | Type | Description
+--- | --- | --------
+collections | list | of [collections](#term-collection) of responses/invitations for this vacancy
+collections.id | string | collection ID unique at least for this vacancy
+collections.name | string | collection name
+collections.url | string | URL to send the GET request to in order to get responses/invitations for this collection
+employer_states | list | of [employer statuses](#term-employer-state) for responses/invitations on the vacancy
+employer_states.id | string | status ID unique at least for this vacancy
+employer_states.name | string | status name
+
+If parameter `vacancy_id` is not sent, the response with code
+`400 Bad Request` will be returned.
+
+
+<a name="negotiations-list"></a>
+## List of responses/invitation
+
+
+### Request
+
+Upon getting URL from the [collection list](#collections) send a GET request to
+this URL, e.g.:
 
 `GET https://api.hh.ru/negotiations/invited?vacancy_id=123456`
 
 Parameters:
 
-| Name        | Mandatory | Description                                  |
-|-------------|-----------|----------------------------------------------|
-| vacancy_id  | yes       | Vacancy identifier                           |
-| page        | no        | Defaul page number: 0                        |
-| per_page    | no        | Default number of elements shown per page 20 |
-
-The `inbox` collection, if available for this vacancy, supports
-the optional parameter `with_updates_only``=true` – to show only
-applications/invitations that have updates.
+Name | Required | Description
+--- | ------------ | --------
+vacancy_id| yes | Vacancy ID
+page | no | Page number, default: 0
+per_page | no | Number of elements displayed per page, by default: 20
 
 
 ### Response
 
-Successful response comes with the `200 OK` code and contains:
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
@@ -112,20 +213,81 @@ Successful response comes with the `200 OK` code and contains:
             "updated_at": "2015-05-14T12:00:05+0300",
             "has_updates": true,
             "state": {
-                "id": "invitation",
-                "name": "Invitation"
+                "id": "response",
+                "name": "Response"
             },
+            "employer_state": {
+                "id": "response",
+                "name": "Response"
+            },
+            "actions": [
+                {
+                    "id": "invitation",
+                    "name": "Invite",
+                    "enabled": true,
+                    "method": "PUT",
+                    "url": "https://api.hh.ru/negotiations/invited/123456789",
+                    "resulting_employer_state": {
+                        "id": "invitation",
+                        "name": "Invitation"
+                    },
+                    "templates": [
+                        {
+                            "id": "invite_after_response",
+                            "name": "Invite responded applicant",
+                            "quick": false,
+                            "url": "https://api.hh.ru/message_templates/invite_after_response?topic_id=123456789"
+                        }
+                    ],
+                    "arguments": [
+                        {
+                            "id": "message",
+                            "required": true,
+                            "required_arguments": []
+                        },
+                        {
+                            "id": "send_sms",
+                            "required": false,
+                            "required_arguments": [
+                                {
+                                    "id": "message"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "address_id",
+                            "required": false,
+                            "required_arguments": [
+                                {
+                                    "id": "message"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "hold",
+                    "name": "Think",
+                    "enabled": true,
+                    "method": "PUT",
+                    "url": "https://api.hh.ru/negotiations/hold/123456789",
+                    "arguments": [],
+                    "resulting_employer_state": null,
+                    "templates": []
+                }
+            ],
             "url": "https://api.hh.ru/negotiations/123456789",
             "messages_url": "https://api.hh.ru/negotiations/123456789/messages",
             "viewed_by_opponent": false,
             "resume": {
                 "id": "0123456789abcdef",
-                "title": "Aspiring specialist",
+                "title": "Young specialist",
                 "url": "https://api.hh.ru/resumes/0123456789abcdef?topic_id=123456789",
                 "first_name": "Ivan",
                 "last_name": "Ivanov",
                 "middle_name": "Ivanovich",
                 "age": 19,
+                "can_view_full_info": true,
                 "alternate_url": "http://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
                 "created_at": "2015-02-06T12:00:00+0300",
                 "updated_at": "2015-04-20T16:24:15+0300",
@@ -156,9 +318,12 @@ Successful response comes with the `200 OK` code and contains:
                         }
                     ]
                 },
+                "total_experience": {
+                    "months": 118
+                },
                 "experience": [
                     {
-                        "position": "shepherd",
+                        "position": "cattleman",
                         "start": "2010-01-01",
                         "end": null,
                         "company": "Horns and Hoofs",
@@ -169,7 +334,7 @@ Successful response comes with the `200 OK` code and contains:
                             },
                             {
                                 "id": "29.503",
-                                "name": "Farming, plant cultivation, cattle breeding"
+                                "name": "Farming, crop growing, livestock farming"
                             }
                         ],
                         "company_url": "http://example.com/",
@@ -236,62 +401,99 @@ Successful response comes with the `200 OK` code and contains:
 
 where:
 
-| Name      | Type   | Description                             |
-|-----------|--------|-----------------------------------------|
-| found     | number | Number of applications found (≥ 0)      |
-| pages     | number | Number of pages with applications (≥ 1) |
-| per_page  | number | Number of elements per page (&gt; 0)    |
-| page      | number | Number of the current page (≥ 0)        |
+Name | Type | Description
+--- | --- | --------
+found | number | Number of responses found ( ≥ 0 )
+pages | number | Number of pages with responses ( ≥ 1 )
+per_page | number | Number of elements per page ( > 0 )
+page | number | Number of the current page ( ≥ 0 )
 
 <a name="negotiations-list-item"></a>
-The `items` element contains data on applications/invitations and corresponding
-CVs:
+The `items` entity contains response/invitation data and CVs for them:
 
-| Name                 | Type         | Description                                                                                                                                                                                                                                                                                                      |
-|----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | string       | Application identifier                                                                                                                                                                                                                                                                                           |
-| created_at           | string       | Application/invitation creation date and time                                                                                                                                                                                                                                                                    |
-| updated_at           | string       | Last application/invitation update date and time                                                                                                                                                                                                                                                                 |
-| state                | object       | Current state of the application. Possible values are in the \[/dictionaries\] (./dictionaries.md) directory in the `negotiations_state` section.                                                                                                                                                                |
-| url                  | string       | url for getting [the full version of an application/invitation](#get-negotiation)                                                                                                                                                                                                                                |
-| messages_url         | string       | url for getting [the message list in the application](#get-messages)                                                                                                                                                                                                                                             |
-| CV                   | object, null | CV. The fields shown are similar to the [CV search](resumes.md#search-results). To get the full CV, you should request it with a GET request using the url from the `url` key. It can be `null`, if the applicant deleted the CV or restricted access to it.                                                     |
-| has_updates          | logical      | Any updates in the application/invitation that call for attention. The flag becames `false` when various actions are performed with the application/invitation, such as [viewing the message list](#get-messages), and also [when the CV is viewed correctly from the application/invitation](#view-resume). |
-| viewed_by_opponent   | logical      | Whether the application has been viewed by the applicant                                                                                                                                                                                                                                                         |
-| templates            | array        | Letter templates. Contains the template ID and url for [obtaining text according to the template](message_templates.md).                                                                                                                                                                                         |
+Name | Type | Description
+--- | --- | --------
+id | string | Response ID
+created_at | string | Response/invitation creation date and time
+updated_at| string | Response/invitation update date and time
+state | object | Current [response status of the applicant](#term-state).
+employer_state | object | Current [employer status of the applicant](#term-employer-state).
+actions| list | list of possible [actions on response/invitation](#actions-info)
+url | string | URL to get [the full version of response/invitation](#get-negotiation)
+messages_url | string | URL to get [the list of messages in the response](#get-messages)
+resume| object, null | CV. Displayed fields are identical to [search on CV](resumes.md#search-results). To get full CV, send a GET request to URL from key `url`. It can be `null`, if the applicant deleted the CV or disabled access to it.
+has_updates| logical | Whether the response/invitation includes updates that require attention. The flag can be disabled upon different response/invitation actions, e.g. upon [viewing message list](#get-messages), and [appropriate view of CV on response/invitation](#view-resume).
+viewed_by_opponent| logical | Whether the response was viewed by the applicant
 
 <a name="view-resume"></a>
 
-The application/invitation list contains only the main information on the CV. To
-obtain the full information, particularly the applicant's contacts, you should
-request the full CV. The applicant will have the CV request displayed in the
+The list of responses/invitations contains only basic CV info.
+To get full info, such as applicant contact details,
+request the full CV. The applicant will see this CV request in
 view history.
 
-**Take note!** The additional request for CV data **must** be performed using
-exactly the url from the JSON response. Only in this case the request will be
-registered correctly in the view history. For instance, if a CV is requested
-from the application for an anonymous vacancy, the history will display the
-anonymous name of the company.
+**Important!** Additional request on CV data **should be**
+sent to URL from JSON response. This is the only option
+to correctly process the request in view history. E.g, if the CV is requested from the response
+to anonymous vacancy, the history will display anonymous name of the company.
 
-In case the vacancy the applications are requested for doesn't exist or is not
-accessible for the current user, the `404 Not Found` response returns.
+If the vacancy of requested responses doesn't exist or
+not available to the current user, `404 Not Found` response will be returned.
+
+<a name="actions-info"></a>
+### Response/invitation actions (`actions`)
+
+The number of actions may differ, and the list of actions may be
+empty.
+
+Each action is indicated with:
+
+Name | Type | Description
+--- | --- | --------
+id | string | Action ID
+name | string | Action name
+enabled | logical | Whether the action is possible
+method | string | HTTP method to perform
+url | string | URL to send the request to
+resulting_employer_state | object, null | [employer status](#term-employer-state) on response/invitation enabled upon the action. If the action doesn't change the status – `null`.
+templates | list | Letter templates. Contains the template ID and url for [obtaining text according to the template](/message_templates.md).
+arguments | list | Mandatory and optional arguments for the request
+
+Action has attached list of possible arguments
+such as:
+
+* `message` – the message that will be sent to the applicant's email. Use [templates](negotiation_message_templates.md) to obtain texts.
+* `address_id` – ID of the [address](employer_addresses.md) that will be specified in the invitation
+* `send_sms` – whether to notify the applicant of the invitation via SMS. In order to send specify `true`, default value is `false`.
+
+The application should be capable of entering these arguments. In future we may add other arguments, however
+they won't be mandatory. Mandatory arguments may vary depending
+on response/invitation.
+
+Each argument will be indicated with:
+
+Name | Type | Description
+--- | --- | --------
+id | string | Argument ID
+required | logical | Mandatory argument
+required_arguments | list | Arguments to be applied if this argument is indicated. E.g., the address is optional, however if it is indicated you must also specify the message.
 
 
 <a name="get-negotiation"></a>
-## Viewing an application/invitation
+## View the response/invitation
 
 ### Request
 
 `GET /negotiations/{nid}`
 
-where `nid` is an application/invitation identifier.
+where `nid` is the response/invitation ID.
 
-It is usually obtained from the `url` key in the
-[application/invitation list](#negotiations-list).
+Usually is taken from key `url` in
+[the list of responses/invitations](#negotiations-list).
 
 ### Response
 
-Successful response comes with the `200 OK` code and contains:
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
@@ -300,14 +502,75 @@ Successful response comes with the `200 OK` code and contains:
     "updated_at": "2015-05-14T12:00:05+0300",
     "has_updates": true,
     "messages_url": "https://api.hh.ru/negotiations/123456789/messages",
+    "messaging_status": "ok",
     "state": {
-        "id": "invitation",
-        "name": "Invitation"
+        "id": "response",
+        "name": "Response"
     },
+    "employer_state": {
+        "id": "response",
+        "name": "Response"
+    },
+    "actions": [
+        {
+            "id": "invitation",
+            "name": "Invite",
+            "enabled": true,
+            "method": "PUT",
+            "url": "https://api.hh.ru/negotiations/invited/123456789",
+            "resulting_employer_state": {
+                "id": "invitation",
+                "name": "Invitation"
+            },
+            "templates": [
+                {
+                    "id": "invite_after_response",
+                    "name": "Invite responded applicant",
+                    "quick": false,
+                    "url": "https://api.hh.ru/message_templates/invite_after_response?topic_id=123456789"
+                }
+            ],
+            "arguments": [
+                {
+                    "id": "message",
+                    "required": true,
+                    "required_arguments": []
+                },
+                {
+                    "id": "send_sms",
+                    "required": false,
+                    "required_arguments": [
+                        {
+                            "id": "message"
+                        }
+                    ]
+                },
+                {
+                    "id": "address_id",
+                    "required": false,
+                    "required_arguments": [
+                        {
+                            "id": "message"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "hold",
+            "name": "Think",
+            "enabled": true,
+            "method": "PUT",
+            "url": "https://api.hh.ru/negotiations/hold/123456789",
+            "arguments": [],
+            "resulting_employer_state": null,
+            "templates": []
+        }
+    ],
     "viewed_by_opponent": false,
     "resume": {
         "id": "0123456789abcdef",
-        "title": "Aspiring specialist",
+        "title": "Young specialist",
         "url": "https://api.hh.ru/resumes/0123456789abcdef?topic_id=123456789",
         "first_name": "Ivan",
         "last_name": "Ivanov",
@@ -325,7 +588,7 @@ Successful response comes with the `200 OK` code and contains:
             {
                 "achieved_at": "2015-01-01",
                 "owner": null,
-                "title": "тест",
+                "title": "test",
                 "type": "custom",
                 "url": "http://example.com/"
             }
@@ -335,13 +598,16 @@ Successful response comes with the `200 OK` code and contains:
                 {
                     "name": "Russian State Social University, Moscow",
                     "name_id": "39420",
-                    "organization": "Faculty of Information Technology",
+                    "organization": "IT Department",
                     "organization_id": null,
                     "result": "",
                     "result_id": null,
                     "year": 2012
                 }
             ]
+        },
+        "total_experience": {
+            "months": 118
         },
         "experience": [
             {
@@ -350,7 +616,7 @@ Successful response comes with the `200 OK` code and contains:
                     "name": "Moscow",
                     "url": "https://api.hh.ru/areas/1"
                 },
-                "company": "Horns and Hoofs",
+                "company": "Roga i Kopyta",
                 "company_id": null,
                 "company_url": "http://example.com/",
                 "employer": null,
@@ -358,7 +624,7 @@ Successful response comes with the `200 OK` code and contains:
                 "industries": [
                     {
                         "id": "45.507",
-                        "name": "Extraction and processing of ore, black, base, precious, noble and rare metal"
+                        "name": "Mining and dressing of ferrous, non-ferrous, precious, noble and rare metals"
                     }
                 ],
                 "industry": null,
@@ -392,7 +658,7 @@ Successful response comes with the `200 OK` code and contains:
                 "90": "http://hh.ru/employer-logo/1111.jpeg",
                 "original": "http://hh.ru/employer-logo-original/1111.jpeg"
             },
-            "name": "Horns and Hoofs",
+            "name": "Roga i Kopyta",
             "url": "https://api.hh.ru/employers/1",
             "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1"
         },
@@ -411,47 +677,43 @@ Successful response comes with the `200 OK` code and contains:
 }
 ```
 
-Response body is similar to
-[the element in the application/invitation list](#negotiations-list-item),
-and also contains the `vacancy` key, which has some
-[brief information on the vacancy](vacancies.md#nano).
-
+Response body is identical
+[to the element in the list of responses/invitations](#negotiations-list-item), and
+contains key `vacancy` giving
+[short info regarding vacancy](vacancies.md#nano).
 
 <a name="messaging_status"></a>
+Additionally, field `messaging_status` showing negotiation status
+is returned for the response/invitation. Possible values
+see in [messaging_status](dictionaries.md) reference guide.
 
-Additionally, `messaging_status` field specifying the messaging state is
-returned for a response/invitation. Possible values are provided in the
-[messaging_status](dictionaries.md) reference.
-
-In case the response/invitation does not exist or is unavailable for the current
-user, '404 Not Found' server response will be returned.
+If response/invitation doesn't exist or not available to the current user,
+`404 Not Found` response will be returned.
 
 
 <a name="get-messages"></a>
-## Viewing a message list in an application/invitation
+## View the list of messages in the response/invitation
 
-Messages in an application/invitation can be:
+Messages contained in the response/invitation can be made as:
 
-* a cover letter written by the applicant when applying for the vacancy
-* some text sent by the employer when inviting for the vacancy, inviting for
-  the interview or declining
-* a part of free messaging between the applicant and the employer
-
+* cover letter left by the applicant upon response to the vacancy
+* text sent by the employer upon inviting for the vacancy, for the interview
+  or upon rejection
+* free negotiation messages between the applicant and the employer
 
 ### Request
 
 `GET /negotiations/{nid}/messages`
 
-where `nid` is an application/invitation identifier.
+where `nid` is the response/invitation ID.
 
-Usually the url is obtained from the `messages_url` key in the
-[application/invitation list](#negotiations-list) or when
-[viewing an application/invitation](#get-negotiation).
-
+Usually is taken from key `messages_url` in
+[the list of responses/invitations](#negotiations-list) or in
+[view the response/invitation](#get-negotiation).
 
 ### Response
 
-Successful response comes with the `200 OK` code and contains:
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
@@ -462,7 +724,7 @@ Successful response comes with the `200 OK` code and contains:
    "items": [
        {
            "id": "123",
-           "text": "We are inviting you for our vacancy...",
+           "text": "You are invited for the vacancy...",
            "created_at": "2015-05-15T19:23:35+0300",
            "author": {
                "participant_type": "employer"
@@ -476,7 +738,7 @@ Successful response comes with the `200 OK` code and contains:
            "address": {
                 "building": "10",
                 "city": "Moscow",
-                "description": "To the Right, Under the Sign",
+                "description": "Turn right following the sign",
                 "lat": 35.0,
                 "lng": 30.0,
                 "metro": {
@@ -517,7 +779,7 @@ Successful response comes with the `200 OK` code and contains:
        },
        {
            "id": "321",
-           "text": "Great, it will be my pleasure to attend the interview...",
+           "text": "Great! I will be glad to meet you for an interview...",
            "created_at": "2015-05-15T19:23:35+0300",
            "author": {
                "participant_type": "applicant"
@@ -536,42 +798,39 @@ Successful response comes with the `200 OK` code and contains:
 
 where:
 
-| Name      | Type   | Description                           |
-|-----------|--------|---------------------------------------|
-| found     | number | Number of messages in messaging (≥ 0) |
-| pages     | number | Number of pages with messages (≥ 1)   |
-| per_page  | number | Number of messages per page (> 0)     |
-| page      | number | Number of the current page (≥ 0)      |
-| assessments | array| [assessment tools](assessment.md) linked to the message |
+Name | Type | Description
+--- | --- | --------
+found | number | Number of messages in negotiation ( ≥ 0 )
+pages | number | Number of pages with messages ( ≥ 1 )
+per_page | number | Number of messages per page ( > 0 )
+page | number | Number of the current page ( ≥ 0 )
 
 <a name="negotiations-message-item"></a>
+The `items` entity contains message data:
 
-The `items` element contains the data about messages:
+Name | Type | Description
+--- | --- | --------
+id | string | Message ID
+viewed_by_me| logical | Whether the message was read by the viewer (for messages sent by employer the value is always `true`)
+viewed_by_opponent| logical | Whether the message was read by the applicant (for messages sent by applicant the value is always `true`)
+created_at | string | Message creation date and time
+text| string, null | Message text. `null` can be displayed if the applicant didn't attach the cover letter to the response.
+state | object | Current state of the application. Possible values are listed in the [/dictionaries](./dictionaries.md) reference, section `negotiations_state`
+author| object | Who is the message author
+author.participant_type| string | Message author role. Possible values are listed in the [/dictionaries](./dictionaries.md) reference, section `negotiations_participant_type`
+address| object, null | [Address](./address.md) linked to the response/invitation
+assessments| array | [assessment tools](assessment.md) linked to the message
 
-| Name                     | Type         | Description                                                                                                                                                      |
-|--------------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                       | string       | Message identifier                                                                                                                                               |
-| viewed_by_me             | logical      | Whether the message is read by the viewer (for messages sent by the employer it is always `true`)                                                                |
-| viewed_by_opponent       | logical      | Whether the message is read by the applicant (for the applicant's messages it is always `true`)                                                                  |
-| created_at               | string       | Message creation date and time                                                                                                                                   |
-| text                     | string, null | Message text. `null` can be in case when the applicant didn't send a cover letter with their application.                                                        |
-| state                    | object       | Current state of the application. Possible values are in the [/dictionaries](./dictionaries.md) directory in the `negotiations_state` section                    |
-| author                   | object       | Who the author of the message is                                                                                                                                 |
-| author.participant_type  | string       | The role of the author of the message. Possible values are in the [/dictionaries](./dictionaries.md) directory in the `negotiations_participant_type` section    |
-| address                  | object, null | [Address](./address.md), bound to the application/invitation                                                                                                     |
-
-In case the application/invitation doesn't exist or the current user can't
-access messaging, the `404 Not Found` response is returned.
-
+If response/invitation doesn't exist or negotiation not available to the current user,
+`404 Not Found` response will be returned.
 
 
 <a name="add-messages"></a>
 ## Sending a message in the response/invitation
 
-Messaging is possible after invitation of the applicant. Possibility to create a
-message is determined by the
-[`messages_status` field in the response/invitation](#messaging_status).
-
+Messaging is possible after invitation of the applicant. Find out whether you can
+leave the message from
+[field `messages_status` in response/invitation](#messaging_status).
 
 ### Request
 
@@ -579,64 +838,61 @@ message is determined by the
 
 where `nid` is the response/invitation ID.
 
-Additionally, the `message` parameter – message text – must be specified.
+Additionally, the `message` parameter – message text – must be specified.
 
 ### Response
 
-Successful server response is returned with `201 Created` code and does not have
-a body.
+Successful server response is returned with `201 Created` code and does not have a body.
 
 ### Errors
 
-* `400 Bad Request` – error in the request parameters.
-* `403 Forbidden` – message cannot be sent.
-* `404 Not Found` – the sent response/invitation doe not exist or the current
-  manager is not authorized to handle it.
+* `400 Bad Request` – error in the request parameters.
+* `403 Forbidden` – message cannot be sent.
+* `404 Not Found` – sent response/invitation doesn't exist or current
+  manager is not authorized to process it.
 
 In addition to an HTTP code, the server can return
-[error reasons](errors.md#negotiations).
+[error reason](errors.md#negotiations).
 
 For example:
 
-* `resume_not_found` – if the CV in the response/invitation was hidden or deleted
-* `invalid_vacancy` – if the vacancy in the response/invitation was archived or deleted
-* `no_invitation` – if the response/invitation is not in the "invitation"
-  status. For example, it is already in the "rejected" status or still in the "response" status.
-* `in_a_row_limit` – if the number of successive messages is exceeded.
-  The applicant must reply to the message in order the employer is able to send new messages.
-* `overall_limit` – if the messages limit is exceeded
+* `resume_not_found` – if the CV in the response/invitation was hidden
+  or deleted
+* `invalid_vacancy` – if the vacancy in the response/invitation was archived
+  or hidden
+* `no_invitation` – if the response/invitation is not in the "invitation" status.
+  For example, it is already in the "rejected" status or still in the "response" status.
+* `in_a_row_limit` – if the number of successive messages is exceeded.
+  The applicant must reply to the message in order the employer is able to send
+  new messages.
+* `overall_limit` – if the messages limit is exceeded
 
 
 <a name="add-invite"></a>
 ## Inviting an applicant for a vacancy
 
-The invitation is initiated between a employer's vacancy and applicant's CV by
-the employer.
-
-In order to find out what vacancies are available for applicant invitation, use
-[the list of vacancies suitable for invitation](employer_vacancies_for_invitation.md).
-
-Also see [invitation of the applicant for an interview after the response](#invite).
-
+The invitation is initiated between an employer's vacancy and an applicant's CV by
+the employer. To send the request you need to know initial
+statuses of this pair of vacancy and CV. Learn more in
+[general description of processing](#flow).
 
 ### Request
 
-`POST /negotiations`
+`POST /negotiations/{state}`
 
-Parameters:
+where `state` – is the initial status of the invitation.
 
-Name| Required| Description
---- | ------------ | --------
-vacancy_id| yes| ID of the vacancy which the applicant is invited for.
-resume_id| yes| ID of the CV which the applicant is invited for.
-send_sms| no| Whether to notify the applicant of the invitation via SMS. In order to send specify `true`, default value is `false`.
-message| yes| The message that will be sent to the applicant's email. Use [templates](negotiation_message_templates.md) to obtain texts.
-address_id| no| ID of the [address](employer_addresses.md) that will be specified in the invitation.
+Invitation parameters can be got from
+[action list](employer_vacancies_for_invitation.md#actions-info).
+
+Parameters should be sent in standard format
+`application/x-www-form-urlencoded`.
 
 
 ### Response
 
-Successful server response is accompanied by `201 Created` code, does not have any body and contains the `Location` header pointing to the created invitation:
+Successful server response is returned with `201 Created` code, does not have a body and contains
+title `Location` indicating created invitation:
 
 ```
 HTTP/1.1 201 Created
@@ -647,183 +903,83 @@ Location: /negotiations/321
 
 ### Errors
 
-* `400 Bad Request` – error in the request parameters.
+* `400 Bad Request` – error in the request parameters.
 * `403 Forbidden` – invitation is impossible.
 
-In addition to an HTTP code, the server can return [error reasons](errors.md#negotiations).
+In addition to an HTTP code, the server can return
+[error reason](errors.md#negotiations).
 
 For example:
 
-* `already_invited` – if the response between the sent CV and the vacancy
+* `already_invited` – if the response between the sent CV and the vacancy
   already exists
-* `resume_not_found` – if the sent CV was hidden or deleted
-* `invalid_vacancy` – if the sent vacancy was archived or hidden
-* `limit_exceeded` – if the manager's number of invitations per day limit was
-  exceeded
-* `application_denied` – general invitation denial error in case the additional
-  information is unavailable
-* `address_not_found` – if the sent address does not exist or belongs to
+* `resume_not_found` – if the sent CV was hidden or deleted
+* `invalid_vacancy` – if the sent vacancy was archived or hidden
+* `limit_exceeded` – if the manager's number of invitations per day limit
+  was exceeded
+* `application_denied` – general invitation denial error
+  if additional information is unavailable
+* `address_not_found` – if the sent address does not exist or belongs to
   another employer
-* `not_enough_purchased_services` – if the paid services are insufficient,
-  usually [CV database services](http://hh.ru/price#dbaccess)
+* `not_enough_purchased_services` – the paid services are insufficient, usually
+  [CV database services](http://hh.ru/price#dbaccess)
 
 
 <a name="actions"></a>
-## Actions on a response/invitation
+<a name="put-on-hold"></a>
+<a name="invite"></a>
+<a name="discard"></a>
+## Response/invitation actions (status change)
 
-Action on the response is equivalent to its movement to a specific
-[collection](#collections). Request:
+### Request
 
 `PUT /negotiations/{collection}/{nid}`
 
 where
+
 * `nid` is the response ID
 * `collection` is the collection
 
-There may be additional required and optional movement parameters.
+Accurate URL for the request, mandatory and optional
+parameters should be received from the [action list](#actions-info)
+on response/invitation.
+
+Parameters should be sent in standard format
+`application/x-www-form-urlencoded`.
 
 Action examples:
 
-* [Put the response on hold](#put-on-hold)
-* [Invitation of the applicant for an interview in response to his/her response](#invite)
-* [Reject an applicant](#discard)
+* Put the response on hold
+* Invitation of the applicant for an interview in response to his/her response
+* Reject an applicant
 
-
-<a name="put-on-hold"></a>
-## Put the response on hold (move to the "Think" list)
-
-The action is possible if the `hold` [collection is available](#collections) for
-the vacancy responses.
-
-The response movement to the "Think" list is possible if the applicant has not
-yet been invited and was not rejected. The response movement information is not
-disclosed to the applicant.
-
-
-### Request
-
-`PUT /negotiations/hold/{nid}`
-
-where `nid` is the response ID.
-
+Possible actions may differ for each response/invitation and
+actions listed above may be not available.
 
 ### Response
 
-Successful server response is returned with `204 No Content` code and does not
-have a body.
+Successful server response is returned with `204 No Content` code and does not have a body.
 
 
 ### Errors
 
-* `404 Not Found` – the response does not exist, belongs to another employer,
-  or the current manager is not authorized to handle it.
-* `403 Forbidden` – movement to the "Think" list is impossible.
+* `404 Not Found` – response doesn't exist, refers to other employer, or
+  current manager is not authorized to process it.
+* `400 Bad Request` – one of the mandatory parameters is not sent.
+* `403 Forbidden` – response action is not possible.
 
 In addition to an HTTP code, the server can return
-[error reasons](errors.md#negotiations). For example, `wrong_state`
-if the movement from the current response status to the on hold list
-is impossible.
-
-
-<a name="invite"></a>
-## Invitation of the applicant for an interview in response to his/her response
-
-The action is possible if the `invited` [collection is available](#collections)
-for the vacancy responses.
-
-The invitation is possible if the applicant has not yet been invited and was not
-rejected. Upon the invitation, the applicant will receive a corresponding email.
-
-Also see [invitation of the applicant for a vacancy](#add-invite).
-
-
-### Request
-
-`PUT /negotiations/invited/{nid}`
-
-where `nid` is the response ID.
-
-Parameters:
-
-Name| Required| Description
-----|--------------|---------
-send_sms| no| whether to notify the applicant of the invitation via SMS. In order to send specify `true`, default value is `false`.
-message| yes| The message that will be sent to the applicant's email. Use [templates](negotiation_message_templates.md) to obtain texts.
-address_id| no| ID of the [address](employer_addresses.md) that will be specified in the invitation.
-
-
-### Response
-
-Successful server response is returned with `204 No Content` code and does not
-have a body.
-
-
-### Errors
-
-* `404 Not Found` – the response does not exist, belongs to another employer,
-  or the current manager is not authorized to handle it.
-* `403 Forbidden` – invitation is impossible.
-* `400 Bad Request` – error in the request parameters.
-
-
-In addition to an HTTP code, the server can return
-[error reasons](errors.md#negotiations).
+[error reason](errors.md#negotiations).
 
 For example:
 
-* `wrong_state` – if the movement from the current response status to the
-  invited list is impossible
-* `resume_not_found` – if the CV from the response was hidden or deleted
-* `empty_message` и `too_long_message` – if the text length limit is exceeded
-* `address_not_found` – if the sent address does not exist or belongs to another
-  employer
-* `invalid_vacancy` – if the response vacancy was archived or hidden
-* `limit_exceeded` – if the manager`s number of invitations per day limit
+* `wrong_state` – action is not possible due to current response status
+* `resume_not_found` – if the CV from the response was hidden or deleted
+  by the applicant
+* `empty_message` and `too_long_message` – text size limit is
+  violated
+* `address_not_found` – if the sent address does not exist or belongs to
+  another employer
+* `invalid_vacancy` – if the response vacancy was archived or hidden
+* `limit_exceeded` – if the manager's number of invitations per day limit
   was exceeded
-
-
-<a name="discard"></a>
-## Reject an applicant
-
-The action is possible if the `discarded`
-[collection is available](#collections) for this vacancy responses.
-
-The rejection is possible if the applicant had not been rejected earlier.
-Upon rejection, the applicant will receive a corresponding email.
-
-
-### Request
-
-`PUT /negotiations/discarded/{nid}`
-
-where `nid` is the response/invitation ID.
-
-Parameters
-
-Name| Description
-----|---------
-message| The message that will be sent to the applicant's email. Use [templates](negotiation_message_templates.md) to obtain texts.
-
-
-### Response
-
-Successful server response is returned with `204 No Content` code and does not
-have a body.
-
-
-### Errors
-
-* `404 Not Found` – the sent response/invitation does not exist, belongs to
-  another employer, or the current manager is not authorized to handle it.
-* `403 Forbidden` – rejection is impossible.
-* `400 Bad Request` – error in the request parameters.
-
-In addition to an HTTP code, the server can return
-[error reasons](errors.md#negotiations).
-
-For example:
-
-* `wrong_state` – if the movement from the current response status to the
-  discarded list is impossible
-* `empty_message` и `too_long_message` – if the text length limit
-  is exceeded
