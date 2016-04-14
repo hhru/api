@@ -1,20 +1,20 @@
 # Current user
 
-* [Obtaining information on the current user](#info)
-* [Editing information on the current user](#edit)
+* [Obtaining info on the current user](#info)
+* [Editing info on the current user](#edit)
 
 
 <a name="info"></a>
-## Obtaining information on the current user
+## Obtaining info on the current user
 
-`GET /me` will return information on the current authorized user. In case of
-incorrect authorization, the server will return the `403 Forbidden` response.
+`GET /me` returns info on current authorized user.
+Server returns `403 Forbidden` if authorization is failed.
 
 ```json
 {
     "id": "12345678",
     "last_name": "Last name",
-    "first_name": "First name",
+    "first_name": "Name",
     "middle_name": "Middle name",
     "is_admin": false,
     "is_applicant": false,
@@ -41,90 +41,101 @@ incorrect authorization, the server will return the `403 Forbidden` response.
 ```
 
 
-| Name              | Type          | Description |
-|-------------------|---------------|--------------|
-| id                | string        | user identifier |
-| last_name         | string        | last name |
-| first_name        | string        | first name |
-| middle_name       | string        | middle name |
-| is_admin          | logical       | whether the user is the website administrator |
-| is_applicant      | logical       | true, if the user is an applicant |
-| is_employer       | logical       | true, if the user is an employer |
-| email             | string        | email |
-| employer          | object, null  | information on the company, if the current user is an employer |
-| personal_manager  | object, null  | information on the personal manger, if the current user is an employer |
-| is_in_search      | logical, null | flag "looking/not looking for a job", if the current user is an applicant |
-| resumes_url       | string        | link to the api-service of the current user's resume list |
-| negotiations_url  | string        | link to the api-service of the current user's application/invitation list |
-| counters          | no object     | information on counters, if the current user is an applicant |
+ Name | Type | Description
+ --- | --- | ---
+ id | string | user ID
+ last_name | string | last name
+ first_name | string | name
+ middle_name | string | middle name
+ is_admin | logical | user is site administrator
+ is_applicant | logical | true, if the user is an applicant
+ is_employer | logical | true, if the user is an employer
+ email | string | email
+ employer | object, null | [company info](#employer-info) if the current user is an employer, or null in other cases
+ personal_manager | object, null | [personal manager info](#personal-manager-info) if the current user is an employer, or null in other cases
+ manager | object, null | [info on a user who is company manager](#manager-info) if the current user is an employer, or null in other cases
+ is_in_search | logical, null | flag "looking for a job yes/no" if the current user is an applicant
+ resumes_url | string | reference to current user CV list api-service
+ negotiations_url | string | reference to current user responses/invitations list api-service
+ counters | object, unavailable | [count info](#counters-info) if the current user is an applicant
 
 
+<a name="employer-info"></a>
 #### Object `employer`
 
-| Name        | Type   | Description |
-|-------------|--------|-------------|
-| id          | string | company identifier |
-| name        | string | company name |
-| manager_id  | string | identifier of the current user as the company manager |
+Name | Type | Description
+--- | --- | ------
+ id | string | company ID
+ name | string | company name
 
 
+<a name="manager-info"></a>
+#### Object `manager`
+
+Name | Type | Description
+--- | --- | ------
+id | string | manager ID
+has_admin_rights | logical | current manager has administrator rights
+is_main_contact_person | logical | current manager is main contact person of the company
+manager_settings_url | string | url to send GET request to get [manager preferences](manager_settings.md)
+
+
+<a name="personal-manager-info"></a>
 #### Object `personal_manager`
 
-| Name  | Type   | Description |
-|-------|--------|-------------------------------|
-| id    | string | Personal manager's identifier |
-| email | string | Personal manager's email |
+Name | Type | Description
+--- | --- | ---
+ id | string | Personal manager ID
+ email | string | Personal manager's email
 
 
+<a name="counters-info"></a>
 #### Object `counters`
 
 All key values are numbers.
 
-| Name                 | Description |
-|----------------------|-------------|
-| unread_negotiations | The number of new unread messages (which have `has_updates: true`) |
-| new_resume_views    | General number of new views of all the resumes of the current user |
+Name | Description
+--- | ---
+unread_negotiations | Number of unread negotiations (indicating `has_updates: true`)
+new_resume_views | Total number of new views of all CVs of the current user
 
 
 <a name="edit"></a>
-## Editing information on the current user
+## Editing info on the current user
 
-To edit the last name, first name or middle name, and also to set
-the flag "looking/not looking for a job", you should send a POST request to
-`/me`. Data can be edited only in groups:
-
+Send POST request to `/me` in order to edit the last name, name, middle name or
+enable/disable "looking for a job yes/no"  flag. Data can be edited only in
+groups:
 
 ### Full name
 
-| Name         | Type   | Description                           |
-|--------------|--------|---------------------------------------|
-| last_name    | string | last name, the field can't be empty   |
-| first_name   | string | first name, the field can't be empty  |
-| middle_name  | string | middle name, the field can't be empty |
+ Name | Type | Description
+ --- | --- | ---
+ last_name | string | last name, the field can't be empty
+ first_name | string | name, field can't be empty
+ middle_name | string | middle name, field can be empty
 
-All the group fields must be sent in the request, for example:
+All the group fields must be sent in the request, e.g.:
 
 ```
-POST /me
-last_name=Ivanov&first_name=Ivan&middle_name=
+    POST /me
+    last_name=Ivanov&first_name=Ivan&middle_name=
 ```
 
-If not all the fields are indicated in the request, then the `400 Bad Request`
-response will be returned.
+If not all fields are sent, `400 Bad Request` is returned.
 
 
-### Flag "looking/not looking for a job"
+### "looking for a job yes/no" flag
 
-| Name           | Type   | Description |
-|----------------|--------|-------------|
-| is_in_search   | string | true/false  |
+ Name | Type | Description
+ --- | --- | ---
+ is_in_search | string | true/false
 
 Example:
 
 ```
-POST /me
-is_in_search=true
+ POST /me
+ is_in_search=true
 ```
 
-A request with parameters from different groups will have the `400 Bad Request`
-response returned.
+If request contains parameters from different groups, `400 Bad Request` is returned.
