@@ -735,10 +735,323 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/saved_search.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="saved-search">Saved search</h1>
+
+<p>Saved search (autosearch) is the saved set of search parameters used
+to track new vacancies or CVs on this request.
+In addition to saving search request parameters the autosearch function allows to
+obtain email notifications on new search results. For convenience, you can assign a name to
+the autosearch.</p>
+
+<ul>
+<li>Saved vacancy search
+<ul>
+<li><a href="#vacancies-saved-search-list">List of saved vacancy searches</a></li>
+<li><a href="#vacancies-saved-search-item">Obtaining single saved vacancy search</a></li>
+<li><a href="#vacancies-saved-search-create">Creating new saved vacancy search</a></li>
+<li><a href="#vacancies-saved-search-update">Updating saved vacancy search</a></li>
+<li><a href="#vacancies-saved-search-delete">Deleting saved vacancy search</a></li>
+</ul></li>
+<li>Saved CV search
+<ul>
+<li><a href="#resumes-saved-search-list">List of saved CV searches</a></li>
+<li><a href="#resumes-saved-search-item">Getting single saved CV search</a></li>
+</ul></li>
+</ul>
+
+<p><a name="vacancies-saved-search-list"></a></p>
+
+<h2 id="list-of-saved-vacancy-searches">List of saved vacancy searches</h2>
+
+<p><code>GET /saved_searches/vacancies</code> returns paginated autosearch list.</p>
+
+<p>Request is available only if authorized by an applicant, otherwise error
+<code>403 Forbidden</code> is returned.</p>
+
+<p>Accepted parameters:</p>
+
+<ul>
+<li><code>page</code> – page number (counted from 0, by default 0)</li>
+<li><code>per_page</code> – number of items (by default 10,
+max value 10)</li>
+</ul>
+
+<p>The response will contain standard collection of paginated items.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Test autosearch&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-04-11T13:12:17+0400&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;email_subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">304234</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?area=1&amp;saved_search_id=123&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;new_items&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?area=1&amp;saved_search_id=123&amp;date_from=2014-01-11T13%3A12%3A17%2B0400&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Each item contains following info:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>ID</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Name</td>
+</tr>
+<tr>
+  <td>created_at</td>
+  <td>string</td>
+  <td>Creation date and time</td>
+</tr>
+<tr>
+  <td>email_subscription</td>
+  <td>logical</td>
+  <td>Email subscription status</td>
+</tr>
+<tr>
+  <td>items</td>
+  <td>object</td>
+  <td>Vacancy list data</td>
+</tr>
+<tr>
+  <td>new_items</td>
+  <td>object</td>
+  <td>Information on list of vacancies appeared since the last vacancy view</td>
+</tr>
+</tbody>
+</table>
+
+<p>Vacancy list info contains number of items in search (<code>count</code>) and
+reference to such items. Upon requesting <code>new_items</code> reference
+new vacancy count will be reset (value may be reset after short
+delay).</p>
+
+<p><a name="vacancies-saved-search-item"></a></p>
+
+<h2 id="obtaining-single-saved-vacancy-search">Obtaining single saved vacancy search</h2>
+
+<p>In order to get autosearch by ID you must send
+<code>GET /saved_searches/vacancies/{id}</code>.</p>
+
+<p>Request is available only if authorized by an applicant, otherwise error
+<code>403 Forbidden</code> is returned.</p>
+
+<p>If successful, status<code>200 OK</code> containing single autosearch object in body
+will be returned. For example:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Test autosearch&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-04-11T13:12:17+0400&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;email_subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">304234</span><span class="p">,</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?area=1&amp;saved_search_id=123&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;new_items&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?area=1&amp;saved_search_id=123&amp;date_from=2014-01-11T13%3A12%3A17%2B0400&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>If autosearch is not found, status <code>404 Not Found</code> will be returned.</p>
+
+<p><a name="vacancies-saved-search-create"></a></p>
+
+<h2 id="creating-new-saved-vacancy-search">Creating new saved vacancy search</h2>
+
+<p>In order to create autosearch you must send request <code>POST</code> to
+<code>/saved_searches/vacancies</code> with following parameters:</p>
+
+<ul>
+<li>vacancy search parameters. Correspond to parameters
+sent to vacancy search <a href="vacancies.md.html">/vacancies</a></li>
+</ul>
+
+<p>If successful, response <code>201 Created</code> will be returned with title
+<code>Location</code> indicating created autosearch (e.g.
+<code>/saved_searches/vacancies/123</code>, where 123 is ID of created autosearch).</p>
+
+<p>Request is available only if authorized by an applicant, otherwise error
+<code>403 Forbidden</code> is returned.</p>
+
+<p><a name="vacancies-saved-search-update"></a></p>
+
+<h2 id="updating-saved-vacancy-search">Updating saved vacancy search</h2>
+
+<p>You can change subscription name and status for saved search. To do this,
+send <code>PUT /saved_searches/vacancies/{id}</code>, where id is
+saved search ID.</p>
+
+<p>You can change only subscription name (parameter <code>name</code>) or status
+(parameter <code>email_subscription=false</code>) at a time.</p>
+
+<p>If you try to change both, response <code>409 Conflict</code> is returned.
+If autosearch is not found, response <code>404 Not Found</code> will be returned.
+Request is available only if authorized by an applicant, otherwise error
+<code>403 Forbidden</code> is returned.</p>
+
+<p><a name="vacancies-saved-search-delete"></a></p>
+
+<h2 id="deleting-saved-vacancy-search">Deleting saved vacancy search</h2>
+
+<p>In order to delete autosearch, send request
+<code>DELETE /saved_searches/vacancies/{id}</code>, where id is autosearch ID.</p>
+
+<p>If autosearch is not found, status <code>404 Not Found</code> will be returned.</p>
+
+<p>Request is available only if authorized by an applicant, otherwise error
+<code>403 Forbidden</code> is returned.</p>
+
+<p>If autosearch is deleted successfully, status <code>204 No Content</code> will be returned.</p>
+
+<p><a name="resumes-saved-search-list"></a></p>
+
+<h2 id="list-of-saved-cv-searches">List of saved CV searches</h2>
+
+<p><code>GET /saved_searches/resumes</code></p>
+
+<p>Request is available only if authorized by an employer, otherwise error
+<code>403 Forbidden</code> is returned.</p>
+
+<p>You can additionally indicate
+<a href="general.md.html#pagination">standard pagination parameters</a> <code>page</code> and <code>per_page</code>.
+By default <code>per_page</code> is <code>5</code>, max value is <code>10</code>.</p>
+
+<p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;609535&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Managers in Moscow&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-01T13:12:17+0400&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;email_subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes?order_by=publication_time&amp;saved_search_id=123456&amp;text=manager&amp;area=1&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;new_items&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes?order_by=publication_time&amp;saved_search_id=123456&amp;text=manager&amp;area=1&amp;date_from=2015-11-12T18%3A06%3A04%2B0300&quot;</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><a name="resumes-saved-search-object"></a>
+Each collection item contains following info:</p>
+
+<table>
+<thead>
+<tr>
+  <th>name</th>
+  <th>type</th>
+  <th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>ID</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>name</td>
+</tr>
+<tr>
+  <td>email_subscription</td>
+  <td>logical</td>
+  <td>email subscription enabled/disabled</td>
+</tr>
+<tr>
+  <td>items</td>
+  <td>object</td>
+  <td>info on found CVs</td>
+</tr>
+<tr>
+  <td>new_items</td>
+  <td>object</td>
+  <td>Information on CVs found since the last autosearch view</td>
+</tr>
+</tbody>
+</table>
+
+<p>Objects <code>items</code> and <code>new_items</code> contain following fields:</p>
+
+<table>
+<thead>
+<tr>
+  <th>name</th>
+  <th>type</th>
+  <th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>count</td>
+  <td>int</td>
+  <td>number of saved search results</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>string</td>
+  <td>reference to saved search results is available if access to CV search is enabled</td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that in order to get autosearch results (CV list)
+the application used to authorize the employer should
+<a href="resumes.md.html#resume-search-request">pass the procedure on granting access to CV</a>.</p>
+
+<p><a name="resumes-saved-search-item"></a></p>
+
+<h1 id="getting-single-saved-cv-search">Getting single saved CV search</h1>
+
+<p><code>GET /saved_searches/resumes/{id}</code></p>
+
+<p>where <code>id</code> is the autosearch ID.</p>
+
+<p>Request is available only if authorized by an employer, otherwise error
+<code>403 Forbidden</code> is returned. If autosearch is not found or unavailable to current user,
+error <code>404 Not Found</code> is returned.</p>
+
+<p>Successful response is returned with <code>200 OK</code> code and contains single autosearch object
+identical to <a href="#resumes-saved-search-object">objects from CV autosearch list</a>.</p>
 
     </article>
     </body>

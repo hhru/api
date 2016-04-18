@@ -761,11 +761,62 @@ are supported.</p>
     <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;negotiations_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;negotiations_employer_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
             <span class="nt">&quot;can_invite&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="nt">&quot;negotiations_actions&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&amp;vacancy_id=123456&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite&quot;</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invite&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invite&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;quick&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite?resume_id=0123456789abcdef&amp;vacancy_id=123456&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_id&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;vacancy_id&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;send_sms&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                                <span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;address_id&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                                <span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
                 <span class="p">}</span>
             <span class="p">],</span>
 
@@ -820,8 +871,14 @@ with <a href="vacancies.md.html#nano">standard fields</a>, as well as additional
 if there was no response/invitation</li>
 <li><code>can_invite</code>-- The flag that determines whether it is possible to invite
 the specified CV to this vacancy</li>
+<li><code>employer_negotiations_state</code> - current employer status of
+the response/invitation or <code>null</code> if there was no response/invitation</li>
 <li><code>templates</code>-- list of <a href="negotiation_message_templates.md.html">templates</a> with
 texts for invitation</li>
+<li><a name="actions"></a> <code>negotiations_actions</code>-- list of possible actions on
+response/invitation for <a href="employer_negotiations.md.html#add-invite">creating invitation</a>.
+Response format is similar to
+<a href="employer_negotiations.md.html#actions-info">the responses/invitations actions</a>.</li>
 </ul>
 
 <p>When deciding whether to grant a user the possibility to invite a selected CV
@@ -839,12 +896,17 @@ state will be specified as:</p>
     <span class="nt">&quot;negotiations_state&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Response&quot;</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;negotiations_employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Response&quot;</span>
+     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Possible values of the state/invitation are available in the
-<a href="dictionaries.md.html">negotiations_state reference</a>.</p>
+<p>Possible values of the state/invitation for an applicant are available in the
+<a href="dictionaries.md.html">negotiations_state reference</a>, for employer in the
+<a href="employer_negotiations.md.html#collection">employer statuses for responses/invitations on vacancy</a>.</p>
 
 <h3 id="errors">Errors</h3>
 

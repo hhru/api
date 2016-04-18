@@ -735,10 +735,61 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_vacancy_branded_templates.md.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h1 id="employers-branded-vacancy-templates">Employer's branded vacancy templates</h1>
+
+<p>Branded templates are available for those employers who paid for
+and activated the respective service.
+See more details on the <a href="http://hh.ru/article/2069">hh.ru website</a>.</p>
+
+<p>Branded templates can be used for
+<a href="vacancies.md.html#branded-template-field">vacancy posting and editing</a>.</p>
+
+<p><a name="list"></a></p>
+
+<h2 id="list">List</h2>
+
+<p>List of all templates available from the employer.</p>
+
+<p><a name="list-request"></a></p>
+
+<h3 id="request">Request</h3>
+
+<p><code>GET /employers/{employer_id}/vacancy_branded_templates</code></p>
+
+<p>where <code>employer_id</code> – company ID available
+<a href="me.md.html#employer-info">from the information on current user</a>.</p>
+
+<p><a name="list-response"></a></p>
+
+<h3 id="response">Response</h3>
+
+<p>Successful server response is returned with <code>200 OK</code> code and contains the list
+of templates with template ID and name.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;marketing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marketing&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;tech&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Technical department&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><a name="list-errors"></a></p>
+
+<h3 id="errors">Errors</h3>
+
+<ul>
+<li><code>404 Not Found</code> – templates for this company are not available or
+the company doesn't exist.</li>
+<li><code>403 Forbidden</code> – current user is not authorized or is not
+an employer.</li>
+</ul>
 
     </article>
     </body>

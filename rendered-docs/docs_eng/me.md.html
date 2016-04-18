@@ -738,21 +738,21 @@
     <h1 id="current-user">Current user</h1>
 
 <ul>
-<li><a href="#info">Obtaining information on the current user</a></li>
-<li><a href="#edit">Editing information on the current user</a></li>
+<li><a href="#info">Obtaining info on the current user</a></li>
+<li><a href="#edit">Editing info on the current user</a></li>
 </ul>
 
 <p><a name="info"></a></p>
 
-<h2 id="obtaining-information-on-the-current-user">Obtaining information on the current user</h2>
+<h2 id="obtaining-info-on-the-current-user">Obtaining info on the current user</h2>
 
-<p><code>GET /me</code> will return information on the current authorized user. In case of
-incorrect authorization, the server will return the <code>403 Forbidden</code> response.</p>
+<p><code>GET /me</code> returns info on current authorized user.
+Server returns <code>403 Forbidden</code> if authorization is failed.</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345678&quot;</span><span class="p">,</span>
     <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Last name&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;First name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
     <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Middle name&quot;</span><span class="p">,</span>
     <span class="nt">&quot;is_admin&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;is_applicant&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -790,7 +790,7 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 <tr>
   <td>id</td>
   <td>string</td>
-  <td>user identifier</td>
+  <td>user ID</td>
 </tr>
 <tr>
   <td>last_name</td>
@@ -800,7 +800,7 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 <tr>
   <td>first_name</td>
   <td>string</td>
-  <td>first name</td>
+  <td>name</td>
 </tr>
 <tr>
   <td>middle_name</td>
@@ -810,7 +810,7 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 <tr>
   <td>is_admin</td>
   <td>logical</td>
-  <td>whether the user is the website administrator</td>
+  <td>user is site administrator</td>
 </tr>
 <tr>
   <td>is_applicant</td>
@@ -830,35 +830,42 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 <tr>
   <td>employer</td>
   <td>object, null</td>
-  <td>information on the company, if the current user is an employer</td>
+  <td><a href="#employer-info">company info</a> if the current user is an employer, or null in other cases</td>
 </tr>
 <tr>
   <td>personal_manager</td>
   <td>object, null</td>
-  <td>information on the personal manger, if the current user is an employer</td>
+  <td><a href="#personal-manager-info">personal manager info</a> if the current user is an employer, or null in other cases</td>
+</tr>
+<tr>
+  <td>manager</td>
+  <td>object, null</td>
+  <td><a href="#manager-info">info on a user who is company manager</a> if the current user is an employer, or null in other cases</td>
 </tr>
 <tr>
   <td>is_in_search</td>
   <td>logical, null</td>
-  <td>flag "looking/not looking for a job", if the current user is an applicant</td>
+  <td>flag "looking for a job yes/no" if the current user is an applicant</td>
 </tr>
 <tr>
   <td>resumes_url</td>
   <td>string</td>
-  <td>link to the api-service of the current user's resume list</td>
+  <td>reference to current user CV list api-service</td>
 </tr>
 <tr>
   <td>negotiations_url</td>
   <td>string</td>
-  <td>link to the api-service of the current user's application/invitation list</td>
+  <td>reference to current user responses/invitations list api-service</td>
 </tr>
 <tr>
   <td>counters</td>
-  <td>no object</td>
-  <td>information on counters, if the current user is an applicant</td>
+  <td>object, unavailable</td>
+  <td><a href="#counters-info">count info</a> if the current user is an applicant</td>
 </tr>
 </tbody>
 </table>
+
+<p><a name="employer-info"></a></p>
 
 <h4 id="object-employer">Object <code>employer</code></h4>
 
@@ -874,20 +881,53 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 <tr>
   <td>id</td>
   <td>string</td>
-  <td>company identifier</td>
+  <td>company ID</td>
 </tr>
 <tr>
   <td>name</td>
   <td>string</td>
   <td>company name</td>
 </tr>
+</tbody>
+</table>
+
+<p><a name="manager-info"></a></p>
+
+<h4 id="object-manager">Object <code>manager</code></h4>
+
+<table>
+<thead>
 <tr>
-  <td>manager_id</td>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
   <td>string</td>
-  <td>identifier of the current user as the company manager</td>
+  <td>manager ID</td>
+</tr>
+<tr>
+  <td>has_admin_rights</td>
+  <td>logical</td>
+  <td>current manager has administrator rights</td>
+</tr>
+<tr>
+  <td>is_main_contact_person</td>
+  <td>logical</td>
+  <td>current manager is main contact person of the company</td>
+</tr>
+<tr>
+  <td>manager_settings_url</td>
+  <td>string</td>
+  <td>url to send GET request to get <a href="manager_settings.md.html">manager preferences</a></td>
 </tr>
 </tbody>
 </table>
+
+<p><a name="personal-manager-info"></a></p>
 
 <h4 id="object-personal_manager">Object <code>personal_manager</code></h4>
 
@@ -903,7 +943,7 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 <tr>
   <td>id</td>
   <td>string</td>
-  <td>Personal manager's identifier</td>
+  <td>Personal manager ID</td>
 </tr>
 <tr>
   <td>email</td>
@@ -912,6 +952,8 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 </tr>
 </tbody>
 </table>
+
+<p><a name="counters-info"></a></p>
 
 <h4 id="object-counters">Object <code>counters</code></h4>
 
@@ -927,22 +969,22 @@ incorrect authorization, the server will return the <code>403 Forbidden</code> r
 <tbody>
 <tr>
   <td>unread_negotiations</td>
-  <td>The number of new unread messages (which have <code>has_updates: true</code>)</td>
+  <td>Number of unread negotiations (indicating <code>has_updates: true</code>)</td>
 </tr>
 <tr>
   <td>new_resume_views</td>
-  <td>General number of new views of all the resumes of the current user</td>
+  <td>Total number of new views of all CVs of the current user</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="edit"></a></p>
 
-<h2 id="editing-information-on-the-current-user">Editing information on the current user</h2>
+<h2 id="editing-info-on-the-current-user">Editing info on the current user</h2>
 
-<p>To edit the last name, first name or middle name, and also to set
-the flag "looking/not looking for a job", you should send a POST request to
-<code>/me</code>. Data can be edited only in groups:</p>
+<p>Send POST request to <code>/me</code> in order to edit the last name, name, middle name or
+enable/disable "looking for a job yes/no"  flag. Data can be edited only in
+groups:</p>
 
 <h3 id="full-name">Full name</h3>
 
@@ -963,26 +1005,25 @@ the flag "looking/not looking for a job", you should send a POST request to
 <tr>
   <td>first_name</td>
   <td>string</td>
-  <td>first name, the field can't be empty</td>
+  <td>name, field can't be empty</td>
 </tr>
 <tr>
   <td>middle_name</td>
   <td>string</td>
-  <td>middle name, the field can't be empty</td>
+  <td>middle name, field can be empty</td>
 </tr>
 </tbody>
 </table>
 
-<p>All the group fields must be sent in the request, for example:</p>
+<p>All the group fields must be sent in the request, e.g.:</p>
 
-<pre><code>POST /me
-last_name=Ivanov&amp;first_name=Ivan&amp;middle_name=
+<pre><code>    POST /me
+    last_name=Ivanov&amp;first_name=Ivan&amp;middle_name=
 </code></pre>
 
-<p>If not all the fields are indicated in the request, then the <code>400 Bad Request</code>
-response will be returned.</p>
+<p>If not all fields are sent, <code>400 Bad Request</code> is returned.</p>
 
-<h3 id="flag-lookingnot-looking-for-a-job">Flag "looking/not looking for a job"</h3>
+<h3 id="looking-for-a-job-yesno-flag">"looking for a job yes/no" flag</h3>
 
 <table>
 <thead>
@@ -1003,12 +1044,11 @@ response will be returned.</p>
 
 <p>Example:</p>
 
-<pre><code>POST /me
-is_in_search=true
+<pre><code> POST /me
+ is_in_search=true
 </code></pre>
 
-<p>A request with parameters from different groups will have the <code>400 Bad Request</code>
-response returned.</p>
+<p>If request contains parameters from different groups, <code>400 Bad Request</code> is returned.</p>
 
     </article>
     </body>

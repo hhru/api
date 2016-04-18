@@ -930,8 +930,8 @@ possibility to create messages after the invitation.</p>
 
 <h2 id="extra-vacancy-fields">Extra vacancy fields</h2>
 
-<p>If a vacancy is requested by an authorized user, the object will return the
-following fields:</p>
+<p>For the vacancy request with initiator authorization, optional fields will be
+displayed:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-09T17:03:35+0300&quot;</span><span class="p">,</span>
@@ -951,7 +951,7 @@ following fields:</p>
 <thead>
 <tr>
   <th>key</th>
-  <th>JSON type</th>
+  <th>type</th>
   <th>description</th>
 </tr>
 </thead>
@@ -959,30 +959,28 @@ following fields:</p>
 <tr>
   <td>expires_at</td>
   <td>string</td>
-  <td>date+vacancy posting expiration date</td>
+  <td>date and time of vacancy posting termination</td>
 </tr>
 <tr>
   <td>response_notifications</td>
-  <td>boolean</td>
-  <td>whether to notify the manager about new applications</td>
+  <td>logical</td>
+  <td>whether to notify manager on new responses</td>
 </tr>
 <tr>
   <td>hidden</td>
-  <td>boolean</td>
+  <td>logical</td>
   <td>whether the vacancy is deleted (hidden from the archive)</td>
 </tr>
 </tbody>
 </table>
 
-<p>The <code>manager</code> object contains information about the manager who posted the
-vacancy.</p>
+<p>In object <code>manager</code> – the information on the manager posted the vacancy.</p>
 
-<p>The <code>branded_template</code> object contains information about the
-<a href="employer_vacancy_branded_templates.md.html">branded template</a> which is used in
-the vacancy.</p>
+<p>In object <code>branded_template</code> – info on
+<a href="employer_vacancy_branded_templates.md.html">branded template</a> used in vacancy.</p>
 
-<p>The author of the vacancy can also access the <code>id</code> key in the <code>test</code> object, and
-in the <code>address</code> object, they can access:</p>
+<p>In object <code>test</code> key <code>id</code> is available for the initiator, in object
+<code>address</code> following objects are available:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -992,8 +990,53 @@ in the <code>address</code> object, they can access:</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>You can find more information about these fields in the section about 
+<p>More information on these fields see in section
 <a href="#creation_fields">vacancy posting</a>.</p>
+
+<p>For request with authorization of a manager having access to responses on a vacancy,
+optional field with different counters on vacancy will be displayed in the object:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
+    <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="nt">&quot;unread_responses&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;invitations&quot;</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>key</th>
+  <th>type</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>counters.views</td>
+  <td>number</td>
+  <td>number of vacancy views</td>
+</tr>
+<tr>
+  <td>counters.responses</td>
+  <td>number</td>
+  <td>number of responses to the vacancy</td>
+</tr>
+<tr>
+  <td>counters.unread_responses</td>
+  <td>number</td>
+  <td>number of non-viewed responses to the vacancy</td>
+</tr>
+<tr>
+  <td>counters.invitations</td>
+  <td>number</td>
+  <td>number of invitations to the vacancy</td>
+</tr>
+</tbody>
+</table>
 
 <p><a name="favorited"></a></p>
 
@@ -1156,7 +1199,11 @@ used for applicants.</p>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Open&quot;</span>
       <span class="p">},</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;snippet&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;requirement&quot;</span><span class="p">:</span> <span class="s2">&quot;...experience as &lt;highlighttext&gt;secretary&lt;/highlighttext&gt; / office manager. - presentable appearance. - knowledge of Excel, Lotus Notes and office appliances. - oral and written English.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;responsibility&quot;</span><span class="p">:</span> <span class="s2">&quot;Keeping private zone order (meeting rooms, kitchen). - ordering necessary goods (stationery, marketing materials, products, flowers, household goods, cleaning services, etc.&quot;</span>
+      <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1167,6 +1214,35 @@ used for applicants.</p>
 </code></pre></div>
 
 <p>Example: <a href="https://api.hh.ru/vacancies?locale=EN">https://api.hh.ru/vacancies?locale=EN</a></p>
+
+<p>In addition to <a href="#nano">standard vacancy fields</a> following optional fields will be displayed:</p>
+
+<table>
+<thead>
+<tr>
+  <th>key</th>
+  <th>type</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>snippet</td>
+  <td>object</td>
+  <td>Additional text snippets on found vacancy. If snippet text contains search term (parameter <code>text</code>), it will be highlighted with tag <code>highlighttext</code>.</td>
+</tr>
+<tr>
+  <td>snippet.requirement</td>
+  <td>string, null</td>
+  <td>Vacancy requirements if available in the description text.</td>
+</tr>
+<tr>
+  <td>snippet.responsibility</td>
+  <td>string, null</td>
+  <td>Vacancy responsibilities if available in the description text.</td>
+</tr>
+</tbody>
+</table>
 
 <p><a name="nano"></a></p>
 
@@ -1207,7 +1283,8 @@ used for applicants.</p>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Open&quot;</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1286,6 +1363,11 @@ used for applicants.</p>
   <td>type</td>
   <td>object</td>
   <td>Vacancy type, one of the elements <code>vacancy_type</code> in the <a href="dictionaries.md.html">Directory</a></td>
+</tr>
+<tr>
+  <td>archived</td>
+  <td>logical</td>
+  <td>Whether it is an archived vacancy</td>
 </tr>
 </tbody>
 </table>
@@ -1983,22 +2065,156 @@ separately from other vacancy fields.</p>
 
 <p><a name="prolongate"></a></p>
 
-<h2 id="vacancy-prolongation">Vacancy prolongation</h2>
+<h2 id="vacancy-extension">Vacancy extension</h2>
 
-<p><strong>Prolongation of the vacancy costs the same as a new posting</strong></p>
+<p><strong>Extension of the vacancy costs the same as a new posting</strong></p>
 
-<p>To extend a vacancy posting, a <code>POST /vacancies/{vacancy_id}/prolongate</code> request
-must be sent.</p>
-
-<p>There are limitations on vacancy extension, which are subject to change. At the
-moment, the following rules are in force:</p>
+<p>Vacancy extension has variable limits, and at the moment, the
+following rules are applied:</p>
 
 <ul>
-<li>standard vacancies can be extended if no less than 3 days have passed since
-the last extension.</li>
-<li>"standard plus" vacancies can be extended no earlier than 5 days before the
-posting end date.</li>
+<li>standard vacancies can be extended if no less than 3 days have passed since the last extension.</li>
+<li>"Standard Plus" vacancies can be extended no earlier than 5 days before the posting end date.</li>
 </ul>
+
+<h3 id="request">Request</h3>
+
+<p><code>POST /vacancies/{vacancy_id}/prolongate</code></p>
+
+<p>where <code>vacancy_id</code> – ID of the vacancy.</p>
+
+<h3 id="response">Response</h3>
+
+<ul>
+<li><code>204 No Content</code> – vacancy was extended successfully</li>
+<li><code>403 Forbidden</code> – current user is not an employer or
+extension is impossible.</li>
+<li><code>404 Not Found</code> – vacancy doesn't exist or current user
+is not eligible for extension.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#vacancies-prolongate">error reason</a>.</p>
+
+<p><a name="prolongate-info"></a></p>
+
+<h2 id="info-on-vacancy-extension-availability">Info on vacancy extension availability</h2>
+
+<h3 id="request-2">Request</h3>
+
+<p><code>GET /vacancies/{vacancy_id}/prolongate</code></p>
+
+<p>where <code>vacancy_id</code> – ID of the vacancy.</p>
+
+<h3 id="response-2">Response</h3>
+
+<p>Successful response is returned with <code>200 OK</code> code.</p>
+
+<p>Example of the response if the extension is not possible:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-11-19T17:10:48+0300&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;disable_reason&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard_plus_publication_is_updated_automatically&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;The \&quot;Standard Plus\&quot; vacancy cannot be updated: it is updated automatically every three days.&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Example of the response if the extension is possible:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-11-19T17:10:48+0300&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/123456789/prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>where:</p>
+
+<ul>
+<li><code>actions</code> – list of actions available for vacancy
+extension. At the moment, only regular extension is possible.</li>
+<li><code>id</code> – vacancy ID.</li>
+<li><code>expires_at</code> – date and time of vacancy posting termination.</li>
+</ul>
+
+<p>Data available for the action:</p>
+
+<ul>
+<li><code>id</code> – action ID,</li>
+<li><code>enabled</code> – action is possible,</li>
+<li><code>disable_reason</code> – reason of action disable.
+Possible reasons are listed <a href="dictionaries.md.html">in reference guide</a>
+<code>vacancy_not_prolonged_reason</code>.</li>
+<li><code>url</code> and <code>method</code> – url and HTTP method for the request to
+perform an action.</li>
+</ul>
+
+<h3 id="errors">Errors</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – current user is not an employer.</li>
+<li><code>404 Not Found</code> – vacancy doesn't exist or current user
+is not eligible to get the vacancy info.</li>
+</ul>
+
+<p><a name="conditions"></a></p>
+
+<h2 id="field-filling-and-vacancy-editing-conditions-2">Field filling and vacancy editing conditions</h2>
+
+<h3 id="rules">Rules</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>required</td>
+  <td>logical</td>
+  <td>Is the vacancy field or object field mandatory?</td>
+</tr>
+<tr>
+  <td>min_length</td>
+  <td>integer</td>
+  <td>Min length of text field.</td>
+</tr>
+<tr>
+  <td>max_length</td>
+  <td>integer</td>
+  <td>Max length of text field.</td>
+</tr>
+<tr>
+  <td>min_count</td>
+  <td>integer</td>
+  <td>Min number of objects for the fields with list transferring.</td>
+</tr>
+<tr>
+  <td>max_count</td>
+  <td>integer or <code>null</code></td>
+  <td>Max number of objects for the fields with list transferring. <code>null</code> – the number is not limited.</td>
+</tr>
+</tbody>
+</table>
 
     </article>
     </body>

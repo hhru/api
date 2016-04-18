@@ -735,69 +735,162 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1 id="messaging-applicationsinvitations-for-the-employer">Messaging (applications/invitations) for the employer</h1>
+    <h1 id="negotiations-responsesinvitations-for-employers">Negotiations (responses/invitations) for employers</h1>
 
-<p><em>Documentation on messaging for the applicant is available in the <a href="negotiations.md.html">separate article</em></a>.*</p>
+<p><em>Negotiations documentation for the applicant is available in the <a href="negotiations.md.html">separate article</a>.</em></p>
 
 <ul>
-<li><a href="#collections">Application/invitation collections</a></li>
-<li><a href="#negotiations-list">Application/invitation list</a></li>
-<li><a href="#get-negotiation">Viewing an application/invitation</a></li>
-<li><a href="#get-messages">Viewing a message list in an application/invitation</a></li>
+<li><a href="#model">Processing model, terms and procedures</a></li>
+<li><a href="#flow">General description of processing responses/invitations</a></li>
+<li><a href="#collections">Collections and employer statuses for responses/invitations</a></li>
+<li><a href="#negotiations-list">List of responses/invitation</a></li>
+<li><a href="#get-negotiation">View the response/invitation</a></li>
+<li><a href="#get-messages">View the list of messages in the response/invitation</a></li>
 <li><a href="#add-messages">Sending a message in the response/invitation</a></li>
 <li><a href="#add-invite">Inviting an applicant for a vacancy</a></li>
-<li><a href="#actions">Actions on a response/invitation</a>
-<ul>
-<li><a href="#put-on-hold">Put the response on hold (move to the "Think" list)</a></li>
-<li><a href="#invite">Invitation of the applicant for an interview in response to his/her response</a></li>
-<li><a href="#discard">Reject an applicant</a></li>
-</ul></li>
+<li><a href="#actions">Response/invitation actions (status change)</a></li>
 </ul>
 
-<p><a name="collections"></a></p>
+<p><a name="model"></a></p>
 
-<h2 id="applicationinvitation-collections">Application/invitation collections</h2>
+<h2 id="processing-model-terms-and-procedures">Processing model, terms and procedures</h2>
 
-<p>Employer has accessible collections of applications and invitations. Each
-collection contains applications/invitations in a certain state. The list of
-these collections can change depending on the particular vacancy.</p>
+<p>Responses and invitations correspond to the model displayed in API
+requests and responses. If the application uses the model correctly, the change
+of response and invitation business logics won't require their reprocessing or
+corrections.</p>
 
-<p>Vacancies available in the current user account can be seen in the
-<a href="employer_vacancies.md.html#active">employer's vacancy list</a>.</p>
-
-<p>If you need to get the full list of applications/invitations for the vacancy,
-request all collections one by one.</p>
-
-<p>The most frequently met collections:</p>
+<p>Responses and invitations contain following terms:</p>
 
 <ul>
-<li><code>inbox</code> – unsorted</li>
-<li><code>hold</code> – need to think</li>
-<li><code>invited</code> – invited</li>
-<li><code>discarded</code> – discarded</li>
+<li><p><em>response</em> – object generated on the initiative of the applicant (response to the vacancy).
+Response is always sent with single CV on single vacancy.</p></li>
+<li><p><em>invitation</em> – object generated on the initiative of the employer (vacancy
+invitation). Invitation is always sent for one vacancy for one CV.</p></li>
 </ul>
 
-<h3 id="request-for-obtaining-the-collection-list">Request for obtaining the collection list</h3>
+<p>Except of the object appearance process, the response and invitation processing is made
+identically.</p>
+
+<ul>
+<li><p><a name="term-collection"></a> <em>collection</em> – the set of responses/invitations,
+combined by certain criteria. Collections are used when your
+application needs <strong>to display</strong> the list of responses/invitations.
+The logic response/invitation processing is subject to change,
+so don't rely on having response/invitation in certain collection during processing.</p></li>
+<li><p><a name="term-state"></a> <em>applicant status of response/invitation</em> –
+response/invitation status <strong>displayed for the applicant</strong>. Possible values
+are given in <a href="dictionaries.md.html#negotiations"><code>negotiations_state</code> reference guide</a> and
+don't depend on vacancy in response/invitation.</p></li>
+<li><p><a name="term-employer-state"></a> <em>employer status of response/invitation</em> –
+employer status of response/invitation. May differ from the
+applicant's. The list of possible statuses
+<strong>depends on the vacancy and the employer</strong>, so the list
+<a href="#states">should be requested</a> upon transferring proper vacancy.</p></li>
+<li><p><a name="term-action"></a> <em>respond/invitation action</em> – the action to be
+performed for response/invitation. As the result,
+the employer and the applicant statuses of response/invitation may be
+changed or leaved as is.</p></li>
+</ul>
+
+<p>Don't confuse <em>action</em>, <em>collection</em> and <em>status</em> – they can look similar, but
+designed for different purposes.</p>
+
+<p><a name="flow"></a></p>
+
+<h2 id="general-description-of-processing-responsesinvitations">General description of processing responses/invitations</h2>
+
+<p>All actions on processing responses/invitations are made within
+<strong>one selected vacancy</strong>. One employer can have vacancies
+with different rules on processing responses/invitations.</p>
+
+<p>First, you need to get the list
+<a href="#collections">of collections and employer statuses</a>. Use collections
+to <strong>get the list of responses/invitations</strong>. Ask user
+to select the preferred collections. Retrive all
+collection successively to receive all responses/invitations. List
+of statuses should be used for reference only.</p>
+
+<p>Select the CV to <strong>create the invitation</strong>, e.g.
+<a href="resumes.md.html#search">in the search</a>, then request the vacancies related to this CV
+from the employer. See
+<a href="employer_vacancies_for_invitation.md.html">employer vacancy list</a> for this data as well as required
+parameters (key <code>arguments</code>) and status of generated
+response (key <code>resulting_employer_state</code>). Different employers and vacancies
+may employ different rules and statuses for added response. Each
+pair <em>vacancy + CV</em> can have only one response/invitation.</p>
+
+<p>To generate the invitation, the employer should have enabled access to
+CV database. No access required to process the existing response/invitation. This
+allows processing vacancy responses without access to CV database.</p>
+
+<p>To <strong>make an action</strong> on response/invitation,
+see <a href="#actions-info">the list of actions</a> available in
+<a href="#negotiations-list">the list (collection) of responses/invitations</a> and in
+<a href="#get-negotiation">individual response/invitation</a>. If this action results in
+change of response/invitation status, it will be displayed in key
+<code>resulting_employer_state</code>. Not all actions result in status change.</p>
+
+<p>Invite the applicant to initiate
+<a href="#get-messages">free negotiation</a>. You can
+<a href="#add-messages">send messages</a>, and applicant can respond on them.
+When necessary, the negotiation on certain vacancy may be
+<a href="vacancies.md.html#allow_messages">disabled</a> (field <code>allow_messages</code>).</p>
+
+<p><a name="states"></a>
+<a name="collections"></a></p>
+
+<h2 id="collections-and-employer-statuses-for-responsesinvitations-on-vacancy">Collections and employer statuses for responses/invitations on vacancy</h2>
+
+<p>Employer has available collections of responses and invitations. The list of these collections
+may be changed depending on the vacancy.</p>
+
+<p>You can get available vacancies of the current user through
+<a href="employer_vacancies.md.html#active">employer vacancy list</a>.</p>
+
+<p>Presently, there is no collection combining all responses/invitations on the vacancy
+available. Request all collections successively to get
+the full list.</p>
+
+<h3 id="request">Request</h3>
 
 <p><code>GET /negotiations?vacancy_id={vacancy_id}</code></p>
 
-<p>where <code>vacancy_id</code> is a vacancy id.</p>
+<p>where <code>vacancy_id</code> – ID of the vacancy.</p>
 
 <h3 id="response">Response</h3>
 
-<p>Successful response comes with the <code>200 OK</code> code and contains:</p>
+<p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;states&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nt">&quot;collections&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;inbox&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Inbox&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Unsorted&quot;</span><span class="p">,</span>
             <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/inbox?vacancy_id=123456&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invited&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invited&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited?vacancy_id=123456&quot;</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discarded&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Declined&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/discarded?vacancy_id=123456&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;employer_states&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Response&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discard&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Rejection&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discard_after_interview&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Rejected after interview&quot;</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -813,34 +906,54 @@ request all collections one by one.</p>
 </thead>
 <tbody>
 <tr>
-  <td>id</td>
-  <td>string</td>
-  <td>Collection ID, unique for this vacancy at the least</td>
+  <td>collections</td>
+  <td>list</td>
+  <td>of <a href="#term-collection">collections</a> of responses/invitations for this vacancy</td>
 </tr>
 <tr>
-  <td>name</td>
+  <td>collections.id</td>
+  <td>string</td>
+  <td>collection ID unique at least for this vacancy</td>
+</tr>
+<tr>
+  <td>collections.name</td>
   <td>string</td>
   <td>collection name</td>
 </tr>
 <tr>
-  <td>url</td>
+  <td>collections.url</td>
   <td>string</td>
-  <td>url, which GET request must be made to get applications/invitations of this collection</td>
+  <td>URL to send the GET request to in order to get responses/invitations for this collection</td>
+</tr>
+<tr>
+  <td>employer_states</td>
+  <td>list</td>
+  <td>of <a href="#term-employer-state">employer statuses</a> for responses/invitations on the vacancy</td>
+</tr>
+<tr>
+  <td>employer_states.id</td>
+  <td>string</td>
+  <td>status ID unique at least for this vacancy</td>
+</tr>
+<tr>
+  <td>employer_states.name</td>
+  <td>string</td>
+  <td>status name</td>
 </tr>
 </tbody>
 </table>
 
-<p>If the <code>vacancy_id</code> parameter is not sent, the response will return with the
-<code>400 Bad Request</code> code.</p>
+<p>If parameter <code>vacancy_id</code> is not sent, the response with code
+<code>400 Bad Request</code> will be returned.</p>
 
 <p><a name="negotiations-list"></a></p>
 
-<h2 id="applicationinvitation-list">Application/invitation list</h2>
+<h2 id="list-of-responsesinvitation">List of responses/invitation</h2>
 
-<h3 id="request">Request</h3>
+<h3 id="request-2">Request</h3>
 
-<p>When url from the <a href="#collections">collection list</a> is obtained, you should make a
-GET request for it, for example:</p>
+<p>Upon getting URL from the <a href="#collections">collection list</a> send a GET request to
+this URL, e.g.:</p>
 
 <p><code>GET https://api.hh.ru/negotiations/invited?vacancy_id=123456</code></p>
 
@@ -850,7 +963,7 @@ GET request for it, for example:</p>
 <thead>
 <tr>
   <th>Name</th>
-  <th>Mandatory</th>
+  <th>Required</th>
   <th>Description</th>
 </tr>
 </thead>
@@ -858,28 +971,24 @@ GET request for it, for example:</p>
 <tr>
   <td>vacancy_id</td>
   <td>yes</td>
-  <td>Vacancy identifier</td>
+  <td>Vacancy ID</td>
 </tr>
 <tr>
   <td>page</td>
   <td>no</td>
-  <td>Defaul page number: 0</td>
+  <td>Page number, default: 0</td>
 </tr>
 <tr>
   <td>per_page</td>
   <td>no</td>
-  <td>Default number of elements shown per page 20</td>
+  <td>Number of elements displayed per page, by default: 20</td>
 </tr>
 </tbody>
 </table>
 
-<p>The <code>inbox</code> collection, if available for this vacancy, supports
-the optional parameter <code>with_updates_only``=true</code> – to show only
-applications/invitations that have updates.</p>
-
 <h3 id="response-2">Response</h3>
 
-<p>Successful response comes with the <code>200 OK</code> code and contains:</p>
+<p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
@@ -893,20 +1002,81 @@ applications/invitations that have updates.</p>
             <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T12:00:05+0300&quot;</span><span class="p">,</span>
             <span class="nt">&quot;has_updates&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Response&quot;</span>
             <span class="p">},</span>
+            <span class="nt">&quot;employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Response&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invite&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited/123456789&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite_after_response&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invite responded applicant&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;quick&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite_after_response?topic_id=123456789&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;send_sms&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                                <span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;address_id&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                            <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                                <span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hold&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Think&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/hold/123456789&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
             <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789&quot;</span><span class="p">,</span>
             <span class="nt">&quot;messages_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789/messages&quot;</span><span class="p">,</span>
             <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
             <span class="nt">&quot;resume&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Aspiring specialist&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Young specialist&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef?topic_id=123456789&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivan&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanovich&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+                <span class="nt">&quot;can_view_full_info&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
                 <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/resume/0123456789abcdef?vacancyId=123456&amp;t=123456789&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-06T12:00:00+0300&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-20T16:24:15+0300&quot;</span><span class="p">,</span>
@@ -937,9 +1107,12 @@ applications/invitations that have updates.</p>
                         <span class="p">}</span>
                     <span class="p">]</span>
                 <span class="p">},</span>
+                <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">118</span>
+                <span class="p">},</span>
                 <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
                     <span class="p">{</span>
-                        <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;shepherd&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;cattleman&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2010-01-01&quot;</span><span class="p">,</span>
                         <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
                         <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Horns and Hoofs&quot;</span><span class="p">,</span>
@@ -950,7 +1123,7 @@ applications/invitations that have updates.</p>
                             <span class="p">},</span>
                             <span class="p">{</span>
                                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;29.503&quot;</span><span class="p">,</span>
-                                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Farming, plant cultivation, cattle breeding&quot;</span>
+                                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Farming, crop growing, livestock farming&quot;</span>
                             <span class="p">}</span>
                         <span class="p">],</span>
                         <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span>
@@ -1029,29 +1202,28 @@ applications/invitations that have updates.</p>
 <tr>
   <td>found</td>
   <td>number</td>
-  <td>Number of applications found (≥ 0)</td>
+  <td>Number of responses found ( ≥ 0 )</td>
 </tr>
 <tr>
   <td>pages</td>
   <td>number</td>
-  <td>Number of pages with applications (≥ 1)</td>
+  <td>Number of pages with responses ( ≥ 1 )</td>
 </tr>
 <tr>
   <td>per_page</td>
   <td>number</td>
-  <td>Number of elements per page (&gt; 0)</td>
+  <td>Number of elements per page ( &gt; 0 )</td>
 </tr>
 <tr>
   <td>page</td>
   <td>number</td>
-  <td>Number of the current page (≥ 0)</td>
+  <td>Number of the current page ( ≥ 0 )</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="negotiations-list-item"></a>
-The <code>items</code> element contains data on applications/invitations and corresponding
-CVs:</p>
+The <code>items</code> entity contains response/invitation data and CVs for them:</p>
 
 <table>
 <thead>
@@ -1065,88 +1237,195 @@ CVs:</p>
 <tr>
   <td>id</td>
   <td>string</td>
-  <td>Application identifier</td>
+  <td>Response ID</td>
 </tr>
 <tr>
   <td>created_at</td>
   <td>string</td>
-  <td>Application/invitation creation date and time</td>
+  <td>Response/invitation creation date and time</td>
 </tr>
 <tr>
   <td>updated_at</td>
   <td>string</td>
-  <td>Last application/invitation update date and time</td>
+  <td>Response/invitation update date and time</td>
 </tr>
 <tr>
   <td>state</td>
   <td>object</td>
-  <td>Current state of the application. Possible values are in the [/dictionaries] (./dictionaries.md) directory in the <code>negotiations_state</code> section.</td>
+  <td>Current <a href="#term-state">response status of the applicant</a>.</td>
+</tr>
+<tr>
+  <td>employer_state</td>
+  <td>object</td>
+  <td>Current <a href="#term-employer-state">employer status of the applicant</a>.</td>
+</tr>
+<tr>
+  <td>actions</td>
+  <td>list</td>
+  <td>list of possible <a href="#actions-info">actions on response/invitation</a></td>
 </tr>
 <tr>
   <td>url</td>
   <td>string</td>
-  <td>url for getting <a href="#get-negotiation">the full version of an application/invitation</a></td>
+  <td>URL to get <a href="#get-negotiation">the full version of response/invitation</a></td>
 </tr>
 <tr>
   <td>messages_url</td>
   <td>string</td>
-  <td>url for getting <a href="#get-messages">the message list in the application</a></td>
+  <td>URL to get <a href="#get-messages">the list of messages in the response</a></td>
 </tr>
 <tr>
-  <td>CV</td>
+  <td>resume</td>
   <td>object, null</td>
-  <td>CV. The fields shown are similar to the <a href="resumes.md.html#search-results">CV search</a>. To get the full CV, you should request it with a GET request using the url from the <code>url</code> key. It can be <code>null</code>, if the applicant deleted the CV or restricted access to it.</td>
+  <td>CV. Displayed fields are identical to <a href="resumes.md.html#search-results">search on CV</a>. To get full CV, send a GET request to URL from key <code>url</code>. It can be <code>null</code>, if the applicant deleted the CV or disabled access to it.</td>
 </tr>
 <tr>
   <td>has_updates</td>
   <td>logical</td>
-  <td>Any updates in the application/invitation that call for attention. The flag becames <code>false</code> when various actions are performed with the application/invitation, such as <a href="#get-messages">viewing the message list</a>, and also <a href="#view-resume">when the CV is viewed correctly from the application/invitation</a>.</td>
+  <td>Whether the response/invitation includes updates that require attention. The flag can be disabled upon different response/invitation actions, e.g. upon <a href="#get-messages">viewing message list</a>, and <a href="#view-resume">appropriate view of CV on response/invitation</a>.</td>
 </tr>
 <tr>
   <td>viewed_by_opponent</td>
   <td>logical</td>
-  <td>Whether the application has been viewed by the applicant</td>
-</tr>
-<tr>
-  <td>templates</td>
-  <td>array</td>
-  <td>Letter templates. Contains the template ID and url for <a href="message_templates.md.html">obtaining text according to the template</a>.</td>
+  <td>Whether the response was viewed by the applicant</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="view-resume"></a></p>
 
-<p>The application/invitation list contains only the main information on the CV. To
-obtain the full information, particularly the applicant's contacts, you should
-request the full CV. The applicant will have the CV request displayed in the
+<p>The list of responses/invitations contains only basic CV info.
+To get full info, such as applicant contact details,
+request the full CV. The applicant will see this CV request in
 view history.</p>
 
-<p><strong>Take note!</strong> The additional request for CV data <strong>must</strong> be performed using
-exactly the url from the JSON response. Only in this case the request will be
-registered correctly in the view history. For instance, if a CV is requested
-from the application for an anonymous vacancy, the history will display the
-anonymous name of the company.</p>
+<p><strong>Important!</strong> Additional request on CV data <strong>should be</strong>
+sent to URL from JSON response. This is the only option
+to correctly process the request in view history. E.g, if the CV is requested from the response
+to anonymous vacancy, the history will display anonymous name of the company.</p>
 
-<p>In case the vacancy the applications are requested for doesn't exist or is not
-accessible for the current user, the <code>404 Not Found</code> response returns.</p>
+<p>If the vacancy of requested responses doesn't exist or
+not available to the current user, <code>404 Not Found</code> response will be returned.</p>
+
+<p><a name="actions-info"></a></p>
+
+<h3 id="responseinvitation-actions-actions">Response/invitation actions (<code>actions</code>)</h3>
+
+<p>The number of actions may differ, and the list of actions may be
+empty.</p>
+
+<p>Each action is indicated with:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Action ID</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Action name</td>
+</tr>
+<tr>
+  <td>enabled</td>
+  <td>logical</td>
+  <td>Whether the action is possible</td>
+</tr>
+<tr>
+  <td>method</td>
+  <td>string</td>
+  <td>HTTP method to perform</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>string</td>
+  <td>URL to send the request to</td>
+</tr>
+<tr>
+  <td>resulting_employer_state</td>
+  <td>object, null</td>
+  <td><a href="#term-employer-state">employer status</a> on response/invitation enabled upon the action. If the action doesn't change the status – <code>null</code>.</td>
+</tr>
+<tr>
+  <td>templates</td>
+  <td>list</td>
+  <td>Letter templates. Contains the template ID and url for <a href="/message_templates.md.html">obtaining text according to the template</a>.</td>
+</tr>
+<tr>
+  <td>arguments</td>
+  <td>list</td>
+  <td>Mandatory and optional arguments for the request</td>
+</tr>
+</tbody>
+</table>
+
+<p>Action has attached list of possible arguments
+such as:</p>
+
+<ul>
+<li><code>message</code> – the message that will be sent to the applicant's email. Use <a href="negotiation_message_templates.md.html">templates</a> to obtain texts.</li>
+<li><code>address_id</code> – ID of the <a href="employer_addresses.md.html">address</a> that will be specified in the invitation</li>
+<li><code>send_sms</code> – whether to notify the applicant of the invitation via SMS. In order to send specify <code>true</code>, default value is <code>false</code>.</li>
+</ul>
+
+<p>The application should be capable of entering these arguments. In future we may add other arguments, however
+they won't be mandatory. Mandatory arguments may vary depending
+on response/invitation.</p>
+
+<p>Each argument will be indicated with:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Argument ID</td>
+</tr>
+<tr>
+  <td>required</td>
+  <td>logical</td>
+  <td>Mandatory argument</td>
+</tr>
+<tr>
+  <td>required_arguments</td>
+  <td>list</td>
+  <td>Arguments to be applied if this argument is indicated. E.g., the address is optional, however if it is indicated you must also specify the message.</td>
+</tr>
+</tbody>
+</table>
 
 <p><a name="get-negotiation"></a></p>
 
-<h2 id="viewing-an-applicationinvitation">Viewing an application/invitation</h2>
+<h2 id="view-the-responseinvitation">View the response/invitation</h2>
 
-<h3 id="request-2">Request</h3>
+<h3 id="request-3">Request</h3>
 
 <p><code>GET /negotiations/{nid}</code></p>
 
-<p>where <code>nid</code> is an application/invitation identifier.</p>
+<p>where <code>nid</code> is the response/invitation ID.</p>
 
-<p>It is usually obtained from the <code>url</code> key in the
-<a href="#negotiations-list">application/invitation list</a>.</p>
+<p>Usually is taken from key <code>url</code> in
+<a href="#negotiations-list">the list of responses/invitations</a>.</p>
 
 <h3 id="response-3">Response</h3>
 
-<p>Successful response comes with the <code>200 OK</code> code and contains:</p>
+<p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
@@ -1154,14 +1433,75 @@ accessible for the current user, the <code>404 Not Found</code> response returns
     <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-14T12:00:05+0300&quot;</span><span class="p">,</span>
     <span class="nt">&quot;has_updates&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;messages_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123456789/messages&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;messaging_status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
     <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Response&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Response&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invite&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/invited/123456789&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invitation&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invitation&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;invite_after_response&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Invite responded applicant&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;quick&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/message_templates/invite_after_response?topic_id=123456789&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;send_sms&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;address_id&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nt">&quot;required_arguments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hold&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Think&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/hold/123456789&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&quot;resulting_employer_state&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;templates&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;resume&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Aspiring specialist&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Young specialist&quot;</span><span class="p">,</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef?topic_id=123456789&quot;</span><span class="p">,</span>
         <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivan&quot;</span><span class="p">,</span>
         <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov&quot;</span><span class="p">,</span>
@@ -1179,7 +1519,7 @@ accessible for the current user, the <code>404 Not Found</code> response returns
             <span class="p">{</span>
                 <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-01&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-                <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;тест&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span>
             <span class="p">}</span>
@@ -1189,13 +1529,16 @@ accessible for the current user, the <code>404 Not Found</code> response returns
                 <span class="p">{</span>
                     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russian State Social University, Moscow&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;name_id&quot;</span><span class="p">:</span> <span class="s2">&quot;39420&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Faculty of Information Technology&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;IT Department&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;organization_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
                     <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;result_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
                     <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2012</span>
                 <span class="p">}</span>
             <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">118</span>
         <span class="p">},</span>
         <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
@@ -1204,7 +1547,7 @@ accessible for the current user, the <code>404 Not Found</code> response returns
                     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
                 <span class="p">},</span>
-                <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Horns and Hoofs&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Roga i Kopyta&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
                 <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -1212,7 +1555,7 @@ accessible for the current user, the <code>404 Not Found</code> response returns
                 <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
                     <span class="p">{</span>
                         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;45.507&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Extraction and processing of ore, black, base, precious, noble and rare metal&quot;</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mining and dressing of ferrous, non-ferrous, precious, noble and rare metals&quot;</span>
                     <span class="p">}</span>
                 <span class="p">],</span>
                 <span class="nt">&quot;industry&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -1246,7 +1589,7 @@ accessible for the current user, the <code>404 Not Found</code> response returns
                 <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/1111.jpeg&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo-original/1111.jpeg&quot;</span>
             <span class="p">},</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Horns and Hoofs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Roga i Kopyta&quot;</span><span class="p">,</span>
             <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1&quot;</span><span class="p">,</span>
             <span class="nt">&quot;vacancies_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?employer_id=1&quot;</span>
         <span class="p">},</span>
@@ -1265,46 +1608,45 @@ accessible for the current user, the <code>404 Not Found</code> response returns
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Response body is similar to
-<a href="#negotiations-list-item">the element in the application/invitation list</a>,
-and also contains the <code>vacancy</code> key, which has some
-<a href="vacancies.md.html#nano">brief information on the vacancy</a>.</p>
+<p>Response body is identical
+<a href="#negotiations-list-item">to the element in the list of responses/invitations</a>, and
+contains key <code>vacancy</code> giving
+<a href="vacancies.md.html#nano">short info regarding vacancy</a>.</p>
 
-<p><a name="messaging_status"></a></p>
+<p><a name="messaging_status"></a>
+Additionally, field <code>messaging_status</code> showing negotiation status
+is returned for the response/invitation. Possible values
+see in <a href="dictionaries.md.html">messaging_status</a> reference guide.</p>
 
-<p>Additionally, <code>messaging_status</code> field specifying the messaging state is
-returned for a response/invitation. Possible values are provided in the
-<a href="dictionaries.md.html">messaging_status</a> reference.</p>
-
-<p>In case the response/invitation does not exist or is unavailable for the current
-user, '404 Not Found' server response will be returned.</p>
+<p>If response/invitation doesn't exist or not available to the current user,
+<code>404 Not Found</code> response will be returned.</p>
 
 <p><a name="get-messages"></a></p>
 
-<h2 id="viewing-a-message-list-in-an-applicationinvitation">Viewing a message list in an application/invitation</h2>
+<h2 id="view-the-list-of-messages-in-the-responseinvitation">View the list of messages in the response/invitation</h2>
 
-<p>Messages in an application/invitation can be:</p>
+<p>Messages contained in the response/invitation can be made as:</p>
 
 <ul>
-<li>a cover letter written by the applicant when applying for the vacancy</li>
-<li>some text sent by the employer when inviting for the vacancy, inviting for
-the interview or declining</li>
-<li>a part of free messaging between the applicant and the employer</li>
+<li>cover letter left by the applicant upon response to the vacancy</li>
+<li>text sent by the employer upon inviting for the vacancy, for the interview
+or upon rejection</li>
+<li>free negotiation messages between the applicant and the employer</li>
 </ul>
 
-<h3 id="request-3">Request</h3>
+<h3 id="request-4">Request</h3>
 
 <p><code>GET /negotiations/{nid}/messages</code></p>
 
-<p>where <code>nid</code> is an application/invitation identifier.</p>
+<p>where <code>nid</code> is the response/invitation ID.</p>
 
-<p>Usually the url is obtained from the <code>messages_url</code> key in the
-<a href="#negotiations-list">application/invitation list</a> or when
-<a href="#get-negotiation">viewing an application/invitation</a>.</p>
+<p>Usually is taken from key <code>messages_url</code> in
+<a href="#negotiations-list">the list of responses/invitations</a> or in
+<a href="#get-negotiation">view the response/invitation</a>.</p>
 
 <h3 id="response-4">Response</h3>
 
-<p>Successful response comes with the <code>200 OK</code> code and contains:</p>
+<p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
@@ -1314,7 +1656,7 @@ the interview or declining</li>
    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
        <span class="p">{</span>
            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;We are inviting you for our vacancy...&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;You are invited for the vacancy...&quot;</span><span class="p">,</span>
            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-15T19:23:35+0300&quot;</span><span class="p">,</span>
            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
                <span class="nt">&quot;participant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;employer&quot;</span>
@@ -1328,7 +1670,7 @@ the interview or declining</li>
            <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;To the Right, Under the Sign&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Turn right following the sign&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">35.0</span><span class="p">,</span>
                 <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">30.0</span><span class="p">,</span>
                 <span class="nt">&quot;metro&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1369,7 +1711,7 @@ the interview or declining</li>
        <span class="p">},</span>
        <span class="p">{</span>
            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;321&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Great, it will be my pleasure to attend the interview...&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Great! I will be glad to meet you for an interview...&quot;</span><span class="p">,</span>
            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-05-15T19:23:35+0300&quot;</span><span class="p">,</span>
            <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
                <span class="nt">&quot;participant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;applicant&quot;</span>
@@ -1400,34 +1742,28 @@ the interview or declining</li>
 <tr>
   <td>found</td>
   <td>number</td>
-  <td>Number of messages in messaging (≥ 0)</td>
+  <td>Number of messages in negotiation ( ≥ 0 )</td>
 </tr>
 <tr>
   <td>pages</td>
   <td>number</td>
-  <td>Number of pages with messages (≥ 1)</td>
+  <td>Number of pages with messages ( ≥ 1 )</td>
 </tr>
 <tr>
   <td>per_page</td>
   <td>number</td>
-  <td>Number of messages per page (&gt; 0)</td>
+  <td>Number of messages per page ( &gt; 0 )</td>
 </tr>
 <tr>
   <td>page</td>
   <td>number</td>
-  <td>Number of the current page (≥ 0)</td>
-</tr>
-<tr>
-  <td>assessments</td>
-  <td>array</td>
-  <td><a href="assessment.md.html">assessment tools</a> linked to the message</td>
+  <td>Number of the current page ( ≥ 0 )</td>
 </tr>
 </tbody>
 </table>
 
-<p><a name="negotiations-message-item"></a></p>
-
-<p>The <code>items</code> element contains the data about messages:</p>
+<p><a name="negotiations-message-item"></a>
+The <code>items</code> entity contains message data:</p>
 
 <table>
 <thead>
@@ -1441,17 +1777,17 @@ the interview or declining</li>
 <tr>
   <td>id</td>
   <td>string</td>
-  <td>Message identifier</td>
+  <td>Message ID</td>
 </tr>
 <tr>
   <td>viewed_by_me</td>
   <td>logical</td>
-  <td>Whether the message is read by the viewer (for messages sent by the employer it is always <code>true</code>)</td>
+  <td>Whether the message was read by the viewer (for messages sent by employer the value is always <code>true</code>)</td>
 </tr>
 <tr>
   <td>viewed_by_opponent</td>
   <td>logical</td>
-  <td>Whether the message is read by the applicant (for the applicant's messages it is always <code>true</code>)</td>
+  <td>Whether the message was read by the applicant (for messages sent by applicant the value is always <code>true</code>)</td>
 </tr>
 <tr>
   <td>created_at</td>
@@ -1461,137 +1797,111 @@ the interview or declining</li>
 <tr>
   <td>text</td>
   <td>string, null</td>
-  <td>Message text. <code>null</code> can be in case when the applicant didn't send a cover letter with their application.</td>
+  <td>Message text. <code>null</code> can be displayed if the applicant didn't attach the cover letter to the response.</td>
 </tr>
 <tr>
   <td>state</td>
   <td>object</td>
-  <td>Current state of the application. Possible values are in the <a href="./dictionaries.md.html">/dictionaries</a> directory in the <code>negotiations_state</code> section</td>
+  <td>Current state of the application. Possible values are listed in the <a href="./dictionaries.md.html">/dictionaries</a> reference, section <code>negotiations_state</code></td>
 </tr>
 <tr>
   <td>author</td>
   <td>object</td>
-  <td>Who the author of the message is</td>
+  <td>Who is the message author</td>
 </tr>
 <tr>
   <td>author.participant_type</td>
   <td>string</td>
-  <td>The role of the author of the message. Possible values are in the <a href="./dictionaries.md.html">/dictionaries</a> directory in the <code>negotiations_participant_type</code> section</td>
+  <td>Message author role. Possible values are listed in the <a href="./dictionaries.md.html">/dictionaries</a> reference, section <code>negotiations_participant_type</code></td>
 </tr>
 <tr>
   <td>address</td>
   <td>object, null</td>
-  <td><a href="./address.md.html">Address</a>, bound to the application/invitation</td>
+  <td><a href="./address.md.html">Address</a> linked to the response/invitation</td>
+</tr>
+<tr>
+  <td>assessments</td>
+  <td>array</td>
+  <td><a href="assessment.md.html">assessment tools</a> linked to the message</td>
 </tr>
 </tbody>
 </table>
 
-<p>In case the application/invitation doesn't exist or the current user can't
-access messaging, the <code>404 Not Found</code> response is returned.</p>
+<p>If response/invitation doesn't exist or negotiation not available to the current user,
+<code>404 Not Found</code> response will be returned.</p>
 
 <p><a name="add-messages"></a></p>
 
 <h2 id="sending-a-message-in-the-responseinvitation">Sending a message in the response/invitation</h2>
 
-<p>Messaging is possible after invitation of the applicant. Possibility to create a
-message is determined by the
-<a href="#messaging_status"><code>messages_status</code> field in the response/invitation</a>.</p>
+<p>Messaging is possible after invitation of the applicant. Find out whether you can
+leave the message from
+<a href="#messaging_status">field <code>messages_status</code> in response/invitation</a>.</p>
 
-<h3 id="request-4">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <p><code>POST /negotiations/{nid}/messages</code></p>
 
 <p>where <code>nid</code> is the response/invitation ID.</p>
 
-<p>Additionally, the <code>message</code> parameter – message text – must be specified.</p>
+<p>Additionally, the <code>message</code> parameter – message text – must be specified.</p>
 
 <h3 id="response-5">Response</h3>
 
-<p>Successful server response is returned with <code>201 Created</code> code and does not have
-a body.</p>
+<p>Successful server response is returned with <code>201 Created</code> code and does not have a body.</p>
 
 <h3 id="errors">Errors</h3>
 
 <ul>
-<li><code>400 Bad Request</code> – error in the request parameters.</li>
-<li><code>403 Forbidden</code> – message cannot be sent.</li>
-<li><code>404 Not Found</code> – the sent response/invitation doe not exist or the current
-manager is not authorized to handle it.</li>
+<li><code>400 Bad Request</code> – error in the request parameters.</li>
+<li><code>403 Forbidden</code> – message cannot be sent.</li>
+<li><code>404 Not Found</code> – sent response/invitation doesn't exist or current
+manager is not authorized to process it.</li>
 </ul>
 
 <p>In addition to an HTTP code, the server can return
-<a href="errors.md.html#negotiations">error reasons</a>.</p>
+<a href="errors.md.html#negotiations">error reason</a>.</p>
 
 <p>For example:</p>
 
 <ul>
-<li><code>resume_not_found</code> – if the CV in the response/invitation was hidden or deleted</li>
-<li><code>invalid_vacancy</code> – if the vacancy in the response/invitation was archived or deleted</li>
-<li><code>no_invitation</code> – if the response/invitation is not in the "invitation"
-status. For example, it is already in the "rejected" status or still in the "response" status.</li>
-<li><code>in_a_row_limit</code> – if the number of successive messages is exceeded.
-The applicant must reply to the message in order the employer is able to send new messages.</li>
-<li><code>overall_limit</code> – if the messages limit is exceeded</li>
+<li><code>resume_not_found</code> – if the CV in the response/invitation was hidden
+or deleted</li>
+<li><code>invalid_vacancy</code> – if the vacancy in the response/invitation was archived
+or hidden</li>
+<li><code>no_invitation</code> – if the response/invitation is not in the "invitation" status.
+For example, it is already in the "rejected" status or still in the "response" status.</li>
+<li><code>in_a_row_limit</code> – if the number of successive messages is exceeded.
+The applicant must reply to the message in order the employer is able to send
+new messages.</li>
+<li><code>overall_limit</code> – if the messages limit is exceeded</li>
 </ul>
 
 <p><a name="add-invite"></a></p>
 
 <h2 id="inviting-an-applicant-for-a-vacancy">Inviting an applicant for a vacancy</h2>
 
-<p>The invitation is initiated between a employer's vacancy and applicant's CV by
-the employer.</p>
+<p>The invitation is initiated between an employer's vacancy and an applicant's CV by
+the employer. To send the request you need to know initial
+statuses of this pair of vacancy and CV. Learn more in
+<a href="#flow">general description of processing</a>.</p>
 
-<p>In order to find out what vacancies are available for applicant invitation, use
-<a href="employer_vacancies_for_invitation.md.html">the list of vacancies suitable for invitation</a>.</p>
+<h3 id="request-6">Request</h3>
 
-<p>Also see <a href="#invite">invitation of the applicant for an interview after the response</a>.</p>
+<p><code>POST /negotiations/{state}</code></p>
 
-<h3 id="request-5">Request</h3>
+<p>where <code>state</code> – is the initial status of the invitation.</p>
 
-<p><code>POST /negotiations</code></p>
+<p>Invitation parameters can be got from
+<a href="employer_vacancies_for_invitation.md.html#actions-info">action list</a>.</p>
 
-<p>Parameters:</p>
-
-<table>
-<thead>
-<tr>
-  <th>Name</th>
-  <th>Required</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>vacancy_id</td>
-  <td>yes</td>
-  <td>ID of the vacancy which the applicant is invited for.</td>
-</tr>
-<tr>
-  <td>resume_id</td>
-  <td>yes</td>
-  <td>ID of the CV which the applicant is invited for.</td>
-</tr>
-<tr>
-  <td>send_sms</td>
-  <td>no</td>
-  <td>Whether to notify the applicant of the invitation via SMS. In order to send specify <code>true</code>, default value is <code>false</code>.</td>
-</tr>
-<tr>
-  <td>message</td>
-  <td>yes</td>
-  <td>The message that will be sent to the applicant's email. Use <a href="negotiation_message_templates.md.html">templates</a> to obtain texts.</td>
-</tr>
-<tr>
-  <td>address_id</td>
-  <td>no</td>
-  <td>ID of the <a href="employer_addresses.md.html">address</a> that will be specified in the invitation.</td>
-</tr>
-</tbody>
-</table>
+<p>Parameters should be sent in standard format
+<code>application/x-www-form-urlencoded</code>.</p>
 
 <h3 id="response-6">Response</h3>
 
-<p>Successful server response is accompanied by <code>201 Created</code> code, does not have any body and contains the <code>Location</code> header pointing to the created invitation:</p>
+<p>Successful server response is returned with <code>201 Created</code> code, does not have a body and contains
+title <code>Location</code> indicating created invitation:</p>
 
 <pre><code>HTTP/1.1 201 Created
 
@@ -1601,222 +1911,95 @@ Location: /negotiations/321
 <h3 id="errors-2">Errors</h3>
 
 <ul>
-<li><code>400 Bad Request</code> – error in the request parameters.</li>
+<li><code>400 Bad Request</code> – error in the request parameters.</li>
 <li><code>403 Forbidden</code> – invitation is impossible.</li>
 </ul>
 
-<p>In addition to an HTTP code, the server can return <a href="errors.md.html#negotiations">error reasons</a>.</p>
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#negotiations">error reason</a>.</p>
 
 <p>For example:</p>
 
 <ul>
-<li><code>already_invited</code> – if the response between the sent CV and the vacancy
+<li><code>already_invited</code> – if the response between the sent CV and the vacancy
 already exists</li>
-<li><code>resume_not_found</code> – if the sent CV was hidden or deleted</li>
-<li><code>invalid_vacancy</code> – if the sent vacancy was archived or hidden</li>
-<li><code>limit_exceeded</code> – if the manager's number of invitations per day limit was
-exceeded</li>
-<li><code>application_denied</code> – general invitation denial error in case the additional
-information is unavailable</li>
-<li><code>address_not_found</code> – if the sent address does not exist or belongs to
+<li><code>resume_not_found</code> – if the sent CV was hidden or deleted</li>
+<li><code>invalid_vacancy</code> – if the sent vacancy was archived or hidden</li>
+<li><code>limit_exceeded</code> – if the manager's number of invitations per day limit
+was exceeded</li>
+<li><code>application_denied</code> – general invitation denial error
+if additional information is unavailable</li>
+<li><code>address_not_found</code> – if the sent address does not exist or belongs to
 another employer</li>
-<li><code>not_enough_purchased_services</code> – if the paid services are insufficient,
-usually <a href="http://hh.ru/price#dbaccess">CV database services</a></li>
+<li><code>not_enough_purchased_services</code> – the paid services are insufficient, usually
+<a href="http://hh.ru/price#dbaccess">CV database services</a></li>
 </ul>
 
-<p><a name="actions"></a></p>
+<p><a name="actions"></a>
+<a name="put-on-hold"></a>
+<a name="invite"></a>
+<a name="discard"></a></p>
 
-<h2 id="actions-on-a-responseinvitation">Actions on a response/invitation</h2>
+<h2 id="responseinvitation-actions-status-change">Response/invitation actions (status change)</h2>
 
-<p>Action on the response is equivalent to its movement to a specific
-<a href="#collections">collection</a>. Request:</p>
+<h3 id="request-7">Request</h3>
 
 <p><code>PUT /negotiations/{collection}/{nid}</code></p>
 
-<p>where
-* <code>nid</code> is the response ID
-* <code>collection</code> is the collection</p>
+<p>where</p>
 
-<p>There may be additional required and optional movement parameters.</p>
+<ul>
+<li><code>nid</code> is the response ID</li>
+<li><code>collection</code> is the collection</li>
+</ul>
+
+<p>Accurate URL for the request, mandatory and optional
+parameters should be received from the <a href="#actions-info">action list</a>
+on response/invitation.</p>
+
+<p>Parameters should be sent in standard format
+<code>application/x-www-form-urlencoded</code>.</p>
 
 <p>Action examples:</p>
 
 <ul>
-<li><a href="#put-on-hold">Put the response on hold</a></li>
-<li><a href="#invite">Invitation of the applicant for an interview in response to his/her response</a></li>
-<li><a href="#discard">Reject an applicant</a></li>
+<li>Put the response on hold</li>
+<li>Invitation of the applicant for an interview in response to his/her response</li>
+<li>Reject an applicant</li>
 </ul>
 
-<p><a name="put-on-hold"></a></p>
-
-<h2 id="put-the-response-on-hold-move-to-the-think-list">Put the response on hold (move to the "Think" list)</h2>
-
-<p>The action is possible if the <code>hold</code> <a href="#collections">collection is available</a> for
-the vacancy responses.</p>
-
-<p>The response movement to the "Think" list is possible if the applicant has not
-yet been invited and was not rejected. The response movement information is not
-disclosed to the applicant.</p>
-
-<h3 id="request-6">Request</h3>
-
-<p><code>PUT /negotiations/hold/{nid}</code></p>
-
-<p>where <code>nid</code> is the response ID.</p>
+<p>Possible actions may differ for each response/invitation and
+actions listed above may be not available.</p>
 
 <h3 id="response-7">Response</h3>
 
-<p>Successful server response is returned with <code>204 No Content</code> code and does not
-have a body.</p>
+<p>Successful server response is returned with <code>204 No Content</code> code and does not have a body.</p>
 
 <h3 id="errors-3">Errors</h3>
 
 <ul>
-<li><code>404 Not Found</code> – the response does not exist, belongs to another employer,
-or the current manager is not authorized to handle it.</li>
-<li><code>403 Forbidden</code> – movement to the "Think" list is impossible.</li>
+<li><code>404 Not Found</code> – response doesn't exist, refers to other employer, or
+current manager is not authorized to process it.</li>
+<li><code>400 Bad Request</code> – one of the mandatory parameters is not sent.</li>
+<li><code>403 Forbidden</code> – response action is not possible.</li>
 </ul>
 
 <p>In addition to an HTTP code, the server can return
-<a href="errors.md.html#negotiations">error reasons</a>. For example, <code>wrong_state</code>
-if the movement from the current response status to the on hold list
-is impossible.</p>
-
-<p><a name="invite"></a></p>
-
-<h2 id="invitation-of-the-applicant-for-an-interview-in-response-to-hisher-response">Invitation of the applicant for an interview in response to his/her response</h2>
-
-<p>The action is possible if the <code>invited</code> <a href="#collections">collection is available</a>
-for the vacancy responses.</p>
-
-<p>The invitation is possible if the applicant has not yet been invited and was not
-rejected. Upon the invitation, the applicant will receive a corresponding email.</p>
-
-<p>Also see <a href="#add-invite">invitation of the applicant for a vacancy</a>.</p>
-
-<h3 id="request-7">Request</h3>
-
-<p><code>PUT /negotiations/invited/{nid}</code></p>
-
-<p>where <code>nid</code> is the response ID.</p>
-
-<p>Parameters:</p>
-
-<table>
-<thead>
-<tr>
-  <th>Name</th>
-  <th>Required</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>send_sms</td>
-  <td>no</td>
-  <td>whether to notify the applicant of the invitation via SMS. In order to send specify <code>true</code>, default value is <code>false</code>.</td>
-</tr>
-<tr>
-  <td>message</td>
-  <td>yes</td>
-  <td>The message that will be sent to the applicant's email. Use <a href="negotiation_message_templates.md.html">templates</a> to obtain texts.</td>
-</tr>
-<tr>
-  <td>address_id</td>
-  <td>no</td>
-  <td>ID of the <a href="employer_addresses.md.html">address</a> that will be specified in the invitation.</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="response-8">Response</h3>
-
-<p>Successful server response is returned with <code>204 No Content</code> code and does not
-have a body.</p>
-
-<h3 id="errors-4">Errors</h3>
-
-<ul>
-<li><code>404 Not Found</code> – the response does not exist, belongs to another employer,
-or the current manager is not authorized to handle it.</li>
-<li><code>403 Forbidden</code> – invitation is impossible.</li>
-<li><code>400 Bad Request</code> – error in the request parameters.</li>
-</ul>
-
-<p>In addition to an HTTP code, the server can return
-<a href="errors.md.html#negotiations">error reasons</a>.</p>
+<a href="errors.md.html#negotiations">error reason</a>.</p>
 
 <p>For example:</p>
 
 <ul>
-<li><code>wrong_state</code> – if the movement from the current response status to the
-invited list is impossible</li>
-<li><code>resume_not_found</code> – if the CV from the response was hidden or deleted</li>
-<li><code>empty_message</code> и <code>too_long_message</code> – if the text length limit is exceeded</li>
-<li><code>address_not_found</code> – if the sent address does not exist or belongs to another
-employer</li>
-<li><code>invalid_vacancy</code> – if the response vacancy was archived or hidden</li>
-<li><code>limit_exceeded</code> – if the manager`s number of invitations per day limit
+<li><code>wrong_state</code> – action is not possible due to current response status</li>
+<li><code>resume_not_found</code> – if the CV from the response was hidden or deleted
+by the applicant</li>
+<li><code>empty_message</code> and <code>too_long_message</code> – text size limit is
+violated</li>
+<li><code>address_not_found</code> – if the sent address does not exist or belongs to
+another employer</li>
+<li><code>invalid_vacancy</code> – if the response vacancy was archived or hidden</li>
+<li><code>limit_exceeded</code> – if the manager's number of invitations per day limit
 was exceeded</li>
-</ul>
-
-<p><a name="discard"></a></p>
-
-<h2 id="reject-an-applicant">Reject an applicant</h2>
-
-<p>The action is possible if the <code>discarded</code>
-<a href="#collections">collection is available</a> for this vacancy responses.</p>
-
-<p>The rejection is possible if the applicant had not been rejected earlier.
-Upon rejection, the applicant will receive a corresponding email.</p>
-
-<h3 id="request-8">Request</h3>
-
-<p><code>PUT /negotiations/discarded/{nid}</code></p>
-
-<p>where <code>nid</code> is the response/invitation ID.</p>
-
-<p>Parameters</p>
-
-<table>
-<thead>
-<tr>
-  <th>Name</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>message</td>
-  <td>The message that will be sent to the applicant's email. Use <a href="negotiation_message_templates.md.html">templates</a> to obtain texts.</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="response-9">Response</h3>
-
-<p>Successful server response is returned with <code>204 No Content</code> code and does not
-have a body.</p>
-
-<h3 id="errors-5">Errors</h3>
-
-<ul>
-<li><code>404 Not Found</code> – the sent response/invitation does not exist, belongs to
-another employer, or the current manager is not authorized to handle it.</li>
-<li><code>403 Forbidden</code> – rejection is impossible.</li>
-<li><code>400 Bad Request</code> – error in the request parameters.</li>
-</ul>
-
-<p>In addition to an HTTP code, the server can return
-<a href="errors.md.html#negotiations">error reasons</a>.</p>
-
-<p>For example:</p>
-
-<ul>
-<li><code>wrong_state</code> – if the movement from the current response status to the
-discarded list is impossible</li>
-<li><code>empty_message</code> и <code>too_long_message</code> – if the text length limit
-is exceeded</li>
 </ul>
 
     </article>

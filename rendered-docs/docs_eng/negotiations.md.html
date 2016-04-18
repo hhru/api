@@ -757,6 +757,7 @@ state.</p>
 <li><a href="#get_negotiation">View the response/invitation</a></li>
 <li><a href="#hide_message">Hide the response</a></li>
 <li><a href="#get_messages">View the list of messages in the response</a></li>
+<li><a href="#send_message">Sending new message</a></li>
 <li><a href="#edit_message">Edit a message in the response</a></li>
 </ul>
 
@@ -1017,8 +1018,21 @@ returned in the <code>Location</code> header at the response attempt. Use <code>
 offer a user to respond to the vacancy via the employer website instead of the
 standard response mechanism.</p>
 
-<p>Some possible error messages are provided in the
-<a href="errors.md.html#negotiations">corresponding section</a>.</p>
+<h3 id="errors">Errors</h3>
+
+<ul>
+<li><code>400 Bad Request</code> – indicated vacancy or CV doesn't exist;
+or you need to pass the test or fill in the cover letter to respond;
+or employer closed the option to respond to the vacancy;
+or number of responses per day is exceeded for the user.</li>
+<li><code>403 Forbidden</code> – you can't respond to indicated vacancy because you
+don't have access to it, responded to the vacancy beforehand or
+display visibility settings of selected CV prevent from responding to
+vacancy.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#negotiations">error reason</a>.</p>
 
 <p><a name="get_negotiation"></a></p>
 
@@ -1026,15 +1040,32 @@ standard response mechanism.</p>
 
 <h3 id="request-4">Request</h3>
 
-<p><code>
-GET /negotiations/{nid}
-</code>
-where nid is the response ID.</p>
+<pre><code>GET /negotiations/{nid}
+</code></pre>
+
+<p>where nid is the response ID.</p>
 
 <h3 id="response-3">Response</h3>
 
-<p>The object returned is identical to a separate response received in the
-<a href="#get_negotiations">list of responses</a></p>
+<p>The object returned is identical to a separate response received in
+<a href="#get_negotiations">the list of responses</a>, excl. <code>messaging_status</code> field.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>messaging_status</td>
+  <td>string</td>
+  <td>Current negotiation status. Possible values are provided in the <a href="./dictionaries.md.html"><code>messaging_status</code> reference guide</a>.</td>
+</tr>
+</tbody>
+</table>
 
 <p><a name="hide_message"></a></p>
 
@@ -1261,21 +1292,94 @@ where nid is the response ID.</p>
 </tbody>
 </table>
 
+<p><a name="send_message"></a></p>
+
+<h2 id="sending-new-message">Sending new message</h2>
+
+<p>You can send new message to employer only after the employer
+invited the applicant for a vacancy. Also, messages can be sent if there is a rejection
+after the interview. Negotiation is unavailable if the vacancy is archived or
+the applicant deleted the CV. Employer can also disable the negotiation for
+the vacation manually.</p>
+
+<h3 id="request-6">Request</h3>
+
+<pre><code>POST /negotiations/{nid}/messages
+</code></pre>
+
+<p>where:</p>
+
+<ul>
+<li>nid is the response ID</li>
+</ul>
+
+<p>Parameters</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Required</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>message</td>
+  <td>yes</td>
+  <td>Message text</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response-5">Response</h3>
+
+<p>Successful response is returned with <code>201 Created</code> code and contains added
+comment:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;124&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;viewed_by_me&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;viewed_by_opponent&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-08T10:12:23+0400&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Give me a camel and a horse!&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Text&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;participant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;applicant&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;editable&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="errors-2">Errors</h3>
+
+<ul>
+<li><code>404 Not Found</code> – response with this ID doesn't exist</li>
+<li><code>403 Bad Request</code> – the message is not sent</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#negotiations">error reason</a>.</p>
+
 <p><a name="edit_message"></a></p>
 
 <h2 id="edit-messages-in-the-response">Edit messages in the response</h2>
 
-<p>Under certain conditions, the message text can be edited after it is sent. To
-allow editing of the message, use the <code>editable:true</code> flag.</p>
+<p>Under certain conditions, the message text can be edited after it is sent. In
+order to allow message editing, use the flag <code>editable</code>.</p>
 
 <blockquote>
-  <p>Currently, message editing is available only at the moment of responding;
-  besides, the message should not have been read by another party, the vacancy
-  should be active (not archived) and the CV should not be deleted. However,
-  these conditions are subject to change.</p>
+  <p>At the moment, editing is available for response message only,
+  and such message should not be read by the other party, the vacancy should be
+  active (not archived) and CV should not be deleted. However, these conditions
+  are subject to change.</p>
 </blockquote>
 
-<h3 id="request-6">Request</h3>
+<h3 id="request-7">Request</h3>
 
 <pre><code>PUT /negotiations/{nid}/messages/{mid}
 </code></pre>
@@ -1306,12 +1410,21 @@ allow editing of the message, use the <code>editable:true</code> flag.</p>
 </tbody>
 </table>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-6">Response</h3>
 
-<p>If the message text is updated successfully, HTTP status <code>204 No Content</code> will
-be returned. If the message editing is forbidden, HTTP status<code>403 Forbidden</code>
-will be returned. If the message is not found, HTTP status <code>404 Not Found</code> will
-be returned.</p>
+<p>In case of successful message text update the HTTP status
+<code>204 No Content</code> is returned.</p>
+
+<h3 id="errors-3">Errors</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – editing is prohibited.
+For example, if receiving party has already read the message.</li>
+<li><code>404 Not Found</code> – the message is not found.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#negotiations">error reason</a>.</p>
 
     </article>
     </body>

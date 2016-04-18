@@ -990,6 +990,30 @@ returned:</p>
   <td>no_invitation</td>
   <td>negotiations are unavailable as there was no invitation in the response</td>
 </tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>message_cannot_be_empty</td>
+  <td>negotiation message cannot be empty</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>disabled_by_employer</td>
+  <td>negotiation by response is disabled by the employer</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>resume_deleted</td>
+  <td>the message can't be sent as the CV referenced in the response is deleted or hidden</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>negotiations</td>
+  <td>archived</td>
+  <td>the message can't be sent as the vacancy referenced in the response is archived</td>
+</tr>
 </tbody>
 </table>
 
@@ -1061,6 +1085,56 @@ powered by
   <td>vacancies</td>
   <td>conflict_changes</td>
   <td>conflicting changes in the vacancy data (<a href="vacancies.md.html#edit_more">read more</a>)</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="vacancies-prolongate"></a></p>
+
+<h3 id="vacancy-extension">Vacancy extension</h3>
+
+<p>Despite of the error code, the vacancy <a href="vacancies.md.html#prolongate">extension</a> may return the
+following errors:</p>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>not_enough_purchased_services</td>
+  <td>the purchased services are insufficient for prolongation of this type of vacancy</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>quota_exceeded</td>
+  <td>the manager's quota for posting of this type of vacancies has been exceeded</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>prolongation_forbidden</td>
+  <td>extension of vacancies is unavailable for the current manager</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>unavailable_for_archived</td>
+  <td>extension of vacancies is unavailable for the archived vacancy</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>vacancies</td>
+  <td>too_early</td>
+  <td>premature extension</td>
 </tr>
 </tbody>
 </table>

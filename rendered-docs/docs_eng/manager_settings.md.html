@@ -735,34 +735,41 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1 id="address">Address</h1>
+    <h1 id="manager-preferences">Manager preferences</h1>
 
-<p>Address field is used in different API responses, such as CVs, responses and
-vacancy views. It can contain longitude, latitude, information regarding the
-nearest metro stations and other location details. It appears as follows:</p>
+<p><a name="manager_settings"></a></p>
 
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;Godovikova&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Additional information&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
-    <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span><span class="p">,</span>
-    <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="s2">&quot;Textual address description as entered&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;metro_stations&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;station name&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;line_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Line name&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;station_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Station ID&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;line_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Line ID&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
-            <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<h3 id="request">Request</h3>
+
+<p><code>GET /employers/{employer_id}/managers/{manager_id}/settings</code></p>
 
 <p>where:</p>
+
+<ul>
+<li><code>employer_id</code> – employer ID,</li>
+<li><code>manager_id</code> – manager ID.</li>
+</ul>
+
+<p>The easiest way to get URL is to use <code>manager_settings_url</code> in
+<a href="me.md.html#manager-info">details on current user (object <code>manager</code>)</a>.</p>
+
+<h3 id="response">Response</h3>
+
+<p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;default_currency&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;abbr&quot;</span><span class="p">:</span> <span class="s2">&quot;rub.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Rubles&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;default_vacancy_branded_template&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Standard template&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;use_sms_notification&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <table>
 <thead>
@@ -774,94 +781,35 @@ nearest metro stations and other location details. It appears as follows:</p>
 </thead>
 <tbody>
 <tr>
-  <td>city</td>
-  <td>string, null</td>
-  <td>City name</td>
+  <td>default_currency</td>
+  <td>object</td>
+  <td>preferred currency for <a href="vacancies.md.html#creation">posting vacancy</a></td>
 </tr>
 <tr>
-  <td>street</td>
-  <td>string, null</td>
-  <td>Street name</td>
+  <td>default_vacancy_branded_template</td>
+  <td>object, null</td>
+  <td>preferred <a href="employer_vacancy_branded_templates.md.html">branded employer vacancy template</a>. <code>null</code> – company doesn't use branded vacancy templates.</td>
 </tr>
 <tr>
-  <td>building</td>
-  <td>string, null</td>
-  <td>Building number</td>
-</tr>
-<tr>
-  <td>description</td>
-  <td>string, null</td>
-  <td>Additional address info</td>
-</tr>
-<tr>
-  <td>lat</td>
-  <td>number, null</td>
-  <td>Latitude</td>
-</tr>
-<tr>
-  <td>lng</td>
-  <td>number, null</td>
-  <td>Longitude</td>
-</tr>
-<tr>
-  <td>raw</td>
-  <td>string, null</td>
-  <td>Textual description of address</td>
-</tr>
-<tr>
-  <td>metro_stations</td>
-  <td>array</td>
-  <td>Metro station list, see below</td>
+  <td>use_sms_notification</td>
+  <td>logical</td>
+  <td>preference for using <code>send_sms</code> option <a href="employer_negotiations.md.html#add-invite">upon applicant invitation</a></td>
 </tr>
 </tbody>
 </table>
 
-<p>The object contains key <code>metro</code> for backward compatibility.
-Key <code>metro_stations</code> should be used.</p>
+<p>These preferences <strong>don't affect</strong> default API actions. For example:
+branded design template (<code>default_vacancy_branded_template</code>) won't
+be automatically applied to the posted vacancy if the template is not transferred.
+Preferences can use your application to realize the logic
+of the field pre-filling.</p>
 
-<h2 id="metro">Metro</h2>
+<h3 id="errors">Errors</h3>
 
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8.189&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.745113</span><span class="p">,</span>
-    <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.864052</span><span class="p">,</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Novokosino&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>where:</p>
-
-<table>
-<thead>
-<tr>
-  <th>Name</th>
-  <th>Type</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>id</td>
-  <td>string</td>
-  <td>Metro station ID</td>
-</tr>
-<tr>
-  <td>lat</td>
-  <td>number, null</td>
-  <td>Latitude</td>
-</tr>
-<tr>
-  <td>lng</td>
-  <td>number, null</td>
-  <td>Longitude</td>
-</tr>
-<tr>
-  <td>name</td>
-  <td>string</td>
-  <td>Metro station name</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><code>404 Not Found</code> – manager doesn't exist or the review of its options is not available.</li>
+<li><code>403 Forbidden</code> – current user is not a manager.</li>
+</ul>
 
     </article>
     </body>

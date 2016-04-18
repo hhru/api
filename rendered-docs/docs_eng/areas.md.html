@@ -737,6 +737,12 @@
     <article class="markdown-body">
     <h1 id="region-directory">Region directory</h1>
 
+<ul>
+<li><a href="#areas">Tree view of all regions</a></li>
+<li><a href="#item">Region directory, starting from the indicated region</a></li>
+<li><a href="#countries">Countries</a></li>
+</ul>
+
 <p>See also:</p>
 
 <ul>
@@ -777,6 +783,27 @@ region name and ID and the link to a parent region <code>parent_id</code>.</p>
 indicated region.</p>
 
 <p>Example: <a href="https://api.hh.ru/areas/1146?locale=EN">https://api.hh.ru/areas/1146?locale=EN</a></p>
+
+<p><a name="countries" /></p>
+
+<h2 id="countires">Countires</h2>
+
+<p><code>GET /areas/countries</code> returns the regions list with countries.</p>
+
+<p><code>json
+[
+  {
+    "url": "https://api.hh.ru/areas/113",
+    "id": "113",
+    "name": "Russia"
+  },
+  {
+    "url": "https://api.hh.ru/areas/5",
+    "id": "5",
+    "name": "Ukraine"
+  }
+]
+</code></p>
 
     </article>
     </body>
