@@ -867,12 +867,20 @@
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;inbox&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Неразобранные&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/inbox?vacancy_id=123456&quot;</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/inbox?vacancy_id=123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;with_updates&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">5</span>
+            <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discarded&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отклоненные&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/discarded?vacancy_id=123456&quot;</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/discarded?vacancy_id=123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;with_updates&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;employer_states&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -911,19 +919,29 @@
   <td><a href="#term-collection">коллекции</a> откликов/приглашений для данной вакансии</td>
 </tr>
 <tr>
-  <td>collections.id</td>
+  <td>collections[].id</td>
   <td>строка</td>
   <td>идентификатор коллекции, уникальный как минимум для данной вакансии</td>
 </tr>
 <tr>
-  <td>collections.name</td>
+  <td>collections[].name</td>
   <td>строка</td>
   <td>название коллекции</td>
 </tr>
 <tr>
-  <td>collections.url</td>
+  <td>collections[].url</td>
   <td>строка</td>
   <td>url, на который необходимо делать GET запрос для получения откликов/приглашений данной коллекции</td>
+</tr>
+<tr>
+  <td>collections[].counters.with_updates</td>
+  <td>число</td>
+  <td>количество откликов/приглашений в коллекции, <a href="#has_updates">требующих внимания</a></td>
+</tr>
+<tr>
+  <td>collections[].counters.total</td>
+  <td>число</td>
+  <td>общее количество откликов/приглашений в коллекции</td>
 </tr>
 <tr>
   <td>employer_states</td>
@@ -931,12 +949,12 @@
   <td><a href="#term-employer-state">работодательские состояния</a> откликов/приглашений данной вакансии</td>
 </tr>
 <tr>
-  <td>employer_states.id</td>
+  <td>employer_states[].id</td>
   <td>строка</td>
   <td>идентификатор состояния, уникальный как минимум для данной вакансии</td>
 </tr>
 <tr>
-  <td>employer_states.name</td>
+  <td>employer_states[].name</td>
   <td>строка</td>
   <td>название состояния</td>
 </tr>
@@ -1286,7 +1304,7 @@
 <tr>
   <td>has_updates</td>
   <td>логический</td>
-  <td>Есть ли в отклике/приглашении обновления, требующие внимания. Флаг сбрасывается при различных действиях по отклику/приглашению, например, <a href="#get-messages">просмотре списка сообщений</a>, а также при <a href="#view-resume">правильном просмотре резюме из отклика/приглашения</a>.</td>
+  <td><a name="has_updates"></a> Есть ли в отклике/приглашении обновления, требующие внимания. Флаг сбрасывается при различных действиях по отклику/приглашению, например, <a href="#get-messages">просмотре списка сообщений</a>, а также при <a href="#view-resume">правильном просмотре резюме из отклика/приглашения</a>.</td>
 </tr>
 <tr>
   <td>viewed_by_opponent</td>
