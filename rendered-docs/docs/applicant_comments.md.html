@@ -737,6 +737,13 @@
     <article class="markdown-body">
     <h1>Комментарии к соискателю</h1>
 
+<ul>
+<li><a href="#list">Список комментариев</a></li>
+<li><a href="#add_comment">Добавление комментария</a></li>
+<li><a href="#edit_comment">Обновление комментария</a></li>
+<li><a href="#delete_comment">Удаление комментария</a></li>
+</ul>
+
 <p><a name="list"></a></p>
 
 <h2 id="-2">Список комментариев</h2>
@@ -748,7 +755,7 @@
 <h3 id="-3">Запрос</h3>
 
 <p>Нет необходимости собирать url запроса вручную, его нужно получать из
-<a href="resumes.md.html#owner-field">поля owner в резюме</a></p>
+<a href="resumes.md.html#owner-field">поля <code>owner</code> в резюме</a></p>
 
 <p><code>GET /applicant_comments/{applicant_id}</code></p>
 
@@ -757,9 +764,9 @@
 <p>Дополнительные параметры запроса:</p>
 
 <ul>
-<li><a href="general.md.html#pagination">параметры пагинации <code>page</code>, <code>per_page</code></a></li>
-<li><code>order_by</code> - сортировка комментариев, доступные значения в
-<a href="dictionaries.md.html">справочнике <code>applicant_comments_order</code></a></li>
+<li><a href="general.md.html#pagination">параметры пагинации <code>page</code> и <code>per_page</code></a></li>
+<li><code>order_by</code> - сортировка комментариев, доступные значения –
+в <a href="dictionaries.md.html#etc">справочнике <code>applicant_comments_order</code></a></li>
 </ul>
 
 <h3 id="-4">Ответ</h3>
@@ -778,8 +785,12 @@
             <span class="p">},</span>
             <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:19:55+0300&quot;</span><span class="p">,</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;обратить внимание на данного кандидата\nсрочно!&quot;</span>
+            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;обратить внимание на данного кандидата\nсрочно!&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;access_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;coworkers&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Виден мне и моим коллегам&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -787,8 +798,12 @@
             <span class="p">},</span>
             <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:30:14+0300&quot;</span><span class="p">,</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123654&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;не считаю нужным&quot;</span>
+            <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;не считаю нужным&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;access_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;owner&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Виден только мне&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -810,7 +825,7 @@
 </tr>
 <tr>
   <td>created_at</td>
-  <td>строка, дата</td>
+  <td>строка (дата)</td>
   <td>дата создания комментария</td>
 </tr>
 <tr>
@@ -826,7 +841,12 @@
 <tr>
   <td>text</td>
   <td>строка</td>
-  <td>содержание комментария, текст, который может содержать символы новой строки</td>
+  <td>содержание комментария (текст, который может содержать символы новой строки)</td>
+</tr>
+<tr>
+  <td>access_type</td>
+  <td>объект</td>
+  <td>типа доступа для комментария, возможные значения содержатся в <a href="dictionaries.md.html#etc">справочнике applicant_comment_access_type</a></td>
 </tr>
 </tbody>
 </table>
@@ -837,6 +857,130 @@
 <li><code>404 Not Found</code> – указанный соискатель не найден.</li>
 <li><code>403 Forbidden</code> – получение комментариев не доступно для текущего
 пользователя.</li>
+</ul>
+
+<p><a name="add_comment"></a></p>
+
+<h2 id="-6">Добавление комментария</h2>
+
+<h3 id="-7">Запрос</h3>
+
+<p>Нет необходимости собирать url запроса вручную, его нужно получать из
+<a href="resumes.md.html#owner-field">поля <code>owner</code> в резюме</a></p>
+
+<p><code>POST /applicant_comments/{applicant_id}</code></p>
+
+<p>где</p>
+
+<ul>
+<li><code>applicant_id</code> – идентификатор соискателя</li>
+</ul>
+
+<p>Параметры запроса:</p>
+
+<ul>
+<li><code>text</code> - текст комментария,</li>
+<li><code>access_type</code> - тип доступа (возможные значения содержатся в
+<a href="dictionaries.md.html#etc">справочнике applicant_comment_access_type</a>)</li>
+</ul>
+
+<h3 id="-8">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>201 Created</code> и содержит в теле созданный
+комментарий.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванова Мария Ивановна&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-27T10:30:14+0300&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123654&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;is_mine&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;не считаю нужным&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;access_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;owner&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Виден только мне&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="-9">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> - если текущий пользователь - не работодатель.</li>
+<li><code>404 Not Found</code> – указанный соискатель не существует.</li>
+<li><code>400 Bad argument</code> – ошибка в параметрах запроса.</li>
+</ul>
+
+<p><a name="edit_comment"></a></p>
+
+<h2 id="-10">Обновление комментария</h2>
+
+<p>У существующего комментария можно сменить тип доступа и текст комментария.
+Изменять комментарий может только его автор.</p>
+
+<h3 id="-11">Запрос</h3>
+
+<p>Для получения url добавьте id комментария к url <a href="#list">списка комментариев</a>.</p>
+
+<p><code>PUT /applicant_comments/{applicant_id}/{comment_id}</code></p>
+
+<p>где</p>
+
+<ul>
+<li><code>applicant_id</code> – идентификатор соискателя,</li>
+<li><code>comment_id</code> – идентификатор комментария.</li>
+</ul>
+
+<p>Параметры запроса:</p>
+
+<ul>
+<li><code>text</code> - текст комментария,</li>
+<li><code>access_type</code> - тип доступа (возможные значения содержатся в
+<a href="dictionaries.md.html#etc">справочнике applicant_comment_access_type</a>)</li>
+</ul>
+
+<p>Изменять возможно и текст комментария, и тип доступа. Если параметр не передан,
+то значение останется прежним.</p>
+
+<h3 id="-12">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>204 No Content</code> и не содержит тела.</p>
+
+<h3 id="-13">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – если текущий пользователь - не работодатель.</li>
+<li><code>404 Not Found</code> – если указанный соискатель или комментарий не существует.</li>
+<li><code>400 Bad argument</code> – ошибка в параметрах запроса, дополнительно могут быть
+указаны названия параметров с ошибками.</li>
+</ul>
+
+<p><a name="delete_comment"></a></p>
+
+<h2 id="-14">Удаление комментария</h2>
+
+<p>Удалять комментарий может только его автор.</p>
+
+<h3 id="-15">Запрос</h3>
+
+<p>Для получения url добавьте id комментария к url <a href="#list">списка комментариев</a>.</p>
+
+<p><code>DELETE /applicant_comments/{applicant_id}/{comment_id}</code></p>
+
+<p>где
+* <code>applicant_id</code> – идентификатор соискателя,
+* <code>comment_id</code> - id комментария, который будет удален</p>
+
+<h3 id="-16">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>204 No Content</code> и не содержит тела.</p>
+
+<h3 id="-17">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – если текущий пользователь - не работодатель</li>
+<li><code>404 Not Found</code> – если указанный соискатель не существует.</li>
 </ul>
 
     </article>
