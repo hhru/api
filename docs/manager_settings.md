@@ -35,7 +35,7 @@
 
 Имя | Тип | Описание
 --- | --- | ------
-default_currency | объект | предпочитаемая валюта при [публикации вакансии](vacancies.md#creation)
+default_currency | объект | предпочитаемая валюта при [публикации вакансии](employer_vacancies.md#creation)
 default_vacancy_branded_template | объект, null | предпочитаемый [брендированный шаблон вакансий работодателя](employer_vacancy_branded_templates.md). `null` – если у компании не используются брендированные шаблоны вакансий.
 use_sms_notification | логический | предпочтение по использованию флага `send_sms` [при приглашении соискателя](employer_negotiations.md#add-invite)
 

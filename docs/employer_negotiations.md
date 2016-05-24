@@ -97,7 +97,7 @@
 [свободную переписку](#get-messages). Вы сможете
 [отправлять сообщения](#add-messages), а соискатель – вам отвечать.
 При необходимости переписку для конкретной вакансии
-[можно отключить](vacancies.md#allow_messages) (поле `allow_messages`).
+[можно отключить](employer_vacancies.md#allow_messages) (поле `allow_messages`).
 
 
 <a name="states"></a>

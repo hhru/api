@@ -162,24 +162,25 @@ powered by
 ### Vacancy posting and editing
 
 In addition to an error code, the following errors may be returned when
-[posting](vacancies.md#creation) and [editing](vacancies.md#edit) a vacancy:
+[posting](employer_vacancies.md#creation) and
+[editing](employer_vacancies.md#edit) a vacancy:
 
 HTTP code| type| value| description
 ----------|------|-------|---------
 400| vacancies| *field_name*| error in the vacancy field, where *field_name* – key of the higher level field
 403| vacancies| not_enough_purchased_services| the purchased services are insufficient for posting or update of this type of vacancy
 403| vacancies| quota_exceeded| the manager's quota for posting of this type of vacancies exceeded
-409| vacancies| duplicate| the same vacancy has already been posted, this error can be [disabled forcefully](vacancies.md#creation-results)
+409| vacancies| duplicate| the same vacancy has already been posted, this error can be [disabled forcefully](employer_vacancies.md#creation-results)
 403| vacancies| creation_forbidden| posting of vacancies is unavailable for the current manager
 403| vacancies| unavailable_for_archived| editing of vacancies is unavailable for the archived vacancy
-403| vacancies| conflict_changes| conflicting changes in the vacancy data ([read more](vacancies.md#edit_more))
+403| vacancies| conflict_changes| conflicting changes in the vacancy data ([read more](employer_vacancies.md#edit_more))
 
 
 <a name="vacancies-prolongate"></a>
 ### Vacancy extension
 
-Despite of the error code, the vacancy [extension](vacancies.md#prolongate) may return the
-following errors:
+Despite of the error code, the vacancy
+[extension](employer_vacancies.md#prolongate) may return the following errors:
 
 HTTP code | type | value | description
 ----------|------|-------|---------

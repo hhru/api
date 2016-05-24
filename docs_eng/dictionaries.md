@@ -73,4 +73,4 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `applicant_comments_order` - sorting type of the 
   [applicant comment list](applicant_comments.md#list)
 * `vacancy_not_prolonged_reason` – the reasons why 
-  [prolongation](vacancies.md#prolongate-info) not available
+  [prolongation](employer_vacancies.md#prolongate-info) not available

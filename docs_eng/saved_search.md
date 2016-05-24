@@ -116,7 +116,7 @@ In order to create autosearch you must send request `POST` to
 `/saved_searches/vacancies` with following parameters:
 
 * vacancy search parameters. Correspond to parameters
-  sent to vacancy search [/vacancies](vacancies.md)
+  sent to vacancy search [/vacancies](vacancies.md#search)
 
 If successful, response `201 Created` will be returned with title
 `Location` indicating created autosearch (e.g.

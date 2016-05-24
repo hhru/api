@@ -97,7 +97,7 @@ Invite the applicant to initiate
 [free negotiation](#get-messages). You can
 [send messages](#add-messages), and applicant can respond on them.
 When necessary, the negotiation on certain vacancy may be
-[disabled](vacancies.md#allow_messages) (field `allow_messages`).
+[disabled](employer_vacancies.md#allow_messages) (field `allow_messages`).
 
 
 <a name="states"></a>

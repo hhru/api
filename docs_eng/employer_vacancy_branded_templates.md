@@ -5,7 +5,7 @@ and activated the respective service.
 See more details on the [hh.ru website](http://hh.ru/article/2069).
 
 Branded templates can be used for
-[vacancy posting and editing](vacancies.md#branded-template-field).
+[vacancy posting and editing](employer_vacancies.md#branded-template-field).
 
 
 <a name="list"></a>

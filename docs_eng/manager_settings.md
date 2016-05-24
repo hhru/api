@@ -35,7 +35,7 @@ Successful server response is returned with `200 OK` code and contains:
 
 Name | Type | Description
 --- | --- | ------
-default_currency | object | preferred currency for [posting vacancy](vacancies.md#creation)
+default_currency | object | preferred currency for [posting vacancy](employer_vacancies.md#creation)
 default_vacancy_branded_template | object, null | preferred [branded employer vacancy template](employer_vacancy_branded_templates.md). `null` – company doesn't use branded vacancy templates.
 use_sms_notification | logical | preference for using `send_sms` option [upon applicant invitation](employer_negotiations.md#add-invite)
 
