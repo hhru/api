@@ -245,7 +245,7 @@ Response example:
 ## Tips for CV search key words
 
 This tip is intended for use in the `text` field when
-[searching for CVs](resumes.md#search-params). The tip displays title names,
+[searching for CVs](employer_resumes.md#search-params). The tip displays title names,
 company names, and other phrases that are often used when searching for CVs.
 
 `GET /suggests/resume_search_keyword`

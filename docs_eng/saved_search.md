@@ -215,7 +215,7 @@ url | string | reference to saved search results is available if access to CV se
 
 Note that in order to get autosearch results (CV list)
 the application used to authorize the employer should
-[pass the procedure on granting access to CV](resumes.md#resume-search-request).
+[pass the procedure on granting access to CV](employer_resumes.md#resume-search-request).
 
 
 <a name="resumes-saved-search-item"></a>
