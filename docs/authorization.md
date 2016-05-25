@@ -106,6 +106,9 @@ POST-запрос на `https://hh.ru/oauth/token` для обмена полу�
 grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={authorization_code}&redirect_uri={redirect_uri}
 ```
 
+`client_id` и `client_secret` - необходимо заполнить значениями выданными при
+[регистрации приложения](https://dev.hh.ru/admin).
+
 Если при получении `authorization_code` был указан `redirect_uri`, то в запросе
 необходимо обязательно передать это значение (происходит сравнение строк),
 иначе этот параметр необязателен. Если же не указать `redirect_uri` при запросе
@@ -233,3 +236,6 @@ Authorization: Bearer access_token
 ## Полезные ссылки
 
 * Подробная документация по протоколу: [RFC 6749](http://tools.ietf.org/html/rfc6749)
+* Библиотека [ScribeJava](https://github.com/scribejava/scribejava),
+  поддерживающая авторизацию в API HeadHunter.
+  * [Habrahabr: ScribeJava — даже ваша бабушка сможет работать с OAuth](https://habrahabr.ru/company/hh/blog/278957/)

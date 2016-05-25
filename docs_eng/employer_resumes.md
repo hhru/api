@@ -81,7 +81,7 @@ Some parameters take multiple values: `key=value&key=value`.
   `resume_search_logic` in [/dictionaries](dictionaries.md).
 
 * `text.field` – describes where words from the `text` search
-  phrase should be found. In the text.field parameter you can
+  phrase should be found. In the `text.field` parameter you can
   indicate several values separated by commas, e.g.
   `?text.field=education,keywords`. Directory with possible values:
   `resume_search_fields` in [/dictionaries](dictionaries.md).
