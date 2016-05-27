@@ -88,7 +88,8 @@
     "name": "HeadHunter",
     "url": "https://api.hh.ru/employers/1455",
     "alternate_url": "http://hh.ru/employer/1455",
-    "id": "1455"
+    "id": "1455",
+    "trusted": true
   },
   "response_letter_required": true,
   "response_url": null,
@@ -444,7 +445,8 @@ counters.invitations | number | количество приглашений на
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455"
+        "id": "1455",
+        "trusted": true
       },
       "response_letter_required": true,
       "address": null,
@@ -541,5 +543,5 @@ snippet.responsibility | строка, null | Обязанности по вак
  type | объект | Тип вакансии, один из элементов `vacancy_type` в [Справочнике](dictionaries.md)
  archived | логический | Находится ли данная вакансия в архиве
 
-`url` и `alternate_url` могут принимать значение `null` в случае если подробная
+`url` и `alternate_url` могут принимать значение `null` в случае, если подробная
 информация о вакансии недоступна (например, вакансия была удалена).

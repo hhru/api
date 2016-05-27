@@ -36,7 +36,7 @@
 преимущества для соискателей по полу, возрасту, семейному положению и другим
 обстоятельствам, не связанным с деловыми качествами работников.
 
-* при успешной публикации будут списана соответствующая услуга.
+* при успешной публикации будут списаны соответствующие услуги.
 * все вакансии проходят ручную модерацию.
 * в течение нескольких минут после публикации вакансия станет доступна в поиске.
 
@@ -454,7 +454,7 @@ PUT /vacancies/{vacancy_id}
 {"manager":{"id":"1337"}
 ```
 
-При передачи этих полей вместе с любыми другими вернется ошибка.
+При передаче этих полей вместе с любыми другими вернется ошибка.
 
 
 <a name="other-actions"></a>
@@ -616,7 +616,8 @@ PUT /vacancies/{vacancy_id}
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455"
+        "id": "1455",
+        "trusted": true
       },
       "response_letter_required": true,
       "address": null,
@@ -729,7 +730,8 @@ has_updates | boolean | Есть ли в откликах/приглашения
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455"
+        "id": "1455",
+        "trusted": true
       },
       "response_letter_required": true,
       "address": null,
@@ -819,7 +821,8 @@ archived_at | строка | дата архивации вакансии
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455"
+        "id": "1455",
+        "trusted": true
       },
       "response_letter_required": true,
       "address": null,

@@ -106,7 +106,7 @@ POST-запрос на `https://hh.ru/oauth/token` для обмена полу�
 grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={authorization_code}&redirect_uri={redirect_uri}
 ```
 
-`client_id` и `client_secret` - необходимо заполнить значениями выданными при
+`client_id` и `client_secret` - необходимо заполнить значениями, выданными при
 [регистрации приложения](https://dev.hh.ru/admin).
 
 Если при получении `authorization_code` был указан `redirect_uri`, то в запросе

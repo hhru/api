@@ -110,7 +110,8 @@ to the company's vacancies.
         "url": "https://api.hh.ru/areas/113",
         "id": "113",
         "name": "Russia"
-    }
+    },
+    "trusted": true
 }
 ```
 
@@ -145,5 +146,7 @@ are described in the [directory collection](dictionaries.md) under the
 employer_type key.
 
 `area` — employer's region.
+
+`trusted` - boolean flag indicates that the company passed website verification.
 
 Example: [https://api.hh.ru/employers/1455?locale=EN](https://api.hh.ru/employers/1455?locale=EN)

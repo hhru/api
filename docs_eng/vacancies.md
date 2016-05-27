@@ -87,7 +87,8 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455?locale=EN",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455"
+        "id": "1455",
+        "trusted": true
       },
       "response_letter_required": true,
       "response_url": null,
@@ -447,7 +448,8 @@ used for applicants.
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "http://hh.ru/employer/1455",
-        "id": "1455"
+        "id": "1455",
+        "trusted": true
       },
       "response_letter_required": true,
       "address": null,
