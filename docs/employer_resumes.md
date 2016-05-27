@@ -8,6 +8,7 @@
 Смотрите также:
 
 * [Просмотр резюме](resumes.md#item)
+  * [Платные услуги для работодателя связанные с резюме](resumes.md#paid-services)
 * [Сохраненные поиски резюме](saved_search.md#resumes-saved-search-list)
 
 
