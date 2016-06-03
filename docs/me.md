@@ -30,6 +30,20 @@
         "is_main_contact_person": true,
         "manager_settings_url": "https://api.hh.ru/employers/1455/managers/87654321/settings"
     },
+    "personal_manager": {
+        "id": "1234567",
+        "first_name": "Иван",
+        "last_name": "Иванов",
+        "email": "ivanov@example.com",
+        "photo_urls": {
+            "big": "https://hhcdn.ru/file/big.jpg",
+            "small": "https://hhcdn.ru/file/small.jpg"
+        },
+        "is_available": false,
+        "unavailable": {
+            "until": "2016-07-01T08:00:00+0400"
+        }
+    },
     "counters": {
         "unread_negotiations": 0,
         "new_resume_views": 2
@@ -83,10 +97,20 @@ manager_settings_url | строка | url, на который нужно сде
 <a name="personal-manager-info"></a>
 #### Объект `personal_manager`
 
+Информация о персональном менеджере для работодателя.
+
 Имя | Тип | Описание
 --- | --- | ---
  id | строка | Идентификатор персонального менеджера
- email | строка | Почтовый адрес персонального менеджера
+ email | строка | email персонального менеджера
+ first_name | строка | Имя менеджера
+ last_name | строка | Фамилия менеджера
+ photo_urls | объект, null | фотографии менеджера, либо `null` если их нет
+ photo_urls.big | строка, null | url большой фотографии менеджера, либо `null` если её нет
+ photo_urls.small | строка, null | url маленькой фотографии менеджера, либо `null` если её нет
+ is_available | логическое | доступен ли менеджер в данный момент
+ unavailable | объект, null | информация об отсутствии менеджера, либо `null`, если менеджер доступен
+ unavailable.until | строка (дата) | время, до которого менеджер недоступен для контакта
 
 
 <a name="counters-info"></a>

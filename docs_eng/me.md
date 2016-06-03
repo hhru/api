@@ -30,6 +30,20 @@ Server returns `403 Forbidden` if authorization is failed.
         "is_main_contact_person": true,
         "manager_settings_url": "https://api.hh.ru/employers/1455/managers/87654321/settings"
     },
+    "personal_manager": {
+        "id": "1234567",
+        "first_name": "Ivan",
+        "last_name": "Ivanov",
+        "email": "ivanov@example.com",
+        "photo_urls": {
+            "big": "https://hhcdn.ru/file/big.jpg",
+            "small": "https://hhcdn.ru/file/small.jpg"
+        },
+        "is_available": false,
+        "unavailable": {
+            "until": "2016-07-01T08:00:00+0400"
+        }
+    },
     "counters": {
         "unread_negotiations": 0,
         "new_resume_views": 2
