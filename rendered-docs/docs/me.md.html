@@ -768,6 +768,20 @@
         <span class="nt">&quot;is_main_contact_person&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nt">&quot;manager_settings_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455/managers/87654321/settings&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;personal_manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1234567&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иван&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;ivanov@example.com&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;photo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;big&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hhcdn.ru/file/big.jpg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hhcdn.ru/file/small.jpg&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;is_available&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;unavailable&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;until&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-07-01T08:00:00+0400&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
     <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;unread_negotiations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="nt">&quot;new_resume_views&quot;</span><span class="p">:</span> <span class="mi">2</span>
@@ -931,6 +945,8 @@
 
 <h4 id="personal_manager">Объект <code>personal_manager</code></h4>
 
+<p>Информация о персональном менеджере для работодателя.</p>
+
 <table>
 <thead>
 <tr>
@@ -948,7 +964,47 @@
 <tr>
   <td>email</td>
   <td>строка</td>
-  <td>Почтовый адрес персонального менеджера</td>
+  <td>email персонального менеджера</td>
+</tr>
+<tr>
+  <td>first_name</td>
+  <td>строка</td>
+  <td>Имя менеджера</td>
+</tr>
+<tr>
+  <td>last_name</td>
+  <td>строка</td>
+  <td>Фамилия менеджера</td>
+</tr>
+<tr>
+  <td>photo_urls</td>
+  <td>объект, null</td>
+  <td>фотографии менеджера, либо <code>null</code> если их нет</td>
+</tr>
+<tr>
+  <td>photo_urls.big</td>
+  <td>строка, null</td>
+  <td>url большой фотографии менеджера, либо <code>null</code> если её нет</td>
+</tr>
+<tr>
+  <td>photo_urls.small</td>
+  <td>строка, null</td>
+  <td>url маленькой фотографии менеджера, либо <code>null</code> если её нет</td>
+</tr>
+<tr>
+  <td>is_available</td>
+  <td>логическое</td>
+  <td>доступен ли менеджер в данный момент</td>
+</tr>
+<tr>
+  <td>unavailable</td>
+  <td>объект, null</td>
+  <td>информация об отсутствии менеджера, либо <code>null</code>, если менеджер доступен</td>
+</tr>
+<tr>
+  <td>unavailable.until</td>
+  <td>строка (дата)</td>
+  <td>время, до которого менеджер недоступен для контакта</td>
 </tr>
 </tbody>
 </table>
