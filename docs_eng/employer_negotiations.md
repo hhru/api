@@ -386,6 +386,14 @@ Successful server response is returned with `200 OK` code and contains:
                     "medium": "http://hh.ru/...",
                     "small": "http://hh.ru/...",
                     "id": "1337"
+                },
+                "owner": {
+                    "comments": {
+                        "url": "https://api.hh.ru/applicant_comments/123456",
+                        "counters": {
+                            "total": 7
+                        }
+                    }
                 }
             },
             "templates": [
@@ -638,6 +646,14 @@ Successful server response is returned with `200 OK` code and contains:
         "salary": {
             "amount": 1000000,
             "currency": "RUR"
+        },
+        "owner": {
+            "comments": {
+                "url": "https://api.hh.ru/applicant_comments/123456",
+                "counters": {
+                    "total": 7
+                }
+            }
         }
     },
     "vacancy": {

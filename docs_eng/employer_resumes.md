@@ -311,7 +311,10 @@ When the authorized user is an applicant or anonymous, a `403` error will return
             },
             "owner": {
                 "comments": {
-                    "url": "https://api.hh.ru/applicant_comments/123456"
+                    "url": "https://api.hh.ru/applicant_comments/123456",
+                    "counters": {
+                        "total": 7
+                    }
                 }
             }
         }
@@ -333,6 +336,8 @@ The applicant will have the CV request displayed in the view history.
 CV fields are similar to the
 [fields that are displayed when editing the CV](resumes.md#resume-keys).
 
-The employer will have an additional field `owner.comments.url`.
-containing url. GET request on it will return
-[applicant comment list of CV owner](applicant_comments.md#list).
+The employer will have additional fields:
+
+* `owner.comments.url` containing url. GET request on it will return
+  [applicant comments list of CV owner](applicant_comments.md#list).
+* `owner.comments.counters.total` containing total comments amount.

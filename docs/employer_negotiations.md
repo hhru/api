@@ -396,6 +396,14 @@ per_page | нет | Количество выдаваемых элементов
                     "medium": "http://hh.ru/...",
                     "small": "http://hh.ru/...",
                     "id": "1337"
+                },
+                "owner": {
+                    "comments": {
+                        "url": "https://api.hh.ru/applicant_comments/123456",
+                        "counters": {
+                            "total": 7
+                        }
+                    }
                 }
             },
             "templates": [
@@ -655,6 +663,14 @@ required_arguments | список | Аргументы, которые необ�
         "salary": {
             "amount": 1000000,
             "currency": "RUR"
+        },
+        "owner": {
+            "comments": {
+                "url": "https://api.hh.ru/applicant_comments/123456",
+                "counters": {
+                    "total": 7
+                }
+            }
         }
     },
     "vacancy": {

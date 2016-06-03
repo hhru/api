@@ -75,7 +75,7 @@ will have `false` value.
             "medium": "http://hh.ru/...",
             "id": "1337",
             "description": "..."
-        },
+        }
     ],
     "area": {
         "url": "https://api.hh.ru/areas/1",
@@ -261,12 +261,12 @@ will have `false` value.
             "company_url": "http://www.rbc.ru",
             "industries": [
                 {
-                "id": "7.540",
-                "name": "Software development"
+                    "id": "7.540",
+                    "name": "Software development"
                 },
                 {
-                "id": "9.399",
-                "name": "Mobile communication"
+                    "id": "9.399",
+                    "name": "Mobile communication"
                 }
             ],
             "position": "Position",
@@ -277,7 +277,8 @@ will have `false` value.
     ],
     "skills": "Additional information: key skills",
     "skill_set": [
-        "HTML", "CSS"
+        "HTML",
+        "CSS"
     ],
     "citizenship": [
         {
@@ -322,7 +323,10 @@ will have `false` value.
     },
     "owner": {
         "comments": {
-            "url": "https://api.hh.ru/applicant_comments/123456"
+            "url": "https://api.hh.ru/applicant_comments/123456",
+            "counters": {
+                "total": 7
+            }
         }
     },
     "can_view_full_info": true,

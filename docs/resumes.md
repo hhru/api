@@ -217,7 +217,7 @@
             "medium": "http://hh.ru/...",
             "id": "1337",
             "description": "..."
-        },
+        }
     ],
     "area": {
         "url": "https://api.hh.ru/areas/1",
@@ -403,12 +403,12 @@
             "company_url": "http://www.rbc.ru",
             "industries": [
                 {
-                "id": "7.540",
-                "name": "Разработка программного обеспечения"
+                    "id": "7.540",
+                    "name": "Разработка программного обеспечения"
                 },
                 {
-                "id": "9.399",
-                "name": "Мобильная связь"
+                    "id": "9.399",
+                    "name": "Мобильная связь"
                 }
             ],
             "position": "Должность",
@@ -419,7 +419,8 @@
     ],
     "skills": "Дополнительная информация: ключевые навыки",
     "skill_set": [
-        "HTML", "CSS"
+        "HTML",
+        "CSS"
     ],
     "citizenship": [
         {
@@ -464,7 +465,10 @@
     },
     "owner": {
         "comments": {
-            "url": "https://api.hh.ru/applicant_comments/123456"
+            "url": "https://api.hh.ru/applicant_comments/123456",
+            "counters": {
+                "total": 7
+            }
         }
     },
     "can_view_full_info": true,
