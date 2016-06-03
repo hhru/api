@@ -735,10 +735,119 @@
     </head>
     <body>
     <article class="markdown-body">
-    <p>Documentation translation for this article is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/clusters.md.html.html">machine translation</a> powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+    <h2 id="clusters-in-vacancy-search">Clusters in vacancy search</h2>
+
+<p>In vacancy search, you can conveniently obtain advanced information about
+vacancy categorization by various search criteria. For instance, upon search by
+criteria, you can view requested vacancies split by salary (e.g. the number of
+vacancies with salary indicated, or the number of vacancies with a salary
+exceeding a set amount). Such data can be retrieved using vacancy search by
+separate request for each given criterion. However, it is far easier to use a
+special search result option, such as splitting data into clusters.</p>
+
+<p>See an example of using such data on the main hh.ru site see in the left column
+on the <a href="http://hh.ru/search/vacancy">vacancy search result page</a>.</p>
+
+<p>If you only need this metadata (and you don't need the list of found vacancies)
+enter <code>?per_page=0</code> in the request.</p>
+
+<p>In order to get clustered data, in search request for <code>/vacancies</code> add parameter
+<code>clusters=true</code>. Beside the search results, the search display will include
+vacancies grouped by cluster.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">306158</span><span class="p">,</span>
+  <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+  <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;clusters&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;professional_area&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Professional field&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Gyms, fitness, beauty salons&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;specialization=24&amp;per_page=1&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2852</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Installation and service&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2469</span><span class="p">,</span>
+          <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;specialization=25&amp;per_page=1&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Set of cluster object types (<code>id</code> in the elements of the massive <code>clusters</code>) may
+vary from one request to another and depends on parameters of the requests. See
+the full list of clusters in the <a href="dictionaries.md.html">reference guide</a> in the entry
+with a key <code>vacancy_cluster</code>.</p>
+
+<p>Thereby, if the search request contains <code>clusters=false</code> and parameter
+<code>clusters</code> was not specified at all, the <code>clusters</code> field in the response
+will be <code>null</code>.</p>
+
+<p>Each cluster has the following fields:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Cluster type</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Cluster type name</td>
+</tr>
+<tr>
+  <td>items</td>
+  <td>array</td>
+  <td>Search request array in this cluster indicating optional parameters</td>
+</tr>
+</tbody>
+</table>
+
+<p>Each array entry <code>items</code> is an object with the following fields:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Cluster entry name</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>string</td>
+  <td>Reference to search results on this cluster entry</td>
+</tr>
+<tr>
+  <td>count</td>
+  <td>number</td>
+  <td>Number of vacancies in this cluster entry</td>
+</tr>
+</tbody>
+</table>
 
     </article>
     </body>

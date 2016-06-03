@@ -738,6 +738,10 @@
     <h1 id="vacancies-for-the-employer">Vacancies for the employer</h1>
 
 <ul>
+<li><a href="#creation">Vacancy posting</a></li>
+<li><a href="#conditions">Vacancy fields conditions</a></li>
+<li><a href="#edit">Vacancy editing</a></li>
+<li><a href="#prolongate">Vacancy prolongation</a></li>
 <li><a href="#active">Published vacancy list</a></li>
 <li><a href="#archive">Storing vacancies</a></li>
 <li><a href="#archived">Archived vacancy list</a></li>
@@ -749,16 +753,850 @@
 <p>See also:</p>
 
 <ul>
-<li><a href="vacancies.md.html#creation">Vacancy posting</a></li>
-<li><a href="vacancies.md.html#edit">Vacancy editing</a></li>
-<li><a href="vacancies.md.html#prolongate">Vacancy extension</a></li>
+<li><a href="vacancies.md.html#author">Extra fields for the author of the vacancy</a></li>
 </ul>
+
+<p><a name="creation"></a></p>
+
+<h2 id="vacancy-posting">Vacancy posting</h2>
+
+<p><code>POST /vacancies</code></p>
+
+<h3 id="general-information">General information</h3>
+
+<p>The request body should be <a href="general.md.html#request-body">JSON</a> with data on the
+vacancy being posted. The format of the data is similar to the
+<a href="#item">vacancy view</a>, but also contains some additional fields.</p>
+
+<blockquote>
+  <p>In accordance with
+  <a href="http://hh.ru/article/13967">RF law № 1032-1 dated 19.04.1991, as amended on 02.07.2013</a>
+  it is prohibited to post information limiting rights or providing privileges
+  for applicants on the base of their gender, age, marital status as well as
+  other circumstances that are not related to the qualifications of employees.</p>
+</blockquote>
+
+<ul>
+<li>if posted successfully, a corresponding service will be written off.</li>
+<li>all vacancies undergo manual moderation.</li>
+<li>in a few minutes after having been posted, the vacancy will become available
+for search.</li>
+</ul>
+
+<h3 id="useful-links">Useful links</h3>
+
+<ul>
+<li><a href="http://hh.ru/article/341">rules for posting vacancies</a></li>
+<li><a href="http://hh.ru/article/16239">how do I formulate a good vacancy description</a></li>
+</ul>
+
+<p><a name="creation-example"></a></p>
+
+<h3 id="request-body-example">Request body example</h3>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;— Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, toutes les atrocités de cet Antichrist (ma parole, j&#39;y crois) — je ne vous connais plus, vous n&#39;êtes plus mon ami, vous n&#39;êtes plus мой верный раб, comme vous dites. Ну, здравствуйте, здравствуйте.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Je vois que je vous fais peur&lt;/em&gt;, садитесь и рассказывайте.&lt;/p&gt;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cold calling&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sales promotion&quot;</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;flyInFlyOut&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;moreThan6&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sales manager&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;17.324&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3.148&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov Ivan&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;i.ivanov@example.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;phones&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;495&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1234567&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;from 10 to 20&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;code-1234&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hh&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;show_metro_only&quot;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;321&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;42&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;branded_template&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;marketing&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><a name="creation_fields"></a></p>
+
+<h3 id="request-body">Request body</h3>
+
+<ul>
+<li><p><code>[]</code> (e.g. in specialization fields and in contacts) means that the value of
+the key is an array of objects.</p></li>
+<li><p><code>a.b</code> means an object <code>a</code> with a key <code>b</code> of the described type.</p></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+  <th>Path</th>
+  <th>JSON type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>title</td>
+</tr>
+<tr>
+  <td>description</td>
+  <td>string</td>
+  <td>description in html, at least 200 characters</td>
+</tr>
+<tr>
+  <td>key_skills</td>
+  <td>array</td>
+  <td>key skills list, no more than 30</td>
+</tr>
+<tr>
+  <td>key_skills[].name</td>
+  <td>string</td>
+  <td>key skill name</td>
+</tr>
+<tr>
+  <td>specializations</td>
+  <td>array</td>
+  <td>specialization list</td>
+</tr>
+<tr>
+  <td>specializations[].id</td>
+  <td>string</td>
+  <td>specialization from the <a href="specializations.md.html">directory</a></td>
+</tr>
+<tr>
+  <td>area.id</td>
+  <td>string</td>
+  <td>posting region from the <a href="areas.md.html">directory</a></td>
+</tr>
+<tr>
+  <td>type.id</td>
+  <td>string</td>
+  <td>type from the <a href="dictionaries.md.html">vacancy_type directory</a></td>
+</tr>
+<tr>
+  <td>billing_type.id</td>
+  <td>string</td>
+  <td>billing type from the <a href="dictionaries.md.html">vacancy_billing_type directory</a></td>
+</tr>
+<tr>
+  <td>site.id</td>
+  <td>string</td>
+  <td>website for posting from the <a href="dictionaries.md.html">vacancy_site directory</a></td>
+</tr>
+<tr>
+  <td>code</td>
+  <td>string</td>
+  <td>internal vacancy code</td>
+</tr>
+<tr>
+  <td>department.id</td>
+  <td>string</td>
+  <td>department from the <a href="employer_departments.md.html">directory</a>, on behalf of which the vacancy is being posted (if this is available for the company)</td>
+</tr>
+<tr>
+  <td>salary</td>
+  <td>object or null</td>
+  <td>salary</td>
+</tr>
+<tr>
+  <td>salary.from</td>
+  <td>numeric or null</td>
+  <td>salary range minimum</td>
+</tr>
+<tr>
+  <td>salary.to</td>
+  <td>numeric or null</td>
+  <td>salary range maximum</td>
+</tr>
+<tr>
+  <td>salary.currency</td>
+  <td>string</td>
+  <td>currency code from the <a href="dictionaries.md.html">currency directory</a></td>
+</tr>
+<tr>
+  <td>address</td>
+  <td>object or null</td>
+  <td>address</td>
+</tr>
+<tr>
+  <td>address.id</td>
+  <td>string</td>
+  <td>address from the <a href="employer_addresses.md.html">list of employer's available addresses</a></td>
+</tr>
+<tr>
+  <td>address.show_metro_only</td>
+  <td>boolean</td>
+  <td>show only metro for the indicated address</td>
+</tr>
+<tr>
+  <td>experience.id</td>
+  <td>string</td>
+  <td>required work experience from the <a href="dictionaries.md.html">experience directory</a></td>
+</tr>
+<tr>
+  <td>schedule.id</td>
+  <td>string</td>
+  <td>work schedule from the <a href="dictionaries.md.html">schedule directory</a></td>
+</tr>
+<tr>
+  <td>employment.id</td>
+  <td>string</td>
+  <td>employment type from the <a href="dictionaries.md.html">employment directory</a></td>
+</tr>
+<tr>
+  <td>contacts</td>
+  <td>object</td>
+  <td>contact information (for trade vacancies)</td>
+</tr>
+<tr>
+  <td>contacts.name</td>
+  <td>string</td>
+  <td>contact person</td>
+</tr>
+<tr>
+  <td>contacts.email</td>
+  <td>string</td>
+  <td>email</td>
+</tr>
+<tr>
+  <td>contacts.phones</td>
+  <td>array</td>
+  <td>phone number list for communication</td>
+</tr>
+<tr>
+  <td>contacts.phones[].country</td>
+  <td>string</td>
+  <td>country code</td>
+</tr>
+<tr>
+  <td>contacts.phones[].city</td>
+  <td>string</td>
+  <td>city code</td>
+</tr>
+<tr>
+  <td>contacts.phones[].number</td>
+  <td>string</td>
+  <td>telephone</td>
+</tr>
+<tr>
+  <td>contacts.phones[].comment</td>
+  <td>string or null</td>
+  <td>comment (convenient time to call this number)</td>
+</tr>
+<tr>
+  <td>test</td>
+  <td>object</td>
+  <td>vacancy test</td>
+</tr>
+<tr>
+  <td>test.id</td>
+  <td>string</td>
+  <td>test that will be added to the vacancy</td>
+</tr>
+<tr>
+  <td>test.required</td>
+  <td>boolean</td>
+  <td>require to take a test to apply for the vacancy</td>
+</tr>
+<tr>
+  <td>response_url</td>
+  <td>string</td>
+  <td>application URL for direct vacancies (<code>type.id=direct</code>)</td>
+</tr>
+<tr>
+  <td>custom_employer_name</td>
+  <td>string</td>
+  <td>company name for anonymous vacancies (<code>type.id=anonymous</code>), e.g. "a large Russian bank"</td>
+</tr>
+<tr>
+  <td>employer.id</td>
+  <td>string</td>
+  <td>employer who the vacancy is being posted for</td>
+</tr>
+<tr>
+  <td>manager.id</td>
+  <td>string</td>
+  <td>contact person (a manager) for the vacancy being posted; by default it is the current user</td>
+</tr>
+<tr>
+  <td>response_notifications</td>
+  <td>boolean</td>
+  <td>whether to notify about new applications</td>
+</tr>
+<tr>
+  <td>allow_messages</td>
+  <td>boolean</td>
+  <td>ability to <a href="http://inboxemp.hh.ru/">message candidates</a> on the subject of the vacancy</td>
+</tr>
+<tr>
+  <td>response_letter_required</td>
+  <td>boolean</td>
+  <td>demand a cover letter</td>
+</tr>
+<tr>
+  <td>accept_handicapped</td>
+  <td>boolean</td>
+  <td>indication that the vacancy is available for disabled applicants</td>
+</tr>
+<tr>
+  <td>branded_template.id</td>
+  <td>string</td>
+  <td><a name="branded-template-field"></a> branded template from the <a href="employer_vacancy_branded_templates.md.html#list">directory</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="creation-results"></a></p>
+
+<h3 id="request-result">Request result</h3>
+
+<ul>
+<li><code>204 No Content</code> – added successfully. The <code>Location</code> header will contain a
+link to the added vacancy.</li>
+<li><code>403 Forbidden</code> – addition of vacancies is not available for this user or
+is not available because a vacancy with similar data had already been posted
+by this employer. If you are sure that addition of the duplicate is necessary,
+you can add the <code>POST /vacancies?ignore_duplicates=true</code> parameter to
+your request.</li>
+<li><code>400 Bad Request</code> – errors in fields when adding a vacancy.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#vacancies-create-n-edit">error reasons</a>.</p>
+
+<p><a name="conditions"></a></p>
+
+<h2 id="field-filling-and-vacancy-editing-conditions">Field filling and vacancy editing conditions</h2>
+
+<p><code>GET /vacancy_conditions</code></p>
+
+<p>Each end field is described by the rules object. If the field consists of the
+object with a number of fields, these fields are described in the <code>fields</code>.</p>
+
+<p>The vacancy fields conditions are available only to employers, otherwise <code>403
+Forbidden</code> error code will be returned.</p>
+
+<p>For all the fields and their parts it is specified whether they are required
+(<code>required</code>).</p>
+
+<h3 id="response-example">Response example</h3>
+
+<p>Successful response will include the <code>200 OK</code> response code and will have a
+body:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;show_metro_only&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+                <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+                <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;phones&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^\\d{0,6}$&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
+                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^\\+?\\d{0,5}$&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^[\\d -]{4,32}$&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;custom_employer_name&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">220</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">511</span><span class="p">,</span>
+        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^(http|https)://.+$&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><a name="edit"></a></p>
+
+<h2 id="vacancy-editing">Vacancy editing</h2>
+
+<p><code>PUT /vacancies/{vacancy_id}</code></p>
+
+<p>Vacancy editing is similar to vacancy creation, but there is also a possibility to transfer separate fields in the object for partial editing of the vacancy.
+Composite fields (e.g. <code>salary</code>, <code>contacts</code>, <code>specializations</code>) can be edited only wholly, indicating the entire object. For example, to edit a salary currency, one must also state the currency values, and to edit a specialization, one should also specify the entire list.</p>
+
+<h3 id="fields-available-for-editing">Fields available for editing</h3>
+
+<table>
+<thead>
+<tr>
+  <th>field</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>name</td>
+  <td>title</td>
+</tr>
+<tr>
+  <td>description</td>
+  <td>description</td>
+</tr>
+<tr>
+  <td>key_skills</td>
+  <td>key skills</td>
+</tr>
+<tr>
+  <td>schedule</td>
+  <td>work schedule</td>
+</tr>
+<tr>
+  <td>experience</td>
+  <td>required work experience</td>
+</tr>
+<tr>
+  <td>employment</td>
+  <td>employment type</td>
+</tr>
+<tr>
+  <td>specializations</td>
+  <td>specialization list</td>
+</tr>
+<tr>
+  <td>salary</td>
+  <td>salary</td>
+</tr>
+<tr>
+  <td>address</td>
+  <td>address</td>
+</tr>
+<tr>
+  <td>test</td>
+  <td>test task</td>
+</tr>
+<tr>
+  <td>department</td>
+  <td>department</td>
+</tr>
+<tr>
+  <td>code</td>
+  <td>internal vacancy code</td>
+</tr>
+<tr>
+  <td>response_letter_required</td>
+  <td>requirement to enclose a cover letter when applying</td>
+</tr>
+<tr>
+  <td>accept_handicapped</td>
+  <td>indication that the vacancy is available for disabled applicants</td>
+</tr>
+<tr>
+  <td>response_notifications</td>
+  <td>tuning of the new application notifications</td>
+</tr>
+<tr>
+  <td>allow_messages</td>
+  <td>ability to message candidates on the subject of the vacancy</td>
+</tr>
+<tr>
+  <td>contacts</td>
+  <td>contact information (for trade vacancies)</td>
+</tr>
+<tr>
+  <td>custom_employer_name</td>
+  <td>company name for anonymous vacancies</td>
+</tr>
+<tr>
+  <td>response_url</td>
+  <td>application URL for direct vacancies</td>
+</tr>
+</tbody>
+</table>
+
+<p>Other fields are either read-only or can be set only when creating a vacancy.</p>
+
+<h3 id="request-result-2">Request result</h3>
+
+<ul>
+<li><code>204 No Content</code> – updated successfully.</li>
+<li><code>404 Not Found</code> – the edited vacancy is not found.</li>
+<li><code>403 Forbidden</code> – vacancy editing is not available for this user.</li>
+<li><code>400 Bad Request</code> – errors in fields when editing a vacancy.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#vacancies-create-n-edit">error reasons</a>.</p>
+
+<p><a name="edit_more"></a></p>
+
+<h3 id="changing-the-billing-type-vacancy-manager">Changing the billing type, vacancy manager</h3>
+
+<p>Changing the vacancy billing type as well as transferring the vacancy to another
+company manager is similar to editing <code>POST /vacancies/{vacancy_id}</code>. The only
+feature is that these fields (<code>billing_type</code> and <code>manager</code>) must be sent
+separately from other vacancy fields.</p>
+
+<pre><code>PUT /vacancies/{vacancy_id}
+{"billing_type":{"id":"premium"}
+</code></pre>
+
+<pre><code>PUT /vacancies/{vacancy_id}
+{"manager":{"id":"1337"}
+</code></pre>
+
+<p>If sent with any other fields, an error will be returned.</p>
+
+<p><a name="other-actions"></a></p>
+
+<h3 id="other-actions">Other actions</h3>
+
+<ul>
+<li><a href="#archive">archiving</a></li>
+<li><a href="#hide">deleting</a></li>
+<li><a href="#restore">restoring deleted vacancies</a></li>
+</ul>
+
+<p><a name="prolongate"></a></p>
+
+<h2 id="vacancy-extension">Vacancy extension</h2>
+
+<p><strong>Extension of the vacancy costs the same as a new posting</strong></p>
+
+<p>Vacancy extension has variable limits, and at the moment, the
+following rules are applied:</p>
+
+<ul>
+<li>standard vacancies can be extended if no less than 3 days have passed since the last extension.</li>
+<li>"Standard Plus" vacancies can be extended no earlier than 5 days before the posting end date.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<p><code>POST /vacancies/{vacancy_id}/prolongate</code></p>
+
+<p>where <code>vacancy_id</code> – ID of the vacancy.</p>
+
+<h3 id="response">Response</h3>
+
+<ul>
+<li><code>204 No Content</code> – vacancy was extended successfully</li>
+<li><code>403 Forbidden</code> – current user is not an employer or
+extension is impossible.</li>
+<li><code>404 Not Found</code> – vacancy doesn't exist or current user
+is not eligible for extension.</li>
+</ul>
+
+<p>In addition to an HTTP code, the server can return
+<a href="errors.md.html#vacancies-prolongate">error reason</a>.</p>
+
+<p><a name="prolongate-info"></a></p>
+
+<h2 id="info-on-vacancy-extension-availability">Info on vacancy extension availability</h2>
+
+<h3 id="request-2">Request</h3>
+
+<p><code>GET /vacancies/{vacancy_id}/prolongate</code></p>
+
+<p>where <code>vacancy_id</code> – ID of the vacancy.</p>
+
+<h3 id="response-2">Response</h3>
+
+<p>Successful response is returned with <code>200 OK</code> code.</p>
+
+<p>Example of the response if the extension is not possible:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-11-19T17:10:48+0300&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;disable_reason&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard_plus_publication_is_updated_automatically&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;The \&quot;Standard Plus\&quot; vacancy cannot be updated: it is updated automatically every three days.&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Example of the response if the extension is possible:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-11-19T17:10:48+0300&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/123456789/prolongate&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>where:</p>
+
+<ul>
+<li><code>actions</code> – list of actions available for vacancy
+extension. At the moment, only regular extension is possible.</li>
+<li><code>id</code> – vacancy ID.</li>
+<li><code>expires_at</code> – date and time of vacancy posting termination.</li>
+</ul>
+
+<p>Data available for the action:</p>
+
+<ul>
+<li><code>id</code> – action ID,</li>
+<li><code>enabled</code> – action is possible,</li>
+<li><code>disable_reason</code> – reason of action disable.
+Possible reasons are listed <a href="dictionaries.md.html">in reference guide</a>
+<code>vacancy_not_prolonged_reason</code>.</li>
+<li><code>url</code> and <code>method</code> – url and HTTP method for the request to
+perform an action.</li>
+</ul>
+
+<h3 id="errors">Errors</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – current user is not an employer.</li>
+<li><code>404 Not Found</code> – vacancy doesn't exist or current user
+is not eligible to get the vacancy info.</li>
+</ul>
+
+<p><a name="conditions"></a></p>
+
+<h2 id="field-filling-and-vacancy-editing-conditions-2">Field filling and vacancy editing conditions</h2>
+
+<h3 id="rules">Rules</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>required</td>
+  <td>logical</td>
+  <td>Is the vacancy field or object field mandatory?</td>
+</tr>
+<tr>
+  <td>min_length</td>
+  <td>integer</td>
+  <td>Min length of text field.</td>
+</tr>
+<tr>
+  <td>max_length</td>
+  <td>integer</td>
+  <td>Max length of text field.</td>
+</tr>
+<tr>
+  <td>min_count</td>
+  <td>integer</td>
+  <td>Min number of objects for the fields with list transferring.</td>
+</tr>
+<tr>
+  <td>max_count</td>
+  <td>integer or <code>null</code></td>
+  <td>Max number of objects for the fields with list transferring. <code>null</code> – the number is not limited.</td>
+</tr>
+</tbody>
+</table>
 
 <p><a name="active"></a></p>
 
 <h2 id="published-vacancy-list">Published vacancy list</h2>
 
-<h3 id="request">Request</h3>
+<h3 id="request-3">Request</h3>
 
 <p><code>GET /employers/{employer_id}/vacancies/active?manager_id={manager_id}</code></p>
 
@@ -766,7 +1604,7 @@
 if you need to make a request for the current manager (the value can be taken
 from <code>/me</code>).</p>
 
-<h3 id="response">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
 
@@ -899,7 +1737,7 @@ collection supports:</p>
 
 <h2 id="archived-vacancy-list">Archived vacancy list</h2>
 
-<h3 id="request-2">Request</h3>
+<h3 id="request-4">Request</h3>
 
 <p><code>GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}</code></p>
 
@@ -911,7 +1749,7 @@ supported. Possible sorting values are available in the
 the list of published vacancies, this collection does not support search (the
 parameters <code>text</code> and <code>area</code>).</p>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-4">Response</h3>
 
 <p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
 
@@ -1007,7 +1845,7 @@ If performed successfully, <code>204 No Content</code> will be returned.</p>
 
 <h2 id="deleted-vacancy-list">Deleted vacancy list</h2>
 
-<h3 id="request-3">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <p><code>GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}</code></p>
 
@@ -1016,7 +1854,7 @@ Possible sorting values are available in the <code>employer_hidden_vacancies_ord
 (<code>/dictionaries</code>) directory. As opposed to the list of published vacancies, this
 collection does not support search (the parameters <code>text</code> and <code>area</code>).</p>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <p>Successful server response is returned with <code>200 OK</code> code and contains:</p>
 

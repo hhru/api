@@ -848,6 +848,9 @@ POST-запрос на <code>https://hh.ru/oauth/token</code> для обмен�
 <pre><code>grant_type=authorization_code&amp;client_id={client_id}&amp;client_secret={client_secret}&amp;code={authorization_code}&amp;redirect_uri={redirect_uri}
 </code></pre>
 
+<p><code>client_id</code> и <code>client_secret</code> - необходимо заполнить значениями, выданными при
+<a href="https://dev.hh.ru/admin">регистрации приложения</a>.</p>
+
 <p>Если при получении <code>authorization_code</code> был указан <code>redirect_uri</code>, то в запросе
 необходимо обязательно передать это значение (происходит сравнение строк),
 иначе этот параметр необязателен. Если же не указать <code>redirect_uri</code> при запросе
@@ -973,6 +976,11 @@ grant_type=refresh_token&amp;refresh_token={refresh_token}
 
 <ul>
 <li>Подробная документация по протоколу: <a href="http://tools.ietf.org/html/rfc6749">RFC 6749</a></li>
+<li>Библиотека <a href="https://github.com/scribejava/scribejava">ScribeJava</a>,
+поддерживающая авторизацию в API HeadHunter.
+<ul>
+<li><a href="https://habrahabr.ru/company/hh/blog/278957/">Habrahabr: ScribeJava — даже ваша бабушка сможет работать с OAuth</a></li>
+</ul></li>
 </ul>
 
     </article>

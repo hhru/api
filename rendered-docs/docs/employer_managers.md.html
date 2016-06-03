@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Справочник менеджеров работодателя</title>
+        <title>Менеджеры работодателя</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,26 +735,46 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Справочник менеджеров работодателя</h1>
+    <h1>Менеджеры работодателя</h1>
 
-<p>Для того, чтобы узнать список менеджеров работодателя, необходимо отправить запрос <code>GET</code> на <code>/employers/{employer_id}/managers</code>. Данный справочник доступен только для работодателей.</p>
+<p><a name="list"></a></p>
 
-<p>В случае успешного выполнения запроса будет возвращён статус <code>HTTP 200 OK</code>. В теле ответа будет возвращён список менеджеров работодателя, например:</p>
+<h2 id="-2">Справочник менеджеров работодателя</h2>
+
+<h3 id="-3">Запрос</h3>
+
+<p><code>GET /employers/{employer_id}/managers</code></p>
+
+<p>где:</p>
+
+<ul>
+<li><code>employer_id</code> - идентификатор работодателя, который можно узнать в
+<a href="me.md.html#employer-info">информации о текущем пользователе</a>.</li>
+</ul>
+
+<p>Данный справочник доступен только для работодателей.</p>
+
+<h3 id="-4">Ответ</h3>
+
+<p>В случае успешного выполнения запроса будет возвращён статус <code>200 OK</code>. В
+теле ответа будет возвращён список менеджеров работодателя, например:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1507922&quot;</span><span class="p">,</span> 
-            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span> 
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1507922&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p>В элементе <code>items</code> будет содержаться список менеджеров работодателя.
 Каждый элемент из <code>items</code> обладает следующими полями:</p>
+
+<p><a name="fields"></a></p>
 
 <table>
 <thead>
@@ -788,7 +808,42 @@
 </tbody>
 </table>
 
-<p>В случае, когда с текущей авторизацией запрещено просматривать менеджеров данного работодателя, будет возвращён код <code>HTTP 403 Forbidden</code>.</p>
+<p>В случае, когда с текущей авторизацией запрещено просматривать менеджеров
+данного работодателя, будет возвращён код <code>403 Forbidden</code>.</p>
+
+<p><a name="item"></a></p>
+
+<h2 id="-5">Получение информации о менеджере</h2>
+
+<h3 id="-6">Запрос</h3>
+
+<p><code>GET /employers/{employer_id}/managers/{manager_id}</code></p>
+
+<p>где:</p>
+
+<ul>
+<li><code>employer_id</code> - идентификатор работодателя, который можно узнать в
+<a href="me.md.html#employer-info">информации о текущем пользователе</a>.</li>
+<li><code>manager_id</code> - идентификатор менеджера.</li>
+</ul>
+
+<h3 id="-7">Ответ</h3>
+
+<p>В случае успешного выполнения запроса, будет возвращён статус <code>200 OK</code>. В
+теле ответа будет информация о менеджере, например:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1507922&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Поля объекта аналогичны <a href="#fields">полям в справочнике менеджеров</a>.</p>
+
+<p>Если менеджер или компания не существуют или не доступны для текущего
+пользователя, будет возвращена ошибка <code>404 Not Found</code>.</p>
 
     </article>
     </body>

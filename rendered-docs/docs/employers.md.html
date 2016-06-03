@@ -882,7 +882,8 @@
 
 <h2 id="-3">Работодатель / компания</h2>
 
-<p><code>GET /employers/{employer_id}</code> возвращает данные о компании с ссылкой на выдачу вакансий этой компании.</p>
+<p><code>GET /employers/{employer_id}</code> возвращает данные о компании со ссылкой на выдачу
+вакансий этой компании.</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
@@ -892,6 +893,7 @@
     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;branded_description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;style&gt;...&lt;/style&gt;&lt;div&gt;...&lt;/div&gt;&lt;script&gt;&lt;/script&gt;&quot;</span><span class="p">,</span>
     <span class="nt">&quot;vacancies_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?employer_id=1455&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
     <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
@@ -906,29 +908,41 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p><code>branded_description</code> - строка с кодом HTML (возможно наличие <code>&lt;script/&gt;</code> и <code>&lt;style/&gt;</code>), которая является альтернативой стандартному описанию компании.
-HTML адаптирован для мобильных устройств и корректно отображается без поддержки javascript. 
-При этом:</p>
+<p><code>branded_description</code> - строка с кодом HTML (возможно наличие <code>&lt;script/&gt;</code> и
+<code>&lt;style/&gt;</code>), которая является альтернативой стандартному описанию компании. HTML
+адаптирован для мобильных устройств и корректно отображается без поддержки
+javascript. При этом:</p>
 
 <ul>
-<li>Контент тянется по ширине на 100% ширины контейнера и умещается без прокрутки в 300px. </li>
-<li>Контент рассчитан на то, что он будет вставлен в обвязку, в которую входит название, логотип, сайт и ссылка на вакансии компании. </li>
-<li>Изображения, которые могут встретиться в таком описании, адаптированы под retina дисплеи. </li>
+<li>Контент тянется по ширине на 100% ширины контейнера и умещается без прокрутки
+в 300px.</li>
+<li>Контент рассчитан на то, что он будет вставлен в обвязку, в которую входит
+название, логотип, сайт и ссылка на вакансии компании.</li>
+<li>Изображения, которые могут встретиться в таком описании, адаптированы под
+retina-дисплеи.</li>
 <li>Размер шрифта не меньше 12px, размер межстрочного интервала не меньше 16px.</li>
 </ul>
 
-<p>Значение может быть null, если у компании отсутствует индивидуальное описание. </p>
+<p>Значение может быть null, если у компании отсутствует индивидуальное описание.</p>
 
 <p><code>vacancies_url</code> — ссылка на поисковую выдачу вакансий данной компании.</p>
 
-<p><code>logo_urls</code> — изображения логотипа компании разных размеров. <code>original</code> — это необработанный логотип, который может быть
-большого размера. Если изначально загруженный компанией логотип меньше, чем 240px и/или 90px по меньшей стороне, то в
-соответствующих ключах будут ссылки на изображения оригинального размера. Объект может быть null, если компания не загрузила
-логотип. Клиент должен предусмотреть возможность отсутствия логотипа по указанной ссылке (ответ с кодом <code>404 Not Found</code>).</p>
+<p><code>logo_urls</code> — изображения логотипа компании разных размеров. <code>original</code> — это
+необработанный логотип, который может быть большого размера. Если изначально
+загруженный компанией логотип меньше, чем 240px и/или 90px по меньшей стороне,
+то в соответствующих ключах будут ссылки на изображения оригинального размера.
+Объект может быть null, если компания не загрузила логотип. Клиент должен
+предусмотреть возможность отсутствия логотипа по указанной ссылке (ответ с кодом
+<code>404 Not Found</code>).</p>
 
-<p><code>type</code> — тип компании (прямой работодатель, кадровое агентство и т.п.). Возможные значения описаны в <a href="dictionaries.md.html">коллекции справочников</a> под ключом <code>employer_type</code>. </p>
+<p><code>type</code> — тип компании (прямой работодатель, кадровое агентство и т.п.).
+Возможные значения описаны в <a href="dictionaries.md.html">коллекции справочников</a> под
+ключом <code>employer_type</code>.</p>
 
 <p><code>area</code> — регион работодателя.</p>
+
+<p><code>trusted</code> – флаг, указывает на то, что
+<a href="http://feedback.hh.ru/article/details/id/5951">компанию прошла проверку на сайте</a>.</p>
 
 <hr />
 

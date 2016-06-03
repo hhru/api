@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Вакансии</title>
+        <title>Получение вакансий</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,7 +735,7 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Вакансии</h1>
+    <h1>Получение вакансий</h1>
 
 <ul>
 <li><a href="#item">Просмотр вакансии</a></li>
@@ -744,11 +744,31 @@
 <li><a href="#search">Поиск по вакансиям</a></li>
 <li><a href="#nano">Короткое представление вакансии</a></li>
 <li><a href="blacklisted.md.html">Скрытые вакансии</a></li>
-<li><a href="#creation">Публикация вакансий</a></li>
-<li><a href="#conditions">Условия заполнения полей при добавлении и редактировании вакансий</a></li>
-<li><a href="#edit">Редактирование вакансий</a></li>
-<li><a href="#prolongate">Продление вакансий</a></li>
-<li><a href="#prolongate-info">Информация о возможности продления вакансии</a></li>
+</ul>
+
+<p>Смотрите также:</p>
+
+<p><a name="creation"></a>
+<a name="creation-example"></a>
+<a name="creation_fields"></a>
+<a name="allow_messages"></a>
+<a name="creation-results"></a>
+<a name="conditions"></a>
+<a name="edit"></a>
+<a name="edit_more"></a>
+<a name="other-actions"></a>
+<a name="prolongate"></a>
+<a name="prolongate-info"></a>
+<a name="branded-template-field"></a></p>
+
+<ul>
+<li><a href="employer_vacancies.md.html">Вакансии для работодателя</a>
+<ul>
+<li><a href="employer_vacancies.md.html#creation">Публикация вакансий</a></li>
+<li><a href="employer_vacancies.md.html#edit">Редактирование вакансий</a></li>
+<li><a href="employer_vacancies.md.html#prolongate">Продление вакансий</a></li>
+<li><a href="employer_vacancies.md.html#hide">Удаление вакансий</a></li>
+</ul></li>
 </ul>
 
 <p><a name="item"></a></p>
@@ -809,7 +829,8 @@
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
     <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
     <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
   <span class="p">},</span>
   <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nt">&quot;response_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -1104,9 +1125,16 @@ null. Список телефонов может быть пустым.</p>
 <li><p><code>employer_id</code> — идентификатор <a href="employers.md.html">компании</a>. <br />
 Возможно указание нескольких значений.  </p></li>
 <li><p><code>currency</code> — код валюты. <br />
-Справочник с возможными значениями: <code>currency</code> (ключ code) в <a href="dictionaries.md.html">/dictionaries</a>.  </p></li>
+Справочник с возможными значениями: <code>currency</code> (ключ code) в <a href="dictionaries.md.html">/dictionaries</a>. <br />
+Имеет смысл указывать только совместно с параметром <code>salary</code>.</p></li>
 <li><p><code>salary</code> — размер заработной платы. <br />
-Если указано это поле, но не указано <code>currency</code>, то используется значение RUR у <code>currency</code>.</p></li>
+Если указано это поле, но не указано <code>currency</code>, то используется значение RUR у <code>currency</code>. <br />
+При указании значения будут найдены вакансии, в которых вилка зарплаты близка к
+указанной в запросе. При этом значения пересчитываются по текущим курсам ЦБ РФ.
+Например, при указании <code>salary=100&amp;currency=EUR</code> будут найдены вакансии, где
+вилка зарплаты указана в рублях и после пересчёта в Евро близка к 100 EUR.
+По-умолчанию будут также найдены вакансии, в которых вилка зарплаты не указана,
+чтобы такие вакансии отфильтровать, используйте <code>only_with_salary=true</code>.</p></li>
 <li><p><code>label</code> — фильтр по меткам вакансий. <br />
 Справочник с возможными значениями: <code>vacancy_label</code> в <a href="dictionaries.md.html">/dictionaries</a>. <br />
 Возможно указание нескольких значений.  </p></li>
@@ -1135,9 +1163,10 @@ null. Список телефонов может быть пустым.</p>
 Если выбрана сортировка по удалённости от гео-точки <code>distance</code>, необходимо также задать её координаты <code>sort_point_lat</code>,<code>sort_point_lng</code>.</p></li>
 <li><p><code>sort_point_lat</code>, <code>sort_point_lng</code> - значение гео-координат точки, по расстоянию от которой будут отсортированы вакансии. Необходимо указывать только, если <code>order_by</code> установлено в <code>distance</code>.</p></li>
 <li><p><code>clusters</code> — возвращать ли список кластеров для данного поиска, по умолчанию: <code>false</code>. Подробнее <a href="clusters.md.html">/docs/clusters.md</a>.</p></li>
+<li><p><code>per_page</code>, <code>page</code> — <a href="general.md.html#pagination">параметры пагинации</a>.</p></li>
 </ul>
 
-<p>При указании параметров пэйджинга (page, per_page) работает ограничение: глубина
+<p>При указании параметров пагинации (page, per_page) работает ограничение: глубина
 возвращаемых результатов не может быть больше 2000. Например, возможен запрос
 <code>per_page=10&amp;page=199</code> (выдача с 1991 по 2000 вакансию), но запрос с
 <code>per_page=10&amp;page=200</code> вернёт ошибку (выдача с 2001 до 2010 вакансию).</p>
@@ -1150,9 +1179,10 @@ null. Список телефонов может быть пустым.</p>
 соискателей применяется фильтрация по
 <a href="blacklisted.md.html">списку скрытых вакансий и компаний</a>.</p>
 
-<p>Выдача может отличаться при выборе <a href="hosts.md.html">различных сайтов</a>. Однако выбор
-регионального сайта, например <code>hh.kz</code>, не сужает выборку до данного региона,
-для ограничения выборки по региону используйте параметр <a href="#field-area"><code>area</code></a>.</p>
+<p>Выдача может отличаться при выборе <a href="hosts.md.html">различных сайтов</a> (параметр
+<code>host</code>). Однако выбор регионального сайта, например <code>hh.kz</code>, не сужает выборку
+до данного региона, для ограничения выборки по региону используйте параметр
+<a href="#field-area"><code>area</code></a>.</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -1181,7 +1211,8 @@ null. Список телефонов может быть пустым.</p>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span><span class="p">,</span>
         <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
       <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -1364,848 +1395,8 @@ null. Список телефонов может быть пустым.</p>
 </tbody>
 </table>
 
-<p><code>url</code> и <code>alternate_url</code> могут принимать значение <code>null</code> в случае если подробная информация о вакансии недоступна
-(например, вакансия была удалена)</p>
-
-<p><a name="creation"></a></p>
-
-<h2 id="-7">Публикация вакансий</h2>
-
-<p><code>POST /vacancies</code></p>
-
-<h3 id="-8">Общая информация</h3>
-
-<p>В качестве тела запроса необходимо передавать
-<a href="general.md.html#request-body">JSON</a> с данными размещаемой вакансии,
-формат данных аналогичен <a href="#item">просмотру вакансии</a>, но также содержит
-некоторые дополнительные поля.</p>
-
-<blockquote>
-  <p>В соответствии с
-  <a href="http://hh.ru/article/13967">законом РФ № 1032-1 от 19.04.1991 в ред. от 02.07.2013 г.</a>
-  запрещено размещать информацию, ограничивающую права или устанавливающую
-  преимущества для соискателей по полу, возрасту, семейному положению и другим
-  обстоятельствам, не связанным с деловыми качествами работников.</p>
-</blockquote>
-
-<ul>
-<li>при успешной публикации будут списана соответствующая услуга.</li>
-<li>все вакансии проходят ручную модерацию.</li>
-<li>в течение нескольких минут после публикации вакансия станет доступна в поиске.</li>
-</ul>
-
-<h3 id="-9">Полезные ссылки</h3>
-
-<ul>
-<li><a href="http://hh.ru/article/341">правила размещения вакансий</a></li>
-<li><a href="http://hh.ru/article/16239">как составить хорошее описание вакансии</a></li>
-<li><a href="employer_vacancies.md.html#active">список опубликованных вакансий</a></li>
-<li><a href="employer_vacancies.md.html#archived">список архивных вакансий</a></li>
-<li><a href="employer_vacancies.md.html#hidden">список удаленных вакансий</a></li>
-<li><a href="#conditions">условия заполнения полей</a></li>
-</ul>
-
-<p><a name="creation-example"></a></p>
-
-<h3 id="-10">Пример тела запроса</h3>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;— Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, toutes les atrocités de cet Antichrist (ma parole, j&#39;y crois) — je ne vous connais plus, vous n&#39;êtes plus mon ami, vous n&#39;êtes plus мой верный раб, comme vous dites. Ну, здравствуйте, здравствуйте.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Je vois que je vous fais peur&lt;/em&gt;, садитесь и рассказывайте.&lt;/p&gt;&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Холодные продажи&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Проведение промо акций&quot;</span><span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;flyInFlyOut&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;moreThan6&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Менеджер по продажам&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;17.324&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3.148&quot;</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
-    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;i.ivanov@example.com&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;phones&quot;</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;495&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1234567&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;с 10 до 20&quot;</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;код-1234&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hh&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;show_metro_only&quot;</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;321&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;42&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;branded_template&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;marketing&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><a name="creation_fields"></a></p>
-
-<h3 id="-11">Поля запроса</h3>
-
-<ul>
-<li><code>[]</code> (например, в полях специализации и контактах) обозначает, что значение данного ключа является массивом объектов.  </li>
-<li><code>a.b</code> обозначает объект <code>a</code> с ключом <code>b</code> описанного типа.</li>
-</ul>
-
-<table>
-<thead>
-<tr>
-  <th>Путь</th>
-  <th>JSON тип</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>name</td>
-  <td>string</td>
-  <td>название</td>
-</tr>
-<tr>
-  <td>description</td>
-  <td>string</td>
-  <td>описание в html, не менее 200 символов</td>
-</tr>
-<tr>
-  <td>key_skills</td>
-  <td>array</td>
-  <td>список ключевых навыков, не более 30</td>
-</tr>
-<tr>
-  <td>key_skills[].name</td>
-  <td>string</td>
-  <td>название ключевого навыка</td>
-</tr>
-<tr>
-  <td>specializations</td>
-  <td>array</td>
-  <td>список специализаций</td>
-</tr>
-<tr>
-  <td>specializations[].id</td>
-  <td>string</td>
-  <td>специализация <a href="specializations.md.html">из справочника</a></td>
-</tr>
-<tr>
-  <td>area.id</td>
-  <td>string</td>
-  <td>регион публикации <a href="areas.md.html">из справочника</a></td>
-</tr>
-<tr>
-  <td>type.id</td>
-  <td>string</td>
-  <td>тип из <a href="dictionaries.md.html">справочника vacancy_type</a></td>
-</tr>
-<tr>
-  <td>billing_type.id</td>
-  <td>string</td>
-  <td>биллинговый тип <a href="dictionaries.md.html">из справочника vacancy_billing_type</a></td>
-</tr>
-<tr>
-  <td>site.id</td>
-  <td>string</td>
-  <td>сайт для публикации <a href="dictionaries.md.html">из справочника vacancy_site</a></td>
-</tr>
-<tr>
-  <td>code</td>
-  <td>string</td>
-  <td>внутренний код вакансии</td>
-</tr>
-<tr>
-  <td>department.id</td>
-  <td>string</td>
-  <td>департамент <a href="employer_departments.md.html">из справочника</a>, от имени которого размещается вакансия (если данная возможность доступна для компании)</td>
-</tr>
-<tr>
-  <td>salary</td>
-  <td>object или null</td>
-  <td>зарплата</td>
-</tr>
-<tr>
-  <td>salary.from</td>
-  <td>numeric или null</td>
-  <td>нижняя граница зарплаты</td>
-</tr>
-<tr>
-  <td>salary.to</td>
-  <td>numeric или null</td>
-  <td>верхняя граница зарплаты</td>
-</tr>
-<tr>
-  <td>salary.currency</td>
-  <td>string</td>
-  <td>код валюты из <a href="dictionaries.md.html">справочника currency</a></td>
-</tr>
-<tr>
-  <td>address</td>
-  <td>object или null</td>
-  <td>адрес</td>
-</tr>
-<tr>
-  <td>address.id</td>
-  <td>string</td>
-  <td>адрес из <a href="employer_addresses.md.html">списка доступных адресов работодателя</a></td>
-</tr>
-<tr>
-  <td>address.show_metro_only</td>
-  <td>boolean</td>
-  <td>показывать только метро для указанного адреса</td>
-</tr>
-<tr>
-  <td>experience.id</td>
-  <td>string</td>
-  <td>требуемый опыт работы из <a href="dictionaries.md.html">справочника experience</a></td>
-</tr>
-<tr>
-  <td>schedule.id</td>
-  <td>string</td>
-  <td>график работы из <a href="dictionaries.md.html">справочника schedule</a></td>
-</tr>
-<tr>
-  <td>employment.id</td>
-  <td>string</td>
-  <td>тип занятости из <a href="dictionaries.md.html">справочника employment</a></td>
-</tr>
-<tr>
-  <td>contacts</td>
-  <td>object</td>
-  <td>контактная информация (для вакансий рабочих специальностей)</td>
-</tr>
-<tr>
-  <td>contacts.name</td>
-  <td>string</td>
-  <td>контактное лицо</td>
-</tr>
-<tr>
-  <td>contacts.email</td>
-  <td>string</td>
-  <td>email</td>
-</tr>
-<tr>
-  <td>contacts.phones</td>
-  <td>array</td>
-  <td>список телефонов для связи</td>
-</tr>
-<tr>
-  <td>contacts.phones[].country</td>
-  <td>string</td>
-  <td>код страны</td>
-</tr>
-<tr>
-  <td>contacts.phones[].city</td>
-  <td>string</td>
-  <td>код города</td>
-</tr>
-<tr>
-  <td>contacts.phones[].number</td>
-  <td>string</td>
-  <td>телефон</td>
-</tr>
-<tr>
-  <td>contacts.phones[].comment</td>
-  <td>string или null</td>
-  <td>комментарий (удобное время для звонка по этому номеру)</td>
-</tr>
-<tr>
-  <td>test</td>
-  <td>object</td>
-  <td>тест для вакансии</td>
-</tr>
-<tr>
-  <td>test.id</td>
-  <td>string</td>
-  <td>тест, который будет добавлен в вакансию</td>
-</tr>
-<tr>
-  <td>test.required</td>
-  <td>boolean</td>
-  <td>требовать прохождение теста для отклика на вакансию</td>
-</tr>
-<tr>
-  <td>response_url</td>
-  <td>string</td>
-  <td>URL отклика для прямых вакансий (<code>type.id=direct</code>)</td>
-</tr>
-<tr>
-  <td>custom_employer_name</td>
-  <td>string</td>
-  <td>название компании для анонимных вакансий (<code>type.id=anonymous</code>), например "крупный российский банк"</td>
-</tr>
-<tr>
-  <td>employer.id</td>
-  <td>string</td>
-  <td>работодатель, для которого размещается вакансия</td>
-</tr>
-<tr>
-  <td>manager.id</td>
-  <td>string</td>
-  <td>контактное лицо (менеджер) по размещаемой вакансии, по-умолчанию текущий пользователь</td>
-</tr>
-<tr>
-  <td>response_notifications</td>
-  <td>boolean</td>
-  <td>уведомлять о новых откликах</td>
-</tr>
-<tr>
-  <td><a name="allow_messages"></a> allow_messages</td>
-  <td>boolean</td>
-  <td>возможность <a href="http://inboxemp.hh.ru/">переписки с кандидатами</a> по данной вакансии</td>
-</tr>
-<tr>
-  <td>response_letter_required</td>
-  <td>boolean</td>
-  <td>требовать сопроводительное письмо</td>
-</tr>
-<tr>
-  <td>accept_handicapped</td>
-  <td>boolean</td>
-  <td>указание, что вакансия доступна для соискателей с инвалидностью</td>
-</tr>
-<tr>
-  <td>branded_template.id</td>
-  <td>string</td>
-  <td><a name="branded-template-field"></a> брендированное оформление вакансии из <a href="employer_vacancy_branded_templates.md.html#list">справочника</a></td>
-</tr>
-</tbody>
-</table>
-
-<p><a name="creation-results"></a></p>
-
-<h3 id="-12">Результат запроса</h3>
-
-<ul>
-<li><code>201 Created</code> - успешное добавление. В заголовке <code>Location</code> будет
-содержаться ссылка на добавленную вакансию.</li>
-<li><code>403 Forbidden</code> - добавление вакансий недоступно данному пользователю или
-добавление вакансии недоступно, так как вакансия с похожими
-данными уже опубликована у данного работодателя. Если вы уверены, что
-добавление дубликата необходимо, вы можете добавить к запросу параметр
-<code>POST /vacancies?ignore_duplicates=true</code>.</li>
-<li><code>400 Bad Request</code> - ошибки в полях при добавлении вакансии.</li>
-</ul>
-
-<p>Дополнительно к HTTP коду сервер может вернуть описание
-<a href="errors.md.html#vacancies-create-n-edit">причины ошибки</a>.</p>
-
-<p><a name="conditions"></a></p>
-
-<h2 id="-13">Условия заполнения полей при добавлении и редактировании вакансий</h2>
-
-<p><code>GET /vacancy_conditions</code></p>
-
-<p>Каждое конечное поле описано объектом правил. Если поле состоит из
-объекта с несколькими полями, эти поля описаны в <code>fields</code>.</p>
-
-<p>Условия полей вакансии доступны только работодателям, в противном случае
-вернётся код ответа <code>403 Forbidden</code>.</p>
-
-<p>Для всех полей и их частей указано, являются ли они необходимыми (<code>required</code>).</p>
-
-<h3 id="-14">Пример ответа</h3>
-
-<p>Успешный ответ содержит код ответа <code>200 OK</code> и тело.</p>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;show_metro_only&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
-        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
-                <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
-                <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;phones&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^\\d{0,6}$&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-                    <span class="p">},</span>
-                    <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
-                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-                    <span class="p">},</span>
-                    <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^\\+?\\d{0,5}$&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-                    <span class="p">},</span>
-                    <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
-                        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-                        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^[\\d -]{4,32}$&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-                    <span class="p">}</span>
-                <span class="p">},</span>
-                <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-                <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;custom_employer_name&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
-        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
-        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
-        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-        <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;manager&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">220</span><span class="p">,</span>
-        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;response_url&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">511</span><span class="p">,</span>
-        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;regexp&quot;</span><span class="p">:</span> <span class="s2">&quot;^(http|https)://.+$&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_count&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="nt">&quot;min_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h3 id="-15">Правила</h3>
-
-<table>
-<thead>
-<tr>
-  <th>Имя</th>
-  <th>Тип</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>required</td>
-  <td>логический</td>
-  <td>Является ли поле вакансии или поле объекта необходимым?</td>
-</tr>
-<tr>
-  <td>min_length</td>
-  <td>целое</td>
-  <td>Минимальная длина для текстовых полей.</td>
-</tr>
-<tr>
-  <td>max_length</td>
-  <td>целое</td>
-  <td>Максимальная длина для текстовых полей.</td>
-</tr>
-<tr>
-  <td>min_count</td>
-  <td>целое</td>
-  <td>Минимальное количество объектов, для полей, где необходимо передавать список.</td>
-</tr>
-<tr>
-  <td>max_count</td>
-  <td>целое или <code>null</code></td>
-  <td>Максимально количество объектов, для полей, где необходимо передавать список. <code>null</code> – если количество не ограничено.</td>
-</tr>
-</tbody>
-</table>
-
-<p><a name="edit"></a></p>
-
-<h2 id="-16">Редактирование вакансий</h2>
-
-<p><code>PUT /vacancies/{vacancy_id}</code></p>
-
-<p>Редактирование происходит по аналогии с созданием вакансии, но есть возможность
-передачи отдельных полей в объекте для частичного редактирования вакансии.
-Cоставные поля (например, <code>salary</code>, <code>contacts</code>, <code>specializations</code>) можно
-редактировать только целиком, передавая полный объект. Например, для изменения
-валюты в зарплате, необходимо передавать также и значения зарплаты, а
-для изменения специализации необходимо передать полный список.</p>
-
-<h3 id="-17">Поля доступные для редактирования</h3>
-
-<table>
-<thead>
-<tr>
-  <th>поле</th>
-  <th>описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>name</td>
-  <td>название</td>
-</tr>
-<tr>
-  <td>description</td>
-  <td>описание</td>
-</tr>
-<tr>
-  <td>key_skills</td>
-  <td>ключевые навыки</td>
-</tr>
-<tr>
-  <td>schedule</td>
-  <td>график работы</td>
-</tr>
-<tr>
-  <td>experience</td>
-  <td>требуемый опыт работы</td>
-</tr>
-<tr>
-  <td>employment</td>
-  <td>тип занятости</td>
-</tr>
-<tr>
-  <td>specializations</td>
-  <td>список специализаций</td>
-</tr>
-<tr>
-  <td>salary</td>
-  <td>зарплата</td>
-</tr>
-<tr>
-  <td>address</td>
-  <td>адрес</td>
-</tr>
-<tr>
-  <td>test</td>
-  <td>тестовое задание</td>
-</tr>
-<tr>
-  <td>department</td>
-  <td>департамент</td>
-</tr>
-<tr>
-  <td>code</td>
-  <td>внутренний код вакансии</td>
-</tr>
-<tr>
-  <td>response_letter_required</td>
-  <td>необходимость сопроводительного письма при отклике</td>
-</tr>
-<tr>
-  <td>accept_handicapped</td>
-  <td>указание, что вакансия доступна для соискателей с инвалидностью</td>
-</tr>
-<tr>
-  <td>response_notifications</td>
-  <td>настройка уведомления о новых откликах</td>
-</tr>
-<tr>
-  <td>allow_messages</td>
-  <td>возможность переписки с кандидатами по данной вакансии</td>
-</tr>
-<tr>
-  <td>contacts</td>
-  <td>контактная информация (для вакансий рабочих специальностей)</td>
-</tr>
-<tr>
-  <td>custom_employer_name</td>
-  <td>название компании для анонимных вакансий</td>
-</tr>
-<tr>
-  <td>response_url</td>
-  <td>URL отклика для прямых вакансий</td>
-</tr>
-</tbody>
-</table>
-
-<p>Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.</p>
-
-<p><a name="edit-results"></a></p>
-
-<h3 id="-18">Результат запроса</h3>
-
-<ul>
-<li><code>204 No Content</code> - успешное обновление.</li>
-<li><code>404 Not Found</code> - редактируемая вакансия не найдена.</li>
-<li><code>403 Forbidden</code> - редактирование вакансий недоступно данному пользователю.</li>
-<li><code>400 Bad Request</code> - ошибки в полях при редактировании вакансии.</li>
-</ul>
-
-<p>Дополнительно к HTTP коду сервер может вернуть описание
-<a href="errors.md.html#vacancies-create-n-edit">причины ошибки</a>.</p>
-
-<p><a name="edit_more"></a></p>
-
-<h3 id="-">Смена биллинг-типа, менеджера вакансии</h3>
-
-<p>Изменение биллингового типа вакансии, а также передача вакансии другому
-менеджеру компании происходит по аналогии с редактированием
-<code>POST /vacancies/{vacancy_id}</code>. Единственная особенность — эти поля
-(<code>billing_type</code> и <code>manager</code>) необходимо отправлять отдельно от остальных полей
-вакансии.</p>
-
-<pre><code>PUT /vacancies/{vacancy_id}
-{"billing_type":{"id":"premium"}
-</code></pre>
-
-<pre><code>PUT /vacancies/{vacancy_id}
-{"manager":{"id":"1337"}
-</code></pre>
-
-<p>При передачи этих полей вместе с любыми другими вернется ошибка.</p>
-
-<p><a name="other-actions"></a></p>
-
-<h3 id="-19">Прочие действия</h3>
-
-<ul>
-<li><a href="employer_vacancies.md.html#archive">архивация</a></li>
-<li><a href="employer_vacancies.md.html#hide">удаление</a></li>
-<li><a href="employer_vacancies.md.html#restore">восстановление из удаленных</a></li>
-</ul>
-
-<p><a name="prolongate"></a></p>
-
-<h2 id="-20">Продление вакансий</h2>
-
-<p><strong>Продление вакансии по стоимости приравнивается к новой публикации</strong></p>
-
-<p>Существуют ограничения по продлению вакансии, они могут меняться, на данный
-момент работают следующие правила:</p>
-
-<ul>
-<li>стандартные вакансии можно продлевать, если с предыдущего продления прошло не менее 3 дней.</li>
-<li>вакансии "стандарт-плюс" возможно продлевать не ранее 5 дней до окончания публикации.</li>
-</ul>
-
-<h3 id="-21">Запрос</h3>
-
-<p><code>POST /vacancies/{vacancy_id}/prolongate</code></p>
-
-<p>где <code>vacancy_id</code> - идентификатор вакансии.</p>
-
-<h3 id="-22">Ответ</h3>
-
-<ul>
-<li><code>204 No Content</code> – вакансия продлена успешно</li>
-<li><code>403 Forbidden</code> – текущий пользователь не является работодателем или
-продление невозможно.</li>
-<li><code>404 Not Found</code> – вакансия не существует или текущему пользователю
-недоступно её продление.</li>
-</ul>
-
-<p>Дополнительно к HTTP коду сервер может вернуть
-описание <a href="errors.md.html#vacancies-prolongate">причины ошибки</a>.</p>
-
-<p><a name="prolongate-info"></a></p>
-
-<h2 id="-23">Информация о возможности продления вакансии</h2>
-
-<h3 id="-24">Запрос</h3>
-
-<p><code>GET /vacancies/{vacancy_id}/prolongate</code></p>
-
-<p>где <code>vacancy_id</code> - идентификатор вакансии.</p>
-
-<h3 id="-25">Ответ</h3>
-
-<p>Успешный ответ приходит с кодом <code>200 OK</code>.</p>
-
-<p>Пример ответа, когда продление невозможно:</p>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-11-19T17:10:48+0300&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;prolongate&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="nt">&quot;disable_reason&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard_plus_publication_is_updated_automatically&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Вакансия \&quot;Стандарт Плюс\&quot; не может быть обновлена, это происходит автоматически раз в три дня.&quot;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Пример ответа, когда продление возможно:</p>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-11-19T17:10:48+0300&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;prolongate&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/123456789/prolongate&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Где:</p>
-
-<ul>
-<li><code>actions</code> – список действий, которые можно предпринять для продления
-вакансии. В данный момент поддерживается только обычное продление.</li>
-<li><code>id</code> – идентификатор вакансии.</li>
-<li><code>expires_at</code> – дата и время окончания публикации вакансии.</li>
-</ul>
-
-<p>По действию доступны данные:</p>
-
-<ul>
-<li><code>id</code> - идентификатор действия,</li>
-<li><code>enabled</code> - возможно ли действие,</li>
-<li><code>disable_reason</code> - причина, по которой совершить действие невозможно.
-Возможные причины перечислены <a href="dictionaries.md.html">в справочнике</a>
-<code>vacancy_not_prolonged_reason</code>.</li>
-<li><code>url</code> и <code>method</code> – url и HTTP метод, с которыми нужно сделать запрос,
-чтобы совершить действие.</li>
-</ul>
-
-<h3 id="-26">Ошибки</h3>
-
-<ul>
-<li><code>403 Forbidden</code> – текущий пользователь не является работодателем.</li>
-<li><code>404 Not Found</code> – вакансия несуществует или текущему пользователю
-недоступно получение информации о вакансии.</li>
-</ul>
+<p><code>url</code> и <code>alternate_url</code> могут принимать значение <code>null</code> в случае, если подробная
+информация о вакансии недоступна (например, вакансия была удалена).</p>
 
     </article>
     </body>

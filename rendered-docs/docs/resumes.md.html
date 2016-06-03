@@ -739,8 +739,11 @@
 
 <ul>
 <li><a href="#mine">Список резюме авторизованного пользователя</a></li>
-<li><a href="#item">Просмотр резюме</a></li>
-<li><a href="#search">Поиск резюме</a></li>
+<li><a href="#item">Просмотр резюме</a>
+<ul>
+<li><a href="#applicant-paid-services">Платные услуги для соискателя, связанные с резюме</a></li>
+<li><a href="#paid-services">Платные услуги для работодателя, связанные с резюме</a></li>
+</ul></li>
 <li><a href="#create_edit">Создание и редактирование резюме</a></li>
 <li><a href="#publish">Публикация и продление резюме</a></li>
 <li><a href="#clone">Клонирование резюме</a></li>
@@ -752,6 +755,18 @@
 <li><a href="#status">Статусы резюме</a></li>
 <li><a href="#access_type">Видимость резюме</a></li>
 <li><a href="#views">История просмотра резюме</a></li>
+</ul>
+
+<p>Смотрите также:</p>
+
+<p><a name="search"></a>
+<a name="resume-search-request"></a>
+<a name="search-results"></a>
+<a name="search-params"></a></p>
+
+<ul>
+<li><a href="employer_resumes.md.html#search">Поиск резюме</a></li>
+<li><a href="saved_search.md.html#resumes-saved-search-list">Сохраненные поиски резюме</a></li>
 </ul>
 
 <p><a name="mine"></a></p>
@@ -905,335 +920,9 @@
 <li><code>status</code> – <a href="#status">статус резюме</a></li>
 </ul>
 
-<p><a name="search"></a></p>
-
-<h2 id="-3">Поиск резюме</h2>
-
-<p><code>GET /resumes</code> вернёт результаты поиска резюме.</p>
-
-<hr />
-
-<p><a name="resume-search-request"></a></p>
-
-<p><strong>Поиск резюме доступен только при авторизации работодателем и при условии,</strong>
-<strong>что приложение входит в список разрешенных.</strong></p>
-
-<p>Для того, чтобы ваше приложение было включено в этот список, пришлите заявку
-в свободной форме на адрес api@hh.ru. В письме опишите:</p>
-
-<ul>
-<li>ваше приложение, его цели и функциональность,</li>
-<li>Client ID приложения (получить его можно
-<a href="https://dev.hh.ru/admin">в личном кабинете</a>),</li>
-<li>причины необходимости доступа к поиску резюме, каким образом вы планируете
-использовать результаты поиска резюме,</li>
-<li>при возможности приложите к письму макеты/скриншоты/прототипы.</li>
-</ul>
-
-<p>Включение в список является бесплатной услугой. Все остальные возможности
-API, кроме поиска резюме, доступны сразу, без необходимости одобрения.</p>
-
-<p>При подаче заявки обратите внимание на пункты 1.3, 1.5 и 1.6
-<a href="https://dev.hh.ru/admin/developer_agreement">Условий использования сервиса API</a>:</p>
-
-<blockquote>
-  <p>«1.3. HeadHunter вправе отказать без объяснения причин любому Пользователю в
-  регистрации любого Приложения на Сайте и получении API-ключа и
-  соответственно дальнейшем использовании Сервиса без какой-либо компенсации
-  или возмещения в связи с этим.»</p>
-</blockquote>
-
-<p>...</p>
-
-<blockquote>
-  <p>«1.5. Пользователем Сервиса могут быть только организации-работодатели,
-  использующие Сервис только для целей привлечения потенциальных работников
-  и их последующего трудоустройства в организацию-Пользователя.»</p>
-  
-  <p>«1.6. В случае, если у HeadHunter есть какие-либо основания полагать,
-  что Пользователем Сервис потенциально может быть использован не только
-  для целей привлечения потенциальных работников и их последующего
-  трудоустройства в организацию-Пользователя, HeadHunter вправе в любое
-  время отказать в использовании Сервиса (включая и на этапе регистрации
-  Приложения Пользователя) Пользователю без какой-либо компенсации или
-  возмещения в связи с этим.»</p>
-</blockquote>
-
-<hr />
-
-<p>При запросе с авторизацией соискателем/анонимом вернется ошибка <code>403</code>.</p>
-
-<p><a name="search-results"></a></p>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">2099341</span><span class="p">,</span>
-    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span>
-    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Начинающий специалист&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иван&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванович&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;can_view_full_info&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
-            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/resume/0123456789abcdef&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-06T12:00:00+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-04-20T16:24:15+0300&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-01&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-                    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;тест&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span>
-                <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;primary&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Российский государственный социальный университет, Москва&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;name_id&quot;</span><span class="p">:</span> <span class="s2">&quot;39420&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Факультет информационных технологий&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;organization_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-                        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;Информатика&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;result_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-                        <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2012</span>
-                    <span class="p">}</span>
-                <span class="p">]</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">118</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;пастух&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2010-01-01&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-                    <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Рога и копыта&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
-                        <span class="p">{</span>
-                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;51.643&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Благоустройство и уборка территорий и зданий&quot;</span>
-                        <span class="p">},</span>
-                        <span class="p">{</span>
-                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;29.503&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Земледелие, растениеводство, животноводство&quot;</span>
-                        <span class="p">}</span>
-                    <span class="p">],</span>
-                    <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
-                    <span class="p">},</span>
-                    <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-                    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="kc">null</span>
-                <span class="p">},</span>
-                <span class="p">{</span>
-                    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2005-01-01&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-03-01&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
-                    <span class="p">},</span>
-                    <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
-                        <span class="p">{</span>
-                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7.513&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Интернет-компания  (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)&quot;</span>
-                        <span class="p">}</span>
-                    <span class="p">],</span>
-                    <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/1455&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/employer/logo/1455&quot;</span>
-                        <span class="p">},</span>
-                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Мужской&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">,</span>
-                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/applicant_comments/123456&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Настройки вывода полей в поиске резюме на сайте не влияют на выдачу в API.</p>
-
-<p>Резюме выводится не целиком. В объекте опыта отсутствует описание
-(поле <code>description</code>), а также должность (поле <code>position</code>) доступна только в
-последнем опыте. Образование выводится только основное.</p>
-
-<p>Контактная информация (ФИО) будет присутствовать только при оплаченном доступе.</p>
-
-<p>Для получения полной информации необходимо запросить <a href="#item">полное резюме</a>.
-У соискателя запрос резюме будет отражён в истории просмотров.</p>
-
-<p>Поля резюме аналогичны <a href="#resume-keys">полям при редактировании резюме</a>.</p>
-
-<p>Работодателю дополнительно выдаётся поле <code>owner.comments.url</code>, содержащее
-url, GET запрос на который возвращает
-<a href="applicant_comments.md.html#list">список комментариев к владельцу резюме</a>.</p>
-
-<p>При указании параметров пэйджинга (page, per_page) работает ограничение: глубина
-возвращаемых результатов не может быть больше 2000. Например, возможен запрос
-<code>per_page=10&amp;page=199</code> (выдача с 1991 по 2000 резюме), но запрос с
-<code>per_page=10&amp;page=200</code> вернёт ошибку (выдача с 2001 до 2010 резюме).</p>
-
-<p><a name="search-params"></a></p>
-
-<h3 id="-4">Принимаемые параметры</h3>
-
-<p>Некоторые параметры принимают множественные значения: <code>key=value&amp;key=value</code>.</p>
-
-<ul>
-<li><p><code>text</code> — поисковая фраза. Найдет резюме в которых встречаются все слова
-заданной фразы. Возможно указание нескольких значений. Каждый дополнительный
-<code>text</code> уточняет поиск. В качестве поисковой фразы можно использовать
-<a href="http://hh.ru/article.xml?articleId=1175">язык поисковых запросов</a>.
-Специально для этого поля есть <a href="suggests.md.html#resume-search-keyword">автодополнение</a>.
-Для тонкой настройки по фразе можно использовать параметры <code>text.logic</code>,
-<code>text.field</code>, <code>text.period</code>. При использовании дополнительных <code>text.*</code> полей,
-необходимо указывать весь набор (триаду) параметров. Если параметры будут
-указаны неверно или будет неверный состав этих параметров, то в ответ
-вернется <code>400 Bad request</code>.</p></li>
-<li><p><code>text.logic</code> – описывает, как производится поиск. Справочник с возможными
-значениями: <code>resume_search_logic</code> в <a href="dictionaries.md.html">/dictionaries</a>.</p></li>
-<li><p><code>text.field</code> – описывает, где должны встречаться слова из поисковой фразы
-<code>text</code>. В параметре text.field можно укзать несколько значений через запятую,
-например – <code>?text.field=education,keywords</code>. Справочник с возможными
-значениями: <code>resume_search_fields</code> в <a href="dictionaries.md.html">/dictionaries</a>.</p></li>
-<li><p><code>text.period</code> – период для поиска в опыте работы. Параметр имеет смысл
-только для <code>text.field</code> равного одному из: <code>experience</code>, <code>experience_company</code>,
-<code>experience_position</code>, <code>experience_description</code>, но указывать его необходимо
-всегда  при указании других <code>text.*</code>. В этом случае он может быть пустым.</p></li>
-</ul>
-
-<p>Например:</p>
-
-<ul>
-<li><p><code>GET /resumes?text=программист</code> – найдет все резюме, в любом месте которого
-встречается заданное слово 'программист'.</p></li>
-<li><p><code>GET /resumes?text=программист&amp;text=java</code> – найдет резюме, в любом месте
-которого встречаются слова 'программист' и 'java'.</p></li>
-<li><p><code>GET /resumes?text=программист%20java&amp;text.logic=any&amp;text.field=everywhere&amp;text.period=all_time</code> –
-найдет резюме, в любом месте которого встречается любое из слов заданной
-фразы в параметре <code>text</code> ('программист' или 'java'). При использовании
-дополнительных полей, они должны быть указаны все.</p></li>
-<li><p><code>GET /resumes?text=Headhunter&amp;text.logic=all&amp;text.field=experience&amp;text.period=last_three_years</code> –
-найдет все резюме, в опыте работы которых за последние 3 года встречается
-'Headhunter'.</p></li>
-<li><p><code>GET /resumes?text=менеджер%20проекта&amp;text.logic=all&amp;text.field=experience%2Cskills&amp;text.period=last_year&amp;text=ответственный&amp;text.logic=all&amp;text.field=everywhere&amp;text.period=all_time</code> –
-найдет все резюме, в опыте работы за последний год и ключевых навыках которых
-встречаются слова 'менеджер' и 'проекта', а также слово 'ответственный'
-в любом месте резюме. Отметим, что дополнительные параметры
-<code>text.logic=all&amp;text.field=experience%2Cskills&amp;text.period=last_year</code>
-указаны для <code>text=менеджер%20проекта</code>, а
-<code>text.logic=all&amp;text.field=everywhere&amp;text.period=all_time</code> для параметра
-<code>text=ответственный</code>.</p></li>
-<li><p><code>age_from</code>, <code>age_to</code> — возраст соискателя в годах, диапазон от и до.</p></li>
-<li><p><code>area</code> — регион. Справочник с возможными значениями: <a href="areas.md.html">/areas</a>.
-Можно указать несколько значений. По-умолчанию выбираются
-резюме, в которых соискатели живут в указанных регионах или готовы в них
-переехать, поменять это поведение можно указанием поля <code>relocation</code>.</p></li>
-<li><p><code>relocation</code> — готовность к переезду. Справочник с возможными
-значениями: <code>resume_search_relocation</code> в <a href="dictionaries.md.html">/dictionaries</a>.
-Необходимо указывать вместе с параметром <code>area</code>.</p></li>
-<li><p><code>period</code> — в днях, ищет резюме опубликованные за указанный период.
-Если не указан, поиск ведется без ограничений по дате публикации.</p></li>
-<li><p><code>date_from</code> – дата, от которой нужно начать поиск. Значение указывается в
-формате <code>dd.mm.yyyy</code>. Нельзя передавать вместе с параметром <code>period</code>.</p></li>
-<li><p><code>date_to</code> – дата, до которой нужно искать. Значение указывается в
-формате <code>dd.mm.yyyy</code>. Можно передавать только в паре с параметром <code>date_from</code>.
-Нельзя передавать вместе с параметром <code>period</code>.</p></li>
-<li><p><code>education_level</code> —  уровень образования. Справочник с возможными значениями:
-<code>education_level</code> в <a href="dictionaries.md.html">/dictionaries</a>. Если не указан, поиск
-ведется без ограничений на уровень образования.</p></li>
-<li><p><code>employment</code> — тип занятости.
-Справочник с возможными значениями: <code>employment</code> в
-<a href="dictionaries.md.html">/dictionaries</a>. Можно указать несколько значений.</p></li>
-<li><p><code>experience</code> — опыт работы. Справочник с возможными значениями: <code>experience</code>
-в <a href="dictionaries.md.html">/dictionaries</a>.</p></li>
-<li><p><code>skill</code> - ключевые навыки. Указывается один или несколько идентификаторов
-ключевых навыков. Значения можно получить из поля <code>id</code> в
-<a href="suggests.md.html#key-skills">подсказке по ключевым навыкам</a>.</p></li>
-<li><p><code>gender</code> — пол. Справочник с возможными значениями: <code>gender</code> в
-<a href="dictionaries.md.html">/dictionaries</a>.</p></li>
-<li><p><code>label</code> — дополнительный фильтр. Справочник с возможными значениями:
-<code>resume_search_label</code> в <a href="dictionaries.md.html">/dictionaries</a>. Можно указать
-несколько значений.</p></li>
-<li><p><code>language</code> — знание языка. Можно указать несколько значений. Задается в
-формате language.level, где:</p>
-
-<ul>
-<li><code>language</code> — значение из справочника <a href="languages.md.html">/languages</a>,</li>
-<li><code>level</code> — значение из справочника <code>language_level</code>
-<a href="dictionaries.md.html">/dictionaries</a>.</li>
-</ul></li>
-<li><p><code>metro</code> — линия, либо станция метро. Справочник с возможными значениями:
-<a href="metro.md.html">/metro</a>.</p></li>
-<li><p><code>currency</code> — код валюты. Справочник с возможными значениями: <code>currency</code>
-(ключ code) в <a href="dictionaries.md.html">/dictionaries</a>.</p></li>
-<li><p><code>salary_from</code>, <code>salary_to</code> — диапазон желаемой заработной платы, от и до.</p></li>
-<li><p><code>schedule</code> — график работы. Справочник с возможными значениями:
-<code>schedule</code> в <a href="dictionaries.md.html">/dictionaries</a>. Можно указать несколько
-значений.</p></li>
-<li><p><code>specialization</code> — профобласть или специализация. Справочник с возможными
-значениями: <a href="specializations.md.html">/specializations</a>. Можно указать несколько
-значений.</p></li>
-<li><p><code>order_by</code> — сортировка списка резюме. Справочник с возможными значениями:
-<code>resume_search_order</code> в <a href="dictionaries.md.html">/dictionaries</a>.</p></li>
-<li><p><code>per_page</code> — количество результатов на страницу (не может превышать 50).</p></li>
-<li><p><code>page</code> — номер страницы.</p></li>
-<li><p><code>citizenship</code> — страна желаемого гражданства. Возможные значения можно
-посмотреть в справочнике стран. Возможно указание нескольких значений.</p></li>
-<li><p><code>work_ticket</code> — страна, в которой есть разрешение на работу. Возможные
-значения можно посмотреть в справочнике стран. Возможно указание нескольких
-значений.</p></li>
-<li><p><code>educational_institution</code> – учебные заведения соискателя. В качестве
-параметров используются подсказки по названиям университетов
-<a href="suggests.md.html">/suggests/educational_institutions</a>. Возможно указание
-нескольких значений.</p></li>
-</ul>
-
-<p>Если параметры переданы с ошибкой, то в ответ вернется <code>400 Bad request</code> с
-описанием ошибки в теле. Неизвестные параметры и параметры с ошибкой в названии
-игнорируются.</p>
-
 <p><a name="item"></a></p>
 
-<h2 id="-5">Просмотр резюме</h2>
+<h2 id="-3">Просмотр резюме</h2>
 
 <p><code>GET /resumes/{resume_id}</code> возвращает указанное резюме. Если в резюме указан тип
 видимости «видно всему интернету» или «по прямой ссылке» (<code>everyone</code> и <code>direct</code>
@@ -1575,9 +1264,66 @@ url, GET запрос на который возвращает
 url, GET запрос на который возвращает
 <a href="applicant_comments.md.html#list">список комментариев к владельцу резюме</a>.</p>
 
+<p><a name="applicant-paid-services"></a></p>
+
+<h3 id="-4">Платные услуги для соискателя, связанные с резюме</h3>
+
+<p>Соискателю для своих резюме выводится список платных услуг.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;paid_services&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_autoupdating&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Автообновление резюме&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;resume_marked&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Яркое резюме&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;expires&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-06-08T18:25:25+0300&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>По каждой услуге выдаются поля:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>строка</td>
+  <td>идентификатор услуги</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>строка</td>
+  <td>название услуги</td>
+</tr>
+<tr>
+  <td>active</td>
+  <td>логический</td>
+  <td>активна ли в данный момент услуга</td>
+</tr>
+<tr>
+  <td>expires</td>
+  <td>строка (дата)</td>
+  <td>время окончания действия услуги, если услуга активна</td>
+</tr>
+</tbody>
+</table>
+
 <p><a name="paid-services"></a></p>
 
-<h3 id="-6">Платные услуги связанные с резюме</h3>
+<h3 id="-5">Платные услуги для работодателя, связанные с резюме</h3>
 
 <p>Работодателю может быть предложен список платных услуг по резюме.</p>
 
@@ -1666,7 +1412,7 @@ url, GET запрос на который возвращает
 
 <p><a name="create_edit"></a></p>
 
-<h2 id="-7">Создание и редактирование резюме</h2>
+<h2 id="-6">Создание и редактирование резюме</h2>
 
 <p><code>POST /resumes</code> — добавление резюме.</p>
 
@@ -1856,7 +1602,7 @@ url, GET запрос на который возвращает
 
 <p><a name="publish"></a></p>
 
-<h2 id="-8">Публикация резюме</h2>
+<h2 id="-7">Публикация резюме</h2>
 
 <p><code>POST /resumes/{resume_id}/publish</code></p>
 
@@ -1877,7 +1623,7 @@ url, GET запрос на который возвращает
 
 <p><a name="clone"></a></p>
 
-<h2 id="-9">Клонирование резюме</h2>
+<h2 id="-8">Клонирование резюме</h2>
 
 <p><code>POST /resumes?source_resume_id={resume_id}</code></p>
 
@@ -1889,7 +1635,7 @@ url, GET запрос на который возвращает
 
 <p><a name="conditions"></a></p>
 
-<h2 id="-10">Условия заполнения полей резюме</h2>
+<h2 id="-9">Условия заполнения полей резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/conditions</code> — возвращает список требований для полей
 резюме.</p>
@@ -2003,7 +1749,7 @@ url, GET запрос на который возвращает
 заполнить и другие его поля. Пример — желаемая зарплата (<code>salary</code>) может быть не
 указана, либо указана, но обязательно с валютой.</p>
 
-<h2 id="-11">Правила</h2>
+<h2 id="-10">Правила</h2>
 
 <table>
 <thead>
@@ -2064,7 +1810,7 @@ url, GET запрос на который возвращает
 
 <p><a name="init-conditions"></a></p>
 
-<h2 id="-12">Условия заполнения полей нового резюме</h2>
+<h2 id="-11">Условия заполнения полей нового резюме</h2>
 
 <p><code>GET /resume_conditions</code> — возвращает список требований для полей нового резюме.
 Если авторизованный пользователь не соискатель — вернётся код ответа
@@ -2072,7 +1818,7 @@ url, GET запрос на который возвращает
 
 <p><a name='conditions-contacts' /></p>
 
-<h2 id="-13">Условия заполнения контактов в резюме</h2>
+<h2 id="-12">Условия заполнения контактов в резюме</h2>
 
 <p>При заполнении контактов в резюме необходимо учитывать следующие условия:</p>
 
@@ -2104,7 +1850,7 @@ url, GET запрос на который возвращает
 
 <p><a name='conditions-other' /></p>
 
-<h2 id="-14">Дополнительные правила заполнения полей резюме</h2>
+<h2 id="-13">Дополнительные правила заполнения полей резюме</h2>
 
 <p>Существует ещё несколько правил заполнения резюме, которые не укладываются в
 представленный выше формат:</p>
@@ -2125,7 +1871,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="resume-nano"></a></p>
 
-<h2 id="-15">Короткое представление резюме</h2>
+<h2 id="-14">Короткое представление резюме</h2>
 
 <p>Самое короткое представление резюме:</p>
 
@@ -2167,7 +1913,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="status"></a></p>
 
-<h2 id="-16">Статус резюме</h2>
+<h2 id="-15">Статус резюме</h2>
 
 <p>Ключ <code>status</code> определяет текущее состояние резюме и содержит элемент
 справочника <a href="dictionaries.md.html">resume_status</a>. После создания нового резюме оно
@@ -2199,7 +1945,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="access_type"></a></p>
 
-<h2 id="-17">Видимость резюме</h2>
+<h2 id="-16">Видимость резюме</h2>
 
 <p>После публикации резюме доступно для поиска работодателями. Чтобы это изменить
 (например, работа найдена и нужно скрыть резюме из поиска), следует поменять
@@ -2243,7 +1989,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="views"></a></p>
 
-<h2 id="-18">История просмотра резюме</h2>
+<h2 id="-17">История просмотра резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/views</code> вернёт историю просмотров резюме. На основном
 сайте это доступно при клике на кол-во просмотров резюме на странице со списком
