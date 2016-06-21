@@ -57,7 +57,7 @@ Article labels:
   * [CV publication & prolongation](resumes.md#publish) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CV view history](resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Artifacts (photos, portfolio)](artifacts.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-
+* [Search for vacancies similar to the CV](resumes.md#similar) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 
 <a name="vacancies"></a>
 ### Vacancies

@@ -14,6 +14,7 @@
 * [CV status](#status)
 * [CV access type](#access_type)
 * [CV view history](#views)
+* [Search for vacancies similar to the CV](#similar)
 
 See also:
 
@@ -460,3 +461,21 @@ See
 [machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#views)
 powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
+
+
+<a name="similar"></a>
+## Search for vacancies similar to the CV
+
+Data are available only for the CV author.
+
+### Request
+
+`GET /resumes/{resume_id}/similar_vacancies`
+
+where `resume_id` – ID of the resume.
+
+Accepts the same parameters as [vacancy search](vacancies.md#search-params) and
+returns the same results as [vacancy search](vacancies.md#search-results)
+
+Additionally if CV with `resume_id` does not exist or not available
+`404 Not Found` will be returned in response.
