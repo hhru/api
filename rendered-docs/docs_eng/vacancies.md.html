@@ -741,7 +741,8 @@
 <li><a href="#item">View a vacancy</a></li>
 <li><a href="#author">Extra fields for the author of the vacancy</a></li>
 <li><a href="#favorited">Favorite vacancies</a></li>
-<li><a href="#search">Search by vacancies</a></li>
+<li><a href="#search">Search for vacancies</a></li>
+<li><a href="#similar">Search for vacancies similar to the vacancy</a></li>
 <li><a href="#nano">Short description of the vacancy</a></li>
 <li><a href="blacklisted.md.html">Hidden vacancies</a></li>
 </ul>
@@ -1086,11 +1087,12 @@ successfully, the method returns <code>204 No Content</code>.</p>
 
 <p><a name="search"></a></p>
 
-<h2 id="search-by-vacancies">Search by vacancies</h2>
+<h2 id="search-for-vacancies">Search for vacancies</h2>
 
 <p><code>GET /vacancies</code> will return the results of vacancy search.</p>
 
-<p>Acceptable parameters:</p>
+<p><a name="search-params"></a>
+Acceptable parameters:</p>
 
 <p>Some parameters take multiple values: <code>key=value&amp;key=value</code>.</p>
 
@@ -1170,6 +1172,8 @@ only in case when <code>order_by</code> is set to <code>distance</code>.</p></li
 <li><p><code>clusters</code> – whether the cluster list should be returned for this search,
 by default: <code>false</code>. More information on this <a href="clusters.md.html">/docs/clusters.md</a>.</p></li>
 </ul>
+
+<p><a name="search-results"></a></p>
 
 <p>When indicating paging parameters (<code>page</code>, <code>per_page</code>), a restriction takes
 effect: the number of results returned can't exceed 2000. For instance, a
@@ -1266,6 +1270,22 @@ used for applicants.</p>
 </tr>
 </tbody>
 </table>
+
+<p><a name="similar"></a></p>
+
+<h2 id="search-for-vacancies-similar-to-the-vacancy">Search for vacancies similar to the vacancy</h2>
+
+<h3 id="request">Request</h3>
+
+<p><code>GET /vacancies/{vacancy_id}/similar_vacancies</code></p>
+
+<p>where <code>vacancy_id</code> – ID of the vacancy.</p>
+
+<p>Accepts the same parameters as <a href="#search-params">vacancy search</a> and returns the same
+results as <a href="#search-results">vacancy search</a></p>
+
+<p>Additionally if vacancy with <code>vacancy_id</code> does not exist <code>404 Not Found</code> will be
+returned in response.</p>
 
 <p><a name="nano"></a></p>
 

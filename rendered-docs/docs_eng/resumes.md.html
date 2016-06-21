@@ -752,6 +752,7 @@
 <li><a href="#status">CV status</a></li>
 <li><a href="#access_type">CV access type</a></li>
 <li><a href="#views">CV view history</a></li>
+<li><a href="#similar">Search for vacancies similar to the CV</a></li>
 </ul>
 
 <p>See also:</p>
@@ -1214,6 +1215,24 @@ See
 <a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#views">machine translation</a>
 powered by
 <a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="similar"></a></p>
+
+<h2 id="search-for-vacancies-similar-to-the-cv">Search for vacancies similar to the CV</h2>
+
+<p>Data are available only for the CV author.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code>GET /resumes/{resume_id}/similar_vacancies</code></p>
+
+<p>where <code>resume_id</code> – ID of the resume.</p>
+
+<p>Accepts the same parameters as <a href="vacancies.md.html#search-params">vacancy search</a> and
+returns the same results as <a href="vacancies.md.html#search-results">vacancy search</a></p>
+
+<p>Additionally if CV with <code>resume_id</code> does not exist or not available
+<code>404 Not Found</code> will be returned in response.</p>
 
     </article>
     </body>

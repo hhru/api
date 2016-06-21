@@ -742,6 +742,7 @@
 <li><a href="#author">Дополнительные поля для автора вакансии</a></li>
 <li><a href="#favorited">Отобранные вакансии</a></li>
 <li><a href="#search">Поиск по вакансиям</a></li>
+<li><a href="#similar">Поиск по вакансиям, похожим на вакансию</a></li>
 <li><a href="#nano">Короткое представление вакансии</a></li>
 <li><a href="blacklisted.md.html">Скрытые вакансии</a></li>
 </ul>
@@ -1089,7 +1090,8 @@ null. Список телефонов может быть пустым.</p>
 
 <p><code>GET /vacancies</code> вернёт результаты поиска вакансий.</p>
 
-<p>Принимаемые параметры:</p>
+<p><a name="search-params"></a>
+Принимаемые параметры:</p>
 
 <p>Некоторые параметры принимают множественные значения: <code>key=value&amp;key=value</code>.</p>
 
@@ -1165,6 +1167,8 @@ null. Список телефонов может быть пустым.</p>
 <li><p><code>clusters</code> — возвращать ли список кластеров для данного поиска, по умолчанию: <code>false</code>. Подробнее <a href="clusters.md.html">/docs/clusters.md</a>.</p></li>
 <li><p><code>per_page</code>, <code>page</code> — <a href="general.md.html#pagination">параметры пагинации</a>.</p></li>
 </ul>
+
+<p><a name="search-results"></a></p>
 
 <p>При указании параметров пагинации (page, per_page) работает ограничение: глубина
 возвращаемых результатов не может быть больше 2000. Например, возможен запрос
@@ -1267,9 +1271,26 @@ null. Список телефонов может быть пустым.</p>
 </tbody>
 </table>
 
+<p><a name="similar"></a></p>
+
+<h2 id="-6">Поиск по вакансиям, похожим на вакансию</h2>
+
+<h3 id="-7">Запрос</h3>
+
+<p><code>GET /vacancies/{vacancy_id}/similar_vacancies</code></p>
+
+<p>где <code>vacancy_id</code> - идентификатор вакансии.</p>
+
+<p>Принимает те же параметры, что и <a href="#search-params">поиск по вакансиям</a>, и
+возвращает результаты в том же виде, что и
+<a href="#search-results">поиск по вакансиям</a>.</p>
+
+<p>Дополнительно, если вакансия с идентификатором <code>vacancy_id</code> не существует, то в
+ответ вернется <code>404 Not Found</code>.</p>
+
 <p><a name="nano"></a></p>
 
-<h2 id="-6">Короткое представление вакансии</h2>
+<h2 id="-8">Короткое представление вакансии</h2>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7760476&quot;</span><span class="p">,</span>
