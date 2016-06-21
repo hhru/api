@@ -3,7 +3,8 @@
 * [View a vacancy](#item)
 * [Extra fields for the author of the vacancy](#author)
 * [Favorite vacancies](#favorited)
-* [Search by vacancies](#search)
+* [Search for vacancies](#search)
+* [Search for vacancies similar to the vacancy](#similar)
 * [Short description of the vacancy](#nano)
 * [Hidden vacancies](blacklisted.md)
 
@@ -301,10 +302,11 @@ successfully, the method returns `204 No Content`.
 
 
 <a name="search"></a>
-## Search by vacancies
+## Search for vacancies
 
 `GET /vacancies` will return the results of vacancy search.
 
+<a name="search-params"></a>
 Acceptable parameters:
 
 Some parameters take multiple values: `key=value&key=value`.
@@ -404,6 +406,7 @@ Some parameters take multiple values: `key=value&key=value`.
 * `clusters` – whether the cluster list should be returned for this search,
   by default: `false`. More information on this [/docs/clusters.md](clusters.md).
 
+<a name="search-results"></a>
 
 When indicating paging parameters (`page`, `per_page`), a restriction takes
 effect: the number of results returned can't exceed 2000. For instance, a
@@ -481,6 +484,22 @@ key | type | description
 snippet | object | Additional text snippets on found vacancy. If snippet text contains search term (parameter `text`), it will be highlighted with tag `highlighttext`.
 snippet.requirement | string, null | Vacancy requirements if available in the description text.
 snippet.responsibility | string, null | Vacancy responsibilities if available in the description text.
+
+
+<a name="similar"></a>
+## Search for vacancies similar to the vacancy
+
+### Request
+
+`GET /vacancies/{vacancy_id}/similar_vacancies`
+
+where `vacancy_id` – ID of the vacancy.
+
+Accepts the same parameters as [vacancy search](#search-params) and returns the same
+results as [vacancy search](#search-results)
+
+Additionally if vacancy with `vacancy_id` does not exist `404 Not Found` will be
+returned in response.
 
 
 <a name="nano"></a>
