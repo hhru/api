@@ -765,7 +765,7 @@
 <strong>the application is in the approved list.</strong></p>
 
 <p>To include your application in this list, send a request in any format to
-<a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x61;&#x70;i&#x40;&#104;&#x68;&#x2e;&#114;&#117;">&#x61;&#x70;i&#x40;&#104;&#x68;&#x2e;&#114;&#117;</a>. In the letter, describe:</p>
+<a href="m&#x61;&#105;l&#116;&#111;&#58;a&#x70;&#x69;&#x40;&#104;&#104;.&#114;&#117;">a&#x70;&#x69;&#x40;&#104;&#104;.&#114;&#117;</a>. In the letter, describe:</p>
 
 <ul>
 <li>your application, its purpose and functions,</li>
@@ -1064,7 +1064,10 @@ request with <code>per_page=10&amp;page=200</code> will return an error (display
             <span class="p">},</span>
             <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/applicant_comments/123456&quot;</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/applicant_comments/123456&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">7</span>
+                    <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -1086,9 +1089,13 @@ The applicant will have the CV request displayed in the view history.</p>
 <p>CV fields are similar to the
 <a href="resumes.md.html#resume-keys">fields that are displayed when editing the CV</a>.</p>
 
-<p>The employer will have an additional field <code>owner.comments.url</code>.
-containing url. GET request on it will return
-<a href="applicant_comments.md.html#list">applicant comment list of CV owner</a>.</p>
+<p>The employer will have additional fields:</p>
+
+<ul>
+<li><code>owner.comments.url</code> containing url. GET request on it will return
+<a href="applicant_comments.md.html#list">applicant comments list of CV owner</a>.</li>
+<li><code>owner.comments.counters.total</code> containing total comments amount.</li>
+</ul>
 
     </article>
     </body>

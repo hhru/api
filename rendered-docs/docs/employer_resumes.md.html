@@ -1028,7 +1028,7 @@ API, кроме поиска резюме, доступны сразу, без �
                     <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
                         <span class="p">{</span>
                             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7.513&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Интернет-компания  (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)&quot;</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Интернет-компания (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)&quot;</span>
                         <span class="p">}</span>
                     <span class="p">],</span>
                     <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru&quot;</span><span class="p">,</span>
@@ -1059,7 +1059,10 @@ API, кроме поиска резюме, доступны сразу, без �
             <span class="p">},</span>
             <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/applicant_comments/123456&quot;</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/applicant_comments/123456&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">7</span>
+                    <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -1082,7 +1085,8 @@ API, кроме поиска резюме, доступны сразу, без �
 
 <p>Работодателю дополнительно выдаётся поле <code>owner.comments.url</code>, содержащее
 url, GET запрос на который возвращает
-<a href="applicant_comments.md.html#list">список комментариев к владельцу резюме</a>.</p>
+<a href="applicant_comments.md.html#list">список комментариев к владельцу резюме</a>, а также
+<code>owner.comments.counters.total</code> с общим количеством комментариев.</p>
 
     </article>
     </body>
