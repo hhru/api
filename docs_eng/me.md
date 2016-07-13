@@ -64,7 +64,7 @@ Server returns `403 Forbidden` if authorization is failed.
  is_admin | logical | user is site administrator
  is_applicant | logical | true, if the user is an applicant
  is_employer | logical | true, if the user is an employer
- email | string | email
+ email | string, null | email
  employer | object, null | [company info](#employer-info) if the current user is an employer, or null in other cases
  personal_manager | object, null | [personal manager info](#personal-manager-info) if the current user is an employer, or null in other cases
  manager | object, null | [info on a user who is company manager](#manager-info) if the current user is an employer, or null in other cases
