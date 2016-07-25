@@ -157,6 +157,12 @@
                 "medium": "http://hh.ru/...",
                 "small": "http://hh.ru/...",
                 "id": "1337"
+            },
+            "similar_vacancies": {
+                "url": "https://api.hh.ru/resumes/0123456789abcdef/similar_vacancies",
+                "counters": {
+                    "total": 1507
+                }
             }
         }
     ],
@@ -176,6 +182,10 @@
 * `views_url` - url, по которому необходимо сделать GET запрос для получения
   [детальной истории просмотров](#views)
 * `status` – [статус резюме](#status)
+* `similar_vacancies` – информация о вакансиях, похожих на это резюме
+  * `similar_vacancies.url` - url, по которому необходимо сделать GET запрос,
+    для получения [вакансий, похожих на данное резюме](#similar)
+  * `similar_vacancies.counters.total` - общее количество похожих вакансий
 
 
 <a name="item"></a>
