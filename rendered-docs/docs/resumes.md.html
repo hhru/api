@@ -1007,7 +1007,8 @@
             <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4567890&quot;</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4567890&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;formatted&quot;</span><span class="p">:</span> <span class="s2">&quot;+71234567890&quot;</span>
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
@@ -1494,7 +1495,7 @@ url, GET запрос на который возвращает
 <li><code>contact</code> — контактная информация (список). Состоит из полей:
 <ul>
 <li><code>type</code> — элемент справочника <a href="dictionaries.md.html">prefered_contact_type</a></li>
-<li><code>value</code> — значение контакта. Для телефона состоит из трех полей,
+<li><code>value</code> — значение контакта. Для телефона состоит из четырех полей (<code>country</code>, <code>city</code>, <code>number</code>, <code>formatted</code>),
 для электронного адреса — строка.</li>
 <li><code>preferred</code> — предпочитаемый вид связи (<code>true</code> или <code>false</code>);</li>
 <li><code>comment</code> — комментарий к контакту;</li>
@@ -1839,19 +1840,23 @@ url, GET запрос на который возвращает
 <p>Формат поля value для телефона:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;formatted&quot;</span><span class="p">:</span> <span class="s2">&quot;+7(123)456-78-90&quot;</span><span class="p">,</span>
     <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
     <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
     <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4567890&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>здесь:</p>
+<p>здесь:
+ * formatted - номер телефона целиком
+ * country — код города;
+ * city — код города;
+ * number — номер телефона.</p>
 
-<ul>
-<li>country — код города;</li>
-<li>city — код города;</li>
-<li>number — номер телефона.</li>
-</ul>
+<p>Обязательно указать либо телефон полностью в поле <code>formatted</code>, либо все три части телефона по отдельности в
+полях <code>country</code>, <code>city</code> и <code>number</code>. Если указано и то, и то, используются данные из разделенного телефона.
+В поле <code>formatted</code> допустимо указание дополнительных символов: пробелов, скобок, дефисов.
+В раздельных полях допустимы только цифры.</p>
 
 <p><a name='conditions-other' /></p>
 
