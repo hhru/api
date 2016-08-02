@@ -727,6 +727,12 @@ Usually is taken from key `messages_url` in
 [the list of responses/invitations](#negotiations-list) or in
 [view the response/invitation](#get-negotiation).
 
+Parameters:
+
+Name | Required | Possible values | Description
+---- | -------- | --------------- | -----------
+with_text_only | no | true/false | Return only messages with non empty `text` field, by default: `false`, so all messages will be returned
+
 ### Response
 
 Successful server response is returned with `200 OK` code and contains:
