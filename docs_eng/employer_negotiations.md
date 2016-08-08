@@ -464,7 +464,7 @@ enabled | logical | Whether the action is possible
 method | string | HTTP method to perform
 url | string | URL to send the request to
 resulting_employer_state | object, null | [employer status](#term-employer-state) on response/invitation enabled upon the action. If the action doesn't change the status – `null`.
-templates | list | Letter templates. Contains the template ID and url for [obtaining text according to the template](/message_templates.md).
+templates | list | Letter templates. Contains the template ID and url for [obtaining text according to the template](negotiation_message_templates.md).
 arguments | list | Mandatory and optional arguments for the request
 
 Action has attached list of possible arguments
