@@ -899,6 +899,12 @@
                 <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/...&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;similar_vacancies&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef/similar_vacancies&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1507</span>
+                <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">],</span>
@@ -919,6 +925,12 @@
 <li><code>views_url</code> - url, по которому необходимо сделать GET запрос для получения
 <a href="#views">детальной истории просмотров</a></li>
 <li><code>status</code> – <a href="#status">статус резюме</a></li>
+<li><code>similar_vacancies</code> – информация о вакансиях, похожих на это резюме
+<ul>
+<li><code>similar_vacancies.url</code> - url, по которому необходимо сделать GET запрос,
+для получения <a href="#similar">вакансий, похожих на данное резюме</a></li>
+<li><code>similar_vacancies.counters.total</code> - общее количество похожих вакансий</li>
+</ul></li>
 </ul>
 
 <p><a name="item"></a></p>
