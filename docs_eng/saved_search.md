@@ -13,8 +13,11 @@ the autosearch.
   * [Updating saved vacancy search](#vacancies-saved-search-update)
   * [Deleting saved vacancy search](#vacancies-saved-search-delete)
 * Saved CV search
- * [List of saved CV searches](#resumes-saved-search-list)
- * [Getting single saved CV search](#resumes-saved-search-item)
+  * [List of saved CV searches](#resumes-saved-search-list)
+  * [Getting single saved CV search](#resumes-saved-search-item)
+  * [Creating new saved resumes search](#resumes-saved-search-create)
+  * [Updating saved resumes search](#resumes-saved-search-update)
+  * [Deleting saved resumes search](#resumes-saved-search-delete)
 
 
 <a name="vacancies-saved-search-list"></a>
@@ -231,3 +234,50 @@ error `404 Not Found` is returned.
 
 Successful response is returned with `200 OK` code and contains single autosearch object
 identical to [objects from CV autosearch list](#resumes-saved-search-object).
+
+
+<a name="resumes-saved-search-create"></a>
+## Creating new saved resumes search
+
+In order to create autosearch you must send request `POST` to
+`/saved_searches/resumes` with following parameters:
+
+* resumes search parameters. Correspond to parameters
+  sent to resumes search [/resumes](employer_resumes.md#request-and-acceptable-parameters)
+
+If successful, response `201 Created` will be returned with title
+`Location` indicating created autosearch (e.g.
+`/saved_searches/resumes/123`, where 123 is ID of created autosearch).
+
+Request is available only if authorized by an employer, otherwise error
+`403 Forbidden` is returned.
+
+
+<a name="resumes-saved-search-update"></a>
+## Updating saved resumes search
+
+You can change subscription name and status for saved search. To do this,
+send `PUT /saved_searches/resumes/{id}`, where id is
+saved search ID.
+
+You can change only subscription name (parameter `name`) or status
+(parameter `email_subscription=false`) at a time.
+
+If you try to change both, response `409 Conflict` is returned.
+If autosearch is not found, response `404 Not Found` will be returned.
+Request is available only if authorized by an employer, otherwise error
+`403 Forbidden` is returned.
+
+
+<a name="resumes-saved-search-delete"></a>
+## Deleting saved resumes search
+
+In order to delete autosearch, send request
+`DELETE /saved_searches/resumes/{id}`, where id is autosearch ID.
+
+If autosearch is not found, status `404 Not Found` will be returned.
+
+Request is available only if authorized by an employer, otherwise error
+`403 Forbidden` is returned.
+
+If autosearch is deleted successfully, status `204 No Content` will be returned.
