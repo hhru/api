@@ -3,7 +3,7 @@
 Saved search (autosearch) is the saved set of search parameters used
 to track new vacancies or CVs on this request.
 In addition to saving search request parameters the autosearch function allows to
-obtain email notifications on new search results. For convenience, you can assign a name to
+obtain notifications on new search results. For convenience, you can assign a name to
 the autosearch.
 
 * Saved vacancy search
@@ -13,8 +13,11 @@ the autosearch.
   * [Updating saved vacancy search](#vacancies-saved-search-update)
   * [Deleting saved vacancy search](#vacancies-saved-search-delete)
 * Saved CV search
- * [List of saved CV searches](#resumes-saved-search-list)
- * [Getting single saved CV search](#resumes-saved-search-item)
+  * [List of saved CV searches](#resumes-saved-search-list)
+  * [Getting single saved CV search](#resumes-saved-search-item)
+  * [Creating new saved resumes search](#resumes-saved-search-create)
+  * [Updating saved resumes search](#resumes-saved-search-update)
+  * [Deleting saved resumes search](#resumes-saved-search-delete)
 
 
 <a name="vacancies-saved-search-list"></a>
@@ -46,7 +49,7 @@ The response will contain standard collection of paginated items.
       "id": "123",
       "name": "Test autosearch",
       "created_at": "2014-04-11T13:12:17+0400",
-      "email_subscription": true,
+      "subscription": true,
       "items": {
         "count": 304234,
         "url": "https://api.hh.ru/vacancies?area=1&saved_search_id=123"
@@ -67,7 +70,7 @@ Each item contains following info:
  id  | string | ID
  name | string | Name
  created_at | string | Creation date and time
- email_subscription | logical | Email subscription status
+ subscription | logical | Subscription status
  items | object | Vacancy list data
  new_items | object | Information on list of vacancies appeared since the last vacancy view
 
@@ -94,7 +97,7 @@ will be returned. For example:
   "id": "123",
   "name": "Test autosearch",
   "created_at": "2014-04-11T13:12:17+0400",
-  "email_subscription": true,
+  "subscription": true,
   "items": {
     "count": 304234,
     "url": "https://api.hh.ru/vacancies?area=1&saved_search_id=123"
@@ -112,7 +115,7 @@ If autosearch is not found, status `404 Not Found` will be returned.
 <a name="vacancies-saved-search-create"></a>
 ## Creating new saved vacancy search
 
-In order to create autosearch you must send request `POST` to
+In order to create autosearch you must send `POST` request to
 `/saved_searches/vacancies` with following parameters:
 
 * vacancy search parameters. Correspond to parameters
@@ -123,7 +126,8 @@ If successful, response `201 Created` will be returned with title
 `/saved_searches/vacancies/123`, where 123 is ID of created autosearch).
 
 Request is available only if authorized by an applicant, otherwise error
-`403 Forbidden` is returned.
+`403 Forbidden` is returned. If parameters are indicated incorrectly or 
+there is an incorrect parameter set, `400 Bad request` will be returned.
 
 
 <a name="vacancies-saved-search-update"></a>
@@ -134,7 +138,7 @@ send `PUT /saved_searches/vacancies/{id}`, where id is
 saved search ID.
 
 You can change only subscription name (parameter `name`) or status
-(parameter `email_subscription=false`) at a time.
+(parameter `subscription=false`) at a time.
 
 If you try to change both, response `409 Conflict` is returned.
 If autosearch is not found, response `404 Not Found` will be returned.
@@ -181,7 +185,7 @@ Successful server response is returned with `200 OK` code and contains:
       "id": "609535",
       "name": "Managers in Moscow",
       "created_at": "2015-01-01T13:12:17+0400",
-      "email_subscription": true,
+      "subscription": true,
       "items": {
         "count": 55,
         "url": "https://api.hh.ru/resumes?order_by=publication_time&saved_search_id=123456&text=manager&area=1"
@@ -202,7 +206,7 @@ name | type | comment
 ---------|-----|------------
 id | string | ID
 name | string | name
-email_subscription | logical | email subscription enabled/disabled
+subscription | logical | subscription enabled/disabled
 items | object | info on found CVs
 new_items | object | Information on CVs found since the last autosearch view
 
@@ -231,3 +235,51 @@ error `404 Not Found` is returned.
 
 Successful response is returned with `200 OK` code and contains single autosearch object
 identical to [objects from CV autosearch list](#resumes-saved-search-object).
+
+
+<a name="resumes-saved-search-create"></a>
+## Creating new saved resumes search
+
+In order to create autosearch you must send `POST` request to
+`/saved_searches/resumes` with following parameters:
+
+* resumes search parameters. Correspond to parameters
+  sent to resumes search [/resumes](employer_resumes.md#request-and-acceptable-parameters)
+
+If successful, response `201 Created` will be returned with title
+`Location` indicating created autosearch (e.g.
+`/saved_searches/resumes/123`, where 123 is ID of created autosearch).
+
+Request is available only if authorized by an employer, otherwise error
+`403 Forbidden` is returned. If parameters are indicated incorrectly or 
+there is an incorrect parameter set, `400 Bad request` will be returned.
+
+
+<a name="resumes-saved-search-update"></a>
+## Updating saved resumes search
+
+You can change subscription name and status for saved search. To do this,
+send `PUT /saved_searches/resumes/{id}`, where id is
+saved search ID.
+
+You can change only subscription name (parameter `name`) or status
+(parameter `subscription=false`) at a time.
+
+If you try to change both, response `409 Conflict` is returned.
+If autosearch is not found, response `404 Not Found` will be returned.
+Request is available only if authorized by an employer, otherwise error
+`403 Forbidden` is returned.
+
+
+<a name="resumes-saved-search-delete"></a>
+## Deleting saved resumes search
+
+In order to delete autosearch, send request
+`DELETE /saved_searches/resumes/{id}`, where id is autosearch ID.
+
+If autosearch is not found, status `404 Not Found` will be returned.
+
+Request is available only if authorized by an employer, otherwise error
+`403 Forbidden` is returned.
+
+If autosearch is deleted successfully, status `204 No Content` will be returned.
