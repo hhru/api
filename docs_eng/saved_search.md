@@ -18,6 +18,7 @@ the autosearch.
   * [Creating new saved resumes search](#resumes-saved-search-create)
   * [Updating saved resumes search](#resumes-saved-search-update)
   * [Deleting saved resumes search](#resumes-saved-search-delete)
+  * [Moving saved resumes search to other manager](#resumes-saved-search-move-to-other-manager)
 
 
 <a name="vacancies-saved-search-list"></a>
@@ -283,3 +284,18 @@ Request is available only if authorized by an employer, otherwise error
 `403 Forbidden` is returned.
 
 If autosearch is deleted successfully, status `204 No Content` will be returned.
+
+
+<a name="resumes-saved-search-move-to-other-manager"></a>
+## Moving saved resumes search to other manager
+
+For moving saved resumes search to other manager, send 
+`PUT /saved_searches/resumes/{saved_search_id}/managers/{manager_id}`, 
+where saved_search_id is autosearch ID and manager_id - manager ID.
+
+If autosearch or manager is not found, status `404 Not Found` will be returned.
+
+Request is available only if authorized by an employer, otherwise error
+`403 Forbidden` is returned.
+
+If autosearch is moved successfully, status `204 No Content` will be returned.
