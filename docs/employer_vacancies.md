@@ -623,6 +623,10 @@ PUT /vacancies/{vacancy_id}
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
       "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "department": {
+        "id": "HH-1455-TECH",
+        "name": "HeadHunter::Технический департамент"
+      },
       "premium": false,
       "type": {
         "id": "open",
@@ -737,6 +741,10 @@ has_updates | boolean | Есть ли в откликах/приглашения
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
       "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "department": {
+        "id": "HH-1455-TECH",
+        "name": "HeadHunter::Технический департамент"
+      },
       "premium": false,
       "type": {
         "id": "open",
@@ -828,6 +836,10 @@ archived_at | строка | дата архивации вакансии
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
       "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "department": {
+        "id": "HH-1455-TECH",
+        "name": "HeadHunter::Технический департамент"
+      },
       "premium": false,
       "type": {
         "id": "open",

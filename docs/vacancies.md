@@ -57,6 +57,10 @@
   "address": null,
   "alternate_url": "http://hh.ru/vacancy/8331228",
   "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+  "department": {
+    "id": "HH-1455-TECH",
+    "name": "HeadHunter::Технический департамент"
+  },
   "employment": {
     "id": "full",
     "name": "Полная занятость"
@@ -455,6 +459,10 @@ counters.invitations | number | количество приглашений на
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
       "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "department": {
+        "id": "HH-1455-TECH",
+        "name": "HeadHunter::Технический департамент"
+      },
       "type": {
         "id": "open",
         "name": "Открытая"
@@ -511,6 +519,10 @@ snippet.responsibility | строка, null | Обязанности по вак
     "address": null,
     "alternate_url": "http://hh.ru/vacancy/7760476",
     "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=7760476",
+    "department": {
+      "id": "HH-1455-TECH",
+      "name": "HeadHunter::Технический департамент"
+    },
     "salary": {
         "to": null,
         "from": 100000,
@@ -554,6 +566,9 @@ snippet.responsibility | строка, null | Обязанности по вак
  address | объект, null | [Адрес вакансии](address.md#Адрес)
  alternate_url | строка, null | Ссылка на представление вакансии на сайте
  apply_alternate_url | строка, null | Ссылка на отклик на вакансию на сайте
+ department | объект, null | Департамент [из справочника](employer_departments.md), от имени которого размещается вакансия (если данная возможность доступна для компании)
+ department.id | строка | ID департамента
+ department.name | строка | Название департамента
  salary | объект, null | Оклад
  name | строка | Название вакансии
  area | объект | Регион размещения вакансии
