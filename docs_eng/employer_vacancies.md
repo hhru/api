@@ -149,7 +149,7 @@ vacancy being posted. The format of the data is similar to the
 | billing_type.id             | string          | billing type from the [vacancy_billing_type directory](dictionaries.md) |
 | site.id                     | string          | website for posting from the [vacancy_site directory](dictionaries.md) |
 | code                        | string          | internal vacancy code |
-| department.id               | string          | department from the [directory](employer_departments.md), on behalf of which the vacancy is being posted (if this is available for the company) |
+| department.id               | string          | department from the [directory](employer_departments.md), on behalf of which the vacancy is being posted (if this feature is available for the company) |
 | salary                      | object or null  | salary |
 | salary.from                 | numeric or null | salary range minimum |
 | salary.to                   | numeric or null | salary range maximum |
@@ -627,6 +627,10 @@ Successful server response is returned with `200 OK` code and contains:
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
       "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "department": {
+        "id": "18320489-18320489-dept1",
+        "name": "DEPT1"
+      },
       "premium": false,
       "type": {
         "id": "open",
@@ -741,6 +745,10 @@ Successful server response is returned with `200 OK` code and contains:
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
       "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "department": {
+        "id": "18320489-18320489-dept1",
+        "name": "DEPT1"
+      },
       "premium": false,
       "type": {
         "id": "open",
@@ -832,6 +840,10 @@ Successful server response is returned with `200 OK` code and contains:
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
       "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "department": {
+        "id": "18320489-18320489-dept1",
+        "name": "DEPT1"
+      },
       "premium": false,
       "type": {
         "id": "open",

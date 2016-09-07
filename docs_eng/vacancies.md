@@ -57,6 +57,10 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
       "address": null,
       "alternate_url": "http://hh.ru/vacancy/8331228",
       "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "department": {
+        "id": "18320489-18320489-dept1",
+        "name": "DEPT1"
+      },
       "employment": {
         "id": "full",
         "name": "Full time"
@@ -147,8 +151,8 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
         "name": "hh.ru"
       },
       "department": {
-        "id": "HH-1455-TECH",
-        "name": "HeadHunter::Technical Department"
+        "id": "18320489-18320489-dept1",
+        "name": "DEPT1"
       },
       "hidden": null
     }
@@ -512,6 +516,10 @@ returned in response.
     "address": null,
     "alternate_url": "http://hh.ru/vacancy/7760476",
     "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=7760476",
+    "department": {
+      "id": "18320489-18320489-dept1",
+      "name": "DEPT1"
+    },
     "salary": {
         "to": null,
         "from": 100000,
@@ -555,6 +563,9 @@ Name| Type| Description
  address | object, null | [vacancy address](address.md#Address)
  alternate_url | string, null | Link to the full vacancy presentation in web site
  apply_alternate_url | string, null | Link to the vacancy respond page in web site
+ department | object, null | department from the [directory](employer_departments.md), on behalf of which the vacancy is being posted (if this feature is available for the company)
+ department.id | string | Department identifier
+ department.name | string | Department name
  salary | object, null | Wage
  name | string | Vacancy name
  area | object | Region of vacancy posting
