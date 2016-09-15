@@ -51,8 +51,6 @@ HeadHunter API — это бесплатный инструментарий дл
 <a name="resume"></a>
 ### Резюме
 
-* [Поиск резюме](docs/employer_resumes.md#search) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Сохраненные поиски резюме](docs/saved_search.md#resumes-saved-search-list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Просмотр резюме](docs/resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Работа с резюме для соискателя](docs/resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Список резюме авторизованного пользователя](docs/resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
@@ -146,7 +144,6 @@ HeadHunter API — это бесплатный инструментарий дл
  * [по ключевым навыкам](docs/suggests.md#key-skills) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
  * [по должностям](docs/suggests.md#positions) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
  * [по регионам](docs/suggests.md#areas) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
- * [по ключевым словам поиска резюме](docs/suggests.md#resume-search-keyword) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
  * [по ключевым словам поиска вакансий](docs/suggests.md#vacancy-search-keyword) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 

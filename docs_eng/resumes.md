@@ -10,21 +10,12 @@
 * [CV fields conditions for creating](#init-conditions)
 * [CV contact fields conditions](#conditions-contacts)
 * [Additional CV conditions](#conditions-other)
-* [CV short representation](#resume-nano)
+* [CV minimal representation](#resume-nano)
+* [CV short representation](#resume-short)
 * [CV status](#status)
 * [CV access type](#access_type)
 * [CV view history](#views)
 * [Search for vacancies similar to the CV](#similar)
-
-See also:
-
-<a name="search"></a>
-<a name="resume-search-request"></a>
-<a name="search-results"></a>
-<a name="search-params"></a>
-
-* [Search for a CV](employer_resumes.md#search)
-* [Saved CV search](saved_search.md#resumes-saved-search-list)
 
 
 <a name="mine"></a>
@@ -434,12 +425,22 @@ powered by
 
 
 <a name="resume-nano"></a>
-## CV short representation
+## CV minimal representation
 Documentation translation for this section is in progress.
 See
 [machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#resume-nano)
 powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
+
+
+<a name="resume-short"></a>
+## CV short representation
+Documentation translation for this section is in progress.
+See
+[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#resume-short)
+powered by
+[Yandex.Translate](https://translate.yandex.com/translate).
+
 
 <a name="status"></a>
 ## CV status

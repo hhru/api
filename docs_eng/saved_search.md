@@ -12,9 +12,6 @@ the autosearch.
   * [Creating new saved vacancy search](#vacancies-saved-search-create)
   * [Updating saved vacancy search](#vacancies-saved-search-update)
   * [Deleting saved vacancy search](#vacancies-saved-search-delete)
-* Saved CV search
- * [List of saved CV searches](#resumes-saved-search-list)
- * [Getting single saved CV search](#resumes-saved-search-item)
 
 
 <a name="vacancies-saved-search-list"></a>
@@ -154,80 +151,3 @@ Request is available only if authorized by an applicant, otherwise error
 `403 Forbidden` is returned.
 
 If autosearch is deleted successfully, status `204 No Content` will be returned.
-
-
-<a name="resumes-saved-search-list"></a>
-##  List of saved CV searches
-
-`GET /saved_searches/resumes`
-
-Request is available only if authorized by an employer, otherwise error
-`403 Forbidden` is returned.
-
-You can additionally indicate
-[standard pagination parameters](general.md#pagination) `page` and `per_page`.
-By default `per_page` is `5`, max value is `10`.
-
-Successful server response is returned with `200 OK` code and contains:
-
-```json
-{
-  "per_page": 0,
-  "page": 0,
-  "pages": 1,
-  "found": 2,
-  "items": [
-    {
-      "id": "609535",
-      "name": "Managers in Moscow",
-      "created_at": "2015-01-01T13:12:17+0400",
-      "email_subscription": true,
-      "items": {
-        "count": 55,
-        "url": "https://api.hh.ru/resumes?order_by=publication_time&saved_search_id=123456&text=manager&area=1"
-      },
-      "new_items": {
-        "count": 15,
-        "url": "https://api.hh.ru/resumes?order_by=publication_time&saved_search_id=123456&text=manager&area=1&date_from=2015-11-12T18%3A06%3A04%2B0300"
-      },
-    }
-  ]
-}
-```
-
-<a name="resumes-saved-search-object"></a>
-Each collection item contains following info:
-
-name | type | comment
----------|-----|------------
-id | string | ID
-name | string | name
-email_subscription | logical | email subscription enabled/disabled
-items | object | info on found CVs
-new_items | object | Information on CVs found since the last autosearch view
-
-Objects `items` and `new_items` contain following fields:
-
-name | type | comment
----------|-----|------------
-count | int | number of saved search results
-url | string | reference to saved search results is available if access to CV search is enabled
-
-Note that in order to get autosearch results (CV list)
-the application used to authorize the employer should
-[pass the procedure on granting access to CV](employer_resumes.md#resume-search-request).
-
-
-<a name="resumes-saved-search-item"></a>
-# Getting single saved CV search
-
-`GET /saved_searches/resumes/{id}`
-
-where `id` is the autosearch ID.
-
-Request is available only if authorized by an employer, otherwise error
-`403 Forbidden` is returned. If autosearch is not found or unavailable to current user,
-error `404 Not Found` is returned.
-
-Successful response is returned with `200 OK` code and contains single autosearch object
-identical to [objects from CV autosearch list](#resumes-saved-search-object).

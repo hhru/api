@@ -48,8 +48,6 @@ Article labels:
 <a name="resume"></a>
 ### CV
 
-* [Search for a CV](employer_resumes.md#search) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Saved CV search](saved_search.md#resumes-saved-search-list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [View a CV](resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Work with CVs for an applicant](resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [List of CVs for current user](resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
@@ -144,7 +142,6 @@ Article labels:
  * [Key skills suggestions](suggests.md#key-skills) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
  * [Position suggestions](suggests.md#positions) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
  * [Region tips](suggests.md#areas) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
- * [Tips for CV search key words](suggests.md#resume-search-keyword) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
  * [Tips for vacancy search key words](suggests.md#vacancy-search-keyword) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 

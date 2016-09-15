@@ -21,16 +21,6 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `resume_moderation_note` - moderator's comment
 
 
-## Directories for CV search parameters
-
-* `resume_search_order` - CV sorting type
-* `resume_search_label` - additional filter of CV search results
-* `resume_search_relocation` - willingness to relocate
-* `resume_search_experience_period` - search in work experience for the indicated period
-* `resume_search_logic` - search logic by phrase
-* `resume_search_fields` - parts of CV to search in
-
-
 ## Directories for vacancy fields
 
 * `employment` - employment type
