@@ -44,7 +44,6 @@ returned with detailed error description in the response body:
 * [Key skills suggestions](#key-skills)
 * [Position suggestions](#positions)
 * [Region tips](#areas)
-* [Tips for CV search key words](#resume-search-keyword)
 * [Tips for vacancy search key words](#vacancy-search-keyword)
 
 
@@ -235,39 +234,6 @@ Response example:
       "url": "https://api.hh.ru/areas/2019",
       "text": "Moscow Region",
       "id": "2019"
-    }
-  ]
-}
-```
-
-
-<a name="resume-search-keyword"></a>
-## Tips for CV search key words
-
-This tip is intended for use in the `text` field when
-[searching for CVs](employer_resumes.md#search-params). The tip displays title names,
-company names, and other phrases that are often used when searching for CVs.
-
-`GET /suggests/resume_search_keyword`
-
-Parameters:
-
-* `text` – text for searching a keyword
-
-
-Response example:
-
-```json
-{
-  "items": [
-    {
-      "text": "Moscow"
-    },
-    {
-      "text": "Bridges"
-    }
-    {
-      "text": "Moscow State Law Academy"
     }
   ]
 }

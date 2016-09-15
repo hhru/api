@@ -19,14 +19,6 @@
 * `resume_status` - статус резюме
 * `resume_moderation_note` — комментарий модератора
 
-## Справочники для параметров поиска резюме
-* `resume_search_order` - тип сортировки резюме
-* `resume_search_label` - дополнительный фильтр результата поиска резюме
-* `resume_search_relocation` - готовность к переезду
-* `resume_search_experience_period` - поиск в опыте работы за указанный период
-* `resume_search_logic` - логика поиска по фразе
-* `resume_search_fields` - в каких частях резюме искать
-
 ## Справочники для полей вакансии
 * `employment` - тип занятости
 * `experience` - опыт работы

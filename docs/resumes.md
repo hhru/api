@@ -12,20 +12,11 @@
 * [Условия заполнения контактов в резюме](#conditions-contacts)
 * [Дополнительные правила заполнения полей резюме](#conditions-other)
 * [Короткое представление резюме](#resume-nano)
+* [Сокращенное представление резюме](#resume-short)
 * [Статусы резюме](#status)
 * [Видимость резюме](#access_type)
 * [История просмотра резюме](#views)
 * [Поиск по вакансиям, похожим на резюме](#similar)
-
-Смотрите также:
-
-<a name="search"></a>
-<a name="resume-search-request"></a>
-<a name="search-results"></a>
-<a name="search-params"></a>
-
-* [Поиск резюме](employer_resumes.md#search)
-* [Сохраненные поиски резюме](saved_search.md#resumes-saved-search-list)
 
 
 <a name="mine"></a>
@@ -1022,6 +1013,132 @@ max_date | строка с датой | Верхняя граница диапа
  id   | строка | Идентификатор резюме
  title | строка | Желаемая должность
  url  | строка | Ссылка на получение полной версии резюме
+
+
+<a name="resume-short"></a>
+## Сокращенное представление резюме
+
+Отличается от полного представления отсутствием некоторых полей.
+
+```json
+{
+    "id": "0123456789abcdef",
+    "title": "Начинающий специалист",
+    "url": "https://api.hh.ru/resumes/0123456789abcdef",
+    "first_name": "Иван",
+    "last_name": "Иванов",
+    "middle_name": "Иванович",
+    "can_view_full_info": true,
+    "age": 19,
+    "alternate_url": "http://hh.ru/resume/0123456789abcdef",
+    "created_at": "2015-02-06T12:00:00+0300",
+    "updated_at": "2015-04-20T16:24:15+0300",
+    "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+    },
+    "certificate": [
+        {
+            "achieved_at": "2015-01-01",
+            "owner": null,
+            "title": "тест",
+            "type": "custom",
+            "url": "http://example.com/"
+        }
+    ],
+    "education": {
+        "primary": [
+            {
+                "name": "Российский государственный социальный университет, Москва",
+                "name_id": "39420",
+                "organization": "Факультет информационных технологий",
+                "organization_id": null,
+                "result": "Информатика",
+                "result_id": null,
+                "year": 2012
+            }
+        ]
+    },
+    "total_experience": {
+        "months": 118
+    },
+    "experience": [
+        {
+            "position": "пастух",
+            "start": "2010-01-01",
+            "end": null,
+            "company": "Рога и копыта",
+            "industries": [
+                {
+                    "id": "51.643",
+                    "name": "Благоустройство и уборка территорий и зданий"
+                },
+                {
+                    "id": "29.503",
+                    "name": "Земледелие, растениеводство, животноводство"
+                }
+            ],
+            "company_url": "http://example.com/",
+            "area": {
+                "id": "1",
+                "name": "Москва",
+                "url": "https://api.hh.ru/areas/1"
+            },
+            "company_id": null,
+            "employer": null
+        },
+        {
+            "start": "2005-01-01",
+            "end": "2009-03-01",
+            "company": "HeadHunter",
+            "area": {
+                "id": "1",
+                "name": "Москва",
+                "url": "https://api.hh.ru/areas/1"
+            },
+            "industries": [
+                {
+                    "id": "7.513",
+                    "name": "Интернет-компания (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
+                }
+            ],
+            "company_url": "http://hh.ru",
+            "company_id": "1455",
+            "employer": {
+                "alternate_url": "http://hh.ru/employer/1455",
+                "id": "1455",
+                "logo_urls": {
+                    "90": "http://hh.ru/employer/logo/1455"
+                },
+                "name": "HeadHunter",
+                "url": "https://api.hh.ru/employers/1455"
+            }
+        }
+    ],
+    "gender": {
+        "id": "male",
+        "name": "Мужской"
+    },
+    "salary": {
+        "amount": 1000000,
+        "currency": "RUR"
+    },
+    "photo": {
+        "medium": "http://hh.ru/...",
+        "small": "http://hh.ru/...",
+        "id": "1337"
+    },
+    "owner": {
+        "comments": {
+            "url": "https://api.hh.ru/applicant_comments/123456",
+            "counters": {
+                "total": 7
+            }
+        }
+    }
+}
+```
 
 
 <a name="status"></a>
