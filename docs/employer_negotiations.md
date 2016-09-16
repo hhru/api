@@ -122,6 +122,11 @@
 
 где `vacancy_id` - id вакансии.
 
+Кроме обязательного параметра `vacancy_id` поддерживаются:
+
+- `updated_after` — не обязательный параметр, при задании которого запрос вернет кроме коллекций информацию о том, сколько отлкиков были обновлены/созданы после заданного времени (строго после).
+  Пример запроса: `GET https://api.hh.ru/negotiations?vacancy_id=123456&updated_after=2015-05-14T00:00:00+0300`
+
 
 ### Ответ
 
@@ -136,7 +141,8 @@
             "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456",
             "counters": {
                 "with_updates": 4,
-                "total": 5
+                "total": 5,
+                "with_updates_after": 2
             },
             "order_types": [
                 {
@@ -148,8 +154,9 @@
                     "id": "relevance",
                     "name": "лучшие",
                     "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=relevance"
-                }                
-            ]
+                }
+            ],
+            "last_updated_at": "2015-05-14T00:00:00+0300"
         },
         {
             "id": "discarded",
@@ -157,7 +164,8 @@
             "url": "https://api.hh.ru/negotiations/discarded?vacancy_id=123456",
             "counters": {
                 "with_updates": 0,
-                "total": 1
+                "total": 1,
+                "with_updates_after": 2
             },
             "order_types": [
                 {
@@ -165,7 +173,8 @@
                     "name": "по дате создания",
                     "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=created_at",
                 }
-            ]
+            ],
+            "last_updated_at": "2015-10-14T00:00:00+0300"
         }
     ],
     "employer_states": [
@@ -197,8 +206,10 @@ collections[].id | строка | идентификатор коллекции,
 collections[].name | строка | название коллекции
 collections[].url | строка | url, на который необходимо делать GET запрос для получения откликов/приглашений данной коллекции
 collections[].counters.with_updates | число | количество откликов/приглашений в коллекции, [требующих внимания](#has_updates)
-collections[].counters.total | число | общее количество откликов/приглашений в коллекции
 collections[].order_types | список | возможные варианты сортировки откликов/приглашений в коллекции
+collections[].counters.total | число | общее количество откликов/приглашений в коллекции.
+collections[].counters.with_updates_after | число | количество откликов обновленных/созданных после времени, заданном в `updated_after` параметре. Если параметр не передается, то этого поля не будет
+collections[].last_updated_at | строка | Дата и время последнего изменения в коллекции
 employer_states | список | [работодательские состояния](#term-employer-state) откликов/приглашений данной вакансии
 employer_states[].id | строка | идентификатор состояния, уникальный как минимум для данной вакансии
 employer_states[].name | строка | название состояния
@@ -226,6 +237,7 @@ vacancy_id | да | Идентификатор вакансии
 order_by | нет | Тип сортировки
 page | нет | Номер страницы, по умолчанию: 0
 per_page | нет | Количество выдаваемых элементов на страницу, по умолчанию: 20
+updated_after | нет | Выдавать отклики, обновленные или созданные после заданного времени. Пример запроса: `GET https://api.hh.ru/negotiations/invited?vacancy_id=123456&updated_after=2015-10-14T00:00:00+0300`
 
 
 ### Ответ
