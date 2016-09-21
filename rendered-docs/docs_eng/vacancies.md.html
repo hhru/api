@@ -799,6 +799,10 @@
       <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
       <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18320489-18320489-dept1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DEPT1&quot;</span>
+      <span class="p">},</span>
       <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Full time&quot;</span>
@@ -889,8 +893,8 @@
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hh.ru&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;HH-1455-TECH&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter::Technical Department&quot;</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18320489-18320489-dept1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DEPT1&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">null</span>
     <span class="p">}</span>
@@ -1297,6 +1301,10 @@ returned in response.</p>
     <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/7760476&quot;</span><span class="p">,</span>
     <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=7760476&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18320489-18320489-dept1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DEPT1&quot;</span>
+    <span class="p">},</span>
     <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
@@ -1366,6 +1374,21 @@ returned in response.</p>
   <td>apply_alternate_url</td>
   <td>string, null</td>
   <td>Link to the vacancy respond page in web site</td>
+</tr>
+<tr>
+  <td>department</td>
+  <td>object, null</td>
+  <td>department from the <a href="employer_departments.md.html">directory</a>, on behalf of which the vacancy is being posted (if this feature is available for the company)</td>
+</tr>
+<tr>
+  <td>department.id</td>
+  <td>string</td>
+  <td>Department identifier</td>
+</tr>
+<tr>
+  <td>department.name</td>
+  <td>string</td>
+  <td>Department name</td>
 </tr>
 <tr>
   <td>salary</td>

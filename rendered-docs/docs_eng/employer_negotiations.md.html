@@ -811,10 +811,8 @@ to select the preferred collections. Retrive all
 collection successively to receive all responses/invitations. List
 of statuses should be used for reference only.</p>
 
-<p>Select the CV to <strong>create the invitation</strong>, e.g.
-<a href="employer_resumes.md.html#search">in the search</a>, then request the vacancies related to this CV
-from the employer. See
-<a href="employer_vacancies_for_invitation.md.html">employer vacancy list</a> for this data as well as required
+<p>Request the vacancies related to selected CV to <strong>create the invitation</strong>
+from the employer. See <a href="employer_vacancies_for_invitation.md.html">employer vacancy list</a> for this data as well as required
 parameters (key <code>arguments</code>) and status of generated
 response (key <code>resulting_employer_state</code>). Different employers and vacancies
 may employ different rules and statuses for added response. Each
@@ -1285,7 +1283,7 @@ The <code>items</code> entity contains response/invitation data and CVs for them
 <tr>
   <td>resume</td>
   <td>object, null</td>
-  <td>CV. Displayed fields are identical to <a href="employer_resumes.md.html#search-results">search on CV</a>. To get full CV, send a GET request to URL from key <code>url</code>. It can be <code>null</code>, if the applicant deleted the CV or disabled access to it.</td>
+  <td><a href="resumes.md.html#resume-short">Short CV</a>. To get full CV, send a GET request to URL from key <code>url</code>. It can be <code>null</code>, if the applicant deleted the CV or disabled access to it.</td>
 </tr>
 <tr>
   <td>has_updates</td>

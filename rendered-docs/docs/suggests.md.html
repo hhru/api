@@ -779,7 +779,6 @@
 <li><a href="#key-skills">Подсказки по ключевым навыкам</a></li>
 <li><a href="#positions">Подсказки по должностям</a></li>
 <li><a href="#areas">Подсказки по регионам</a></li>
-<li><a href="#resume-search-keyword">Подсказки по ключевым словам поиска резюме</a></li>
 <li><a href="#vacancy-search-keyword">Подсказки по ключевым словам поиска вакансий</a></li>
 </ul>
 
@@ -979,43 +978,9 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p><a name="resume-search-keyword"></a></p>
-
-<h2 id="-8">Подсказки по ключевым словам поиска резюме</h2>
-
-<p>Данная подсказка предназначена для использования в поле <code>text</code> при
-<a href="employer_resumes.md.html#search-params">поиске резюме</a>. В подсказке выдаются
-названия должностей, компаний и другие фразы, часто используемые при поиске
-резюме.</p>
-
-<p><code>GET /suggests/resume_search_keyword</code></p>
-
-<p>Параметры:</p>
-
-<ul>
-<li><code>text</code> – текст для поиска ключевого слова</li>
-</ul>
-
-<p>Пример ответа:</p>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Мосты&quot;</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Московская государственная юридическая академия&quot;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
 <p><a name="vacancy-search-keyword"></a></p>
 
-<h2 id="-9">Подсказки по ключевым словам поиска вакансий</h2>
+<h2 id="-8">Подсказки по ключевым словам поиска вакансий</h2>
 
 <p>Данная подсказка предназначена для использования в поле <code>text</code> при
 <a href="vacancies.md.html#search">поиске вакансий</a>. В подсказке выдаются названия

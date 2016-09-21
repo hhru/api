@@ -779,7 +779,6 @@ returned with detailed error description in the response body:</p>
 <li><a href="#key-skills">Key skills suggestions</a></li>
 <li><a href="#positions">Position suggestions</a></li>
 <li><a href="#areas">Region tips</a></li>
-<li><a href="#resume-search-keyword">Tips for CV search key words</a></li>
 <li><a href="#vacancy-search-keyword">Tips for vacancy search key words</a></li>
 </ul>
 
@@ -971,39 +970,6 @@ and <a href="areas.md.html#item">a part of the tree from a specific element</a> 
       <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/2019&quot;</span><span class="p">,</span>
       <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow Region&quot;</span><span class="p">,</span>
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2019&quot;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><a name="resume-search-keyword"></a></p>
-
-<h2 id="tips-for-cv-search-key-words">Tips for CV search key words</h2>
-
-<p>This tip is intended for use in the <code>text</code> field when
-<a href="employer_resumes.md.html#search-params">searching for CVs</a>. The tip displays title names,
-company names, and other phrases that are often used when searching for CVs.</p>
-
-<p><code>GET /suggests/resume_search_keyword</code></p>
-
-<p>Parameters:</p>
-
-<ul>
-<li><code>text</code> – text for searching a keyword</li>
-</ul>
-
-<p>Response example:</p>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Bridges&quot;</span>
-    <span class="p">}</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow State Law Academy&quot;</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>

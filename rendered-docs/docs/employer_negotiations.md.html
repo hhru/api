@@ -749,6 +749,8 @@
 <li><a href="#add-messages">Отправка сообщения в отклике/приглашении</a></li>
 <li><a href="#add-invite">Приглашение соискателя на вакансию</a></li>
 <li><a href="#actions">Действия по отклику/приглашению (смена состояния)</a></li>
+<li>[Просмотр предпочитаемой сортировки откликов] (#get-preference-order)</li>
+<li>[Изменение предпочитаемой сортировки откликов] (#update-preference-order)</li>
 </ul>
 
 <p><a name="model"></a></p>
@@ -811,9 +813,8 @@
 откликов/приглашений нужно последовательно получить все коллекции. Список
 состояний используется только как справочник.</p>
 
-<p>Для <strong>создания приглашения</strong> необходимо выбрать резюме, например,
-<a href="employer_resumes.md.html#search">в поиске</a>, а затем запросить вакансии работодателя,
-применимые к этому резюме. Получить эту информацию можно в
+<p>Для <strong>создания приглашения</strong> необходимо запросить вакансии работодателя,
+применимые к выбранному резюме. Получить эту информацию можно в
 <a href="employer_vacancies_for_invitation.md.html">списке вакансий работодателя</a>, там же
 будут указаны необходимые параметры (ключ <code>arguments</code>) и состояние созданного
 отклика (ключ <code>resulting_employer_state</code>). У разных работодателей и разных
@@ -871,7 +872,19 @@
             <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;with_updates&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
                 <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">5</span>
-            <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;order_types&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;created_at&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;по дате создания&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/inbox?vacancy_id=123456&amp;order_by=created_at&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;relevance&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;лучшие&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/inbox?vacancy_id=123456&amp;order_by=relevance&quot;</span>
+                <span class="p">}</span>                
+            <span class="p">]</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;discarded&quot;</span><span class="p">,</span>
@@ -880,7 +893,14 @@
             <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;with_updates&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                 <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span>
-            <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;order_types&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;created_at&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;по дате создания&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/inbox?vacancy_id=123456&amp;order_by=created_at&quot;</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;employer_states&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -944,6 +964,11 @@
   <td>общее количество откликов/приглашений в коллекции</td>
 </tr>
 <tr>
+  <td>collections[].order_types</td>
+  <td>список</td>
+  <td>возможные варианты сортировки откликов/приглашений в коллекции</td>
+</tr>
+<tr>
   <td>employer_states</td>
   <td>список</td>
   <td><a href="#term-employer-state">работодательские состояния</a> откликов/приглашений данной вакансии</td>
@@ -992,6 +1017,11 @@
   <td>Идентификатор вакансии</td>
 </tr>
 <tr>
+  <td>order_by</td>
+  <td>нет</td>
+  <td>Тип сортировки</td>
+</tr>
+<tr>
   <td>page</td>
   <td>нет</td>
   <td>Номер страницы, по умолчанию: 0</td>
@@ -1009,6 +1039,10 @@
 <p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;ordered_by&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;created_at&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;по дате создания&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
     <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
     <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1230,6 +1264,11 @@
 </thead>
 <tbody>
 <tr>
+  <td>ordered_by</td>
+  <td>объект</td>
+  <td>Использованный тип сортировки</td>
+</tr>
+<tr>
   <td>found</td>
   <td>число</td>
   <td>Количество найденных откликов ( ≥ 0 )</td>
@@ -1307,7 +1346,7 @@
 <tr>
   <td>resume</td>
   <td>объект, null</td>
-  <td>Резюме. Выдаваемые поля аналогичны <a href="employer_resumes.md.html#search-results">поиску резюме</a>. Для получения полного резюме необходимо запросить его GET запросом по url из ключа <code>url</code>. Может быть <code>null</code>, если соискатель удалил резюме или закрыл к нему доступ.</td>
+  <td><a href="resumes.md.html#resume-short">Сокращенное представление резюме</a>. Для получения полного резюме необходимо запросить его GET запросом по url из ключа <code>url</code>. Может быть <code>null</code>, если соискатель удалил резюме или закрыл к нему доступ.</td>
 </tr>
 <tr>
   <td>has_updates</td>
@@ -2078,6 +2117,55 @@ Location: /negotiations/321
 <li><code>invalid_vacancy</code> - если вакансия из отклика была архивирована либо скрыта</li>
 <li><code>limit_exceeded</code> - если превышен лимит менеджера на количество приглашений
 в сутки</li>
+</ul>
+
+<p><a name="get-preference-order"></a></p>
+
+<h2 id="-28">Просмотр предпочитаемой сортировки откликов</h2>
+
+<h3 id="-29">Запрос</h3>
+
+<p><code>GET /vacancies/{id}/preferred_negotiations_order</code></p>
+
+<p>где id - идентификатор вакансии</p>
+
+<h3 id="-30">Ответ</h3>
+
+<p>В ответе вернётся JSON:</p>
+
+<div class="codehilite"><pre><span></span><code>  <span class="p">{</span>
+      <span class="nt">&quot;order_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;created_at&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;по дате&quot;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="-31">Ошибки</h3>
+
+<ul>
+<li><code>404 Not Found</code> - вакансия не найдена или просмотр откликов/приглашений по ней не доступен.</li>
+</ul>
+
+<p><a name="update-preference-order"></a></p>
+
+<h2 id="-32">Изменение предпочитаемой сортировки откликов</h2>
+
+<h3 id="-33">Запрос</h3>
+
+<p><code>PUT /vacancies/{id}/preferred_negotiations_order</code></p>
+
+<p>где в качестве параметра необходимо передать order_by - идентификатор типа сортировки</p>
+
+<h3 id="-34">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>204 No Content</code> и не содержит тела.</p>
+
+<h3 id="-35">Ошибки</h3>
+
+<ul>
+<li><code>400 Bad Request</code> – один из обязательных параметров не передан.</li>
+<li><code>404 Not Found</code> - вакансия не найдена или просмотр откликов/приглашений по ней не доступен.</li>
 </ul>
 
     </article>

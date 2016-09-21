@@ -799,6 +799,10 @@
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
   <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;HH-1455-TECH&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter::Технический департамент&quot;</span>
+  <span class="p">},</span>
   <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Полная занятость&quot;</span>
@@ -1222,6 +1226,10 @@ null. Список телефонов может быть пустым.</p>
       <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
       <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;HH-1455-TECH&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter::Технический департамент&quot;</span>
+      <span class="p">},</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Открытая&quot;</span>
@@ -1298,6 +1306,10 @@ null. Список телефонов может быть пустым.</p>
     <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/vacancy/7760476&quot;</span><span class="p">,</span>
     <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/applicant/vacancy_response?vacancyId=7760476&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;HH-1455-TECH&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter::Технический департамент&quot;</span>
+    <span class="p">},</span>
     <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
@@ -1367,6 +1379,21 @@ null. Список телефонов может быть пустым.</p>
   <td>apply_alternate_url</td>
   <td>строка, null</td>
   <td>Ссылка на отклик на вакансию на сайте</td>
+</tr>
+<tr>
+  <td>department</td>
+  <td>объект, null</td>
+  <td>Департамент <a href="employer_departments.md.html">из справочника</a>, от имени которого размещается вакансия (если данная возможность доступна для компании)</td>
+</tr>
+<tr>
+  <td>department.id</td>
+  <td>строка</td>
+  <td>ID департамента</td>
+</tr>
+<tr>
+  <td>department.name</td>
+  <td>строка</td>
+  <td>Название департамента</td>
 </tr>
 <tr>
   <td>salary</td>
