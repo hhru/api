@@ -3,7 +3,7 @@
 Saved search (autosearch) is the saved set of search parameters used
 to track new vacancies or CVs on this request.
 In addition to saving search request parameters the autosearch function allows to
-obtain email notifications on new search results. For convenience, you can assign a name to
+obtain notifications on new search results. For convenience, you can assign a name to
 the autosearch.
 
 * Saved vacancy search
@@ -43,7 +43,7 @@ The response will contain standard collection of paginated items.
       "id": "123",
       "name": "Test autosearch",
       "created_at": "2014-04-11T13:12:17+0400",
-      "email_subscription": true,
+      "subscription": true,
       "items": {
         "count": 304234,
         "url": "https://api.hh.ru/vacancies?area=1&saved_search_id=123"
@@ -64,7 +64,7 @@ Each item contains following info:
  id  | string | ID
  name | string | Name
  created_at | string | Creation date and time
- email_subscription | logical | Email subscription status
+ subscription | logical | Subscription status
  items | object | Vacancy list data
  new_items | object | Information on list of vacancies appeared since the last vacancy view
 
@@ -91,7 +91,7 @@ will be returned. For example:
   "id": "123",
   "name": "Test autosearch",
   "created_at": "2014-04-11T13:12:17+0400",
-  "email_subscription": true,
+  "subscription": true,
   "items": {
     "count": 304234,
     "url": "https://api.hh.ru/vacancies?area=1&saved_search_id=123"
@@ -109,7 +109,7 @@ If autosearch is not found, status `404 Not Found` will be returned.
 <a name="vacancies-saved-search-create"></a>
 ## Creating new saved vacancy search
 
-In order to create autosearch you must send request `POST` to
+In order to create autosearch you must send `POST` request to
 `/saved_searches/vacancies` with following parameters:
 
 * vacancy search parameters. Correspond to parameters
@@ -120,7 +120,8 @@ If successful, response `201 Created` will be returned with title
 `/saved_searches/vacancies/123`, where 123 is ID of created autosearch).
 
 Request is available only if authorized by an applicant, otherwise error
-`403 Forbidden` is returned.
+`403 Forbidden` is returned. If parameters are indicated incorrectly or
+there is an incorrect parameter set, `400 Bad request` will be returned.
 
 
 <a name="vacancies-saved-search-update"></a>
@@ -131,7 +132,7 @@ send `PUT /saved_searches/vacancies/{id}`, where id is
 saved search ID.
 
 You can change only subscription name (parameter `name`) or status
-(parameter `email_subscription=false`) at a time.
+(parameter `subscription=false`) at a time.
 
 If you try to change both, response `409 Conflict` is returned.
 If autosearch is not found, response `404 Not Found` will be returned.
