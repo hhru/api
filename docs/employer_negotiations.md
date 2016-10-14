@@ -122,11 +122,6 @@
 
 где `vacancy_id` - id вакансии.
 
-Кроме обязательного параметра `vacancy_id` поддерживаются:
-
-- `updated_after` — не обязательный параметр, при задании которого запрос вернет кроме коллекций информацию о том, сколько отлкиков были обновлены/созданы начиная с заданного времени (включая переданное время).
-  Пример запроса: `GET https://api.hh.ru/negotiations?vacancy_id=123456&updated_after=2015-05-14T00:00:00+0300`
-
 
 ### Ответ
 
@@ -141,22 +136,18 @@
             "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456",
             "counters": {
                 "with_updates": 4,
-                "total": 5,
-                "with_updates_after": 2
+                "total": 5
             },
             "order_types": [
                 {
                     "id": "created_at",
-                    "name": "по дате создания",
-                    "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=created_at"
+                    "name": "по дате создания"
                 },
                 {
                     "id": "relevance",
-                    "name": "лучшие",
-                    "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=relevance"
+                    "name": "лучшие"
                 }
-            ],
-            "last_updated_at": "2015-05-14T00:00:00+0300"
+            ]
         },
         {
             "id": "discarded",
@@ -164,8 +155,7 @@
             "url": "https://api.hh.ru/negotiations/discarded?vacancy_id=123456",
             "counters": {
                 "with_updates": 0,
-                "total": 1,
-                "with_updates_after": 2
+                "total": 1
             },
             "order_types": [
                 {
@@ -173,8 +163,7 @@
                     "name": "по дате создания",
                     "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=created_at",
                 }
-            ],
-            "last_updated_at": "2015-10-14T00:00:00+0300"
+            ]
         }
     ],
     "employer_states": [
@@ -208,8 +197,6 @@ collections[].url | строка | url, на который необходимо
 collections[].counters.with_updates | число | количество откликов/приглашений в коллекции, [требующих внимания](#has_updates)
 collections[].order_types | список | возможные варианты сортировки откликов/приглашений в коллекции
 collections[].counters.total | число | общее количество откликов/приглашений в коллекции.
-collections[].counters.with_updates_after | число | количество откликов обновленных/созданных после времени, заданном в `updated_after` параметре. Если параметр не передается, то этого поля не будет
-collections[].last_updated_at | строка | Дата и время последнего изменения в коллекции
 employer_states | список | [работодательские состояния](#term-employer-state) откликов/приглашений данной вакансии
 employer_states[].id | строка | идентификатор состояния, уникальный как минимум для данной вакансии
 employer_states[].name | строка | название состояния
