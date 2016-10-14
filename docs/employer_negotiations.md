@@ -141,11 +141,13 @@
             "order_types": [
                 {
                     "id": "created_at",
-                    "name": "по дате создания"
+                    "name": "по дате создания",
+                    "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=created_at"
                 },
                 {
                     "id": "relevance",
-                    "name": "лучшие"
+                    "name": "лучшие",
+                    "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=relevance"
                 }
             ]
         },
