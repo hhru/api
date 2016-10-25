@@ -293,8 +293,7 @@ will have `false` value.
         {
             "name": "Petrov Pyotr",
             "position": "senior research scientist",
-            "organization": "Roskosmos",
-            "contact": "+7 495 123 45 67"
+            "organization": "Roskosmos"
         }
     ],
     "alternate_url": "https://hh.ru/resume/12345678901234567890123456789012abcdef",
