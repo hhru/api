@@ -131,9 +131,9 @@
 {
     "collections": [
         {
-            "id": "inbox",
-            "name": "Неразобранные",
-            "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456",
+            "id": "somecollection",
+            "name": "Название коллекции",
+            "url": "https://api.hh.ru/negotiations/somecollection?vacancy_id=123456",
             "counters": {
                 "with_updates": 4,
                 "total": 5
@@ -142,19 +142,19 @@
                 {
                     "id": "created_at",
                     "name": "по дате создания",
-                    "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=created_at"
+                    "url": "https://api.hh.ru/negotiations/somecollection?vacancy_id=123456&order_by=created_at"
                 },
                 {
                     "id": "relevance",
                     "name": "лучшие",
-                    "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=relevance"
+                    "url": "https://api.hh.ru/negotiations/somecollection?vacancy_id=123456&order_by=relevance"
                 }                
             ]
         },
         {
-            "id": "discarded",
-            "name": "Отклоненные",
-            "url": "https://api.hh.ru/negotiations/discarded?vacancy_id=123456",
+            "id": "anothercollection",
+            "name": "Название другой коллекции",
+            "url": "https://api.hh.ru/negotiations/anothercollection?vacancy_id=123456",
             "counters": {
                 "with_updates": 0,
                 "total": 1
@@ -163,7 +163,7 @@
                 {
                     "id": "created_at",
                     "name": "по дате создания",
-                    "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456&order_by=created_at",
+                    "url": "https://api.hh.ru/negotiations/anothercollection?vacancy_id=123456&order_by=created_at",
                 }
             ]
         }
