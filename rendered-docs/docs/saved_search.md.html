@@ -740,7 +740,7 @@
 <p>Сохраненный поиск (автопоиск) — это сохраненный набор параметров поиска, по
 которому можно отслеживать новые вакансии или резюме по заданному запросу.
 Помимо сохранения параметров поисковых запросов, автопоиск позволяет получать
-оповещения по почте о новых результатах поиска. Для удобства автопоиску можно
+оповещения о новых результатах поиска. Для удобства автопоиску можно
 задавать имя.</p>
 
 <ul>
@@ -783,7 +783,7 @@
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
       <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Test autosearch&quot;</span><span class="p">,</span>
       <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-04-11T13:12:17+0400&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;email_subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">304234</span><span class="p">,</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?area=1&amp;saved_search_id=123&quot;</span>
@@ -824,9 +824,9 @@
   <td>Дата и время создания</td>
 </tr>
 <tr>
-  <td>email_subscription</td>
+  <td>subscription</td>
   <td>логический</td>
-  <td>Статус email подписки</td>
+  <td>Статус подписки</td>
 </tr>
 <tr>
   <td>items</td>
@@ -863,7 +863,7 @@
   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Test autosearch&quot;</span><span class="p">,</span>
   <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-04-11T13:12:17+0400&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;email_subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">304234</span><span class="p">,</span>
     <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?area=1&amp;saved_search_id=123&quot;</span>
@@ -894,7 +894,8 @@
 <code>/saved_searches/vacancies/123</code>, где 123 - id созданного автопоиска).</p>
 
 <p>Запрос доступен только при авторизации соискателем, иначе вернётся ошибка
-<code>403 Forbidden</code>.</p>
+<code>403 Forbidden</code>. Если параметры будут указаны неверно или в неправильном сочетании,
+то в ответ вернется <code>400 Bad request</code>.</p>
 
 <p><a name="vacancies-saved-search-update"></a></p>
 
@@ -905,7 +906,7 @@
 идентификатор сохраненного поиска.</p>
 
 <p>За один заход можно изменять только имя (параметр <code>name</code>) или только статус
-подписки (параметр <code>email_subscription=false</code>).</p>
+подписки (параметр <code>subscription=false</code>).</p>
 
 <p>При попытке изменить оба параметра сразу придет ответ <code>409 Conflict</code>.
 В случае, когда автопоиск не найден, вернется ответ <code>404 Not Found</code>.

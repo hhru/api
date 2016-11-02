@@ -740,7 +740,7 @@
 <p>Saved search (autosearch) is the saved set of search parameters used
 to track new vacancies or CVs on this request.
 In addition to saving search request parameters the autosearch function allows to
-obtain email notifications on new search results. For convenience, you can assign a name to
+obtain notifications on new search results. For convenience, you can assign a name to
 the autosearch.</p>
 
 <ul>
@@ -783,7 +783,7 @@ max value 10)</li>
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
       <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Test autosearch&quot;</span><span class="p">,</span>
       <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-04-11T13:12:17+0400&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;email_subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">304234</span><span class="p">,</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?area=1&amp;saved_search_id=123&quot;</span>
@@ -824,9 +824,9 @@ max value 10)</li>
   <td>Creation date and time</td>
 </tr>
 <tr>
-  <td>email_subscription</td>
+  <td>subscription</td>
   <td>logical</td>
-  <td>Email subscription status</td>
+  <td>Subscription status</td>
 </tr>
 <tr>
   <td>items</td>
@@ -863,7 +863,7 @@ will be returned. For example:</p>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Test autosearch&quot;</span><span class="p">,</span>
   <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-04-11T13:12:17+0400&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;email_subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;subscription&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">304234</span><span class="p">,</span>
     <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?area=1&amp;saved_search_id=123&quot;</span>
@@ -881,7 +881,7 @@ will be returned. For example:</p>
 
 <h2 id="creating-new-saved-vacancy-search">Creating new saved vacancy search</h2>
 
-<p>In order to create autosearch you must send request <code>POST</code> to
+<p>In order to create autosearch you must send <code>POST</code> request to
 <code>/saved_searches/vacancies</code> with following parameters:</p>
 
 <ul>
@@ -894,7 +894,8 @@ sent to vacancy search <a href="vacancies.md.html#search">/vacancies</a></li>
 <code>/saved_searches/vacancies/123</code>, where 123 is ID of created autosearch).</p>
 
 <p>Request is available only if authorized by an applicant, otherwise error
-<code>403 Forbidden</code> is returned.</p>
+<code>403 Forbidden</code> is returned. If parameters are indicated incorrectly or
+there is an incorrect parameter set, <code>400 Bad request</code> will be returned.</p>
 
 <p><a name="vacancies-saved-search-update"></a></p>
 
@@ -905,7 +906,7 @@ send <code>PUT /saved_searches/vacancies/{id}</code>, where id is
 saved search ID.</p>
 
 <p>You can change only subscription name (parameter <code>name</code>) or status
-(parameter <code>email_subscription=false</code>) at a time.</p>
+(parameter <code>subscription=false</code>) at a time.</p>
 
 <p>If you try to change both, response <code>409 Conflict</code> is returned.
 If autosearch is not found, response <code>404 Not Found</code> will be returned.
