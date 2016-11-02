@@ -160,7 +160,7 @@ address.show_metro_only | boolean | показывать только метро
 experience.id | string | требуемый опыт работы из [справочника experience](dictionaries.md)
 schedule.id | string | график работы из [справочника schedule](dictionaries.md)
 employment.id | string | тип занятости из [справочника employment](dictionaries.md)
-contacts | object | контактная информация (для вакансий рабочих специальностей)
+contacts | object | контактная информация (для вакансий рабочих специальностей). Определить является ли специальность рабочей можно по полю laboring из [справочника специализаций](specializations.md) 
 contacts.name | string | контактное лицо
 contacts.email | string | email
 contacts.phones | array | список телефонов для связи

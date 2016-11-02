@@ -11,11 +11,14 @@
         "specializations": [
             {
                 "id": "24.493",
-                "name": "Парикмахер"
+                "name": "Парикмахер",
+                "laboring": false
             }
         ]
     }
 ]
 ```
+
+specializations[].laboring - относится ли специализация к списку рабочих специальностей
 
 Пример: [https://api.hh.ru/specializations](https://api.hh.ru/specializations)
