@@ -7,7 +7,6 @@ In particular:
 
 * hh.ru
 * career.ru
-* rabota.mail.ru
 * hh.ua
 * jobs.tut.by
 * jobs.day.az
