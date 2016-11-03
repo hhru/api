@@ -128,14 +128,14 @@ Successful server response is returned with `200 OK` code and contains:
 {
     "collections": [
         {
-            "id": "inbox",
-            "name": "Unsorted",
-            "url": "https://api.hh.ru/negotiations/inbox?vacancy_id=123456"
+            "id": "somecollection",
+            "name": "Name of collection",
+            "url": "https://api.hh.ru/negotiations/somecollection?vacancy_id=123456"
         },
         {
-            "id": "discarded",
-            "name": "Declined",
-            "url": "https://api.hh.ru/negotiations/discarded?vacancy_id=123456"
+            "id": "anothercollection",
+            "name": "Name of anothercollection",
+            "url": "https://api.hh.ru/negotiations/anothercollection?vacancy_id=123456"
         }
     ],
     "employer_states": [
