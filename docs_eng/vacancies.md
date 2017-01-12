@@ -267,6 +267,7 @@ optional field with different counters on vacancy will be displayed in the objec
     "views": 100500,
     "responses": 5,
     "unread_responses": 3,
+    "resumes_in_progress": 5,
     "invitations": 10
   }
 }
@@ -277,6 +278,7 @@ key | type | description
 counters.views | number | number of vacancy views
 counters.responses | number | number of responses to the vacancy
 counters.unread_responses | number | number of non-viewed responses to the vacancy
+counters.resumes_in_progress| number | number of resumes in progress for a vacancy
 counters.invitations | number | number of invitations to the vacancy
 
 

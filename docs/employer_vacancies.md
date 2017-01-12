@@ -650,6 +650,7 @@ PUT /vacancies/{vacancy_id}
         "views": 100500,
         "responses": 5,
         "unread_responses": 3,
+        "resumes_in_progress": 5,
         "invitations": 10
       },
       "expires_at": "2013-07-08T16:17:21+0400",
@@ -667,6 +668,7 @@ PUT /vacancies/{vacancy_id}
 counters.views | number | количество просмотров вакансии
 counters.responses | number | количество откликов на вакансию
 counters.unread_responses | number | количество непросмотренных откликов на вакансию
+counters.resumes_in_progress | number | количество резюме в работе на вакансию
 counters.invitations | number | количество приглашений на вакансию
 expires_at | string | дата окончания публикации вакансии
 has_updates | boolean | Есть ли в откликах/приглашениях по данной вакансии обновления, требующие внимания
