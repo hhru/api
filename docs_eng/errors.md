@@ -138,7 +138,7 @@ HTTP code| type| value| description
 403| negotiations| empty_message | the empty message text was sent
 403| negotiations| too_long_message | the too long message text was sent
 403| negotiations| address_not_found| the address sent for the action does not exist or belongs to another employer
-403| negotiations| not_enough_purchased_services| the paid services are insufficient, usually [CV database service](http://hh.ru/price#dbaccess)
+403| negotiations| not_enough_purchased_services| the paid services are insufficient, usually [CV database service](https://hh.ru/price#dbaccess)
 403| negotiations| in_a_row_limit| the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
 403| negotiations| overall_limit| messages limit exceeded
 403| negotiations| no_invitation| negotiations are unavailable as there was no invitation in the response

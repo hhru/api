@@ -50,7 +50,7 @@
             "last_name": "Иванов",
             "middle_name": "Иванович",
             "age": 19,
-            "alternate_url": "http://hh.ru/resume/0123456789abcdef",
+            "alternate_url": "https://hh.ru/resume/0123456789abcdef",
             "created_at": "2015-02-06T12:00:00+0300",
             "updated_at": "2015-04-20T16:24:15+0300",
             "area": {
@@ -123,13 +123,13 @@
                             "name": "Интернет-компания  (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
                         }
                     ],
-                    "company_url": "http://hh.ru",
+                    "company_url": "https://hh.ru",
                     "company_id": "1455",
                     "employer": {
-                        "alternate_url": "http://hh.ru/employer/1455",
+                        "alternate_url": "https://hh.ru/employer/1455",
                         "id": "1455",
                         "logo_urls": {
-                            "90": "http://hh.ru/employer/logo/1455"
+                            "90": "https://hh.ru/employer/logo/1455"
                         },
                         "name": "HeadHunter",
                         "url": "https://api.hh.ru/employers/1455"
@@ -145,8 +145,8 @@
                 "currency": "RUR"
             },
             "photo": {
-                "medium": "http://hh.ru/...",
-                "small": "http://hh.ru/...",
+                "medium": "https://hh.ru/...",
+                "small": "https://hh.ru/...",
                 "id": "1337"
             },
             "similar_vacancies": {
@@ -208,14 +208,14 @@
         "name": "Мужской"
     },
     "photo": {
-        "small": "http://hh.ru/...",
-        "medium": "http://hh.ru/...",
+        "small": "https://hh.ru/...",
+        "medium": "https://hh.ru/...",
         "id": "1337"
     },
     "portfolio": [
         {
-            "small": "http://hh.ru/...",
-            "medium": "http://hh.ru/...",
+            "small": "https://hh.ru/...",
+            "medium": "https://hh.ru/...",
             "id": "1337",
             "description": "..."
         }
@@ -453,7 +453,7 @@
             "contact": "+7 495 123 45 67"
         }
     ],
-    "alternate_url": "http://hh.ru/resume/12345678901234567890123456789012abcdef",
+    "alternate_url": "https://hh.ru/resume/12345678901234567890123456789012abcdef",
     "resume_locale": {
         "id": "RU",
         "name": "Русский"
@@ -563,10 +563,10 @@ expires | строка (дата) | время окончания действи
             "id": "resume_database_access",
             "name": "Доступ к базе резюме",
             "price_list": {
-                "alternate_url": "http://hh.ru/price#dbaccess"
+                "alternate_url": "https://hh.ru/price#dbaccess"
             },
             "quick_purchase": {
-                "alternate_url": "http://hh.ru/employer/invoice/purchase?code=FA&hhAreaId=1&period=1&profAreaIds=0",
+                "alternate_url": "https://hh.ru/employer/invoice/purchase?code=FA&hhAreaId=1&period=1&profAreaIds=0",
                 "currency": {
                     "abbr": "руб.",
                     "code": "RUR",
@@ -1033,7 +1033,7 @@ max_date | строка с датой | Верхняя граница диапа
     "middle_name": "Иванович",
     "can_view_full_info": true,
     "age": 19,
-    "alternate_url": "http://hh.ru/resume/0123456789abcdef",
+    "alternate_url": "https://hh.ru/resume/0123456789abcdef",
     "created_at": "2015-02-06T12:00:00+0300",
     "updated_at": "2015-04-20T16:24:15+0300",
     "area": {
@@ -1106,13 +1106,13 @@ max_date | строка с датой | Верхняя граница диапа
                     "name": "Интернет-компания (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
                 }
             ],
-            "company_url": "http://hh.ru",
+            "company_url": "https://hh.ru",
             "company_id": "1455",
             "employer": {
-                "alternate_url": "http://hh.ru/employer/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
                 "id": "1455",
                 "logo_urls": {
-                    "90": "http://hh.ru/employer/logo/1455"
+                    "90": "https://hh.ru/employer/logo/1455"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455"
@@ -1128,8 +1128,8 @@ max_date | строка с датой | Верхняя граница диапа
         "currency": "RUR"
     },
     "photo": {
-        "medium": "http://hh.ru/...",
-        "small": "http://hh.ru/...",
+        "medium": "https://hh.ru/...",
+        "small": "https://hh.ru/...",
         "id": "1337"
     },
     "owner": {
@@ -1200,7 +1200,7 @@ max_date | строка с датой | Верхняя граница диапа
 `GET /resumes/{resume_id}/views` вернёт историю просмотров резюме. На основном
 сайте это доступно при клике на кол-во просмотров резюме на странице со списком
 резюме текущего пользователя
-([http://hh.ru/applicant/resumes](http://hh.ru/applicant/resumes)).
+([https://hh.ru/applicant/resumes](https://hh.ru/applicant/resumes)).
 
 Без авторизации или же при обращении к чужому резюме вернёт `403 Forbidden`.
 
@@ -1217,12 +1217,12 @@ max_date | строка с датой | Верхняя граница диапа
             "viewed": true,
             "employer": {
                 "logo_urls": {
-                    "90": "http://hh.ru/employer/logo/1455",
+                    "90": "https://hh.ru/employer/logo/1455",
                 },
                 "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455",
-                "alternate_url": "http://hh.ru/employer/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
                 "id": "1455"
             }
         }

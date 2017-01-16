@@ -108,7 +108,7 @@ If the request is performed successfully, such a response will be returned:
         }
       ],
       "logo_urls": {
-        "90": "http://hh.ru/employer-logo/289055.png"
+        "90": "https://hh.ru/employer-logo/289055.png"
       }
     }
   ]

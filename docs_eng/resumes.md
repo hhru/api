@@ -56,14 +56,14 @@ will have `false` value.
         "name": "Male"
     },
     "photo": {
-        "small": "http://hh.ru/...",
-        "medium": "http://hh.ru/...",
+        "small": "https://hh.ru/...",
+        "medium": "https://hh.ru/...",
         "id": "1337"
     },
     "portfolio": [
         {
-            "small": "http://hh.ru/...",
-            "medium": "http://hh.ru/...",
+            "small": "https://hh.ru/...",
+            "medium": "https://hh.ru/...",
             "id": "1337",
             "description": "..."
         }
@@ -297,7 +297,7 @@ will have `false` value.
             "contact": "+7 495 123 45 67"
         }
     ],
-    "alternate_url": "http://hh.ru/resume/12345678901234567890123456789012abcdef",
+    "alternate_url": "https://hh.ru/resume/12345678901234567890123456789012abcdef",
     "resume_locale": {
         "id": "RU",
         "name": "Russian"

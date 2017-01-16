@@ -19,7 +19,7 @@
             "id": "proceed",
             "name": "Перейти к тестированию",
             "enabled": true,
-            "alternate_url": "http://hh.ru/applicant/assessment/123"
+            "alternate_url": "https://hh.ru/applicant/assessment/123"
         }
     ]
 }
@@ -47,7 +47,7 @@
     "id": "proceed",
     "name": "Перейти к тестированию",
     "enabled": true,
-    "alternate_url": "http://hh.ru/applicant/assessment/123"
+    "alternate_url": "https://hh.ru/applicant/assessment/123"
 }
 ```
 

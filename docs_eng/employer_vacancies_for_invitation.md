@@ -89,7 +89,7 @@ Successful server response is returned with `200 OK` code and contains:
             "id": "123456",
             "premium": true,
             "address": null,
-            "alternate_url": "http://hh.ru/vacancy/123456",
+            "alternate_url": "https://hh.ru/vacancy/123456",
             "salary": {
                 "to": null,
                 "from": 100000,
@@ -106,11 +106,11 @@ Successful server response is returned with `200 OK` code and contains:
             "relations": [ ],
             "employer": {
                 "url": "https://api.hh.ru/employers/1455",
-                "alternate_url": "http://hh.ru/employer/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
                 "logo_urls": {
-                    "90": "http://hh.ru/employer-logo/1455.png",
-                    "240": "http://hh.ru/employer-logo/1455.png",
-                    "original": "http://hh.ru/file/1455.png"
+                    "90": "https://hh.ru/employer-logo/1455.png",
+                    "240": "https://hh.ru/employer-logo/1455.png",
+                    "original": "https://hh.ru/file/1455.png"
                 },
                 "name": "HeadHunter",
                 "id": "1455"

@@ -19,7 +19,7 @@
           "url": "https://api.hh.ru/resumes/14831542000d1f366b4c5a6a751b329b70039e",
           "created_at": "2013-11-03T00:43:20+0400",
           "updated_at": "2013-11-22T12:25:18+0400",
-          "alternate_url": "http://hh.ru/resume/14831542000d1f366b4c5a6a751b329b70039e",
+          "alternate_url": "https://hh.ru/resume/14831542000d1f366b4c5a6a751b329b70039e",
           "access": {
                 "type": {
                     "id": "clients",
@@ -104,13 +104,13 @@
                             "name": "Интернет-компания (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
                         }
                     ],
-                    "company_url": "http://hh.ru",
+                    "company_url": "https://hh.ru",
                     "company_id": "1455",
                     "employer": {
-                        "alternate_url": "http://hh.ru/employer/1455",
+                        "alternate_url": "https://hh.ru/employer/1455",
                         "id": "1455",
                         "logo_urls": {
-                            "90": "http://hh.ru/employer/logo/1455"
+                            "90": "https://hh.ru/employer/logo/1455"
                         },
                         "name": "HeadHunter",
                         "url": "https://api.hh.ru/employers/1455"
@@ -126,8 +126,8 @@
                 "currency": "RUR"
             },
             "photo": {
-                "medium": "http://hh.ru/...",
-                "small": "http://hh.ru/...",
+                "medium": "https://hh.ru/...",
+                "small": "https://hh.ru/...",
                 "id": "1337"
             }
         }

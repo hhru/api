@@ -324,7 +324,7 @@ per_page | нет | Количество выдаваемых элементов
                 "middle_name": "Иванович",
                 "age": 19,
                 "can_view_full_info": true,
-                "alternate_url": "http://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
+                "alternate_url": "https://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
                 "created_at": "2015-02-06T12:00:00+0300",
                 "updated_at": "2015-04-20T16:24:15+0300",
                 "area": {
@@ -397,13 +397,13 @@ per_page | нет | Количество выдаваемых элементов
                                 "name": "Интернет-компания  (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
                             }
                         ],
-                        "company_url": "http://hh.ru",
+                        "company_url": "https://hh.ru",
                         "company_id": "1455",
                         "employer": {
-                            "alternate_url": "http://hh.ru/employer/1455",
+                            "alternate_url": "https://hh.ru/employer/1455",
                             "id": "1455",
                             "logo_urls": {
-                                "90": "http://hh.ru/employer/logo/1455"
+                                "90": "https://hh.ru/employer/logo/1455"
                             },
                             "name": "HeadHunter",
                             "url": "https://api.hh.ru/employers/1455"
@@ -419,8 +419,8 @@ per_page | нет | Количество выдаваемых элементов
                     "currency": "RUR"
                 },
                 "photo": {
-                    "medium": "http://hh.ru/...",
-                    "small": "http://hh.ru/...",
+                    "medium": "https://hh.ru/...",
+                    "small": "https://hh.ru/...",
                     "id": "1337"
                 },
                 "owner": {
@@ -628,7 +628,7 @@ required_arguments | список | Аргументы, которые необ�
         "last_name": "Иванов",
         "middle_name": "Иванович",
         "age": 19,
-        "alternate_url": "http://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
+        "alternate_url": "https://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
         "created_at": "2015-02-06T12:00:00+0300",
         "updated_at": "2015-04-20T16:24:15+0300",
         "area": {
@@ -702,7 +702,7 @@ required_arguments | список | Аргументы, которые необ�
     },
     "vacancy": {
         "address": null,
-        "alternate_url": "http://hh.ru/vacancy/123456",
+        "alternate_url": "https://hh.ru/vacancy/123456",
         "archived": false,
         "area": {
             "id": "1",
@@ -711,12 +711,12 @@ required_arguments | список | Аргументы, которые необ�
         },
         "created_at": "2015-05-14T11:00:00+0300",
         "employer": {
-            "alternate_url": "http://hh.ru/employer/1",
+            "alternate_url": "https://hh.ru/employer/1",
             "id": "1",
             "logo_urls": {
-                "240": "http://hh.ru/employer-logo/1111.jpeg",
-                "90": "http://hh.ru/employer-logo/1111.jpeg",
-                "original": "http://hh.ru/employer-logo-original/1111.jpeg"
+                "240": "https://hh.ru/employer-logo/1111.jpeg",
+                "90": "https://hh.ru/employer-logo/1111.jpeg",
+                "original": "https://hh.ru/employer-logo-original/1111.jpeg"
             },
             "name": "Рога и копыта",
             "url": "https://api.hh.ru/employers/1",
@@ -841,7 +841,7 @@ with_text_only | нет | true/false | Вернуть только те сооб
                             "id": "proceed",
                             "name": "Перейти к тестированию",
                             "enabled": true,
-                            "alternate_url": "http://hh.ru/applicant/assessment/123"
+                            "alternate_url": "https://hh.ru/applicant/assessment/123"
                         }
                     ]
                 }
@@ -992,7 +992,7 @@ Location: /negotiations/321
 * `address_not_found` – если переданный адрес не существует, либо принадлежит
   другому работодателю
 * `not_enough_purchased_services` - не хватает оплаченных услуг, обычно
-  [доступа к базе резюме](http://hh.ru/price#dbaccess)
+  [доступа к базе резюме](https://hh.ru/price#dbaccess)
 
 
 <a name="actions"></a>

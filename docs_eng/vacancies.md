@@ -55,8 +55,8 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
         "name": "Between 3 and 6 years"
       },
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
         "id": "18320489-18320489-dept1",
         "name": "DEPT1"
@@ -85,13 +85,13 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
       "suitable_resumes_url": "https://api.hh.ru/vacancies/8331228/suitable_resumes?locale=EN",
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455?locale=EN",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true
       },
@@ -317,7 +317,7 @@ Some parameters take multiple values: `key=value&key=value`.
 
 * `text` – text field.  
   The sent value is searched in the vacancy fields specified in the `search_field` parameter.  
-  As with the main website, a query language is available: [http://hh.ru/article/1175](http://hh.ru/article/1175).  
+  As with the main website, a query language is available: [https://hh.ru/article/1175](https://hh.ru/article/1175).
   There is [autoaddition](suggests.md#vacancy-search-keyword) especially for this field.
 
 * `search_field` – an area of search.
@@ -448,19 +448,19 @@ used for applicants.
       "relations": [ ],
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true
       },
       "response_letter_required": true,
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
       "type": {
         "id": "open",
         "name": "Open"
@@ -514,8 +514,8 @@ returned in response.
     "id": "7760476",
     "premium": true,
     "address": null,
-    "alternate_url": "http://hh.ru/vacancy/7760476",
-    "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=7760476",
+    "alternate_url": "https://hh.ru/vacancy/7760476",
+    "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=7760476",
     "department": {
       "id": "18320489-18320489-dept1",
       "name": "DEPT1"
@@ -536,11 +536,11 @@ returned in response.
     "relations": [ ],
     "employer": {
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "logo_urls": {
-            "90": "http://hh.ru/employer-logo/289027.png",
-            "240": "http://hh.ru/employer-logo/289169.png",
-            "original": "http://hh.ru/file/2352807.png"
+            "90": "https://hh.ru/employer-logo/289027.png",
+            "240": "https://hh.ru/employer-logo/289169.png",
+            "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "id": "1455"

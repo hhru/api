@@ -286,7 +286,7 @@ Successful server response is returned with `200 OK` code and contains:
                 "middle_name": "Ivanovich",
                 "age": 19,
                 "can_view_full_info": true,
-                "alternate_url": "http://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
+                "alternate_url": "https://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
                 "created_at": "2015-02-06T12:00:00+0300",
                 "updated_at": "2015-04-20T16:24:15+0300",
                 "area": {
@@ -359,13 +359,13 @@ Successful server response is returned with `200 OK` code and contains:
                                 "name": "Internet company (search engines, payment systems, social networks, educational and entertainment resources, website promotion, and more)"
                             }
                         ],
-                        "company_url": "http://hh.ru",
+                        "company_url": "https://hh.ru",
                         "company_id": "1455",
                         "employer": {
-                            "alternate_url": "http://hh.ru/employer/1455",
+                            "alternate_url": "https://hh.ru/employer/1455",
                             "id": "1455",
                             "logo_urls": {
-                                "90": "http://hh.ru/employer/logo/1455"
+                                "90": "https://hh.ru/employer/logo/1455"
                             },
                             "name": "HeadHunter",
                             "url": "https://api.hh.ru/employers/1455"
@@ -381,8 +381,8 @@ Successful server response is returned with `200 OK` code and contains:
                     "currency": "RUR"
                 },
                 "photo": {
-                    "medium": "http://hh.ru/...",
-                    "small": "http://hh.ru/...",
+                    "medium": "https://hh.ru/...",
+                    "small": "https://hh.ru/...",
                     "id": "1337"
                 },
                 "owner": {
@@ -582,7 +582,7 @@ Successful server response is returned with `200 OK` code and contains:
         "last_name": "Ivanov",
         "middle_name": "Ivanovich",
         "age": 19,
-        "alternate_url": "http://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
+        "alternate_url": "https://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
         "created_at": "2015-02-06T12:00:00+0300",
         "updated_at": "2015-04-20T16:24:15+0300",
         "area": {
@@ -656,7 +656,7 @@ Successful server response is returned with `200 OK` code and contains:
     },
     "vacancy": {
         "address": null,
-        "alternate_url": "http://hh.ru/vacancy/123456",
+        "alternate_url": "https://hh.ru/vacancy/123456",
         "archived": false,
         "area": {
             "id": "1",
@@ -665,12 +665,12 @@ Successful server response is returned with `200 OK` code and contains:
         },
         "created_at": "2015-05-14T11:00:00+0300",
         "employer": {
-            "alternate_url": "http://hh.ru/employer/1",
+            "alternate_url": "https://hh.ru/employer/1",
             "id": "1",
             "logo_urls": {
-                "240": "http://hh.ru/employer-logo/1111.jpeg",
-                "90": "http://hh.ru/employer-logo/1111.jpeg",
-                "original": "http://hh.ru/employer-logo-original/1111.jpeg"
+                "240": "https://hh.ru/employer-logo/1111.jpeg",
+                "90": "https://hh.ru/employer-logo/1111.jpeg",
+                "original": "https://hh.ru/employer-logo-original/1111.jpeg"
             },
             "name": "Roga i Kopyta",
             "url": "https://api.hh.ru/employers/1",
@@ -791,7 +791,7 @@ Successful server response is returned with `200 OK` code and contains:
                             "id": "proceed",
                             "name": "Go to testing",
                             "enabled": true,
-                            "alternate_url": "http://hh.ru/applicant/assessment/123"
+                            "alternate_url": "https://hh.ru/applicant/assessment/123"
                         }
                     ]
                 }
@@ -942,7 +942,7 @@ For example:
 * `address_not_found` – if the sent address does not exist or belongs to
   another employer
 * `not_enough_purchased_services` – the paid services are insufficient, usually
-  [CV database services](http://hh.ru/price#dbaccess)
+  [CV database services](https://hh.ru/price#dbaccess)
 
 
 <a name="actions"></a>

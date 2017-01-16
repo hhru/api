@@ -9,7 +9,7 @@ separate request for each given criterion. However, it is far easier to use a
 special search result option, such as splitting data into clusters.
 
 See an example of using such data on the main hh.ru site see in the left column
-on the [vacancy search result page](http://hh.ru/search/vacancy).
+on the [vacancy search result page](https://hh.ru/search/vacancy).
 
 If you only need this metadata (and you don't need the list of found vacancies)
 enter `?per_page=0` in the request.

@@ -3,7 +3,7 @@
 [По-русски](../README.md) | **In english**
 
 HeadHunter API is a free toolset for integration of
-[HeadHunter](http://hh.ru/) with your product.
+[HeadHunter](https://hh.ru/) with your product.
 
 First of all, read the [general information](general.md) on work with API and
 the [requirements](https://dev.hh.ru/articles/logos) for logos and application

@@ -30,11 +30,11 @@
             "id": "1455",
             "name": "HeadHunter",
             "url": "https://api.hh.ru/employers/1455",
-            "alternate_url": "http://hh.ru/employer/1455",
+            "alternate_url": "https://hh.ru/employer/1455",
             "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
             "open_vacancies": 19,
             "logo_urls": {
-              "90":  "http://hh.ru/employer-logo/289027.png"
+              "90":  "https://hh.ru/employer-logo/289027.png"
             }
         }
     ]
@@ -86,16 +86,16 @@
 	"name": "HeadHunter",
 	"type": "company",
 	"id": "1455",
-	"site_url": "http://hh.ru",
+	"site_url": "https://hh.ru",
 	"description": "...",
 	"branded_description": "<style>...</style><div>...</div><script></script>",
 	"vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
 	"trusted": true,
-	"alternate_url": "http://hh.ru/employer/1455",
+	"alternate_url": "https://hh.ru/employer/1455",
 	"logo_urls": {
-		"90": "http://hh.ru/employer-logo/289027.png",
-		"240": "http://hh.ru/employer-logo/289169.png",
-		"original": "http://hh.ru/file/2352807.png"
+		"90": "https://hh.ru/employer-logo/289027.png",
+		"240": "https://hh.ru/employer-logo/289169.png",
+		"original": "https://hh.ru/file/2352807.png"
 	},
 	"area": {
 		"url": "https://api.hh.ru/areas/113",
@@ -137,7 +137,7 @@ javascript. При этом:
 `area` — регион работодателя.
 
 `trusted` – флаг, указывает на то, что
-[компанию прошла проверку на сайте](http://feedback.hh.ru/article/details/id/5951).
+[компанию прошла проверку на сайте](https://feedback.hh.ru/article/details/id/5951).
 
 ---
 

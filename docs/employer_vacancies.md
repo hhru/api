@@ -31,7 +31,7 @@
 некоторые дополнительные поля.
 
 > В соответствии с
-[законом РФ № 1032-1 от 19.04.1991 в ред. от 02.07.2013 г.](http://hh.ru/article/13967)
+[законом РФ № 1032-1 от 19.04.1991 в ред. от 02.07.2013 г.](https://hh.ru/article/13967)
 запрещено размещать информацию, ограничивающую права или устанавливающую
 преимущества для соискателей по полу, возрасту, семейному положению и другим
 обстоятельствам, не связанным с деловыми качествами работников.
@@ -43,8 +43,8 @@
 
 ### Полезные ссылки
 
-* [правила размещения вакансий](http://hh.ru/article/341)
-* [как составить хорошее описание вакансии](http://hh.ru/article/16239)
+* [правила размещения вакансий](https://hh.ru/article/341)
+* [как составить хорошее описание вакансии](https://hh.ru/article/16239)
 
 
 <a name="creation-example"></a>
@@ -176,7 +176,7 @@ custom_employer_name | string | название компании для ано�
 employer.id | string | работодатель, для которого размещается вакансия
 manager.id | string | контактное лицо (менеджер) по размещаемой вакансии, по-умолчанию текущий пользователь
 response_notifications | boolean | уведомлять о новых откликах
-<a name="allow_messages"></a> allow_messages | boolean | возможность [переписки с кандидатами](http://inboxemp.hh.ru/) по данной вакансии
+<a name="allow_messages"></a> allow_messages | boolean | возможность [переписки с кандидатами](https://inboxemp.hh.ru/) по данной вакансии
 response_letter_required | boolean | требовать сопроводительное письмо
 accept_handicapped | boolean | указание, что вакансия доступна для соискателей с инвалидностью
 branded_template.id | string | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
@@ -620,20 +620,20 @@ PUT /vacancies/{vacancy_id}
       "relations": [],
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true
       },
       "response_letter_required": true,
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
         "id": "HH-1455-TECH",
         "name": "HeadHunter::Технический департамент"
@@ -738,20 +738,20 @@ has_updates | boolean | Есть ли в откликах/приглашения
       "relations": [],
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true
       },
       "response_letter_required": true,
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
         "id": "HH-1455-TECH",
         "name": "HeadHunter::Технический департамент"
@@ -833,20 +833,20 @@ archived_at | строка | дата архивации вакансии
       "relations": [],
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true
       },
       "response_letter_required": true,
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
         "id": "HH-1455-TECH",
         "name": "HeadHunter::Технический департамент"

@@ -55,8 +55,8 @@
     "name": "1–3 года"
   },
   "address": null,
-  "alternate_url": "http://hh.ru/vacancy/8331228",
-  "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+  "alternate_url": "https://hh.ru/vacancy/8331228",
+  "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
   "department": {
     "id": "HH-1455-TECH",
     "name": "HeadHunter::Технический департамент"
@@ -85,13 +85,13 @@
   "suitable_resumes_url": "https://api.hh.ru/vacancies/8331228/suitable_resumes",
   "employer": {
     "logo_urls": {
-      "90": "http://hh.ru/employer-logo/289027.png",
-      "240": "http://hh.ru/employer-logo/289169.png",
-      "original": "http://hh.ru/file/2352807.png"
+      "90": "https://hh.ru/employer-logo/289027.png",
+      "240": "https://hh.ru/employer-logo/289169.png",
+      "original": "https://hh.ru/file/2352807.png"
     },
     "name": "HeadHunter",
     "url": "https://api.hh.ru/employers/1455",
-    "alternate_url": "http://hh.ru/employer/1455",
+    "alternate_url": "https://hh.ru/employer/1455",
     "id": "1455",
     "trusted": true
   },
@@ -313,7 +313,7 @@ counters.invitations | number | количество приглашений на
 
 * `text` — текстовое поле.  
 Переданное значение ищется в полях вакансии, указанных в параметре `search_field`.  
-Доступен язык запросов, как и на основном сайте: [http://hh.ru/article/1175](http://hh.ru/article/1175).  
+Доступен язык запросов, как и на основном сайте: [https://hh.ru/article/1175](https://hh.ru/article/1175).
 Специально для этого поля есть [автодополнение](suggests.md#vacancy-search-keyword).
 
 * `search_field` — область поиска.  
@@ -445,20 +445,20 @@ counters.invitations | number | количество приглашений на
       "relations": [ ],
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true
       },
       "response_letter_required": true,
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
         "id": "HH-1455-TECH",
         "name": "HeadHunter::Технический департамент"
@@ -517,8 +517,8 @@ snippet.responsibility | строка, null | Обязанности по вак
     "id": "7760476",
     "premium": true,
     "address": null,
-    "alternate_url": "http://hh.ru/vacancy/7760476",
-    "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=7760476",
+    "alternate_url": "https://hh.ru/vacancy/7760476",
+    "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=7760476",
     "department": {
       "id": "HH-1455-TECH",
       "name": "HeadHunter::Технический департамент"
@@ -539,11 +539,11 @@ snippet.responsibility | строка, null | Обязанности по вак
     "relations": [ ],
     "employer": {
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "logo_urls": {
-            "90": "http://hh.ru/employer-logo/289027.png",
-            "240": "http://hh.ru/employer-logo/289169.png",
-            "original": "http://hh.ru/file/2352807.png"
+            "90": "https://hh.ru/employer-logo/289027.png",
+            "240": "https://hh.ru/employer-logo/289169.png",
+            "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "id": "1455"

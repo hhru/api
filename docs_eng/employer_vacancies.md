@@ -29,7 +29,7 @@ vacancy being posted. The format of the data is similar to the
 [vacancy view](#item), but also contains some additional fields.
 
 > In accordance with
-> [RF law № 1032-1 dated 19.04.1991, as amended on 02.07.2013](http://hh.ru/article/13967)
+> [RF law № 1032-1 dated 19.04.1991, as amended on 02.07.2013](https://hh.ru/article/13967)
 > it is prohibited to post information limiting rights or providing privileges
 > for applicants on the base of their gender, age, marital status as well as
 > other circumstances that are not related to the qualifications of employees.
@@ -42,8 +42,8 @@ vacancy being posted. The format of the data is similar to the
 
 ### Useful links
 
-* [rules for posting vacancies](http://hh.ru/article/341)
-* [how do I formulate a good vacancy description](http://hh.ru/article/16239)
+* [rules for posting vacancies](https://hh.ru/article/341)
+* [how do I formulate a good vacancy description](https://hh.ru/article/16239)
 
 <a name="creation-example"></a>
 ### Request body example
@@ -614,19 +614,19 @@ Successful server response is returned with `200 OK` code and contains:
       "relations": [],
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455"
       },
       "response_letter_required": true,
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
         "id": "18320489-18320489-dept1",
         "name": "DEPT1"
@@ -732,19 +732,19 @@ Successful server response is returned with `200 OK` code and contains:
       "relations": [],
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455"
       },
       "response_letter_required": true,
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
         "id": "18320489-18320489-dept1",
         "name": "DEPT1"
@@ -827,19 +827,19 @@ Successful server response is returned with `200 OK` code and contains:
       "relations": [],
       "employer": {
         "logo_urls": {
-          "90": "http://hh.ru/employer-logo/289027.png",
-          "240": "http://hh.ru/employer-logo/289169.png",
-          "original": "http://hh.ru/file/2352807.png"
+          "90": "https://hh.ru/employer-logo/289027.png",
+          "240": "https://hh.ru/employer-logo/289169.png",
+          "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "http://hh.ru/employer/1455",
+        "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455"
       },
       "response_letter_required": true,
       "address": null,
-      "alternate_url": "http://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "http://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+      "alternate_url": "https://hh.ru/vacancy/8331228",
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
         "id": "18320489-18320489-dept1",
         "name": "DEPT1"
