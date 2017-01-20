@@ -740,7 +740,8 @@
 <p>Для того, чтобы определить, каким из своих резюме пользователь может откликнуться на вакансию c идентификатором <code>vacancy_id</code>, 
 необходимо отправить запрос <code>GET</code> на <code>/vacancies/{vacancy_id}/suitable_resumes</code>.</p>
 
-<p>В случае успеха придёт ответ со статусом HTTP '200 OK' следующего вида:</p>
+<p>В случае успеха придёт ответ со статусом HTTP <code>200 OK</code>, содержащий список сокращенных представлений резюме пользователя, 
+которыми возможно откликнуться на данную вакансию:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -748,28 +749,132 @@
   <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Дизайнер резюме&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-03T00:43:20+0400&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-22T12:25:18+0400&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hh.ru/resume/14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
+      <span class="p">{</span>
+          <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Дизайнер резюме&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-03T00:43:20+0400&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-22T12:25:18+0400&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/resume/14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;clients&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;видно всем компаниям, зарегистрированным на HeadHunter&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;published&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;опубликовано&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иван&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванович&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-01-01&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;тест&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;primary&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Российский государственный социальный университет, Москва&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name_id&quot;</span><span class="p">:</span> <span class="s2">&quot;39420&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Факультет информационных технологий&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;organization_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;Информатика&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;result_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2012</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">118</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;пастух&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2010-01-01&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Рога и копыта&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;51.643&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Благоустройство и уборка территорий и зданий&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;29.503&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Земледелие, растениеводство, животноводство&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="kc">null</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2005-01-01&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2009-03-01&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7.513&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Интернет-компания (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;company_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/employer/1455&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/employer/logo/1455&quot;</span>
+                        <span class="p">},</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Мужской&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">,</span>
+                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;overall&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;not_published&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;already_applied&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;unavailable&quot;</span><span class="p">:</span> <span class="mi">0</span>    
     <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nt">&quot;overall&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;not_published&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;already_applied&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;unavailable&quot;</span><span class="p">:</span> <span class="mi">0</span>    
-  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<p>В ответе придет список коротких представлений резюме пользователя, которыми возможно откликнуться на данную вакансию.</p>
-
-<p>Запрос возможно выполнить только соискателем, для других типов авторизации будет возвращен HTTP статус <code>403 Forbidden</code>.</p>
-
-<p>В коротком представлении резюме есть следующие свойства:</p>
 
 <table>
 <thead>
@@ -813,7 +918,9 @@
 </tbody>
 </table>
 
-<p>При пустом списке невозможно понять есть ли у пользователя резюме, но они все не подходят, или же их нет. Для этого выдаётся 
+<p>Остальные поля сокращенного представления резюме аналогичны <a href="resumes.md.html#resume-keys">полям при редактировании</a>.</p>
+
+<p>При пустом списке невозможно понять, есть ли у пользователя резюме, но они все не подходят, или же их нет. Для этого выдаётся 
 дополнительная информация в ключе <code>overall</code>:</p>
 
 <table>
@@ -838,6 +945,8 @@
 </tr>
 </tbody>
 </table>
+
+<p>Запрос возможно выполнить только соискателем, для других типов авторизации будет возвращен HTTP статус <code>403 Forbidden</code>.</p>
 
     </article>
     </body>
