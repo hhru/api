@@ -749,6 +749,7 @@
 <li><a href="#hide">Удаление вакансий</a></li>
 <li><a href="#hidden">Список удаленных вакансий</a></li>
 <li><a href="#restore">Восстановление из удаленных</a></li>
+<li><a href="#stats">Статистика по вакансии</a></li>
 </ul>
 
 <p>Смотрите также:</p>
@@ -1670,6 +1671,7 @@ Cоставные поля (например, <code>salary</code>, <code>contact
         <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
         <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
         <span class="nt">&quot;unread_responses&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;resumes_in_progress&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
         <span class="nt">&quot;invitations&quot;</span><span class="p">:</span> <span class="mi">10</span>
       <span class="p">},</span>
       <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
@@ -1705,6 +1707,11 @@ Cоставные поля (например, <code>salary</code>, <code>contact
   <td>counters.unread_responses</td>
   <td>number</td>
   <td>количество непросмотренных откликов на вакансию</td>
+</tr>
+<tr>
+  <td>counters.resumes_in_progress</td>
+  <td>number</td>
+  <td>количество резюме в работе на вакансию</td>
 </tr>
 <tr>
   <td>counters.invitations</td>
@@ -1945,6 +1952,84 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 <p>Восстановить можно только удаленную из архива вакансию.
 При успешной операции вернётся <code>204 No Content</code>.
 Вакансия вернется в архив.</p>
+
+<p><a name="stats"></a></p>
+
+<h2 id="-32">Статистика по вакансии</h2>
+
+<p><code>GET /vacancies/{vacancy_id}/stats</code></p>
+
+<p>где <code>vacancy_id</code> - идентификатор вакансии.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-10&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">36</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-11&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">35</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-12&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">32</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-13&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-14&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;responses&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Здесь:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>date</td>
+  <td>Строка</td>
+  <td>Дата в формате <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+  <td>responses</td>
+  <td>Число или null</td>
+  <td>Количество откликов, <code>null</code> если дата в будущем или данных на эту дату нет</td>
+</tr>
+<tr>
+  <td>views</td>
+  <td>Число или null</td>
+  <td>Количество просмотров, <code>null</code> если дата в будущем или данных на эту дату нет</td>
+</tr>
+</tbody>
+</table>
+
+<p>Возвращается окно в 5 последних дней существования вакансии:</p>
+
+<ul>
+<li>если вакансия создана поздее начала окна, то первой датой будет дата создания вакансии;</li>
+<li>если вакансия находится в архиве или удалена, то последней датой будет дата архивации.</li>
+</ul>
+
+<p>Если вакансия с идентификатором <code>vacancy_id</code> не существует или у текущего менеджера нет прав на редактирование данной вакансии, то в
+ответ вернется <code>404 Not Found</code>.</p>
 
     </article>
     </body>
