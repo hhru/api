@@ -29,139 +29,139 @@
 
 ```json
 {
-  "items": [
-    {
-      "access": {
-        "type": {
-          "id": "clients",
-          "name": "видно всем компаниям, зарегистрированным на HeadHunter"
-        }
-      },
-      "total_views": 0,
-      "new_views": 0,
-      "status": {
-        "id": "published",
-        "name": "опубликовано"
-      },
-      "views_url": "https://api.hh.ru/resumes/0123456789abcdef/views",
-      "id": "0123456789abcdef",
-      "title": "Начинающий специалист",
-      "url": "https://api.hh.ru/resumes/0123456789abcdef",
-      "first_name": "Иван",
-      "last_name": "Иванов",
-      "middle_name": "Иванович",
-      "age": 19,
-      "alternate_url": "https://hh.ru/resume/0123456789abcdef",
-      "created_at": "2015-02-06T12:00:00+0300",
-      "updated_at": "2015-04-20T16:24:15+0300",
-      "area": {
-        "id": "1",
-        "name": "Москва",
-        "url": "https://api.hh.ru/areas/1"
-      },
-      "certificate": [
+    "items": [
         {
-          "achieved_at": "2015-01-01",
-          "owner": null,
-          "title": "тест",
-          "type": "custom",
-          "url": "http://example.com/"
-        }
-      ],
-      "education": {
-        "primary": [
-          {
-            "name": "Российский государственный социальный университет, Москва",
-            "name_id": "39420",
-            "organization": "Факультет информационных технологий",
-            "organization_id": null,
-            "result": "Информатика",
-            "result_id": null,
-            "year": 2012
-          }
-        ]
-      },
-      "total_experience": {
-        "months": 118
-      },
-      "experience": [
-        {
-          "position": "пастух",
-          "start": "2010-01-01",
-          "end": null,
-          "company": "Рога и копыта",
-          "industries": [
-            {
-              "id": "51.643",
-              "name": "Благоустройство и уборка территорий и зданий"
+            "access": {
+                "type": {
+                    "id": "clients",
+                    "name": "видно всем компаниям, зарегистрированным на HeadHunter"
+                }
             },
-            {
-              "id": "29.503",
-              "name": "Земледелие, растениеводство, животноводство"
-            }
-          ],
-          "company_url": "http://example.com/",
-          "area": {
-            "id": "1",
-            "name": "Москва",
-            "url": "https://api.hh.ru/areas/1"
-          },
-          "company_id": null,
-          "employer": null
-        },
-        {
-          "start": "2005-01-01",
-          "end": "2009-03-01",
-          "company": "HeadHunter",
-          "area": {
-            "id": "1",
-            "name": "Москва",
-            "url": "https://api.hh.ru/areas/1"
-          },
-          "industries": [
-            {
-              "id": "7.513",
-              "name": "Интернет-компания  (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
-            }
-          ],
-          "company_url": "https://hh.ru",
-          "company_id": "1455",
-          "employer": {
-            "alternate_url": "https://hh.ru/employer/1455",
-            "id": "1455",
-            "logo_urls": {
-              "90": "https://hh.ru/employer/logo/1455"
+            "total_views": 0,
+            "new_views": 0,
+            "status": {
+                "id": "published",
+                "name": "опубликовано"
             },
-            "name": "HeadHunter",
-            "url": "https://api.hh.ru/employers/1455"
-          }
+            "views_url": "https://api.hh.ru/resumes/0123456789abcdef/views",
+            "id": "0123456789abcdef",
+            "title": "Начинающий специалист",
+            "url": "https://api.hh.ru/resumes/0123456789abcdef",
+            "first_name": "Иван",
+            "last_name": "Иванов",
+            "middle_name": "Иванович",
+            "age": 19,
+            "alternate_url": "https://hh.ru/resume/0123456789abcdef",
+            "created_at": "2015-02-06T12:00:00+0300",
+            "updated_at": "2015-04-20T16:24:15+0300",
+            "area": {
+                "id": "1",
+                "name": "Москва",
+                "url": "https://api.hh.ru/areas/1"
+            },
+            "certificate": [
+                {
+                    "achieved_at": "2015-01-01",
+                    "owner": null,
+                    "title": "тест",
+                    "type": "custom",
+                    "url": "http://example.com/"
+                }
+            ],
+            "education": {
+                "primary": [
+                    {
+                        "name": "Российский государственный социальный университет, Москва",
+                        "name_id": "39420",
+                        "organization": "Факультет информационных технологий",
+                        "organization_id": null,
+                        "result": "Информатика",
+                        "result_id": null,
+                        "year": 2012
+                    }
+                ]
+            },
+            "total_experience": {
+                "months": 118
+            },
+            "experience": [
+                {
+                    "position": "пастух",
+                    "start": "2010-01-01",
+                    "end": null,
+                    "company": "Рога и копыта",
+                    "industries": [
+                        {
+                            "id": "51.643",
+                            "name": "Благоустройство и уборка территорий и зданий"
+                        },
+                        {
+                            "id": "29.503",
+                            "name": "Земледелие, растениеводство, животноводство"
+                        }
+                    ],
+                    "company_url": "http://example.com/",
+                    "area": {
+                        "id": "1",
+                        "name": "Москва",
+                        "url": "https://api.hh.ru/areas/1"
+                    },
+                    "company_id": null,
+                    "employer": null
+                },
+                {
+                    "start": "2005-01-01",
+                    "end": "2009-03-01",
+                    "company": "HeadHunter",
+                    "area": {
+                        "id": "1",
+                        "name": "Москва",
+                        "url": "https://api.hh.ru/areas/1"
+                    },
+                    "industries": [
+                        {
+                            "id": "7.513",
+                            "name": "Интернет-компания (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
+                        }
+                    ],
+                    "company_url": "https://hh.ru",
+                    "company_id": "1455",
+                    "employer": {
+                        "alternate_url": "https://hh.ru/employer/1455",
+                        "id": "1455",
+                        "logo_urls": {
+                            "90": "https://hh.ru/employer/logo/1455"
+                        },
+                        "name": "HeadHunter",
+                        "url": "https://api.hh.ru/employers/1455"
+                    }
+                }
+            ],
+            "gender": {
+                "id": "male",
+                "name": "Мужской"
+            },
+            "salary": {
+                "amount": 1000000,
+                "currency": "RUR"
+            },
+            "photo": {
+                "medium": "https://hh.ru/...",
+                "small": "https://hh.ru/...",
+                "id": "1337"
+            },
+            "similar_vacancies": {
+                "url": "https://api.hh.ru/resumes/0123456789abcdef/similar_vacancies",
+                "counters": {
+                    "total": 1507
+                }
+            }
         }
-      ],
-      "gender": {
-        "id": "male",
-        "name": "Мужской"
-      },
-      "salary": {
-        "amount": 1000000,
-        "currency": "RUR"
-      },
-      "photo": {
-        "medium": "https://hh.ru/...",
-        "small": "https://hh.ru/...",
-        "id": "1337"
-      },
-      "similar_vacancies": {
-        "url": "https://api.hh.ru/resumes/0123456789abcdef/similar_vacancies",
-        "counters": {
-          "total": 1507
-        }
-      }
-    }
-  ],
-  "page": 0,
-  "per_page": 1,
-  "pages": 1,
-  "found": 1
+    ],
+    "page": 0,
+    "per_page": 1,
+    "pages": 1,
+    "found": 1
 }
 ```
 
@@ -204,268 +204,268 @@ similar_vacancies.total | number | общее количество похожи�
 
 ```json
 {
-  "id": "12345678901234567890123456789012abcdef",
-  "last_name": "Фамилия",
-  "first_name": "Имя",
-  "middle_name": "Отчество",
-  "birth_date": "1980-05-08",
-  "gender": {
-    "id": "male",
-    "name": "Мужской"
-  },
-  "photo": {
-    "small": "https://hh.ru/...",
-    "medium": "https://hh.ru/...",
-    "id": "1337"
-  },
-  "portfolio": [
-    {
-      "small": "https://hh.ru/...",
-      "medium": "https://hh.ru/...",
-      "id": "1337",
-      "description": "..."
-    }
-  ],
-  "area": {
-    "url": "https://api.hh.ru/areas/1",
-    "id": "1",
-    "name": "Москва"
-  },
-  "metro": {
-    "lat": 55.658147,
-    "lng": 37.540957,
-    "order": 19,
-    "id": "6.41",
-    "name": "Калужская"
-  },
-  "relocation": {
-    "type": {
-      "id": "relocation_possible",
-      "name": "готов к переезду"
+    "id": "12345678901234567890123456789012abcdef",
+    "last_name": "Фамилия",
+    "first_name": "Имя",
+    "middle_name": "Отчество",
+    "birth_date": "1980-05-08",
+    "gender": {
+        "id": "male",
+        "name": "Мужской"
     },
-    "area": [
-      {
-        "url": "https://api.hh.ru/areas/2",
-        "id": "2",
-        "name": "Санкт-Петербург"
-      },
-      {
-        "url": "https://api.hh.ru/areas/76",
-        "id": "76",
-        "name": "Ростов-на-Дону"
-      }
-    ]
-  },
-  "business_trip_readiness": {
-    "id": "ready",
-    "name": "Готов к командировкам"
-  },
-  "contact": [
-    {
-      "comment": null,
-      "type": {
-        "id": "cell",
-        "name": "Мобильный телефон"
-      },
-      "preferred": true,
-      "value": {
-        "country": "7",
-        "city": "123",
-        "number": "4567890",
-        "formatted": "+71234567890"
-      }
+    "photo": {
+        "small": "https://hh.ru/...",
+        "medium": "https://hh.ru/...",
+        "id": "1337"
     },
-    {
-      "type": {
-        "id": "email",
-        "name": "Эл. почта"
-      },
-      "preferred": false,
-      "value": "applicant@example.com"
-    }
-  ],
-  "site": [
-    {
-      "url": "echo123",
-      "type": {
-        "id": "skype",
-        "name": "Skype"
-      }
-    },
-    {
-      "url": "123456",
-      "type": {
-        "id": "icq",
-        "name": "ICQ"
-      }
-    }
-  ],
-  "title": "Программист Python",
-  "specialization": [
-    {
-      "id": "1.221",
-      "name": "Программирование, Разработка",
-      "profarea_id": "1",
-      "profarea_name": "Информационные технологии, интернет, телеком",
-      "laboring": false
-    },
-    {
-      "id": "1.89",
-      "name": "Интернет",
-      "profarea_id": "1",
-      "profarea_name": "Информационные технологии, интернет, телеком",
-      "laboring": false
-    },
-    {
-      "id": "1.9",
-      "name": "Web инженер",
-      "profarea_id": "1",
-      "profarea_name": "Информационные технологии, интернет, телеком",
-      "laboring": false
-    }
-  ],
-  "salary": {
-    "amount": 100500,
-    "currency": "RUR"
-  },
-  "employment": {
-    "id": "full",
-    "name": "Полная занятость"
-  },
-  "schedules": [
-    {
-      "id": "fullDay",
-      "name": "Полный день"
-    },
-    {
-      "id": "flexible",
-      "name": "Гибкий график"
-    }
-  ],
-  "education": {
-    "elementary": [
-      {
-        "name": "Школа №1923",
-        "year": 2003
-      }
-    ],
-    "additional": [
-      {
-        "name": "Курс повышения квалификации",
-        "organization": "Проводившая организация",
-        "result": "Специализация",
-        "year": 2006
-      }
-    ],
-    "attestation": [
-      {
-        "name": "Тест на IQ",
-        "organization": "IQ центр",
-        "result": "Интеллект квалификейшн",
-        "year": 2005
-      }
-    ],
-    "primary": [
-      {
-        "name": "Московская государственная академия ветеринарной медицины и биотехнологии имени К.И. Скрябина, Москва",
-        "name_id": "39464",
-        "organization": "Факультет зоотехнологий и агробизнеса",
-        "organization_id": "25181",
-        "result": "Социальная психология",
-        "result_id": null,
-        "year": 2000
-      }
-    ],
-    "level": {
-      "id": "higher",
-      "name": "Высшее"
-    }
-  },
-  "language": [
-    {
-      "id": "rus",
-      "name": "Русский",
-      "level": {
-        "id": "native",
-        "name": "родной"
-      }
-    },
-    {
-      "id": "eng",
-      "name": "Английский",
-      "level": {
-        "id": "can_read",
-        "name": "читаю профессиональную литературу"
-      }
-    }
-  ],
-  "total_experience": {
-    "months": 94
-  },
-  "experience": [
-    {
-      "company": "Название работодателя",
-      "company_id": null,
-      "area": {
-        "url": "https://api.hh.ru/areas/113",
-        "id": "113",
-        "name": "Россия"
-      },
-      "company_url": "http://www.rbc.ru",
-      "industries": [
+    "portfolio": [
         {
-          "id": "7.540",
-          "name": "Разработка программного обеспечения"
+            "small": "https://hh.ru/...",
+            "medium": "https://hh.ru/...",
+            "id": "1337",
+            "description": "..."
+        }
+    ],
+    "area": {
+        "url": "https://api.hh.ru/areas/1",
+        "id": "1",
+        "name": "Москва"
+    },
+    "metro": {
+        "lat": 55.658147,
+        "lng": 37.540957,
+        "order": 19,
+        "id": "6.41",
+        "name": "Калужская"
+    },
+    "relocation": {
+        "type": {
+            "id": "relocation_possible",
+            "name": "готов к переезду"
+        },
+        "area": [
+            {
+                "url": "https://api.hh.ru/areas/2",
+                "id": "2",
+                "name": "Санкт-Петербург"
+            },
+            {
+                "url": "https://api.hh.ru/areas/76",
+                "id": "76",
+                "name": "Ростов-на-Дону"
+            }
+        ]
+    },
+    "business_trip_readiness": {
+        "id": "ready",
+        "name": "Готов к командировкам"
+    },
+    "contact": [
+        {
+            "comment": null,
+            "type": {
+                "id": "cell",
+                "name": "Мобильный телефон"
+            },
+            "preferred": true,
+            "value": {
+                "country": "7",
+                "city": "123",
+                "number": "4567890",
+                "formatted": "+71234567890"
+            }
         },
         {
-          "id": "9.399",
-          "name": "Мобильная связь"
+            "type": {
+                "id": "email",
+                "name": "Эл. почта"
+            },
+            "preferred": false,
+            "value": "applicant@example.com"
         }
-      ],
-      "position": "Должность",
-      "start": "2005-04-01",
-      "end": "2013-01-01",
-      "description": "Описание деятельности в компании"
-    }
-  ],
-  "skills": "Дополнительная информация: ключевые навыки",
-  "skill_set": [
-    "HTML",
-    "CSS"
-  ],
-  "citizenship": [
-    {
-      "url": "https://api.hh.ru/areas/113",
-      "id": "113",
-      "name": "Россия"
-    }
-  ],
-  "work_ticket": [
-    {
-      "url": "https://api.hh.ru/areas/113",
-      "id": "113",
-      "name": "Россия"
-    }
-  ],
-  "travel_time": {
-    "id": "any",
-    "name": "Не имеет значения"
-  },
-  "recommendation": [
-    {
-      "name": "Петров Петр",
-      "position": "старший научный сотрудник",
-      "organization": "Роскосмос",
-      "contact": "+7 495 123 45 67"
-    }
-  ],
-  "alternate_url": "https://hh.ru/resume/12345678901234567890123456789012abcdef",
-  "resume_locale": {
-    "id": "RU",
-    "name": "Русский"
-  },
-  "created_at": "2013-05-31T14:27:04+0400",
-  "updated_at": "2013-10-17T15:22:55+0400"
+    ],
+    "site": [
+        {
+            "url": "echo123",
+            "type": {
+                "id": "skype",
+                "name": "Skype"
+            }
+        },
+        {
+            "url": "123456",
+            "type": {
+                "id": "icq",
+                "name": "ICQ"
+            }
+        }
+    ],
+    "title": "Программист Python",
+    "specialization": [
+        {
+            "id": "1.221",
+            "name": "Программирование, Разработка",
+            "profarea_id": "1",
+            "profarea_name": "Информационные технологии, интернет, телеком",
+            "laboring": false
+        },
+        {
+            "id": "1.89",
+            "name": "Интернет",
+            "profarea_id": "1",
+            "profarea_name": "Информационные технологии, интернет, телеком",
+            "laboring": false
+        },
+        {
+            "id": "1.9",
+            "name": "Web инженер",
+            "profarea_id": "1",
+            "profarea_name": "Информационные технологии, интернет, телеком",
+            "laboring": false
+        }
+    ],
+    "salary": {
+        "amount": 100500,
+        "currency": "RUR"
+    },
+    "employment": {
+        "id": "full",
+        "name": "Полная занятость"
+    },
+    "schedules": [
+        {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        {
+            "id": "flexible",
+            "name": "Гибкий график"
+        }
+    ],
+    "education": {
+        "elementary": [
+            {
+                "name": "Школа №1923",
+                "year": 2003
+            }
+        ],
+        "additional": [
+            {
+                "name": "Курс повышения квалификации",
+                "organization": "Проводившая организация",
+                "result": "Специализация",
+                "year": 2006
+            }
+        ],
+        "attestation": [
+            {
+                "name": "Тест на IQ",
+                "organization": "IQ центр",
+                "result": "Интеллект квалификейшн",
+                "year": 2005
+            }
+        ],
+        "primary": [
+            {
+                "name": "Московская государственная академия ветеринарной медицины и биотехнологии имени К.И. Скрябина, Москва",
+                "name_id": "39464",
+                "organization": "Факультет зоотехнологий и агробизнеса",
+                "organization_id": "25181",
+                "result": "Социальная психология",
+                "result_id": null,
+                "year": 2000
+            }
+        ],
+        "level": {
+            "id": "higher",
+            "name": "Высшее"
+        }
+    },
+    "language": [
+        {
+            "id": "rus",
+            "name": "Русский",
+            "level": {
+                "id": "native",
+                "name": "родной"
+            }
+        },
+        {
+            "id": "eng",
+            "name": "Английский",
+            "level": {
+                "id": "can_read",
+                "name": "читаю профессиональную литературу"
+            }
+        }
+    ],
+    "total_experience": {
+        "months": 94
+    },
+    "experience": [
+        {
+            "company": "Название работодателя",
+            "company_id": null,
+            "area": {
+                "url": "https://api.hh.ru/areas/113",
+                "id": "113",
+                "name": "Россия"
+            },
+            "company_url": "http://www.rbc.ru",
+            "industries": [
+                {
+                    "id": "7.540",
+                    "name": "Разработка программного обеспечения"
+                },
+                {
+                    "id": "9.399",
+                    "name": "Мобильная связь"
+                }
+            ],
+            "position": "Должность",
+            "start": "2005-04-01",
+            "end": "2013-01-01",
+            "description": "Описание деятельности в компании"
+        }
+    ],
+    "skills": "Дополнительная информация: ключевые навыки",
+    "skill_set": [
+        "HTML",
+        "CSS"
+    ],
+    "citizenship": [
+        {
+            "url": "https://api.hh.ru/areas/113",
+            "id": "113",
+            "name": "Россия"
+        }
+    ],
+    "work_ticket": [
+        {
+            "url": "https://api.hh.ru/areas/113",
+            "id": "113",
+            "name": "Россия"
+        }
+    ],
+    "travel_time": {
+        "id": "any",
+        "name": "Не имеет значения"
+    },
+    "recommendation": [
+        {
+            "name": "Петров Петр",
+            "position": "старший научный сотрудник",
+            "organization": "Роскосмос",
+            "contact": "+7 495 123 45 67"
+        }
+    ],
+    "alternate_url": "https://hh.ru/resume/12345678901234567890123456789012abcdef",
+    "resume_locale": {
+        "id": "RU",
+        "name": "Русский"
+    },
+    "created_at": "2013-05-31T14:27:04+0400",
+    "updated_at": "2013-10-17T15:22:55+0400"
 }
 ```
 
@@ -479,59 +479,59 @@ similar_vacancies.total | number | общее количество похожи�
 
 ```json
 {
-  "blocked": false,
-  "finished": false,
-  "total_views": 0,
-  "new_views": 0,
-  "views_url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/views",
-  "status": {
-    "id": "not_published",
-    "name": "не опубликовано"
-  },
-  "_progress": {
-    "percentage": 42,
-    "mandatory": [
-      "citizenship",
-      "language",
-      "area",
-      "skills",
-      "contact",
-      "education",
-      "specialization"
+    "blocked": false,
+    "finished": false,
+    "total_views": 0,
+    "new_views": 0,
+    "views_url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/views",
+    "status": {
+        "id": "not_published",
+        "name": "не опубликовано"
+    },
+    "_progress": {
+        "percentage": 42,
+        "mandatory": [
+            "citizenship",
+            "language",
+            "area",
+            "skills",
+            "contact",
+            "education",
+            "specialization"
+        ],
+        "recommended": [
+            "salary",
+            "middle_name",
+            "work_ticket",
+            "site",
+            "recommendation",
+            "birth_date"
+        ]
+    },
+    "moderation_note": [
+        {
+            "id": "bad",
+            "name": "Резюме составлено небрежно."
+        },
+        {
+            "id": "block_no_education_place_or_date",
+            "name": "Отсутствуют данные об учебном заведении и дате его окончания.",
+            "field": "education"
+        }
     ],
-    "recommended": [
-      "salary",
-      "middle_name",
-      "work_ticket",
-      "site",
-      "recommendation",
-      "birth_date"
+    "paid_services": [
+        {
+            "id": "resume_autoupdating",
+            "name": "Автообновление резюме",
+            "active": false
+        },
+        {
+            "id": "resume_marked",
+            "name": "Яркое резюме",
+            "active": true,
+            "expires": "2016-06-08T18:25:25+0300"
+        }
     ]
-  },
-  "moderation_note": [
-    {
-      "id": "bad",
-      "name": "Резюме составлено небрежно."
-    },
-    {
-      "id": "block_no_education_place_or_date",
-      "name": "Отсутствуют данные об учебном заведении и дате его окончания.",
-      "field": "education"
-    }
-  ],
-  "paid_services": [
-    {
-      "id": "resume_autoupdating",
-      "name": "Автообновление резюме",
-      "active": false
-    },
-    {
-      "id": "resume_marked",
-      "name": "Яркое резюме",
-      "active": true,
-      "expires": "2016-06-08T18:25:25+0300"
-    }
-  ]
 }
 ```
 
@@ -590,34 +590,34 @@ expires | строка (дата) | время окончания действи
 
 ```json
 {
-  "can_view_full_info": false,
-  "owner": {
-    "comments": {
-      "url": "https://api.hh.ru/applicant_comments/123456",
-      "counters": {
-        "total": 7
-      }
-    }
-  },
-  "paid_services": [
-    {
-      "id": "resume_database_access",
-      "name": "Доступ к базе резюме",
-      "price_list": {
-        "alternate_url": "https://hh.ru/price#dbaccess"
-      },
-      "quick_purchase": {
-        "alternate_url": "https://hh.ru/employer/invoice/purchase?code=FA&hhAreaId=1&period=1&profAreaIds=0",
-        "currency": {
-          "abbr": "руб.",
-          "code": "RUR",
-          "name": "Рубли"
-        },
-        "name": "Купить за 5000 руб.",
-        "price": 5000
-      }
-    }
-  ]
+    "can_view_full_info": false,
+    "owner": {
+        "comments": {
+            "url": "https://api.hh.ru/applicant_comments/123456",
+            "counters": {
+                "total": 7
+            }
+        }
+    },
+    "paid_services": [
+        {
+            "id": "resume_database_access",
+            "name": "Доступ к базе резюме",
+            "price_list": {
+                "alternate_url": "https://hh.ru/price#dbaccess"
+            },
+            "quick_purchase": {
+                "alternate_url": "https://hh.ru/employer/invoice/purchase?code=FA&hhAreaId=1&period=1&profAreaIds=0",
+                "currency": {
+                    "abbr": "руб.",
+                    "code": "RUR",
+                    "name": "Рубли"
+                },
+                "name": "Купить за 5000 руб.",
+                "price": 5000
+            }
+        }
+    ]
 }
 ```
 
@@ -834,15 +834,19 @@ counters.total | number | количество комментариев
 Повторная публикация означает обновление даты резюме. Ключ `next_publish_at`
 у резюме указывает время, когда можно обновить резюме.
 
-В случае успешной публикации вернётся код ответа `204 No Content`.
+### Ответ
 
-Если обновление ещё недоступно — `429 Too Many Requests`.
+В случае успешной публикации вернётся код ответа `204 No Content` без тела.
 
-Если публикация невозможна, так как не заполнены обязательные
-поля — `400 Bad Request`.
+### Ошибки
 
-Если операция публикации резюме недоступна из-за отсутствия прав (например,
-для работодателя) — `403 Forbidden`.
+* `429 Too Many Requests` - если обновление ещё недоступно.
+* `400 Bad Request` - если публикация или продление невозможны. Возможные причины:
+  * не заполнены обязательные поля,
+  * не отредактированы поля после блокировки модератором,
+  * резюме находится на проверке у модератора.
+* `403 Forbidden` - если операция публикации резюме недоступна из-за отсутствия
+  прав (например, для работодателя).
 
 
 <a name="clone"></a>
@@ -874,93 +878,93 @@ counters.total | number | количество комментариев
 
 ```javascript
 {
-  "last_name": {
-    "required": true,
-    "max_length": 100,
-    "min_length": 1
-  },
-  "citizenship": {
-    "required": true,
-    "min_count": 1,
-    "max_count": 3
-  },
-  "resume_locale": {
-    "required": true
-  },
-  "education": {
-    "required": true,
-    "fields": {
-      "elementary": {
-        "required": false,
-        "min_count": 0,
-        "max_count": 64,
-        "fields": {
-          "name": {
-            "required": true,
-            "min_length": 1,
-            "max_length": 512
-          },
-          "year": {
-            "required": true,
-            "min_value": 1950,
-            "max_value": 2023
-          }
-        }
-      },
-      "primary": {
+    "last_name": {
+        "required": true,
+        "max_length": 100,
+        "min_length": 1
+    },
+    "citizenship": {
         "required": true,
         "min_count": 1,
-        "max_count": 64,
-        "fields": {
-          "result": {
-            "required": false,
-            "min_length": 1,
-            "max_length": 128
-          },
-          "organization": {
-            "required": true,
-            "min_length": 1,
-            "max_length": 128
-          },
-          "name": {
-            "required": true,
-            "min_length": 1,
-            "max_length": 512
-          },
-          "year": {
-            "required": true,
-            "min_value": 1950,
-            "max_value": 2023
-          }
-        },
-      },
-      "level": {
+        "max_count": 3
+    },
+    "resume_locale": {
         "required": true
-      },
-      //...
-    }
-  },
-  "salary": {
-    "required": false,
-    "fields": {
-      "currency": {
+    },
+    "education": {
         "required": true,
-        "min_length": 3,
-        "max_length": 3
-      },
-      "amount": {
-        "required": true,
-        "min_value": 0,
-        "max_value": null
-      }
-    }
-  },
-  "birth_date": {
-    "required": false,
-    "min_date": "1900-01-01",
-    "max_date": "1999-10-21"
-  },
-  //...
+        "fields": {
+            "elementary": {
+                "required": false,
+                "min_count": 0,
+                "max_count": 64,
+                "fields": {
+                    "name": {
+                        "required": true,
+                        "min_length": 1,
+                        "max_length": 512
+                    },
+                    "year": {
+                        "required": true,
+                        "min_value": 1950,
+                        "max_value": 2023
+                    }
+                }
+            },
+            "primary": {
+                "required": true,
+                "min_count": 1,
+                "max_count": 64,
+                "fields": {
+                    "result": {
+                        "required": false,
+                        "min_length": 1,
+                        "max_length": 128
+                    },
+                    "organization": {
+                        "required": true,
+                        "min_length": 1,
+                        "max_length": 128
+                    },
+                    "name": {
+                        "required": true,
+                        "min_length": 1,
+                        "max_length": 512
+                    },
+                    "year": {
+                        "required": true,
+                        "min_value": 1950,
+                        "max_value": 2023
+                    }
+                },
+            },
+            "level": {
+                "required": true
+            },
+            //...
+        }
+    },
+    "salary": {
+        "required": false,
+        "fields": {
+            "currency": {
+                "required": true,
+                "min_length": 3,
+                "max_length": 3
+            },
+            "amount": {
+                "required": true,
+                "min_value": 0,
+                "max_value": null
+            }
+        }
+    },
+    "birth_date": {
+        "required": false,
+        "min_date": "1900-01-01",
+        "max_date": "1999-10-21"
+    },
+    //...
 }
 ```
 
