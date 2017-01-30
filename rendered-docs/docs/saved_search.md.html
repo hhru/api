@@ -911,7 +911,9 @@
 <p>При попытке изменить оба параметра сразу придет ответ <code>409 Conflict</code>.
 В случае, когда автопоиск не найден, вернется ответ <code>404 Not Found</code>.
 Запрос доступен только при авторизации соискателем, иначе вернётся ошибка
-<code>403 Forbidden</code>.</p>
+<code>403 Forbidden</code>.
+Если параметры будут указаны неверно, то в ответ вернется <code>400 Bad request</code>. 
+Дополнительно к HTTP коду сервер может вернуть описание <a href="errors.md.html#general-errors">причины ошибки</a></p>
 
 <p><a name="vacancies-saved-search-delete"></a></p>
 
