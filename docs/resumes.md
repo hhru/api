@@ -617,7 +617,30 @@ expires | строка (дата) | время окончания действи
                 "price": 5000
             }
         }
-    ]
+    ],
+    "negotiations_history": {
+        "url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/negotiations_history",
+        "vacancies": [
+            {
+                "id": "321",
+                "name": "Тестовая вакансия",
+                "url": "https://api.hh.ru/vacancies/321",
+                "archived": false,
+                "items": [
+                    {
+                        "employer_state": {
+                            "id": "offer",
+                            "name": "Предложение о работе"
+                        },
+                        "created_at": "2017-01-30T15:06:47+0300",
+                        "with_message": true
+                    }
+                ],
+                "negotiations_url": "https://api.hh.ru/negotiations/123",
+                "messages_url": "https://api.hh.ru/negotiations/123/messages"
+            }
+        ]
+    }
 }
 ```
 
@@ -652,6 +675,23 @@ quick_purchase.currency | объект | валюта услуги
 --- | --- | ---
 url | string | url, GET запрос на который возвращает список комментариев
 counters.total | number | количество комментариев
+
+<a name="negotiations-history-field"></a>
+#### Краткая история откликов/приглашений по резюме
+
+Поле `negotiations_history.url` выдается всегда и содержит url, на который необходимо делать GET запрос для получения
+[подробной истории откликов/приглашений по данному резюме](resume_negotiations_history.md).
+
+Поле `negotiations_history.vacancies` выдается только в том случае, когда при выполнении
+[запроса на получение резюме](resumes.md#item) передан дополнительный параметр
+`with_negotiations_history`. В этом случае GET запрос должен иметь вид:
+
+`GET /resumes/{resume_id}?with_negotiations_history=true`
+
+Формат поля `negotiations_history.vacancies` подробно описан на странице
+[полной истории откликов/приглашений по резюме](resume_negotiations_history.md#response) и различается лишь тем, что
+в данном случае список будет ограничен 3-мя вакансиями данного работодателя и последним изменением состояния
+отклика/приглашения по каждой из этих вакансий.
 
 
 <a name="create_edit"></a>
@@ -1207,6 +1247,9 @@ max_date | строка с датой | Верхняя граница диапа
                 "total": 7
             }
         }
+    },
+    "negotiations_history": {
+        "url": "https://api.hh.ru/resumes/0123456789abcdef/negotiations_history"
     }
 }
 ```

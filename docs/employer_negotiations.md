@@ -430,6 +430,9 @@ per_page | нет | Количество выдаваемых элементов
                             "total": 7
                         }
                     }
+                },
+                "negotiations_history": {
+                    "url": "https://api.hh.ru/resumes/0123456789abcdef/negotiations_history"
                 }
             },
             "templates": [
@@ -698,6 +701,9 @@ required_arguments | список | Аргументы, которые необ�
                     "total": 7
                 }
             }
+        },
+        "negotiations_history": {
+            "url": "https://api.hh.ru/resumes/0123456789abcdef/negotiations_history"
         }
     },
     "vacancy": {

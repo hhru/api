@@ -129,6 +129,9 @@
                 "medium": "https://hh.ru/...",
                 "small": "https://hh.ru/...",
                 "id": "1337"
+            },
+            "negotiations_history": {
+                "url": "https://api.hh.ru/resumes/14831542000d1f366b4c5a6a751b329b70039e/negotiations_history"
             }
         }
     ],

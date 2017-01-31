@@ -59,6 +59,7 @@ HeadHunter API — это бесплатный инструментарий дл
   * [История просмотра резюме](docs/resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Артефакты (фото, портфолио)](docs/artifacts.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Поиск по вакансиям, похожим на резюме](docs/resumes.md#similar) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* [История откликов/приглашений по резюме](docs/resume_negotiations_history.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="vacancies"></a>
 ### Вакансии
