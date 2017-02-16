@@ -1463,7 +1463,30 @@
                 <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mi">5000</span>
             <span class="p">}</span>
         <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;negotiations_history&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/negotiations_history&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vacancies&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;321&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Тестовая вакансия&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/321&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;employer_state&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;offer&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Предложение о работе&quot;</span>
+                        <span class="p">},</span>
+                        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-01-30T15:06:47+0300&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;with_message&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;negotiations_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;messages_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations/123/messages&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1559,9 +1582,27 @@
 </tbody>
 </table>
 
+<p><a name="negotiations-history-field"></a></p>
+
+<h4 id="-13">Краткая история откликов/приглашений по резюме</h4>
+
+<p>Поле <code>negotiations_history.url</code> выдается всегда и содержит url, на который необходимо делать GET запрос для получения
+<a href="resume_negotiations_history.md.html">подробной истории откликов/приглашений по данному резюме</a>.</p>
+
+<p>Поле <code>negotiations_history.vacancies</code> выдается только в том случае, когда при выполнении
+<a href="resumes.md.html#item">запроса на получение резюме</a> передан дополнительный параметр
+<code>with_negotiations_history</code>. В этом случае GET запрос должен иметь вид:</p>
+
+<p><code>GET /resumes/{resume_id}?with_negotiations_history=true</code></p>
+
+<p>Формат поля <code>negotiations_history.vacancies</code> подробно описан на странице
+<a href="resume_negotiations_history.md.html#response">полной истории откликов/приглашений по резюме</a> и различается лишь тем, что
+в данном случае список будет ограничен 3-мя вакансиями данного работодателя и последним изменением состояния
+отклика/приглашения по каждой из этих вакансий.</p>
+
 <p><a name="create_edit"></a></p>
 
-<h2 id="-13">Создание и редактирование резюме</h2>
+<h2 id="-14">Создание и редактирование резюме</h2>
 
 <p><code>POST /resumes</code> — добавление резюме.</p>
 
@@ -1755,7 +1796,7 @@
 
 <p><a name="publish"></a></p>
 
-<h2 id="-14">Публикация резюме</h2>
+<h2 id="-15">Публикация резюме</h2>
 
 <p><code>POST /resumes/{resume_id}/publish</code></p>
 
@@ -1764,11 +1805,11 @@
 <p>Повторная публикация означает обновление даты резюме. Ключ <code>next_publish_at</code>
 у резюме указывает время, когда можно обновить резюме.</p>
 
-<h3 id="-15">Ответ</h3>
+<h3 id="-16">Ответ</h3>
 
 <p>В случае успешной публикации вернётся код ответа <code>204 No Content</code> без тела.</p>
 
-<h3 id="-16">Ошибки</h3>
+<h3 id="-17">Ошибки</h3>
 
 <ul>
 <li><code>429 Too Many Requests</code> - если обновление ещё недоступно.</li>
@@ -1784,7 +1825,7 @@
 
 <p><a name="clone"></a></p>
 
-<h2 id="-17">Клонирование резюме</h2>
+<h2 id="-18">Клонирование резюме</h2>
 
 <p><code>POST /resumes?source_resume_id={resume_id}</code></p>
 
@@ -1796,7 +1837,7 @@
 
 <p><a name="conditions"></a></p>
 
-<h2 id="-18">Условия заполнения полей резюме</h2>
+<h2 id="-19">Условия заполнения полей резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/conditions</code> — возвращает список требований для полей
 резюме.</p>
@@ -1910,7 +1951,7 @@
 заполнить и другие его поля. Пример — желаемая зарплата (<code>salary</code>) может быть не
 указана, либо указана, но обязательно с валютой.</p>
 
-<h2 id="-19">Правила</h2>
+<h2 id="-20">Правила</h2>
 
 <table>
 <thead>
@@ -1971,7 +2012,7 @@
 
 <p><a name="init-conditions"></a></p>
 
-<h2 id="-20">Условия заполнения полей нового резюме</h2>
+<h2 id="-21">Условия заполнения полей нового резюме</h2>
 
 <p><code>GET /resume_conditions</code> — возвращает список требований для полей нового резюме.
 Если авторизованный пользователь не соискатель — вернётся код ответа
@@ -1979,7 +2020,7 @@
 
 <p><a name='conditions-contacts' /></p>
 
-<h2 id="-21">Условия заполнения контактов в резюме</h2>
+<h2 id="-22">Условия заполнения контактов в резюме</h2>
 
 <p>При заполнении контактов в резюме необходимо учитывать следующие условия:</p>
 
@@ -2018,7 +2059,7 @@
 
 <p><a name='conditions-other' /></p>
 
-<h2 id="-22">Дополнительные правила заполнения полей резюме</h2>
+<h2 id="-23">Дополнительные правила заполнения полей резюме</h2>
 
 <p>Существует ещё несколько правил заполнения резюме, которые не укладываются в
 представленный выше формат:</p>
@@ -2039,7 +2080,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="resume-nano"></a></p>
 
-<h2 id="-23">Короткое представление резюме</h2>
+<h2 id="-24">Короткое представление резюме</h2>
 
 <p>Самое короткое представление резюме:</p>
 
@@ -2081,7 +2122,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="resume-short"></a></p>
 
-<h2 id="-24">Сокращенное представление резюме</h2>
+<h2 id="-25">Сокращенное представление резюме</h2>
 
 <p>Отличается от полного представления отсутствием некоторых полей.</p>
 
@@ -2200,13 +2241,16 @@ POST/PUT на /resumes.</p></li>
                 <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">7</span>
             <span class="p">}</span>
         <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;negotiations_history&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef/negotiations_history&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p><a name="status"></a></p>
 
-<h2 id="-25">Статус резюме</h2>
+<h2 id="-26">Статус резюме</h2>
 
 <p>Ключ <code>status</code> определяет текущее состояние резюме и содержит элемент
 справочника <a href="dictionaries.md.html">resume_status</a>. После создания нового резюме оно
@@ -2238,7 +2282,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="access_type"></a></p>
 
-<h2 id="-26">Видимость резюме</h2>
+<h2 id="-27">Видимость резюме</h2>
 
 <p>После публикации резюме доступно для поиска работодателями. Чтобы это изменить
 (например, работа найдена и нужно скрыть резюме из поиска), следует поменять
@@ -2282,7 +2326,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="views"></a></p>
 
-<h2 id="-27">История просмотра резюме</h2>
+<h2 id="-28">История просмотра резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/views</code> вернёт историю просмотров резюме. На основном
 сайте это доступно при клике на кол-во просмотров резюме на странице со списком
@@ -2395,11 +2439,11 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="similar"></a></p>
 
-<h2 id="-28">Поиск по вакансиям, похожим на резюме</h2>
+<h2 id="-29">Поиск по вакансиям, похожим на резюме</h2>
 
 <p>Данные доступны только автору резюме.</p>
 
-<h3 id="-29">Запрос</h3>
+<h3 id="-30">Запрос</h3>
 
 <p><code>GET /resumes/{resume_id}/similar_vacancies</code></p>
 
