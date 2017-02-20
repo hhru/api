@@ -257,3 +257,31 @@ HTTP code | type | value | описание
 ----------|------|-------|---------
 400 | employers_blacklist | limit_exceeded | превышен лимит на количество вакансий в списке скрытых
 404 | employers_blacklist | not_found | вакансия для добавления в список не найдена
+
+
+<a name="resume-visibility-lists"></a>
+### Списки видимости резюме
+
+<a name="resume-visibility-lists-get"></a>
+#### Получение списков видимости
+
+HTTP code | type | value | описание
+----------|------|-------|---------
+400 | bad_argument | per_page | передано невалидное количество элементов на странице (максимум 100)
+
+<a name="resume-visibility-lists-add"></a>
+#### Добавление компаний в список
+
+HTTP code | type | value | описание
+----------|------|-------|---------
+400 | resume_visibility_list | unknown_employer | передан неизвестный идентификатор работодателя
+400 | resume_visibility_list | limit_exceeded | превышен лимит списка видимости
+400 | resume_visibility_list | too_many_employers | передано слишком много работодателей
+
+<a name="resume-visibility-lists-remove"></a>
+#### Удаление компаний из списка
+
+HTTP code | type | value | описание
+----------|------|-------|---------
+400 | bad_argument | id | передан невалидный идентификатор работодателя
+400 | resume_visibility_list | too_many_employers | передано слишком много работодателей

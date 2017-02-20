@@ -6,6 +6,7 @@
 
 Пример: [https://api.hh.ru/dictionaries](https://api.hh.ru/dictionaries)
 
+<a name="resume"></a>
 ## Справочники для полей, используемых в резюме
 * `education_level` - образование в резюме
 * `gender` - пол
