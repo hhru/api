@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Текущий пользователь</title>
+        <title>Headhunter API</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,7 +735,7 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Текущий пользователь</h1>
+    <h1 id="-1">Текущий пользователь</h1>
 
 <ul>
 <li><a href="#info">Получение информации о текущем пользователе</a></li>
@@ -784,7 +784,8 @@
     <span class="p">},</span>
     <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;unread_negotiations&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;new_resume_views&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="nt">&quot;new_resume_views&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;resumes_count&quot;</span><span class="p">:</span> <span class="mi">5</span>
     <span class="p">},</span>
     <span class="nt">&quot;is_in_search&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;resumes_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/mine&quot;</span><span class="p">,</span>
@@ -1025,11 +1026,15 @@
 <tbody>
 <tr>
   <td>unread_negotiations</td>
-  <td>Кол-во новых непрочитанных переписок (у которых <code>has_updates: true</code>)</td>
+  <td>Количество новых непрочитанных переписок (у которых <code>has_updates: true</code>)</td>
 </tr>
 <tr>
   <td>new_resume_views</td>
-  <td>Общее кол-во новых просмотров всех резюме текущего пользователя</td>
+  <td>Общее количество новых просмотров всех резюме текущего пользователя</td>
+</tr>
+<tr>
+  <td>resumes_count</td>
+  <td>Общее количество созданных резюме текущего пользователя</td>
 </tr>
 </tbody>
 </table>

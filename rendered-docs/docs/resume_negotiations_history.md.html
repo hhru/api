@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>История откликов/приглашений по резюме</title>
+        <title>Headhunter API</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,7 +735,7 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>История откликов/приглашений по резюме</h1>
+    <h1 id="-1">История откликов/приглашений по резюме</h1>
 
 <p>Получение истории откликов/приглашений доступно только работодателю. Список будет содержать последние действия
 с указанным резюме, ограниченные 30-ю вакансиями данного работодателя, и 10-ю изменениями состояний откликов/приглашений
@@ -744,7 +744,7 @@
 <h3 id="-2">Запрос</h3>
 
 <p>Нет необходимости собирать url запроса вручную, его нужно получать
-из <a href="resumes.md.html#negotiations-history-field">поля <code>negotiations_history</code> в резюме</a>.</p>
+из <a href="resumes.md.html#negotiations-history-field">поля &lt;code&gt;negotiations_history&lt;/code&gt; в резюме</a>.</p>
 
 <p><code>GET /resumes/{resume_id}/negotiations_history</code>,</p>
 
