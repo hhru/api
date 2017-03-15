@@ -46,7 +46,8 @@
     },
     "counters": {
         "unread_negotiations": 0,
-        "new_resume_views": 2
+        "new_resume_views": 2,
+        "resumes_count": 5
     },
     "is_in_search": true,
     "resumes_url": "https://api.hh.ru/resumes/mine",
@@ -120,8 +121,9 @@ manager_settings_url | строка | url, на который нужно сде
 
 Имя | Описание
 --- | ---
-unread_negotiations | Кол-во новых непрочитанных переписок (у которых `has_updates: true`)
-new_resume_views | Общее кол-во новых просмотров всех резюме текущего пользователя
+unread_negotiations | Количество новых непрочитанных переписок (у которых `has_updates: true`)
+new_resume_views | Общее количество новых просмотров всех резюме текущего пользователя
+resumes_count | Общее количество созданных резюме текущего пользователя
 
 
 <a name="edit"></a>
