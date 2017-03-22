@@ -8,6 +8,7 @@
   * [Платные услуги для работодателя, связанные с резюме](#paid-services)
 * [Создание и редактирование резюме](#create_edit)
 * [Публикация и продление резюме](#publish)
+* [Информация о статусе резюме и готовности резюме к публикации](#status-and-publication)
 * [Клонирование резюме](#clone)
 * [Удаление резюме](#delete)
 * [Условия заполнения полей резюме](#conditions)
@@ -670,24 +671,65 @@ updated_at | string | Дата и время обновления резюме
         "id": "not_published",
         "name": "не опубликовано"
     },
-    "_progress": {
+    "can_publish_or_update": false,
+    "publish_url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/publish", 
+    "progress": {
         "percentage": 42,
         "mandatory": [
-            "citizenship",
-            "language",
-            "area",
-            "skills",
-            "contact",
-            "education",
-            "specialization"
+            {
+                "id": "citizenship",
+                "name": "Гражданство"
+            },
+            {
+                "id": "language",
+                "name": "Язык"
+            },
+            {
+                "id": "area",
+                "name": "Город проживания"
+            },
+            {
+                "id": "skills",
+                "name": "Ключевые навыки"
+            },
+            {
+                "id": "contact",
+                "name": "Контакты"
+            },
+            {
+                "id": "education",
+                "name": "Образование"
+            },
+            {
+                "id": "specialization",
+                "name": "Специализация"
+            }
         ],
         "recommended": [
-            "salary",
-            "middle_name",
-            "work_ticket",
-            "site",
-            "recommendation",
-            "birth_date"
+            {
+                "id": "salary",
+                "name": "Заработная плата"
+            },
+            {
+                "id": "middle_name",
+                "name": "Отчество"
+            },
+            {
+                "id": "work_ticket",
+                "name": "Разрешение на работу"
+            },
+            {
+                "id": "site",
+                "name": "Сайт"
+            },
+            {
+                "id": "recommendation",
+                "name": "Рекомендации"
+            },
+            {
+                "id": "birth_date",
+                "name": "Дата рождения"
+            }
         ]
     },
     "moderation_note": [
@@ -726,13 +768,19 @@ updated_at | string | Дата и время обновления резюме
 #### Информация о заполненности резюме
 
 Автору резюме выдается информация о заполненности резюме в поле
-`_progress`:
+`progress`:
 
  Поле | Тип | Описание
  ---- | ----| --------
- percentage | number | Процент заполненности резюме.
- mandatory | array | Список кодов полей, которые обязательны, но еще не заполнены.
- recommended | array | Список кодов полей, которые рекомендованные к заполнению, но ещё не заполнены.
+ percentage | number | Процент заполненности резюме
+ can_publish_or_update | boolean | Можно ли [опубликовать или обновить данное резюме](#publish)
+ publish_url | string | Url для публикации или обновления резюме
+ mandatory | array | Список полей, которые обязательны, но еще не заполнены
+ mandatory[].id | string | Id поля
+ mandatory[].name | string | Название поля
+ recommended | array | Список полей, которые рекомендованы к заполнению, но ещё не заполнены
+ recommended[].id | string | Id поля
+ recommended[].name | string | Название поля
 
 
 <a name="author-moderation-notes"></a>
@@ -1092,6 +1140,108 @@ Location: /resumes/0123456789abcdef
   * резюме находится на проверке у модератора.
 * `403 Forbidden` - если операция публикации резюме недоступна из-за отсутствия
   прав (например, для работодателя).
+
+
+<a name="status-and-publication"></a>
+## Информация о статусе резюме и готовности резюме к публикации
+
+Метод доступен только для автора резюме и возвращает информацию о статусе резюме (поля `blocked`, `finished`, `status`) и его [готовности к публикации](#author-progress) (в том числе процент заполненности резюме, обязательные и рекомендуемые к заполнению поля), а также [замечания модератора](#author-moderation-notes) по выбранному резюме. Поля аналогичны таковым в списке [дополнительных полей для автора резюме](#additional-author-fields).
+
+```
+GET /resumes/{resume_id}/status
+```
+
+### Успешный ответ
+
+Успешный ответ приходит с кодом `200 OK` и содержит тело:
+
+```json
+{
+    "blocked" : false,
+    "finished" : false,
+    "status" : {
+        "id" : "not_published",
+        "name" : "не опубликовано"
+    },
+    "can_publish_or_update": false,
+    "publish_url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/publish", 
+    "progress": {
+        "percentage": 42,
+        "mandatory": [
+            {
+                "id": "citizenship",
+                "name": "Гражданство"
+            },
+            {
+                "id": "language",
+                "name": "Язык"
+            },
+            {
+                "id": "area",
+                "name": "Город проживания"
+            },
+            {
+                "id": "skills",
+                "name": "Ключевые навыки"
+            },
+            {
+                "id": "contact",
+                "name": "Контакты"
+            },
+            {
+                "id": "education",
+                "name": "Образование"
+            },
+            {
+                "id": "specialization",
+                "name": "Специализация"
+            }
+        ],
+        "recommended": [
+            {
+                "id": "salary",
+                "name": "Заработная плата"
+            },
+            {
+                "id": "middle_name",
+                "name": "Отчество"
+            },
+            {
+                "id": "work_ticket",
+                "name": "Разрешение на работу"
+            },
+            {
+                "id": "site",
+                "name": "Сайт"
+            },
+            {
+                "id": "recommendation",
+                "name": "Рекомендации"
+            },
+            {
+                "id": "birth_date",
+                "name": "Дата рождения"
+            }
+        ]
+    },
+    "moderation_note": [
+        {
+            "id": "bad",
+            "name": "Резюме составлено небрежно."
+        },
+        {
+            "id": "block_no_education_place_or_date",
+            "name": "Отсутствуют данные об учебном заведении и дате его окончания.",
+            "field": "education"
+        }
+    ]
+}
+```
+
+### Ошибки
+
+* `404 Not Found` - если резюме не существует или недоступно пользователю.
+* `403 Forbidden` - пользователь не является соискателем.
 
 
 <a name="clone"></a>
@@ -1488,8 +1638,11 @@ max_date | строка с датой | Верхняя граница диапа
 Ключ `status` определяет текущее состояние резюме и содержит элемент
 справочника [resume_status](dictionaries.md). После создания нового резюме оно
 находится в статусе 'not_published'. В этом статусе резюме никому не видно,
-пользователь начинает его наполнять и сохранять. После того как
-`_progress.mandatory` станет пустым списком, резюме можно
+пользователь начинает его наполнять и сохранять (незаполненные обязательные поля
+можно увидеть в списке `progress.mandatory`). 
+
+После того, как все обязательные поля будут заполнены, флаг `can_publish_or_update` 
+будет установлен в `true`, и резюме можно будет
 [опубликовать](#publish). Публикация резюме переводит его в статус `published`.
 В этом статусе резюме доступно для поиска, если это позволяет
 [видимость резюме](#access_type).

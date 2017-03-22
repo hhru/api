@@ -5,6 +5,7 @@
 * [Paid services related to CVs](#paid-services)
 * [CV creation & editing](#create_edit)
 * [CV publication & prolongation](#publish)
+* [CV status & readiness for publication](#status-and-publication)
 * [CV cloning](#clone)
 * [CV fields conditions for editing](#conditions)
 * [CV fields conditions for creating](#init-conditions)
@@ -343,24 +344,65 @@ will have `false` value.
         }
     },
     "can_view_full_info": true,
-    "_progress": {
+    "can_publish_or_update": false,
+    "publish_url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/publish", 
+    "progress": {
         "percentage": 42,
         "mandatory": [
-            "citizenship",
-            "language",
-            "area",
-            "skills",
-            "contact",
-            "education",
-            "specialization"
+            {
+                "id": "citizenship",
+                "name": "Citizenship"
+            },
+            {
+                "id": "language",
+                "name": "Languages"
+            },
+            {
+                "id": "area",
+                "name": "Area"
+            },
+            {
+                "id": "skills",
+                "name": "Skills"
+            },
+            {
+                "id": "contact",
+                "name": "Contacts"
+            },
+            {
+                "id": "education",
+                "name": "Education"
+            },
+            {
+                "id": "specialization",
+                "name": "Specialization"
+            }
         ],
         "recommended": [
-            "salary",
-            "middle_name",
-            "work_ticket",
-            "site",
-            "recommendation",
-            "birth_date"
+            {
+                "id": "salary",
+                "name": "Salary"
+            },
+            {
+                "id": "middle_name",
+                "name": "Middle name"
+            },
+            {
+                "id": "work_ticket",
+                "name": "Work ticket"
+            },
+            {
+                "id": "site",
+                "name": "Site"
+            },
+            {
+                "id": "recommendation",
+                "name": "Recommendation"
+            },
+            {
+                "id": "birth_date",
+                "name": "Birth date"
+            }
         ]
     }
 }
@@ -396,6 +438,15 @@ powered by
 Documentation translation for this section is in progress.
 See
 [machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#publish)
+powered by
+[Yandex.Translate](https://translate.yandex.com/translate).
+
+
+<a name="status-and-publication"></a>
+## CV status & readiness for publication
+Documentation translation for this section is in progress.
+See
+[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#status-and-publication)
 powered by
 [Yandex.Translate](https://translate.yandex.com/translate).
 
