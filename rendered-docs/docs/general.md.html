@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Headhunter API</title>
+        <title>Общая информация</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,7 +735,7 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1 id="-1">Общая информация</h1>
+    <h1>Общая информация</h1>
 
 <ul>
 <li>Всё API работает по протоколу HTTPS.</li>
@@ -751,10 +751,13 @@
 
 <h3 id="-2">Требования к запросам</h3>
 
-<p>В запросе необходимо передавать заголовок <code>User-Agent</code>, в противном случае
-ответом будет <code>400 Bad Request</code>. Указание в заголовке названия приложения и
-контактной почты разработчика позволит нам оперативно с вами связаться в случае
-необходимости.</p>
+<p>В запросе необходимо передавать заголовок <code>User-Agent</code>, но если ваша реализация
+http клиента не позволяет, можно отправить <code>HH-User-Agent</code>. Если не отправлен ни
+один заголовок, то ответом будет <code>400 Bad Request</code>. 
+Указание в заголовке названия приложения и контактной почты разработчика 
+позволит нам оперативно с вами связаться в случае необходимости.
+Заголовки <code>User-Agent</code> и <code>HH-User-Agent</code> взаимозаменяемы, в случае, если вы отправите оба заголовка,
+обработан будет только <code>HH-User-Agent</code>.</p>
 
 <pre><code>User-Agent: MyApp/1.0 (my-app-feedback@example.com)
 </code></pre>
