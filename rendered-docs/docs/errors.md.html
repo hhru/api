@@ -1250,6 +1250,55 @@
 </tbody>
 </table>
 
+<p><a name="employer_managers"></a></p>
+
+<h3 id="-13">Менеджеры работодателя</h3>
+
+<p>Помимо <a href="#general-errors">общих ошибок</a> при <a href="employer_managers.md.html#add">добавлении</a> и
+<a href="employer_managers.md.html#edit">редактировании</a> менеджера работодателя могут быть возвращены следующие ошибки:</p>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>reason</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>managers</td>
+  <td><em>field_name</em></td>
+  <td></td>
+  <td>ошибка в поле <em>field_name</em></td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>managers</td>
+  <td>email</td>
+  <td>already_exist</td>
+  <td>менеджер с такой почтой уже существует</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>managers</td>
+  <td></td>
+  <td>creation_limit_exceeded</td>
+  <td>достигнут лимит на создание менеджеров</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>managers</td>
+  <td><em>field_name</em></td>
+  <td>not_editable</td>
+  <td>поле <em>field_name</em> недоступно для редактирования</td>
+</tr>
+</tbody>
+</table>
+
     </article>
     </body>
     </html>

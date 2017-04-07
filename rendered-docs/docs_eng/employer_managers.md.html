@@ -751,8 +751,29 @@ example:</p>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1507922&quot;</span><span class="p">,</span>
             <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov Ivan Ivanovich&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov Ivan Ivanovich&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanov&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ivanovich&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;495&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1568055&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;from 9 to 17&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;additional_phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;916&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4555555&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;personal&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;HR manager&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+            <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -781,7 +802,7 @@ Each element from <code>items</code> has the following fields:</p>
   <td>Manager's e-mail</td>
 </tr>
 <tr>
-  <td>name</td>
+  <td>full_name</td>
   <td>string</td>
   <td>Manager's full name</td>
 </tr>
@@ -790,11 +811,88 @@ Each element from <code>items</code> has the following fields:</p>
   <td>number</td>
   <td>the number of (active) vacancies published by this manager</td>
 </tr>
+<tr>
+  <td>last_name</td>
+  <td>string</td>
+  <td>Manager's last name</td>
+</tr>
+<tr>
+  <td>first_name</td>
+  <td>string</td>
+  <td>Manager's first name</td>
+</tr>
+<tr>
+  <td>middle_name</td>
+  <td>string or null</td>
+  <td>Manager's middle name</td>
+</tr>
+<tr>
+  <td>position</td>
+  <td>string</td>
+  <td>Manager's position</td>
+</tr>
+<tr>
+  <td>area.id</td>
+  <td>number</td>
+  <td>Manager's region from the <a href="areas.md.html">directory</a></td>
+</tr>
+<tr>
+  <td>phone</td>
+  <td>object or null</td>
+  <td>Manager's phone number</td>
+</tr>
+<tr>
+  <td>additional_phone</td>
+  <td>object or null</td>
+  <td>Manager's additional phone number</td>
+</tr>
+</tbody>
+</table>
+
+<p>Fields of objects phone and additional_phone:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>country</td>
+  <td>string</td>
+  <td>country code</td>
+</tr>
+<tr>
+  <td>city</td>
+  <td>string</td>
+  <td>city code</td>
+</tr>
+<tr>
+  <td>number</td>
+  <td>string</td>
+  <td>subscriber telephone number</td>
+</tr>
+<tr>
+  <td>comment</td>
+  <td>string or null</td>
+  <td>comment (e.g., convenient time to call this number)</td>
+</tr>
 </tbody>
 </table>
 
 <p>In case the current user is not allowed to view the employer's managers, the
 <code>HTTP 403 Forbidden</code> code will be returned.</p>
+
+<p><a name="edit_managers"></a>
+ ## Edit employer managers
+ Documentation translation for this section is in progress.
+ See
+ <a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/employer_managers.md.html.html">machine translation</a>
+ powered by
+ <a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
 
     </article>
     </body>

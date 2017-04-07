@@ -737,11 +737,418 @@
     <article class="markdown-body">
     <h1>Менеджеры работодателя</h1>
 
-<p><a name="list"></a></p>
+<ul>
+<li><a href="#dict">Справочник типов и прав менеджера</a></li>
+<li><a href="#add">Добавление менеджера</a></li>
+<li><a href="#edit">Редактирование менеджера</a></li>
+<li><a href="#delete">Удаление менеджера</a></li>
+<li><a href="#list">Справочник менеджеров работодателя</a></li>
+<li><a href="#item">Получение информации о менеджере</a></li>
+</ul>
 
-<h2 id="-2">Справочник менеджеров работодателя</h2>
+<p>Для получения информации необходимо авторизоваться под работодателем.
+Для пользователя без авторизации или для неправильно авторизованного пользователя вернется ответ <code>403 Forbidden</code>.</p>
+
+<p><a name="dict"></a></p>
+
+<h2 id="-2">Справочник типов и прав менеджера</h2>
 
 <h3 id="-3">Запрос</h3>
+
+<p><code>GET /employers/{employer_id}/manager_types</code></p>
+
+<p>где <code>employer_id</code> - идентификатор работодателя, который можно узнать в
+ <a href="me.md.html#employer-info">информации о текущем пользователе</a>.</p>
+
+<h3 id="-4">Ответ</h3>
+
+<p>Пример ответа:
+<code>json
+{
+    "items": [
+        {
+            "id": "manager",
+            "name": "Менеджер",
+            "available_permissions": [
+                {
+                    "id": "can_create_vacancy",
+                    "name": "Создание и продление вакансий"
+                },
+                {
+                    "id": "can_view_resume_contacts",
+                    "name": "Просмотр контактов соискателей"
+                }
+            ]
+        }
+    ]
+}
+</code></p>
+
+<p>Каждый элемент из <code>items</code> обладает следующими полями:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>идентификатор типа менеджера</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>название типа менеджера</td>
+</tr>
+<tr>
+  <td>available_permissions</td>
+  <td>array</td>
+  <td>список прав, которые можно дать данному типу менеджера</td>
+</tr>
+</tbody>
+</table>
+
+<p>Поля объекта списка available_permissions:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>идентификатор права</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>название права</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="-5">Ошибки</h3>
+
+<ul>
+<li><code>404 Not found</code> - Работодатель не найден, или у пользователя нет прав</li>
+</ul>
+
+<p><a name="add"></a></p>
+
+<h2 id="-6">Добавление менеджера</h2>
+
+<h3 id="-7">Запрос</h3>
+
+<p><code>POST /employers/{employer_id}/managers</code></p>
+
+<p>где <code>employer_id</code> - идентификатор работодателя, который можно узнать в
+  <a href="me.md.html#employer-info">информации о текущем пользователе</a>.</p>
+
+<p>В теле запроса передается json вида:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Федотов&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Илья&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Игоревич&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;manager_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;manager&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Менеджер по подбору персонала&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;495&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1568055&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;с 9 до 17&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;additional_phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;916&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4555555&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;личный&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;permissions&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;can_create_vacancy&quot;</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;can_view_resume_contacts&quot;</span>
+       <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>last_name</td>
+  <td>string</td>
+  <td>фамилия</td>
+</tr>
+<tr>
+  <td>first_name</td>
+  <td>string</td>
+  <td>имя</td>
+</tr>
+<tr>
+  <td>middle_name</td>
+  <td>string или null</td>
+  <td>отчество</td>
+</tr>
+<tr>
+  <td>manager_type.id</td>
+  <td>string</td>
+  <td>идентификатор <a href="#dict">типа менеджера</a></td>
+</tr>
+<tr>
+  <td>position</td>
+  <td>string</td>
+  <td>должность менеджера</td>
+</tr>
+<tr>
+  <td>email</td>
+  <td>string</td>
+  <td>электронная почта менеджера</td>
+</tr>
+<tr>
+  <td>area.id</td>
+  <td>number</td>
+  <td>регион <a href="areas.md.html">из справочника</a></td>
+</tr>
+<tr>
+  <td>phone</td>
+  <td>object или null</td>
+  <td>телефон менеджера</td>
+</tr>
+<tr>
+  <td>additional_phone</td>
+  <td>object или null</td>
+  <td>дополнительный телефон менеджера</td>
+</tr>
+<tr>
+  <td>permissions</td>
+  <td>array</td>
+  <td>список <a href="#dict">прав менеджера</a></td>
+</tr>
+</tbody>
+</table>
+
+<p>Поля объектов phone и additional_phone:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>country</td>
+  <td>string</td>
+  <td>код страны</td>
+</tr>
+<tr>
+  <td>city</td>
+  <td>string</td>
+  <td>код города</td>
+</tr>
+<tr>
+  <td>number</td>
+  <td>string</td>
+  <td>телефон</td>
+</tr>
+<tr>
+  <td>comment</td>
+  <td>string или null</td>
+  <td>комментарий</td>
+</tr>
+</tbody>
+</table>
+
+<p>Поля объекта списка permissions:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>идентификатор права</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>название права</td>
+</tr>
+</tbody>
+</table>
+
+<p>Все поля, кроме комментария к телефону и прав, являются обязательными</p>
+
+<h3 id="-8">Ответ</h3>
+
+<p>В случае успешного выполнения запроса будет возвращён статус <code>201 Created</code>.
+Идентификатор созданного менеджера приходит в:</p>
+
+<ul>
+<li>теле ответа в виде:
+<code>
+{"id": "78789890"}
+</code></li>
+<li>а также содержится в заголовке <code>Location</code>:</li>
+</ul>
+
+<pre><code> HTTP/1.1 201 Created
+
+ Location: /employers/432/managers/78789890
+</code></pre>
+
+<h3 id="-9">Ошибки</h3>
+
+<ul>
+<li><code>404 Not Found</code> – указанный работодатель не существует, или пользователь не имеет прав на создание менеджера</li>
+<li><code>400 Bad Request</code> – параметры во входном json переданы с ошибкой. Будет возвращено описание ошибки в теле.
+Неизвестные параметры и параметры с ошибкой в названии игнорируются.</li>
+<li><code>403 Forbidden</code>– неподходящая авторизация или другие причины отказа создать менеджера
+Дополнительно к HTTP коду сервер может вернуть
+описание <a href="errors.md.html#employer_managers">причины ошибки</a>.</li>
+</ul>
+
+<p><a name="edit"></a></p>
+
+<h2 id="-10">Редактирование менеджера</h2>
+
+<h3 id="-11">Запрос</h3>
+
+<p><code>PUT /employers/{employer_id}/managers/{manager_id}</code></p>
+
+<p>где:</p>
+
+<ul>
+<li><code>employer_id</code> - идентификатор работодателя, который можно узнать в
+<a href="me.md.html#employer-info">информации о текущем пользователе</a>.</li>
+<li><code>manager_id</code> - идентификатор менеджера.</li>
+</ul>
+
+<p>В теле запроса передается json вида:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Менеджер по подбору персонала&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;495&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1568055&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;с 9 до 17&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;additional_phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;916&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4555555&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;личный&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;permissions&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;can_create_vacancy&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Создание и продление вакансий&quot;</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;can_view_resume_contacts&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Просмотр контактов соискателей&quot;</span>
+       <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Изменять можно только поля, из приведенного json-примера. Описание полей можно посмотреть в <a href="#add">запросе на создание</a>.
+При обновлении можно передавать как все поля, так и часть полей, которые необходимо обновить.</p>
+
+<h3 id="-12">Ответ</h3>
+
+<p>В случае успешного выполнения запроса будет возвращён статус <code>200 OK</code>.</p>
+
+<h3 id="-13">Ошибки</h3>
+
+<ul>
+<li><code>404 Not Found</code> – указанный работодатель или менеджер не существует, или пользователь не имеет прав на изменение менеджера</li>
+<li><code>400 Bad Request</code> – параметры во входном json переданы с ошибкой. Будет возвращено описание ошибки в теле.
+Неизвестные параметры и параметры с ошибкой в названии игнорируются.</li>
+<li><code>403 Forbidden</code>– неподходящая авторизация или другие причины отказа отредактировать менеджера
+Дополнительно к HTTP коду сервер может вернуть
+описание <a href="errors.md.html#employer_managers">причины ошибки</a>.</li>
+</ul>
+
+<p><a name="delete"></a></p>
+
+<h2 id="-14">Удаление менеджера</h2>
+
+<p>Удаление менеджера происходит не сразу и может занять какое-то время.
+По этой причине, если <strong>сразу</strong> после успешного удаления менеджера вы запросите, например,
+список менеджеров, в ответе может вернуться удаленный менеджер.</p>
+
+<h3 id="-15">Запрос</h3>
+
+<p><code>DELETE /employers/{employer_id}/managers/{manager_id}</code></p>
+
+<p>где:</p>
+
+<ul>
+<li><code>employer_id</code> - идентификатор работодателя, который можно узнать в
+<a href="me.md.html#employer-info">информации о текущем пользователе</a>.</li>
+<li><code>manager_id</code> - идентификатор менеджера.</li>
+</ul>
+
+<p>На вход в качестве обязательного параметра необходимо передавать:
+<code>successor_id</code> - идентификатор менеджера, которому передаются данные,
+связанные с удаляемым менеджером, в частности: вакансии, отклики, папки отобранных резюме,
+комментарии к соискателю, автопоиски</p>
+
+<h3 id="-16">Ответ</h3>
+
+<p>В случае успешного выполнения запроса будет возвращён статус <code>204 No Content</code></p>
+
+<h3 id="-17">Ошибки</h3>
+
+<ul>
+<li><code>404 Not Found</code> – указанный работодатель или менеджер не существует, или пользователь не имеет прав на удаление
+данного менеджера</li>
+<li><code>400 Bad Request</code> – параметры во входном json переданы с ошибкой. Будет возвращено описание ошибки в теле.
+Неизвестные параметры и параметры с ошибкой в названии игнорируются.</li>
+<li><code>403 Forbidden</code>– неподходящая авторизация или другие причины отказа удалить менеджера</li>
+</ul>
+
+<p><a name="list"></a></p>
+
+<h2 id="-18">Справочник менеджеров работодателя</h2>
+
+<h3 id="-19">Запрос</h3>
 
 <p><code>GET /employers/{employer_id}/managers</code></p>
 
@@ -752,27 +1159,49 @@
 <a href="me.md.html#employer-info">информации о текущем пользователе</a>.</li>
 </ul>
 
-<p>Данный справочник доступен только для работодателей.</p>
-
-<h3 id="-4">Ответ</h3>
+<h3 id="-20">Ответ</h3>
 
 <p>В случае успешного выполнения запроса будет возвращён статус <code>200 OK</code>. В
 теле ответа будет возвращён список менеджеров работодателя, например:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1507922&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1507922&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иван&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванович&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;495&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1568055&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;с 9 до 17&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;additional_phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;916&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4555555&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;личный&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Менеджер по подбору персонала&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p>В элементе <code>items</code> будет содержаться список менеджеров работодателя.
-Каждый элемент из <code>items</code> обладает следующими полями:</p>
+Каждый элемент из <code>items</code> обладает полями, описанными в
+<a href="#add">добавлении менеджера</a>, кроме поля <code>permissions</code> и <code>manager_type</code>.</p>
+
+<p>Также дополнительно выдаются следующие поля:</p>
 
 <p><a name="fields"></a></p>
 
@@ -787,35 +1216,33 @@
 <tbody>
 <tr>
   <td>id</td>
-  <td>строка</td>
+  <td>string</td>
   <td>Идентификатор менеджера</td>
 </tr>
 <tr>
-  <td>email</td>
-  <td>строка</td>
-  <td>Электронная почта менеджера</td>
-</tr>
-<tr>
-  <td>name</td>
-  <td>строка</td>
-  <td>ФИО менеджера</td>
+  <td>full_name</td>
+  <td>string</td>
+  <td>Полное имя менеджера</td>
 </tr>
 <tr>
   <td>vacancies_count</td>
-  <td>число</td>
+  <td>number</td>
   <td>количество опубликованных (активных) вакансий у данного менеджера</td>
 </tr>
 </tbody>
 </table>
 
-<p>В случае, когда с текущей авторизацией запрещено просматривать менеджеров
-данного работодателя, будет возвращён код <code>403 Forbidden</code>.</p>
+<h3 id="-21">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> - С текущей авторизацией запрещено просматривать менеджеров данного работодателя</li>
+</ul>
 
 <p><a name="item"></a></p>
 
-<h2 id="-5">Получение информации о менеджере</h2>
+<h2 id="-22">Получение информации о менеджере</h2>
 
-<h3 id="-6">Запрос</h3>
+<h3 id="-23">Запрос</h3>
 
 <p><code>GET /employers/{employer_id}/managers/{manager_id}</code></p>
 
@@ -827,23 +1254,79 @@
 <li><code>manager_id</code> - идентификатор менеджера.</li>
 </ul>
 
-<h3 id="-7">Ответ</h3>
+<h3 id="-24">Ответ</h3>
 
-<p>В случае успешного выполнения запроса, будет возвращён статус <code>200 OK</code>. В
-теле ответа будет информация о менеджере, например:</p>
+<p>В случае успешного выполнения запроса, будет возвращён статус <code>200 OK</code>.
+В теле ответа будет содержаться информация о менеджере, например:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1507922&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1507922&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;manager_type&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;manager&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Менеджер&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;employer@example.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван Иванович&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иван&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванович&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;vacancies_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;495&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;1568055&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;с 9 до 17&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;additional_phone&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;916&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;4555555&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;личный&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Менеджер по подбору персонала&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;permissions&quot;</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span>
+           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;can_create_vacancy&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Создание и продление вакансий&quot;</span>
+       <span class="p">},</span>
+       <span class="p">{</span>
+           <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;can_view_resume_contacts&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Просмотр контактов соискателей&quot;</span>
+       <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Поля объекта аналогичны <a href="#fields">полям в справочнике менеджеров</a>.</p>
+<p>Поля объекта аналогичны полям в <a href="#fields">справочнике менеджеров</a>, а также
+дополнительно выдаются поля:</p>
 
-<p>Если менеджер или компания не существуют или не доступны для текущего
-пользователя, будет возвращена ошибка <code>404 Not Found</code>.</p>
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>permissions</td>
+  <td>array</td>
+  <td>список <a href="#dict">прав менеджера</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="-25">Ошибки</h3>
+
+<ul>
+<li><code>404 Not Found</code> - Работодатель или менеджер не найдены, или у пользователя нет прав</li>
+</ul>
 
     </article>
     </body>
