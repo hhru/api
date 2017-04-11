@@ -218,3 +218,16 @@ HTTP code | type | value | reason | описание
 403 | managers | email | already_exist | менеджер с такой почтой уже существует
 403 | managers |  | creation_limit_exceeded | достигнут лимит на создание менеджеров
 403 | managers | *field_name* | not_editable | поле *field_name* недоступно для редактирования
+
+
+<a name="resumes"></a>
+### Работа с резюме
+
+Помимо [общих ошибок](#general-errors) при
+[получении](resumes.md#item) и [обновлении](resumes.md#create_edit) резюме могут
+быть возвращены следующие ошибки:
+
+HTTP code | type | value | описание
+----------|------|-------|---------
+400 | resumes | total_limit_exceeded | превышено допустимое количество резюме (актуально только для соискателей)
+429 | resumes | view_limit_exceeded | превышен лимит просмотров резюме в сутки (актуально только для работодателей)

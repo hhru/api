@@ -50,24 +50,12 @@ will have `false` value.
     "last_name": "Last Name",
     "first_name": "First Name",
     "middle_name": "Middle Name",
+    "age": 36,
     "birth_date": "1980-05-08",
     "gender": {
         "id": "male",
         "name": "Male"
     },
-    "photo": {
-        "small": "https://hh.ru/...",
-        "medium": "https://hh.ru/...",
-        "id": "1337"
-    },
-    "portfolio": [
-        {
-            "small": "https://hh.ru/...",
-            "medium": "https://hh.ru/...",
-            "id": "1337",
-            "description": "..."
-        }
-    ],
     "area": {
         "url": "https://api.hh.ru/areas/1",
         "id": "1",
@@ -142,6 +130,19 @@ will have `false` value.
         }
     ],
     "title": "Python programmer",
+    "photo": {
+        "small": "https://hh.ru/...",
+        "medium": "https://hh.ru/...",
+        "id": "1337"
+    },
+    "portfolio": [
+        {
+            "small": "https://hh.ru/...",
+            "medium": "https://hh.ru/...",
+            "id": "1337",
+            "description": "..."
+        }
+    ],
     "specialization": [
         {
             "id": "1.221",
@@ -166,10 +167,16 @@ will have `false` value.
         "amount": 100500,
         "currency": "RUR"
     },
-    "employment": {
-        "id": "full",
-        "name": "Full time"
-    },
+    "employments": [
+        {
+            "id": "full",
+            "name": "Full time"
+        },
+        {
+            "id": "part",
+            "name": "Частичная занятость"
+        }
+    ],
     "schedules": [
         {
             "id": "fullDay",
@@ -237,9 +244,6 @@ will have `false` value.
             }
         }
     ],
-    "total_experience": {
-        "months": 94
-    },
     "experience": [
         {
             "company": "Employer name",
@@ -266,6 +270,9 @@ will have `false` value.
             "description": "Description of activity in the company"
         }
     ],
+    "total_experience": {
+        "months": 94
+    },
     "skills": "Additional information: key skills",
     "skill_set": [
         "HTML",
@@ -296,11 +303,27 @@ will have `false` value.
             "organization": "Roskosmos"
         }
     ],
-    "alternate_url": "https://hh.ru/resume/12345678901234567890123456789012abcdef",
     "resume_locale": {
         "id": "RU",
         "name": "Russian"
     },
+    "certificate": [
+        {
+            "title": "Oracle Certified Java Professional Programmer",
+            "achieved_at": "2013-01-01",
+            "type": "custom",
+            "owner": null,
+            "url": "https://example.com/certificate/123456"
+        },
+        {
+            "title": "MCSE: Windows NT 4.0",
+            "achieved_at": "1998-01-26",
+            "owner": "JOHN DOE",
+            "type": "microsoft",
+            "url": null
+        },
+    ],
+    "alternate_url": "https://hh.ru/resume/12345678901234567890123456789012abcdef",
     "created_at": "2013-05-31T14:27:04+0400",
     "updated_at": "2013-10-17T15:22:55+0400",
     "blocked": false,
