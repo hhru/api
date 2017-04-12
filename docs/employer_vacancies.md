@@ -23,6 +23,10 @@
 
 `POST /vacancies`
 
+дополнительно можно указать query-параметры:
+
+* `ignore_duplicates=true` - форсировать
+  [добавление дубликата](#creation-ignore-duplicates).
 
 ### Общая информация
 
@@ -53,80 +57,84 @@
 
 ```json
 {
-  "description": "<p>— Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, toutes les atrocités de cet Antichrist (ma parole, j'y crois) — je ne vous connais plus, vous n'êtes plus mon ami, vous n'êtes plus мой верный раб, comme vous dites. Ну, здравствуйте, здравствуйте.</p><p><em>Je vois que je vous fais peur</em>, садитесь и рассказывайте.</p>",
-  "key_skills": [
-    {"name": "Холодные продажи"},
-    {"name": "Проведение промо акций"}
-  ],
-  "schedule": {
-    "id": "flyInFlyOut"
-  },
-  "experience": {
-    "id": "moreThan6"
-  },
-  "employment": {
-    "id": "full"
-  },
-  "name": "Менеджер по продажам",
-  "area": {
-    "id": "1"
-  },
-  "type": {
-    "id": "open"
-  },
-  "employer": {
-    "id": "1455"
-  },
-  "specializations": [
-    {
-      "id": "17.324"
+    "description": "<p>— Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, toutes les atrocités de cet Antichrist (ma parole, j'y crois) — je ne vous connais plus, vous n'êtes plus mon ami, vous n'êtes plus мой верный раб, comme vous dites. Ну, здравствуйте, здравствуйте.</p><p><em>Je vois que je vous fais peur</em>, садитесь и рассказывайте.</p>",
+    "key_skills": [
+        {
+            "name": "Холодные продажи"
+        },
+        {
+            "name": "Проведение промо акций"
+        }
+    ],
+    "schedule": {
+        "id": "flyInFlyOut"
     },
-    {
-      "id": "3.148"
+    "experience": {
+        "id": "moreThan6"
+    },
+    "employment": {
+        "id": "full"
+    },
+    "name": "Менеджер по продажам",
+    "area": {
+        "id": "1"
+    },
+    "type": {
+        "id": "open"
+    },
+    "employer": {
+        "id": "1455"
+    },
+    "specializations": [
+        {
+            "id": "17.324"
+        },
+        {
+            "id": "3.148"
+        }
+    ],
+    "response_letter_required": true,
+    "salary": {
+        "from": 100,
+        "to": 500,
+        "currency": "USD"
+    },
+    "contacts": {
+        "name": "Иванов Иван",
+        "email": "i.ivanov@example.com",
+        "phones": [
+            {
+                "country": "7",
+                "city": "495",
+                "number": "1234567",
+                "comment": "с 10 до 20"
+            }
+        ]
+    },
+    "accept_handicapped": true,
+    "code": "код-1234",
+    "response_notifications": true,
+    "allow_messages": true,
+    "billing_type": {
+        "id": "standard"
+    },
+    "site": {
+        "id": "hh"
+    },
+    "address": {
+        "id": "123",
+        "show_metro_only": true
+    },
+    "manager": {
+        "id": "321"
+    },
+    "test": {
+        "id": "42",
+        "required": true
+    },
+    "branded_template": {
+        "id": "marketing"
     }
-  ],
-  "response_letter_required": true,
-  "salary": {
-    "from": 100,
-    "to": 500,
-    "currency": "USD"
-  },
-  "contacts": {
-    "name": "Иванов Иван",
-    "email": "i.ivanov@example.com",
-    "phones": [
-      {
-        "country": "7",
-        "city": "495",
-        "number": "1234567",
-        "comment": "с 10 до 20"
-      }
-    ]
-  },
-  "accept_handicapped": true,
-  "code": "код-1234",
-  "response_notifications": true,
-  "allow_messages": true,
-  "billing_type": {
-    "id": "standard"
-  },
-  "site": {
-    "id": "hh"
-  },
-  "address": {
-    "id": "123",
-    "show_metro_only": true
-  },
-  "manager": {
-    "id": "321"
-  },
-  "test": {
-    "id": "42",
-    "required": true
-  },
-  "branded_template": {
-    "id": "marketing"
-  }
 }
 ```
 
@@ -134,7 +142,7 @@
 <a name="creation_fields"></a>
 ### Поля запроса
 
-* `[]` (например, в полях специализации и контактах) обозначает, что значение данного ключа является массивом объектов.  
+* `[]` (например, в полях специализации и контактах) обозначает, что значение данного ключа является массивом объектов.
 * `a.b` обозначает объект `a` с ключом `b` описанного типа.
 
 Путь | JSON тип | Описание
@@ -188,18 +196,23 @@ branded_template.id | string | <a name="branded-template-field"></a> бренд�
 
 * `201 Created` - успешное добавление. В заголовке `Location` будет
   содержаться ссылка на добавленную вакансию:
-  
+
 ```
-   HTTP/1.1 201 Created
-   
-   Location: /vacancies/78789890
+HTTP/1.1 201 Created
+
+Location: /vacancies/78789890
 ```
-  
-  Также в теле ответа будет возвращаться json с идентификатором:
+
+В теле ответа возвращается идентификатор добавленной вакансии:
+
+```json
+{
+    "id": "78789890"
+}
 ```
-    {"id": "78789890"}
-```
-* `403 Forbidden` - добавление вакансий недоступно данному пользователю или
+
+* `403 Forbidden` - добавление вакансий недоступно данному пользователю
+* <a name="creation-ignore-duplicates"></a> `403 Forbidden` –
   добавление вакансии недоступно, так как вакансия с похожими
   данными уже опубликована у данного работодателя. Если вы уверены, что
   добавление дубликата необходимо, вы можете добавить к запросу параметр
@@ -383,7 +396,6 @@ branded_template.id | string | <a name="branded-template-field"></a> бренд�
         "required": true
     }
 }
-
 ```
 
 ### Правила
@@ -458,12 +470,28 @@ response_url | URL отклика для прямых вакансий
 
 ```
 PUT /vacancies/{vacancy_id}
-{"billing_type":{"id":"premium"}
 ```
+
+```json
+{
+    "billing_type": {
+        "id": "premium"
+    }
+}
+```
+
+и
 
 ```
 PUT /vacancies/{vacancy_id}
-{"manager":{"id":"1337"}
+```
+
+```json
+{
+    "manager": {
+        "id": "1337"
+    }
+}
 ```
 
 При передаче этих полей вместе с любыми другими вернется ошибка.
@@ -527,18 +555,18 @@ PUT /vacancies/{vacancy_id}
 
 ```json
 {
-  "id": "123456789",
-  "expires_at": "2015-11-19T17:10:48+0300",
-  "actions": [
-    {
-      "id": "prolongate",
-      "enabled": false,
-      "disable_reason": {
-        "id": "standard_plus_publication_is_updated_automatically",
-        "name": "Вакансия \"Стандарт Плюс\" не может быть обновлена, это происходит автоматически раз в три дня."
-      }
-    }
-  ]
+    "id": "123456789",
+    "expires_at": "2015-11-19T17:10:48+0300",
+    "actions": [
+        {
+            "id": "prolongate",
+            "enabled": false,
+            "disable_reason": {
+                "id": "standard_plus_publication_is_updated_automatically",
+                "name": "Вакансия \"Стандарт Плюс\" не может быть обновлена, это происходит автоматически раз в три дня."
+            }
+        }
+    ]
 }
 ```
 
@@ -546,16 +574,16 @@ PUT /vacancies/{vacancy_id}
 
 ```json
 {
-  "id": "123456789",
-  "expires_at": "2015-11-19T17:10:48+0300",
-  "actions": [
-    {
-      "id": "prolongate",
-      "enabled": true,
-      "url": "https://api.hh.ru/vacancies/123456789/prolongate",
-      "method": "POST"
-    }
-  ]
+    "id": "123456789",
+    "expires_at": "2015-11-19T17:10:48+0300",
+    "actions": [
+        {
+            "id": "prolongate",
+            "enabled": true,
+            "url": "https://api.hh.ru/vacancies/123456789/prolongate",
+            "method": "POST"
+        }
+    ]
 }
 ```
 
@@ -604,60 +632,59 @@ PUT /vacancies/{vacancy_id}
     "pages": 1,
     "per_page": 20,
     "items": [
-    {
-      "salary": {
-        "to": null,
-        "from": 30000,
-        "currency": "RUR"
-      },
-      "name": "Секретарь",
-      "area": {
-        "url": "https://api.hh.ru/areas/1",
-        "id": "1",
-        "name": "Москва"
-      },
-      "url": "https://api.hh.ru/vacancies/8331228",
-      "published_at": "2013-07-08T16:17:21+0400",
-      "relations": [],
-      "employer": {
-        "logo_urls": {
-          "90": "https://hh.ru/employer-logo/289027.png",
-          "240": "https://hh.ru/employer-logo/289169.png",
-          "original": "https://hh.ru/file/2352807.png"
-        },
-        "name": "HeadHunter",
-        "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "https://hh.ru/employer/1455",
-        "id": "1455",
-        "trusted": true
-      },
-      "response_letter_required": true,
-      "address": null,
-      "alternate_url": "https://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-      "department": {
-        "id": "HH-1455-TECH",
-        "name": "HeadHunter::Технический департамент"
-      },
-      "premium": false,
-      "type": {
-        "id": "open",
-        "name": "Открытая"
-      },
-      "id": "8331228",
-      "archived": false,
-
-      "counters": {
-        "views": 100500,
-        "responses": 5,
-        "unread_responses": 3,
-        "resumes_in_progress": 5,
-        "invitations": 10
-      },
-      "expires_at": "2013-07-08T16:17:21+0400",
-      "has_updates": false
-    }
-  ]
+        {
+            "salary": {
+                "to": null,
+                "from": 30000,
+                "currency": "RUR"
+            },
+            "name": "Секретарь",
+            "area": {
+                "url": "https://api.hh.ru/areas/1",
+                "id": "1",
+                "name": "Москва"
+            },
+            "url": "https://api.hh.ru/vacancies/8331228",
+            "published_at": "2013-07-08T16:17:21+0400",
+            "relations": [],
+            "employer": {
+                "logo_urls": {
+                    "90": "https://hh.ru/employer-logo/289027.png",
+                    "240": "https://hh.ru/employer-logo/289169.png",
+                    "original": "https://hh.ru/file/2352807.png"
+                },
+                "name": "HeadHunter",
+                "url": "https://api.hh.ru/employers/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
+                "id": "1455",
+                "trusted": true
+            },
+            "response_letter_required": true,
+            "address": null,
+            "alternate_url": "https://hh.ru/vacancy/8331228",
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+            "department": {
+                "id": "HH-1455-TECH",
+                "name": "HeadHunter::Технический департамент"
+            },
+            "premium": false,
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "id": "8331228",
+            "archived": false,
+            "counters": {
+                "views": 100500,
+                "responses": 5,
+                "unread_responses": 3,
+                "resumes_in_progress": 5,
+                "invitations": 10
+            },
+            "expires_at": "2013-07-08T16:17:21+0400",
+            "has_updates": false
+        }
+    ]
 }
 ```
 
@@ -724,56 +751,55 @@ has_updates | boolean | Есть ли в откликах/приглашения
     "pages": 1,
     "per_page": 20,
     "items": [
-    {
-      "salary": {
-        "to": null,
-        "from": 30000,
-        "currency": "RUR"
-      },
-      "name": "Секретарь",
-      "area": {
-        "url": "https://api.hh.ru/areas/1",
-        "id": "1",
-        "name": "Москва"
-      },
-      "url": "https://api.hh.ru/vacancies/8331228",
-      "published_at": "2013-07-08T16:17:21+0400",
-      "relations": [],
-      "employer": {
-        "logo_urls": {
-          "90": "https://hh.ru/employer-logo/289027.png",
-          "240": "https://hh.ru/employer-logo/289169.png",
-          "original": "https://hh.ru/file/2352807.png"
-        },
-        "name": "HeadHunter",
-        "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "https://hh.ru/employer/1455",
-        "id": "1455",
-        "trusted": true
-      },
-      "response_letter_required": true,
-      "address": null,
-      "alternate_url": "https://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-      "department": {
-        "id": "HH-1455-TECH",
-        "name": "HeadHunter::Технический департамент"
-      },
-      "premium": false,
-      "type": {
-        "id": "open",
-        "name": "Открытая"
-      },
-      "id": "8331228",
-      "archived": true,
-
-      "counters": {
-        "responses": 3,
-        "invitations_and_responses": 5
-      },
-      "archived_at": "2013-08-08T16:17:21+0400"
-    }
-  ]
+        {
+            "salary": {
+                "to": null,
+                "from": 30000,
+                "currency": "RUR"
+            },
+            "name": "Секретарь",
+            "area": {
+                "url": "https://api.hh.ru/areas/1",
+                "id": "1",
+                "name": "Москва"
+            },
+            "url": "https://api.hh.ru/vacancies/8331228",
+            "published_at": "2013-07-08T16:17:21+0400",
+            "relations": [],
+            "employer": {
+                "logo_urls": {
+                    "90": "https://hh.ru/employer-logo/289027.png",
+                    "240": "https://hh.ru/employer-logo/289169.png",
+                    "original": "https://hh.ru/file/2352807.png"
+                },
+                "name": "HeadHunter",
+                "url": "https://api.hh.ru/employers/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
+                "id": "1455",
+                "trusted": true
+            },
+            "response_letter_required": true,
+            "address": null,
+            "alternate_url": "https://hh.ru/vacancy/8331228",
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+            "department": {
+                "id": "HH-1455-TECH",
+                "name": "HeadHunter::Технический департамент"
+            },
+            "premium": false,
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "id": "8331228",
+            "archived": true,
+            "counters": {
+                "responses": 3,
+                "invitations_and_responses": 5
+            },
+            "archived_at": "2013-08-08T16:17:21+0400"
+        }
+    ]
 }
 ```
 
@@ -819,50 +845,50 @@ archived_at | строка | дата архивации вакансии
     "pages": 1,
     "per_page": 20,
     "items": [
-    {
-      "salary": {
-        "to": null,
-        "from": 30000,
-        "currency": "RUR"
-      },
-      "name": "Секретарь",
-      "area": {
-        "url": "https://api.hh.ru/areas/1",
-        "id": "1",
-        "name": "Москва"
-      },
-      "url": "https://api.hh.ru/vacancies/8331228",
-      "published_at": "2013-07-08T16:17:21+0400",
-      "relations": [],
-      "employer": {
-        "logo_urls": {
-          "90": "https://hh.ru/employer-logo/289027.png",
-          "240": "https://hh.ru/employer-logo/289169.png",
-          "original": "https://hh.ru/file/2352807.png"
-        },
-        "name": "HeadHunter",
-        "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "https://hh.ru/employer/1455",
-        "id": "1455",
-        "trusted": true
-      },
-      "response_letter_required": true,
-      "address": null,
-      "alternate_url": "https://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-      "department": {
-        "id": "HH-1455-TECH",
-        "name": "HeadHunter::Технический департамент"
-      },
-      "premium": false,
-      "type": {
-        "id": "open",
-        "name": "Открытая"
-      },
-      "id": "8331228",
-      "archived": true
-    }
-  ]
+        {
+            "salary": {
+                "to": null,
+                "from": 30000,
+                "currency": "RUR"
+            },
+            "name": "Секретарь",
+            "area": {
+                "url": "https://api.hh.ru/areas/1",
+                "id": "1",
+                "name": "Москва"
+            },
+            "url": "https://api.hh.ru/vacancies/8331228",
+            "published_at": "2013-07-08T16:17:21+0400",
+            "relations": [],
+            "employer": {
+                "logo_urls": {
+                    "90": "https://hh.ru/employer-logo/289027.png",
+                    "240": "https://hh.ru/employer-logo/289169.png",
+                    "original": "https://hh.ru/file/2352807.png"
+                },
+                "name": "HeadHunter",
+                "url": "https://api.hh.ru/employers/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
+                "id": "1455",
+                "trusted": true
+            },
+            "response_letter_required": true,
+            "address": null,
+            "alternate_url": "https://hh.ru/vacancy/8331228",
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+            "department": {
+                "id": "HH-1455-TECH",
+                "name": "HeadHunter::Технический департамент"
+            },
+            "premium": false,
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "id": "8331228",
+            "archived": true
+        }
+    ]
 }
 ```
 

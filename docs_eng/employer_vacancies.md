@@ -50,80 +50,84 @@ vacancy being posted. The format of the data is similar to the
 
 ```json
 {
-  "description": "<p>— Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, toutes les atrocités de cet Antichrist (ma parole, j'y crois) — je ne vous connais plus, vous n'êtes plus mon ami, vous n'êtes plus мой верный раб, comme vous dites. Ну, здравствуйте, здравствуйте.</p><p><em>Je vois que je vous fais peur</em>, садитесь и рассказывайте.</p>",
-  "key_skills": [
-    {"name": "Cold calling"},
-    {"name": "Sales promotion"}
-  ],
-  "schedule": {
-    "id": "flyInFlyOut"
-  },
-  "experience": {
-    "id": "moreThan6"
-  },
-  "employment": {
-    "id": "full"
-  },
-  "name": "Sales manager",
-  "area": {
-    "id": "1"
-  },
-  "type": {
-    "id": "open"
-  },
-  "employer": {
-    "id": "1455"
-  },
-  "specializations": [
-    {
-      "id": "17.324"
+    "description": "<p>— Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, toutes les atrocités de cet Antichrist (ma parole, j'y crois) — je ne vous connais plus, vous n'êtes plus mon ami, vous n'êtes plus мой верный раб, comme vous dites. Ну, здравствуйте, здравствуйте.</p><p><em>Je vois que je vous fais peur</em>, садитесь и рассказывайте.</p>",
+    "key_skills": [
+        {
+            "name": "Cold calling"
+        },
+        {
+            "name": "Sales promotion"
+        }
+    ],
+    "schedule": {
+        "id": "flyInFlyOut"
     },
-    {
-      "id": "3.148"
+    "experience": {
+        "id": "moreThan6"
+    },
+    "employment": {
+        "id": "full"
+    },
+    "name": "Sales manager",
+    "area": {
+        "id": "1"
+    },
+    "type": {
+        "id": "open"
+    },
+    "employer": {
+        "id": "1455"
+    },
+    "specializations": [
+        {
+            "id": "17.324"
+        },
+        {
+            "id": "3.148"
+        }
+    ],
+    "response_letter_required": true,
+    "salary": {
+        "from": 100,
+        "to": 500,
+        "currency": "USD"
+    },
+    "contacts": {
+        "name": "Ivanov Ivan",
+        "email": "i.ivanov@example.com",
+        "phones": [
+            {
+                "country": "7",
+                "city": "495",
+                "number": "1234567",
+                "comment": "from 10 to 20"
+            }
+        ]
+    },
+    "accept_handicapped": true,
+    "code": "code-1234",
+    "response_notifications": true,
+    "allow_messages": true,
+    "billing_type": {
+        "id": "standard"
+    },
+    "site": {
+        "id": "hh"
+    },
+    "address": {
+        "id": "123",
+        "show_metro_only": true
+    },
+    "manager": {
+        "id": "321"
+    },
+    "test": {
+        "id": "42",
+        "required": true
+    },
+    "branded_template": {
+        "id": "marketing"
     }
-  ],
-  "response_letter_required": true,
-  "salary": {
-    "from": 100,
-    "to": 500,
-    "currency": "USD"
-  },
-  "contacts": {
-    "name": "Ivanov Ivan",
-    "email": "i.ivanov@example.com",
-    "phones": [
-      {
-        "country": "7",
-        "city": "495",
-        "number": "1234567",
-        "comment": "from 10 to 20"
-      }
-    ]
-  },
-  "accept_handicapped": true,
-  "code": "code-1234",
-  "response_notifications": true,
-  "allow_messages": true,
-  "billing_type": {
-    "id": "standard"
-  },
-  "site": {
-    "id": "hh"
-  },
-  "address": {
-    "id": "123",
-    "show_metro_only": true
-  },
-  "manager": {
-    "id": "321"
-  },
-  "test": {
-    "id": "42",
-    "required": true
-  },
-  "branded_template": {
-    "id": "marketing"
-  }
 }
 ```
 
@@ -373,7 +377,6 @@ body:
         "required": true
     }
 }
-
 ```
 
 
@@ -435,12 +438,28 @@ separately from other vacancy fields.
 
 ```
 PUT /vacancies/{vacancy_id}
-{"billing_type":{"id":"premium"}
 ```
+
+```json
+{
+    "billing_type": {
+        "id": "premium"
+    }
+}
+```
+
+and
 
 ```
 PUT /vacancies/{vacancy_id}
-{"manager":{"id":"1337"}
+```
+
+```json
+{
+    "manager": {
+        "id": "1337"
+    }
+}
 ```
 
 If sent with any other fields, an error will be returned.
@@ -504,18 +523,18 @@ Example of the response if the extension is not possible:
 
 ```json
 {
-  "id": "123456789",
-  "expires_at": "2015-11-19T17:10:48+0300",
-  "actions": [
-    {
-      "id": "prolongate",
-      "enabled": false,
-      "disable_reason": {
-        "id": "standard_plus_publication_is_updated_automatically",
-        "name": "The \"Standard Plus\" vacancy cannot be updated: it is updated automatically every three days."
-      }
-    }
-  ]
+    "id": "123456789",
+    "expires_at": "2015-11-19T17:10:48+0300",
+    "actions": [
+        {
+            "id": "prolongate",
+            "enabled": false,
+            "disable_reason": {
+                "id": "standard_plus_publication_is_updated_automatically",
+                "name": "The \"Standard Plus\" vacancy cannot be updated: it is updated automatically every three days."
+            }
+        }
+    ]
 }
 ```
 
@@ -523,16 +542,16 @@ Example of the response if the extension is possible:
 
 ```json
 {
-  "id": "123456789",
-  "expires_at": "2015-11-19T17:10:48+0300",
-  "actions": [
-    {
-      "id": "prolongate",
-      "enabled": true,
-      "url": "https://api.hh.ru/vacancies/123456789/prolongate",
-      "method": "POST"
-    }
-  ]
+    "id": "123456789",
+    "expires_at": "2015-11-19T17:10:48+0300",
+    "actions": [
+        {
+            "id": "prolongate",
+            "enabled": true,
+            "url": "https://api.hh.ru/vacancies/123456789/prolongate",
+            "method": "POST"
+        }
+    ]
 }
 ```
 
@@ -597,59 +616,58 @@ Successful server response is returned with `200 OK` code and contains:
     "pages": 1,
     "per_page": 20,
     "items": [
-    {
-      "salary": {
-        "to": null,
-        "from": 30000,
-        "currency": "RUR"
-      },
-      "name": "Secretary",
-      "area": {
-        "url": "https://api.hh.ru/areas/1",
-        "id": "1",
-        "name": "Moscow"
-      },
-      "url": "https://api.hh.ru/vacancies/8331228",
-      "published_at": "2013-07-08T16:17:21+0400",
-      "relations": [],
-      "employer": {
-        "logo_urls": {
-          "90": "https://hh.ru/employer-logo/289027.png",
-          "240": "https://hh.ru/employer-logo/289169.png",
-          "original": "https://hh.ru/file/2352807.png"
-        },
-        "name": "HeadHunter",
-        "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "https://hh.ru/employer/1455",
-        "id": "1455"
-      },
-      "response_letter_required": true,
-      "address": null,
-      "alternate_url": "https://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-      "department": {
-        "id": "18320489-18320489-dept1",
-        "name": "DEPT1"
-      },
-      "premium": false,
-      "type": {
-        "id": "open",
-        "name": "Open"
-      },
-      "id": "8331228",
-      "archived": false,
-
-      "counters": {
-        "views": 100500,
-        "responses": 5,
-        "unread_responses": 3,
-        "resumes_in_progress": 5,
-        "invitations": 10
-      },
-      "expires_at": "2013-07-08T16:17:21+0400",
-      "has_updates": false
-    }
-  ]
+        {
+            "salary": {
+                "to": null,
+                "from": 30000,
+                "currency": "RUR"
+            },
+            "name": "Secretary",
+            "area": {
+                "url": "https://api.hh.ru/areas/1",
+                "id": "1",
+                "name": "Moscow"
+            },
+            "url": "https://api.hh.ru/vacancies/8331228",
+            "published_at": "2013-07-08T16:17:21+0400",
+            "relations": [],
+            "employer": {
+                "logo_urls": {
+                    "90": "https://hh.ru/employer-logo/289027.png",
+                    "240": "https://hh.ru/employer-logo/289169.png",
+                    "original": "https://hh.ru/file/2352807.png"
+                },
+                "name": "HeadHunter",
+                "url": "https://api.hh.ru/employers/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
+                "id": "1455"
+            },
+            "response_letter_required": true,
+            "address": null,
+            "alternate_url": "https://hh.ru/vacancy/8331228",
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+            "department": {
+                "id": "18320489-18320489-dept1",
+                "name": "DEPT1"
+            },
+            "premium": false,
+            "type": {
+                "id": "open",
+                "name": "Open"
+            },
+            "id": "8331228",
+            "archived": false,
+            "counters": {
+                "views": 100500,
+                "responses": 5,
+                "unread_responses": 3,
+                "resumes_in_progress": 5,
+                "invitations": 10
+            },
+            "expires_at": "2013-07-08T16:17:21+0400",
+            "has_updates": false
+        }
+    ]
 }
 ```
 
@@ -717,55 +735,54 @@ Successful server response is returned with `200 OK` code and contains:
     "pages": 1,
     "per_page": 20,
     "items": [
-    {
-      "salary": {
-        "to": null,
-        "from": 30000,
-        "currency": "RUR"
-      },
-      "name": "Secretary",
-      "area": {
-        "url": "https://api.hh.ru/areas/1",
-        "id": "1",
-        "name": "Moscow"
-      },
-      "url": "https://api.hh.ru/vacancies/8331228",
-      "published_at": "2013-07-08T16:17:21+0400",
-      "relations": [],
-      "employer": {
-        "logo_urls": {
-          "90": "https://hh.ru/employer-logo/289027.png",
-          "240": "https://hh.ru/employer-logo/289169.png",
-          "original": "https://hh.ru/file/2352807.png"
-        },
-        "name": "HeadHunter",
-        "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "https://hh.ru/employer/1455",
-        "id": "1455"
-      },
-      "response_letter_required": true,
-      "address": null,
-      "alternate_url": "https://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-      "department": {
-        "id": "18320489-18320489-dept1",
-        "name": "DEPT1"
-      },
-      "premium": false,
-      "type": {
-        "id": "open",
-        "name": "Open"
-      },
-      "id": "8331228",
-      "archived": true,
-
-      "counters": {
-        "responses": 3,
-        "invitations_and_responses": 5
-      },
-      "archived_at": "2013-08-08T16:17:21+0400"
-    }
-  ]
+        {
+            "salary": {
+                "to": null,
+                "from": 30000,
+                "currency": "RUR"
+            },
+            "name": "Secretary",
+            "area": {
+                "url": "https://api.hh.ru/areas/1",
+                "id": "1",
+                "name": "Moscow"
+            },
+            "url": "https://api.hh.ru/vacancies/8331228",
+            "published_at": "2013-07-08T16:17:21+0400",
+            "relations": [],
+            "employer": {
+                "logo_urls": {
+                    "90": "https://hh.ru/employer-logo/289027.png",
+                    "240": "https://hh.ru/employer-logo/289169.png",
+                    "original": "https://hh.ru/file/2352807.png"
+                },
+                "name": "HeadHunter",
+                "url": "https://api.hh.ru/employers/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
+                "id": "1455"
+            },
+            "response_letter_required": true,
+            "address": null,
+            "alternate_url": "https://hh.ru/vacancy/8331228",
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+            "department": {
+                "id": "18320489-18320489-dept1",
+                "name": "DEPT1"
+            },
+            "premium": false,
+            "type": {
+                "id": "open",
+                "name": "Open"
+            },
+            "id": "8331228",
+            "archived": true,
+            "counters": {
+                "responses": 3,
+                "invitations_and_responses": 5
+            },
+            "archived_at": "2013-08-08T16:17:21+0400"
+        }
+    ]
 }
 ```
 
@@ -805,58 +822,56 @@ collection does not support search (the parameters `text` and `area`).
 Successful server response is returned with `200 OK` code and contains:
 
 ```json
-
 {
     "found": 1,
     "page": 0,
     "pages": 1,
     "per_page": 20,
     "items": [
-    {
-      "salary": {
-        "to": null,
-        "from": 30000,
-        "currency": "RUR"
-      },
-      "name": "Secretary",
-      "area": {
-        "url": "https://api.hh.ru/areas/1",
-        "id": "1",
-        "name": "Moscow"
-      },
-      "url": "https://api.hh.ru/vacancies/8331228",
-      "published_at": "2013-07-08T16:17:21+0400",
-      "relations": [],
-      "employer": {
-        "logo_urls": {
-          "90": "https://hh.ru/employer-logo/289027.png",
-          "240": "https://hh.ru/employer-logo/289169.png",
-          "original": "https://hh.ru/file/2352807.png"
-        },
-        "name": "HeadHunter",
-        "url": "https://api.hh.ru/employers/1455",
-        "alternate_url": "https://hh.ru/employer/1455",
-        "id": "1455"
-      },
-      "response_letter_required": true,
-      "address": null,
-      "alternate_url": "https://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-      "department": {
-        "id": "18320489-18320489-dept1",
-        "name": "DEPT1"
-      },
-      "premium": false,
-      "type": {
-        "id": "open",
-        "name": "Open"
-      },
-      "id": "8331228",
-      "archived": true
-    }
-  ]
+        {
+            "salary": {
+                "to": null,
+                "from": 30000,
+                "currency": "RUR"
+            },
+            "name": "Secretary",
+            "area": {
+                "url": "https://api.hh.ru/areas/1",
+                "id": "1",
+                "name": "Moscow"
+            },
+            "url": "https://api.hh.ru/vacancies/8331228",
+            "published_at": "2013-07-08T16:17:21+0400",
+            "relations": [],
+            "employer": {
+                "logo_urls": {
+                    "90": "https://hh.ru/employer-logo/289027.png",
+                    "240": "https://hh.ru/employer-logo/289169.png",
+                    "original": "https://hh.ru/file/2352807.png"
+                },
+                "name": "HeadHunter",
+                "url": "https://api.hh.ru/employers/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
+                "id": "1455"
+            },
+            "response_letter_required": true,
+            "address": null,
+            "alternate_url": "https://hh.ru/vacancy/8331228",
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+            "department": {
+                "id": "18320489-18320489-dept1",
+                "name": "DEPT1"
+            },
+            "premium": false,
+            "type": {
+                "id": "open",
+                "name": "Open"
+            },
+            "id": "8331228",
+            "archived": true
+        }
+    ]
 }
-
 ```
 
 Response with [the standard vacancy fields](vacancies.md#nano) will be returned.

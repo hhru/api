@@ -39,123 +39,137 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
 
 ```json
 {
-      "description": "...",
-      "branded_description": "<style>...</style><div>...</div><script></script>",
-      "key_skills": [
-        {"name": "Visitor reception"},
-        {"name": "Source document circulation"}
-      ],
-      "schedule": {
+    "id": "8331228",
+    "description": "...",
+    "branded_description": "<style>...</style><div>...</div><script></script>",
+    "key_skills": [
+        {
+            "name": "Visitor reception"
+        },
+        {
+            "name": "Source document circulation"
+        }
+    ],
+    "schedule": {
         "id": "fullDay",
         "name": "Full time"
-      },
-      "accept_handicapped": false,
-      "experience": {
+    },
+    "accept_handicapped": false,
+    "experience": {
         "id": "between3And6",
         "name": "Between 3 and 6 years"
-      },
-      "address": null,
-      "alternate_url": "https://hh.ru/vacancy/8331228",
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-      "department": {
+    },
+    "address": {
+        "city": "Moscow",
+        "street": "Godovikova",
+        "building": "9",
+        "description": "Additional information",
+        "lat": 55.807794,
+        "lng": 37.638699,
+        "raw": "Textual address description as entered",
+        "metro_stations": [
+            {
+                "station_name": "station name",
+                "line_name": "Line name",
+                "station_id": "Station ID",
+                "line_id": "Line ID",
+                "lat": 55.807794,
+                "lng": 37.638699
+            }
+        ]
+    },
+    "alternate_url": "https://hh.ru/vacancy/8331228",
+    "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+    "code": "HHR-3487",
+    "department": {
         "id": "18320489-18320489-dept1",
         "name": "DEPT1"
-      },
-      "employment": {
+    },
+    "employment": {
         "id": "full",
         "name": "Full time"
-      },
-      "id": "8331228",
-      "salary": {
+    },
+    "salary": {
         "to": null,
         "from": 30000,
         "currency": "RUR"
-      },
-      "archived": false,
-      "name": "Secretary",
-      "area": {
+    },
+    "archived": false,
+    "name": "Secretary",
+    "area": {
         "url": "https://api.hh.ru/areas/1?locale=EN",
         "id": "1",
         "name": "Moscow"
-      },
-      "published_at": "2013-07-08T16:17:21+0400",
-      "relations": [ ],
-      "negotiations_url": "https://api.hh.ru/negotiations?vacancy_id=8331228&locale=EN",
-      "allow_messages": true,
-      "suitable_resumes_url": "https://api.hh.ru/vacancies/8331228/suitable_resumes?locale=EN",
-      "employer": {
+    },
+    "published_at": "2013-07-08T16:17:21+0400",
+    "relations": [],
+    "negotiations_url": "https://api.hh.ru/negotiations?vacancy_id=8331228&locale=EN",
+    "allow_messages": true,
+    "suitable_resumes_url": "https://api.hh.ru/vacancies/8331228/suitable_resumes?locale=EN",
+    "employer": {
         "logo_urls": {
-          "90": "https://hh.ru/employer-logo/289027.png",
-          "240": "https://hh.ru/employer-logo/289169.png",
-          "original": "https://hh.ru/file/2352807.png"
+            "90": "https://hh.ru/employer-logo/289027.png",
+            "240": "https://hh.ru/employer-logo/289169.png",
+            "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455?locale=EN",
         "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true
-      },
-      "response_letter_required": true,
-      "response_url": null,
-      "type": {
+    },
+    "response_letter_required": true,
+    "type": {
         "id": "open",
         "name": "Open"
-      },
-      "test": {
+    },
+    "response_url": null,
+    "test": {
         "required": false
-      },
-      "specializations": [
+    },
+    "specializations": [
         {
-          "profarea_id": "4",
-          "profarea_name": "Administrative staff",
-          "id": "4.255",
-          "name": "Reception"
+            "profarea_id": "4",
+            "profarea_name": "Administrative staff",
+            "id": "4.255",
+            "name": "Reception"
         },
         {
-          "profarea_id": "4",
-          "profarea_name": "Administrative staff",
-          "id": "4.429",
-          "name": "Office work"
+            "profarea_id": "4",
+            "profarea_name": "Administrative staff",
+            "id": "4.429",
+            "name": "Office work"
         },
         {
-          "profarea_id": "4",
-          "profarea_name": "Administrative staff",
-          "id": "4.264",
-          "name": "Secretary"
+            "profarea_id": "4",
+            "profarea_name": "Administrative staff",
+            "id": "4.264",
+            "name": "Secretary"
         },
         {
-          "profarea_id": "4",
-          "profarea_name": "Administrative staff",
-          "id": "4.181",
-          "name": "Beginner level, Little experience"
+            "profarea_id": "4",
+            "profarea_name": "Administrative staff",
+            "id": "4.181",
+            "name": "Beginner level, Little experience"
         }
-      ],
-      "contacts": {
+    ],
+    "contacts": {
         "name": "First name",
         "email": "user@example.com",
         "phones": [
-          {
-            "comment": null,
-            "city": "985",
-            "number": "000-00-00",
-            "country": "7"
-          }
+            {
+                "comment": null,
+                "city": "985",
+                "number": "000-00-00",
+                "country": "7"
+            }
         ]
-      },
-      "billing_type": {
+    },
+    "billing_type": {
         "id": "standard",
         "name": "Standard"
-      },
-      "site": {
-        "id": "hh",
-        "name": "hh.ru"
-      },
-      "department": {
-        "id": "18320489-18320489-dept1",
-        "name": "DEPT1"
-      },
-      "hidden": null
     }
+}
 ```
 
 `branded_description` – a string with HTML code ( `<script/>` and `<style/>` may

@@ -176,8 +176,8 @@ HTTP code | type | value | описание
 <a name="vacancies-create-n-edit"></a>
 ### Публикация и редактирование вакансий
 
-Помимо кода ошибки при [публикации](employer_vacancies.md.md#creation) и
-[редактировании](employer_vacancies.md.md#edit) вакансии могут быть возвращены
+Помимо кода ошибки при [публикации](employer_vacancies.md#creation) и
+[редактировании](employer_vacancies.md#edit) вакансии могут быть возвращены
 следующие ошибки:
 
 HTTP code | type | value | описание
@@ -185,7 +185,7 @@ HTTP code | type | value | описание
 400 | vacancies | *field_name* | ошибка в поле вакансии, где *field_name* – ключ поля верхнего уровня
 403 | vacancies | not_enough_purchased_services | купленных услуг для публикации или обновления данного типа вакансии не достаточно
 403 | vacancies | quota_exceeded | квота менеджера на публикацию данного типа вакансии закончилась
-409 | vacancies | duplicate | аналогичная вакансия уже опубликована, данную ошибку можно [форсировано отключить](employer_vacancies.md#creation-results)
+409 | vacancies | duplicate | аналогичная вакансия уже опубликована, данную ошибку можно [форсировано отключить](employer_vacancies.md#creation-ignore-duplicates)
 403 | vacancies | creation_forbidden | публикация вакансий недоступна текущему менеджеру
 403 | vacancies | unavailable_for_archived | редактирование недоступно для архивной вакансии
 403 | vacancies | conflict_changes | конфликтные изменения данных вакансии ([подробнее](employer_vacancies.md#edit_more))
