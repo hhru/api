@@ -56,7 +56,6 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 
 ## Other directories
 
-* `site_lang` - website language
 * `currency` - currency directory
 * `employer_type` - employer type
 * `employer_relation` - methods of contacting applicants

@@ -1,5 +1,16 @@
 # Авторизация
 
+* [Получение авторизации](#get-auth)
+  * [Правила формирования специального redirect_uri](#redirect_uri)
+  * [Процесс авторизации](#get-auth-process)
+  * [Успешное получение временного `authorization_code`](#get-authorization_code)
+  * [Получение access и refresh токенов](#get-tokens)
+* [Обновление пары access и refresh токенов](#refresh_token)
+* [Использование и проверка access-токена](#check-access_token)
+* [Запрос авторизации под другим пользователем](#force-login)
+* [Полезные ссылки](#links)
+
+
 <a name="general"></a>
 Авторизация осуществляется по протоколу OAuth 2.0. Подробная документация по
 протоколу: [RFC 6749](http://tools.ietf.org/html/rfc6749).
@@ -23,25 +34,30 @@
 по адресу:
 
 ```
-https://hh.ru/oauth/authorize?response_type=code&client_id={client_id}&state={state}&redirect_uri={redirect_uri}
+https://hh.ru/oauth/authorize?
+  response_type=code&
+  client_id={client_id}&
+  state={state}&
+  redirect_uri={redirect_uri}
 ```
 
 Обязательные параметры:
 
 * `response_type=code` — указание на способ получение авторизации, используя
-  authorization code;
-* `client_id={client_id}` — идентификатор, полученный при создании приложения;
+  authorization code
+* `client_id` — идентификатор, полученный при создании приложения
 
 
 Необязательные параметры:
 
-* `state={state}` — в случае указания, будет включен в ответный редирект.
+* `state` — в случае указания, будет включен в ответный редирект.
   Это позволяет исключить возможность взлома путём подделки межсайтовых
   запросов. Подробнее об этом:
   [RFC 6749. Section 10.12](http://tools.ietf.org/html/rfc6749#section-10.12)
-* `redirect_uri={redirect_uri}` — uri для перенаправления пользователя после
+* `redirect_uri` — uri для перенаправления пользователя после
   авторизации. Если не указать, используется из настроек приложения. При
-  наличии происходит валидация значения.
+  наличии происходит валидация значения. Вероятнее всего, потребуется сделать
+  urlencode значения параметра.
 
 
 <a name="redirect_uri"></a>
@@ -100,20 +116,13 @@ Location: {redirect_uri}?code={authorization_code}
 POST-запрос на `https://hh.ru/oauth/token` для обмена полученного
 `authorization_code` на `access_token`.
 
-В запросе необходимо передать:
+В запросе необходимо передать дополнительные параметры:
 
-```
-grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={authorization_code}&redirect_uri={redirect_uri}
-```
-
-`client_id` и `client_secret` - необходимо заполнить значениями, выданными при
-[регистрации приложения](https://dev.hh.ru/admin).
-
-Если при получении `authorization_code` был указан `redirect_uri`, то в запросе
-необходимо обязательно передать это значение (происходит сравнение строк),
-иначе этот параметр необязателен. Если же не указать `redirect_uri` при запросе
-на `/oauth/authorize`, то при указании его во втором запросе (`/oauth/token`)
-сервер вернёт ошибку.
+* `grant_type=authorization_code`
+* `client_id` и `client_secret` - необходимо заполнить значениями, выданными при
+  [регистрации приложения](https://dev.hh.ru/admin).
+* `redirect_uri` - Необходимо передать то же, что было указано при
+  [получении авторизации](#get-auth). В противном случае вернется ошибка.
 
 Тело запроса необходимо передавать в стандартном
 `application/x-www-form-urlencoded` с указанием соответствующего заголовка
@@ -123,17 +132,18 @@ grant_type=authorization_code&client_id={client_id}&client_secret={client_secret
 
 ```json
 {
-  "access_token": "{access_token}",
-  "token_type": "bearer",
-  "expires_in": 1209600,
-  "refresh_token": "{refresh_token}",
+    "access_token": "{access_token}",
+    "token_type": "bearer",
+    "expires_in": 1209600,
+    "refresh_token": "{refresh_token}",
 }
 ```
 
 `authorization_code` имеет довольно короткий срок жизни, при его истечении
 необходимо запросить новый.
 
-Если обмен `authorization_code` произвести не удалось, то вернётся ответ `400 Bad Request` с телом:
+Если обмен `authorization_code` произвести не удалось, то вернётся ответ
+`400 Bad Request` с телом:
 
 ```json
 {
@@ -141,11 +151,14 @@ grant_type=authorization_code&client_id={client_id}&client_secret={client_secret
     "error_description": "..."
 }
 ```
+
 где:
-* `error` будет иметь одно из значений,
+
+* `error` – одно из значений,
   [описанных в стандарте RFC 6749](http://tools.ietf.org/html/rfc6749#section-5.2).
-  Например, `invalid_request`, если какой либо из обязательных параметров не был передан.
-* `error_description` будет содержать дополнительное описание ошибки.
+  Например, `invalid_request`, если какой либо из обязательных параметров
+  не был передан.
+* `error_description` – дополнительное описание ошибки.
 
 
 <a name="refresh_token"></a>
@@ -158,17 +171,18 @@ grant_type=authorization_code&client_id={client_id}&client_secret={client_secret
 
 ```
 POST https://hh.ru/oauth/token
-grant_type=refresh_token&refresh_token={refresh_token}
+
+grant_type=refresh_token&={refresh_token}
 ```
 
 Ответ будет идентичен ответу на получения токенов в первый раз:
 
 ```json
 {
-  "access_token": "{access_token}",
-  "token_type": "bearer",
-  "expires_in": 1209600,
-  "refresh_token": "{refresh_token}",
+    "access_token": "{access_token}",
+    "token_type": "bearer",
+    "expires_in": 1209600,
+    "refresh_token": "{refresh_token}",
 }
 ```
 
@@ -180,9 +194,9 @@ grant_type=refresh_token&refresh_token={refresh_token}
 
 
 <a name="check-access_token"></a>
-### Использование и проверка access_token
+## Использование и проверка access-токена
 
-Приложение должно использовать полученный `access_token` для авторизации, 
+Приложение должно использовать полученный `access_token` для авторизации,
 передавая его в заголовке в формате:
 
 ```Authorization: Bearer ACCESS_TOKEN```
@@ -202,8 +216,8 @@ Authorization: Bearer access_token
 
 [Описание ошибок авторизации](errors.md#oauth).
 
-
-### Запрос авторизации под другим пользователем
+<a name="force-login"></a>
+## Запрос авторизации под другим пользователем
 
 Возможен следующий сценарий:
 
@@ -233,6 +247,7 @@ Authorization: Bearer access_token
 другим логином.
 
 
+<a name="links"></a>
 ## Полезные ссылки
 
 * Подробная документация по протоколу: [RFC 6749](http://tools.ietf.org/html/rfc6749)

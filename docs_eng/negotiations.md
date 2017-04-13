@@ -375,7 +375,7 @@ comment:
 ### Errors
 
 * `404 Not Found` – response with this ID doesn't exist
-* `403 Bad Request` – the message is not sent
+* `403 Forbidden` – the message is not sent
 
 In addition to an HTTP code, the server can return
 [error reason](errors.md#negotiations).
