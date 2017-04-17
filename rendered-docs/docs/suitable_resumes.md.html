@@ -737,26 +737,36 @@
     <article class="markdown-body">
     <h1>Список подходящих для отклика резюме</h1>
 
-<p>Для того, чтобы определить, каким из своих резюме пользователь может откликнуться на вакансию c идентификатором <code>vacancy_id</code>, 
-необходимо отправить запрос <code>GET</code> на <code>/vacancies/{vacancy_id}/suitable_resumes</code>.</p>
+<h3 id="-2">Запрос</h3>
 
-<p>В случае успеха придёт ответ со статусом HTTP <code>200 OK</code>, содержащий список сокращенных представлений резюме пользователя, 
-которыми возможно откликнуться на данную вакансию:</p>
+<pre><code>GET /vacancies/{vacancy_id}/suitable_resumes
+</code></pre>
+
+<p>где <code>vacancy_id</code> – идентификатор вакансии.</p>
+
+<p>Вернётся информация о том, каким из своих резюме пользователь может
+откликнуться на вакансию.</p>
+
+<h3 id="-3">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит список сокращенных
+представлений резюме пользователя, которыми возможно откликнуться на данную
+вакансию:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-          <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Дизайнер резюме&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-03T00:43:20+0400&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-22T12:25:18+0400&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/resume/14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Дизайнер резюме&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-03T00:43:20+0400&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-11-22T12:25:18+0400&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/resume/14831542000d1f366b4c5a6a751b329b70039e&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;clients&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;видно всем компаниям, зарегистрированным на HeadHunter&quot;</span>
@@ -872,84 +882,51 @@
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;overall&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;not_published&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;already_applied&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;unavailable&quot;</span><span class="p">:</span> <span class="mi">0</span>    
+        <span class="nt">&quot;not_published&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;already_applied&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;unavailable&quot;</span><span class="p">:</span> <span class="mi">3</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<table>
-<thead>
-<tr>
-  <th>имя</th>
-  <th>тип</th>
-  <th>значение</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>id</td>
-  <td>строка</td>
-  <td>Идентификатор резюме</td>
-</tr>
-<tr>
-  <td>title</td>
-  <td>строка</td>
-  <td>Желаемая должность</td>
-</tr>
-<tr>
-  <td>created_at</td>
-  <td>строка</td>
-  <td>Дата и время создания резюме</td>
-</tr>
-<tr>
-  <td>updated_at</td>
-  <td>строка</td>
-  <td>Дата и время последнего обновления резюме</td>
-</tr>
-<tr>
-  <td>url</td>
-  <td>строка</td>
-  <td>Ссылка на данное резюме в api</td>
-</tr>
-<tr>
-  <td>alternate_url</td>
-  <td>строка</td>
-  <td>Ссылка на данное резюме на сайте</td>
-</tr>
-</tbody>
-</table>
+<p>Описание полей смотрите в <a href="resumes.md.html#resume-fields">выдаче полного резюме</a>.</p>
 
-<p>Остальные поля сокращенного представления резюме аналогичны <a href="resumes.md.html#resume-keys">полям при редактировании</a>.</p>
-
-<p>При пустом списке невозможно понять, есть ли у пользователя резюме, но они все не подходят, или же их нет. Для этого выдаётся 
-дополнительная информация в ключе <code>overall</code>:</p>
+<p>При пустом списке невозможно понять, есть ли у пользователя резюме, но они все
+не подходят, или же их нет. Для этого выдаётся дополнительная информация в
+ключе <code>overall</code>:</p>
 
 <table>
 <thead>
 <tr>
-  <th>ключ</th>
-  <th>значение</th>
+  <th>Поле</th>
+  <th>Тип</th>
+  <th>Значение</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>not_published</td>
-  <td>количество неопубликованных резюме пользователя</td>
+  <td>number</td>
+  <td>количество неопубликованных резюме</td>
 </tr>
 <tr>
   <td>already_applied</td>
+  <td>number</td>
   <td>количество резюме, которыми пользователь уже откликался на эту вакансию</td>
 </tr>
 <tr>
   <td>unavailable</td>
-  <td>количество резюме пользователей, которыми по другим причинам невозможно откликнуться (конфликтующие настройки видимости резюме и т.п.)</td>
+  <td>number</td>
+  <td>количество резюме, которыми по другим причинам невозможно откликнуться (конфликтующие настройки видимости резюме и т.п.)</td>
 </tr>
 </tbody>
 </table>
 
-<p>Запрос возможно выполнить только соискателем, для других типов авторизации будет возвращен HTTP статус <code>403 Forbidden</code>.</p>
+<h3 id="-4">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – при запросе не от имени соискателя</li>
+</ul>
 
     </article>
     </body>

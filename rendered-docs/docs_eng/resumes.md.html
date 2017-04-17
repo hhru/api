@@ -789,24 +789,12 @@ will have <code>false</code> value.</p>
     <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Last Name&quot;</span><span class="p">,</span>
     <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;First Name&quot;</span><span class="p">,</span>
     <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Middle Name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span>
     <span class="nt">&quot;birth_date&quot;</span><span class="p">:</span> <span class="s2">&quot;1980-05-08&quot;</span><span class="p">,</span>
     <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Male&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;portfolio&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
     <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
@@ -881,6 +869,19 @@ will have <code>false</code> value.</p>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Python programmer&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;portfolio&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;specialization&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1.221&quot;</span><span class="p">,</span>
@@ -905,10 +906,16 @@ will have <code>false</code> value.</p>
         <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
         <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Full time&quot;</span>
-    <span class="p">},</span>
+    <span class="nt">&quot;employments&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Full time&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;part&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Частичная занятость&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;schedules&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;fullDay&quot;</span><span class="p">,</span>
@@ -976,9 +983,6 @@ will have <code>false</code> value.</p>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">94</span>
-    <span class="p">},</span>
     <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Employer name&quot;</span><span class="p">,</span>
@@ -1005,6 +1009,9 @@ will have <code>false</code> value.</p>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description of activity in the company&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
+    <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">94</span>
+    <span class="p">},</span>
     <span class="nt">&quot;skills&quot;</span><span class="p">:</span> <span class="s2">&quot;Additional information: key skills&quot;</span><span class="p">,</span>
     <span class="nt">&quot;skill_set&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;HTML&quot;</span><span class="p">,</span>
@@ -1035,11 +1042,27 @@ will have <code>false</code> value.</p>
             <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Roskosmos&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/resume/12345678901234567890123456789012abcdef&quot;</span><span class="p">,</span>
     <span class="nt">&quot;resume_locale&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;RU&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Russian&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Certified Java Professional Programmer&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com/certificate/123456&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;MCSE: Windows NT 4.0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;1998-01-26&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="s2">&quot;JOHN DOE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;microsoft&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/resume/12345678901234567890123456789012abcdef&quot;</span><span class="p">,</span>
     <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-31T14:27:04+0400&quot;</span><span class="p">,</span>
     <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-17T15:22:55+0400&quot;</span><span class="p">,</span>
     <span class="nt">&quot;blocked&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>

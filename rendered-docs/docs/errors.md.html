@@ -1141,8 +1141,8 @@
 
 <h3 id="-11">Публикация и редактирование вакансий</h3>
 
-<p>Помимо кода ошибки при <a href="employer_vacancies.md.md.html#creation">публикации</a> и
-<a href="employer_vacancies.md.md.html#edit">редактировании</a> вакансии могут быть возвращены
+<p>Помимо кода ошибки при <a href="employer_vacancies.md.html#creation">публикации</a> и
+<a href="employer_vacancies.md.html#edit">редактировании</a> вакансии могут быть возвращены
 следующие ошибки:</p>
 
 <table>
@@ -1177,7 +1177,7 @@
   <td>409</td>
   <td>vacancies</td>
   <td>duplicate</td>
-  <td>аналогичная вакансия уже опубликована, данную ошибку можно <a href="employer_vacancies.md.html#creation-results">форсировано отключить</a></td>
+  <td>аналогичная вакансия уже опубликована, данную ошибку можно <a href="employer_vacancies.md.html#creation-ignore-duplicates">форсировано отключить</a></td>
 </tr>
 <tr>
   <td>403</td>
@@ -1295,6 +1295,105 @@
   <td><em>field_name</em></td>
   <td>not_editable</td>
   <td>поле <em>field_name</em> недоступно для редактирования</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="resumes"></a></p>
+
+<h3 id="-14">Работа с резюме</h3>
+
+<p>Помимо <a href="#general-errors">общих ошибок</a> при
+<a href="resumes.md.html#item">получении</a> и <a href="resumes.md.html#create_edit">обновлении</a> резюме могут
+быть возвращены следующие ошибки:</p>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>resumes</td>
+  <td>total_limit_exceeded</td>
+  <td>превышено допустимое количество резюме (актуально только для соискателей)</td>
+</tr>
+<tr>
+  <td>429</td>
+  <td>resumes</td>
+  <td>view_limit_exceeded</td>
+  <td>превышен лимит просмотров резюме в сутки (актуально только для работодателей)</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="vacancies_blacklist"></a></p>
+
+<h3 id="-15">Добавление в список скрытых вакансий</h3>
+
+<p>Помимо <a href="#general-errors">общих ошибок</a> при
+<a href="blacklisted.md.html#vacancies">добавлении в список скрытых вакансий</a>
+могут быть возвращены следующие ошибки:</p>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>vacancies_blacklist</td>
+  <td>limit_exceeded</td>
+  <td>превышен лимит на количество вакансий в списке скрытых</td>
+</tr>
+<tr>
+  <td>404</td>
+  <td>vacancies_blacklist</td>
+  <td>not_found</td>
+  <td>вакансия для добавления в список не найдена</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="employers_blacklist"></a></p>
+
+<h3 id="-16">Добавление в список скрытых компаний</h3>
+
+<p>Помимо <a href="#general-errors">общих ошибок</a> при
+<a href="blacklisted.md.html#employers">добавлении в список скрытых вакансий компаний</a>
+могут быть возвращены следующие ошибки:</p>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>employers_blacklist</td>
+  <td>limit_exceeded</td>
+  <td>превышен лимит на количество вакансий в списке скрытых</td>
+</tr>
+<tr>
+  <td>404</td>
+  <td>employers_blacklist</td>
+  <td>not_found</td>
+  <td>вакансия для добавления в список не найдена</td>
 </tr>
 </tbody>
 </table>

@@ -737,6 +737,20 @@
     <article class="markdown-body">
     <h1>Авторизация</h1>
 
+<ul>
+<li><a href="#get-auth">Получение авторизации</a>
+<ul>
+<li><a href="#redirect_uri">Правила формирования специального redirect_uri</a></li>
+<li><a href="#get-auth-process">Процесс авторизации</a></li>
+<li><a href="#get-authorization_code">Успешное получение временного <code>authorization_code</code></a></li>
+<li><a href="#get-tokens">Получение access и refresh токенов</a></li>
+</ul></li>
+<li><a href="#refresh_token">Обновление пары access и refresh токенов</a></li>
+<li><a href="#check-access_token">Использование и проверка access-токена</a></li>
+<li><a href="#force-login">Запрос авторизации под другим пользователем</a></li>
+<li><a href="#links">Полезные ссылки</a></li>
+</ul>
+
 <p><a name="general"></a>
 Авторизация осуществляется по протоколу OAuth 2.0. Подробная документация по
 протоколу: <a href="http://tools.ietf.org/html/rfc6749">RFC 6749</a>.</p>
@@ -760,27 +774,32 @@
 <p>В начале приложению необходимо направить пользователя (открыть страницу)
 по адресу:</p>
 
-<pre><code>https://hh.ru/oauth/authorize?response_type=code&amp;client_id={client_id}&amp;state={state}&amp;redirect_uri={redirect_uri}
+<pre><code>https://hh.ru/oauth/authorize?
+  response_type=code&amp;
+  client_id={client_id}&amp;
+  state={state}&amp;
+  redirect_uri={redirect_uri}
 </code></pre>
 
 <p>Обязательные параметры:</p>
 
 <ul>
 <li><code>response_type=code</code> — указание на способ получение авторизации, используя
-authorization code;</li>
-<li><code>client_id={client_id}</code> — идентификатор, полученный при создании приложения;</li>
+authorization code</li>
+<li><code>client_id</code> — идентификатор, полученный при создании приложения</li>
 </ul>
 
 <p>Необязательные параметры:</p>
 
 <ul>
-<li><code>state={state}</code> — в случае указания, будет включен в ответный редирект.
+<li><code>state</code> — в случае указания, будет включен в ответный редирект.
 Это позволяет исключить возможность взлома путём подделки межсайтовых
 запросов. Подробнее об этом:
 <a href="http://tools.ietf.org/html/rfc6749#section-10.12">RFC 6749. Section 10.12</a></li>
-<li><code>redirect_uri={redirect_uri}</code> — uri для перенаправления пользователя после
+<li><code>redirect_uri</code> — uri для перенаправления пользователя после
 авторизации. Если не указать, используется из настроек приложения. При
-наличии происходит валидация значения.</li>
+наличии происходит валидация значения. Вероятнее всего, потребуется сделать
+urlencode значения параметра.</li>
 </ul>
 
 <p><a name="redirect_uri"></a></p>
@@ -843,19 +862,15 @@ authorization code;</li>
 POST-запрос на <code>https://hh.ru/oauth/token</code> для обмена полученного
 <code>authorization_code</code> на <code>access_token</code>.</p>
 
-<p>В запросе необходимо передать:</p>
+<p>В запросе необходимо передать дополнительные параметры:</p>
 
-<pre><code>grant_type=authorization_code&amp;client_id={client_id}&amp;client_secret={client_secret}&amp;code={authorization_code}&amp;redirect_uri={redirect_uri}
-</code></pre>
-
-<p><code>client_id</code> и <code>client_secret</code> - необходимо заполнить значениями, выданными при
-<a href="https://dev.hh.ru/admin">регистрации приложения</a>.</p>
-
-<p>Если при получении <code>authorization_code</code> был указан <code>redirect_uri</code>, то в запросе
-необходимо обязательно передать это значение (происходит сравнение строк),
-иначе этот параметр необязателен. Если же не указать <code>redirect_uri</code> при запросе
-на <code>/oauth/authorize</code>, то при указании его во втором запросе (<code>/oauth/token</code>)
-сервер вернёт ошибку.</p>
+<ul>
+<li><code>grant_type=authorization_code</code></li>
+<li><code>client_id</code> и <code>client_secret</code> - необходимо заполнить значениями, выданными при
+<a href="https://dev.hh.ru/admin">регистрации приложения</a>.</li>
+<li><code>redirect_uri</code> - Необходимо передать то же, что было указано при
+<a href="#get-auth">получении авторизации</a>. В противном случае вернется ошибка.</li>
+</ul>
 
 <p>Тело запроса необходимо передавать в стандартном
 <code>application/x-www-form-urlencoded</code> с указанием соответствующего заголовка
@@ -864,17 +879,18 @@ POST-запрос на <code>https://hh.ru/oauth/token</code> для обмен�
 <p>В ответе вернётся JSON:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{access_token}&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span>
-  <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{refresh_token}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{access_token}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span>
+    <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{refresh_token}&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p><code>authorization_code</code> имеет довольно короткий срок жизни, при его истечении
 необходимо запросить новый.</p>
 
-<p>Если обмен <code>authorization_code</code> произвести не удалось, то вернётся ответ <code>400 Bad Request</code> с телом:</p>
+<p>Если обмен <code>authorization_code</code> произвести не удалось, то вернётся ответ
+<code>400 Bad Request</code> с телом:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -882,11 +898,15 @@ POST-запрос на <code>https://hh.ru/oauth/token</code> для обмен�
 <span class="p">}</span>
 </code></pre></div>
 
-<p>где:
-* <code>error</code> будет иметь одно из значений,
-  <a href="http://tools.ietf.org/html/rfc6749#section-5.2">описанных в стандарте RFC 6749</a>.
-  Например, <code>invalid_request</code>, если какой либо из обязательных параметров не был передан.
-* <code>error_description</code> будет содержать дополнительное описание ошибки.</p>
+<p>где:</p>
+
+<ul>
+<li><code>error</code> – одно из значений,
+<a href="http://tools.ietf.org/html/rfc6749#section-5.2">описанных в стандарте RFC 6749</a>.
+Например, <code>invalid_request</code>, если какой либо из обязательных параметров
+не был передан.</li>
+<li><code>error_description</code> – дополнительное описание ошибки.</li>
+</ul>
 
 <p><a name="refresh_token"></a></p>
 
@@ -899,16 +919,17 @@ POST-запрос на <code>https://hh.ru/oauth/token</code> для обмен�
 <p>Запрос необходимо делать в <code>application/x-www-form-urlencoded</code>.</p>
 
 <pre><code>POST https://hh.ru/oauth/token
-grant_type=refresh_token&amp;refresh_token={refresh_token}
+
+grant_type=refresh_token&amp;={refresh_token}
 </code></pre>
 
 <p>Ответ будет идентичен ответу на получения токенов в первый раз:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{access_token}&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span>
-  <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{refresh_token}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{access_token}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span>
+    <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;{refresh_token}&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -920,9 +941,9 @@ grant_type=refresh_token&amp;refresh_token={refresh_token}
 
 <p><a name="check-access_token"></a></p>
 
-<h3 id="access_token">Использование и проверка access_token</h3>
+<h2 id="access-">Использование и проверка access-токена</h2>
 
-<p>Приложение должно использовать полученный <code>access_token</code> для авторизации, 
+<p>Приложение должно использовать полученный <code>access_token</code> для авторизации,
 передавая его в заголовке в формате:</p>
 
 <p><code>Authorization: Bearer ACCESS_TOKEN</code></p>
@@ -941,7 +962,9 @@ grant_type=refresh_token&amp;refresh_token={refresh_token}
 
 <p><a href="errors.md.html#oauth">Описание ошибок авторизации</a>.</p>
 
-<h3 id="-4">Запрос авторизации под другим пользователем</h3>
+<p><a name="force-login"></a></p>
+
+<h2 id="-4">Запрос авторизации под другим пользователем</h2>
 
 <p>Возможен следующий сценарий:</p>
 
@@ -971,6 +994,8 @@ grant_type=refresh_token&amp;refresh_token={refresh_token}
 
 <p>и предоставить ссылку с <code>force_login=true</code> для возможности захода под
 другим логином.</p>
+
+<p><a name="links"></a></p>
 
 <h2 id="-5">Полезные ссылки</h2>
 

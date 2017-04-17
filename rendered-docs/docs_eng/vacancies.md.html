@@ -781,123 +781,137 @@
 <p>Example: <a href="https://api.hh.ru/vacancies/12080698?locale=EN">https://api.hh.ru/vacancies/12080698?locale=EN</a></p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-      <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;branded_description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;style&gt;...&lt;/style&gt;&lt;div&gt;...&lt;/div&gt;&lt;script&gt;&lt;/script&gt;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Visitor reception&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Source document circulation&quot;</span><span class="p">}</span>
-      <span class="p">],</span>
-      <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;branded_description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;style&gt;...&lt;/style&gt;&lt;div&gt;...&lt;/div&gt;&lt;script&gt;&lt;/script&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;key_skills&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Visitor reception&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Source document circulation&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;schedule&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;fullDay&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Full time&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;between3And6&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Between 3 and 6 years&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;Godovikova&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Additional information&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
+        <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span><span class="p">,</span>
+        <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="s2">&quot;Textual address description as entered&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metro_stations&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;station name&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;line_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Line name&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;station_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Station ID&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;line_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Line ID&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
+                <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;apply_alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/applicant/vacancy_response?vacancyId=8331228&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;HHR-3487&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18320489-18320489-dept1&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DEPT1&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Full time&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8331228&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
         <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Secretary&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Secretary&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1?locale=EN&quot;</span><span class="p">,</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
-      <span class="nt">&quot;negotiations_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations?vacancy_id=8331228&amp;locale=EN&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="nt">&quot;suitable_resumes_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/8331228/suitable_resumes?locale=EN&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;published_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-08T16:17:21+0400&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;negotiations_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/negotiations?vacancy_id=8331228&amp;locale=EN&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;suitable_resumes_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies/8331228/suitable_resumes?locale=EN&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;employer&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;logo_urls&quot;</span><span class="p">:</span> <span class="p">{</span>
-          <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/file/2352807.png&quot;</span>
+            <span class="nt">&quot;90&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/employer-logo/289027.png&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;240&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/employer-logo/289169.png&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/file/2352807.png&quot;</span>
         <span class="p">},</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HeadHunter&quot;</span><span class="p">,</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/employers/1455?locale=EN&quot;</span><span class="p">,</span>
         <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/employer/1455&quot;</span><span class="p">,</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1455&quot;</span><span class="p">,</span>
         <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="nt">&quot;response_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Open&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;response_url&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-          <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrative staff&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.255&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Reception&quot;</span>
+            <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrative staff&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.255&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Reception&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
-          <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrative staff&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.429&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Office work&quot;</span>
+            <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrative staff&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.429&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Office work&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
-          <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrative staff&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.264&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Secretary&quot;</span>
+            <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrative staff&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.264&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Secretary&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
-          <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrative staff&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.181&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Beginner level, Little experience&quot;</span>
+            <span class="nt">&quot;profarea_id&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;profarea_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Administrative staff&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;4.181&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Beginner level, Little experience&quot;</span>
         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;First name&quot;</span><span class="p">,</span>
         <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
         <span class="nt">&quot;phones&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-            <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;985&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;000-00-00&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span>
-          <span class="p">}</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;985&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="s2">&quot;000-00-00&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span>
+            <span class="p">}</span>
         <span class="p">]</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;billing_type&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;standard&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Standard&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;site&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hh&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hh.ru&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;18320489-18320489-dept1&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;DEPT1&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">null</span>
     <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p><code>branded_description</code> – a string with HTML code ( <code>&lt;script/&gt;</code> and <code>&lt;style/&gt;</code> may

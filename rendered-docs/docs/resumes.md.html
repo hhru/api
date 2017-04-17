@@ -749,6 +749,7 @@
 <li><a href="#create_edit">Создание и редактирование резюме</a></li>
 <li><a href="#publish">Публикация и продление резюме</a></li>
 <li><a href="#clone">Клонирование резюме</a></li>
+<li><a href="#delete">Удаление резюме</a></li>
 <li><a href="#conditions">Условия заполнения полей резюме</a>
 <ul>
 <li><a href="#init-conditions">Условия заполнения полей нового резюме</a></li>
@@ -908,8 +909,8 @@
 </code></pre></div>
 
 <p><a name="resumes-mine-author-fields"></a>
-Поля резюме аналогичны <a href="#resume-keys">полям при редактировании</a>, а также
-дополнительно содержат:</p>
+Описание полей смотрите в <a href="#resume-fields">выдаче полного резюме</a>.
+Дополнительно ответ содержит:</p>
 
 <table>
 <thead>
@@ -987,24 +988,12 @@
     <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Фамилия&quot;</span><span class="p">,</span>
     <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Имя&quot;</span><span class="p">,</span>
     <span class="nt">&quot;middle_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отчество&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span>
     <span class="nt">&quot;birth_date&quot;</span><span class="p">:</span> <span class="s2">&quot;1980-05-08&quot;</span><span class="p">,</span>
     <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Мужской&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;portfolio&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
     <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span><span class="p">,</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
@@ -1080,6 +1069,19 @@
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Программист Python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;photo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;portfolio&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/...&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1337&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;specialization&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1.221&quot;</span><span class="p">,</span>
@@ -1107,10 +1109,16 @@
         <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">100500</span><span class="p">,</span>
         <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Полная занятость&quot;</span>
-    <span class="p">},</span>
+    <span class="nt">&quot;employments&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Полная занятость&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;part&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Частичная занятость&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;schedules&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;fullDay&quot;</span><span class="p">,</span>
@@ -1178,9 +1186,6 @@
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">94</span>
-    <span class="p">},</span>
     <span class="nt">&quot;experience&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="s2">&quot;Название работодателя&quot;</span><span class="p">,</span>
@@ -1207,6 +1212,9 @@
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Описание деятельности в компании&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
+    <span class="nt">&quot;total_experience&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;months&quot;</span><span class="p">:</span> <span class="mi">94</span>
+    <span class="p">},</span>
     <span class="nt">&quot;skills&quot;</span><span class="p">:</span> <span class="s2">&quot;Дополнительная информация: ключевые навыки&quot;</span><span class="p">,</span>
     <span class="nt">&quot;skill_set&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;HTML&quot;</span><span class="p">,</span>
@@ -1237,21 +1245,796 @@
             <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Роскосмос&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/resume/12345678901234567890123456789012abcdef&quot;</span><span class="p">,</span>
     <span class="nt">&quot;resume_locale&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;RU&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Русский&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Certified Java Professional Programmer&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com/certificate/123456&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;MCSE: Windows NT 4.0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;achieved_at&quot;</span><span class="p">:</span> <span class="s2">&quot;1998-01-26&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;owner&quot;</span><span class="p">:</span> <span class="s2">&quot;JOHN DOE&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;microsoft&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/resume/12345678901234567890123456789012abcdef&quot;</span><span class="p">,</span>
     <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-31T14:27:04+0400&quot;</span><span class="p">,</span>
     <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-17T15:22:55+0400&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
+<p><a name="resume-fields"></a></p>
+
+<table>
+<thead>
+<tr>
+  <th>Поле</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Идентификатор резюме</td>
+</tr>
+<tr>
+  <td>last_name</td>
+  <td>string или null</td>
+  <td>Фамилия</td>
+</tr>
+<tr>
+  <td>first_name</td>
+  <td>string или null</td>
+  <td>Имя</td>
+</tr>
+<tr>
+  <td>middle_name</td>
+  <td>string или null</td>
+  <td>Отчество</td>
+</tr>
+<tr>
+  <td>age</td>
+  <td>number или null</td>
+  <td>Возраст</td>
+</tr>
+<tr>
+  <td>birth_date</td>
+  <td>string или null</td>
+  <td>День рождения (в формате <code>ГГГГ-ММ-ДД</code>)</td>
+</tr>
+<tr>
+  <td>gender</td>
+  <td>object или null</td>
+  <td>Пол. Элемент справочника <a href="dictionaries.md.html">gender</a></td>
+</tr>
+<tr>
+  <td>gender.id</td>
+  <td>string</td>
+  <td>Идентификатор пола</td>
+</tr>
+<tr>
+  <td>gender.name</td>
+  <td>string</td>
+  <td>Название пола</td>
+</tr>
+<tr>
+  <td>area</td>
+  <td>object или null</td>
+  <td>Город проживания. Элемент справочника <a href="areas.md.html">areas</a></td>
+</tr>
+<tr>
+  <td>area.id</td>
+  <td>string</td>
+  <td>Идентификатор города</td>
+</tr>
+<tr>
+  <td>area.name</td>
+  <td>string</td>
+  <td>Название города</td>
+</tr>
+<tr>
+  <td>area.url</td>
+  <td>string</td>
+  <td>Url получения информации о городе</td>
+</tr>
+<tr>
+  <td>metro</td>
+  <td>object или null</td>
+  <td>Ближайшая станция метро. Элемент справочника <a href="metro.md.html">metro</a></td>
+</tr>
+<tr>
+  <td>metro.id</td>
+  <td>string</td>
+  <td>Идентификатор станции</td>
+</tr>
+<tr>
+  <td>metro.name</td>
+  <td>string</td>
+  <td>Название станции</td>
+</tr>
+<tr>
+  <td>metro.lat</td>
+  <td>number</td>
+  <td>Широта расположения станции (число с плавающей запятой)</td>
+</tr>
+<tr>
+  <td>metro.lng</td>
+  <td>number</td>
+  <td>Долгота расположения станции (число с плавающей запятой)</td>
+</tr>
+<tr>
+  <td>metro.order</td>
+  <td>number</td>
+  <td>Порядковый номер станции на линии метро, начиная с 0</td>
+</tr>
+<tr>
+  <td>relocation</td>
+  <td>object</td>
+  <td>Информация о возможности переезда в другой город</td>
+</tr>
+<tr>
+  <td>relocation.type</td>
+  <td>object</td>
+  <td>Готовность к переезду. Элемент справочника <a href="dictionaries.md.html">relocation_type</a></td>
+</tr>
+<tr>
+  <td>relocation.type.id</td>
+  <td>string</td>
+  <td>Идентификатор типа готовности к переезду</td>
+</tr>
+<tr>
+  <td>relocation.type.name</td>
+  <td>string</td>
+  <td>Название типа готовности к переезду</td>
+</tr>
+<tr>
+  <td>relocation.areas</td>
+  <td>array</td>
+  <td>Список городов, в которые возможен переезд. Может быть пустым. Содержит элементы <a href="areas.md.html">справочника регионов</a>.</td>
+</tr>
+<tr>
+  <td>relocation.areas[].id</td>
+  <td>string</td>
+  <td>Идентификатор региона</td>
+</tr>
+<tr>
+  <td>relocation.areas[].name</td>
+  <td>string</td>
+  <td>Название региона</td>
+</tr>
+<tr>
+  <td>relocation.areas[].url</td>
+  <td>string</td>
+  <td>Url получения информации о регионе</td>
+</tr>
+<tr>
+  <td>business_trip_readiness</td>
+  <td>object</td>
+  <td>Готовность к командировкам. Элемент справочника <a href="dictionaries.md.html#resume_trip_readiness">resume_trip_readiness</a></td>
+</tr>
+<tr>
+  <td>business_trip_readiness.id</td>
+  <td>string</td>
+  <td>Идентификатор типа готовности к командировкам</td>
+</tr>
+<tr>
+  <td>business_trip_readiness.name</td>
+  <td>string</td>
+  <td>Название типа готовности к командировкам</td>
+</tr>
+<tr>
+  <td>contact</td>
+  <td>array</td>
+  <td>Список контактов соискателя. Может быть пустым, например, для работодателя, если просмотр контактов недоступен.</td>
+</tr>
+<tr>
+  <td>contact[].type</td>
+  <td>object</td>
+  <td>Тип контакта. Элемент справочника <a href="dictionaries.md.html">prefered_contact_type</a></td>
+</tr>
+<tr>
+  <td>contact[].type.id</td>
+  <td>string</td>
+  <td>Идентификатор типа контакта</td>
+</tr>
+<tr>
+  <td>contact[].type.name</td>
+  <td>string</td>
+  <td>Название типа контакта</td>
+</tr>
+<tr>
+  <td>contact[].value</td>
+  <td>string или object</td>
+  <td>Значение контакта. Для телефона  – объект из четырех полей <code>country</code>, <code>city</code>, <code>number</code>, <code>formatted</code>, для email — строка.</td>
+</tr>
+<tr>
+  <td>contact[].value.country</td>
+  <td>string</td>
+  <td>Код страны (при указании телефона)</td>
+</tr>
+<tr>
+  <td>contact[].value.city</td>
+  <td>string</td>
+  <td>Код города (при указании телефона)</td>
+</tr>
+<tr>
+  <td>contact[].value.number</td>
+  <td>string</td>
+  <td>Номер (при указании телефона)</td>
+</tr>
+<tr>
+  <td>contact[].value.formatted</td>
+  <td>string</td>
+  <td>Отформатированный номер телефона (при указании телефона)</td>
+</tr>
+<tr>
+  <td>contact[].preferred</td>
+  <td>boolean</td>
+  <td>Является ли данный способ связи предпочитаемым</td>
+</tr>
+<tr>
+  <td>contact[].comment</td>
+  <td>string</td>
+  <td>Комментарий к контакту</td>
+</tr>
+<tr>
+  <td>photo</td>
+  <td>object или null</td>
+  <td>Фотография пользователя</td>
+</tr>
+<tr>
+  <td>photo.id</td>
+  <td>string</td>
+  <td>Уникальный идентификатор изображения</td>
+</tr>
+<tr>
+  <td>photo.small</td>
+  <td>string</td>
+  <td>Url уменьшенного изображения. Изображение по данному url доступно ограниченное время, после получения ответа. Приложение должно быть готово к тому, что на запрос изображения вернётся <code>404 Not Found</code>.</td>
+</tr>
+<tr>
+  <td>photo.medium</td>
+  <td>string</td>
+  <td>Url среднего по размеру изображения. Изображение по данному url доступно ограниченное время, после получения ответа. Приложение должно быть готово к тому, что на запрос изображения вернётся <code>404 Not Found</code>.</td>
+</tr>
+<tr>
+  <td>portfolio</td>
+  <td>array</td>
+  <td>Список изображений в портфолио пользователя. Может быть пустым.</td>
+</tr>
+<tr>
+  <td>portfolio[].id</td>
+  <td>string</td>
+  <td>Уникальный идентификатор изображения</td>
+</tr>
+<tr>
+  <td>portfolio[].small</td>
+  <td>string</td>
+  <td>Url уменьшенного изображения. Изображение по данному url доступно ограниченное время, после получения ответа. Приложение должно быть готово к тому, что на запрос изображения вернётся <code>404 Not Found</code>.</td>
+</tr>
+<tr>
+  <td>portfolio[].medium</td>
+  <td>string</td>
+  <td>Url среднего по размеру изображения. Изображение по данному url доступно ограниченное время, после получения ответа. Приложение должно быть готово к тому, что на запрос изображения вернётся <code>404 Not Found</code>.</td>
+</tr>
+<tr>
+  <td>portfolio[].description</td>
+  <td>string</td>
+  <td>Описание изображения в портфолио</td>
+</tr>
+<tr>
+  <td>site</td>
+  <td>array</td>
+  <td>Профили в соц. сетях и других сервисах</td>
+</tr>
+<tr>
+  <td>site[].type</td>
+  <td>object</td>
+  <td>Тип профиля. Элемент справочника <a href="dictionaries.md.html">resume_contacts_site_type</a></td>
+</tr>
+<tr>
+  <td>site[].type.id</td>
+  <td>string</td>
+  <td>Идентификатов типа профиля</td>
+</tr>
+<tr>
+  <td>site[].type.name</td>
+  <td>string</td>
+  <td>Название типа профиля</td>
+</tr>
+<tr>
+  <td>site[].url</td>
+  <td>string</td>
+  <td>Ссылка на профиль или идентификатор</td>
+</tr>
+<tr>
+  <td>title</td>
+  <td>string или null</td>
+  <td>Желаемая должность</td>
+</tr>
+<tr>
+  <td>specialization</td>
+  <td>array</td>
+  <td>Специализации соискателя. Элементы справочника <a href="specializations.md.html">specializations</a></td>
+</tr>
+<tr>
+  <td>specialization[].id</td>
+  <td>string</td>
+  <td>Идентификатор специализации</td>
+</tr>
+<tr>
+  <td>specialization[].name</td>
+  <td>string</td>
+  <td>Название специализации</td>
+</tr>
+<tr>
+  <td>specialization[].profarea_id</td>
+  <td>string</td>
+  <td>Идентификатор профессиональной области, в которую входит специализация</td>
+</tr>
+<tr>
+  <td>specialization[].profarea_name</td>
+  <td>string</td>
+  <td>Название профессиональной области, в которую входит специализация</td>
+</tr>
+<tr>
+  <td>specialization[].laboring</td>
+  <td>boolean</td>
+  <td>Относится ли специализация к списку рабочих специальностей</td>
+</tr>
+<tr>
+  <td>salary</td>
+  <td>object или null</td>
+  <td>Желаемая зарплата</td>
+</tr>
+<tr>
+  <td>salary.amount</td>
+  <td>number</td>
+  <td>Сумма</td>
+</tr>
+<tr>
+  <td>salary.currency</td>
+  <td>string</td>
+  <td>Идентификатор <a href="dictionaries.md.html">валюты</a></td>
+</tr>
+<tr>
+  <td>employments</td>
+  <td>array</td>
+  <td>Список подходящих соискателю типов занятостей. Может быть пустой. Элементы справочника <a href="dictionaries.md.html">employment</a></td>
+</tr>
+<tr>
+  <td>employments[].id</td>
+  <td>string</td>
+  <td>Идентификатор типа занятости</td>
+</tr>
+<tr>
+  <td>employments[].name</td>
+  <td>string</td>
+  <td>Название типа занятости</td>
+</tr>
+<tr>
+  <td>schedules</td>
+  <td>array</td>
+  <td>Список подходящих соискателю графиков работы. Элементы справочника <a href="dictionaries.md.html">schedule</a></td>
+</tr>
+<tr>
+  <td>schedules[].id</td>
+  <td>string</td>
+  <td>Идентификатор графика работы</td>
+</tr>
+<tr>
+  <td>schedules[].name</td>
+  <td>string</td>
+  <td>Название графика работы</td>
+</tr>
+<tr>
+  <td>education</td>
+  <td>object</td>
+  <td>Образование</td>
+</tr>
+<tr>
+  <td>education.elementary</td>
+  <td>array</td>
+  <td>Среднее образование. Обычно заполняется только при отсутствии высшего образования. Может быть пустым.</td>
+</tr>
+<tr>
+  <td>education.elementary[].year</td>
+  <td>number</td>
+  <td>Год окончания</td>
+</tr>
+<tr>
+  <td>education.elementary[].name</td>
+  <td>string</td>
+  <td>Название учебного заведения</td>
+</tr>
+<tr>
+  <td>education.additional</td>
+  <td>array</td>
+  <td>Список куров повышения квалификации. Может быть пустым</td>
+</tr>
+<tr>
+  <td>education.additional[].organization</td>
+  <td>string</td>
+  <td>Организация, проводившая курс</td>
+</tr>
+<tr>
+  <td>education.additional[].name</td>
+  <td>string</td>
+  <td>Название курса</td>
+</tr>
+<tr>
+  <td>education.additional[].result</td>
+  <td>string</td>
+  <td>Специальность / специализация</td>
+</tr>
+<tr>
+  <td>education.additional[].year</td>
+  <td>number</td>
+  <td>Год окончания</td>
+</tr>
+<tr>
+  <td>education.attestation</td>
+  <td>array</td>
+  <td>Список пройденных тестов или экзаменов</td>
+</tr>
+<tr>
+  <td>education.attestation[].organization</td>
+  <td>string</td>
+  <td>Организация, проводившая тест или экзамен</td>
+</tr>
+<tr>
+  <td>education.attestation[].name</td>
+  <td>string</td>
+  <td>Название теста или экзамена</td>
+</tr>
+<tr>
+  <td>education.attestation[].result</td>
+  <td>string</td>
+  <td>Специальность / специализация</td>
+</tr>
+<tr>
+  <td>education.attestation[].year</td>
+  <td>number</td>
+  <td>Год сдачи</td>
+</tr>
+<tr>
+  <td>education.primary</td>
+  <td>array</td>
+  <td>Список образований выше среднего</td>
+</tr>
+<tr>
+  <td>education.primary[].name</td>
+  <td>string</td>
+  <td>Название учебного заведения</td>
+</tr>
+<tr>
+  <td>education.primary[].name_id</td>
+  <td>string или null</td>
+  <td>Идентификатор учебного заведения</td>
+</tr>
+<tr>
+  <td>education.primary[].organization</td>
+  <td>string</td>
+  <td>Факультет</td>
+</tr>
+<tr>
+  <td>education.primary[].organization_id</td>
+  <td>string или null</td>
+  <td>Идентификатор факультета</td>
+</tr>
+<tr>
+  <td>education.primary[].result</td>
+  <td>string</td>
+  <td>Специальность / специализация</td>
+</tr>
+<tr>
+  <td>education.primary[].result_id</td>
+  <td>string или null</td>
+  <td>Идентификатор специальности / специализации</td>
+</tr>
+<tr>
+  <td>education.primary[].year</td>
+  <td>number</td>
+  <td>Год окончания</td>
+</tr>
+<tr>
+  <td>education.level</td>
+  <td>object</td>
+  <td>Уровень образования. Элемент справочника <a href="dictionaries.md.html">education_level</a></td>
+</tr>
+<tr>
+  <td>education.level.id</td>
+  <td>string</td>
+  <td>Идентификатор уровня образования</td>
+</tr>
+<tr>
+  <td>education.level.name</td>
+  <td>string</td>
+  <td>Название уровня образования</td>
+</tr>
+<tr>
+  <td>language</td>
+  <td>array</td>
+  <td>Список языков, которыми владеет соискатель. Элементы справочника <a href="languages.md.html">languages</a>. Может быть пустым.</td>
+</tr>
+<tr>
+  <td>language[].id</td>
+  <td>string</td>
+  <td>Идентификатор языка</td>
+</tr>
+<tr>
+  <td>language[].name</td>
+  <td>string</td>
+  <td>Название языка</td>
+</tr>
+<tr>
+  <td>language[].level</td>
+  <td>object</td>
+  <td>Уровень знания языка. Элемент справочника <a href="dictionaries.md.html">language_level</a></td>
+</tr>
+<tr>
+  <td>language[].level.id</td>
+  <td>string</td>
+  <td>Идентификатор уровня знания языка</td>
+</tr>
+<tr>
+  <td>language[].level.name</td>
+  <td>string</td>
+  <td>Название уровня знания языка</td>
+</tr>
+<tr>
+  <td>experience</td>
+  <td>array</td>
+  <td>Опыт работы. Список элементов, который может быть пустым.</td>
+</tr>
+<tr>
+  <td>experience[].company</td>
+  <td>string</td>
+  <td>Организация</td>
+</tr>
+<tr>
+  <td>experience[].company_id</td>
+  <td>string или null</td>
+  <td>Уникальный идентификатор организации. null – если организация неизвестна.</td>
+</tr>
+<tr>
+  <td>experience[].area</td>
+  <td>object</td>
+  <td>Регион расположения организации. Элемент <a href="areas.md.html">справочника регионов</a></td>
+</tr>
+<tr>
+  <td>experience[].area.id</td>
+  <td>string</td>
+  <td>Идентификатор региона</td>
+</tr>
+<tr>
+  <td>experience[].area.name</td>
+  <td>string</td>
+  <td>Название региона</td>
+</tr>
+<tr>
+  <td>experience[].area.url</td>
+  <td>string</td>
+  <td>Url получения информации о регионе</td>
+</tr>
+<tr>
+  <td>experience[].company_url</td>
+  <td>string</td>
+  <td>Cайт компании</td>
+</tr>
+<tr>
+  <td>experience[].industries</td>
+  <td>array</td>
+  <td>Cписок отраслей компании. Элементы <a href="industries.md.html">справочника индустрий</a></td>
+</tr>
+<tr>
+  <td>experience[].industries[].id</td>
+  <td>string</td>
+  <td>Идентификатор отрасли</td>
+</tr>
+<tr>
+  <td>experience[].industries[].name</td>
+  <td>string</td>
+  <td>Название отрасли</td>
+</tr>
+<tr>
+  <td>experience[].position</td>
+  <td>string</td>
+  <td>Должность</td>
+</tr>
+<tr>
+  <td>experience[].start</td>
+  <td>string</td>
+  <td>Начало работы (дата в формате <code>ГГГГ-ММ-ДД</code>)</td>
+</tr>
+<tr>
+  <td>experience[].end</td>
+  <td>string или null</td>
+  <td>Окончание работы (дата в формате <code>ГГГГ-ММ-ДД</code>). <code>null</code> - если работает по настоящее время.</td>
+</tr>
+<tr>
+  <td>experience[].description</td>
+  <td>string</td>
+  <td>Обязанности, функции, достижения</td>
+</tr>
+<tr>
+  <td>total_experience</td>
+  <td>object или null</td>
+  <td>Общий опыт работы. <code>null</code> - если опыта работы нет</td>
+</tr>
+<tr>
+  <td>total_experience.months</td>
+  <td>number</td>
+  <td>Целое число, количество месяцев общего опыта работы с округлением до месяца</td>
+</tr>
+<tr>
+  <td>skills</td>
+  <td>string или null</td>
+  <td>Дополнительная информация, описание навыков в свободной форме</td>
+</tr>
+<tr>
+  <td>skill_set</td>
+  <td>array</td>
+  <td>Ключевые навыки (список уникальных строк). Список может быть пустым.</td>
+</tr>
+<tr>
+  <td>citizenship</td>
+  <td>array</td>
+  <td>Список гражданств соискателя. Элементы <a href="areas.md.html">справочника регионов</a></td>
+</tr>
+<tr>
+  <td>citizenship[].id</td>
+  <td>string</td>
+  <td>Идентификатор страны</td>
+</tr>
+<tr>
+  <td>citizenship[].name</td>
+  <td>string</td>
+  <td>Название страны</td>
+</tr>
+<tr>
+  <td>citizenship[].url</td>
+  <td>string</td>
+  <td>Url получения информации о стране</td>
+</tr>
+<tr>
+  <td>work_ticket</td>
+  <td>array</td>
+  <td>Список регионов, в который соискатель имеет разрешение на работу. Элементы <a href="areas.md.html">справочника регионов</a></td>
+</tr>
+<tr>
+  <td>work_ticket[].id</td>
+  <td>string</td>
+  <td>Идентификатор региона</td>
+</tr>
+<tr>
+  <td>work_ticket[].name</td>
+  <td>string</td>
+  <td>Название региона</td>
+</tr>
+<tr>
+  <td>work_ticket[].url</td>
+  <td>string</td>
+  <td>Url получения информации о регионе</td>
+</tr>
+<tr>
+  <td>travel_time</td>
+  <td>object</td>
+  <td>Желательное время в пути до работы. Элемент справочника <a href="dictionaries.md.html">travel_time</a>;</td>
+</tr>
+<tr>
+  <td>travel_time.id</td>
+  <td>string</td>
+  <td>Идентификатор желательного времени в пути до работы</td>
+</tr>
+<tr>
+  <td>travel_time.name</td>
+  <td>string</td>
+  <td>Название желательного времени в пути до работы</td>
+</tr>
+<tr>
+  <td>recommendation</td>
+  <td>array</td>
+  <td>Список рекомендаций. Может быть пустым.</td>
+</tr>
+<tr>
+  <td>recommendation[].name</td>
+  <td>string</td>
+  <td>Имя выдавшего рекомендацию</td>
+</tr>
+<tr>
+  <td>recommendation[].position</td>
+  <td>string</td>
+  <td>Должность</td>
+</tr>
+<tr>
+  <td>recommendation[].organization</td>
+  <td>string</td>
+  <td>Организация</td>
+</tr>
+<tr>
+  <td>resume_locale</td>
+  <td>object</td>
+  <td>Язык, на котором составлено резюме (локаль). Элемент справочника <a href="locales.md.html">локали резюме</a></td>
+</tr>
+<tr>
+  <td>resume_locale.id</td>
+  <td>string</td>
+  <td>Идентификатор языка</td>
+</tr>
+<tr>
+  <td>resume_locale.name</td>
+  <td>string</td>
+  <td>Название языка</td>
+</tr>
+<tr>
+  <td>certificate</td>
+  <td>array</td>
+  <td>Список сертификатов соискателя. Может быть пустой.</td>
+</tr>
+<tr>
+  <td>certificate[].title</td>
+  <td>string</td>
+  <td>Название сертификата</td>
+</tr>
+<tr>
+  <td>certificate[].achieved_at</td>
+  <td>string</td>
+  <td>Дата получения (в формате <code>ГГГГ-ММ-ДД</code>)</td>
+</tr>
+<tr>
+  <td>certificate[].type</td>
+  <td>string</td>
+  <td>Тип сертификата. Доступные значения: <code>custom</code>, <code>microsoft</code>.</td>
+</tr>
+<tr>
+  <td>certificate[].owner</td>
+  <td>string или null</td>
+  <td>На кого выдан сертификат, актуально только для сертификатов с <code>type = microsoft</code></td>
+</tr>
+<tr>
+  <td>certificate[].url</td>
+  <td>string или null</td>
+  <td>Ссылка на страницу с описанием сертификата</td>
+</tr>
+<tr>
+  <td>alternate_url</td>
+  <td>string</td>
+  <td>Url резюме на сайте</td>
+</tr>
+<tr>
+  <td>created_at</td>
+  <td>string</td>
+  <td>Дата и время создания резюме</td>
+</tr>
+<tr>
+  <td>updated_at</td>
+  <td>string</td>
+  <td>Дата и время обновления резюме</td>
+</tr>
+</tbody>
+</table>
+
 <h3 id="-5">Ошибки</h3>
 
 <ul>
 <li><code>404 Not Found</code> - если резюме не существует или недоступно пользователю.</li>
+<li><code>429 Too Many Requests</code> - если превышен лимит просмотров резюме в сутки
+(при авторизации работодателем).</li>
 </ul>
+
+<p>Дополнительно к HTTP коду сервер может вернуть описание
+<a href="errors.md.html#resumes">причины ошибки</a>.</p>
 
 <p><a name="additional-author-fields"></a></p>
 
@@ -1701,7 +2484,7 @@
 <li><code>amount</code> — сумма;</li>
 <li><code>currency</code> — идентификатор <a href="dictionaries.md.html">валюты</a>;</li>
 </ul></li>
-<li><code>employment</code> — занятость. Элемент справочника <a href="dictionaries.md.html">employment</a></li>
+<li><code>employments</code> — занятость. Элементы справочника <a href="dictionaries.md.html">employment</a></li>
 <li><code>schedules</code> — график работы. Список из элементов справочника <a href="dictionaries.md.html">schedule</a></li>
 <li><code>education</code> — образование. Состоит из полей:
 <ul>
@@ -1792,9 +2575,33 @@
 Дополнительно, при указании в опыте работы <code>company_id</code> название компании будет
 подменено на название компании из подсказок.</p>
 
+<h3 id="-15">Ответ</h3>
+
+<p>Успешный ответ на создание резюме приходит с кодом <code>201 Created</code>, в заголовке
+Location при этом будет url созданного резюме:</p>
+
+<pre><code>Location: /resumes/0123456789abcdef
+</code></pre>
+
+<p>Успешный ответ на обновление резюме приходит с кодом <code>204 No Content</code> и не
+содержит тела.</p>
+
+<h3 id="-16">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – запрос не от соискателя.</li>
+<li><code>400 Bad Request</code> - ошибка в полях резюме. Дополнительно будут указаны поля,
+в которых присутствует ошибка.</li>
+<li><code>404 Not Found</code> – резюме не найдено или недоступно текущему пользователю
+(при обновлении)</li>
+<li><code>400 Bad Request</code> - превышено допустимое количество резюме (при создании).
+Дополнительно <a href="errors.md.html#resumes">будет указана ошибка</a>
+с <code>type=resumes</code>, <code>value=total_limit_exceeded</code>.</li>
+</ul>
+
 <p><a name="publish"></a></p>
 
-<h2 id="-15">Публикация резюме</h2>
+<h2 id="-17">Публикация резюме</h2>
 
 <p><code>POST /resumes/{resume_id}/publish</code></p>
 
@@ -1803,11 +2610,11 @@
 <p>Повторная публикация означает обновление даты резюме. Ключ <code>next_publish_at</code>
 у резюме указывает время, когда можно обновить резюме.</p>
 
-<h3 id="-16">Ответ</h3>
+<h3 id="-18">Ответ</h3>
 
 <p>В случае успешной публикации вернётся код ответа <code>204 No Content</code> без тела.</p>
 
-<h3 id="-17">Ошибки</h3>
+<h3 id="-19">Ошибки</h3>
 
 <ul>
 <li><code>429 Too Many Requests</code> - если обновление ещё недоступно.</li>
@@ -1823,7 +2630,7 @@
 
 <p><a name="clone"></a></p>
 
-<h2 id="-18">Клонирование резюме</h2>
+<h2 id="-20">Клонирование резюме</h2>
 
 <p><code>POST /resumes?source_resume_id={resume_id}</code></p>
 
@@ -1833,9 +2640,32 @@
 <p>Для клонирования можно использовать только собственные резюме, иначе код ответа
 будет <code>404 Not Found</code>.</p>
 
+<p><a name="delete"></a></p>
+
+<h2 id="-21">Удаление резюме</h2>
+
+<pre><code>DELETE /resumes/{resume_id}
+</code></pre>
+
+<p>где <code>resume_id</code> – идентификатор резюме.</p>
+
+<p>Метод доступен только для соискателей. Резюме удаляется без возможности
+восстановления. Все связанные с ним отклики исчезают.</p>
+
+<h3 id="-22">Ответ</h3>
+
+<p>В случае успешного удаления вернётся код ответа <code>204 No Content</code> без тела.</p>
+
+<h3 id="-23">Ошибки</h3>
+
+<ul>
+<li><code>403 Forbidden</code> – запрос не от соискателя.</li>
+<li><code>404 Not Found</code> – резюме не найдено или недоступно текущему пользователю.</li>
+</ul>
+
 <p><a name="conditions"></a></p>
 
-<h2 id="-19">Условия заполнения полей резюме</h2>
+<h2 id="-24">Условия заполнения полей резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/conditions</code> — возвращает список требований для полей
 резюме.</p>
@@ -1949,7 +2779,7 @@
 заполнить и другие его поля. Пример — желаемая зарплата (<code>salary</code>) может быть не
 указана, либо указана, но обязательно с валютой.</p>
 
-<h2 id="-20">Правила</h2>
+<h2 id="-25">Правила</h2>
 
 <table>
 <thead>
@@ -2010,7 +2840,7 @@
 
 <p><a name="init-conditions"></a></p>
 
-<h2 id="-21">Условия заполнения полей нового резюме</h2>
+<h2 id="-26">Условия заполнения полей нового резюме</h2>
 
 <p><code>GET /resume_conditions</code> — возвращает список требований для полей нового резюме.
 Если авторизованный пользователь не соискатель — вернётся код ответа
@@ -2018,7 +2848,7 @@
 
 <p><a name='conditions-contacts' /></p>
 
-<h2 id="-22">Условия заполнения контактов в резюме</h2>
+<h2 id="-27">Условия заполнения контактов в резюме</h2>
 
 <p>При заполнении контактов в резюме необходимо учитывать следующие условия:</p>
 
@@ -2057,7 +2887,7 @@
 
 <p><a name='conditions-other' /></p>
 
-<h2 id="-23">Дополнительные правила заполнения полей резюме</h2>
+<h2 id="-28">Дополнительные правила заполнения полей резюме</h2>
 
 <p>Существует ещё несколько правил заполнения резюме, которые не укладываются в
 представленный выше формат:</p>
@@ -2078,7 +2908,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="resume-nano"></a></p>
 
-<h2 id="-24">Короткое представление резюме</h2>
+<h2 id="-29">Короткое представление резюме</h2>
 
 <p>Самое короткое представление резюме:</p>
 
@@ -2120,7 +2950,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="resume-short"></a></p>
 
-<h2 id="-25">Сокращенное представление резюме</h2>
+<h2 id="-30">Сокращенное представление резюме</h2>
 
 <p>Отличается от полного представления отсутствием некоторых полей.</p>
 
@@ -2248,7 +3078,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="status"></a></p>
 
-<h2 id="-26">Статус резюме</h2>
+<h2 id="-31">Статус резюме</h2>
 
 <p>Ключ <code>status</code> определяет текущее состояние резюме и содержит элемент
 справочника <a href="dictionaries.md.html">resume_status</a>. После создания нового резюме оно
@@ -2280,7 +3110,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="access_type"></a></p>
 
-<h2 id="-27">Видимость резюме</h2>
+<h2 id="-32">Видимость резюме</h2>
 
 <p>После публикации резюме доступно для поиска работодателями. Чтобы это изменить
 (например, работа найдена и нужно скрыть резюме из поиска), следует поменять
@@ -2324,7 +3154,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="views"></a></p>
 
-<h2 id="-28">История просмотра резюме</h2>
+<h2 id="-33">История просмотра резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/views</code> вернёт историю просмотров резюме. На основном
 сайте это доступно при клике на кол-во просмотров резюме на странице со списком
@@ -2437,11 +3267,11 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="similar"></a></p>
 
-<h2 id="-29">Поиск по вакансиям, похожим на резюме</h2>
+<h2 id="-34">Поиск по вакансиям, похожим на резюме</h2>
 
 <p>Данные доступны только автору резюме.</p>
 
-<h3 id="-30">Запрос</h3>
+<h3 id="-35">Запрос</h3>
 
 <p><code>GET /resumes/{resume_id}/similar_vacancies</code></p>
 

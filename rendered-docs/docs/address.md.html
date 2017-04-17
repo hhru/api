@@ -737,24 +737,25 @@
     <article class="markdown-body">
     <h1>Адрес</h1>
 
-<p>Поле адрес используется в различных ответах API, например в резюме, откликах, при просмотре вакансии. 
-Может содержать в себе долготу, широту, информацию о ближайших станциях метро и другую информацию о местонахождении.
-Выглядит следующим образом:</p>
+<p>Поле адрес используется в различных ответах API, например, в резюме, откликах,
+при просмотре вакансии. Может содержать в себе долготу, широту, информацию о
+ближайших станциях метро и другую информацию о местонахождении. Выглядит
+следующим образом:</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;Годовикова&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Дополнительная информация&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;улица Годовикова&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;9с10&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;на проходной потребуется паспорт&quot;</span><span class="p">,</span>
     <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
     <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span><span class="p">,</span>
-    <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="s2">&quot;Текстовое описание адреса, как было введено&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва, Годовикова 9, стр. 10 (территория завода «Калибр»)&quot;</span><span class="p">,</span>
     <span class="nt">&quot;metro_stations&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;название станции&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;line_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Название линии&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;station_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Идентификатор станции&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;line_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Идентификатор линии&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;station_id&quot;</span><span class="p">:</span> <span class="s2">&quot;6.8&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Алексеевская&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;line_id&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;line_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Калужско-Рижская&quot;</span><span class="p">,</span>
             <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
             <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span>
         <span class="p">}</span>
@@ -762,12 +763,10 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>где:</p>
-
 <table>
 <thead>
 <tr>
-  <th>Имя</th>
+  <th>Поле</th>
   <th>Тип</th>
   <th>Описание</th>
 </tr>
@@ -775,90 +774,73 @@
 <tbody>
 <tr>
   <td>city</td>
-  <td>строка, null</td>
-  <td>Название города</td>
+  <td>string или null</td>
+  <td>Город</td>
 </tr>
 <tr>
   <td>street</td>
-  <td>строка, null</td>
-  <td>Название улицы</td>
+  <td>string или null</td>
+  <td>Улица</td>
 </tr>
 <tr>
   <td>building</td>
-  <td>строка, null</td>
+  <td>string или null</td>
   <td>Номер дома</td>
 </tr>
 <tr>
   <td>description</td>
-  <td>строка, null</td>
+  <td>string или null</td>
   <td>Дополнительная информация об адресе</td>
 </tr>
 <tr>
   <td>lat</td>
-  <td>число, null</td>
+  <td>number или null</td>
   <td>Географическая широта</td>
 </tr>
 <tr>
   <td>lng</td>
-  <td>число, null</td>
+  <td>number или null</td>
   <td>Географическая долгота</td>
 </tr>
 <tr>
   <td>raw</td>
-  <td>строка, null</td>
-  <td>Текстовое описание адреса</td>
+  <td>string или null</td>
+  <td>Текстовое описание адреса, как было введено</td>
 </tr>
 <tr>
   <td>metro_stations</td>
-  <td>массив</td>
-  <td>Список станций метро, см. ниже</td>
+  <td>array</td>
+  <td>Список станций метро</td>
 </tr>
-</tbody>
-</table>
-
-<p>В объекте присутствует ключ <code>metro</code> для обратной совместимости. 
-Необходимо использовать ключ <code>metro_stations</code>. </p>
-
-<h2 id="-2">Метро</h2>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8.189&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.745113</span><span class="p">,</span>
-    <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.864052</span><span class="p">,</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Новокосино&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>где:</p>
-
-<table>
-<thead>
 <tr>
-  <th>Имя</th>
-  <th>Тип</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>id</td>
-  <td>строка</td>
+  <td>metro_stations[].station_id</td>
+  <td>string</td>
   <td>Идентификатор станции метро</td>
 </tr>
 <tr>
-  <td>lat</td>
-  <td>число, null</td>
-  <td>Географическая широта</td>
-</tr>
-<tr>
-  <td>lng</td>
-  <td>число, null</td>
-  <td>Географическая долгота</td>
-</tr>
-<tr>
-  <td>name</td>
-  <td>строка</td>
+  <td>metro_stations[].station_name</td>
+  <td>string</td>
   <td>Название станции метро</td>
+</tr>
+<tr>
+  <td>metro_stations[].line_id</td>
+  <td>string</td>
+  <td>Идентификатор линии метро, на которой находится станция</td>
+</tr>
+<tr>
+  <td>metro_stations[].line_name</td>
+  <td>string</td>
+  <td>Название линии метро, на которой находится станция</td>
+</tr>
+<tr>
+  <td>metro_stations[].lat</td>
+  <td>number или null</td>
+  <td>Географическая широта станции метро</td>
+</tr>
+<tr>
+  <td>metro_stations[].lng</td>
+  <td>number или null</td>
+  <td>Географическая долгота станции метро</td>
 </tr>
 </tbody>
 </table>
