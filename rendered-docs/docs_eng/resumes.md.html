@@ -743,6 +743,7 @@
 <li><a href="#paid-services">Paid services related to CVs</a></li>
 <li><a href="#create_edit">CV creation &amp; editing</a></li>
 <li><a href="#publish">CV publication &amp; prolongation</a></li>
+<li><a href="#status-and-publication">CV status &amp; readiness for publication</a></li>
 <li><a href="#clone">CV cloning</a></li>
 <li><a href="#conditions">CV fields conditions for editing</a></li>
 <li><a href="#init-conditions">CV fields conditions for creating</a></li>
@@ -1082,24 +1083,65 @@ will have <code>false</code> value.</p>
         <span class="p">}</span>
     <span class="p">},</span>
     <span class="nt">&quot;can_view_full_info&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">&quot;_progress&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;can_publish_or_update&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;publish_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/publish&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;progress&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
         <span class="nt">&quot;mandatory&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;citizenship&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;language&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;area&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;skills&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contact&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;education&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;specialization&quot;</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;citizenship&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Citizenship&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;language&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Languages&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Area&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;skills&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Skills&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;contact&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Contacts&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;education&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Education&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;specialization&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Specialization&quot;</span>
+            <span class="p">}</span>
         <span class="p">],</span>
         <span class="nt">&quot;recommended&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;salary&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;middle_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;work_ticket&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;site&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;recommendation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;birth_date&quot;</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;salary&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Salary&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;middle_name&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Middle name&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;work_ticket&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Work ticket&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;site&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Site&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;recommendation&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Recommendation&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;birth_date&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Birth date&quot;</span>
+            <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -1138,6 +1180,16 @@ powered by
 <p>Documentation translation for this section is in progress.
 See
 <a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#publish">machine translation</a>
+powered by
+<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+
+<p><a name="status-and-publication"></a></p>
+
+<h2 id="cv-status-readiness-for-publication">CV status &amp; readiness for publication</h2>
+
+<p>Documentation translation for this section is in progress.
+See
+<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html.html#status-and-publication">machine translation</a>
 powered by
 <a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
 

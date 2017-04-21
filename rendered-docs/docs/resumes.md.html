@@ -748,6 +748,7 @@
 </ul></li>
 <li><a href="#create_edit">Создание и редактирование резюме</a></li>
 <li><a href="#publish">Публикация и продление резюме</a></li>
+<li><a href="#status-and-publication">Информация о статусе резюме и готовности резюме к публикации</a></li>
 <li><a href="#clone">Клонирование резюме</a></li>
 <li><a href="#delete">Удаление резюме</a></li>
 <li><a href="#conditions">Условия заполнения полей резюме</a>
@@ -2050,24 +2051,65 @@
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;not_published&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;не опубликовано&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;_progress&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;can_publish_or_update&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;publish_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/publish&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;progress&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
         <span class="nt">&quot;mandatory&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;citizenship&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;language&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;area&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;skills&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;contact&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;education&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;specialization&quot;</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;citizenship&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Гражданство&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;language&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Язык&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Город проживания&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;skills&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ключевые навыки&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;contact&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Контакты&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;education&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Образование&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;specialization&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Специализация&quot;</span>
+            <span class="p">}</span>
         <span class="p">],</span>
         <span class="nt">&quot;recommended&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;salary&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;middle_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;work_ticket&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;site&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;recommendation&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;birth_date&quot;</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;salary&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Заработная плата&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;middle_name&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отчество&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;work_ticket&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Разрешение на работу&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;site&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Сайт&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;recommendation&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Рекомендации&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;birth_date&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Дата рождения&quot;</span>
+            <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="nt">&quot;moderation_note&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -2106,7 +2148,7 @@
 <h4 id="-7">Информация о заполненности резюме</h4>
 
 <p>Автору резюме выдается информация о заполненности резюме в поле
-<code>_progress</code>:</p>
+<code>progress</code>:</p>
 
 <table>
 <thead>
@@ -2120,17 +2162,47 @@
 <tr>
   <td>percentage</td>
   <td>number</td>
-  <td>Процент заполненности резюме.</td>
+  <td>Процент заполненности резюме</td>
+</tr>
+<tr>
+  <td>can_publish_or_update</td>
+  <td>boolean</td>
+  <td>Можно ли <a href="#publish">опубликовать или обновить данное резюме</a></td>
+</tr>
+<tr>
+  <td>publish_url</td>
+  <td>string</td>
+  <td>Url для публикации или обновления резюме</td>
 </tr>
 <tr>
   <td>mandatory</td>
   <td>array</td>
-  <td>Список кодов полей, которые обязательны, но еще не заполнены.</td>
+  <td>Список полей, которые обязательны, но еще не заполнены</td>
+</tr>
+<tr>
+  <td>mandatory[].id</td>
+  <td>string</td>
+  <td>Id поля</td>
+</tr>
+<tr>
+  <td>mandatory[].name</td>
+  <td>string</td>
+  <td>Название поля</td>
 </tr>
 <tr>
   <td>recommended</td>
   <td>array</td>
-  <td>Список кодов полей, которые рекомендованные к заполнению, но ещё не заполнены.</td>
+  <td>Список полей, которые рекомендованы к заполнению, но ещё не заполнены</td>
+</tr>
+<tr>
+  <td>recommended[].id</td>
+  <td>string</td>
+  <td>Id поля</td>
+</tr>
+<tr>
+  <td>recommended[].name</td>
+  <td>string</td>
+  <td>Название поля</td>
 </tr>
 </tbody>
 </table>
@@ -2628,9 +2700,111 @@ Location при этом будет url созданного резюме:</p>
 прав (например, для работодателя).</li>
 </ul>
 
+<p><a name="status-and-publication"></a></p>
+
+<h2 id="-20">Информация о статусе резюме и готовности резюме к публикации</h2>
+
+<p>Метод доступен только для автора резюме и возвращает информацию о статусе резюме (поля <code>blocked</code>, <code>finished</code>, <code>status</code>) и его <a href="#author-progress">готовности к публикации</a> (в том числе процент заполненности резюме, обязательные и рекомендуемые к заполнению поля), а также <a href="#author-moderation-notes">замечания модератора</a> по выбранному резюме. Поля аналогичны таковым в списке <a href="#additional-author-fields">дополнительных полей для автора резюме</a>.</p>
+
+<pre><code>GET /resumes/{resume_id}/status
+</code></pre>
+
+<h3 id="-21">Успешный ответ</h3>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит тело:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;blocked&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;finished&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;not_published&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;не опубликовано&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;can_publish_or_update&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;publish_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/publish&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;progress&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;percentage&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+        <span class="nt">&quot;mandatory&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;citizenship&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Гражданство&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;language&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Язык&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Город проживания&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;skills&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ключевые навыки&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;contact&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Контакты&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;education&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Образование&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;specialization&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Специализация&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;recommended&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;salary&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Заработная плата&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;middle_name&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отчество&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;work_ticket&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Разрешение на работу&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;site&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Сайт&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;recommendation&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Рекомендации&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;birth_date&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Дата рождения&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;moderation_note&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Резюме составлено небрежно.&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;block_no_education_place_or_date&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отсутствуют данные об учебном заведении и дате его окончания.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;education&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="-22">Ошибки</h3>
+
+<ul>
+<li><code>404 Not Found</code> - если резюме не существует или недоступно пользователю.</li>
+<li><code>403 Forbidden</code> - пользователь не является соискателем.</li>
+</ul>
+
 <p><a name="clone"></a></p>
 
-<h2 id="-20">Клонирование резюме</h2>
+<h2 id="-23">Клонирование резюме</h2>
 
 <p><code>POST /resumes?source_resume_id={resume_id}</code></p>
 
@@ -2642,7 +2816,7 @@ Location при этом будет url созданного резюме:</p>
 
 <p><a name="delete"></a></p>
 
-<h2 id="-21">Удаление резюме</h2>
+<h2 id="-24">Удаление резюме</h2>
 
 <pre><code>DELETE /resumes/{resume_id}
 </code></pre>
@@ -2652,11 +2826,11 @@ Location при этом будет url созданного резюме:</p>
 <p>Метод доступен только для соискателей. Резюме удаляется без возможности
 восстановления. Все связанные с ним отклики исчезают.</p>
 
-<h3 id="-22">Ответ</h3>
+<h3 id="-25">Ответ</h3>
 
 <p>В случае успешного удаления вернётся код ответа <code>204 No Content</code> без тела.</p>
 
-<h3 id="-23">Ошибки</h3>
+<h3 id="-26">Ошибки</h3>
 
 <ul>
 <li><code>403 Forbidden</code> – запрос не от соискателя.</li>
@@ -2665,7 +2839,7 @@ Location при этом будет url созданного резюме:</p>
 
 <p><a name="conditions"></a></p>
 
-<h2 id="-24">Условия заполнения полей резюме</h2>
+<h2 id="-27">Условия заполнения полей резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/conditions</code> — возвращает список требований для полей
 резюме.</p>
@@ -2779,7 +2953,7 @@ Location при этом будет url созданного резюме:</p>
 заполнить и другие его поля. Пример — желаемая зарплата (<code>salary</code>) может быть не
 указана, либо указана, но обязательно с валютой.</p>
 
-<h2 id="-25">Правила</h2>
+<h2 id="-28">Правила</h2>
 
 <table>
 <thead>
@@ -2840,7 +3014,7 @@ Location при этом будет url созданного резюме:</p>
 
 <p><a name="init-conditions"></a></p>
 
-<h2 id="-26">Условия заполнения полей нового резюме</h2>
+<h2 id="-29">Условия заполнения полей нового резюме</h2>
 
 <p><code>GET /resume_conditions</code> — возвращает список требований для полей нового резюме.
 Если авторизованный пользователь не соискатель — вернётся код ответа
@@ -2848,7 +3022,7 @@ Location при этом будет url созданного резюме:</p>
 
 <p><a name='conditions-contacts' /></p>
 
-<h2 id="-27">Условия заполнения контактов в резюме</h2>
+<h2 id="-30">Условия заполнения контактов в резюме</h2>
 
 <p>При заполнении контактов в резюме необходимо учитывать следующие условия:</p>
 
@@ -2887,7 +3061,7 @@ Location при этом будет url созданного резюме:</p>
 
 <p><a name='conditions-other' /></p>
 
-<h2 id="-28">Дополнительные правила заполнения полей резюме</h2>
+<h2 id="-31">Дополнительные правила заполнения полей резюме</h2>
 
 <p>Существует ещё несколько правил заполнения резюме, которые не укладываются в
 представленный выше формат:</p>
@@ -2908,7 +3082,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="resume-nano"></a></p>
 
-<h2 id="-29">Короткое представление резюме</h2>
+<h2 id="-32">Короткое представление резюме</h2>
 
 <p>Самое короткое представление резюме:</p>
 
@@ -2950,7 +3124,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="resume-short"></a></p>
 
-<h2 id="-30">Сокращенное представление резюме</h2>
+<h2 id="-33">Сокращенное представление резюме</h2>
 
 <p>Отличается от полного представления отсутствием некоторых полей.</p>
 
@@ -3078,13 +3252,16 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="status"></a></p>
 
-<h2 id="-31">Статус резюме</h2>
+<h2 id="-34">Статус резюме</h2>
 
 <p>Ключ <code>status</code> определяет текущее состояние резюме и содержит элемент
 справочника <a href="dictionaries.md.html">resume_status</a>. После создания нового резюме оно
 находится в статусе 'not_published'. В этом статусе резюме никому не видно,
-пользователь начинает его наполнять и сохранять. После того как
-<code>_progress.mandatory</code> станет пустым списком, резюме можно
+пользователь начинает его наполнять и сохранять (незаполненные обязательные поля
+можно увидеть в списке <code>progress.mandatory</code>). </p>
+
+<p>После того, как все обязательные поля будут заполнены, флаг <code>can_publish_or_update</code> 
+будет установлен в <code>true</code>, и резюме можно будет
 <a href="#publish">опубликовать</a>. Публикация резюме переводит его в статус <code>published</code>.
 В этом статусе резюме доступно для поиска, если это позволяет
 <a href="#access_type">видимость резюме</a>.</p>
@@ -3110,7 +3287,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="access_type"></a></p>
 
-<h2 id="-32">Видимость резюме</h2>
+<h2 id="-35">Видимость резюме</h2>
 
 <p>После публикации резюме доступно для поиска работодателями. Чтобы это изменить
 (например, работа найдена и нужно скрыть резюме из поиска), следует поменять
@@ -3154,7 +3331,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="views"></a></p>
 
-<h2 id="-33">История просмотра резюме</h2>
+<h2 id="-36">История просмотра резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/views</code> вернёт историю просмотров резюме. На основном
 сайте это доступно при клике на кол-во просмотров резюме на странице со списком
@@ -3267,11 +3444,11 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="similar"></a></p>
 
-<h2 id="-34">Поиск по вакансиям, похожим на резюме</h2>
+<h2 id="-37">Поиск по вакансиям, похожим на резюме</h2>
 
 <p>Данные доступны только автору резюме.</p>
 
-<h3 id="-35">Запрос</h3>
+<h3 id="-38">Запрос</h3>
 
 <p><code>GET /resumes/{resume_id}/similar_vacancies</code></p>
 
