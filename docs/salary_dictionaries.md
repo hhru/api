@@ -4,7 +4,6 @@
 * [Уровни специалистов](#employee-levels)
 * [Профобласти и специализации](#professional-areas)
 * [Регионы и города](#salary-areas)
-* [Статусы анкеты](#statuses)
 
 <a name="salary-industries"></a>
 ## Отрасли и сферы деятельности
