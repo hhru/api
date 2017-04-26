@@ -18,23 +18,23 @@
 GET /salary_statistics/paid/salary_evaluation/{area_id}
 ```
 
-Где `area_id` — код региона (фед. округа, субъекты федерации, города), по которым будет построена
-выборка для формирования отчёта. См. [справочник регионов](salary_dictionaries.md#salary-areas).
+где
+* `area_id` — код региона (фед. округа, субъекты федерации, города), по которым будет построена выборка для формирования отчёта. См. [справочник регионов](salary_dictionaries.md#salary-areas).
 
 <a name="salary-evaluation-params"></a>
 ### Параметры запроса
 
-Имя | Обязательный | Описание
---- | --- | ---
-exclude_area | Нет | Коды регионов (федеральные округа, субъекты федерации, города), которые будут исключены из выборки для формирования отчёта в любом случае. Параметр предназначен для получения оценки на региональном рынке с исключением определенных городов/областей.  См. [справочник регионов](salary_dictionaries.md#salary-areas)
-employee_level | Нет | Уровни специалистов, которые будут включены в выборку для формирования отчёта. См. [справочник уровней специалистов](salary_dictionaries.md#employee-levels)
-industry | Нет | Коды отраслей, по которым будет построена выборка для формирования отчёта.  См. [справочник отраслей](salary_dictionaries.md#salary-industries)
-speciality | Нет | Коды профобластей и специализаций, которые будут включены в выборку для формирования отчёта. См. [справочник профобластей и специализаций](salary_dictionaries.md#professional-areas)
+Имя | Тип | Обязательный | Описание
+--- | --- | --- | ---
+exclude_area | string | Нет | Коды регионов (федеральные округа, субъекты федерации, города), которые будут исключены из выборки для формирования отчёта в любом случае. Параметр предназначен для получения оценки на региональном рынке с исключением определенных городов/областей.  См. [справочник регионов](salary_dictionaries.md#salary-areas)
+employee_level | string | Нет | Уровни специалистов, которые будут включены в выборку для формирования отчёта. См. [справочник уровней специалистов](salary_dictionaries.md#employee-levels)
+industry | string | Нет | Коды отраслей, по которым будет построена выборка для формирования отчёта.  См. [справочник отраслей](salary_dictionaries.md#salary-industries)
+speciality | string | Нет | Коды профобластей и специализаций, которые будут включены в выборку для формирования отчёта. См. [справочник профобластей и специализаций](salary_dictionaries.md#professional-areas)
 
 <a name="salary-evaluation-examples"></a>
 ### Примеры запросов
 
-Зарплаты в России, за исключением Москвы и Санкт-Петербурга, уровня «Специалист»,
+Зарплаты в России, за исключением Москвы и Санкт-Петербурга, для уровня «Специалист»,
 в компаниях с отраслями «Информационные технологии» или «Сельское хозяйство»: 
 
 ```
@@ -103,22 +103,22 @@ GET /salary_statistics/paid/salary_evaluation/1?employee_level=senior_specialist
 
 Имя | Тип | Описание
 ----|-----|---------
-resulting_parameters | Object | Набор параметров, по которым происходил расчёт
-resulting_parameters.areas | Array | Коды регионов (фед. округа, субъекты федерации, города)
-resulting_parameters.excluded_areas | Array или null | Исключённые коды регионов (фед. округа, субъекты федерации, города)
-resulting_parameters.employee_levels | Array или null | Уровни специалистов, включаемые в выборку в целевом регионе
-resulting_parameters.industries | Array или null | Отрасли
-resulting_parameters.specialities | Array или null | Профобласти
-resulting_parameters.indirect_calculation | Object или null | [Параметры косвенной оценки зарплатных значений](#salary-evaluation-response-indirect-calculation)
-employers_count | Number | Количество работодателей, данные которых участвуют в выборке
-positions_count | Number | Количество записей о сотрудниках в анкетах, по которым построена выборка
-market_salary | Object | Рыночный диапазон зарплатных значений
-market_salary.maximum | Number | Максимальные значения (90-й процентиль)
-market_salary.upper | Number | Верхняя граница рыночного диапазона (75-й процентиль)
-market_salary.median | Number | В среднем по рынку (медиана)
-market_salary.average | Number | Среднее расчетное значение
-market_salary.bottom | Number | Нижняя граница рыночного диапазона (25-й процентиль)
-market_salary.minimum | Number | Минимальные значения (10-й процентиль)
+resulting_parameters | object | Набор параметров, по которым происходил расчёт
+resulting_parameters.areas | array | Коды регионов (фед. округа, субъекты федерации, города)
+resulting_parameters.excluded_areas | array или null | Исключённые коды регионов (фед. округа, субъекты федерации, города)
+resulting_parameters.employee_levels | array или null | Уровни специалистов, включаемые в выборку в целевом регионе
+resulting_parameters.industries | array или null | Отрасли
+resulting_parameters.specialities | array или null | Профобласти
+resulting_parameters.indirect_calculation | object или null | [Параметры косвенной оценки зарплатных значений](#salary-evaluation-response-indirect-calculation)
+employers_count | number | Количество работодателей, данные которых участвуют в выборке
+positions_count | number | Количество записей о сотрудниках в анкетах, по которым построена выборка
+market_salary | object | Рыночный диапазон зарплатных значений
+market_salary.maximum | number | Максимальные значения (90-й процентиль)
+market_salary.upper | number | Верхняя граница рыночного диапазона (75-й процентиль)
+market_salary.median | number | В среднем по рынку (медиана)
+market_salary.average | number | Среднее расчетное значение
+market_salary.bottom | number | Нижняя граница рыночного диапазона (25-й процентиль)
+market_salary.minimum | number | Минимальные значения (10-й процентиль)
 
 
 <a name="salary-evaluation-response-indirect-calculation"></a>
@@ -149,21 +149,21 @@ market_salary.minimum | Number | Минимальные значения (10-й 
 
 Имя | Тип | Описание
 ----|-----|---------
-indirect_calculation.indirect_areas | Array или null | Регионы, использованные для косвенного расчёта
-indirect_calculation.indirect_employee_levels | Array или null | Уровни специалистов, включённые в выборку в регионе, использованном для косвенного расчёта
-indirect_calculation.indirect_regional_ratio | Number | Региональный коэффициент, который был использован для получения косвенной оценки зарплат
+indirect_calculation.indirect_areas | array или null | Регионы, использованные для косвенного расчёта
+indirect_calculation.indirect_employee_levels | array или null | Уровни специалистов, включённые в выборку в регионе, использованном для косвенного расчёта
+indirect_calculation.indirect_regional_ratio | number | Региональный коэффициент, который был использован для получения косвенной оценки зарплат
 
 Ответ, приведённый выше, означает, что:
 * в запрошенном регионе «Южный ФО» (`resulting_parameters.areas`)
-* по запрошенному уровню «Специалист» (`resulting_parameters.employee_levels`)
-* данных о зарплатах не нашлось, но удалось сделать косвенный расчёт относительно
-* уровня «Ведущий специалист» (`resulting_parameters.indirect_calculation.indirect_employee_levels`)
-* в регионе «Москва» (`resulting_parameters.indirect_calculation.indirect_areas`),
-* коэффициент составил 0.4375 (`resulting_parameters.indirect_calculation.indirect_regional_ratio`).
+* по запрошенному уровню «Специалист» (`resulting_parameters.employee_levels`) данных о зарплатах не нашлось
+* но удалось сделать косвенный расчёт
+    * относительно уровня «Ведущий специалист» (`resulting_parameters.indirect_calculation.indirect_employee_levels`)
+    * в регионе «Москва» (`resulting_parameters.indirect_calculation.indirect_areas`)
+    * коэффициент составил 0.4375 (`resulting_parameters.indirect_calculation.indirect_regional_ratio`).
 
 <a name="salary-evaluation-errors"></a>
 ### Ошибки
 
-* `400 Bad Request` — неверный параметр.
+* `400 Bad Request` — ошибка в параметрах.
 * `403 Forbidden` — нет доступа или пользователь не авторизован.
 * `404 Not Found` — нет данных для указанных параметров.
