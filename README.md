@@ -162,7 +162,7 @@ HeadHunter API — это бесплатный инструментарий дл
   * [по ключевым словам поиска вакансий](docs/suggests.md#vacancy-search-keyword) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 
-<a name="salary_stat"></a>
+<a name="salary"></a>
 ### Банк данных заработных плат
 
 * [Отчёты Банка данных заработных плат](docs/salary_reports.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
