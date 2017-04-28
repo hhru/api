@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Справочники</title>
+        <title>Справочники Банка данных заработных плат</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,86 +735,250 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Справочники</h1>
-
-<p><code>GET /dictionaries</code> возвращает объект со справочниками полей и сущностей,
-используемых в API. Обычно справочник состоит из списка объектов,
-содержащих <code>id</code> и <code>name</code>.</p>
-
-<p>Пример: <a href="https://api.hh.ru/dictionaries">https://api.hh.ru/dictionaries</a></p>
-
-<p><a name="resume"></a></p>
-
-<h2 id="-2">Справочники для полей, используемых в резюме</h2>
+    <h1>Справочники Банка данных заработных плат</h1>
 
 <ul>
-<li><code>education_level</code> - образование в резюме</li>
-<li><code>gender</code> - пол</li>
-<li><code>language_level</code> - уровень владения языком</li>
-<li><code>preferred_contact_type</code> - желаемый способ связи</li>
-<li><code>relocation_type</code> - готовность к переезду</li>
-<li><code>travel_time</code> - время в пути</li>
-<li><code>resume_access_type</code> - уровень доступа к резюме</li>
-<li><code>business_trip_readiness</code> - готовность к командировкам</li>
-<li><code>resume_contacts_site_type</code> - тип сайта в поле «контакты»</li>
-<li><code>resume_status</code> - статус резюме</li>
-<li><code>resume_moderation_note</code> — комментарий модератора</li>
+<li><a href="#salary-industries">Отрасли и сферы деятельности</a></li>
+<li><a href="#employee-levels">Уровни специалистов</a></li>
+<li><a href="#professional-areas">Профобласти и специализации</a></li>
+<li><a href="#salary-areas">Регионы и города</a></li>
 </ul>
 
-<h2 id="-3">Справочники для полей вакансии</h2>
+<p><a name="salary-industries"></a></p>
 
-<ul>
-<li><code>employment</code> - тип занятости</li>
-<li><code>experience</code> - опыт работы</li>
-<li><code>schedule</code> - график работы</li>
-<li><code>vacancy_type</code> - тип вакансии</li>
-<li><code>vacancy_label</code> - метки вакансии</li>
-<li><code>vacancy_relation</code> - типы связи вакансии с пользователем</li>
-<li><code>vacancy_billing_type</code> - варианты размещения вакансии с точки зрения биллинга</li>
-<li><code>vacancy_site</code> - возможные значения сайтов для размещения вакансии</li>
-</ul>
+<h2 id="-2">Отрасли и сферы деятельности</h2>
 
-<h2 id="-4">Справочники для параметров поиска вакансий</h2>
+<pre><code>GET /salary_statistics/dictionaries/salary_industries
+</code></pre>
 
-<ul>
-<li><code>vacancy_search_fields</code> - область поиска в вакансии</li>
-<li><code>vacancy_search_order</code> - тип сортировки вакансии</li>
-<li><code>vacancy_cluster</code> - тип кластеров</li>
-</ul>
+<p>В ответе содержится список отраслей и сфер деятельности.</p>
 
-<h2 id="-5">Справочники для сортировки вакансий работодателя</h2>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;49&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Услуги для населения&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;409&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Салоны красоты&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 
-<ul>
-<li><code>employer_active_vacancies_order</code> - тип сортировки списка опубликованных
-вакансий</li>
-<li><code>employer_archived_vacancies_order</code> - тип сортировки списка архивных вакансий</li>
-</ul>
+<p>Поля отрасли:</p>
 
-<p><a name="negotiations"></a></p>
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Идентификатор отрасли</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Название отрасли</td>
+</tr>
+<tr>
+  <td>industries</td>
+  <td>array</td>
+  <td>Список сфер деятельности</td>
+</tr>
+<tr>
+  <td>industries[].id</td>
+  <td>string</td>
+  <td>Идентификатор сферы деятельности</td>
+</tr>
+<tr>
+  <td>industries[].name</td>
+  <td>string</td>
+  <td>Название сферы деятельности</td>
+</tr>
+</tbody>
+</table>
 
-<h2 id="-6">Справочники для откликов/приглашений (переписка)</h2>
+<p><a name="employee-levels"></a></p>
 
-<ul>
-<li><code>negotiations_order</code> - типы порядка отображения откликов</li>
-<li><code>negotiations_state</code> - типы состояний откликов</li>
-<li><code>messaging_status</code> — статус возможности отправки сообщения в переписке</li>
-<li><code>negotiations_participant_type</code> – типы участников переписки</li>
-</ul>
+<h2 id="-3">Уровни специалистов</h2>
 
-<p><a name="etc"></a></p>
+<pre><code>GET /salary_statistics/dictionaries/employee_levels
+</code></pre>
 
-<h2 id="-7">Остальные справочники</h2>
+<p>В ответе содержится список уровней специалистов.</p>
 
-<ul>
-<li><code>currency</code> - справочник валют</li>
-<li><code>employer_type</code> - тип работодателя</li>
-<li><code>employer_relation</code> — типы связи компании с пользователем</li>
-<li><code>vacancy_not_prolonged_reason</code> — причины, из-за которых невозможно
-<a href="employer_vacancies.md.html#prolongate-info">продлить вакансию</a>.</li>
-<li><code>applicant_comments_order</code> — типы сортировки
-<a href="applicant_comments.md.html#list">списка комментариев к соискателю</a></li>
-<li><code>applicant_comment_access_type</code> - тип доступа для комментария к соискателю</li>
-</ul>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;specialist&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;специалист&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Прямые подчиненные отсутствуют, периодически координирует работу других сотрудников в рамках поставленной задачи.&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>Поля уровня специалиста:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Идентификатор уровня</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Название уровня</td>
+</tr>
+<tr>
+  <td>description</td>
+  <td>string</td>
+  <td>Описание уровня</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="professional-areas"></a></p>
+
+<h2 id="-4">Профобласти и специализации</h2>
+
+<pre><code>GET /salary_statistics/dictionaries/professional_areas
+</code></pre>
+
+<p>В ответе содержится список профобластей и специализаций.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1030000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Административная поддержка&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;specializations&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1030015&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Архив&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Организация социальной работы с сотрудниками, распределение фонда материальной и социальной помощи&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>Поля профобласти:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Код профобласти</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Название профобласти</td>
+</tr>
+<tr>
+  <td>specialiaztions</td>
+  <td>array</td>
+  <td>Список специализаций профобласти</td>
+</tr>
+<tr>
+  <td>specialiaztions[].id</td>
+  <td>string</td>
+  <td>Код специализации</td>
+</tr>
+<tr>
+  <td>specialiaztions[].name</td>
+  <td>string</td>
+  <td>Название специализации</td>
+</tr>
+<tr>
+  <td>specialiaztions[].description</td>
+  <td>string</td>
+  <td>Описание специализации</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="salary-areas"></a></p>
+
+<h2 id="-5">Регионы и города</h2>
+
+<pre><code>GET /salary_statistics/dictionaries/salary_areas
+</code></pre>
+
+<p>В ответе содержится список регионов, областей и городов.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Россия&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;areas&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Алтайский край&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;areas&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Алейск&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;areas&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>    
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>Поля региона:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>Идентификатор региона</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>string</td>
+  <td>Название региона</td>
+</tr>
+<tr>
+  <td>areas</td>
+  <td>array</td>
+  <td>Массив дочерних областей/городов со структурой, аналогичной региону</td>
+</tr>
+</tbody>
+</table>
 
     </article>
     </body>

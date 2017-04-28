@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Справочники</title>
+        <title>Отчёты Банка данных заработных плат</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,85 +735,310 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Справочники</h1>
-
-<p><code>GET /dictionaries</code> возвращает объект со справочниками полей и сущностей,
-используемых в API. Обычно справочник состоит из списка объектов,
-содержащих <code>id</code> и <code>name</code>.</p>
-
-<p>Пример: <a href="https://api.hh.ru/dictionaries">https://api.hh.ru/dictionaries</a></p>
-
-<p><a name="resume"></a></p>
-
-<h2 id="-2">Справочники для полей, используемых в резюме</h2>
+    <h1>Отчёты Банка данных заработных плат</h1>
 
 <ul>
-<li><code>education_level</code> - образование в резюме</li>
-<li><code>gender</code> - пол</li>
-<li><code>language_level</code> - уровень владения языком</li>
-<li><code>preferred_contact_type</code> - желаемый способ связи</li>
-<li><code>relocation_type</code> - готовность к переезду</li>
-<li><code>travel_time</code> - время в пути</li>
-<li><code>resume_access_type</code> - уровень доступа к резюме</li>
-<li><code>business_trip_readiness</code> - готовность к командировкам</li>
-<li><code>resume_contacts_site_type</code> - тип сайта в поле «контакты»</li>
-<li><code>resume_status</code> - статус резюме</li>
-<li><code>resume_moderation_note</code> — комментарий модератора</li>
+<li><a href="#salary-evaluation">Оценка заработной платы без прогнозов</a>
+<ul>
+<li><a href="#salary-evaluation-params">Параметры запроса</a></li>
+<li><a href="#salary-evaluation-examples">Примеры запросов</a></li>
+<li><a href="#salary-evaluation-response">Успешный ответ</a>
+<ul>
+<li><a href="#salary-evaluation-response-indirect-calculation">Параметры косвенной оценки зарплат</a></li>
+</ul></li>
+<li><a href="#salary-evaluation-errors">Ошибки</a></li>
+</ul></li>
 </ul>
 
-<h2 id="-3">Справочники для полей вакансии</h2>
+<p><a name="salary-evaluation"></a></p>
+
+<h2 id="-2">Оценка заработной платы без прогнозов</h2>
+
+<p>Метод для получения оценки заработных плат без прогноза.
+Требует <a href="authorization.md.html">авторизации</a>
+и наличия у пользователя доступа к платным отчётам Банка зарплат (см. https://salary.hh.ru).</p>
+
+<pre><code>GET /salary_statistics/paid/salary_evaluation/{area_id}
+</code></pre>
+
+<p>где
+* <code>area_id</code> — код региона (фед. округа, субъекты федерации, города), по которым будет построена выборка для формирования отчёта. См. <a href="salary_dictionaries.md.html#salary-areas">справочник регионов</a>.</p>
+
+<p><a name="salary-evaluation-params"></a></p>
+
+<h3 id="-3">Параметры запроса</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Обязательный</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>exclude_area</td>
+  <td>Нет</td>
+  <td>Коды регионов (федеральные округа, субъекты федерации, города), которые будут исключены из выборки для формирования отчёта в любом случае. Параметр предназначен для получения оценки на региональном рынке с исключением определенных городов/областей.  См. <a href="salary_dictionaries.md.html#salary-areas">справочник регионов</a></td>
+</tr>
+<tr>
+  <td>employee_level</td>
+  <td>Нет</td>
+  <td>Уровни специалистов, которые будут включены в выборку для формирования отчёта. См. <a href="salary_dictionaries.md.html#employee-levels">справочник уровней специалистов</a></td>
+</tr>
+<tr>
+  <td>industry</td>
+  <td>Нет</td>
+  <td>Коды отраслей, по которым будет построена выборка для формирования отчёта.  См. <a href="salary_dictionaries.md.html#salary-industries">справочник отраслей</a></td>
+</tr>
+<tr>
+  <td>speciality</td>
+  <td>Нет</td>
+  <td>Коды профобластей и специализаций, которые будут включены в выборку для формирования отчёта. См. <a href="salary_dictionaries.md.html#professional-areas">справочник профобластей и специализаций</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="salary-evaluation-examples"></a></p>
+
+<h3 id="-4">Примеры запросов</h3>
+
+<p>Зарплаты в России, за исключением Москвы и Санкт-Петербурга, для уровня «Специалист»,
+в компаниях с отраслями «Информационные технологии» или «Сельское хозяйство»: </p>
+
+<pre><code>GET /salary_statistics/paid/salary_evaluation/113?
+    exclude_area=1&amp;
+    exclude_area=2&amp;
+    employee_level=specialist&amp;
+    industry=7&amp;
+    industry=29
+</code></pre>
+
+<p>Зарплаты в Москве с уровнями «Ведущий специалист» и «Эксперт»
+в специализациях «Управление разработкой ПО» и «Управление проектами».</p>
+
+<pre><code>GET /salary_statistics/paid/salary_evaluation/1?
+    employee_level=senior_specialist&amp;
+    employee_level=expert&amp;
+    speciality=1170001&amp;
+    speciality=1170002
+</code></pre>
+
+<p><a name="salary-evaluation-response"></a></p>
+
+<h3 id="-5">Успешный ответ</h3>
+
+<p><code>200 OK</code>, в теле ответа содержатся данные по зарплатам и параметры выборки:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;market_salary&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;upper&quot;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span>
+        <span class="nt">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">20000</span><span class="p">,</span>
+        <span class="nt">&quot;median&quot;</span><span class="p">:</span> <span class="mi">35000</span><span class="p">,</span>
+        <span class="nt">&quot;average&quot;</span><span class="p">:</span> <span class="mi">50054</span><span class="p">,</span>
+        <span class="nt">&quot;maximum&quot;</span><span class="p">:</span> <span class="mi">52643</span><span class="p">,</span>
+        <span class="nt">&quot;bottom&quot;</span><span class="p">:</span> <span class="mi">28500</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;resulting_parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;areas&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;10010&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Южный федеральный округ&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;excluded_areas&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1530&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ростовская область&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;employee_levels&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;specialist&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Специалист&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;industries&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Информационные технологии, системная интеграция, интернет&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;specialities&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1200000&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Эксплуатация информационных систем&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;indirect_calculation&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;positions_count&quot;</span><span class="p">:</span> <span class="mi">1648</span><span class="p">,</span>
+        <span class="nt">&quot;employers_count&quot;</span><span class="p">:</span> <span class="mi">21</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>resulting_parameters</td>
+  <td>object</td>
+  <td>Набор параметров, по которым происходил расчёт</td>
+</tr>
+<tr>
+  <td>resulting_parameters.areas</td>
+  <td>array</td>
+  <td>Коды регионов (фед. округа, субъекты федерации, города)</td>
+</tr>
+<tr>
+  <td>resulting_parameters.excluded_areas</td>
+  <td>array или null</td>
+  <td>Исключённые коды регионов (фед. округа, субъекты федерации, города)</td>
+</tr>
+<tr>
+  <td>resulting_parameters.employee_levels</td>
+  <td>array или null</td>
+  <td>Уровни специалистов, включаемые в выборку в целевом регионе</td>
+</tr>
+<tr>
+  <td>resulting_parameters.industries</td>
+  <td>array или null</td>
+  <td>Отрасли</td>
+</tr>
+<tr>
+  <td>resulting_parameters.specialities</td>
+  <td>array или null</td>
+  <td>Профобласти</td>
+</tr>
+<tr>
+  <td>resulting_parameters.indirect_calculation</td>
+  <td>object или null</td>
+  <td><a href="#salary-evaluation-response-indirect-calculation">Параметры косвенной оценки зарплатных значений</a></td>
+</tr>
+<tr>
+  <td>employers_count</td>
+  <td>number</td>
+  <td>Количество работодателей, данные которых участвуют в выборке</td>
+</tr>
+<tr>
+  <td>positions_count</td>
+  <td>number</td>
+  <td>Количество записей о сотрудниках в анкетах, по которым построена выборка</td>
+</tr>
+<tr>
+  <td>market_salary</td>
+  <td>object</td>
+  <td>Рыночный диапазон зарплатных значений</td>
+</tr>
+<tr>
+  <td>market_salary.maximum</td>
+  <td>number</td>
+  <td>Максимальные значения (90-й процентиль)</td>
+</tr>
+<tr>
+  <td>market_salary.upper</td>
+  <td>number</td>
+  <td>Верхняя граница рыночного диапазона (75-й процентиль)</td>
+</tr>
+<tr>
+  <td>market_salary.median</td>
+  <td>number</td>
+  <td>В среднем по рынку (медиана)</td>
+</tr>
+<tr>
+  <td>market_salary.average</td>
+  <td>number</td>
+  <td>Среднее расчетное значение</td>
+</tr>
+<tr>
+  <td>market_salary.bottom</td>
+  <td>number</td>
+  <td>Нижняя граница рыночного диапазона (25-й процентиль)</td>
+</tr>
+<tr>
+  <td>market_salary.minimum</td>
+  <td>number</td>
+  <td>Минимальные значения (10-й процентиль)</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="salary-evaluation-response-indirect-calculation"></a></p>
+
+<h4 id="-6">Параметры косвенной оценки зарплат</h4>
+
+<p>Поле <code>resulting_parameters.indirect_calculation</code> присутствует в ответе только при запросе данных
+по одному региону и содержит параметры косвенной оценки зарплат. </p>
+
+<p>В примере выше вместо <code>"indirect_calculation": null</code> может быть объект вида:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;indirect_employee_levels&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;senior_specialist&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ведущий специалист&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;indirect_areas&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;indirect_regional_ratio&quot;</span><span class="p">:</span> <span class="mf">0.4375</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>indirect_calculation.indirect_areas</td>
+  <td>array или null</td>
+  <td>Регионы, использованные для косвенного расчёта</td>
+</tr>
+<tr>
+  <td>indirect_calculation.indirect_employee_levels</td>
+  <td>array или null</td>
+  <td>Уровни специалистов, включённые в выборку в регионе, использованном для косвенного расчёта</td>
+</tr>
+<tr>
+  <td>indirect_calculation.indirect_regional_ratio</td>
+  <td>number</td>
+  <td>Региональный коэффициент, который был использован для получения косвенной оценки зарплат</td>
+</tr>
+</tbody>
+</table>
+
+<p>Ответ, приведённый выше, означает, что:
+* в запрошенном регионе «Южный ФО» (<code>resulting_parameters.areas</code>)
+* по запрошенному уровню «Специалист» (<code>resulting_parameters.employee_levels</code>) данных о зарплатах не нашлось
+* но удалось сделать косвенный расчёт
+    * относительно уровня «Ведущий специалист» (<code>resulting_parameters.indirect_calculation.indirect_employee_levels</code>)
+    * в регионе «Москва» (<code>resulting_parameters.indirect_calculation.indirect_areas</code>)
+    * коэффициент составил 0.4375 (<code>resulting_parameters.indirect_calculation.indirect_regional_ratio</code>).</p>
+
+<p><a name="salary-evaluation-errors"></a></p>
+
+<h3 id="-7">Ошибки</h3>
 
 <ul>
-<li><code>employment</code> - тип занятости</li>
-<li><code>experience</code> - опыт работы</li>
-<li><code>schedule</code> - график работы</li>
-<li><code>vacancy_type</code> - тип вакансии</li>
-<li><code>vacancy_label</code> - метки вакансии</li>
-<li><code>vacancy_relation</code> - типы связи вакансии с пользователем</li>
-<li><code>vacancy_billing_type</code> - варианты размещения вакансии с точки зрения биллинга</li>
-<li><code>vacancy_site</code> - возможные значения сайтов для размещения вакансии</li>
-</ul>
-
-<h2 id="-4">Справочники для параметров поиска вакансий</h2>
-
-<ul>
-<li><code>vacancy_search_fields</code> - область поиска в вакансии</li>
-<li><code>vacancy_search_order</code> - тип сортировки вакансии</li>
-<li><code>vacancy_cluster</code> - тип кластеров</li>
-</ul>
-
-<h2 id="-5">Справочники для сортировки вакансий работодателя</h2>
-
-<ul>
-<li><code>employer_active_vacancies_order</code> - тип сортировки списка опубликованных
-вакансий</li>
-<li><code>employer_archived_vacancies_order</code> - тип сортировки списка архивных вакансий</li>
-</ul>
-
-<p><a name="negotiations"></a></p>
-
-<h2 id="-6">Справочники для откликов/приглашений (переписка)</h2>
-
-<ul>
-<li><code>negotiations_order</code> - типы порядка отображения откликов</li>
-<li><code>negotiations_state</code> - типы состояний откликов</li>
-<li><code>messaging_status</code> — статус возможности отправки сообщения в переписке</li>
-<li><code>negotiations_participant_type</code> – типы участников переписки</li>
-</ul>
-
-<p><a name="etc"></a></p>
-
-<h2 id="-7">Остальные справочники</h2>
-
-<ul>
-<li><code>currency</code> - справочник валют</li>
-<li><code>employer_type</code> - тип работодателя</li>
-<li><code>employer_relation</code> — типы связи компании с пользователем</li>
-<li><code>vacancy_not_prolonged_reason</code> — причины, из-за которых невозможно
-<a href="employer_vacancies.md.html#prolongate-info">продлить вакансию</a>.</li>
-<li><code>applicant_comments_order</code> — типы сортировки
-<a href="applicant_comments.md.html#list">списка комментариев к соискателю</a></li>
-<li><code>applicant_comment_access_type</code> - тип доступа для комментария к соискателю</li>
+<li><code>400 Bad Request</code> — ошибка в параметрах.</li>
+<li><code>403 Forbidden</code> — нет доступа, или пользователь не авторизован.</li>
+<li><code>404 Not Found</code> — нет данных для указанных параметров.</li>
 </ul>
 
     </article>

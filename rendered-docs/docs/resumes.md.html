@@ -760,7 +760,11 @@
 <li><a href="#resume-nano">Короткое представление резюме</a></li>
 <li><a href="#resume-short">Сокращенное представление резюме</a></li>
 <li><a href="#status">Статусы резюме</a></li>
-<li><a href="#access_type">Видимость резюме</a></li>
+<li><a href="#access_type">Видимость резюме</a>
+<ul>
+<li><a href="#visibility_lists">Списки видимости резюме</a></li>
+<li><a href="#get_access_types">Получение списка типов видимости резюме</a></li>
+</ul></li>
 <li><a href="#views">История просмотра резюме</a></li>
 <li><a href="#similar">Поиск по вакансиям, похожим на резюме</a></li>
 </ul>
@@ -3289,9 +3293,22 @@ POST/PUT на /resumes.</p></li>
 
 <h2 id="-35">Видимость резюме</h2>
 
-<p>После публикации резюме доступно для поиска работодателями. Чтобы это изменить
+<p>У каждого резюме есть настройка видимости <code>access</code>, которая определяет, кому будет доступно резюме
+в поиске и по прямой ссылке. Формат поля в резюме:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;access&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;clients&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;видно всем компаниям, зарегистрированным на HeadHunter&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>После публикации резюме доступно для поиска всем работодателям. Чтобы это изменить
 (например, работа найдена и нужно скрыть резюме из поиска), следует поменять
-видимость резюме. За это отвечает ключ <code>access.type</code> у резюме. Тип видимости —
+видимость резюме. За это отвечает ключ <code>access.type</code>. Тип видимости —
 элемент справочника <a href="dictionaries.md.html">resume_access_type</a>.</p>
 
 <table>
@@ -3308,11 +3325,11 @@ POST/PUT на /resumes.</p></li>
 </tr>
 <tr>
   <td>whitelist</td>
-  <td>Резюме не видно никому, кроме указанных компаний. Если откликнуться на вакансию компании, который не входит в список, компания автоматически в него попадёт.</td>
+  <td>Резюме не видно никому, кроме указанных компаний. Если откликнуться на вакансию компании, которая не входит в список, компания автоматически в него попадёт. См. <a href="#visibility_lists">списки видимости резюме</a>.</td>
 </tr>
 <tr>
   <td>blacklist</td>
-  <td>Резюме доступно для поиска и просмотра всем компаниям, за исключением указанных. Если откликнуться на вакансию компании из черного списка, то компания вычеркивается из него автоматически.</td>
+  <td>Резюме доступно для поиска и просмотра всем компаниям, за исключением указанных. Если откликнуться на вакансию компании из черного списка, то компания вычеркивается из него автоматически. См. <a href="#visibility_lists">списки видимости резюме</a>.</td>
 </tr>
 <tr>
   <td>clients</td>
@@ -3329,9 +3346,121 @@ POST/PUT на /resumes.</p></li>
 </tbody>
 </table>
 
+<p><a name="visibility_lists"></a></p>
+
+<h3 id="-36">Списки видимости резюме</h3>
+
+<p>Некоторые типы видимости, например <code>whitelist</code> и <code>blacklist</code>, подразумевают наличие списка работодателей,
+для которых резюме должно быть видимо или скрыто. См. <a href="/docs/resume_visibility.md.html">управление списками видимости резюме</a>.</p>
+
+<p><a name="get_access_types"></a></p>
+
+<h3 id="-37">Получение списка типов видимости резюме</h3>
+
+<pre><code>GET /resumes/{resume_id}/access_types
+</code></pre>
+
+<p>где:
+* <code>resume_id</code> — идентификатор резюме</p>
+
+<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит тело:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;everyone&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;видно всему интернету&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;no_one&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;не видно никому&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;clients&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;видно всем компаниям, зарегистрированным на HeadHunter&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;whitelist&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;видно выбранным компаниям&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;list_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/{resume_id}/whitelist&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">2000</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;blacklist&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;скрыто от выбранных компаний&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;list_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/{resume_id}/blacklist&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+            <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;direct&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;доступно только по прямой ссылке&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>items</td>
+  <td>array</td>
+  <td>Доступные типы видимости резюме.</td>
+</tr>
+<tr>
+  <td>items[].id</td>
+  <td>string</td>
+  <td>Идентификатор типа видимости.</td>
+</tr>
+<tr>
+  <td>items[].name</td>
+  <td>string</td>
+  <td>Имя типа видимости.</td>
+</tr>
+<tr>
+  <td>items[].active</td>
+  <td>boolean или null</td>
+  <td>Выбран ли тип видимости.</td>
+</tr>
+<tr>
+  <td>items[].list_url</td>
+  <td>string</td>
+  <td>Адрес списка (только для типов <code>blacklist</code> и <code>whitelist</code>).</td>
+</tr>
+<tr>
+  <td>items[].total</td>
+  <td>number</td>
+  <td>Количество компаний, добавленных в соответствующий список видимости (только для типов <code>blacklist</code> и <code>whitelist</code>).</td>
+</tr>
+<tr>
+  <td>items[].limit</td>
+  <td>number</td>
+  <td>Максимальное количество компаний в списке видимости (только для типов <code>blacklist</code> и <code>whitelist</code>).</td>
+</tr>
+</tbody>
+</table>
+
+<p>Возможные ошибки:</p>
+
+<ul>
+<li><code>403 Forbidden</code> — пользователь не является соискателем.</li>
+<li><code>404 Not Found</code> — резюме с указанным идентификатором не найдено или недоступно текущему пользователю.</li>
+</ul>
+
+<p>См. также <a href="/docs/resume_visibility.md.html">управление списками видимости резюме</a>.</p>
+
 <p><a name="views"></a></p>
 
-<h2 id="-36">История просмотра резюме</h2>
+<h2 id="-38">История просмотра резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/views</code> вернёт историю просмотров резюме. На основном
 сайте это доступно при клике на кол-во просмотров резюме на странице со списком
@@ -3444,11 +3573,11 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="similar"></a></p>
 
-<h2 id="-37">Поиск по вакансиям, похожим на резюме</h2>
+<h2 id="-39">Поиск по вакансиям, похожим на резюме</h2>
 
 <p>Данные доступны только автору резюме.</p>
 
-<h3 id="-38">Запрос</h3>
+<h3 id="-40">Запрос</h3>
 
 <p><code>GET /resumes/{resume_id}/similar_vacancies</code></p>
 

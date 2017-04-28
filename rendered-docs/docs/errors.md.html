@@ -1398,6 +1398,97 @@
 </tbody>
 </table>
 
+<p><a name="resume-visibility-lists"></a></p>
+
+<h3 id="-17">Списки видимости резюме</h3>
+
+<p><a name="resume-visibility-lists-get"></a></p>
+
+<h4 id="-18">Получение списков видимости</h4>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>bad_argument</td>
+  <td>per_page</td>
+  <td>передано невалидное количество элементов на странице (максимум 100)</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="resume-visibility-lists-add"></a></p>
+
+<h4 id="-19">Добавление компаний в список</h4>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>resume_visibility_list</td>
+  <td>unknown_employer</td>
+  <td>передан неизвестный идентификатор работодателя</td>
+</tr>
+<tr>
+  <td>400</td>
+  <td>resume_visibility_list</td>
+  <td>limit_exceeded</td>
+  <td>превышен лимит списка видимости</td>
+</tr>
+<tr>
+  <td>400</td>
+  <td>resume_visibility_list</td>
+  <td>too_many_employers</td>
+  <td>передано слишком много работодателей</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="resume-visibility-lists-remove"></a></p>
+
+<h4 id="-20">Удаление компаний из списка</h4>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP code</th>
+  <th>type</th>
+  <th>value</th>
+  <th>описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>400</td>
+  <td>bad_argument</td>
+  <td>id</td>
+  <td>передан невалидный идентификатор работодателя</td>
+</tr>
+<tr>
+  <td>400</td>
+  <td>resume_visibility_list</td>
+  <td>too_many_employers</td>
+  <td>передано слишком много работодателей</td>
+</tr>
+</tbody>
+</table>
+
     </article>
     </body>
     </html>
