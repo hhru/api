@@ -737,49 +737,257 @@
     <article class="markdown-body">
     <h1>Кластеры в поиске вакансий</h1>
 
-<p>Часто в поиске вакансий удобно получать расширенную информацию о том, как резделены вакансии в поиске по различным критериям.
-Например, при поиске по выбранным критериям, удобно знать каким образом распределены зарплаты в искомых вакансиях - в скольких вакансиях зарплата указана, в скольких она больше определенной суммы.
-Эти данные возможно получить пользуясь поиском вакансий, формируя отдельный запрос на каждый интересующий критерий. Однако значительно проще воспользоваться специальной возможностью поисковой выдачи - разбиения данных на кластеры.</p>
+<p>Часто в <a href="vacancies.md.html#search">поиске вакансий</a> удобно получать расширенную
+информацию о том, как разделены вакансии в поиске по различным критериям.
+Например, при поиске по выбранным критериям, удобно знать каким образом
+распределены зарплаты в искомых вакансиях - в скольких вакансиях зарплата
+указана, в скольких она больше определенной суммы. Эти данные возможно получить,
+пользуясь поиском вакансий, формируя отдельный запрос на каждый интересующий
+критерий. Однако значительно проще воспользоваться специальной возможностью
+поисковой выдачи – разбиением данных на кластеры.</p>
 
-<p>Пример использования этих данных на основном сайте hh.ru можно увидеть в левой колонке на <a href="https://hh.ru/search/vacancy">странице результатов поиска вакансий</a>.</p>
+<p>Пример использования этих данных на основном сайте hh.ru можно увидеть в левой
+колонке на <a href="https://hh.ru/search/vacancy">странице результатов поиска вакансий</a>.</p>
 
-<p>Если необходима только данная мета-информация (а не сам список найденных вакансий) можно указать в запросе <code>?per_page=0</code>.</p>
+<p>Для того, чтобы получить данные по кластерам, необходимо в поисковом запросе на
+<code>/vacancies</code> добавить параметр <code>clusters=true</code>. При этом в поисковом ответе
+помимо поисковой выдачи будет возвращаться дополнительная разбивка вакансий по
+кластерам. Если необходимо получить только кластеры без списка найденных
+вакансий, можно указать в запросе <code>?per_page=0</code>.</p>
 
-<p>Для того, чтобы получить данные по кластерам, необходимо в поисковом запросе на <code>/vacancies</code> добавить параметр <code>clusters=true</code>. При этом в поисковом ответе помимо поисковой выдачи будет возвращаться дополнительная разбивка вакансий по кластерам:</p>
+<p>Кластеры разбиваются на группы, в группу попадают кластеры схожего
+значения. Например, группа "Зарплата" может содержать кластеры
+"от 45000 руб." и "от 75000 руб."</p>
+
+<p>Пример выдачи кластеров в поиске, ключ <code>clusters</code> добавляется к
+<a href="vacancies.md.html#search-results">стандартной выдаче поиска вакансий</a>
+(приведены все возможные группы кластеров, в реальных запросах не все группы
+будут присутствовать):</p>
 
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[],</span>
-  <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">306158</span><span class="p">,</span>
-  <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
-  <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="nt">&quot;clusters&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;professional_area&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Профобласть&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nt">&quot;clusters&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Спортивные клубы, фитнес, салоны красоты&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;specialization=24&amp;per_page=1&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2852</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;professional_area&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Профобласть&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Спортивные клубы, фитнес, салоны красоты&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;specialization=24&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2852</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Инсталляция и сервис&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;specialization=25&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2469</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
         <span class="p">},</span>
         <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Инсталляция и сервис&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2469</span><span class="p">,</span>
-          <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;specialization=25&amp;per_page=1&quot;</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;specialization&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Специализация&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Продажи&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;specialization=15.389&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">3098</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Административный персонал&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;specialization=15.388&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1035</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Регион&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;area=1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">83285</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Московская область&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;area=2019&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">16413</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;metro&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Метро&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Замоскворецкая&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;metro=2&amp;area=1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">11639</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;metro_line&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;metro_line&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;hex_color&quot;</span><span class="p">:</span> <span class="s2">&quot;4FB04F&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Алексеевская&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;metro=6.8&amp;area=1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1046</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;metro_station&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;metro_station&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;6.8&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;hex_color&quot;</span><span class="p">:</span> <span class="s2">&quot;4FB04F&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
+                        <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span><span class="p">,</span>
+                        <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                        <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Москва&quot;</span><span class="p">,</span>
+                            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/areas/1&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;schedule&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;График работы&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Полный день&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;schedule=fullDay&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">67101</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Сменный график&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;schedule=shift&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">10736</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;experience&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Опыт работы&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;От 1 года до 3 лет&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;experience=between1And3&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">39873</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;От 3 до 6 лет&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;experience=between3And6&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">22922</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Исключение&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Без вакансий агентств&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;label=not_from_agency&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">77116</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Только с адресом&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;label=with_address&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">47774</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Только доступные для людей с инвалидностью&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;label=accept_handicapped&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1407</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;salary&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Зарплата&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Указана&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;only_with_salary=true&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">51300</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;от 45000 руб.&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?salary=45000&amp;clusters=true&amp;only_with_salary=true&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">40026</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;от 75000 руб.&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?salary=75000&amp;clusters=true&amp;only_with_salary=true&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">19903</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;employment&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Тип занятости&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Полная занятость&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;employment=full&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">79713</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Частичная занятость&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;employment=part&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2699</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;industry&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Отрасль компании&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Информационные технологии, системная интеграция, интернет&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;industry=7&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">10316</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Сельское хозяйство&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;industry=29&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">512</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;sub_industry&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Сфера компании&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Системная интеграция, автоматизации технологических и бизнес-процессов предприятия, ИТ-консалтинг&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;industry=7.539&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">24237</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Разработка программного обеспечения&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/vacancies?clusters=true&amp;industry=7.540&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">22859</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
         <span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Набор типов объектов кластеров (<code>id</code> в элементах массива <code>clusters</code>) может отличаться от запроса к запросу и зависит от параметров поискового запроса.
-Список всех типов кластеров можно узнать в <a href="dictionaries.md.html">справочнике</a> в элементе с ключем <code>vacancy_cluster</code>.</p>
+<p>Набор групп кластеров (элементы массива <code>clusters</code>) может отличаться от
+запроса к запросу и зависит от параметров поискового запроса. Список всех
+возможных групп кластеров можно узнать в <a href="dictionaries.md.html">справочнике</a> в
+элементе с ключом <code>vacancy_cluster</code>.</p>
 
-<p>При этом, если в поисковом запросе было указано <code>clusters=false</code> или параметр <code>clusters</code> вообще не был указан, то поле <code>clusters</code> в  ответе будет <code>null</code>.</p>
+<p>При этом, если в поисковом запросе было указано <code>clusters=false</code> или параметр
+<code>clusters</code> вообще не был указан, то поле <code>clusters</code> в ответе будет <code>null</code>.</p>
 
-<p>Каждый кластер имеет следующие поля:</p>
+<p>Каждая группа кластеров имеет следующие поля:</p>
 
 <table>
 <thead>
@@ -792,17 +1000,17 @@
 <tbody>
 <tr>
   <td>id</td>
-  <td>строка</td>
+  <td>string</td>
   <td>Тип кластера</td>
 </tr>
 <tr>
   <td>name</td>
-  <td>строка</td>
+  <td>string</td>
   <td>Название типа кластера</td>
 </tr>
 <tr>
   <td>items</td>
-  <td>массив</td>
+  <td>array</td>
   <td>Массив поисковых запросов в данном кластере с указанием дополнительных параметров</td>
 </tr>
 </tbody>
@@ -821,18 +1029,102 @@
 <tbody>
 <tr>
   <td>name</td>
-  <td>строка</td>
+  <td>string</td>
   <td>Название элемента кластера</td>
 </tr>
 <tr>
   <td>url</td>
-  <td>строка</td>
+  <td>string</td>
   <td>Ссылка на поисковую выдачу по данному элементу кластера</td>
 </tr>
 <tr>
   <td>count</td>
-  <td>число</td>
+  <td>number</td>
   <td>Количество вакансий в данном элементе кластера</td>
+</tr>
+<tr>
+  <td>type</td>
+  <td>string или отсутствует</td>
+  <td>тип значения, связанного с группой</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="-2">Типы кластеров</h3>
+
+<p>Доступные в данный момент типы:</p>
+
+<ul>
+<li><code>metro_line</code> - линия метро</li>
+<li><code>metro_station</code> - станция метро</li>
+</ul>
+
+<p>Для линий метро (<code>type=metro_line</code>) дополнительно выдаётся ключ <code>metro_line</code>
+содержащий объект с полями:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>идентификатор линии</td>
+</tr>
+<tr>
+  <td>hex_color</td>
+  <td>string</td>
+  <td>цвет линии в HEX-формате RRGGBB (от 000000 до FFFFFF)</td>
+</tr>
+<tr>
+  <td>area</td>
+  <td>object</td>
+  <td><a href="areas.md.html">Регион</a> (город) в котором находится линия</td>
+</tr>
+</tbody>
+</table>
+
+<p>Для станций метро (<code>type=metro_station</code>) дополнительно выдаётся ключ
+<code>metro_station</code> содержащий объект с полями:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>id</td>
+  <td>string</td>
+  <td>идентификатор станции</td>
+</tr>
+<tr>
+  <td>hex_color</td>
+  <td>string</td>
+  <td>цвет линии в HEX-формате RRGGBB (от 000000 до FFFFFF)</td>
+</tr>
+<tr>
+  <td>lat, lng</td>
+  <td>number</td>
+  <td>координаты расположения станции (широта и долгота)</td>
+</tr>
+<tr>
+  <td>order</td>
+  <td>number</td>
+  <td>порядок станции в линии метро</td>
+</tr>
+<tr>
+  <td>area</td>
+  <td>object</td>
+  <td><a href="areas.md.html">Регион</a> в котором находится станция</td>
 </tr>
 </tbody>
 </table>
