@@ -1639,11 +1639,11 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 
 <h2 id="-22">Список опубликованных вакансий</h2>
 
-<p><code>GET /employers/{employer_id}/vacancies/active?manager_id={manager_id}</code></p>
+<p><code>GET /employers/{employer_id}/vacancies/active</code></p>
 
-<p>Для просмотра списка опубликованных вакансий необходимо указать id менеджера,
-даже если необходимо сделать запрос для текущего менеджера (значение можно
-взять из <code>/me</code>).</p>
+<p>По умолчанию возвращаются вакансии текущего пользователя. Если требуется
+получить вакансии другого менеджера, необходимо передать дополнительный параметр
+<code>manager_id={manager_id}</code>.</p>
 
 <h3 id="-23">Ответ</h3>
 
@@ -1790,15 +1790,18 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 
 <h2 id="-26">Список архивных вакансий</h2>
 
-<p><code>GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}</code></p>
+<p><code>GET /employers/{employer_id}/vacancies/archived</code></p>
 
-<p>Для просмотра списка архивных вакансий также необходимо указать id менеджера,
-даже если необходимо сделать запрос для текущего менеджера (значение можно
-взять из <code>/me</code>). Поддерживается пагинация (<code>per_page</code> и <code>page</code>) и сортировка
-(<code>order_by</code>). Возможные значения сортировки доступны в справочнике
-<code>employer_archived_vacancies_order</code> (<code>/dictionaries</code>). В отличие от списка
-опубликованных вакансий, данная коллекция не поддерживает поиск (параметры
-<code>text</code> и <code>area</code>).</p>
+<p>По умолчанию возвращаются вакансии текущего пользователя. Если требуется
+получить вакансии другого менеджера, необходимо передать дополнительный параметр
+<code>manager_id={manager_id}</code>.</p>
+
+<p>Поддерживается пагинация (<code>per_page</code> и <code>page</code>) и сортировка (<code>order_by</code>).
+Возможные значения сортировки доступны в
+<a href="dictionaries.md.html">справочнике <code>employer_archived_vacancies_order</code></a>.</p>
+
+<p>В отличие от списка опубликованных вакансий, данная коллекция не поддерживает
+поиск (параметры <code>text</code> и <code>area</code>).</p>
 
 <h3 id="-27">Ответ</h3>
 
@@ -1905,13 +1908,18 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 
 <h2 id="-29">Список удаленных вакансий</h2>
 
-<p><code>GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}</code></p>
+<p><code>GET /employers/{employer_id}/vacancies/hidden</code></p>
+
+<p>По умолчанию возвращаются вакансии текущего пользователя. Если требуется
+получить вакансии другого менеджера, необходимо передать дополнительный параметр
+<code>manager_id={manager_id}</code>.</p>
 
 <p>Поддерживается пагинация (<code>per_page</code> и <code>page</code>) и сортировка (<code>order_by</code>).
 Возможные значения сортировки доступны в справочнике
-<code>employer_hidden_vacancies_order</code> (<code>/dictionaries</code>). В отличие от списка
-опубликованных вакансий, данная коллекция не поддерживает поиск (параметры
-<code>text</code> и <code>area</code>).</p>
+<a href="dictionaries.md.html">справочнике <code>employer_hidden_vacancies_order</code></a>.</p>
+
+<p>В отличие от списка опубликованных вакансий, данная коллекция не поддерживает
+поиск (параметры <code>text</code> и <code>area</code>).</p>
 
 <h3 id="-30">Ответ</h3>
 
