@@ -80,6 +80,7 @@
     "manager_type": {
         "id": "manager"
     },
+    "is_main_contact_person": false,
     "position": "Менеджер по подбору персонала",
     "email": "employer@example.com",
     "area": {
@@ -114,6 +115,7 @@
  first_name | string | имя
  middle_name | string или null | отчество
  manager_type.id | string | идентификатор [типа менеджера](#dict)
+ is_main_contact_person | boolean | является ли менеджер главным контактным лицом компании
  position | string | должность менеджера
  email | string | электронная почта менеджера
  area.id | number | регион [из справочника](areas.md)
@@ -286,6 +288,7 @@
             "first_name": "Иван",
             "middle_name": "Иванович",
             "vacancies_count": 0,
+            "is_main_contact_person": false,
             "phone": {
                 "country": "7",
                 "city": "495",
