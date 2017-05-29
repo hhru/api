@@ -118,7 +118,8 @@
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
-        "trusted": true
+        "trusted": true,
+        "blacklisted": false
     },
     "response_letter_required": true,
     "type": {
@@ -214,6 +215,7 @@ area.name | string | Название региона
 area.url | string | Url получения информации о регионе
 published_at | string | Дата и время публикации вакансии
 employer | object | Короткое представление работодателя. Описание полей смотрите в [информации о работодателе](employers.md#item).
+employer.blacklisted | boolean | Добавлены ли все вакансии работодателя в [список скрытых](blacklisted.md#employers)
 response_letter_required | boolean | Обязательно ли заполнять сообщение при отклике на вакансию
 type | object | Тип вакансии. Элемент справочника [vacancy_type](dictionaries.md).
 type.id | string | Идентификатор типа вакансии
