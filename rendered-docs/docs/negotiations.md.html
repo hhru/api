@@ -825,7 +825,9 @@
             <span class="s2">&quot;resume&quot;</span><span class="o">:</span> <span class="p">{},</span>
             <span class="s2">&quot;vacancy&quot;</span><span class="o">:</span> <span class="p">{},</span>
             <span class="s2">&quot;has_updates&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="s2">&quot;viewed_by_opponent&quot;</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="s2">&quot;viewed_by_opponent&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;messaging_status&quot;</span><span class="o">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;decline_allowed&quot;</span><span class="o">:</span> <span class="kc">true</span>
         <span class="p">}</span>
         <span class="c1">// , .....</span>
     <span class="p">]</span>
@@ -926,6 +928,16 @@
   <td>viewed_by_opponent</td>
   <td>логический</td>
   <td>Был ли отклик просмотрен работодателем</td>
+</tr>
+<tr>
+  <td>messaging_status</td>
+  <td>строка</td>
+  <td>Текущий статус переписки. Возможные значения находятся в <a href="./dictionaries.md.html">справочнике <code>messaging_status</code></a>.</td>
+</tr>
+<tr>
+  <td>decline_allowed</td>
+  <td>Логический</td>
+  <td>Возможно ли <a href="#hide_message">скрыть отклик</a> вместе с сообщением работодателю об отказе</td>
 </tr>
 </tbody>
 </table>
@@ -1041,25 +1053,7 @@ Location: http://example.com/respond/vacancy
 
 <h3 id="-14">Ответ</h3>
 
-<p>Возвращаемый объект полностью идентичен отдельному отклику, получаемому в
-<a href="#get_negotiations">списке откликов</a>, за исключением поля <code>messaging_status</code>.</p>
-
-<table>
-<thead>
-<tr>
-  <th>Имя</th>
-  <th>Тип</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>messaging_status</td>
-  <td>строка</td>
-  <td>Текущий статус переписки. Возможные значения находятся в <a href="./dictionaries.md.html">справочнике <code>messaging_status</code></a>.</td>
-</tr>
-</tbody>
-</table>
+<p>Возвращаемый объект полностью идентичен отдельному отклику, получаемому в <a href="#get_negotiations">списке откликов</a></p>
 
 <p><a name="hide_message"></a></p>
 
@@ -1075,6 +1069,27 @@ Location: http://example.com/respond/vacancy
 <ul>
 <li>nid - идентификатор отклика</li>
 </ul>
+
+<p>Параметры</p>
+
+<table>
+<thead>
+<tr>
+  <th>Имя</th>
+  <th>Тип</th>
+  <th>Обязательный</th>
+  <th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>with_decline_message</td>
+  <td>логический</td>
+  <td>нет</td>
+  <td>Должно ли быть отправлено работодателю сообщение об отказе, по умолчанию false. Возможность отправить сообщение об отказе определяется полем decline_allowed получаемым при запросе <a href="#get_negotiations">списка откликов</a> или <a href="#get_negotiation">одного отклика</a></td>
+</tr>
+</tbody>
+</table>
 
 <p>Успешный ответ приходит с кодом <code>204 No Content</code>.</p>
 
@@ -1093,7 +1108,7 @@ Location: http://example.com/respond/vacancy
 <li>nid - идентификатор отклика</li>
 </ul>
 
-<p>Опциональные параметры</p>
+<p>Параметры</p>
 
 <table>
 <thead>
