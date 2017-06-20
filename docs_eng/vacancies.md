@@ -92,7 +92,8 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
     "salary": {
         "to": null,
         "from": 30000,
-        "currency": "RUR"
+        "currency": "RUR",
+        "gross": true
     },
     "archived": false,
     "name": "Secretary",
@@ -451,7 +452,8 @@ used for applicants.
       "salary": {
         "to": null,
         "from": 30000,
-        "currency": "RUR"
+        "currency": "RUR",
+        "gross": true
       },
       "name": "Secretary",
       "area": {
@@ -539,7 +541,8 @@ returned in response.
     "salary": {
         "to": null,
         "from": 100000,
-        "currency": "RUR"
+        "currency": "RUR",
+        "gross": true
     },
     "name": "Test automation specialist (Java, Selenium)",
     "area": {

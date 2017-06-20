@@ -97,7 +97,8 @@
     "salary": {
         "from": 100,
         "to": 500,
-        "currency": "USD"
+        "currency": "USD",
+        "gross": true
     },
     "contacts": {
         "name": "Иванов Иван",
@@ -162,6 +163,7 @@ department.id | string | департамент [из справочника](em
 salary | object или null | зарплата
 salary.from | numeric или null | нижняя граница зарплаты
 salary.to | numeric или null | верхняя граница зарплаты
+salary.gross | boolean | признак что границы зарплаты указаны до вычета налогов
 salary.currency | string | код валюты из [справочника currency](dictionaries.md)
 address | object или null | адрес
 address.id | string | адрес из [списка доступных адресов работодателя](employer_addresses.md)
@@ -368,6 +370,9 @@ Location: /vacancies/78789890
                 "required": false
             },
             "to": {
+                "required": false
+            },
+            "gross": {
                 "required": false
             }
         },
@@ -636,7 +641,8 @@ PUT /vacancies/{vacancy_id}
             "salary": {
                 "to": null,
                 "from": 30000,
-                "currency": "RUR"
+                "currency": "RUR",
+                "gross": true
             },
             "name": "Секретарь",
             "area": {
@@ -758,7 +764,8 @@ has_updates | boolean | Есть ли в откликах/приглашения
             "salary": {
                 "to": null,
                 "from": 30000,
-                "currency": "RUR"
+                "currency": "RUR",
+                "gross": true
             },
             "name": "Секретарь",
             "area": {
@@ -857,7 +864,8 @@ archived_at | строка | дата архивации вакансии
             "salary": {
                 "to": null,
                 "from": 30000,
-                "currency": "RUR"
+                "currency": "RUR",
+                "gross": true
             },
             "name": "Секретарь",
             "area": {

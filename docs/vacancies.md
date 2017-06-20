@@ -98,7 +98,8 @@
     "salary": {
         "to": null,
         "from": 30000,
-        "currency": "RUR"
+        "currency": "RUR",
+        "gross": true
     },
     "archived": false,
     "name": "Секретарь",
@@ -206,6 +207,7 @@ employment.name | string | Название типа занятости
 salary | object или null | Оклад
 salary.from | number или null | Нижняя граница вилки оклада
 salary.to | number или null | Верняя граница вилки оклада
+salary.gross | boolean или null | Признак того что оклад указан до вычета налогов. В случае если не указано - null.
 salary.currency | string | Идентификатор валюты оклада (справочник [currency](dictionaries.md)).
 archived | boolean | Находится ли данная вакансия в архиве
 name | string | Название вакансии
@@ -514,7 +516,8 @@ counters.invitations | number | количество приглашений на
       "salary": {
         "to": null,
         "from": 30000,
-        "currency": "RUR"
+        "currency": "RUR",
+        "gross": true
       },
       "name": "Секретарь",
       "area": {
@@ -614,7 +617,8 @@ snippet.responsibility | строка, null | Обязанности по вак
     "salary": {
         "to": null,
         "from": 100000,
-        "currency": "RUR"
+        "currency": "RUR",
+        "gross": true
     },
     "name": "Специалист по автоматизации тестирования (Java, Selenium)",
     "area": {
