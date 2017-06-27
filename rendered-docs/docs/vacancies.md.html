@@ -840,7 +840,8 @@
     <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
-        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gross&quot;</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="nt">&quot;archived&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
@@ -1054,6 +1055,11 @@
   <td>salary.to</td>
   <td>number или null</td>
   <td>Верняя граница вилки оклада</td>
+</tr>
+<tr>
+  <td>salary.gross</td>
+  <td>boolean или null</td>
+  <td>Признак того что оклад указан до вычета налогов. В случае если не указано - null.</td>
 </tr>
 <tr>
   <td>salary.currency</td>
@@ -1548,7 +1554,8 @@ retina дисплеи.</li>
       <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
-        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gross&quot;</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
       <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
       <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1668,7 +1675,8 @@ retina дисплеи.</li>
     <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
-        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gross&quot;</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Специалист по автоматизации тестирования (Java, Selenium)&quot;</span><span class="p">,</span>
     <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>

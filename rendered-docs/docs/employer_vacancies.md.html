@@ -844,7 +844,8 @@
     <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
         <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
-        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gross&quot;</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="nt">&quot;contacts&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Иванов Иван&quot;</span><span class="p">,</span>
@@ -977,6 +978,11 @@
   <td>salary.to</td>
   <td>numeric или null</td>
   <td>верхняя граница зарплаты</td>
+</tr>
+<tr>
+  <td>salary.gross</td>
+  <td>boolean</td>
+  <td>признак что границы зарплаты указаны до вычета налогов</td>
 </tr>
 <tr>
   <td>salary.currency</td>
@@ -1294,6 +1300,9 @@ Location: /vacancies/78789890
                 <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
             <span class="p">},</span>
             <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;gross&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
             <span class="p">}</span>
         <span class="p">},</span>
@@ -1659,7 +1668,8 @@ Cоставные поля (например, <code>salary</code>, <code>contact
             <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
                 <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
-                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;gross&quot;</span><span class="p">:</span> <span class="kc">true</span>
             <span class="p">},</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
             <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1817,7 +1827,8 @@ Cоставные поля (например, <code>salary</code>, <code>contact
             <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
                 <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
-                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;gross&quot;</span><span class="p">:</span> <span class="kc">true</span>
             <span class="p">},</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
             <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1935,7 +1946,8 @@ Cоставные поля (например, <code>salary</code>, <code>contact
             <span class="nt">&quot;salary&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
                 <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
-                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span>
+                <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUR&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;gross&quot;</span><span class="p">:</span> <span class="kc">true</span>
             <span class="p">},</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Секретарь&quot;</span><span class="p">,</span>
             <span class="nt">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span>
