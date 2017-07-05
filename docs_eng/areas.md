@@ -33,7 +33,7 @@ region name and ID and the link to a parent region `parent_id`.
 ]
 ```
 
-Example: [https://api.hh.ru/areas?locale=EN](https://api.hh.ru/areaslocale=EN)
+Example: [https://api.hh.ru/areas?locale=EN](https://api.hh.ru/areas?locale=EN)
 
 
 <a name="item"></a>
