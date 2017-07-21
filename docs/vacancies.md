@@ -61,6 +61,7 @@
         "name": "Полный день"
     },
     "accept_handicapped": false,
+    "accept_kids": false,
     "experience": {
         "id": "between1And3",
         "name": "1–3 года"
@@ -191,6 +192,7 @@ schedule | object | График работы. Элемент справочни
 schedule.id | string | Идентификатор графика работы
 schedule.name | string | Название графика работы
 accept_handicapped | boolean | Указание, что вакансия доступна для соискателей с инвалидностью
+accept_kids | boolean | Указание, что вакансия доступна для соискателей от 14 лет
 experience | object | Требуемый опыт работы. Элемент справочника [experience](dictionaries.md)
 experience.id | string | Идентификатор требуемого опыта работы
 experience.name | string | Название требуемого опыта работы

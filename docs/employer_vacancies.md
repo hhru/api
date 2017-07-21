@@ -113,6 +113,7 @@
         ]
     },
     "accept_handicapped": true,
+    "accept_kids": false,
     "code": "код-1234",
     "response_notifications": true,
     "allow_messages": true,
@@ -190,6 +191,7 @@ response_notifications | boolean | уведомлять о новых откли
 <a name="allow_messages"></a> allow_messages | boolean | возможность [переписки с кандидатами](https://inboxemp.hh.ru/) по данной вакансии
 response_letter_required | boolean | требовать сопроводительное письмо
 accept_handicapped | boolean | указание, что вакансия доступна для соискателей с инвалидностью
+accept_kids | boolean | указание, что вакансия доступна для соискателей от 14 лет
 branded_template.id | string | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
 
 
@@ -247,6 +249,9 @@ Location: /vacancies/78789890
 {
     "accept_handicapped": {
         "required": false
+    },
+    "accept_kids": {
+            "required": false
     },
     "address": {
         "fields": {
@@ -445,6 +450,7 @@ department | департамент
 code | внутренний код вакансии
 response_letter_required | необходимость сопроводительного письма при отклике
 accept_handicapped | указание, что вакансия доступна для соискателей с инвалидностью
+accept_kids | указание, что вакансия доступна для соискателей от 14 лет
 response_notifications | настройка уведомления о новых откликах
 allow_messages | возможность переписки с кандидатами по данной вакансии
 contacts | контактная информация (для вакансий рабочих специальностей)

@@ -105,6 +105,7 @@ vacancy being posted. The format of the data is similar to the
         ]
     },
     "accept_handicapped": true,
+    "accept_kids": false,
     "code": "code-1234",
     "response_notifications": true,
     "allow_messages": true,
@@ -183,6 +184,7 @@ vacancy being posted. The format of the data is similar to the
 | allow_messages              | boolean         | ability to [message candidates](http://inboxemp.hh.ru/) on the subject of the vacancy |
 | response_letter_required    | boolean         | demand a cover letter |
 | accept_handicapped          | boolean         | indication that the vacancy is available for disabled applicants |
+| accept_kids                 | boolean         | indication that the vacancy is available for applicants from 14 years|
 | branded_template.id         | string          | <a name="branded-template-field"></a> branded template from the [directory](employer_vacancy_branded_templates.md#list) |
 
 
@@ -226,6 +228,9 @@ body:
 {
     "accept_handicapped": {
         "required": false
+    },
+    "accept_kids": {
+            "required": false
     },
     "address": {
         "fields": {
@@ -392,27 +397,28 @@ Composite fields (e.g. `salary`, `contacts`, `specializations`) can be edited on
 
 ### Fields available for editing
 
-| field                      | description                                                      |
-|----------------------------|------------------------------------------------------------------|
-| name                       | title                                                            |
-| description                | description                                                      |
-| key_skills                 | key skills                                                       |
-| schedule                   | work schedule                                                    |
-| experience                 | required work experience                                         |
-| employment                 | employment type                                                  |
-| specializations            | specialization list                                              |
-| salary                     | salary                                                           |
-| address                    | address                                                          |
-| test                       | test task                                                        |
-| department                 | department                                                       |
-| code                       | internal vacancy code                                            |
-| response_letter_required   | requirement to enclose a cover letter when applying              |
-| accept_handicapped         | indication that the vacancy is available for disabled applicants |
-| response_notifications     | tuning of the new application notifications                      |
-| allow_messages             | ability to message candidates on the subject of the vacancy      |
-| contacts                   | contact information (for trade vacancies)                        |
-| custom_employer_name       | company name for anonymous vacancies                             |
-| response_url               | application URL for direct vacancies                             |
+| field                      | description                                                          |
+|----------------------------|----------------------------------------------------------------------|
+| name                       | title                                                                |
+| description                | description                                                          |
+| key_skills                 | key skills                                                           |
+| schedule                   | work schedule                                                        |
+| experience                 | required work experience                                             |
+| employment                 | employment type                                                      |
+| specializations            | specialization list                                                  |
+| salary                     | salary                                                               |
+| address                    | address                                                              |
+| test                       | test task                                                            |
+| department                 | department                                                           |
+| code                       | internal vacancy code                                                |
+| response_letter_required   | requirement to enclose a cover letter when applying                  |
+| accept_handicapped         | indication that the vacancy is available for disabled applicants     |
+| accept_kids                | indication that the vacancy is available for applicants from 14 years|
+| response_notifications     | tuning of the new application notifications                          |
+| allow_messages             | ability to message candidates on the subject of the vacancy          |
+| contacts                   | contact information (for trade vacancies)                            |
+| custom_employer_name       | company name for anonymous vacancies                                 |
+| response_url               | application URL for direct vacancies                                 |
 
 Other fields are either read-only or can be set only when creating a vacancy.
 

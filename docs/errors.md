@@ -189,6 +189,7 @@ HTTP code | type | value | описание
 403 | vacancies | creation_forbidden | публикация вакансий недоступна текущему менеджеру
 403 | vacancies | unavailable_for_archived | редактирование недоступно для архивной вакансии
 403 | vacancies | conflict_changes | конфликтные изменения данных вакансии ([подробнее](employer_vacancies.md#edit_more))
+403 | vacancies | can_not_accept_kids | публикация вакансий для поиска соискателей от 14 лет недоступна текущему менеджеру
 
 
 <a name="vacancies-prolongate"></a>
