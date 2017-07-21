@@ -55,6 +55,7 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
         "name": "Full time"
     },
     "accept_handicapped": false,
+    "accept_kids": false,
     "experience": {
         "id": "between3And6",
         "name": "Between 3 and 6 years"

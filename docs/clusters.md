@@ -167,6 +167,11 @@
                     "name": "Только доступные для людей с инвалидностью",
                     "url": "https://api.hh.ru/vacancies?clusters=true&label=accept_handicapped",
                     "count": 1407
+                },
+                {
+                    "name": "Только доступные для соискателей от 14 лет",
+                    "url": "https://api.hh.ru/vacancies?clusters=true&label=accept_kids",
+                    "count": 607
                 }
             ]
         },
