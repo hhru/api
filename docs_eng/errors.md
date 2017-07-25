@@ -174,7 +174,7 @@ HTTP code| type| value| description
 403| vacancies| creation_forbidden| posting of vacancies is unavailable for the current manager
 403| vacancies| unavailable_for_archived| editing of vacancies is unavailable for the archived vacancy
 403| vacancies| conflict_changes| conflicting changes in the vacancy data ([read more](employer_vacancies.md#edit_more))
-403| vacancies| can_not_accept_kids| posting of vacancies for applicants from 14 years is unavailable for the current manager
+403| vacancies| can_not_accept_kids| posting of vacancies for applicants from 14 years is unavailable for the current manager [read more](employer_vacancies_accept_kids.md#accept-kids)
 
 
 <a name="vacancies-prolongate"></a>

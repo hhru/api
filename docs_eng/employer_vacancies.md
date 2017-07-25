@@ -184,7 +184,7 @@ vacancy being posted. The format of the data is similar to the
 | allow_messages              | boolean         | ability to [message candidates](http://inboxemp.hh.ru/) on the subject of the vacancy |
 | response_letter_required    | boolean         | demand a cover letter |
 | accept_handicapped          | boolean         | indication that the vacancy is available for disabled applicants |
-| accept_kids                 | boolean         | indication that the vacancy is available for applicants from 14 years|
+| accept_kids                 | boolean         | indication that the vacancy is available for applicants from 14 years [read more](employer_vacancies_accept_kids.md#accept-kids)|
 | branded_template.id         | string          | <a name="branded-template-field"></a> branded template from the [directory](employer_vacancy_branded_templates.md#list) |
 
 

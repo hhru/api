@@ -191,7 +191,7 @@ response_notifications | boolean | уведомлять о новых откли
 <a name="allow_messages"></a> allow_messages | boolean | возможность [переписки с кандидатами](https://inboxemp.hh.ru/) по данной вакансии
 response_letter_required | boolean | требовать сопроводительное письмо
 accept_handicapped | boolean | указание, что вакансия доступна для соискателей с инвалидностью
-accept_kids | boolean | указание, что вакансия доступна для соискателей от 14 лет
+accept_kids | boolean | указание, что вакансия доступна для соискателей от 14 лет [подробнее](employer_vacancies_accept_kids.md#accept-kids)
 branded_template.id | string | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
 
 
