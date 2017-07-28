@@ -541,7 +541,26 @@ counters.invitations | number | количество приглашений на
         "trusted": true
       },
       "response_letter_required": true,
-      "address": null,
+      "address": {
+        "city": "Москва",
+        "street": "улица Годовикова",
+        "building": "9с10",
+        "description": "на проходной потребуется паспорт",
+        "lat": 55.807794,
+        "lng": 37.638699,
+        "raw": "Москва, Годовикова 9, стр. 10 (территория завода «Калибр»)",
+        "metro_stations": [
+          {
+            "station_id": "6.8",
+            "station_name": "Алексеевская",
+            "line_id": "6",
+            "line_name": "Калужско-Рижская",
+            "lat": 55.807794,
+            "lng": 37.638699
+          }
+        ]
+      },
+      "sort_point_distance": 226.001293,
       "alternate_url": "https://hh.ru/vacancy/8331228",
       "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
       "department": {
@@ -573,6 +592,7 @@ counters.invitations | number | количество приглашений на
 
 ключ | тип | описание
 ---- |---- |---------
+sort_point_distance | число, null | Расстояние в метрах между центром сортировки (заданной параметрами `sort_point_lat`, `sort_point_lng`) и указанным в вакансии адресом. В случае, если в адресе указаны только станции метро, выдается расстояние между центром сортировки и средней геометрической точкой указанных станций. Значение `sort_point_distance` выдается только в случае, если заданы параметры `sort_point_lat`, `sort_point_lng`, `order_by=distance`
 snippet | объект | Дополнительные текстовые снипеты по найденной вакансии. Если в тексте снипета встретилась поисковая фраза (параметр `text`), она будет подсвечена тегом `highlighttext`.
 snippet.requirement | строка, null | Требования по вакансии, если они найдены в тексте описания.
 snippet.responsibility | строка, null | Обязанности по вакансии, если они найдены в тексте описания.

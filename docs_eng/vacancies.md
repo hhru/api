@@ -477,7 +477,26 @@ used for applicants.
         "trusted": true
       },
       "response_letter_required": true,
-      "address": null,
+      "address": {
+        "city": "Moscow",
+        "street": "Godovikova",
+        "building": "9",
+        "description": "Additional information",
+        "lat": 55.807794,
+        "lng": 37.638699,
+        "raw": "Textual address description as entered",
+        "metro_stations": [
+          {
+            "station_name": "station name",
+            "line_name": "Line name",
+            "station_id": "Station ID",
+            "line_id": "Line ID",
+            "lat": 55.807794,
+            "lng": 37.638699
+          }
+        ]
+      },
+      "sort_point_distance": 226.001293,
       "alternate_url": "https://hh.ru/vacancy/8331228",
       "type": {
         "id": "open",
@@ -503,6 +522,7 @@ In addition to [standard vacancy fields](#nano) following optional fields will b
 
 key | type | description
 ---- |---- |---------
+sort_point_distance | number, null | Distance (meters) between sort center (defined by `sort_point_lat`, `sort_point_lng` parameters) and vacancy address point. In case of only metro stations are presented in address, distance between sort center and vacancy metro stations geometrical center is presented. `sort_point_distance` value is presented only if parameters `sort_point_lat`, `sort_point_lng`, `order_by=distance` are used for query.
 snippet | object | Additional text snippets on found vacancy. If snippet text contains search term (parameter `text`), it will be highlighted with tag `highlighttext`.
 snippet.requirement | string, null | Vacancy requirements if available in the description text.
 snippet.responsibility | string, null | Vacancy responsibilities if available in the description text.
