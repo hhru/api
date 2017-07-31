@@ -392,6 +392,14 @@ Successful server response is returned with `200 OK` code and contains:
                             "total": 7
                         }
                     }
+                },
+                "download": {
+                    "pdf": {
+                        "url": "https://hh.ru/api_resume_converter/0123456789abcdef/IvanovIvanIvanovich.pdf?type=pdf"
+                    },
+                    "rtf": {
+                        "url": "https://hh.ru/api_resume_converter/0123456789abcdef/IvanovIvanIvanovich.rtf?type=rtf"
+                    }
                 }
             },
             "templates": [
@@ -651,6 +659,14 @@ Successful server response is returned with `200 OK` code and contains:
                 "counters": {
                     "total": 7
                 }
+            }
+        },
+        "download": {
+            "pdf": {
+                "url": "https://hh.ru/api_resume_converter/0123456789abcdef/IvanovIvanIvanovich.pdf?type=pdf"
+            },
+            "rtf": {
+                "url": "https://hh.ru/api_resume_converter/0123456789abcdef/IvanovIvanIvanovich.rtf?type=rtf"
             }
         }
     },

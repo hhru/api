@@ -433,6 +433,14 @@ per_page | нет | Количество выдаваемых элементов
                 },
                 "negotiations_history": {
                     "url": "https://api.hh.ru/resumes/0123456789abcdef/negotiations_history"
+                },
+                "download": {
+                    "pdf": {
+                        "url": "https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.pdf?type=pdf"
+                    },
+                    "rtf": {
+                        "url": "https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.rtf?type=rtf"
+                    }
                 }
             },
             "templates": [
@@ -704,6 +712,14 @@ required_arguments | список | Аргументы, которые необ�
         },
         "negotiations_history": {
             "url": "https://api.hh.ru/resumes/0123456789abcdef/negotiations_history"
+        },
+        "download": {
+            "pdf": {
+                "url": "https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.pdf?type=pdf"
+            },
+            "rtf": {
+                "url": "https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.rtf?type=rtf"
+            }
         }
     },
     "vacancy": {
