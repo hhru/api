@@ -1246,7 +1246,26 @@ used for applicants.</p>
         <span class="nt">&quot;trusted&quot;</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">},</span>
       <span class="nt">&quot;response_letter_required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Moscow&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;Godovikova&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Additional information&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
+        <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span><span class="p">,</span>
+        <span class="nt">&quot;raw&quot;</span><span class="p">:</span> <span class="s2">&quot;Textual address description as entered&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metro_stations&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="nt">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;station name&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;line_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Line name&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;station_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Station ID&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;line_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Line ID&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">55.807794</span><span class="p">,</span>
+            <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">37.638699</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;sort_point_distance&quot;</span><span class="p">:</span> <span class="mf">226.001293</span><span class="p">,</span>
       <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/vacancy/8331228&quot;</span><span class="p">,</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span>
@@ -1279,6 +1298,11 @@ used for applicants.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+  <td>sort_point_distance</td>
+  <td>number, null</td>
+  <td>Distance (meters) between sort center (defined by <code>sort_point_lat</code>, <code>sort_point_lng</code> parameters) and vacancy address point. In case of only metro stations are presented in address, distance between sort center and vacancy metro stations geometrical center is presented. <code>sort_point_distance</code> value is presented only if parameters <code>sort_point_lat</code>, <code>sort_point_lng</code>, <code>order_by=distance</code> are used for query.</td>
+</tr>
 <tr>
   <td>snippet</td>
   <td>object</td>
