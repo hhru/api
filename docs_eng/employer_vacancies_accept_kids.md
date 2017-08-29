@@ -1,6 +1,9 @@
 <a name="accept-kids"></a>
 # Indication that the vacancy is available for applicants from 14 years 
 
+Post of vacancies for applicants from 14 years old is allowed only on the territory of Russian Federation.
+
+By default, only confirmed Russian employers have permissions to post such vacancies. 
 To obtain permission to post vacancy for applicants from 14 years old, contact your personal manager.
 
 ## Vacancy posting
