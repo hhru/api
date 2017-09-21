@@ -860,6 +860,7 @@
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;accept_kids&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;код-1234&quot;</span><span class="p">,</span>
     <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1115,6 +1116,11 @@
   <td>указание, что вакансия доступна для соискателей с инвалидностью</td>
 </tr>
 <tr>
+  <td>accept_kids</td>
+  <td>boolean</td>
+  <td>указание, что вакансия доступна для соискателей от 14 лет <a href="employer_vacancies_accept_kids.md.html#accept-kids">подробнее</a></td>
+</tr>
+<tr>
   <td>branded_template.id</td>
   <td>string</td>
   <td><a name="branded-template-field"></a> брендированное оформление вакансии из <a href="employer_vacancy_branded_templates.md.html#list">справочника</a></td>
@@ -1177,6 +1183,9 @@ Location: /vacancies/78789890
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;accept_kids&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
     <span class="p">},</span>
     <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1450,6 +1459,10 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 <tr>
   <td>accept_handicapped</td>
   <td>указание, что вакансия доступна для соискателей с инвалидностью</td>
+</tr>
+<tr>
+  <td>accept_kids</td>
+  <td>указание, что вакансия доступна для соискателей от 14 лет</td>
 </tr>
 <tr>
   <td>response_notifications</td>

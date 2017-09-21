@@ -735,426 +735,58 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1 id="errors-and-response-codes">Errors and response codes</h1>
+    <p><a name="accept-kids"></a></p>
 
-<p>API extensively uses informing through HTTP response codes. The application must
-process them correctly.</p>
+<h1 id="14">Вакансия доступна для соискателей от 14 лет</h1>
 
-<p>When an error occurs, the response body, besides the response code, will have an
-additional information that helps the developer to learn the cause of the error.</p>
+<p>Публикация вакансий для соискателей от 14 лет допустима только на территории Российской Федерации. 
+Права публиковать вакансии с пометкой для соискателей от 14 лет есть у подтвержденных Российских работодателей. Для получения права для иностранной компании обратитесь к персональному менеджеру.</p>
 
-<p>All errors are displayed in the format:</p>
+<p>После получения права, появится возможность публиковать новые вакансии с данным параметром, либо обновлять имеющиеся вакансии.</p>
 
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<h2>Публикация вакансии</h2>
 
-<p>Several errors can be returned at the same time. The <code>type</code> key is present in
-each <code>errors</code> array object and contains a text identifier of the error class.
-The <code>value</code> key is optional and provides more detail on the error.</p>
+<p>Для пубилкации вакансии, доступной для соискателей от 14 лет, необходимо в тело запроса <code>POST /vacancies</code> добавить параметр
+<code>json
+{
+    "accept_kids": "true"
+}
+</code>
+<a href="employer_vacancies.md.html#creation">Основная статья про публикацию вакансии</a></p>
 
-<blockquote>
-  <p>Apart from the <code>errors</code> described above, API can optionally return other keys
-  left for backward compatibility. <strong>It is not recommended to use them.</strong></p>
-</blockquote>
+<h2 id="-2">Обновление вакансии</h2>
 
-<p><a name="general-errors"></a></p>
+<p>Для обновления вакансии, выполните запрос</p>
 
-<h2 id="general-errors">General errors</h2>
+<p><code>PUT /vacancies/{vacancy_id}</code> </p>
 
-<p>If the requested resource can't be found, the
-<code>404 Not Found</code> response will be returned and the <code>errors</code> array will have
-the object:</p>
+<p>Тело запроса:
+<code>json
+{
+    "accept_kids": "true"
+}
+</code>
+<a href="employer_vacancies.md.html#edit">Основная статья про редактирование вакансии</a></p>
 
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;not_found&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><a name="edit-results"></a></p>
 
-<p>If there is an error in request parameters (e.g.
-<code>GET https://api.hh.ru/vacancies/?employer_id=foo</code>) the
-<code>400 Bad Request</code> response will be returned, and the error array will have
-the object:</p>
+<h2 id="-3">Ошибка и код ответа</h2>
 
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bad_argument&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;employer_id&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>В случае, если у пользователя недостаточно прав на редактирование поля accept_kids, либо вакансия публикуется за пределами РФ, то дополнительно к HTTP коду <code>403 Forbidden</code> сервер вернет описание причины ошибки: 
+<code>json
+{
+    "errors": [
+        {
+            "type": "vacancies",
+            "value": "can_not_accept_kids"
+        }
+    ]
+}
+</code></p>
 
-<p><a name="system-errors"></a></p>
+<h2 id="-4">Дополнительная информация</h2>
 
-<h2 id="system-error">System error</h2>
-
-<p>If the service can't process the request at the moment, but understood it
-correctly, the <code>503 Service Unavailable</code> response will be returned and <code>type</code>
-will contain <code>service_unavailable</code>.</p>
-
-<p>In case of unforeseen situation, API will return 500.</p>
-
-<p>In rare cases errors with 5** codes can be returned with the body that doesn't
-contain the valid json. In such a case the application should rely only on the
-response code.</p>
-
-<h2 id="general-request-errors">General request errors</h2>
-
-<p><a name="user-agent"></a></p>
-
-<h3 id="incorrect-user-agent">Incorrect User-Agent</h3>
-
-<p>More detail on the <a href="general.md.html#request-requirements">User-Agent title</a>.</p>
-
-<table>
-<thead>
-<tr>
-  <th>HTTP code</th>
-  <th>type</th>
-  <th>value</th>
-  <th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>400</td>
-  <td>bad_user_agent</td>
-  <td>unset</td>
-  <td>User-Agent title is not transferred</td>
-</tr>
-<tr>
-  <td>400</td>
-  <td>bad_user_agent</td>
-  <td>blacklisted</td>
-  <td>User-Agent value in the black list</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="authorization-errors">Authorization errors</h2>
-
-<p>More detail on <a href="authorization.md.html">authorization</a>.</p>
-
-<p><a name="oauth"></a></p>
-
-<h3 id="authorization-use-errors">Authorization use errors</h3>
-
-<p>In case you <a href="authorization.md.html#check-access_token">make an authorized request</a> in
-api and your authorization is not valid for any reason, an error with <code>type</code>
-<code>oauth</code>, and, possibly, with one of the listed <code>values</code>, will be returned.</p>
-
-<table>
-<thead>
-<tr>
-  <th>HTTP code</th>
-  <th>type</th>
-  <th>value</th>
-  <th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>403</td>
-  <td>oauth</td>
-  <td>bad_authorization</td>
-  <td>authorization token doesn't exist or is not valid</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>oauth</td>
-  <td>token_expired</td>
-  <td>access_token validity period has expired, it is necessary to <a href="authorization.md.html#refresh_token">refresh the access_token</a>  authorization.md#refresh_token</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>oauth</td>
-  <td>token_revoked</td>
-  <td>the token is revoked by the user, the application should <a href="authorization.md.html">request a new authorization</a></td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>oauth</td>
-  <td>application_not_found</td>
-  <td>your application has been deleted</td>
-</tr>
-</tbody>
-</table>
-
-<p><a name="service-errors"></a></p>
-
-<h2 id="errors-of-separate-resources">Errors of separate resources</h2>
-
-<p>If the service can return more detailed information on the
-error, it will be given in the response body. In this case the response code
-will likely be 400, 403, 409, 429, but other codes are also possible.</p>
-
-<p>At the least, the application should process HTTP response statuses correctly.
-To facilitate the work with the application, it is recommended to also process
-the response type that has come. The tables listed below contain an incomplete
-error list; it can be extended.</p>
-
-<p><a name="artifacts"></a></p>
-
-<h3 id="artifacts">Artifacts</h3>
-
-<p>Documentation translation for this section is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html.html#artifacts">machine translation</a>
-powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
-
-<p><a name="negotiations"></a></p>
-
-<h3 id="negotiations-responsesinvitations">Negotiations (responses/invitations)</h3>
-
-<p>In addition to <a href="#general-errors">general errors</a>, the following errors may be
-returned:</p>
-
-<table>
-<thead>
-<tr>
-  <th>HTTP code</th>
-  <th>type</th>
-  <th>value</th>
-  <th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>invalid_vacancy</td>
-  <td>the vacancy from the response/invitation was archived or hidden</td>
-</tr>
-<tr>
-  <td>400 / 403</td>
-  <td>negotiations</td>
-  <td>resume_not_found</td>
-  <td>the CV from the response/invitation was hidden or deleted, or not found</td>
-</tr>
-<tr>
-  <td>400 / 403</td>
-  <td>negotiations</td>
-  <td>limit_exceeded</td>
-  <td>the limit on the responses/invitations number was exceeded</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>wrong_state</td>
-  <td>the action on the response/invitation in this status is impossible</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>empty_message</td>
-  <td>the empty message text was sent</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>too_long_message</td>
-  <td>the too long message text was sent</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>address_not_found</td>
-  <td>the address sent for the action does not exist or belongs to another employer</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>not_enough_purchased_services</td>
-  <td>the paid services are insufficient, usually <a href="https://hh.ru/price#dbaccess">CV database service</a></td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>in_a_row_limit</td>
-  <td>the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>overall_limit</td>
-  <td>messages limit exceeded</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>no_invitation</td>
-  <td>negotiations are unavailable as there was no invitation in the response</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>message_cannot_be_empty</td>
-  <td>negotiation message cannot be empty</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>disabled_by_employer</td>
-  <td>negotiation by response is disabled by the employer</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>resume_deleted</td>
-  <td>the message can't be sent as the CV referenced in the response is deleted or hidden</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>negotiations</td>
-  <td>archived</td>
-  <td>the message can't be sent as the vacancy referenced in the response is archived</td>
-</tr>
-</tbody>
-</table>
-
-<p><a name="vacancies_favorited"></a></p>
-
-<h3 id="favorited-vacancies">Favorited vacancies</h3>
-
-<p>Documentation translation for this section is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html.html#vacancies_favorited">machine translation</a>
-powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
-
-<p><a name="vacancies-create-n-edit"></a></p>
-
-<h3 id="vacancy-posting-and-editing">Vacancy posting and editing</h3>
-
-<p>In addition to an error code, the following errors may be returned when
-<a href="employer_vacancies.md.html#creation">posting</a> and
-<a href="employer_vacancies.md.html#edit">editing</a> a vacancy:</p>
-
-<table>
-<thead>
-<tr>
-  <th>HTTP code</th>
-  <th>type</th>
-  <th>value</th>
-  <th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>400</td>
-  <td>vacancies</td>
-  <td><em>field_name</em></td>
-  <td>error in the vacancy field, where <em>field_name</em> – key of the higher level field</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>not_enough_purchased_services</td>
-  <td>the purchased services are insufficient for posting or update of this type of vacancy</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>quota_exceeded</td>
-  <td>the manager's quota for posting of this type of vacancies exceeded</td>
-</tr>
-<tr>
-  <td>409</td>
-  <td>vacancies</td>
-  <td>duplicate</td>
-  <td>the same vacancy has already been posted, this error can be <a href="employer_vacancies.md.html#creation-results">disabled forcefully</a></td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>creation_forbidden</td>
-  <td>posting of vacancies is unavailable for the current manager</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>unavailable_for_archived</td>
-  <td>editing of vacancies is unavailable for the archived vacancy</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>conflict_changes</td>
-  <td>conflicting changes in the vacancy data (<a href="employer_vacancies.md.html#edit_more">read more</a>)</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>can_not_accept_kids</td>
-  <td>posting of vacancies for applicants from 14 years is unavailable <a href="employer_vacancies_accept_kids.md.html#accept-kids">read more</a></td>
-</tr>
-</tbody>
-</table>
-
-<p><a name="vacancies-prolongate"></a></p>
-
-<h3 id="vacancy-extension">Vacancy extension</h3>
-
-<p>Despite of the error code, the vacancy
-<a href="employer_vacancies.md.html#prolongate">extension</a> may return the following errors:</p>
-
-<table>
-<thead>
-<tr>
-  <th>HTTP code</th>
-  <th>type</th>
-  <th>value</th>
-  <th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>not_enough_purchased_services</td>
-  <td>the purchased services are insufficient for prolongation of this type of vacancy</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>quota_exceeded</td>
-  <td>the manager's quota for posting of this type of vacancies has been exceeded</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>prolongation_forbidden</td>
-  <td>extension of vacancies is unavailable for the current manager</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>unavailable_for_archived</td>
-  <td>extension of vacancies is unavailable for the archived vacancy</td>
-</tr>
-<tr>
-  <td>403</td>
-  <td>vacancies</td>
-  <td>too_early</td>
-  <td>premature extension</td>
-</tr>
-</tbody>
-</table>
-
-<p><a name="employer_managers"></a></p>
-
-<h3 id="employer-managers">Employer managers</h3>
-
-<p>Documentation translation for this section is in progress.
-See
-<a href="https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html.html#employer_managers">machine translation</a>
-powered by
-<a href="https://translate.yandex.com/translate">Yandex.Translate</a>.</p>
+<p><a href="https://hh.ru/article/20732">https://hh.ru/article/20732</a></p>
 
     </article>
     </body>

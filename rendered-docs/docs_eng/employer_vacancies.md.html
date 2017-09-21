@@ -850,6 +850,7 @@ for search.</li>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;accept_kids&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;code-1234&quot;</span><span class="p">,</span>
     <span class="nt">&quot;response_notifications&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;allow_messages&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1101,6 +1102,11 @@ the key is an array of objects.</p></li>
   <td>indication that the vacancy is available for disabled applicants</td>
 </tr>
 <tr>
+  <td>accept_kids</td>
+  <td>boolean</td>
+  <td>indication that the vacancy is available for applicants from 14 years <a href="employer_vacancies_accept_kids.md.html#accept-kids">read more</a></td>
+</tr>
+<tr>
   <td>branded_template.id</td>
   <td>string</td>
   <td><a name="branded-template-field"></a> branded template from the <a href="employer_vacancy_branded_templates.md.html#list">directory</a></td>
@@ -1149,6 +1155,9 @@ body:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;accept_handicapped&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;accept_kids&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
     <span class="p">},</span>
     <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1376,6 +1385,10 @@ Composite fields (e.g. <code>salary</code>, <code>contacts</code>, <code>special
 <tr>
   <td>accept_handicapped</td>
   <td>indication that the vacancy is available for disabled applicants</td>
+</tr>
+<tr>
+  <td>accept_kids</td>
+  <td>indication that the vacancy is available for applicants from 14 years</td>
 </tr>
 <tr>
   <td>response_notifications</td>
