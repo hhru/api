@@ -759,6 +759,7 @@
 </ul></li>
 <li><a href="#resume-nano">Короткое представление резюме</a></li>
 <li><a href="#resume-short">Сокращенное представление резюме</a></li>
+<li><a href="#download-links">Ссылки на скачивание резюме в нескольких форматах</a></li>
 <li><a href="#status">Статусы резюме</a></li>
 <li><a href="#access_type">Видимость резюме</a>
 <ul>
@@ -902,6 +903,14 @@
                 <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef/similar_vacancies&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1507</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;download&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.pdf?type=pdf&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;rtf&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.rtf?type=rtf&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -1272,7 +1281,15 @@
     <span class="p">],</span>
     <span class="nt">&quot;alternate_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/resume/12345678901234567890123456789012abcdef&quot;</span><span class="p">,</span>
     <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-31T14:27:04+0400&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-17T15:22:55+0400&quot;</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-10-17T15:22:55+0400&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;download&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/api_resume_converter/12345678901234567890123456789012abcdef/ФамилияИмяОтчество.pdf?type=pdf&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;rtf&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/api_resume_converter/12345678901234567890123456789012abcdef/ФамилияИмяОтчество.rtf?type=rtf&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2026,6 +2043,31 @@
   <td>updated_at</td>
   <td>string</td>
   <td>Дата и время обновления резюме</td>
+</tr>
+<tr>
+  <td>download</td>
+  <td>object</td>
+  <td>Ссылки для скачивания резюме в нескольких форматах (<a href="#download-links">подробнее</a>)</td>
+</tr>
+<tr>
+  <td>download.pdf</td>
+  <td>object</td>
+  <td>pdf-версия резюме</td>
+</tr>
+<tr>
+  <td>download.pdf.url</td>
+  <td>string</td>
+  <td>ссылка для получения pdf-версии резюме</td>
+</tr>
+<tr>
+  <td>download.rtf</td>
+  <td>object</td>
+  <td>rft-версия резюме</td>
+</tr>
+<tr>
+  <td>download.rtf.url</td>
+  <td>string</td>
+  <td>ссылка для получение rft-версии резюме</td>
 </tr>
 </tbody>
 </table>
@@ -3250,13 +3292,50 @@ POST/PUT на /resumes.</p></li>
     <span class="p">},</span>
     <span class="nt">&quot;negotiations_history&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.hh.ru/resumes/0123456789abcdef/negotiations_history&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;download&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;pdf&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.pdf?type=pdf&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;rtf&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.rtf?type=rtf&quot;</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
+<p><a name="download-links"></a></p>
+
+<h2 id="-34">Ссылки на скачивание резюме</h2>
+
+<p>В настоящий момент резюме доступны для скачивания в форматах PDF и RTF.
+Соискатель может скачать свои резюме, работодатель - резюме соискателей (без купленного доступа к базе резюме в файлах буду отсутствовать контакты). Название скачиваемого файла может содержать имя соискателя или его желаемую должность.</p>
+
+<h3 id="-35">Запрос</h3>
+
+<p>Для скачивания резюме нужно использовать полученный из ответа API url, передавая <a href="general.md.html#request-requirements">стандартные для API заголоки</a>.</p>
+
+<pre><code>GET https://....(ссылка, полученная в полной или сокращенной выдаче резюме API)
+</code></pre>
+
+<h3 id="-36">Ответ</h3>
+
+<p>Успешный ответ приходит с кодом 200 и содержит в теле запрашиваемый файл.</p>
+
+<h3 id="-37">Ошибки</h3>
+
+<ul>
+<li><code>404 Not Found</code> - если резюме не существует или недоступно пользователю.</li>
+<li><code>429 Too Many Requests</code> - если превышен лимит просмотров резюме в сутки
+(при авторизации работодателем).</li>
+</ul>
+
+<p>Дополнительно к HTTP коду сервер может вернуть описание
+<a href="errors.md.html#resumes">причины ошибки</a>.</p>
+
 <p><a name="status"></a></p>
 
-<h2 id="-34">Статус резюме</h2>
+<h2 id="-38">Статус резюме</h2>
 
 <p>Ключ <code>status</code> определяет текущее состояние резюме и содержит элемент
 справочника <a href="dictionaries.md.html">resume_status</a>. После создания нового резюме оно
@@ -3291,7 +3370,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="access_type"></a></p>
 
-<h2 id="-35">Видимость резюме</h2>
+<h2 id="-39">Видимость резюме</h2>
 
 <p>У каждого резюме есть настройка видимости <code>access</code>, которая определяет, кому будет доступно резюме
 в поиске и по прямой ссылке. Формат поля в резюме:</p>
@@ -3348,14 +3427,14 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="visibility_lists"></a></p>
 
-<h3 id="-36">Списки видимости резюме</h3>
+<h3 id="-40">Списки видимости резюме</h3>
 
 <p>Некоторые типы видимости, например <code>whitelist</code> и <code>blacklist</code>, подразумевают наличие списка работодателей,
 для которых резюме должно быть видимо или скрыто. См. <a href="/docs/resume_visibility.md.html">управление списками видимости резюме</a>.</p>
 
 <p><a name="get_access_types"></a></p>
 
-<h3 id="-37">Получение списка типов видимости резюме</h3>
+<h3 id="-41">Получение списка типов видимости резюме</h3>
 
 <pre><code>GET /resumes/{resume_id}/access_types
 </code></pre>
@@ -3460,7 +3539,7 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="views"></a></p>
 
-<h2 id="-38">История просмотра резюме</h2>
+<h2 id="-42">История просмотра резюме</h2>
 
 <p><code>GET /resumes/{resume_id}/views</code> вернёт историю просмотров резюме. На основном
 сайте это доступно при клике на кол-во просмотров резюме на странице со списком
@@ -3573,11 +3652,11 @@ POST/PUT на /resumes.</p></li>
 
 <p><a name="similar"></a></p>
 
-<h2 id="-39">Поиск по вакансиям, похожим на резюме</h2>
+<h2 id="-43">Поиск по вакансиям, похожим на резюме</h2>
 
 <p>Данные доступны только автору резюме.</p>
 
-<h3 id="-40">Запрос</h3>
+<h3 id="-44">Запрос</h3>
 
 <p><code>GET /resumes/{resume_id}/similar_vacancies</code></p>
 
