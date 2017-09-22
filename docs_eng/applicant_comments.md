@@ -17,7 +17,7 @@ the moment of posting.
 ### Request
 
 No need to construct the request url on your own – it should be received from
-the [owner CV field] (resumes.md#owner-field)
+the [owner CV field](resumes.md#owner-field)
 
 `GET /applicant_comments/{applicant_id}`
 

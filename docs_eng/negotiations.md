@@ -85,13 +85,13 @@ The `items` entity contains response data:
  Name| Type| Description
  --- | --- | ---
  id| string| Response ID
- state| object| Current state of the application. Allowed values are listed in the [/dictionaries] (./dictionaries.md) reference, section ```negotiations_state``` 
+ state| object| Current state of the application. Allowed values are listed in the [/dictionaries](./dictionaries.md) reference, section ```negotiations_state``` 
  hidden| logical| Whether the current response is hidden (True – the response is hidden, False – the response is active)
  created_at| string| Response creation date and time
  updated_at| string| Response update date and time
  url| string| Link to the full response
- resume| object, null| [CV short view] (resumes.md#resume-nano)
- vacancy| object, null| [Vacancy short view] (vacancies.md#nano)
+ resume| object, null| [CV short view](resumes.md#resume-nano)
+ vacancy| object, null| [Vacancy short view](vacancies.md#nano)
  has_updates| logical| Whether the response includes updates that require attention. The flag is reset by various actions on the response, e.g. [messages list view](#get_messages).
  viewed_by_opponent| logical| Whether the response was viewed by the employer
 
@@ -109,14 +109,14 @@ GET /negotiations/active
 ```
 
 Optional parameters and the response are the same as in the
-[list of responses] (#get_negotiations)
+[list of responses](#get_negotiations)
 
 
 <a name="post_negotiation"></a>
 ## Respond to the vacancy
 
 In order to know with which CVs the specific vacancy can be responded to, one
-can use the [list of suitable CVs] (suitable_resumes.md).
+can use the [list of suitable CVs](suitable_resumes.md).
 
 ### Request
 
@@ -314,10 +314,10 @@ where:
  editable| logical| Whether the message text can be edited
  created_at| string| Message creation date and time
  text| string| Message text
- state| object| Current state of the application. Possible values are listed in the [/dictionaries] (./dictionaries.md) reference, section `negotiations_state`
+ state| object| Current state of the application. Possible values are listed in the [/dictionaries](./dictionaries.md) reference, section `negotiations_state`
  author| object| Who is the message author
- author.participant_type| string| Message author role. Possible values are listed in the [/dictionaries] (./dictionaries.md) reference, section `negotiations_participant_type`
- address| object, null| [Address] (./address.md) linked to the response/invitation
+ author.participant_type| string| Message author role. Possible values are listed in the [/dictionaries](./dictionaries.md) reference, section `negotiations_participant_type`
+ address| object, null| [Address](./address.md) linked to the response/invitation
  assessments| array| [assessment tools](assessment.md) linked to the message
 
 
