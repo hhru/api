@@ -487,7 +487,7 @@ counters.invitations | number | количество приглашений на
 
 * `describe_arguments` — возвращать ли [описание использованных параметров поиска](vacancies_search_arguments.md), по умолчанию: `false`.
 
-* `per_page`, `page` — [параметры пагинации](general.md#pagination).
+* `per_page`, `page` — [параметры пагинации](general.md#pagination). Параметр per_page ограничен значением в 100.
 
 
 <a name="search-results"></a>
