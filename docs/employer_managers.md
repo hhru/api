@@ -119,7 +119,7 @@
  position | string | должность менеджера
  email | string | электронная почта менеджера
  area.id | number | регион [из справочника](areas.md)
- phone | object или null | телефон менеджера
+ phone | object | телефон менеджера
  additional_phone | object или null | дополнительный телефон менеджера
  permissions | array | список [прав менеджера](#dict)
 
