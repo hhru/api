@@ -172,7 +172,7 @@ address.show_metro_only | boolean | показывать только метро
 experience.id | string | требуемый опыт работы из [справочника experience](dictionaries.md)
 schedule.id | string | график работы из [справочника schedule](dictionaries.md)
 employment.id | string | тип занятости из [справочника employment](dictionaries.md)
-contacts | object | контактная информация (для вакансий рабочих специальностей). Определить является ли специальность рабочей можно по полю laboring из [справочника специализаций](specializations.md) 
+contacts | object | контактная информация
 contacts.name | string | контактное лицо
 contacts.email | string | email
 contacts.phones | array | список телефонов для связи
@@ -456,7 +456,7 @@ accept_handicapped | указание, что вакансия доступна 
 accept_kids | указание, что вакансия доступна для соискателей от 14 лет
 response_notifications | настройка уведомления о новых откликах
 allow_messages | возможность переписки с кандидатами по данной вакансии
-contacts | контактная информация (для вакансий рабочих специальностей)
+contacts | контактная информация
 custom_employer_name | название компании для анонимных вакансий
 response_url | URL отклика для прямых вакансий
 
