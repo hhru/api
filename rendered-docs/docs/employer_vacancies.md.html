@@ -1023,7 +1023,7 @@
 <tr>
   <td>contacts</td>
   <td>object</td>
-  <td>контактная информация (для вакансий рабочих специальностей). Определить является ли специальность рабочей можно по полю laboring из <a href="specializations.md.html">справочника специализаций</a></td>
+  <td>контактная информация</td>
 </tr>
 <tr>
   <td>contacts.name</td>
@@ -1387,6 +1387,11 @@ Location: /vacancies/78789890
 
 <p><code>PUT /vacancies/{vacancy_id}</code></p>
 
+<ul>
+<li><code>ignore_duplicates=true</code> - игнорировать
+<a href="#edit-ignore-duplicates">появление дубликата</a>, после редактирования вакансии.</li>
+</ul>
+
 <p>Редактирование происходит по аналогии с созданием вакансии, но есть возможность
 передачи отдельных полей в объекте для частичного редактирования вакансии.
 Cоставные поля (например, <code>salary</code>, <code>contacts</code>, <code>specializations</code>) можно
@@ -1474,7 +1479,7 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 </tr>
 <tr>
   <td>contacts</td>
-  <td>контактная информация (для вакансий рабочих специальностей)</td>
+  <td>контактная информация</td>
 </tr>
 <tr>
   <td>custom_employer_name</td>
@@ -1498,6 +1503,11 @@ Cоставные поля (например, <code>salary</code>, <code>contact
 <li><code>404 Not Found</code> - редактируемая вакансия не найдена.</li>
 <li><code>403 Forbidden</code> - редактирование вакансий недоступно данному пользователю.</li>
 <li><code>400 Bad Request</code> - ошибки в полях при редактировании вакансии.</li>
+<li><a name="edit-ignore-duplicates"></a> <code>403 Forbidden</code> –
+изменение вакансии невозможно, так как после изменения, вакансия становится
+похожа на другую вакансию у данного работодателя. Если вы уверены, что
+появление дубликата необходимо, вы можете добавить к запросу параметр
+<code>PUT /vacancies/{vacancy_id}?ignore_duplicates=true</code>.</li>
 </ul>
 
 <p>Дополнительно к HTTP коду сервер может вернуть описание

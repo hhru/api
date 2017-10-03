@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Артефакты (фото, портфолио)</title>
+        <title>Кэширование</title>
         <style>
         .codehilite .hll { background-color: #ffffcc }
 .codehilite .c { color: #999988; font-style: italic } /* Comment */
@@ -735,337 +735,84 @@
     </head>
     <body>
     <article class="markdown-body">
-    <h1>Артефакты (фото, портфолио)</h1>
+    <h1>Кэширование</h1>
 
-<p>Соискатель может загружать свои файлы. На данный момент это ограничивается
-изображениями для прикрепления их к резюме (фото и портфолио). На основном
-сайте этот сервис располагается в разделе настроек, пункт
-<a href="https://hh.ru/applicant/gallery">«изображения»</a>.</p>
+<p>В некоторых методах API имеется возможность кэширования ответов на стороне
+клиента по заголовкам <code>Etag</code>, <code>Cache-Control</code> и <code>Expires</code>.</p>
 
-<p>После этого в интерфейсе создания/редактирования резюме можно использовать эти
-изображения.</p>
+<p>Если при запросе ресурса в API, был возвращён заголовок <code>Etag</code>, например,
+запрос:</p>
 
-<ul>
-<li><a href="#list">Получение артефактов</a></li>
-<li><a href="#upload">Загрузка артефакта</a></li>
-<li><a href="#conditions">Условия загрузки артефактов</a></li>
-<li><a href="#edit">Редактирование артефакта</a></li>
-<li><a href="#delete">Удаление артефакта</a></li>
-<li><a href="#link-with-resume">Прикрепление фото/портфолио к резюме</a></li>
-</ul>
-
-<p><a name="list"></a></p>
-
-<h2 id="-2">Получение артефактов</h2>
-
-<h3 id="-3">Запрос</h3>
-
-<pre><code>GET /artifacts/photo
+<pre><code>GET /areas/1 HTTP/1.1
+Host: api.hh.ru
+User-Agent: MyApp/1.0 (my-app-feedback@example.com)
 </code></pre>
 
-<pre><code>GET /artifacts/portfolio
+<p>вернул ответ:</p>
+
+<pre><code>HTTP/1.1 200 OK
+Etag: W/"ai-356a192-57E047847BCE15-RU10e33"
+Content-Type: application/json; charset=UTF-8
+Content-Length: 61
+Expires: Tue, 03 Oct 2017 07:01:04 GMT
+Cache-Control: max-age=1200
+
+{
+    "areas": [],
+    "id": "1",
+    "name": "Москва",
+    "parent_id": "113"
+}
 </code></pre>
 
-<h3 id="-4">Ответ</h3>
+<p>Клиент может запомнить значение заголовка <code>Etag</code> вместе с данными ответа и в
+следующий раз, когда будет необходим данный ресурс, запросить информацию
+об изменении ресурса, передав значение <code>Etag</code> в заголовке <code>If-None-Match</code>:</p>
 
-<p>Успешный ответ приходит с кодом <code>200 OK</code> и содержит:</p>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;92278992&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="s2">&quot;http://...&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://...&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;found&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;per_page&quot;</span><span class="p">:</span> <span class="mi">1</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>где для каждого элемента <code>items</code>:</p>
-
-<p><a name="item"></a></p>
-
-<table>
-<thead>
-<tr>
-  <th>Имя</th>
-  <th>Тип</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>id</td>
-  <td>string</td>
-  <td>уникальный идентификатор изображения</td>
-</tr>
-<tr>
-  <td>state</td>
-  <td>object</td>
-  <td>текущий статус изображения</td>
-</tr>
-<tr>
-  <td>state.id</td>
-  <td>string</td>
-  <td>идентификатор текущего статуса изображения</td>
-</tr>
-<tr>
-  <td>state.name</td>
-  <td>string</td>
-  <td>название текущего статуса изображения</td>
-</tr>
-<tr>
-  <td>small</td>
-  <td>string или null</td>
-  <td>url для получения уменьшенного изображения или null, если изображение ещё не готово</td>
-</tr>
-<tr>
-  <td>medium</td>
-  <td>string или null</td>
-  <td>url для получения среднего по размеру изображения или null, если изображение ещё не готово</td>
-</tr>
-<tr>
-  <td>description</td>
-  <td>string</td>
-  <td>описание, в данный момент только у <code>portfolio</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<p>Статусы изображений:</p>
-
-<ul>
-<li><code>processing</code> — в процессе обработки</li>
-<li><code>failed</code> — ошибка, скорее всего неподдерживаемый формат</li>
-<li><code>ok</code> — обработан, доступен для использования в резюме</li>
-</ul>
-
-<h3 id="-5">Ошибки</h3>
-
-<ul>
-<li><code>403 Forbidden</code> – текущий пользователь не соискатель</li>
-</ul>
-
-<p><a name="upload"></a></p>
-
-<h2 id="-6">Загрузка артефакта</h2>
-
-<h3 id="-7">Запрос</h3>
-
-<pre><code>POST /artifacts
+<pre><code>GET /areas/1 HTTP/1.1
+Host: api.hh.ru
+If-None-Match: W/"ai-356a192-57E047847BCE15-RU10e33"
+User-Agent: MyApp/1.0 (my-app-feedback@example.com)
 </code></pre>
 
-<p>Для загрузки файла необходимо отправить запрос <code>multipart/form-data</code> cо
-следующими параметрами:</p>
+<p>Если ресурс не поменялся, вернётся ответ с кодом <code>304 Not Modified</code>, не
+содержащий тела:</p>
 
-<table>
-<thead>
-<tr>
-  <th>Имя</th>
-  <th>Обязательный</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>type</td>
-  <td>да</td>
-  <td>тип артефакта: <code>photo</code> или <code>portfolio</code></td>
-</tr>
-<tr>
-  <td>description</td>
-  <td>нет</td>
-  <td>текстовое описание, имеет смысл для <code>portfolio</code></td>
-</tr>
-<tr>
-  <td>file</td>
-  <td>да</td>
-  <td>сам файл</td>
-</tr>
-</tbody>
-</table>
-
-<p>Ограничения на типы файлов и их размер доступны в
-<a href="#conditions">условиях загрузки артефактов</a>.</p>
-
-<h3 id="-8">Ответ</h3>
-
-<p>Успешный ответ приходит с кодом <code>201 Created</code> и содержит:</p>
-
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;medium&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;processing&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;в обработке&quot;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Поля ответа аналогичны <a href="#item">полям элементов в списке артефактов</a>.</p>
-
-<h3 id="-9">Ошибки</h3>
-
-<ul>
-<li><code>403 Forbidden</code> – текущий пользователь не соискатель</li>
-<li><code>400 Bad Request</code> – ошибка в параметрах запроса или добавление изображения
-невозможно</li>
-</ul>
-
-<p>Дополнительно к HTTP коду сервер может вернуть описание
-<a href="errors.md.html#artifacts">причины ошибки</a>.</p>
-
-<p><a name="conditions"></a></p>
-
-<h2 id="-10">Условия загрузки артефактов</h2>
-
-<h3 id="-11">Запрос</h3>
-
-<pre><code>GET /artifacts_conditions
+<pre><code>HTTP/1.1 304 Not Modified
+Etag: W/"ai-356a192-57E047847BCE15-RU10e33"
+Cache-Control: max-age=1200
+Expires: Tue, 03 Oct 2017 07:05:43 GMT
 </code></pre>
 
-<h3 id="-12">Ответ</h3>
+<p>Если ресурс изменился, вернётся новое содержание ресурса:</p>
 
-<p>Успешный ответ приходит с кодом <code>201 Created</code> и содержит:</p>
+<pre><code>HTTP/1.1 200 OK
+Etag: W/"ai-34e7018-356a192b7913b0-RU73fda"
+Content-Type: application/json; charset=UTF-8
+Expires: Tue, 03 Oct 2017 07:10:31 GMT
+Cache-Control: max-age=1200
 
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">,</span>
-        <span class="nt">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;max_size&quot;</span><span class="p">:</span> <span class="mi">6291456</span><span class="p">,</span>
-        <span class="nt">&quot;mime_type&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;image/jpeg&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;image/psd&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>В ответе для каждого поля описаны условия его заполнения:</p>
-
-<table>
-<thead>
-<tr>
-  <th>Имя</th>
-  <th>Тип</th>
-  <th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>required</td>
-  <td>boolean</td>
-  <td>является ли поле обязательным</td>
-</tr>
-<tr>
-  <td>max_length</td>
-  <td>number</td>
-  <td>максимальный размер текстового поля</td>
-</tr>
-<tr>
-  <td>min_length</td>
-  <td>number</td>
-  <td>минимальный размер текстового поля</td>
-</tr>
-<tr>
-  <td>max_size</td>
-  <td>number</td>
-  <td>максимальный размер файла</td>
-</tr>
-<tr>
-  <td>mime_type</td>
-  <td>array</td>
-  <td>список допустимых типов файлов</td>
-</tr>
-<tr>
-  <td>mime_type[]</td>
-  <td>string</td>
-  <td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml">MIME-тип</a></td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="-13">Ошибки</h3>
-
-<ul>
-<li><code>403 Forbidden</code> – текущий пользователь не соискатель</li>
-</ul>
-
-<p><a name="edit"></a></p>
-
-<h2 id="-14">Редактирование артефакта</h2>
-
-<pre><code>PUT /artifacts/{id}
+{
+    "areas": [],
+    "id": "1",
+    "name": "Москва",
+    "parent_id": "777"
+}
 </code></pre>
 
-<p>где <code>id</code> - идентификатор артефакта.</p>
+<p>При проверке по Etag возможно использование HEAD запроса, он будет работать
+аналогично, но даже в случае, если ресурс изменился, будет возвращены только
+заголовки без тела ответа.</p>
 
-<p>Принимаемые параметры:</p>
+<p>Кроме того, при запросе ресурса, в ответе есть заголовки <code>Cache-Control</code> и
+<code>Expires</code>, которые позволяют клиенту закэшировать ответ и использовать его до
+истечения указанного срока действия.</p>
 
-<ul>
-<li><code>description</code> - текстовое описание изображения</li>
-</ul>
+<p>Более подробно в <a href="https://tools.ietf.org/html/rfc7232">RFC-7232</a>.</p>
 
-<h3 id="-15">Ответ</h3>
-
-<p>Успешный ответ приходит с кодом <code>204 No Content</code> и не содержит тела.</p>
-
-<h3 id="-16">Ошибки</h3>
-
-<ul>
-<li><code>403 Forbidden</code> – текущий пользователь не соискатель</li>
-<li><code>404 Not Found</code> – артефакт не существует или не принадлежит текущему
-пользователю</li>
-<li><code>400 Bad Request</code> – ошибка в параметрах запроса или добавление изображения
-невозможно</li>
-</ul>
-
-<p><a name="delete"></a></p>
-
-<h2 id="-17">Удаление артефакта</h2>
-
-<pre><code>DELETE /artifacts/{id}
-</code></pre>
-
-<p>где <code>id</code> - идентификатор артефакта.</p>
-
-<h3 id="-18">Ответ</h3>
-
-<p>Успешный ответ приходит с кодом <code>204 No Content</code> и не содержит тела.</p>
-
-<h3 id="-19">Ошибки</h3>
-
-<ul>
-<li><code>403 Forbidden</code> – текущий пользователь не соискатель</li>
-<li><code>404 Not Found</code> – артефакт не существует или не принадлежит текущему
-пользователю</li>
-</ul>
-
-<p><a name="link-with-resume"></a></p>
-
-<h2 id="-20">Прикрепление фото/портфолио к резюме</h2>
-
-<p>Для прикрепления загруженных изображений в резюме, необходимо передать <code>id</code>
-артефакта в <a href="resumes.md.html#resume-fields">соответствующее поле резюме</a>.
-Для удаления из резюме укажите <code>null</code>.</p>
+<p>Кэширование поддерживается большинством
+<a href="../README.md.html#dictionaries">справочников</a>. Определить поддержку можно по наличию
+заголовка <code>Etag</code> в ответе.</p>
 
     </article>
     </body>

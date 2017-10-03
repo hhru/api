@@ -1513,13 +1513,15 @@ retina дисплеи.</li>
 вакансий. <br />
 Нельзя передавать вместе с параметром <code>period</code>. <br />
 Значение указывается в формате <a href="general.md.html#date-format">ISO 8601</a> -
-<code>YYYY-MM-DD</code> или с точность до секунды <code>YYYY-MM-DDThh:mm:ss±hhmm</code>.</p></li>
+<code>YYYY-MM-DD</code> или с точность до секунды <code>YYYY-MM-DDThh:mm:ss±hhmm</code>. <br />
+Указанное значение будет округлено до ближайших 5 минут.</p></li>
 <li><p><code>date_to</code> – дата, которая ограничивает сверху диапазон дат публикации
 вакансий. <br />
 Необходимо передавать только в паре с параметром <code>date_from</code>. <br />
 Нельзя передавать вместе с параметром <code>period</code>. <br />
 Значение указывается в формате <a href="general.md.html#date-format">ISO 8601</a> -
-<code>YYYY-MM-DD</code> или с точность до секунды <code>YYYY-MM-DDThh:mm:ss±hhmm</code>.</p></li>
+<code>YYYY-MM-DD</code> или с точность до секунды <code>YYYY-MM-DDThh:mm:ss±hhmm</code>. <br />
+Указанное значение будет округлено до ближайших 5 минут.</p></li>
 <li><p><code>top_lat</code>, <code>bottom_lat</code>, <code>left_lng</code>, <code>right_lng</code> — значение гео-координат. <br />
 При поиске используется значение указанного в вакансии адреса. <br />
 Принимаемое значение — градусы в виде десятичной дроби. <br />
@@ -1530,7 +1532,15 @@ retina дисплеи.</li>
 <li><p><code>sort_point_lat</code>, <code>sort_point_lng</code> - значение гео-координат точки, по расстоянию от которой будут отсортированы вакансии. Необходимо указывать только, если <code>order_by</code> установлено в <code>distance</code>.</p></li>
 <li><p><code>clusters</code> — возвращать ли <a href="clusters.md.html">кластеры для данного поиска</a>, по умолчанию: <code>false</code>.</p></li>
 <li><p><code>describe_arguments</code> — возвращать ли <a href="vacancies_search_arguments.md.html">описание использованных параметров поиска</a>, по умолчанию: <code>false</code>.</p></li>
-<li><p><code>per_page</code>, <code>page</code> — <a href="general.md.html#pagination">параметры пагинации</a>.</p></li>
+<li><p><code>per_page</code>, <code>page</code> — <a href="general.md.html#pagination">параметры пагинации</a>. Параметр per_page ограничен значением в 100.</p></li>
+<li><p><code>no_magic</code> – Если значение <code>false</code> – отключить автоматическое преобразование
+вакансий. По-умолчанию – <code>true</code>. При включённом автоматическом преобразовании,
+будет предпринята попытка изменить текстовый запрос пользователя на набор
+параметров. Например, запрос <code>text=москва бухгалтер 100500</code> будет преобразован
+в <code>text=бухгалтер&amp;only_with_salary=true&amp;area=1&amp;salary=100500</code>.</p></li>
+<li><p><code>premium</code> – Если значение <code>true</code> – в сортировке вакансий будет учтены
+премиум вакансии. Такая сортировка используется на сайте.
+По умолчанию – <code>false</code>.</p></li>
 </ul>
 
 <p><a name="search-results"></a></p>
