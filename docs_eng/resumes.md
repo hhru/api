@@ -344,6 +344,7 @@ will have `false` value.
         "name": "not published"
     },
     "owner": {
+        "id": "123456",
         "comments": {
             "url": "https://api.hh.ru/applicant_comments/123456",
             "counters": {

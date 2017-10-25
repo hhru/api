@@ -424,6 +424,7 @@ per_page | нет | Количество выдаваемых элементов
                     "id": "1337"
                 },
                 "owner": {
+                    "id": "123456",
                     "comments": {
                         "url": "https://api.hh.ru/applicant_comments/123456",
                         "counters": {
@@ -703,6 +704,7 @@ required_arguments | список | Аргументы, которые необ�
             "currency": "RUR"
         },
         "owner": {
+            "id": "123456",
             "comments": {
                 "url": "https://api.hh.ru/applicant_comments/123456",
                 "counters": {
