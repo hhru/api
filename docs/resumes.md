@@ -847,6 +847,7 @@ expires | строка (дата) | время окончания действи
 {
     "can_view_full_info": false,
     "owner": {
+        "id": "123456",
         "comments": {
             "url": "https://api.hh.ru/applicant_comments/123456",
             "counters": {
@@ -921,15 +922,17 @@ quick_purchase.price | число | цена услуги
 quick_purchase.currency | объект | валюта услуги
 
 <a name="owner-field"></a>
-#### Комментарии к владельцу резюме
+#### Информация о владельце резюме
 
-В поле `owner.comments` выдаётся информация о
-[комментариях к владельцу резюме](applicant_comments.md#list).
+В поле `owner` содержится следующая информация о владельце резюме:
 
 Имя | Тип | Описание
 --- | --- | ---
-url | string | url, GET запрос на который возвращает список комментариев
-counters.total | number | количество комментариев
+id | string | id владельца резюме
+comments | object | [комментарии к владельцу резюме](applicant_comments.md#list)
+comments.url | string | url, GET-запрос на который возвращает список комментариев
+comments.counters | object | информация о количестве комментариев
+comments.counters.total | number | общее количество комментариев
 
 <a name="negotiations-history-field"></a>
 #### Краткая история откликов/приглашений по резюме
@@ -1652,6 +1655,7 @@ max_date | строка с датой | Верхняя граница диапа
         "id": "1337"
     },
     "owner": {
+        "id": "123456",
         "comments": {
             "url": "https://api.hh.ru/applicant_comments/123456",
             "counters": {

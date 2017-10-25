@@ -386,6 +386,7 @@ Successful server response is returned with `200 OK` code and contains:
                     "id": "1337"
                 },
                 "owner": {
+                    "id": "123456",
                     "comments": {
                         "url": "https://api.hh.ru/applicant_comments/123456",
                         "counters": {
@@ -654,6 +655,7 @@ Successful server response is returned with `200 OK` code and contains:
             "currency": "RUR"
         },
         "owner": {
+            "id": "123456",
             "comments": {
                 "url": "https://api.hh.ru/applicant_comments/123456",
                 "counters": {
