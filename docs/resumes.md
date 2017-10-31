@@ -622,7 +622,7 @@ language[].level.name | string | Название уровня знания яз
 experience | array | Опыт работы. Список элементов, который может быть пустым.
 experience[].company | string | Организация
 experience[].company_id | string или null | Уникальный идентификатор организации. null – если организация неизвестна.
-experience[].area | object | Регион расположения организации. Элемент [справочника регионов](areas.md)
+experience[].area | object или null | Регион расположения организации. Элемент [справочника регионов](areas.md). null – если регион не был указан.
 experience[].area.id | string | Идентификатор региона
 experience[].area.name | string | Название региона
 experience[].area.url | string | Url получения информации о регионе
