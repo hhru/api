@@ -19,6 +19,7 @@
 * `resume_contacts_site_type` - тип сайта в поле «контакты»
 * `resume_status` - статус резюме
 * `resume_moderation_note` — комментарий модератора
+* `driver_license_types` — категории водительских прав
 
 ## Справочники для полей вакансии
 * `employment` - тип занятости
