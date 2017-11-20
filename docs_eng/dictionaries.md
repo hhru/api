@@ -19,6 +19,7 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `resume_contacts_site_type` - website type in the "contacts" field
 * `resume_status` - CV status
 * `resume_moderation_note` - moderator's comment
+* `driver_license_types` — driver license types
 
 
 ## Directories for vacancy fields
