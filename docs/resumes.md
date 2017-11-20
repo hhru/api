@@ -509,7 +509,16 @@ similar_vacancies.total | number | общее количество похожи�
         "rtf": {
             "url": "https://hh.ru/api_resume_converter/12345678901234567890123456789012abcdef/ФамилияИмяОтчество.rtf?type=rtf"
         }
-    }
+    },
+    "has_vehicle": true,
+    "driver_license_types": [
+        {
+            "id": "A"
+        },
+        {
+            "id": "B"
+        }
+    ]
 }
 ```
 
@@ -670,6 +679,9 @@ download.pdf | object | pdf-версия резюме
 download.pdf.url | string | ссылка для получения pdf-версии резюме
 download.rtf | object | rft-версия резюме
 download.rtf.url | string | ссылка для получение rft-версии резюме
+has_vehicle | boolean | Наличие личного автомобиля у соискателя
+driver_license_types | array | Список категорий водительских прав соискателя
+driver_license_types[].id | string | Категория водительских прав соискателя. Элемент справочника [driver_license_types](dictionaries.md)
 
 
 

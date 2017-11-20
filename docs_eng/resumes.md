@@ -413,7 +413,16 @@ will have `false` value.
                 "name": "Birth date"
             }
         ]
-    }
+    },
+    "has_vehicle": true,
+    "driver_license_types": [
+        {
+            "id": "A"
+        },
+        {
+            "id": "B"
+        }
+    ]
 }
 ```
 
