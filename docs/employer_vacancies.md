@@ -136,7 +136,15 @@
     },
     "branded_template": {
         "id": "marketing"
-    }
+    },
+    "driver_license_types": [
+        {
+            "id": "A"
+        },
+        {
+            "id": "B"
+        }
+    ]
 }
 ```
 
@@ -193,6 +201,8 @@ response_letter_required | boolean | требовать сопроводител
 accept_handicapped | boolean | указание, что вакансия доступна для соискателей с инвалидностью
 accept_kids | boolean | указание, что вакансия доступна для соискателей от 14 лет [подробнее](employer_vacancies_accept_kids.md#accept-kids)
 branded_template.id | string | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
+driver_license_types | array | список требуемых категорий водительских прав
+driver_license_types[].id | string | категория водительских прав. элемент справочника [driver_license_types](dictionaries.md)
 
 
 <a name="creation-results"></a>

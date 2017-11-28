@@ -128,7 +128,15 @@ vacancy being posted. The format of the data is similar to the
     },
     "branded_template": {
         "id": "marketing"
-    }
+    },
+    "driver_license_types": [
+        {
+            "id": "A"
+        },
+        {
+            "id": "B"
+        }
+    ]
 }
 ```
 
@@ -186,6 +194,8 @@ vacancy being posted. The format of the data is similar to the
 | accept_handicapped          | boolean         | indication that the vacancy is available for disabled applicants |
 | accept_kids                 | boolean         | indication that the vacancy is available for applicants from 14 years [read more](employer_vacancies_accept_kids.md#accept-kids)|
 | branded_template.id         | string          | <a name="branded-template-field"></a> branded template from the [directory](employer_vacancy_branded_templates.md#list) |
+| driver_license_types        | array           | driver license types |
+| driver_license_types[].id   | string          | driver license type from [driver_license_types dictionary](dictionaries.md)
 
 
 <a name="creation-results"></a>

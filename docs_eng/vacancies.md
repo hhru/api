@@ -170,7 +170,15 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
     "billing_type": {
         "id": "standard",
         "name": "Standard"
-    }
+    },
+    "driver_license_types": [
+        {
+            "id": "A"
+        },
+        {
+            "id": "B"
+        }
+    ]
 }
 ```
 
