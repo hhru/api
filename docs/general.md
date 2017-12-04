@@ -42,6 +42,9 @@ User-Agent: MyApp/1.0 (my-app-feedback@example.com)
   описанные в каждом конкретном методе. В JSON типами данных являются `string`,
   `number`, `boolean`, `null`, `object`, `array`.
 
+<a name="response"></a>
+### Ответ
+Ответ свыше определенной длины будет сжиматься методом gzip.
 
 <a name="errors-and-codes"></a>
 ### Ошибки и коды ответов
