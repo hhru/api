@@ -183,7 +183,8 @@
         {
             "id": "B"
         }
-    ]
+    ],
+    "accept_incomplete_resumes": false
 }
 ```
 
@@ -255,6 +256,7 @@ allow_messages | boolean | Включена ли возможность соис
 premium | boolean | Является ли данная вакансия премиум-вакансией
 driver_license_types | array | Список требуемых категорий водительских прав
 driver_license_types[].id | string | Категория водительских прав. Элемент справочника [driver_license_types](dictionaries.md)
+accept_incomplete_resumes | boolean | Разрешен ли отклик на вакансию неполным резюме
 
 
 <a name="branded_description"></a>

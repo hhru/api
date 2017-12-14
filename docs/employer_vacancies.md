@@ -144,7 +144,8 @@
         {
             "id": "B"
         }
-    ]
+    ],
+    "accept_incomplete_resumes": false
 }
 ```
 
@@ -203,6 +204,7 @@ accept_kids | boolean | указание, что вакансия доступн
 branded_template.id | string | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
 driver_license_types | array | список требуемых категорий водительских прав
 driver_license_types[].id | string | категория водительских прав. элемент справочника [driver_license_types](dictionaries.md)
+accept_incomplete_resumes | boolean | разрешен ли отклик на вакансию неполным резюме
 
 
 <a name="creation-results"></a>
@@ -469,6 +471,7 @@ allow_messages | возможность переписки с кандидата
 contacts | контактная информация
 custom_employer_name | название компании для анонимных вакансий
 response_url | URL отклика для прямых вакансий
+accept_incomplete_resumes | разрешен ли отклик на вакансию неполным резюме
 
 Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.
 

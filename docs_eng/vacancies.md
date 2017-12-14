@@ -178,7 +178,8 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
         {
             "id": "B"
         }
-    ]
+    ],
+    "accept_incomplete_resumes": false
 }
 ```
 
