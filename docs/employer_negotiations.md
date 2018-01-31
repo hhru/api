@@ -133,6 +133,7 @@
         {
             "id": "somecollection",
             "name": "Название коллекции",
+            "description": "Описание коллекции",
             "url": "https://api.hh.ru/negotiations/somecollection?vacancy_id=123456",
             "counters": {
                 "with_updates": 4,
@@ -195,6 +196,7 @@
 collections | список | [коллекции](#term-collection) откликов/приглашений для данной вакансии
 collections[].id | строка | идентификатор коллекции, уникальный как минимум для данной вакансии
 collections[].name | строка | название коллекции
+collections[].description | строка | описание коллекции
 collections[].url | строка | url, на который необходимо делать GET запрос для получения откликов/приглашений данной коллекции
 collections[].counters.with_updates | число | количество откликов/приглашений в коллекции, [требующих внимания](#has_updates)
 collections[].counters.total | число | общее количество откликов/приглашений в коллекции

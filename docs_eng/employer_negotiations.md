@@ -130,6 +130,7 @@ Successful server response is returned with `200 OK` code and contains:
         {
             "id": "somecollection",
             "name": "Name of collection",
+            "description": "Collection description",
             "url": "https://api.hh.ru/negotiations/somecollection?vacancy_id=123456"
         },
         {
@@ -165,6 +166,7 @@ Name | Type | Description
 collections | list | of [collections](#term-collection) of responses/invitations for this vacancy
 collections.id | string | collection ID unique at least for this vacancy
 collections.name | string | collection name
+collections.description | string | collection description
 collections.url | string | URL to send the GET request to in order to get responses/invitations for this collection
 employer_states | list | of [employer statuses](#term-employer-state) for responses/invitations on the vacancy
 employer_states.id | string | status ID unique at least for this vacancy
