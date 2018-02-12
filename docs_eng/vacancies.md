@@ -253,7 +253,8 @@ displayed:
   "branded_template": {
     "id": "marketing",
     "name": "Marketing"
-  }
+  },
+  "can_upgrade_billing_type": true
 }
 ```
 
@@ -262,6 +263,7 @@ key | type | description
 expires_at| string | date and time of vacancy posting termination
 response_notifications | logical | whether to notify manager on new responses
 hidden | logical | whether the vacancy is deleted (hidden from the archive)
+can_upgrade_billing_type | logical | Whether it is possible to upgrade vacancy billing type 
 
 In object `manager` – the information on the manager posted the vacancy.
 
