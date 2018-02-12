@@ -683,7 +683,12 @@ Successful server response is returned with `200 OK` code and contains:
                 "invitations": 10
             },
             "expires_at": "2013-07-08T16:17:21+0400",
-            "has_updates": false
+            "has_updates": false,
+            "billing_type": {
+                "id": "standard",
+                "name": "Standard"
+            },
+            "can_upgrade_billing_type": true
         }
     ]
 }
@@ -697,10 +702,14 @@ fields will be returned:
 | counters.views             | number  | number of vacancy views                                                                         |
 | counters.responses         | number  | number of applications for a vacancy                                                            |
 | counters.unread_responses  | number  | number of unread applications for a vacancy                                                     |
-| counters.resumes_in_progress       | number  | number of resumes in progress for a vacancy                                                             |
+| counters.resumes_in_progress   | number  | number of resumes in progress for a vacancy                                                 |
 | counters.invitations       | number  | number of invitations for a vacancy                                                             |
 | expires_at                 | string  | expiration date for a vacancy posting                                                           |
 | has_updates                | boolean | Whether there are updates calling for attention in the applications/invitations for the vacancy |
+| billing_type               | object  | Vacancy billing type. An element of dictionary [vacancy_billing_type](dictionaries.md).         |
+| billing_type.id            | string  | Vacancy billing type identifier                                                                 |
+| billing_type.name          | string  | Vacancy billing type name                                                                       |
+| can_upgrade_billing_type   | boolean | Whether it is possible to upgrade vacancy billing type                                          |
 
 
 ### Supported parameters
