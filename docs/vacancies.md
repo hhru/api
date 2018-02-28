@@ -237,10 +237,10 @@ response_url | string или null | На вакансии с типом `direct`
 test | object или null | Информация о прикрепленном тестовом задании к вакансии. В случае отсутствия теста — `null`. **В данный момент отклик на вакансии с обязательным тестом через API невозможен.**
 test.required | boolean | Обязательно ли заполнение теста для отклика
 specialization | array | Специализации. Элементы справочника [specializations](specializations.md)
-specialization[].id | string | Идентификатор специализации
-specialization[].name | string | Название специализации
-specialization[].profarea_id | string | Идентификатор профессиональной области, в которую входит специализация
-specialization[].profarea_name | string | Название профессиональной области, в которую входит специализация
+specializations[].id | string | Идентификатор специализации
+specializations[].name | string | Название специализации
+specializations[].profarea_id | string | Идентификатор профессиональной области, в которую входит специализация
+specializations[].profarea_name | string | Название профессиональной области, в которую входит специализация
 contacts | object или null | Контактная информация. В вакансиях, где контакты не указаны, возвращается `null`.
 contacts.name | string или null | Имя контактного лица
 contacts.email | string или null | Email контактного лица
