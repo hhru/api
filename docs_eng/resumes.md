@@ -426,6 +426,10 @@ will have `false` value.
 }
 ```
 
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+
 Documentation translation for this section is in progress.
 For all information see
 [machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#item)
@@ -575,3 +579,8 @@ returns the same results as [vacancy search](vacancies.md#search-results)
 
 Additionally if CV with `resume_id` does not exist or not available
 `404 Not Found` will be returned in response.
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` – resume is not found or not available.

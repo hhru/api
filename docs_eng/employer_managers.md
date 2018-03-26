@@ -69,8 +69,9 @@ Each element from `items` has the following fields:
  number | string | subscriber telephone number
  comment | string or null | comment (e.g., convenient time to call this number)
 
-In case the current user is not allowed to view the employer's managers, the
-`HTTP 403 Forbidden` code will be returned.
+### Errors
+
+* `403 Forbidden` - current user is not allowed to view the employer's managers.
 
 
  <a name="edit_managers"></a>

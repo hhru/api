@@ -50,12 +50,16 @@ returned with detailed error description in the response body:
 <a name="educational_institutions"></a>
 ## University name suggestions
 
+### Request
+
 In order to obtain university name options from the inserted symbols, you should
 send a GET request to `/suggests/educational_institutions` with the following
 parameters:
 
 * `text` – a text for searching a university
 * `locale` – a suggestion language
+
+### Response
 
 If the request is performed successfully, such a JSON will be returned:
 
@@ -85,12 +89,15 @@ To see the list of college faculties, you can use the
 <a name="companies"></a>
 ## Organization suggestions
 
+### Request
 
 To receive suggestions on organizations, you should send a
 `GET /suggests/companies` request with the following parameters:
 
 * `text` – a text for searching
 * `locale` – a suggestion language
+
+### Response
 
 If the request is performed successfully, such a response will be returned:
 
@@ -125,11 +132,15 @@ companies](employers.md#search).
 <a name="specializations"></a>
 ## Specialization suggestions
 
+### Request
+
 To see the list of relevant specializations, you should send a
 `GET` request to `/suggests/fields_of_study` with the following parameters:
 
 * `text` – a text for searching specializations
 * `locale` – a suggestion language.
+
+### Response
 
 If the request is performed successfully, such a response will be returned:
 
@@ -148,8 +159,12 @@ If the request is performed successfully, such a response will be returned:
 <a name="key-skills"></a>
 ## Key skills suggestions
 
+### Request
+
 In order to obtain a suggestion on key skills, you should send a `GET` request
 to `/suggests/skill_set` with the mandatory parameter `text`.
+
+### Response
 
 If the request is performed successfully, such a response will be returned:
 
@@ -176,11 +191,15 @@ If the request is performed successfully, such a response will be returned:
 <a name="positions"></a>
 ## Position suggestions
 
+### Request
+
 In order to obtain a suggestion on positions, you should send a `GET` request to
 `/suggests/positions` with the mandatory parameter `text` – a key skill search
 string. We recommend using this data when creating a CV or a vacancy. We remind
 that when a CV is created, the user can indicate no more than three
 specializations, and all of them must be from the same professional area.
+
+### Response
 
 If the request is performed successfully, such a response will be returned:
 
@@ -207,6 +226,8 @@ If the request is performed successfully, such a response will be returned:
 <a name="areas"></a>
 ## Region tips
 
+### Request
+
 `GET /suggests/areas` – tip for all regions.
 
 `GET /suggests/area_leaves – tip for all regions that are leaves in the region
@@ -220,7 +241,7 @@ Both tips accept the following parameters:
 In addition to the region tip, load of the [full region tree](areas.md#areas)
 and [a part of the tree from a specific element](areas.md#item) is available.
 
-Response example:
+### Response
 
 ```json
 {
@@ -243,6 +264,8 @@ Response example:
 <a name="vacancy-search-keyword"></a>
 ## Tips for vacancy search key words
 
+### Request
+
 This tip is intended for use in the `text` field when
 [searching for vacancies](vacancies.md#search). The tip displays title names,
 company names, and other phrases that are often used when searching
@@ -255,7 +278,7 @@ Parameters:
 * `text` – text for searching a keyword
 
 
-Response example:
+### Response
 
 ```json
 {

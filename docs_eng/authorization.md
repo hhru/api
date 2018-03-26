@@ -1,8 +1,24 @@
 # Authorization
 
+* [Obtaining authorization](#get-auth)
+  * [Special redirect_uri formation rules](#redirect_uri)
+  * [Authorization process](#get-auth-process)
+  * [Obtaining a temporary `authorization_code` successfully](#get-authorization_code)
+  * [Obtaining access and refresh tokens](#get-tokens)
+* [Refreshing the access and refresh token pair](#refresh_token)
+* [Obtaining application authorization](#get-client-auth)
+* [Using and testing access_token](#check-access_token)
+* [Authorization request for another user](#force-login)
+* [Useful links](#links)
+
+
 <a name="general"></a>
 Authorization is done via the OAuth 2.0 protocol. Detailed documentation on the
 protocol: [RFC 6749](http://tools.ietf.org/html/rfc6749).
+
+API supports the following authorization levels:
+* [user authorization](#get-auth)
+* [application authorization](#get-client-auth)
 
 Registered application can ask hh.ru users for permission to access their
 personal data without getting and storing their user name and password.
@@ -98,10 +114,10 @@ rights).
 ### Obtaining access and refresh tokens
 
 After obtaining the `authorization_code`, the application needs to send a
-server-server POST request to`https://hh.ru/oauth/token` to change the
+server-server request `POST https://hh.ru/oauth/token` to change the
 `authorization_code` obtained for an `access_token`.
 
-The request should contain the following information:
+The request body should contain the following information:
 
 ```
 grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={authorization_code}&redirect_uri={redirect_uri}
@@ -114,16 +130,16 @@ parameter is optional. If `redirect_uri` is not indicated when requesting
 (`/oauth/token`), the server will return an error.
 
 Request body must be sent in standard `application/x-www-form-urlencoded`
-with the indication of a corresponding title `Content-Type`.
+with the indication of a corresponding header `Content-Type`.
 
 JSON will be returned in the response:
 
 ```json
 {
-  "access_token": "{access_token}",
-  "token_type": "bearer",
-  "expires_in": 1209600,
-  "refresh_token": "{refresh_token}",
+    "access_token": "{access_token}",
+    "token_type": "bearer",
+    "expires_in": 1209600,
+    "refresh_token": "{refresh_token}"
 }
 ```
 
@@ -135,8 +151,8 @@ response returns with the body:
 
 ```json
 {
-    "error": "...",
-    "error_description": "..."
+    "error": "invalid_request",
+    "error_description": "account not found"
 }
 ```
 
@@ -168,10 +184,10 @@ first time:
 
 ```json
 {
-  "access_token": "{access_token}",
-  "token_type": "bearer",
-  "expires_in": 1209600,
-  "refresh_token": "{refresh_token}",
+    "access_token": "{access_token}",
+    "token_type": "bearer",
+    "expires_in": 1209600,
+    "refresh_token": "{refresh_token}"
 }
 ```
 
@@ -180,6 +196,52 @@ period expires.
 
 When a new access and refresh token pair is received, it should be used in
 further api requests and token renewal requests.
+
+
+<a name="get-client-auth"></a>
+## Obtaining application authorization
+
+For obtaining an `authorization_code`, the application needs to send a
+server-server request `POST https://hh.ru/oauth/token`.
+
+The request body should contain the following information:
+
+```
+grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}
+```
+
+Request body must be sent in standard `application/x-www-form-urlencoded`
+with the indication of a corresponding header `Content-Type`.
+
+JSON will be returned in the response:
+
+```json
+{
+    "access_token": "{access_token}",
+    "token_type": "bearer"
+}
+```
+
+The `access_token` has **unlimited** validity period. After repeated request, the previously obtained token is deactivated and a new one is obtained. The owner of the application can see the actual `access_token` for the application on the site [https://dev.hh.ru/admin](https://dev.hh.ru/admin).
+
+> :warning: In case of compromising the token, you need to obtain an application access token again!
+
+If the obtaining fails, then the `400 Bad Request` response returns with the body:
+
+```json
+{
+    "error": "invalid_client",
+    "error_description": "client_id or client_secret not found"
+}
+```
+
+where:
+
+* `error` will have one of the values
+  [described in the RFC 6749 standard](http://tools.ietf.org/html/rfc6749#section-5.2).
+  For instance, `invalid_request`, if one of the mandatory parameters has not
+  been sent.
+* `error_description` will contain an additional description of the error.
 
 
 <a name="check-access_token"></a>
@@ -203,9 +265,13 @@ Authorization: Bearer access_token
 
 Documentation on the response from `/me` [in the corresponding section](me.md).
 
+Documentation on the response from `/me` in the corresponding section:
+* [authorized user](me.md#user-info)
+* [authorized application](me.md#application-info)
+
 [Authorization error description](errors.md#oauth).
 
-
+<a name="force-login"></a>
 ### Authorization request for another user
 
 The following scenario is possible:
@@ -238,6 +304,7 @@ and give a link with `force_login=true` for the user to be able to log in using
 a different account.
 
 
+<a name="links"></a>
 ## Useful links
 
 * Detailed documentation on the protocol:

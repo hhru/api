@@ -7,9 +7,6 @@ particular employer, one should send the `GET` request to
 In case of success, the `HTTP 200 OK` code will be returned, and the response
 body will contain the company address list.
 
-In case the current user is not allowed to view employer's addresses, the `HTTP
-403 Forbidden` code will be returned.
-
 An example of a successful response:
 
 ```json
@@ -52,3 +49,8 @@ An example of a successful response:
 In a successful response, the `items` field contains the company address list.
 This list is similar to the [address in the vacancy](address.md).
 The `id` field – address string identifier – is added to each address.
+
+### Errors
+
+* `403 Forbidden` - the current user is not allowed to view employer's addresses.
+* `404 Not Found` - the employer is not found.

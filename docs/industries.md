@@ -19,7 +19,5 @@
 
 В справочнике возможны другие значения.
 
-----
-
 Пример: [https://api.hh.ru/industries](https://api.hh.ru/industries)
 
