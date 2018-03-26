@@ -8,7 +8,10 @@
 ## Obtaining info on the current user
 
 `GET /me` returns info on current authorized user.
-Server returns `403 Forbidden` if authorization is failed.
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
@@ -113,6 +116,9 @@ Name | Description
 unread_negotiations | Number of unread negotiations (indicating `has_updates: true`)
 new_resume_views | Total number of new views of all CVs of the current user
 
+### Errors
+
+* `403 Forbidden` – authorization is failed.
 
 <a name="edit"></a>
 ## Editing info on the current user
@@ -152,4 +158,7 @@ Example:
  is_in_search=true
 ```
 
-If request contains parameters from different groups, `400 Bad Request` is returned.
+### Errors
+
+* `400 Bad Request` – request contains parameters from different groups.
+* `403 Forbidden` – authorization is failed. Applicant is expected.
