@@ -5,7 +5,7 @@ the tips services (autocomplete, autosuggest).
 
 All suggestions work in the same way: they receive text that is a part of the
 suggested meaning, and return a list of relevant elements. The text being
-searched must contain at least two symbols. In case too short a text is given,
+searched must contain at least two and less than 3 000 symbols. In case too short or too long a text is given,
 `400 Bad Request` will be returned with the error description in the
 response body:
 
