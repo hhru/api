@@ -33,7 +33,11 @@
 ]
 ```
 
-Пример: [https://api.hh.ru/areas](https://api.hh.ru/areas)
+Пример: `https://api.hh.ru/areas`
+
+### Ошибки
+
+* `403 Forbidden` – ошибка авторизации пользователя.
 
 
 <a name="item"></a>
@@ -41,7 +45,12 @@
 
 `GET /areas/{area_id}` вернёт древовидный список регионов, начиная с указанного.
 
-Пример: [https://api.hh.ru/areas/1146](https://api.hh.ru/areas/1146)
+Пример: `https://api.hh.ru/areas/1146`
+
+### Ошибки
+
+* `403 Forbidden` – ошибка авторизации пользователя.
+* `404 Not Found` - указанный регион не найден.
 
 
 <a name="countries"></a>
@@ -65,3 +74,7 @@
   }
 ]
 ```
+
+### Ошибки
+
+* `403 Forbidden` – ошибка авторизации пользователя.

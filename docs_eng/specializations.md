@@ -18,4 +18,8 @@ specializations.
     ]
 ```
 
-Example: [https://api.hh.ru/specializations?locale=EN](https://api.hh.ru/specializations?locale=EN)
+Example: `https://api.hh.ru/specializations?locale=EN`
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.

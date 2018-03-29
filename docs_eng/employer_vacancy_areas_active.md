@@ -23,3 +23,7 @@ An example of a successful response:
 
 As opposed to the region directory (`/areas`), this list is a flat, non-treeview
 list. It only contains the tree "leaves", without any "embedded" region objects.
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.

@@ -31,4 +31,7 @@ Each element from `items` has the following fields:
 | id   | string | Department identifier |
 | name | string | Department name       |
 
-In case the current user is not allowed to view the departments of the employer, the code `HTTP 403 Forbidden` will be returned.
+### Errors
+
+* `403 Forbidden` - the current user is not allowed to view the departments of the employer.
+* `404 Not Found` - the employer is not found.

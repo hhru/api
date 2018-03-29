@@ -21,4 +21,6 @@
 
 specializations[].laboring - относится ли специализация к списку рабочих специальностей
 
-Пример: [https://api.hh.ru/specializations](https://api.hh.ru/specializations)
+### Ошибки
+
+* `403 Forbidden` – ошибка авторизации пользователя.

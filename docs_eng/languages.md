@@ -22,4 +22,8 @@
 ]
 ```
 
-Example: [https://api.hh.ru/languages?locale=EN](https://api.hh.ru/languages?locale=EN)
+Example: `https://api.hh.ru/languages?locale=EN`
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.

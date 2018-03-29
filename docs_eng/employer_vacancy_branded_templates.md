@@ -22,6 +22,10 @@ List of all templates available from the employer.
 where `employer_id` – company ID available
 [from the information on current user](me.md#employer-info).
 
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+
 
 <a name="list-response"></a>
 ### Response
