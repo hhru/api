@@ -158,5 +158,5 @@ Example: [https://api.hh.ru/employers/1455?locale=EN](https://api.hh.ru/employer
 
 ### Errors
 
-* `404 Not Found` – the employer is not found.
 * `403 Forbidden` – authorization is failed.
+* `404 Not Found` – the employer is not found.

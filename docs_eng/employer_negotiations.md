@@ -956,8 +956,7 @@ Location: /negotiations/321
 ### Errors
 
 * `400 Bad Request` – error in the request parameters.
-* `403 Forbidden` – authorization is failed.
-* `403 Forbidden` – invitation is impossible.
+* `403 Forbidden` – authorization is failed or invitation is impossible.
 
 In addition to an HTTP code, the server can return
 [error reason](errors.md#negotiations).
@@ -1016,11 +1015,10 @@ Successful server response is returned with `204 No Content` code and does not h
 
 ### Errors
 
+* `400 Bad Request` – one of the mandatory parameters is not sent.
+* `403 Forbidden` – authorization is failed or response action is not possible.
 * `404 Not Found` – response doesn't exist, refers to other employer, or
   current manager is not authorized to process it.
-* `400 Bad Request` – one of the mandatory parameters is not sent.
-* `403 Forbidden` – authorization is failed.
-* `403 Forbidden` – response action is not possible.
 
 In addition to an HTTP code, the server can return
 [error reason](errors.md#negotiations).

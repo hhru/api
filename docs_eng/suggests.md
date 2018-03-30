@@ -80,14 +80,14 @@ If the request is performed successfully, such a JSON will be returned:
 }
 ```
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
-
 The `acronym` and `synonym` fields may be null.
 
 To see the list of college faculties, you can use the
 [method of obtaining faculties](faculties.md).
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.
 
 
 <a name="companies"></a>
