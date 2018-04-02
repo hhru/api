@@ -290,6 +290,11 @@ and [a part of the tree from a specific element](areas.md#item) is available.
 
 ### Request
 
+This tip is intended for use in the `text` field when
+[searching for vacancies](vacancies.md#search). The tip displays title names,
+company names, and other phrases that are often used when searching
+for vacancies.
+
 `GET /suggests/vacancy_search_keyword`
 
 Parameters:
@@ -318,8 +323,3 @@ Parameters:
 ### Errors
 
 * `403 Forbidden` – authorization is failed.
-
-This tip is intended for use in the `text` field when
-[searching for vacancies](vacancies.md#search). The tip displays title names,
-company names, and other phrases that are often used when searching
-for vacancies.

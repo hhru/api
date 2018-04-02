@@ -713,7 +713,7 @@ fields will be returned:
 
 ### Errors
 
-* `403 Forbidden` – authorization is failed or current user has no permission. Employer is expected.
+* `403 Forbidden` – authorization is failed or current user has no permission.
 
 
 ### Supported parameters
@@ -739,7 +739,7 @@ If archived successfully, `204 No Content` will be returned.
 
 ### Errors
 
-* `403 Forbidden` – authorization is failed or current user has no permission. Employer is expected.
+* `403 Forbidden` – authorization is failed or current user has no permission.
 
 
 <a name="archived"></a>
@@ -831,7 +831,7 @@ fields will be returned:
 
 ### Errors
 
-* `403 Forbidden` – authorization is failed or current user has no permission. Employer is expected.
+* `403 Forbidden` – authorization is failed or current user has no permission.
 
 
 <a name="hide"></a>
@@ -844,7 +844,7 @@ If performed successfully, `204 No Content` will be returned.
 
 ### Errors
 
-* `403 Forbidden` – authorization is failed or current user has no permission. Employer is expected.
+* `403 Forbidden` – authorization is failed or current user has no permission.
 
 
 <a name="hidden"></a>
@@ -921,7 +921,7 @@ Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
 
 ### Errors
 
-* `403 Forbidden` – authorization is failed or current user has no permission. Employer is expected.
+* `403 Forbidden` – authorization is failed or current user has no permission.
 
 
 <a name="restore"></a>
@@ -935,5 +935,5 @@ The vacancy will be returned to the archive.
 
 ### Errors
 
-* `403 Forbidden` – authorization is failed. Employer is expected.
+* `403 Forbidden` – authorization is failed.
 * `404 Not Found` - vacancy is not found or current user has no permission.

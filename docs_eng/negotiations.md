@@ -398,7 +398,8 @@ comment:
 ### Errors
 
 * `404 Not Found` – response with this ID doesn't exist
-* `403 Forbidden` – authorization is failed or respond is prohibited.
+* `403 Forbidden` – authorization is failed.
+* `403 Forbidden` – respond is prohibited.
 
 In addition to an HTTP code, the server can return
 [error reason](errors.md#negotiations).
@@ -442,7 +443,8 @@ In case of successful message text update the HTTP status
 
 ### Errors
 
-* `403 Forbidden` – authorization is failed or editing is prohibited (For example, if receiving party has already read the message).
+* `403 Forbidden` – authorization is failed.
+* `403 Forbidden` – editing is prohibited (For example, if receiving party has already read the message).
 * `404 Not Found` – the message is not found.
 
 In addition to an HTTP code, the server can return

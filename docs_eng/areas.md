@@ -33,8 +33,6 @@ region name and ID and the link to a parent region `parent_id`.
 ]
 ```
 
-Example: `https://api.hh.ru/areas?locale=EN`
-
 ### Errors
 
 * `403 Forbidden` – authorization is failed.
@@ -45,8 +43,6 @@ Example: `https://api.hh.ru/areas?locale=EN`
 
 `GET /areas/{area_id}` returns the region tree view list, starting from the
 indicated region.
-
-Example: `https://api.hh.ru/areas/1146?locale=EN`
 
 ### Errors
 
