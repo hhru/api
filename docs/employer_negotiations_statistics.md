@@ -30,7 +30,7 @@ GET /employers/{employer_id}/negotiations_statistics
         "viewed_percent_change": 10,
         "replied_percent": 0,
         "replied_percent_change": -15,
-        "average_reply_time_in_days": 1.0
+        "average_reply_time": 1.0
     }
 }
 ```
@@ -44,7 +44,7 @@ GET /employers/{employer_id}/negotiations_statistics
 | viewed_percent_change | number или null | изменение viewed_percent по сравнению с предыдущим периодом или `null` при отсутствии откликов |
 | replied_percent | number или null | процент откликов на вакансии работодателя, перемещенных в любую другую [коллекцию](employer_negotiations.md#term-collection) с отправкой сообщения за период или `null` при отсутствии откликов |
 | replied_percent_change | number или null | изменение replied_percent по сравнению с предыдущим периодом или `null` при отсутствии откликов |
-| average_reply_time_in_days | number или null | среднее время в днях между получением отклика на вакансии работодателя и отправкой сообщения или `null` при отсутствии отправленных сообщений |
+| average_reply_time | number или null | среднее время в днях между получением отклика на вакансии работодателя и отправкой сообщения или `null` при отсутствии отправленных сообщений |
 
 ### Ошибки
 
@@ -77,7 +77,7 @@ GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics
         "viewed_percent_change": 10,
         "replied_percent": 0,
         "replied_percent_change": -15,
-        "average_reply_time_in_days": 1.0
+        "average_reply_time": 1.0
     }
 }
 ```
@@ -96,4 +96,4 @@ GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics
 | viewed_percent_change | number или null | изменение viewed_percent по сравнению с предыдущим периодом или `null` при отсутствии откликов |
 | replied_percent | number или null | процент откликов на вакансии менеджера, перемещенных в любую другую [коллекцию](employer_negotiations.md#term-collection) с отправкой сообщения за период или `null` при отсутствии откликов |
 | replied_percent_change | number или null | изменение replied_percent по сравнению с предыдущим периодом или `null` при отсутствии откликов |
-| average_reply_time_in_days | number или null | среднее время в днях между получением отклика на вакансии менеджера и отправкой сообщения или `null` при отсутствии отправленных сообщений |
+| average_reply_time | number или null | среднее время в днях между получением отклика на вакансии менеджера и отправкой сообщения или `null` при отсутствии отправленных сообщений |
