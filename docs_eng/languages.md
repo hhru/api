@@ -22,6 +22,4 @@
 ]
 ```
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
+Example: [https://api.hh.ru/languages?locale=EN](https://api.hh.ru/languages?locale=EN)

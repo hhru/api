@@ -19,6 +19,4 @@
 
 The directory may have other values.
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
+Example: [https://api.hh.ru/industries?locale=EN](https://api.hh.ru/industries?locale=EN)

@@ -39,9 +39,7 @@ has metro stations of the line indicated in the `stations` parameter.
 * `lat`, `lng` are coordinates of the station location;
 * `order` is an order number of the station on its line, starting from 0.
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
+Example: [https://api.hh.ru/metro?locale=EN](https://api.hh.ru/metro?locale=EN)
 
 
 ## List of metro stations and lines in a specific city
@@ -50,7 +48,8 @@ has metro stations of the line indicated in the `stations` parameter.
 indicated city. A root element is not a list (as in the request to `/metro`),
 but an object with data on the indicated city.
 
+Example: [https://api.hh.ru/metro/1?locale=EN](https://api.hh.ru/metro/1?locale=EN)
+
 ### Errors
 
-* `403 Forbidden` – authorization is failed.
 * `404 Not Found` - the city is not found.

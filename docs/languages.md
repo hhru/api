@@ -22,6 +22,4 @@
 ]
 ```
 
-### Ошибки
-
-* `403 Forbidden` – ошибка авторизации пользователя.
+Пример: [https://api.hh.ru/languages](https://api.hh.ru/languages)

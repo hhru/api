@@ -33,9 +33,7 @@ region name and ID and the link to a parent region `parent_id`.
 ]
 ```
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
+Example: [https://api.hh.ru/areas?locale=EN](https://api.hh.ru/areas?locale=EN)
 
 
 <a name="item"></a>
@@ -44,10 +42,7 @@ region name and ID and the link to a parent region `parent_id`.
 `GET /areas/{area_id}` returns the region tree view list, starting from the
 indicated region.
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
-* `404 Not Found` - the area is not found.
+Example: [https://api.hh.ru/areas/1146?locale=EN](https://api.hh.ru/areas/1146?locale=EN)
 
 
 <a name="countries"></a>
@@ -69,7 +64,3 @@ indicated region.
   }
 ]
  ```
- 
-### Errors
- 
-* `403 Forbidden` – authorization is failed.

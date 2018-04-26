@@ -19,7 +19,5 @@
 
 В справочнике возможны другие значения.
 
-### Ошибки
-
-* `403 Forbidden` – ошибка авторизации пользователя.
+Пример: [https://api.hh.ru/industries](https://api.hh.ru/industries)
 

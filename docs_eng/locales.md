@@ -34,6 +34,3 @@ By changing a locale you can, for example, create a CV in English.
 
 Example: [https://api.hh.ru/locales/resume?locale=EN](https://api.hh.ru/locales/resume?locale=EN)
 
-## Errors
-
-* `403 Forbidden` – authorization is failed.

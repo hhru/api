@@ -3,7 +3,7 @@
 `GET /dictionaries` returns the object with the directories of fields and entities used in our service.
 Most often, each directory consists of a list of objects containing an `id` and a `name`.
 
-For all methods, an authorized user is being trespassed, otherwise the server returns an error of `403 Forbidden`.
+Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionaries?locale=EN)
 
 
 ## Directories for fields used in CVs
