@@ -85,10 +85,6 @@ The `acronym` and `synonym` fields may be null.
 To see the list of college faculties, you can use the
 [method of obtaining faculties](faculties.md).
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
-
 
 <a name="companies"></a>
 ## Organization suggestions
@@ -126,10 +122,6 @@ If the request is performed successfully, such a response will be returned:
 }
 ```
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
-
 The data from this suggestion can be used to select a company in work experience
 when [working with CVs](resumes.md#create_edit). If you need to search by
 companies (employers) that can post vacancies, use the [search by
@@ -163,10 +155,6 @@ If the request is performed successfully, such a response will be returned:
 }
 ```
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
-
 
 <a name="key-skills"></a>
 ## Key skills suggestions
@@ -198,10 +186,6 @@ If the request is performed successfully, such a response will be returned:
   ]
 }
 ```
-
-### Errors
-
-* `403 Forbidden` – authorization is failed.
 
 
 <a name="positions"></a>
@@ -237,10 +221,6 @@ If the request is performed successfully, such a response will be returned:
   ]
 }
 ```
-
-### Errors
-
-* `403 Forbidden` – authorization is failed.
 
 
 <a name="areas"></a>
@@ -280,10 +260,6 @@ and [a part of the tree from a specific element](areas.md#item) is available.
 }
 ```
 
-### Errors
-
-* `403 Forbidden` – authorization is failed.
-
 
 <a name="vacancy-search-keyword"></a>
 ## Tips for vacancy search key words
@@ -319,7 +295,3 @@ Parameters:
   ]
 }
 ```
-
-### Errors
-
-* `403 Forbidden` – authorization is failed.
