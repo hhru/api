@@ -22,6 +22,7 @@
     "is_admin": false,
     "is_applicant": false,
     "is_employer": true,
+    "is_application": false,
     "email": "contact@example.com",
     "employer": {
         "id": "1455",
@@ -68,6 +69,7 @@
  is_admin | логический | является ли пользователь администратором сайта
  is_applicant | логический | true, если пользователь — соискатель
  is_employer | логический | true, если пользователь – работодатель
+ is_application | логический | true, если авторизация приложения
  email | строка, null | электронный адрес
  employer | объект, null | [информация о компании](#employer-info), если текущий пользователь — работодатель, или null в остальных случаях
  personal_manager | объект, null | [информация о персональном менеджере](#personal-manager-info), если текущий пользователь — работодатель, или null в остальных случаях
