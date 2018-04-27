@@ -261,7 +261,7 @@ accept_incomplete_resumes | boolean | Разрешен ли отклик на в
 
 ### Ошибки
 
-* `403 Forbidden` – ошибка авторизации пользователя.
+* `403 Forbidden` – ошибка авторизации.
 
 
 <a name="branded_description"></a>
@@ -642,7 +642,7 @@ snippet.responsibility | строка, null | Обязанности по вак
 ### Ошибки
 
 * `400 Bad request` - параметры переданы с ошибкой.
-* `403 Forbidden` – ошибка авторизации пользователя.
+* `403 Forbidden` – ошибка авторизации.
 
 <a name="similar"></a>
 ## Поиск по вакансиям, похожим на вакансию
@@ -664,7 +664,7 @@ snippet.responsibility | строка, null | Обязанности по вак
 
 ### Ошибки
 
-* `403 Forbidden` – ошибка авторизации пользователя.
+* `403 Forbidden` – ошибка авторизации.
 
 
 <a name="nano"></a>
