@@ -40,6 +40,7 @@ GET /negotiations
  order_by | нет | тип сортировки, возможные значения указаны в [справочнике `negotiations_order`](dictionaries.md)
  order | нет | направление сортировки. Возможные значения: `asc`, `desc`.
  vacancy_id | нет | фильтр по id вакансии
+ fetchManagersStat | нет | добавлять ли в ответ статистику по менеджерам. Возможные значения: `true`, `false`.
 
 По-умолчанию отклики сортируются по последнему обновлению от новых к старым.
 
@@ -71,6 +72,27 @@ GET /negotiations
             "viewed_by_opponent": true,
             "messaging_status": "ok",
             "decline_allowed": true
+        }
+        // , .....
+    ],
+    "employers_stats": [
+        {
+            "employer_id": 3360795,
+            "stats": {
+                 "received": 20,
+                 "viewed_percent": 23,
+                 "viewed_percent_change": 10,
+                 "replied_percent": 0,
+                 "replied_percent_change": -15,
+                 "average_reply_time": 1.0
+            }
+        }
+        // , .....
+    ],
+    "managers_activity": [
+        {
+            "manager_id": 123456,
+            "inactiveMinutes": 3000,
         }
         // , .....
     ]

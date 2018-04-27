@@ -567,6 +567,9 @@ counters.invitations | number | количество приглашений на
         "id": "1455",
         "trusted": true
       },
+      "employer_manager": {
+        "id": 500
+      },
       "response_letter_required": true,
       "address": {
         "city": "Москва",
