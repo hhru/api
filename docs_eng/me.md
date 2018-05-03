@@ -1,11 +1,12 @@
-# Current user
+# Information about authorized user or application
 
-* [Obtaining info on the current user](#info)
-* [Editing info on the current user](#edit)
+* [Obtaining info about the authorized user](#user-info)
+* [Editing info about the authorized user](#user-edit)
+* [Obtaining info about the authorized application](#application-info)
 
 
-<a name="info"></a>
-## Obtaining info on the current user
+<a name="user-info"></a>
+## Obtaining info about the authorized user
 
 `GET /me` returns info on current authorized user.
 
@@ -122,8 +123,8 @@ new_resume_views | Total number of new views of all CVs of the current user
 
 * `403 Forbidden` – authorization is failed.
 
-<a name="edit"></a>
-## Editing info on the current user
+<a name="user-edit"></a>
+## Editing info about the authorized user
 
 Send POST request to `/me` in order to edit the last name, name, middle name or
 enable/disable "looking for a job yes/no"  flag. Data can be edited only in
@@ -160,7 +161,19 @@ Example:
  is_in_search=true
 ```
 
-### Errors
+If request contains parameters from different groups, `400 Bad Request` is returned.
 
-* `400 Bad Request` – request contains parameters from different groups.
-* `403 Forbidden` – authorization is failed. Applicant is expected.
+<a name="info"></a>
+## Obtaining info about the authorized application
+
+`GET /me` returns a response body similar to [obtaining info about the authorized user](#user-info), but only the flags. 
+Server returns `403 Forbidden` if authorization is failed.
+
+```json
+{
+    "is_admin": false,
+    "is_applicant": false,
+    "is_employer": false,
+    "is_application": true
+}
+```

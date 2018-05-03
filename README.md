@@ -23,9 +23,9 @@ HeadHunter API — это бесплатный инструментарий дл
   актуально для анонимных запросов, не требует авторизации.
 * <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> – актуально для запросов от имени приложения, требует авторизации.
 * <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> –
-  актуально для запросов от имени соискателя, требует авторизацию.
+  актуально для запросов от имени соискателя, требует авторизации пользователя.
 * <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" /> –
-  актуально для запросов от имени работодателя, требует авторизацию.
+  актуально для запросов от имени работодателя, требует авторизации пользователя.
 
 
 <a name="general"></a>
@@ -44,8 +44,10 @@ HeadHunter API — это бесплатный инструментарий дл
 <a name="context"></a>
 ### Контекст
 
-* [Информация об авторизованном пользователе](docs/me.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Информация об авторизованном приложении](docs/me_application.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" />
+* [Информация об авторизованном пользователе или приложении](docs/me.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Получение информации об авторизованном пользователе](docs/me.md#user-info) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Редактирование информации авторизованного пользователя](docs/me.md#user-edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Получение информации об авторизованном приложении](docs/me.md#application-info) <img src="http://hhru.github.io/api/badges/client.png" alt="client" />
 * [Предпочтения менеджера](docs/manager_settings.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Локализация](docs/locales.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Выбор сайта](docs/hosts.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
