@@ -31,5 +31,7 @@ Each element from `items` has the following fields:
 | id   | string | Test identifier |
 | name | string | Test title      |
 
-In case the current user is not allowed to view the employer's tests, the
-`HTTP 403 Forbidden` code will be returned.
+### Errors
+
+* `403 Forbidden` - the current user is not allowed to view the employer's tests.
+* `404 Not Found` - the employer is not found.

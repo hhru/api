@@ -45,8 +45,8 @@ indicated region.
 Example: [https://api.hh.ru/areas/1146?locale=EN](https://api.hh.ru/areas/1146?locale=EN)
 
 
-<a name="countries" />
-## Countires
+<a name="countries"></a>
+## Countries
 
 `GET /areas/countries` returns the regions list with countries.
 

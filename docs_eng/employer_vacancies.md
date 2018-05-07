@@ -711,6 +711,10 @@ fields will be returned:
 | billing_type.name          | string  | Vacancy billing type name                                                                       |
 | can_upgrade_billing_type   | boolean | Whether it is possible to upgrade vacancy billing type                                          |
 
+### Errors
+
+* `403 Forbidden` – authorization is failed or current user has no permission.
+
 
 ### Supported parameters
 
@@ -732,6 +736,10 @@ To archive a vacancy, you should send a PUT request:
 `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}`
 
 If archived successfully, `204 No Content` will be returned.
+
+### Errors
+
+* `403 Forbidden` – authorization is failed or current user has no permission.
 
 
 <a name="archived"></a>
@@ -821,6 +829,10 @@ fields will be returned:
 | counters.responses | number | number of applications for a vacancy |
 | archived_at        | string | vacancy archivation date             |
 
+### Errors
+
+* `403 Forbidden` – authorization is failed or current user has no permission.
+
 
 <a name="hide"></a>
 ## Deleting vacancies
@@ -829,6 +841,10 @@ fields will be returned:
 
 You can delete only an archived vacancy.
 If performed successfully, `204 No Content` will be returned.
+
+### Errors
+
+* `403 Forbidden` – authorization is failed or current user has no permission.
 
 
 <a name="hidden"></a>
@@ -903,6 +919,10 @@ Successful server response is returned with `200 OK` code and contains:
 
 Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
 
+### Errors
+
+* `403 Forbidden` – authorization is failed or current user has no permission.
+
 
 <a name="restore"></a>
 ## Restoring deleted vacancies
@@ -912,3 +932,8 @@ Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
 You can restore only a vacancy deleted from the archive.
 If performed successfully, `204 No Content` will be returned.
 The vacancy will be returned to the archive.
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` - vacancy is not found or current user has no permission.

@@ -1,14 +1,18 @@
-# Current user
+# Information about authorized user or application
 
-* [Obtaining info on the current user](#info)
-* [Editing info on the current user](#edit)
+* [Obtaining info about the authorized user](#user-info)
+* [Editing info about the authorized user](#user-edit)
+* [Obtaining info about the authorized application](#application-info)
 
 
-<a name="info"></a>
-## Obtaining info on the current user
+<a name="user-info"></a>
+## Obtaining info about the authorized user
 
 `GET /me` returns info on current authorized user.
-Server returns `403 Forbidden` if authorization is failed.
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
@@ -19,6 +23,7 @@ Server returns `403 Forbidden` if authorization is failed.
     "is_admin": false,
     "is_applicant": false,
     "is_employer": true,
+    "is_application": false,
     "email": "contact@example.com",
     "employer": {
         "id": "1455",
@@ -64,6 +69,7 @@ Server returns `403 Forbidden` if authorization is failed.
  is_admin | logical | user is site administrator
  is_applicant | logical | true, if the user is an applicant
  is_employer | logical | true, if the user is an employer
+ is_application | logical | true, if it is authorized application
  email | string, null | email
  employer | object, null | [company info](#employer-info) if the current user is an employer, or null in other cases
  personal_manager | object, null | [personal manager info](#personal-manager-info) if the current user is an employer, or null in other cases
@@ -113,9 +119,12 @@ Name | Description
 unread_negotiations | Number of unread negotiations (indicating `has_updates: true`)
 new_resume_views | Total number of new views of all CVs of the current user
 
+### Errors
 
-<a name="edit"></a>
-## Editing info on the current user
+* `403 Forbidden` – authorization is failed.
+
+<a name="user-edit"></a>
+## Editing info about the authorized user
 
 Send POST request to `/me` in order to edit the last name, name, middle name or
 enable/disable "looking for a job yes/no"  flag. Data can be edited only in
@@ -153,3 +162,18 @@ Example:
 ```
 
 If request contains parameters from different groups, `400 Bad Request` is returned.
+
+<a name="info"></a>
+## Obtaining info about the authorized application
+
+`GET /me` returns a response body similar to [obtaining info about the authorized user](#user-info), but only the flags. 
+Server returns `403 Forbidden` if authorization is failed.
+
+```json
+{
+    "is_admin": false,
+    "is_applicant": false,
+    "is_employer": false,
+    "is_application": true
+}
+```

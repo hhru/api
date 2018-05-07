@@ -172,8 +172,10 @@ employer_states | list | of [employer statuses](#term-employer-state) for respon
 employer_states.id | string | status ID unique at least for this vacancy
 employer_states.name | string | status name
 
-If parameter `vacancy_id` is not sent, the response with code
-`400 Bad Request` will be returned.
+### Errors
+
+* `400 Bad Request` - parameter `vacancy_id` is not sent.
+* `403 Forbidden` – authorization is failed.
 
 
 <a name="negotiations-list"></a>
@@ -454,8 +456,10 @@ sent to URL from JSON response. This is the only option
 to correctly process the request in view history. E.g, if the CV is requested from the response
 to anonymous vacancy, the history will display anonymous name of the company.
 
-If the vacancy of requested responses doesn't exist or
-not available to the current user, `404 Not Found` response will be returned.
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` - the vacancy of requested responses doesn't exist or not available to the current user.
 
 <a name="actions-info"></a>
 ### Response/invitation actions (`actions`)
@@ -494,6 +498,10 @@ Name | Type | Description
 id | string | Argument ID
 required | logical | Mandatory argument
 required_arguments | list | Arguments to be applied if this argument is indicated. E.g., the address is optional, however if it is indicated you must also specify the message.
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.
 
 
 <a name="get-negotiation"></a>
@@ -721,8 +729,10 @@ Additionally, field `messaging_status` showing negotiation status
 is returned for the response/invitation. Possible values
 see in [messaging_status](dictionaries.md) reference guide.
 
-If response/invitation doesn't exist or not available to the current user,
-`404 Not Found` response will be returned.
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` - response/invitation doesn't exist or negotiation not available to the current user.
 
 
 <a name="get-messages"></a>
@@ -861,8 +871,10 @@ author.participant_type| string | Message author role. Possible values are liste
 address| object, null | [Address](./address.md) linked to the response/invitation
 assessments| array | [assessment tools](assessment.md) linked to the message
 
-If response/invitation doesn't exist or negotiation not available to the current user,
-`404 Not Found` response will be returned.
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` - response/invitation doesn't exist or negotiation not available to the current user.
 
 
 <a name="add-messages"></a>
@@ -944,6 +956,7 @@ Location: /negotiations/321
 ### Errors
 
 * `400 Bad Request` – error in the request parameters.
+* `403 Forbidden` – authorization is failed.
 * `403 Forbidden` – invitation is impossible.
 
 In addition to an HTTP code, the server can return
@@ -1003,10 +1016,11 @@ Successful server response is returned with `204 No Content` code and does not h
 
 ### Errors
 
+* `400 Bad Request` – one of the mandatory parameters is not sent.
+* `403 Forbidden` – authorization is failed.
+* `403 Forbidden` – response action is not possible.
 * `404 Not Found` – response doesn't exist, refers to other employer, or
   current manager is not authorized to process it.
-* `400 Bad Request` – one of the mandatory parameters is not sent.
-* `403 Forbidden` – response action is not possible.
 
 In addition to an HTTP code, the server can return
 [error reason](errors.md#negotiations).

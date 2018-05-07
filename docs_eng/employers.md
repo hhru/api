@@ -84,6 +84,11 @@ response will be returned with the body:
     }
 ```
 
+### Errors
+
+* `400 Bad Request` – invalid request parameters.
+* `403 Forbidden` – authorization is failed.
+
 
 <a name="item"></a>
 ## Employer/company
@@ -150,3 +155,8 @@ employer_type key.
 `trusted` - boolean flag indicates that the company passed website verification.
 
 Example: [https://api.hh.ru/employers/1455?locale=EN](https://api.hh.ru/employers/1455?locale=EN)
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` – the employer is not found.

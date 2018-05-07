@@ -98,6 +98,10 @@ The `items` entity contains response data:
 Within the vacancy object, keys `url` and `alternate_url` can be `null` if the
 vacancy is unavailable (deleted).
 
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+
 
 <a name="get_negotiations_active"></a>
 ## Receiving the list of active responses
@@ -110,6 +114,10 @@ GET /negotiations/active
 
 Optional parameters and the response are the same as in the
 [list of responses](#get_negotiations)
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.
 
 
 <a name="post_negotiation"></a>
@@ -168,6 +176,7 @@ standard response mechanism.
   or you need to pass the test or fill in the cover letter to respond;
   or employer closed the option to respond to the vacancy;
   or number of responses per day is exceeded for the user.
+* `403 Forbidden` – authorization is failed.
 * `403 Forbidden` – you can't respond to indicated vacancy because you
   don't have access to it, responded to the vacancy beforehand or
   display visibility settings of selected CV prevent from responding to
@@ -198,6 +207,10 @@ The object returned is identical to a separate response received in
  --- | --- | ---
  messaging_status | string | Current negotiation status. Possible values are provided in the [`messaging_status` reference guide](./dictionaries.md).
 
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` - negotiation is not found.
 
 <a name="hide_message"></a>
 ## Hide the response
@@ -212,6 +225,11 @@ where:
  * nid is the response ID
 
 HTTP status `204 No Content` will be returned
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` - negotiation is not found.
 
 
 <a name="get_messages"></a>
@@ -319,6 +337,11 @@ where:
  author.participant_type| string| Message author role. Possible values are listed in the [/dictionaries](./dictionaries.md) reference, section `negotiations_participant_type`
  address| object, null| [Address](./address.md) linked to the response/invitation
  assessments| array| [assessment tools](assessment.md) linked to the message
+ 
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+* `404 Not Found` - response/invitation doesn't exist or negotiation not available to the current user.
 
 
 <a name="send_message"></a>
@@ -375,7 +398,8 @@ comment:
 ### Errors
 
 * `404 Not Found` – response with this ID doesn't exist
-* `403 Forbidden` – the message is not sent
+* `403 Forbidden` – authorization is failed.
+* `403 Forbidden` – respond is prohibited.
 
 In addition to an HTTP code, the server can return
 [error reason](errors.md#negotiations).
@@ -419,8 +443,8 @@ In case of successful message text update the HTTP status
 
 ### Errors
 
-* `403 Forbidden` – editing is prohibited.
-  For example, if receiving party has already read the message.
+* `403 Forbidden` – authorization is failed.
+* `403 Forbidden` – editing is prohibited (For example, if receiving party has already read the message).
 * `404 Not Found` – the message is not found.
 
 In addition to an HTTP code, the server can return

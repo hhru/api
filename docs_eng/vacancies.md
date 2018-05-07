@@ -235,6 +235,10 @@ respectively).
 The returned `allow_messages` key specifies whether the applicant will have the
 possibility to create messages after the invitation.
 
+### Errors
+
+* `403 Forbidden` – authorization is failed.
+
 
 <a name="author"></a>
 ## Extra vacancy fields
@@ -528,8 +532,6 @@ used for applicants.
 }
 ```
 
-Example: [https://api.hh.ru/vacancies?locale=EN](https://api.hh.ru/vacancies?locale=EN)
-
 In addition to [standard vacancy fields](#nano) following optional fields will be displayed:
 
 key | type | description
@@ -538,6 +540,11 @@ sort_point_distance | number, null | Distance (meters) between sort center (defi
 snippet | object | Additional text snippets on found vacancy. If snippet text contains search term (parameter `text`), it will be highlighted with tag `highlighttext`.
 snippet.requirement | string, null | Vacancy requirements if available in the description text.
 snippet.responsibility | string, null | Vacancy responsibilities if available in the description text.
+
+### Errors
+
+* `400 Bad Request` – invalid request parameters.
+* `403 Forbidden` – authorization is failed.
 
 
 <a name="similar"></a>
@@ -554,6 +561,10 @@ results as [vacancy search](#search-results)
 
 Additionally if vacancy with `vacancy_id` does not exist `404 Not Found` will be
 returned in response.
+
+### Errors
+
+* `403 Forbidden` – authorization is failed.
 
 
 <a name="nano"></a>
