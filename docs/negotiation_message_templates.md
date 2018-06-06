@@ -1,5 +1,7 @@
 # Тексты сообщений
 
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Метод требует наличия [платного доступа для работодателя](docs/employer_payable_methods.md)
+
 Работодателю доступны для получения тексты, формируемые по шаблонам, для
 использования в отправляемых соискателю приглашениях на вакансию или
 [действиях по откликам/приглашениям](employer_negotiations.md#actions).

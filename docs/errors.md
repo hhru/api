@@ -100,6 +100,17 @@ HTTP code | type | value | описание
 403 | oauth | application_not_found | ваше приложение было удалено
 
 
+<a name="employer_payable_methods"></a>
+## Ошибки доступа к платному методу
+
+В случае, если вы запрашиваете один из [платных методов](employer_payable_methods.md) 
+без купленного доступа, вернётся следующая ошибка:
+
+HTTP code | type | value | описание
+----------|------|-------|-----------
+403 | api_access_payment | action_must_be_payed | запрос платного метода при отсутствии оплаченного доступа
+
+
 <a name="service-errors"></a>
 ## Ошибки отдельных ресурсов
 

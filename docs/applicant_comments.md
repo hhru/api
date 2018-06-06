@@ -1,5 +1,7 @@
 # Комментарии к соискателю
 
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Методы требуют наличия [платного доступа для работодателя](docs/employer_payable_methods.md)
+
 * [Список комментариев](#list)
 * [Добавление комментария](#add_comment)
 * [Обновление комментария](#edit_comment)

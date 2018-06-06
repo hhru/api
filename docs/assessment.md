@@ -1,5 +1,7 @@
 # Инструменты оценки
 
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Для работодателя работа с инструментами оценки требует [наличия платного доступа](docs/employer_payable_methods.md)
+
 Инструменты оценки – это тесты или опросники, предназначеные для
 прохождения соискателями.
 
