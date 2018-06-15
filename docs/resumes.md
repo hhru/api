@@ -196,7 +196,7 @@ similar_vacancies.total | number | общее количество похожи�
 <a name="item"></a>
 ## Просмотр резюме
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Для работодателя данный метод требует наличия [платного доступа](docs/employer_payable_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Для работодателя данный метод требует наличия [платного доступа](/docs/employer_payable_methods.md)
 
 `GET /resumes/{resume_id}`
 
