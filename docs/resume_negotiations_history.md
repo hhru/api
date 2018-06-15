@@ -1,6 +1,6 @@
 # История откликов/приглашений по резюме
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Метод требует наличия [платного доступа для работодателя](docs/employer_payable_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Метод требует наличия [платного доступа для работодателя](/docs/employer_payable_methods.md)
 
 Получение истории откликов/приглашений доступно только работодателю. Список будет содержать последние действия
 с указанным резюме, ограниченные 30-ю вакансиями данного работодателя, и 10-ю изменениями состояний откликов/приглашений
