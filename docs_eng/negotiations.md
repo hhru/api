@@ -64,7 +64,8 @@ Parameters:
             "resume": {},
             "vacancy": {},
             "has_updates": true,
-            "viewed_by_opponent": true
+            "viewed_by_opponent": true,
+            "decline_allowed": true
         }
         // , .....
     ]
@@ -94,6 +95,7 @@ The `items` entity contains response data:
  vacancy| object, null| [Vacancy short view](vacancies.md#nano)
  has_updates| logical| Whether the response includes updates that require attention. The flag is reset by various actions on the response, e.g. [messages list view](#get_messages).
  viewed_by_opponent| logical| Whether the response was viewed by the employer
+ decline_allowed | logical | If available [hide the response](#hide_message) with decline message to employer
 
 Within the vacancy object, keys `url` and `alternate_url` can be `null` if the
 vacancy is unavailable (deleted).
@@ -212,6 +214,20 @@ where:
  * nid is the response ID
 
 HTTP status `204 No Content` will be returned
+
+Parameters:
+
+ Name | Type | Required | Description
+ --- | --- | --- | ---
+ with_decline_message | boolean | no | If needed sending a decline message to employer, default value is `false`. The ability to send the decline message is determined by the `decline_allowed` field at receiving [the list of responses](#get_negotiations) or view [the response/invitation](#get_negotiation) responses.
+
+### Errors
+
+* `403 Forbidden` – sending a decline message is prohibited.
+* `404 Not Found` – response with this ID doesn't exist.
+
+In addition to an HTTP code, the server can return
+[error reason](errors.md#negotiations).
 
 
 <a name="get_messages"></a>
