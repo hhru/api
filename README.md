@@ -19,7 +19,7 @@ HeadHunter API — это инструментарий для интеграци
 
 > ‼️ Обратите внимание - начиная с 16 июля 2018 года, доступ к ряду методов для работодателя станет [платным](docs/employer_payable_methods.md). 
 
-> ‼️ Обратите внимание - начиная с 00 июля 2018 года, для продолжения использования большинством анонимных методов нужно будет использовать [авторизацию приложения](#authorization_application.md).
+> ‼️ Обратите внимание - начиная с 00 июля 2018 года, для продолжения использования большинством анонимных методов нужно будет использовать [авторизацию приложения](docs/authorization_application.md).
 
 <a name="content"></a>
 ## Содержание
@@ -28,9 +28,9 @@ HeadHunter API — это инструментарий для интеграци
 
 * <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> –
   актуально для анонимных запросов, не требует авторизации.
-* <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> – актуально для запросов от имени приложения, требует [авторизации приложения](docs/authorization.md#get-client-auth)
+* <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> – актуально для запросов от имени приложения, требует [авторизации приложения](docs/authorization_application.md)
 * <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> –
-  актуально для запросов от имени соискателя, требует [авторизации пользователя](docs/authorization.md#get-auth).
+  актуально для запросов от имени соискателя, требует [авторизации пользователя](docs/authorization_user.md).
 * <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" /> –
   актуально для бесплатных методов работодателя, требует авторизацию.
 * <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> –
