@@ -83,6 +83,91 @@ HTTP code | type | value | описание
 
 Подробнее [про авторизацию](authorization.md).
 
+<a name="oauth-get-errors"></a>
+### Описание ошибок при получении/обновлении токенов
+
+Описание полей:
+
+Имя | Тип | Значение 
+--- | --- | --------
+error | строка | Одно из значений, [описанных в стандарте RFC 6749](http://tools.ietf.org/html/rfc6749#section-5.2). Например, `invalid_request`, если какой либо из обязательных параметров не был передан
+error_description | строка | Дополнительное описание ошибки
+
+
+Ниже приведены некоторые возможные ошибки с описанием.
+
+<table>
+<tr><th>error</th><th>error_description</th><th>описание</th></tr>
+
+<tr>
+    <td rowspan=5>invalid_request</td>
+    <td>account not found</td>
+    <td>Ошибка может возникнуть, если передана неправильная пара client_id и client_secret</td>
+</tr>
+<tr>
+    <td>bad redirect url</td>
+    <td>Передан неправильный redirect_url</td>
+</tr>
+<tr>
+    <td>token is empty</td>
+    <td>Не передан refresh_token</td>
+</tr>
+<tr>
+    <td>token not found</td>
+    <td>Передан не правильный refresh_token</td>
+</tr>
+<tr>
+    <td>code not found</td>
+    <td>Переданный authorization_code не найден</td>
+</tr>
+
+<tr>
+    <td>invalid_client</td>
+    <td>client_id or client_secret not found</td>
+    <td>Ошибка может возникнуть в случае, если данный client_id не найден или был удален, передан неправильный client_secret</td>
+</tr>
+
+<tr>
+    <td rowspan=8>invalid_grant</td>
+    <td>token has already been refreshed</td>
+    <td>Ошибка возникает при попытке воспользоваться refresh-токеном второй раз</td>
+</tr>
+<tr>
+    <td>token not expired</td>
+    <td>Ошибка возникает при попытке обновить действующий access-токен. access-токен можно обновлять только после того, как он истек</td>
+</tr>
+<tr>
+    <td>token was revoked</td>
+    <td>Токен был отозван. Например, токен отзывается, если время действия пароля истекло</td>
+</tr>
+<tr>
+    <td>bad token</td>
+    <td>Передано неправильное значение токена</td>
+</tr>
+<tr>
+    <td>code has already been used</td>
+    <td>authorization_code уже был использован (его можно использовать только один раз)</td>
+</tr>
+<tr>
+    <td>code expired</td>
+    <td>authorization_code истек</td>
+</tr>
+<tr>
+    <td>code was revoke</td>
+    <td>authorization_code был отозван (это происходит, если время действия пароля истекло)</td>
+</tr>
+<tr>
+    <td>token deactivated</td>
+    <td>Токен был деактивирован. Токен деактивируется после того, как пользователь сменил пароль</td>
+</tr>
+
+<tr>
+    <td>unsupported_grant_type</td>
+    <td>unsupported grant_type</td>
+    <td>Возникает, если передать неправильное значение в поле grant_type</td>
+</tr>
+
+</table>
 
 <a name="oauth"></a>
 ### Ошибки использования авторизации
