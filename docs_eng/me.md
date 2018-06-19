@@ -60,7 +60,7 @@ Server returns `403 Forbidden` if authorization is failed.
  id | string | user ID
  last_name | string | last name
  first_name | string | name
- middle_name | string | middle name
+ middle_name | string, null | middle name, or null if it does not exist
  is_admin | logical | user is site administrator
  is_applicant | logical | true, if the user is an applicant
  is_employer | logical | true, if the user is an employer
