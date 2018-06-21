@@ -30,6 +30,7 @@ exclude_area | Нет | Коды регионов (федеральные окр
 employee_level | Нет | Уровни специалистов, которые будут включены в выборку для формирования отчёта. См. [справочник уровней специалистов](salary_dictionaries.md#employee-levels)
 industry | Нет | Коды отраслей, по которым будет построена выборка для формирования отчёта.  См. [справочник отраслей](salary_dictionaries.md#salary-industries)
 speciality | Нет | Коды профобластей и специализаций, которые будут включены в выборку для формирования отчёта. См. [справочник профобластей и специализаций](salary_dictionaries.md#professional-areas)
+extend_sources | Нет | Использовать ли данные из резюме и вакансий, если по указанным параметрам не нашлось данных в Банке Зарплат. Принимает значения `true` или `false`. По умолчанию `false`.
 
 <a name="salary-evaluation-examples"></a>
 ### Примеры запросов
@@ -103,6 +104,11 @@ GET /salary_statistics/paid/salary_evaluation/1?
                 "name": "Эксплуатация информационных систем"
             }
         ],
+        "sources": [
+            "SALARIES",
+            "RESUMES",
+            "VACANCIES"
+        ],
         "indirect_calculation": null,
         "positions_count": 1648,
         "employers_count": 21
@@ -118,6 +124,7 @@ resulting_parameters.excluded_areas | array или null | Исключённые
 resulting_parameters.employee_levels | array или null | Уровни специалистов, включаемые в выборку в целевом регионе
 resulting_parameters.industries | array или null | Отрасли
 resulting_parameters.specialities | array или null | Профобласти
+resulting_parameters.sources | array | Используемые источники данных
 resulting_parameters.indirect_calculation | object или null | [Параметры косвенной оценки зарплатных значений](#salary-evaluation-response-indirect-calculation)
 employers_count | number | Количество работодателей, данные которых участвуют в выборке
 positions_count | number | Количество записей о сотрудниках в анкетах, по которым построена выборка
