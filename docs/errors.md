@@ -42,8 +42,7 @@ API широко использует информирование при пом
 ```
 
 При ошибке в параметрах запроса (к примеру,
-`GET https://api.hh.ru/vacancies/?employer_id=foo`) в ответ придёт
-`400 Bad Request`, в массиве ошибок будет объект:
+`GET https://api.hh.ru/vacancies/?employer_id=foo`) в ответ придет объект:
 
 ```json
 {
@@ -97,9 +96,10 @@ error_description | строка | Дополнительное описание
 Ниже приведены некоторые возможные ошибки с описанием.
 
 <table>
-<tr><th>error</th><th>error_description</th><th>описание</th></tr>
+<tr><th>HTTP code</th><th>error</th><th>error_description</th><th>описание</th></tr>
 
 <tr>
+	<td rowspan=5>400</td>
     <td rowspan=5>invalid_request</td>
     <td>account not found</td>
     <td>Ошибка может возникнуть, если передана неправильная пара client_id и client_secret</td>
@@ -122,52 +122,56 @@ error_description | строка | Дополнительное описание
 </tr>
 
 <tr>
+	<td>400</td>
     <td>invalid_client</td>
     <td>client_id or client_secret not found</td>
     <td>Ошибка может возникнуть в случае, если данный client_id не найден или был удален, передан неправильный client_secret</td>
 </tr>
 
 <tr>
+	<td rowspan=8>400</td>
     <td rowspan=8>invalid_grant</td>
     <td>token has already been refreshed</td>
     <td>Ошибка возникает при попытке воспользоваться refresh-токеном второй раз</td>
 </tr>
 <tr>
-    <td>token not expired</td>
+	<td>token not expired</td>
     <td>Ошибка возникает при попытке обновить действующий access-токен. access-токен можно обновлять только после того, как он истек</td>
 </tr>
 <tr>
-    <td>token was revoked</td>
+	<td>token was revoked</td>
     <td>Токен был отозван. Например, токен отзывается, если время действия пароля истекло</td>
 </tr>
 <tr>
-    <td>bad token</td>
+	<td>bad token</td>
     <td>Передано неправильное значение токена</td>
 </tr>
 <tr>
-    <td>code has already been used</td>
+	<td>code has already been used</td>
     <td>authorization_code уже был использован (его можно использовать только один раз)</td>
 </tr>
 <tr>
-    <td>code expired</td>
+	<td>code expired</td>
     <td>authorization_code истек</td>
 </tr>
 <tr>
-    <td>code was revoke</td>
+	<td>code was revoke</td>
     <td>authorization_code был отозван (это происходит, если время действия пароля истекло)</td>
 </tr>
 <tr>
-    <td>token deactivated</td>
+	<td>token deactivated</td>
     <td>Токен был деактивирован. Токен деактивируется после того, как пользователь сменил пароль</td>
 </tr>
 
 <tr>
+	<td>400</td>
     <td>unsupported_grant_type</td>
     <td>unsupported grant_type</td>
     <td>Возникает, если передать неправильное значение в поле grant_type</td>
 </tr>
 
 <tr>
+	<td>403</td>
     <td>forbidden</td>
     <td>app token refresh too early</td>
     <td>Возникает, если запрашивать token приложения чаще чем раз в пять минут</td>
