@@ -167,6 +167,12 @@ error_description | строка | Дополнительное описание
     <td>Возникает, если передать неправильное значение в поле grant_type</td>
 </tr>
 
+<tr>
+    <td>forbidden</td>
+    <td>app token refresh too early</td>
+    <td>Возникает, если запрашивать token приложения чаще чем раз в пять минут</td>
+</tr>
+
 </table>
 
 <a name="oauth"></a>
