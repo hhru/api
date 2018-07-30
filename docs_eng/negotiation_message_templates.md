@@ -1,5 +1,7 @@
 # Message texts
 
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](/employer_payable_methods.md)
+
 An employer can obtain template texts for use in vacancy invitations sent to applicants or [actions on responses/invitations](employer_negotiations.md#actions).
 
 The number of available templates depends on specific response/invitation or vacancy and their statuses. Currently, the following templates are available:

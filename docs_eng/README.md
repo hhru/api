@@ -2,8 +2,7 @@
 
 [По-русски](../README.md) | **In english**
 
-HeadHunter API is a free toolset for integration of
-[HeadHunter](https://hh.ru/) with your product.
+HeadHunter API lets you integrate [HeadHunter](https://hh.ru/) into your product.
 
 First of all, read the [general information](general.md) on work with API and
 the [requirements](https://dev.hh.ru/articles/logos) for logos and application
@@ -13,6 +12,7 @@ To use services that require user authorization, you should register the
 application at [https://dev.hh.ru](https://dev.hh.ru) and set up the
 [authorization](authorization.md) process.
 
+> ‼️ Please note that as of July 16, 2018, access to some methods will become [paid](employer_payable_methods.md) for employers.
 
 <a name="content"></a>
 ## Content
@@ -24,16 +24,19 @@ Article labels:
 * <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> –
   for applicant requests, authrization is required.
 * <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" /> –
-  for employer requests, authrization is required.
+  relevant for free methods for the employer, requires authorization.
+* <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> –
+  relevant for [paid](employer_payable_methods.md) methods for the employer, requires authorization.
 
 
+## Main
 * [General information](general.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [API Service Terms of Use](https://dev.hh.ru/admin/developer_agreement) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Logo use requirements](https://dev.hh.ru/articles/logos) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Application name requirements](https://dev.hh.ru/articles/apps) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Authorization](authorization.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Errors and response codes](errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-
+* [Paid access to some API methods for employers](employer_payable_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
 <a name="resources"></a>
 <a name="context"></a>
@@ -48,7 +51,7 @@ Article labels:
 <a name="resume"></a>
 ### CV
 
-* [View a CV](resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [View a CV](resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Work with CVs for an applicant](resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [List of CVs for current user](resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CV creation & editing](resumes.md#create_edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
@@ -81,7 +84,7 @@ Article labels:
 <a name="applicants"></a>
 ### Applicants
 
-* [Applicant comments](applicant_comments.md)
+* [Applicant comments](applicant_comments.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
 
 <a name="employers"></a>
@@ -101,17 +104,17 @@ Article labels:
   * [View the list of messages in the response](negotiations.md#get_messages) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Sending new message](negotiations.md#send_message) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Suitable CVs for application on a concrete vacancy](suitable_resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Messaging for employers](employer_negotiations.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Processing model, terms and procedures](employer_negotiations.md#model) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [General description of processing responses/invitations](employer_negotiations.md#flow) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Collections and employer statuses for responses/invitations](employer_negotiations.md#collections) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [List of responses/invitation](employer_negotiations.md#negotiations-list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [View the response/invitation](employer_negotiations.md#get-negotiation) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Work with messages in the response/invitation](employer_negotiations.md#get-messages) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Inviting an applicant for a vacancy](employer_negotiations.md#add-invite) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Response/invitation actions (status change)](employer_negotiations.md#actions) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Message templates](negotiation_message_templates.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Assessments](assessment.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Messaging for employers](employer_negotiations.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Processing model, terms and procedures](employer_negotiations.md#model) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [General description of processing responses/invitations](employer_negotiations.md#flow) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Collections and employer statuses for responses/invitations](employer_negotiations.md#collections) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [List of responses/invitation](employer_negotiations.md#negotiations-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [View the response/invitation](employer_negotiations.md#get-negotiation) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Work with messages in the response/invitation](employer_negotiations.md#get-messages) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Inviting an applicant for a vacancy](employer_negotiations.md#add-invite) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Response/invitation actions (status change)](employer_negotiations.md#actions) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Message templates](negotiation_message_templates.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Assessments](assessment.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
 
 <a name="dictionaries"></a>

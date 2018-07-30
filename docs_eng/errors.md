@@ -99,6 +99,14 @@ api and your authorization is not valid for any reason, an error with `type`
 | 403       | oauth | application_not_found  | your application has been deleted
 
 
+### Errors when accessing a paid method
+
+In case you request a [paid method](employer_payable_methods.md) without buying access, the following error will be generated:
+
+HTTP code | type | value | description
+----------|------|-------|-----------
+403 | api_access_payment | action_must_be_payed | You have requested a paid method without buying access
+
 <a name="service-errors"></a>
 ## Errors of separate resources
 

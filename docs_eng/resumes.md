@@ -31,6 +31,8 @@ powered by
 <a name="item"></a>
 ## View a CV
 
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](/employer_payable_methods.md)
+
 `GET /resumes/{resume_id}` returns an indicated CV. If the CV visibility is set
 to "visible to entire Internet" or "by direct link" (`everyone` and `direct`
 respectively), it is possible to request the CV without being authorized.
