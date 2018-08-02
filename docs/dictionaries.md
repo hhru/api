@@ -20,6 +20,7 @@
 * `resume_status` - статус резюме
 * `resume_moderation_note` — комментарий модератора
 * `driver_license_types` — категории водительских прав
+* `resume_hidden_fields` — поля резюме, которые могут быть [скрыты](resumes.md#hidden-fields)
 
 ## Справочники для полей вакансии
 * `employment` - тип занятости
