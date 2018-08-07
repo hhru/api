@@ -125,6 +125,7 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
         "id": "open",
         "name": "Open"
     },
+    "has_test": true,
     "response_url": null,
     "test": {
         "required": false
@@ -488,6 +489,18 @@ used for applicants.
         "id": "1455",
         "trusted": true
       },
+      "contacts": {
+          "name": "Name",
+          "email": "user@example.com",
+          "phones": [
+              {
+                  "country": "7",
+                  "city": "985",
+                  "number": "000-00-00",
+                  "comment": null
+              }
+          ]
+      },
       "response_letter_required": true,
       "address": {
         "city": "Moscow",
@@ -515,6 +528,8 @@ used for applicants.
         "name": "Open"
       },
       "id": "8331228",
+      "has_test": true,
+      "response_url": null,
       "snippet": {
         "requirement": "...experience as <highlighttext>secretary</highlighttext> / office manager. - presentable appearance. - knowledge of Excel, Lotus Notes and office appliances. - oral and written English.",
         "responsibility": "Keeping private zone order (meeting rooms, kitchen). - ordering necessary goods (stationery, marketing materials, products, flowers, household goods, cleaning services, etc."
@@ -563,6 +578,8 @@ returned in response.
 {
     "id": "7760476",
     "premium": true,
+    "has_test": true,
+    "response_url": null,
     "address": null,
     "alternate_url": "https://hh.ru/vacancy/7760476",
     "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=7760476",
