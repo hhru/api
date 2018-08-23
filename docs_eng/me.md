@@ -20,6 +20,7 @@ Server returns `403 Forbidden` if authorization is failed.
     "is_applicant": false,
     "is_employer": true,
     "email": "contact@example.com",
+    "phone": "79164555555",
     "employer": {
         "id": "1455",
         "name": "HeadHunter"
@@ -46,7 +47,8 @@ Server returns `403 Forbidden` if authorization is failed.
     },
     "counters": {
         "unread_negotiations": 0,
-        "new_resume_views": 2
+        "new_resume_views": 2,
+        "resumes_count": 5
     },
     "is_in_search": true,
     "resumes_url": "https://api.hh.ru/resumes/mine",
@@ -60,18 +62,19 @@ Server returns `403 Forbidden` if authorization is failed.
  id | string | user ID
  last_name | string | last name
  first_name | string | name
- middle_name | string, null | middle name, or null if it does not exist
+ middle_name | string, null | middle name or null if no middle name
  is_admin | logical | user is site administrator
  is_applicant | logical | true, if the user is an applicant
  is_employer | logical | true, if the user is an employer
  email | string, null | email
- employer | object, null | [company info](#employer-info) if the current user is an employer, or null in other cases
- personal_manager | object, null | [personal manager info](#personal-manager-info) if the current user is an employer, or null in other cases
- manager | object, null | [info on a user who is company manager](#manager-info) if the current user is an employer, or null in other cases
+ phone | string, null | phone number. It is only displayed for applicants if a phone number is specified
+ employer | object, null | [company information](#employer-info) if the current user is an employer, or null in all other cases
+ personal_manager | object, null | [information on the personal manager](#personal-manager-info) if the current user is an employer, or null in other cases 
+ manager | object, null | [information on the user as a company manager](#manager-info) if the current user is an employer, or null in all other cases 
  is_in_search | logical, null | flag "looking for a job yes/no" if the current user is an applicant
  resumes_url | string | reference to current user CV list api-service
  negotiations_url | string | reference to current user responses/invitations list api-service
- counters | object, unavailable | [count info](#counters-info) if the current user is an applicant
+ counters | object, unavailable | [information on the counters](#counters-info) if the current user is an applicant 
 
 
 <a name="employer-info"></a>
@@ -89,18 +92,28 @@ Name | Type | Description
 Name | Type | Description
 --- | --- | ------
 id | string | manager ID
-has_admin_rights | logical | current manager has administrator rights
-is_main_contact_person | logical | current manager is main contact person of the company
-manager_settings_url | string | url to send GET request to get [manager preferences](manager_settings.md)
+has_admin_rights | logical | does the current manager have administrative privileges
+is_main_contact_person | logical | is the current manager the company's main contact person
+manager_settings_url | string | The URL to perform a GET request to obtain the [manager preferences](manager_settings.md)
 
 
 <a name="personal-manager-info"></a>
 #### Object `personal_manager`
 
+Information on the personal manager for the employer.
+
 Name | Type | Description
 --- | --- | ---
- id | string | Personal manager ID
- email | string | Personal manager's email
+ id | string | personal manager ID
+ email | string | email of the personal manager
+ first_name | string | manager first name
+ last_name | string | manager last name
+ photo_urls | object, null | manager's photos or `null`
+ photo_urls.big | string, null | URL of a large photo of the manager or `null`
+ photo_urls.small | string, null | URL of a small photo of the manager or `null`
+ is_available | logical | if the manager is currently available
+ unavailable | object, null | information on the absence of the manager or `null` if the manager is available
+ unavailable.until | string (date) | time until which the manager is unavailable
 
 
 <a name="counters-info"></a>
@@ -110,16 +123,17 @@ All key values are numbers.
 
 Name | Description
 --- | ---
-unread_negotiations | Number of unread negotiations (indicating `has_updates: true`)
-new_resume_views | Total number of new views of all CVs of the current user
+unread_negotiations | number of new unread conversations (with `has_updates: true`)
+new_resume_views | total number of new views of all resumes of the current user
+resumes_count | total number of created resumes of the current user
 
 
 <a name="edit"></a>
 ## Editing info on the current user
 
 Send POST request to `/me` in order to edit the last name, name, middle name or
-enable/disable "looking for a job yes/no"  flag. Data can be edited only in
-groups:
+enable/disable "looking for a job yes/no"  flag. 
+This method is only available to applicants. Data can only be edited in groups:
 
 ### Full name
 
@@ -152,4 +166,5 @@ Example:
  is_in_search=true
 ```
 
-If request contains parameters from different groups, `400 Bad Request` is returned.
+If the user is not an applicant, a response will be returned `403 Forbidden`.
+If the request contains parameters from different groups, an error is generated `400 Bad Request`.

@@ -1,6 +1,6 @@
 # Applicant comments
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](/employer_payable_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](employer_payable_methods.md)
 
 * [List of comments](#list)
 * [Create comment](#add_comment)

@@ -20,7 +20,7 @@ GET /employers/{employer_id}/negotiations_statistics
 
 ### Ответ
 
-Пример ответа:
+Успешный ответ приходит с кодом `200 OK` и содержит тело:
 
 ```json
 {

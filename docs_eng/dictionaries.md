@@ -5,7 +5,7 @@ Most often, each directory consists of a list of objects containing an `id` and 
 
 Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionaries?locale=EN)
 
-
+<a name="resume"></a>
 ## Directories for fields used in CVs
 
 * `education_level` - education
@@ -46,7 +46,7 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `employer_active_vacancies_order` - sorting type of the published vacancy list
 * `employer_archived_vacancies_order` - sorting type of the archived vacancy list
 
-
+<a name="negotiations"></a>
 ## Directories for applications and invitations (messaging)
 
 * `negotiations_order` - application display order types
@@ -54,7 +54,7 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `messaging_status` - status of the message sending possibility in messaging
 * `negotiations_participant_type` - types of messaging participants
 
-
+<a name="etc"></a>
 ## Other directories
 
 * `currency` - currency directory

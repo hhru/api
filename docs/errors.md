@@ -288,7 +288,6 @@ HTTP code | type | value | описание
 могут быть возвращены следующие ошибки:
 
 HTTP code | type | value | описание
-HTTP code | type | value | описание
 ----------|------|-------|---------
 400 | employers_blacklist | limit_exceeded | превышен лимит на количество вакансий в списке скрытых
 404 | employers_blacklist | not_found | вакансия для добавления в список не найдена
@@ -325,6 +324,6 @@ HTTP code | type | value | описание
 #### bulk-запрос
 
 HTTP code | type | value | reason | описание
-----------|------|-------|---------
+----------|------|-------|---------|--------- 
 400 | bad_argument | id | too_many_bulk_items | слишком много id
 400 | bad_argument | id | | передан невалидный идентификатор

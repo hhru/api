@@ -34,10 +34,9 @@ The first level has the list of cities that have a metro. The second level has
 the list of city metro lines indicated in the `lines` parameter. The third level
 has metro stations of the line indicated in the `stations` parameter.
 
-* `hex_color` is the color of the line in the HEX RRGGBB format
-  (from 000000 to FFFFFF);
-* `lat`, `lng` are coordinates of the station location;
-* `order` is an order number of the station on its line, starting from 0.
+* `hex_color` — HEX color RRGGBB code of the line (from 000000 to FFFFFF);
+* `lat`, `lng` — coordinates of the station location;
+* `order` — an order number of the station on its line, starting from 0.
 
 Example: [https://api.hh.ru/metro?locale=EN](https://api.hh.ru/metro?locale=EN)
 

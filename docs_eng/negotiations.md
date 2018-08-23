@@ -65,6 +65,7 @@ Parameters:
             "vacancy": {},
             "has_updates": true,
             "viewed_by_opponent": true,
+            "messaging_status": "ok",
             "decline_allowed": true
         }
         // , .....
@@ -95,6 +96,7 @@ The `items` entity contains response data:
  vacancy| object, null| [Vacancy short view](vacancies.md#nano)
  has_updates| logical| Whether the response includes updates that require attention. The flag is reset by various actions on the response, e.g. [messages list view](#get_messages).
  viewed_by_opponent| logical| Whether the response was viewed by the employer
+ messaging_status | string | The current messaging status. Possible values are in the [`messaging_status` directory](./dictionaries.md).
  decline_allowed | logical | If available [hide the response](#hide_message) with decline message to employer
 
 Within the vacancy object, keys `url` and `alternate_url` can be `null` if the
@@ -193,8 +195,7 @@ where nid is the response ID.
 
 ### Response
 
-The object returned is identical to a separate response received in
-[the list of responses](#get_negotiations), excl. `messaging_status` field.
+The returned object is completely identical to an individual response from the [response list](#get_negotiations).
 
  Name | Type | Description
  --- | --- | ---
@@ -219,15 +220,14 @@ Parameters:
 
  Name | Type | Required | Description
  --- | --- | --- | ---
- with_decline_message | boolean | no | If needed sending a decline message to employer, default value is `false`. The ability to send the decline message is determined by the `decline_allowed` field at receiving [the list of responses](#get_negotiations) or view [the response/invitation](#get_negotiation) responses.
+ with_decline_message | boolean | no | Whether a refusal message should be sent to the employer (default: false). The ability to send a refusal message is determined by the decline_allowed field, which is returned by the system in response to the request for a [list response or one response](#get_negotiation).
 
 ### Errors
 
-* `403 Forbidden` – sending a decline message is prohibited.
-* `404 Not Found` – response with this ID doesn't exist.
+* `403 Forbidden` – Refusal message cannot be sent.
+* `404 Not Found` – The response does not exist.
 
-In addition to an HTTP code, the server can return
-[error reason](errors.md#negotiations).
+In addition to the HTTP code, the server can return a description of the [error cause](errors.md#negotiations).
 
 
 <a name="get_messages"></a>
@@ -391,7 +391,7 @@ comment:
 ### Errors
 
 * `404 Not Found` – response with this ID doesn't exist
-* `403 Forbidden` – the message is not sent
+* `403 Forbidden` – if a message was not sent
 
 In addition to an HTTP code, the server can return
 [error reason](errors.md#negotiations).

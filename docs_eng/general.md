@@ -13,10 +13,13 @@
 <a name="request-requirements"></a>
 ### Request requirements
 
-A request must have the `User-Agent` title in it, otherwise the
-`400 Bad Request` response will be returned. Stating application name and
-the developer's contact email in the title will help us to contact you quickly
-if needed.
+Your request should send the `User-Agent` header, but if your
+HTTP client does not allow it, you can send an `HH-User-Agent` header. If no header is sent,
+you will receive the `400 Bad Request` as a response. 
+By specifying the name of the application and the developer's contact email in the header, 
+you will help us to contact you promptly if required.
+The `User-Agent` and `HH-User-Agent` headers are interchangeable. If you send both headers,
+only `HH-User-Agent` is processed.
 
 ```
 User-Agent: MyApp/1.0 (my-app-feedback@example.com)
@@ -43,6 +46,9 @@ Data transferred in the request body must meet the requirements:
   described in each specific method. In JSON, data types are `string`, `number`,
   `boolean`, `null`, `object`, `array`.
 
+<a name="response"></a>
+### Response
+A response that exceeds a certain length will be compressed using gzip.
 
 <a name="errors-and-codes"></a>
 ### Errors and response codes

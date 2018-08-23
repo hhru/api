@@ -146,6 +146,7 @@ HTTP code| type| value| description
 403| negotiations| empty_message | the empty message text was sent
 403| negotiations| too_long_message | the too long message text was sent
 403| negotiations| address_not_found| the address sent for the action does not exist or belongs to another employer
+403 | negotiations | not_enough_purchased_services | the required paid services are not available, this usually refers to [access to the resume database](https://hh.ru/price#dbaccess)
 403| negotiations| not_enough_purchased_services| the paid services are insufficient, usually [CV database service](https://hh.ru/price#dbaccess)
 403| negotiations| in_a_row_limit| the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
 403| negotiations| overall_limit| messages limit exceeded
@@ -175,21 +176,20 @@ In addition to an error code, the following errors may be returned when
 
 HTTP code| type| value| description
 ----------|------|-------|---------
-400| vacancies| *field_name*| error in the vacancy field, where *field_name* – key of the higher level field
-403| vacancies| not_enough_purchased_services| the purchased services are insufficient for posting or update of this type of vacancy
-403| vacancies| quota_exceeded| the manager's quota for posting of this type of vacancies exceeded
-409| vacancies| duplicate| the same vacancy has already been posted, this error can be [disabled forcefully](employer_vacancies.md#creation-results)
-403| vacancies| creation_forbidden| posting of vacancies is unavailable for the current manager
-403| vacancies| unavailable_for_archived| editing of vacancies is unavailable for the archived vacancy
-403| vacancies| conflict_changes| conflicting changes in the vacancy data ([read more](employer_vacancies.md#edit_more))
-403| vacancies| can_not_accept_kids| posting of vacancies for applicants from 14 years is unavailable [read more](employer_vacancies_accept_kids.md#accept-kids)
+400| vacancies| *field_name*| the is an error in a job's field, where the *field_name* is the key of the upper level field and the reason field may be missing
+403| vacancies| not_enough_purchased_services| the purchased services are not enough to publish or update this type of job
+403| vacancies| quota_exceeded| the manager's quota for the publication of this type of job is exhausted
+409| vacancies| duplicate| a similar job has already been published; this error can be disabled by force (when [adding](employer_vacancies.md#creation-ignore-duplicates) or [editing](employer_vacancies.md#edit-ignore-duplicates))
+403| vacancies| creation_forbidden| jobs cannot be published by the current manager
+403| vacancies| unavailable_for_archived| you cannot edit an archived job
+403| vacancies| conflict_changes| a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
+403| vacancies| can_not_accept_kids| you can't publish jobs to search for applicants with a minimum age of 14 ([read more](employer_vacancies_accept_kids.md#accept-kids))
 
 
 <a name="vacancies-prolongate"></a>
 ### Vacancy extension
 
-Despite of the error code, the vacancy
-[extension](employer_vacancies.md#prolongate) may return the following errors:
+In addition to the error code, the following errors can be returned when [extending](employer_vacancies.md#prolongate) a job:
 
 HTTP code | type | value | description
 ----------|------|-------|---------
@@ -201,10 +201,85 @@ HTTP code | type | value | description
 
 
 <a name="employer_managers"></a>
-### Employer managers
+### Employer's managers
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html#employer_managers)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+In addition to [general errors](#general-errors), the following errors can be returned when [adding](employer_managers.md#add)
+and [editing](employer_managers.md#edit) an employer's manager:
+
+HTTP code | type | value | reason | description
+----------|------|-------|--------|---------
+400 | managers | *field_name* | | error in the *field_name* field
+403 | managers | email | already_exist | a manager with this email address already exists
+403 | managers |  | creation_limit_exceeded | the limit for creating managers has been reached
+403 | managers | *field_name* | not_editable | the *field_name* field cannot be edited
+
+
+<a name="resumes"></a>
+### Working with a resume
+
+In addition to [general errors](#general-errors),
+the following errors can be returned when [getting](resumes.md#item) or [updating](resumes.md#create_edit) a resume:
+
+HTTP code | type | value | description
+----------|------|-------|---------
+400 | resumes | total_limit_exceeded | the allowed number of resumes is exceeded (this applies only to applicants)
+429 | resumes | view_limit_exceeded | the allowed number of resume views is exceeded (this applies only to employers)
+
+
+<a name="vacancies_blacklist"></a>
+### Adding hidden jobs to the list
+
+In addition to [general errors](#general-errors), the following errors can be returned when [adding hidden jobs to the list](blacklisted.md#vacancies):
+
+HTTP code | type | value | description
+----------|------|-------|---------
+400 | vacancies_blacklist | limit_exceeded | the allowed number of hidden jobs is exceeded
+404 | vacancies_blacklist | not_found | the job to be added to the list has not been not found
+
+
+<a name="employers_blacklist"></a>
+### Adding hidden companies to the list
+
+In addition to [general errors](#general-errors),
+the following errors can be returned when [adding company's hidden jobs to the list](blacklisted.md#employers):
+
+HTTP code | type | value | description
+----------|------|-------|---------
+400 | employers_blacklist | limit_exceeded | the allowed number of hidden jobs is exceeded
+404 | employers_blacklist | not_found | the job to be added to the list has not been not found
+
+
+<a name="resume-visibility-lists"></a>
+### Resume visibility lists
+
+<a name="resume-visibility-lists-get"></a>
+#### Getting visibility lists
+
+HTTP code | type | value | description
+----------|------|-------|---------
+400 | bad_argument | per_page | an invalid number of items per page was passed (the maximum value is 100)
+
+<a name="resume-visibility-lists-add"></a>
+#### Adding companies to the list
+
+HTTP code | type | value | description
+----------|------|-------|---------
+400 | resume_visibility_list | unknown_employer | an unknown employer ID was passed
+400 | resume_visibility_list | limit_exceeded | visibility list limit exceeded
+400 | resume_visibility_list | too_many_employers | too many employers were passed
+
+<a name="resume-visibility-lists-remove"></a>
+#### Removing companies from the list
+
+HTTP code | type | value | описание
+----------|------|-------|---------
+400 | bad_argument | id | an invalid employer ID was passed
+400 | resume_visibility_list | too_many_employers | too many employers were passed
+
+<a name="bulk-request"></a>
+#### bulk request
+
+HTTP code | type | value | reason | описание
+----------|------|-------|---------|---------
+400 | bad_argument | id | too_many_bulk_items | too many IDs
+400 | bad_argument | id | | an invalid ID was passed
