@@ -127,7 +127,7 @@ can use the [list of suitable CVs](suitable_resumes.md).
 ```
 POST /negotiations
 ```
-Parameters
+Request should be `Content-Type = multipart/form-data` with parameters:
 
  Name| Required| Description
   --- | --- | ---

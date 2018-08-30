@@ -22,6 +22,7 @@ Server returns `403 Forbidden` if authorization is failed.
     "email": "contact@example.com",
     "phone": "79164555555",
     "employer": {
+        "manager_id": "4062820",
         "id": "1455",
         "name": "HeadHunter"
     },
@@ -83,6 +84,7 @@ Server returns `403 Forbidden` if authorization is failed.
 Name | Type | Description
 --- | --- | ------
  id | string | company ID
+ manager_id | string | personal manager ID
  name | string | company name
 
 

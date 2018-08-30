@@ -131,7 +131,7 @@ GET /negotiations/active
 POST /negotiations
 ```
 
-Параметры
+Запрос нужно отправить с  `Content-Type = multipart/form-data` и следующими параметрами:
 
 Имя | Обязательный | Описание
 --- | ------------ | ---

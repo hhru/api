@@ -139,22 +139,22 @@ returned:
 
 HTTP code| type| value| description
 ----------|------|-------|-----------
-403| negotiations| invalid_vacancy| the vacancy from the response/invitation was archived or hidden
-400 / 403| negotiations| resume_not_found| the CV from the response/invitation was hidden or deleted, or not found
-400 / 403| negotiations| limit_exceeded| the limit on the responses/invitations number was exceeded
-403| negotiations| wrong_state| the action on the response/invitation in this status is impossible
-403| negotiations| empty_message | the empty message text was sent
-403| negotiations| too_long_message | the too long message text was sent
-403| negotiations| address_not_found| the address sent for the action does not exist or belongs to another employer
+403 | negotiations | invalid_vacancy | the vacancy from the response/invitation was archived or hidden
+400 / 403 | negotiations | resume_not_found | the CV from the response/invitation was hidden or deleted, or not found
+400 / 403 | negotiations | limit_exceeded | the limit on the responses/invitations number was exceeded
+403 | negotiations | wrong_state | the action on the response/invitation in this status is impossible
+403 | negotiations | empty_message | the empty message text was sent
+403 | negotiations | too_long_message | the too long message text was sent
+403 | negotiations | address_not_found | the address sent for the action does not exist or belongs to another employer
 403 | negotiations | not_enough_purchased_services | the required paid services are not available, this usually refers to [access to the resume database](https://hh.ru/price#dbaccess)
-403| negotiations| not_enough_purchased_services| the paid services are insufficient, usually [CV database service](https://hh.ru/price#dbaccess)
-403| negotiations| in_a_row_limit| the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
-403| negotiations| overall_limit| messages limit exceeded
-403| negotiations| no_invitation| negotiations are unavailable as there was no invitation in the response
-403| negotiations | message_cannot_be_empty | negotiation message cannot be empty
-403| negotiations | disabled_by_employer | negotiation by response is disabled by the employer
-403| negotiations | resume_deleted | the message can't be sent as the CV referenced in the response is deleted or hidden
-403| negotiations | archived | the message can't be sent as the vacancy referenced in the response is archived
+403 | negotiations | not_enough_purchased_services | the paid services are insufficient, usually [CV database service](https://hh.ru/price#dbaccess)
+403 | negotiations | in_a_row_limit | the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
+403 | negotiations | overall_limit | messages limit exceeded
+403 | negotiations | no_invitation | negotiations are unavailable as there was no invitation in the response
+403 | negotiations | message_cannot_be_empty | negotiation message cannot be empty
+403 | negotiations | disabled_by_employer | negotiation by response is disabled by the employer
+403 | negotiations | resume_deleted | the message can't be sent as the CV referenced in the response is deleted or hidden
+403 | negotiations | archived | the message can't be sent as the vacancy referenced in the response is archived
 
 
 <a name="vacancies_favorited"></a>
@@ -176,14 +176,14 @@ In addition to an error code, the following errors may be returned when
 
 HTTP code| type| value| description
 ----------|------|-------|---------
-400| vacancies| *field_name*| the is an error in a job's field, where the *field_name* is the key of the upper level field and the reason field may be missing
-403| vacancies| not_enough_purchased_services| the purchased services are not enough to publish or update this type of job
-403| vacancies| quota_exceeded| the manager's quota for the publication of this type of job is exhausted
-409| vacancies| duplicate| a similar job has already been published; this error can be disabled by force (when [adding](employer_vacancies.md#creation-ignore-duplicates) or [editing](employer_vacancies.md#edit-ignore-duplicates))
-403| vacancies| creation_forbidden| jobs cannot be published by the current manager
-403| vacancies| unavailable_for_archived| you cannot edit an archived job
-403| vacancies| conflict_changes| a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
-403| vacancies| can_not_accept_kids| you can't publish jobs to search for applicants with a minimum age of 14 ([read more](employer_vacancies_accept_kids.md#accept-kids))
+400 | vacancies | *field_name* | the is an error in a job's field, where the *field_name* is the key of the upper level field and the reason field may be missing
+403 | vacancies | not_enough_purchased_services | the purchased services are not enough to publish or update this type of job
+403 | vacancies | quota_exceeded | the manager's quota for the publication of this type of job is exhausted
+403 | vacancies | duplicate | a similar job has already been published; this error can be disabled by force (when [adding](employer_vacancies.md#creation-ignore-duplicates) or [editing](employer_vacancies.md#edit-ignore-duplicates))
+403 | vacancies | creation_forbidden | jobs cannot be published by the current manager
+403 | vacancies | unavailable_for_archived | you cannot edit an archived job
+403 | vacancies | conflict_changes | a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
+403 | vacancies | can_not_accept_kids | you can't publish jobs to search for applicants with a minimum age of 14 ([read more](employer_vacancies_accept_kids.md#accept-kids))
 
 
 <a name="vacancies-prolongate"></a>
