@@ -449,6 +449,8 @@ In addition to an HTTP code, the server can return
 <a name="edit_more"></a>
 ### Changing the billing type, vacancy manager
 
+It is possible only to improve vacancy's billing type.
+
 Changing the vacancy billing type as well as transferring the vacancy to another
 company manager is similar to editing `POST /vacancies/{vacancy_id}`. The only
 feature is that these fields (`billing_type` and `manager`) must be sent
