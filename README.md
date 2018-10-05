@@ -217,3 +217,5 @@ HeadHunter API — это инструментарий для интеграци
 За новостями вы можете следить по
 [коммитам](https://github.com/hhru/api/commits/master) в этом репозитории.
 [RSS](https://github.com/hhru/api/commits/master.atom).
+
+Часто задаваемые вопросы собраны в [FAQ](docs/FAQ.md).
