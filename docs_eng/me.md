@@ -1,14 +1,23 @@
-# Current user
+# Information on the authorised user or application
 
-* [Obtaining info on the current user](#info)
-* [Editing info on the current user](#edit)
+* [Obtaining information on the authorised user](#user-info)
+* [Editing information on the authorised user](#user-edit)
+* [Obtaining information on the authorised application](#application-info)
 
+<a name="general"></a>
+Note that responses depend on the type of token transferred. If it is an application token, the response will only contain some flags.
 
-<a name="info"></a>
-## Obtaining info on the current user
+<a name="user-info"></a>
+## Obtaining information on the authorised user
+
+### Request
 
 `GET /me` returns info on current authorized user.
 Server returns `403 Forbidden` if authorization is failed.
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
@@ -19,6 +28,7 @@ Server returns `403 Forbidden` if authorization is failed.
     "is_admin": false,
     "is_applicant": false,
     "is_employer": true,
+    "is_application": false,
     "email": "contact@example.com",
     "phone": "79164555555",
     "employer": {
@@ -67,6 +77,7 @@ Server returns `403 Forbidden` if authorization is failed.
  is_admin | logical | user is site administrator
  is_applicant | logical | true, if the user is an applicant
  is_employer | logical | true, if the user is an employer
+ is_application | logical | true if an application is authorised
  email | string, null | email
  phone | string, null | phone number. It is only displayed for applicants if a phone number is specified
  employer | object, null | [company information](#employer-info) if the current user is an employer, or null in all other cases
@@ -129,12 +140,14 @@ unread_negotiations | number of new unread conversations (with `has_updates: tru
 new_resume_views | total number of new views of all resumes of the current user
 resumes_count | total number of created resumes of the current user
 
+### Errors
 
-<a name="edit"></a>
-## Editing info on the current user
+* `403 Forbidden` – user authorisation failed.
 
-Send POST request to `/me` in order to edit the last name, name, middle name or
-enable/disable "looking for a job yes/no"  flag. 
+<a name="user-edit"></a>
+## Editing information on the authorised user
+
+To edit the surname, name or patronymic, or to change the value for the 'looking / not looking for a job' flag, a POST request must be sent to `/me`.
 This method is only available to applicants. Data can only be edited in groups:
 
 ### Full name
@@ -170,3 +183,21 @@ Example:
 
 If the user is not an applicant, a response will be returned `403 Forbidden`.
 If the request contains parameters from different groups, an error is generated `400 Bad Request`.
+
+<a name="application-info"></a>
+## Obtaining information on the authorised application
+
+`GET / me` will return a response with a body similar to [getting information on the current user](#user-info), but it will only contain flags.
+
+ ```json
+{
+    "is_admin": false,
+    "is_applicant": false,
+    "is_employer": false,
+    "is_application": true
+}
+```
+
+### Errors
+
+ * `403 Forbidden` – application authorisation failed.

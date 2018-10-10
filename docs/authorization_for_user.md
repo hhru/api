@@ -8,7 +8,7 @@
   * [Успешное получение временного `authorization_code`](#get-authorization_code)
   * [Получение access и refresh токенов](#get-tokens)
 * [Обновление пары access и refresh токенов](#refresh_token)
-* [Запрос авторизации под другим пользователем](#force-login)
+* [Запрос авторизации под другим пользователем](#force_login)
 
 <a name="get-auth"></a>
 ## Получение авторизации пользователя
@@ -172,7 +172,7 @@ POST https://hh.ru/oauth/token
 Дополнительно к HTTP коду сервер может вернуть описание [причины ошибки](errors.md#oauth-get-errors).
 
 
-<a name="force-login"></a>
+<a name="force_login"></a>
 ## Запрос авторизации под другим пользователем
 
 Возможен следующий сценарий:

@@ -83,6 +83,96 @@ More detail on the [User-Agent title](general.md#request-requirements).
 
 More detail on [authorization](authorization.md).
 
+<a name="oauth-get-errors"></a>
+### Description of errors while receiving/updating tokens
+
+Description of the fields:
+
+| Name | Type | Value   
+|-----------|------------------|-------------|
+| error | string | One of the values [described in RFC 6749](http://tools.ietf.org/html/rfc6749#section-5.2). For example, `invalid_request` if any of the required parameters were not transferred
+| error_description | string | Additional description of the error
+
+Below are some of the possible errors with descriptions.
+
+<table>
+<tr><th>HTTP code</th><th>error</th><th>error_description</th><th>описание</th></tr>
+ <tr>
+    <td rowspan=5>400</td>
+    <td rowspan=5>invalid_request</td>
+    <td>account not found</td>
+    <td>This error can occur if an invalid client_id and client_secret pair was transferred</td>
+</tr>
+<tr>
+    <td>bad redirect url</td>
+    <td>Invalid redirect_url was transferred</td>
+</tr>
+<tr>
+    <td>token is empty</td>
+    <td>refresh_token was not transferred</td>
+</tr>
+<tr>
+    <td>token not found</td>
+    <td>Invalid refresh_token was transferred</td>
+</tr>
+<tr>
+    <td>code not found</td>
+    <td>The transferred authorization_code was not found</td>
+</tr>
+ <tr>
+    <td>400</td>
+    <td>invalid_client</td>
+    <td>client_id or client_secret not found</td>
+    <td>The error can occur if this client_id was not found or has been deleted, or if an invalid client_secret was transferred</td>
+</tr>
+ <tr>
+    <td rowspan=8>400</td>
+    <td rowspan=8>invalid_grant</td>
+    <td>token has already been refreshed</td>
+    <td>The error occurs when trying to re-use the refresh token</td>
+</tr>
+<tr>
+    <td>token not expired</td>
+    <td>The error occurs when trying to update a valid access token. access token can be updated only after expiration</td>
+</tr>
+<tr>
+    <td>token was revoked</td>
+    <td>The token was revoked. For example, a token is revoked if the password has expired</td>
+</tr>
+<tr>
+    <td>bad token</td>
+    <td>An invalid token value was transferred</td>
+</tr>
+<tr>
+    <td>code has already been used</td>
+    <td>authorization_code has already been used (it can only be used once)</td>
+</tr>
+<tr>
+    <td>code expired</td>
+    <td>authorization_code expired</td>
+</tr>
+<tr>
+    <td>code was revoke</td>
+    <td>authorization_code was revoked (if the password has expired)</td>
+</tr>
+<tr>
+    <td>token deactivated</td>
+    <td>The token was deactivated. The token is deactivated if the user has changed the password</td>
+</tr>
+ <tr>
+    <td>400</td>
+    <td>unsupported_grant_type</td>
+    <td>unsupported grant_type</td>
+    <td>The error occurs if an invalid value in the grant_type field was transferred</td>
+</tr>
+ <tr>
+    <td>403</td>
+    <td>forbidden</td>
+    <td>app token refresh too early</td>
+    <td>The error occurs if the application token is requested more than once every five minutes</td>
+</tr>
+</table>
+
 
 <a name="oauth"></a>
 ### Authorization use errors

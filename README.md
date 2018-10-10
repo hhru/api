@@ -26,13 +26,13 @@ HeadHunter API — это инструментарий для интеграци
 
 * <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> –
   актуально для анонимных запросов, не требует авторизации.
-* <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> – актуально для запросов от имени приложения, требует [авторизации приложения](docs/authorization_for_application.md)
+* <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> – актуально для запросов от имени приложения, требует [авторизацию приложения](docs/authorization_for_application.md)
 * <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> –
-  актуально для запросов от имени соискателя, требует [авторизации пользователя](docs/authorization_for_user.md).
+  актуально для запросов от имени соискателя, требует [авторизацию пользователя](docs/authorization_for_user.md).
 * <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" /> –
-  актуально для бесплатных методов работодателя, требует авторизацию.
+  актуально для бесплатных методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
 * <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> –
-  актуально для [платных](docs/employer_payable_methods.md) методов работодателя, требует авторизацию.
+  актуально для [платных](docs/employer_payable_methods.md) методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
 
 
 <a name="general"></a>
