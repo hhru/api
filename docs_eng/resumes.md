@@ -87,7 +87,11 @@ Server returns `403 Forbidden` if authorization is failed.
                         "result_id": null,
                         "year": 2012
                     }
-                ]
+                ],
+                "level": {
+                    "id": "higher",
+                    "name": "Higher"
+                }
             },
             "total_experience": {
                 "months": 118
@@ -1262,7 +1266,11 @@ This option differs from the detailed display in the absence of some fields.
                 "result_id": null,
                 "year": 2012
             }
-        ]
+        ],
+        "level": {
+            "id": "higher",
+            "name": "Higher"
+        }
     },
     "total_experience": {
         "months": 118

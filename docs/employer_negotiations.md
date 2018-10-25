@@ -678,7 +678,11 @@ required_arguments | список | Аргументы, которые необ�
                     "result_id": null,
                     "year": 2012
                 }
-            ]
+            ],
+            "level": {
+                "id": "higher",
+                "name": "Высшее"
+            }
         },
         "total_experience": {
             "months": 118

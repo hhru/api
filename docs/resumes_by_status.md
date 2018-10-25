@@ -69,7 +69,11 @@ GET /vacancies/{vacancy_id}/resumes_by_status
                         "result_id": null,
                         "year": 2012
                     }
-                ]
+                ],
+                "level": {
+                    "id": "higher",
+                    "name": "Высшее"
+                }
             },
             "total_experience": {
                 "months": 118

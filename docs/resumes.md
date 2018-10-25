@@ -88,7 +88,11 @@
                         "result_id": null,
                         "year": 2012
                     }
-                ]
+                ],
+                "level": {
+                    "id": "higher",
+                    "name": "Высшее"
+                }
             },
             "total_experience": {
                 "months": 118
@@ -1680,7 +1684,11 @@ max_date | строка с датой | Верхняя граница диапа
                 "result_id": null,
                 "year": 2012
             }
-        ]
+        ],
+        "level": {
+            "id": "higher",
+            "name": "Высшее"
+        }
     },
     "total_experience": {
         "months": 118

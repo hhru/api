@@ -68,7 +68,11 @@ A successful response contains the `200 OK` code and four lists [resume summarie
                         "result_id": null,
                         "year": 2012
                     }
-                ]
+                ],
+                "level": {
+                    "id": "higher",
+                    "name": "Higher"
+                }
             },
             "total_experience": {
                 "months": 118

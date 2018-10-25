@@ -677,7 +677,11 @@ Successful server response is returned with `200 OK` code and contains:
                     "result_id": null,
                     "year": 2012
                 }
-            ]
+            ],
+            "level": {
+                "id": "higher",
+                "name": "Higher"
+            }
         },
         "total_experience": {
             "months": 118
