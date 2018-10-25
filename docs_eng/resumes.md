@@ -30,8 +30,7 @@
 <a name="mine"></a>
 ## List of CVs for current user
 
-`GET /resumes/mine`
-
+`GET /resumes/mine` returns CV list at [resume summary format](#resume-short) for authorized user.
 Server returns `403 Forbidden` if authorization is failed.
 
 ```json
@@ -44,6 +43,8 @@ Server returns `403 Forbidden` if authorization is failed.
                     "name": "is visible to all companies registered on Headhunter"
                 }
             },
+            "blocked": false,
+            "finished": false,
             "total_views": 0,
             "new_views": 0,
             "status": {
@@ -170,7 +171,20 @@ Server returns `403 Forbidden` if authorization is failed.
                 "rtf": {
                     "url": "https://hh.ru/api_resume_converter/0123456789abcdef/IvanovIvanIvanovich.rtf?type=rtf"
                 }
-            }
+            },
+            "paid_services": [
+                {
+                    "id": "resume_autoupdating",
+                    "name": "Автообновление резюме",
+                    "active": false
+                },
+                {
+                    "id": "resume_marked",
+                    "name": "Яркое резюме",
+                    "active": true,
+                    "expires": "2016-06-08T18:25:25+0300"
+                }
+            ]
         }
     ],
     "page": 0,
@@ -182,18 +196,21 @@ Server returns `403 Forbidden` if authorization is failed.
 
 <a name="resumes-mine-author-fields"></a>
 Please see the [full resume](#resume-fields) for a description of the fields.
-The response also contains the following additional information:
+Additionally for [resume summary format](#resume-short) the response also contains the following additional information:
 
 Name | Type | Description
 --- | --- | --------
+finished | boolean | mark for the resume completion percentage ([more info](#author-progress))
+blocked | boolean | mark for CV is blocked by moderator ([more info](#status))
+access | object | [CV access type](#access_type)
 total_views | number | number of resume views
 new_views | number | number of new views. This counter is reset when [detailed viewing history](#views) is received.
 views_url | string | the URL to perform a GET request to obtain the [detailed viewing history](#views)
 status | object | [resume's status](#status)
 similar_vacancies | object | information on jobs similar to this resume
 similar_vacancies.url | string | the URL to perform a GET request to obtain [jobs similar to this resume](#similar)
-similar_vacancies.total | number | total number of similar jobs
-
+similar_vacancies.counters.total | number | total number of similar jobs
+paid_services | object | [resume-related paid services for the resume publisher](#applicant-paid-services)
 
 <a name="item"></a>
 ## View a CV
@@ -264,6 +281,7 @@ authorization, some fields will contain `null`, and the `can_view_full_info` fie
     },
     "contact": [
         {
+            "verified": true,
             "comment": null,
             "type": {
                 "id": "cell",
@@ -694,6 +712,12 @@ In addition to the HTTP code, the server can return a description of the [error 
 
 ```json
 {
+    "access": {
+        "type": {
+            "id": "clients",
+            "name": "видно всем компаниям, зарегистрированным на HeadHunter"
+        }
+    },
     "blocked": false,
     "finished": false,
     "total_views": 0,
@@ -704,6 +728,7 @@ In addition to the HTTP code, the server can return a description of the [error 
         "name": "not published"
     },
     "can_publish_or_update": false,
+    "next_publish_at": "2013-05-31T14:27:04+0400",
     "publish_url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef/publish", 
     "progress": {
         "percentage": 42,
@@ -791,9 +816,17 @@ In addition to the HTTP code, the server can return a description of the [error 
 }
 ```
 
-The fields `blocked`, `finished`, `total_views`, `new_views`, `status`, `views_url`
+The fields `access`, `blocked`, `finished`, `total_views`, `new_views`, `status`, `views_url`
  are similar to those in the [current user resume list](#resumes-mine-author-fields).
 
+
+#### Information on the publication/renew CV
+
+ Name | Type | Description
+ ---- | ----| --------
+ can_publish_or_update | boolean | Is it possible to [publish or update this resume](#publish)
+ next_publish_at | string | Date and time for next CV renew possibility
+ publish_url | string | An URL to publish or update the resume
 
 <a name="author-progress"></a>
 #### Information on the resume completion percentage
@@ -803,8 +836,6 @@ The resume publisher can see the information on the resume completion percentage
  Name | Type | Description
  ---- | ----| --------
  percentage | number | Resume completion percentage
- can_publish_or_update | boolean | Is it possible to [publish or update this resume](#publish)
- publish_url | string | An URL to publish or update the resume
  mandatory | array | A list of required fields that have not been filled in yet
  mandatory[].id | string | Field ID
  mandatory[].name | string | Field name
