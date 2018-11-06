@@ -97,6 +97,18 @@ logo_urls | object или null | [логотипы компании](#logo-urls)
     "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
     "trusted": true,
     "alternate_url": "https://hh.ru/employer/1455",
+    "insider_interviews": [
+        {
+            "url": "https://hh.ru/interview/12345?employerId=1455",
+            "id": "12345",
+            "title": "Лучшие из лучших"
+        },
+        {
+            "url": "https://hh.ru/interview/54321?employerId=1455",
+            "id": "54321",
+            "title": "История успеха"
+        }
+    ],
     "logo_urls": {
         "90": "https://hh.ru/employer-logo/289027.png",
         "240": "https://hh.ru/employer-logo/289169.png",
@@ -126,6 +138,15 @@ javascript. При этом:
 Значение может быть null, если у компании отсутствует индивидуальное описание.
 
 `vacancies_url` — ссылка на поисковую выдачу вакансий данной компании.
+
+`insider_interviews` — список интервью или пустой список, если интервью
+отсутствуют. Каждый элемент списка содержит следующие поля:
+
+Имя | Тип | Описание
+---- | --- | --------
+id | string | идентификатор интервью
+title | string | заголовок интервью
+url | string | адрес страницы, содержащей интервью
 
 <a name="logo-urls"></a>
 `logo_urls` — изображения логотипа компании разных размеров. `original` — это
