@@ -551,8 +551,8 @@ key | type | description
 ---- |---- |---------
 sort_point_distance | number, null | Distance (meters) between sort center (defined by `sort_point_lat`, `sort_point_lng` parameters) and vacancy address point. In case of only metro stations are presented in address, distance between sort center and vacancy metro stations geometrical center is presented. `sort_point_distance` value is presented only if parameters `sort_point_lat`, `sort_point_lng`, `order_by=distance` are used for query.
 snippet | object | Additional text snippets on found vacancy. If snippet text contains search term (parameter `text`), it will be highlighted with tag `highlighttext`.
-snippet.requirement | string, null | Vacancy requirements if available in the description text.
-snippet.responsibility | string, null | Vacancy responsibilities if available in the description text.
+snippet.requirement | string, null | Vacancy requirements snippet if available in the description text.
+snippet.responsibility | string, null | Vacancy responsibilities snippet if available in the description text.
 
 
 <a name="similar"></a>
