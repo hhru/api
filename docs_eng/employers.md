@@ -69,20 +69,7 @@ and additionally indicates the number of open vacancies.
 
 In case incorrect values are given in the parameters, the `400 Bad Request`
 response code will be returned. At the same time the response body will contain
-the information saying which parameter had the error in it. For example: to the
-request `https://api.hh.ru/employers?type=abracadabra` the `400 Bad Request`
-response will be returned with the body:
-
-```json
-    {
-        "bad_arguments": [
-            {
-                "name": "type",
-                "description": "unknown type"
-            }
-         ]
-    }
-```
+the information saying which parameter had the error in it.
 
 
 <a name="item"></a>
