@@ -2,7 +2,7 @@
 
 Branded templates are available for those employers who paid for
 and activated the respective service.
-See more details on the [hh.ru website](https://hh.ru/article/2069).
+See more details on the [hh.ru website](https://hh.ru/article/brand).
 
 Branded templates can be used for
 [vacancy posting and editing](employer_vacancies.md#branded-template-field).
