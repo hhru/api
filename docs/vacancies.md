@@ -105,7 +105,7 @@
     "archived": false,
     "name": "Секретарь",
     "insider_interview": {
-        "id": 12345,
+        "id": "12345",
         "url": "https://hh.ru/interview/12345?employerId=777"
     },
     "area": {
@@ -567,7 +567,7 @@ counters.invitations | number | количество приглашений на
       },
       "name": "Секретарь",
       "insider_interview": {
-          "id": 12345,
+          "id": "12345",
           "url": "https://hh.ru/interview/12345?employerId=777"
       },
       "area": {
@@ -708,7 +708,7 @@ snippet.responsibility | строка, null | Отрывок из обязанн
     },
     "name": "Специалист по автоматизации тестирования (Java, Selenium)",
     "insider_interview": {
-        "id": 12345,
+        "id": "12345",
         "url": "https://hh.ru/interview/12345?employerId=777"
     },
     "area": {
