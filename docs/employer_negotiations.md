@@ -413,7 +413,9 @@ per_page | нет | Количество выдаваемых элементов
                             "alternate_url": "https://hh.ru/employer/1455",
                             "id": "1455",
                             "logo_urls": {
-                                "90": "https://hh.ru/employer/logo/1455"
+                                "original": "https://hh.ru/file/2352807.png",
+                                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                                "small": "https://hhcdn.ru/employer-logo/289313.png"
                             },
                             "name": "HeadHunter",
                             "url": "https://api.hh.ru/employers/1455"
@@ -752,9 +754,9 @@ required_arguments | список | Аргументы, которые необ�
             "alternate_url": "https://hh.ru/employer/1",
             "id": "1",
             "logo_urls": {
-                "240": "https://hh.ru/employer-logo/1111.jpeg",
-                "90": "https://hh.ru/employer-logo/1111.jpeg",
-                "original": "https://hh.ru/employer-logo-original/1111.jpeg"
+                "original": "https://hh.ru/file/2352807.png",
+                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                "small": "https://hhcdn.ru/employer-logo/289313.png"
             },
             "name": "Рога и копыта",
             "url": "https://api.hh.ru/employers/1",

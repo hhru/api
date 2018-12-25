@@ -45,7 +45,9 @@
             "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
             "open_vacancies": 19,
             "logo_urls": {
-              "90":  "https://hh.ru/employer-logo/289027.png"
+                "original": "https://hh.ru/file/2352807.png",
+                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                "small": "https://hhcdn.ru/employer-logo/289313.png"
             }
         }
     ]
@@ -110,9 +112,9 @@ logo_urls | object или null | [логотипы компании](#logo-urls)
         }
     ],
     "logo_urls": {
-        "90": "https://hh.ru/employer-logo/289027.png",
-        "240": "https://hh.ru/employer-logo/289169.png",
-        "original": "https://hh.ru/file/2352807.png"
+        "original": "https://hh.ru/file/2352807.png",
+        "medium": "https://hhcdn.ru/employer-logo/289312.png",
+        "small": "https://hhcdn.ru/employer-logo/289313.png"
     },
     "area": {
         "url": "https://api.hh.ru/areas/113",
@@ -149,13 +151,13 @@ title | string | заголовок интервью
 url | string | адрес страницы, содержащей интервью
 
 <a name="logo-urls"></a>
-`logo_urls` — изображения логотипа компании разных размеров. `original` — это
-необработанный логотип, который может быть большого размера. Если изначально
-загруженный компанией логотип меньше, чем 240px и/или 90px по меньшей стороне,
-то в соответствующих ключах будут ссылки на изображения оригинального размера.
-Объект может быть null, если компания не загрузила логотип. Клиент должен
-предусмотреть возможность отсутствия логотипа по указанной ссылке (ответ с кодом
-`404 Not Found`).
+`logo_urls` — изображения логотипа компании разных размеров. Объект может быть null, если компания не загрузила логотип.
+
+Имя | Тип | Описание
+---- | --- | --------
+`original` | string | Необработанный логотип, который может быть большого размера.
+`medium` | string | Изображение логотипа работодателя среднего размера.
+`small` | string | Изображение логотипа работодателя маленького размера.
 
 `type` — тип компании (прямой работодатель, кадровое агентство и т.п.).
 Возможные значения описаны в [коллекции справочников](dictionaries.md) под

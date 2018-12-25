@@ -105,7 +105,9 @@
         }
       ],
       "logo_urls": {
-        "90": "https://hh.ru/employer-logo/289055.png"
+        "original": "https://hh.ru/file/2352807.png",
+        "medium": "https://hhcdn.ru/employer-logo/289312.png",
+        "small": "https://hhcdn.ru/employer-logo/289313.png"
       }
     }
   ]

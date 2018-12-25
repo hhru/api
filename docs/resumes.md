@@ -143,7 +143,9 @@
                         "alternate_url": "https://hh.ru/employer/1455",
                         "id": "1455",
                         "logo_urls": {
-                            "90": "https://hh.ru/employer/logo/1455"
+                            "original": "https://hh.ru/file/2352807.png",
+                            "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                            "small": "https://hhcdn.ru/employer-logo/289313.png"
                         },
                         "name": "HeadHunter",
                         "url": "https://api.hh.ru/employers/1455"
@@ -1739,7 +1741,9 @@ max_date | строка с датой | Верхняя граница диапа
                 "alternate_url": "https://hh.ru/employer/1455",
                 "id": "1455",
                 "logo_urls": {
-                    "90": "https://hh.ru/employer/logo/1455"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455"
@@ -1983,7 +1987,9 @@ items[].limit | number | Максимальное количество комп�
             "viewed": true,
             "employer": {
                 "logo_urls": {
-                    "90": "https://hh.ru/employer/logo/1455",
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
                 "name": "HeadHunter",
@@ -2028,11 +2034,6 @@ items[].limit | number | Максимальное количество комп�
 В случаях, когда просмотр совершен анонимным работодателем, либо резюме было
 просмотрено из откликов к анонимной вакансии `employer` может содержать лишь
 один ключ `name`.
-
-`logo_urls` — изображения логотипа компании разных размеров. Клиент должен
-предусмотреть вероятность отсутствия ресурса по указанной ссылке
-(`404 Not Found`).
-
 
 <a name="similar"></a>
 ## Поиск по вакансиям, похожим на резюме

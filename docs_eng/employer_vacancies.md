@@ -151,8 +151,8 @@ some additional fields.
 <a name="creation_fields"></a>
 ### Request fields
 
+* Pay attention, information for editing vacancy from request fields not as described below will be ignored.
 * `[]` (for example, in the specialisation and contacts fields) signifies that the meaning of this key is an array of objects.
-
 * `a.b` stands for object `a` with key `b` of the described type.
 
  Path                        | JSON type       | Description 
@@ -204,7 +204,6 @@ some additional fields.
  driver_license_types        | array           | list of required driver license categories
  driver_license_types[].id   | string          | driving license category. element of [driver_license_type](dictionaries.md) directory
  accept_incomplete_resumes   | boolean         | whether it is possible to apply with an incomplete resume
-
 
 <a name="creation-results"></a>
 ### Response
@@ -675,9 +674,9 @@ Successful server response is returned with `200 OK` code and contains:
             "relations": [],
             "employer": {
                 "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455",
@@ -804,9 +803,9 @@ Successful server response is returned with `200 OK` code and contains:
             "relations": [],
             "employer": {
                 "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455",
@@ -903,9 +902,9 @@ Successful server response is returned with `200 OK` code and contains:
             "relations": [],
             "employer": {
                 "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455",

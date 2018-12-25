@@ -142,7 +142,9 @@ Server returns `403 Forbidden` if authorization is failed.
                         "alternate_url": "https://hh.ru/employer/1455",
                         "id": "1455",
                         "logo_urls": {
-                            "90": "https://hh.ru/employer/logo/1455"
+                            "original": "https://hh.ru/file/2352807.png",
+                            "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                            "small": "https://hhcdn.ru/employer-logo/289313.png"
                         },
                         "name": "HeadHunter",
                         "url": "https://api.hh.ru/employers/1455"
@@ -1683,7 +1685,9 @@ This option differs from the detailed display in the absence of some fields.
                 "alternate_url": "https://hh.ru/employer/1455",
                 "id": "1455",
                 "logo_urls": {
-                    "90": "https://hh.ru/employer/logo/1455"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455"
@@ -1920,7 +1924,9 @@ resume and list of resumes. The new views counter is reset to zero when requesti
             "viewed": true,
             "employer": {
                 "logo_urls": {
-                    "90": "https://hh.ru/employer/logo/1455",
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
                 "name": "HeadHunter",
@@ -1963,10 +1969,6 @@ The `items` element contains data about negotiations:
 
 If an anonymous employer viewed the resume or the resume was viewed from
 applications to an anonymous vacancy, `employer` may contain only the `name` key.
-
-`logo_urls` — images of the company logo in different sizes. The client should take into account
-              the probability that the resource will not be available at the specified link (`404 Not Found`).
-
 
 <a name="similar"></a>
 ## Searching for jobs similar to a resume

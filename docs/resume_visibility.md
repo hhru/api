@@ -55,7 +55,9 @@ GET /resumes/{resume_id}/{list_type}
             "url": "https://api.hh.ru/employers/1455",
             "alternate_url": "https://hh.ru/employer/1455",
             "logo_urls": {
-                "90": "https://hh.ru/employer/logo/1455"
+                "original": "https://hh.ru/file/2352807.png",
+                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                "small": "https://hhcdn.ru/employer-logo/289313.png"
             }
         }
     ]
@@ -72,7 +74,9 @@ items[].id | string | Идентификатор работодателя.
 items[].name | string | Название работодателя.
 items[].url | string | Ссылка на детальное описание работодателя.
 items[].alternate_url | string | Ссылка на описание работодателя на сайте.
-items[].logo_urls.90 | string | Изображение логотипа работодателя. Клиент должен предусмотреть вероятность отсутствия ресурса по указанной ссылке
+items[].logo_urls.original | string | Оригинальное изображение логотипа работодателя.
+items[].logo_urls.medium | string | Изображение логотипа работодателя среднего размера.
+items[].logo_urls.small | string | Изображение логотипа работодателя маленького размера.
 
 
 ### Ошибки
@@ -249,7 +253,9 @@ GET /resumes/{resume_id}/{list_type}/search?text={text}
             "url": "https://api.hh.ru/employers/1455",
             "alternate_url": "https://hh.ru/employer/1455",
             "logo_urls": {
-                "90": "https://hh.ru/employer/logo/1455"
+                "original": "https://hh.ru/file/2352807.png",
+                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                "small": "https://hhcdn.ru/employer-logo/289313.png"
             },
             "selected": true
         },
@@ -259,7 +265,9 @@ GET /resumes/{resume_id}/{list_type}/search?text={text}
             "url": "https://api.hh.ru/employers/9144",
             "alternate_url": "https://hh.ru/employer/9144",
             "logo_urls": {
-                "90": "https://hh.ru/employer/logo/9144"
+                "original": "https://hh.ru/file/2352807.png",
+                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                "small": "https://hhcdn.ru/employer-logo/289313.png"
             },
             "selected": false
         }
@@ -276,7 +284,9 @@ items[].id | string | Идентификатор работодателя.
 items[].name | string | Название работодателя.
 items[].url | string | Ссылка на детальное описание работодателя.
 items[].alternate_url | string | Ссылка на описание работодателя на сайте.
-items[].logo_urls.90 | string | Изображение логотипа работодателя. Клиент должен предусмотреть вероятность отсутствия ресурса по указанной ссылке
+items[].logo_urls.original | string | Оригинальное изображение логотипа работодателя.
+items[].logo_urls.medium | string | Изображение логотипа работодателя среднего размера.
+items[].logo_urls.small | string | Изображение логотипа работодателя маленького размера.
 items[].selected | boolean | Присутствует ли уже работодатель в списке видимости резюме.
 
 ### Ошибки

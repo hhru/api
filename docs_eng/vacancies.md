@@ -116,9 +116,9 @@ Successful server response is returned with `200 OK` code and contains:
     "suitable_resumes_url": "https://api.hh.ru/vacancies/8331228/suitable_resumes?locale=EN",
     "employer": {
         "logo_urls": {
-            "90": "https://hh.ru/employer-logo/289027.png",
-            "240": "https://hh.ru/employer-logo/289169.png",
-            "original": "https://hh.ru/file/2352807.png"
+            "original": "https://hh.ru/file/2352807.png",
+            "medium": "https://hhcdn.ru/employer-logo/289312.png",
+            "small": "https://hhcdn.ru/employer-logo/289313.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455?locale=EN",
@@ -558,9 +558,9 @@ used for applicants.
       "relations": [ ],
       "employer": {
         "logo_urls": {
-          "90": "https://hh.ru/employer-logo/289027.png",
-          "240": "https://hh.ru/employer-logo/289169.png",
-          "original": "https://hh.ru/file/2352807.png"
+            "original": "https://hh.ru/file/2352807.png",
+            "medium": "https://hhcdn.ru/employer-logo/289312.png",
+            "small": "https://hhcdn.ru/employer-logo/289313.png"
         },
         "name": "HeadHunter",
         "url": "https://api.hh.ru/employers/1455",
@@ -686,9 +686,9 @@ returned in response.
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "https://hh.ru/employer/1455",
         "logo_urls": {
-            "90": "https://hh.ru/employer-logo/289027.png",
-            "240": "https://hh.ru/employer-logo/289169.png",
-            "original": "https://hh.ru/file/2352807.png"
+            "original": "https://hh.ru/file/2352807.png",
+            "medium": "https://hhcdn.ru/employer-logo/289312.png",
+            "small": "https://hhcdn.ru/employer-logo/289313.png"
         },
         "name": "HeadHunter",
         "id": "1455"

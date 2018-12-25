@@ -153,6 +153,7 @@
 <a name="creation_fields"></a>
 ### Поля запроса
 
+* Редактирование вакансии доступно только через поля описанные ниже. Обратите внимание, что информация о вакансии передаваемая с помощью полей запроса, отличающихся от указанных ниже, будет игнорироваться.
 * `[]` (например, в полях специализации и контактах) обозначает, что значение данного ключа является массивом объектов.
 * `a.b` обозначает объект `a` с ключом `b` описанного типа.
 
@@ -205,7 +206,6 @@ branded_template.id | string | <a name="branded-template-field"></a> бренд�
 driver_license_types | array | список требуемых категорий водительских прав
 driver_license_types[].id | string | категория водительских прав. элемент справочника [driver_license_types](dictionaries.md)
 accept_incomplete_resumes | boolean | разрешен ли отклик на вакансию неполным резюме
-
 
 <a name="creation-results"></a>
 ### Ответ
@@ -701,9 +701,9 @@ PUT /vacancies/{vacancy_id}
             "relations": [],
             "employer": {
                 "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455",
@@ -848,9 +848,9 @@ can_upgrade_billing_type | boolean | Можно ли улучшить билли
             "relations": [],
             "employer": {
                 "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455",
@@ -965,9 +965,9 @@ archived_at | строка | дата архивации вакансии
             "relations": [],
             "employer": {
                 "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "url": "https://api.hh.ru/employers/1455",

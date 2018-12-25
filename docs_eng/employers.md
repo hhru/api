@@ -37,7 +37,9 @@ Response:
             "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
             "open_vacancies": 19,
             "logo_urls": {
-              "90":  "https://hh.ru/employer-logo/289027.png"
+              "original": "https://hh.ru/file/2352807.png",
+              "medium": "https://hhcdn.ru/employer-logo/289312.png",
+              "small": "https://hhcdn.ru/employer-logo/289313.png"
             }
         }
     ]
@@ -86,9 +88,9 @@ to the company's vacancies.
     "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
     "alternate_url": "https://hh.ru/employer/1455",
     "logo_urls": {
-        "90": "https://hh.ru/employer-logo/289027.png",
-        "240": "https://hh.ru/employer-logo/289169.png",
-        "original": "https://hh.ru/file/2352807.png"
+        "original": "https://hh.ru/file/2352807.png",
+        "medium": "https://hhcdn.ru/employer-logo/289312.png",
+        "small": "https://hhcdn.ru/employer-logo/289313.png"
     },
     "area": {
         "url": "https://api.hh.ru/areas/113",
@@ -116,14 +118,16 @@ The value can be null, if the company doesn't have an individual description.
 
 `vacancies_url` – a link to the search results of the company's vacancies.
 
-`logo_urls` – company logo images of different sizes.
+<a name="logo-urls"></a>
+`logo_urls` — images of the company logo in different sizes.
 
-`original` – an unedited logo, which can be big in size. If the originally
-uploaded logo is smaller than 240px and/or 90px in its smaller side,
-the corresponding keys will have links to the original images. Object
-can be null, if the company hasn't uploaded its logo. The client should foresee
-the possibility of the logo missing in the indicated link (response with the
-`404 Not Found` code).
+Name | Type | Description
+---- | --- | --------
+`original` | string | Original image of the employer's logo. 
+`medium` | string | Medium image of the employer's logo. 
+`small` | string | Small image of the employer's logo. 
+
+`original` – an unedited logo, which can be big in size. 
 
 `type` – type of company (immediate employer, HR agency, etc).
          Possible values are described in [collection of directories](dictionaries.md) under

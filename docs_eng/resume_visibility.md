@@ -51,7 +51,9 @@ Successful server response is returned with `200 OK` code and contains:
             "url": "https://api.hh.ru/employers/1455",
             "alternate_url": "https://hh.ru/employer/1455",
             "logo_urls": {
-                "90": "https://hh.ru/employer/logo/1455"
+                "original": "https://hh.ru/file/2352807.png",
+                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                "small": "https://hhcdn.ru/employer-logo/289313.png"
             }
         }
     ]
@@ -68,7 +70,9 @@ items[].id | string | Employer ID.
 items[].name | string | Employer name.
 items[].url | string | Link to detailed employer description.
 items[].alternate_url | string | Link to employer description on the website.
-items[].logo_urls.90 | string | Image of the employer's logo. The client should take into account the probable resource unavailability after following the specified link.
+items[].logo_urls.original | string | Original image of the employer's logo. 
+items[].logo_urls.medium | string | Medium image of the employer's logo. 
+items[].logo_urls.small | string | Small image of the employer's logo. 
 
 ### Errors
 
@@ -239,7 +243,9 @@ Successful server response is returned with `200 OK` code and contains:
             "url": "https://api.hh.ru/employers/1455",
             "alternate_url": "https://hh.ru/employer/1455",
             "logo_urls": {
-                "90": "https://hh.ru/employer/logo/1455"
+                "original": "https://hh.ru/file/2352807.png",
+                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                "small": "https://hhcdn.ru/employer-logo/289313.png"
             },
             "selected": true
         },
@@ -249,7 +255,9 @@ Successful server response is returned with `200 OK` code and contains:
             "url": "https://api.hh.ru/employers/9144",
             "alternate_url": "https://hh.ru/employer/9144",
             "logo_urls": {
-                "90": "https://hh.ru/employer/logo/9144"
+                "original": "https://hh.ru/file/2352807.png",
+                "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                "small": "https://hhcdn.ru/employer-logo/289313.png"
             },
             "selected": false
         }
@@ -266,7 +274,9 @@ items[].id | string | Employer ID.
 items[].name | string | Employer name.
 items[].url | string | Link to detailed employer description.
 items[].alternate_url | string | Link to employer description on the website.
-items[].logo_urls.90 | string | Image of the employer's logo. The client should take into account the probable resource unavailability after following the specified link.
+items[].logo_urls.original | string | Original image of the employer's logo. 
+items[].logo_urls.medium | string | Medium image of the employer's logo. 
+items[].logo_urls.small | string | Small image of the employer's logo. 
 items[].selected | boolean | Whether the employer is in the resume visibility list.
 
 ### Errors

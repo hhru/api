@@ -108,9 +108,9 @@ Successful server response is returned with `200 OK` code and contains:
                 "url": "https://api.hh.ru/employers/1455",
                 "alternate_url": "https://hh.ru/employer/1455",
                 "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/1455.png",
-                    "240": "https://hh.ru/employer-logo/1455.png",
-                    "original": "https://hh.ru/file/1455.png"
+                    "original": "https://hh.ru/file/2352807.png",
+                    "medium": "https://hhcdn.ru/employer-logo/289312.png",
+                    "small": "https://hhcdn.ru/employer-logo/289313.png"
                 },
                 "name": "HeadHunter",
                 "id": "1455"
