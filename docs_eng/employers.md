@@ -5,22 +5,20 @@
 
 `GET /employers` will return the company search results.
 
-Possible parameters:
+Additional available parameters:
 
-* text – a text field, the given value is searched in the company name and
-  description.
-* area – a multiple parameter, identifier of the employer's region. You can
-  find region identifiers in the [region directory](areas.md)
-* type – a multiple parameter, employer type. Permitted values – keys in the
-  `employer_type` section in [/dictionaries](dictionaries.md)
-* only_with_vacancies – return only the employers that currently
-  have open vacancies (`true`) or all employers (`false`); by default it is
-  set to `false`
-* page – the number of the page with employers (counted from 0, by default
-  set to 0)
-* per_page – number of elements per page (by default – 20)
+* text – text field, sent value is searched in the name and description of the company.
+* area – employer ID, multiple parameter. You can find region ID in the [directory of regions](areas.md)
+* type – type of employer, multiple parameter. Allowed values — keys in the [directory `employer_type`](dictionaries.md)
+* only_with_vacancies – return only employers who have open vacancies at the moment (`true`) or all employers (`false`).
+                        Default — `false`.
+* page – number of page with employers (counted up from 0, default is 0)
+* per_page – number of elements on page (default — 20)
 
-Maximum number of employers displayed – 2000.
+For page parameters (`page`, `per_page`) there is a limit:
+the depth of returned results cannot exceed 2000. For example, a request `per_page=10&page=199` 
+(search results from 1991 to 2000 companies) is possible, but a request with `per_page=10&page=200` 
+will return an error (results from 2001 to 2010 companies).
 
 Response:
 
@@ -46,31 +44,30 @@ Response:
 }
 ```
 
-| Name      | Type             | Description                                            |
-|-----------|------------------|--------------------------------------------------------|
-| per_page  | number           | number of elements displayed per page                  |
-| page      | number           | number of page displayed                               |
-| pages     | number           | number of pages with data                              |
-| found     | number           | number of employers found by the given search criteria |
-| items     | array of objects | found employers (maximum of per\_page elements)        |
+Name | Type | Description 
+----------|------------------|--------------------------------------------------------
+per_page  | number           | number of elements shown per page
+page      | number           | number of shown page
+pages     | number           | number of pages with data
+found     | number           | number of employers found for the selected search criteria
+items     | array of objects | found employers (maximum per_page elements)
 
-Each element of the items array contains a short presentation of the employer
-and additionally indicates the number of open vacancies.
+Each element of the items array contains a brief description of the employer
+with an additional value for the number of open vacancies.
 
-| Name            | Type         | Description                                           |
-|-----------------|--------------|-------------------------------------------------------|
-| id              | string       | employer identifier                                   |
-| name            | string       | employer name                                         |
-| url             | string       | link to the detailed employer description             |
-| alternate_url   | string       | link to the employer description on the website       |
-| vacancies_url   | string       | link to the search results of the company's vacancies |
-| open_vacancies  | number       | number of the employer's open vacancies               |
-| logo_urls       | object, null | company's logos (see below)                           |
+ Name            | Type         | Description 
+-----------------|--------------|-------------------------------------------------------
+id              | string       | employer ID
+name            | string       | employer name
+url             | string       | url for full description of the employer
+alternate_url   | string       | link to employer description on the website
+vacancies_url   | string       | url for search results with vacancies of this company
+open_vacancies  | number       | number of employer's open vacancies
+logo_urls       | object, null | [company logos](#logo-urls)
 
-In case incorrect values are given in the parameters, the `400 Bad Request`
-response code will be returned. At the same time the response body will contain
-the information saying which parameter had the error in it.
+### Errors
 
+* `400 Bad Request` – error in the request parameters. The response body can contain details of the field with error.
 
 <a name="item"></a>
 ## Employer/company
@@ -128,12 +125,10 @@ can be null, if the company hasn't uploaded its logo. The client should foresee
 the possibility of the logo missing in the indicated link (response with the
 `404 Not Found` code).
 
-`type` – company type (direct employer, employment agency, etc). Possible values
-are described in the [directory collection](dictionaries.md) under the
-employer_type key.
+`type` – type of company (immediate employer, HR agency, etc).
+         Possible values are described in [collection of directories](dictionaries.md) under
+         the key `employer_type`. `null` is possible if the company type is hidden.
 
-`area` — employer's region.
+`area` — region of employer.
 
-`trusted` - boolean flag indicates that the company passed website verification.
-
-Example: [https://api.hh.ru/employers/1455?locale=EN](https://api.hh.ru/employers/1455?locale=EN)
+`trusted` — the flag indicates that [the company is verified by the website](https://feedback.hh.ru/article/details/id/5951).

@@ -1,30 +1,32 @@
 ## Clusters in vacancy search
 
-In vacancy search, you can conveniently obtain advanced information about
-vacancy categorization by various search criteria. For instance, upon search by
-criteria, you can view requested vacancies split by salary (e.g. the number of
-vacancies with salary indicated, or the number of vacancies with a salary
-exceeding a set amount). Such data can be retrieved using vacancy search by
-separate request for each given criterion. However, it is far easier to use a
-special search result option, such as splitting data into clusters.
+In [vacancies search](vacancies.md#search) vacancies are conveniently separated
+according to different criteria.
+For example, when searching by criteria, it may be useful to know
+how salaries are distributed in the selected vacancies — for how many vacancies it is
+specified, where it is above a certain amount. This information can be obtained
+using the vacancies search by creating a separate request for each criterion
+you are interested in. However, there is a better way, a special search result option —
+divide data into clusters.
 
-See an example of using such data on the main hh.ru site see in the left column
-on the [vacancy search result page](https://hh.ru/search/vacancy).
+You can find an example of this on the hh.ru homepage,
+in the left column on the [page with vacancies search results](https://hh.ru/search/vacancy).
 
-If you only need this metadata (and you don't need the list of found vacancies)
-enter `?per_page=0` in the request.
+To obtain data by clusters, add `clusters=true` argument in the `/vacancies` search. In this case, the search response
+will return additional division by clusters, as well as
+normal search results. If you want to get only clusters without a list of found vacancies,
+you can add `?per_page=0` to the query.
 
-In order to get clustered data, in search request for `/vacancies` add parameter
-`clusters=true`. Beside the search results, the search display will include
-vacancies grouped by cluster.
+Clusters are divided into groups; groups consist of clusters with
+similar meaning. For example, the `Salary` group may contain clusters
+"starts from RUB45,000" and "starts from RUB75,000".
+
+Example cluster results in the search, the `clusters` key is added to
+[standard vacancies search results](vacancies.md#search-results).
+(includes all possible cluster groups, not all of them will be in real queries):
 
 ```json
 {
-  "items": [],
-  "found": 306158,
-  "pages": 2000,
-  "per_page": 1,
-  "page": 0,
   "clusters": [
     {
       "id": "professional_area",
@@ -42,31 +44,59 @@ vacancies grouped by cluster.
         }
       ]
     }
+    // ...
   ]
 }
 ```
 
-Set of cluster object types (`id` in the elements of the massive `clusters`) may
-vary from one request to another and depends on parameters of the requests. See
-the full list of clusters in the [reference guide](dictionaries.md) in the entry
-with a key `vacancy_cluster`.
+The set of cluster groups (elements of the `clusters` array) may vary
+from query to query and depends on the parameters of the search query. You can find the list of all possible cluster groups
+in the [directory](dictionaries.md), in the elements with the `vacancy_cluster` key.
 
-Thereby, if the search request contains `clusters=false` and parameter
-`clusters` was not specified at all, the `clusters` field in the response
-will be `null`.
+In this case, if the search query contained `clusters=false` or the
+`cluster` argument was not specified, the `clusters` field will have `null` in the response.
 
-Each cluster has the following fields:
+Each cluster group has the following fields:
 
- Name | Type | Value
- --- | --- | ---
- id | string | Cluster type
- name | string | Cluster type name
- items | array | Search request array in this cluster indicating optional parameters
+Name | Type | Value
+--- | --- | ---
+id | string | Cluster type
+name | string | Name of cluster type
+items | array | The search query array in this cluster, specifying additional parameters
 
-Each array entry `items` is an object with the following fields:
+Each element of the `items` array is an object with the following fields:
 
- Name | Type | Value
- --- | --- | ---
- name | string | Cluster entry name
- url | string | Reference to search results on this cluster entry
- count | number | Number of vacancies in this cluster entry
+Name | Type | Value
+--- | --- | ---
+name | string | Name of cluster element
+url | string | Link to search results for this cluster element
+count | number | Number of vacancies in this cluster element
+type | string or null | Type of value related to the group
+
+### Types of clusters
+
+Types currently available:
+
+* `metro_line` - metro line
+* `metro_station` - metro station
+
+
+For metro lines(`type=metro_line`), the system additionally gives a key `metro_line` containing 
+an object with the following fields:
+
+Name | Type | Value
+--- | --- | ---
+id | string | line ID
+hex_color | string | HEX colour code of the line in RRGGBB format (from 000000 to FFFFFF)
+area | object | [Region](areas.md) (city) of the line
+
+For metro station (`type=metro_station`), the system additionally gives a key `metro_station` containing
+an object with the following fields:
+
+Name | Type | Value
+--- | --- | ---
+id | string | station ID
+hex_color | string | HEX colour code of the line in RRGGBB format (from 000000 to FFFFFF)
+lat, lng | number | station coordinates (latitude and longitude)
+order | number | station order on the metro line
+area | object | [Region](areas.md) where the station is located

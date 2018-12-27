@@ -6,24 +6,24 @@
   * [Resume-related paid services for the resume publisher](#applicant-paid-services)
   * [Additional fields for the employer](#additional-employer-fields)
   * [Resume-related paid services for the resume publisher](#paid-services)
-* [CV creation & editing](#create_edit)
-* [CV publication & prolongation](#publish)
+* [Creating and editing a resume](#create_edit)
+* [Publishing a resume](#publish)
 * [Information on a resume's status and readiness for publication](#status-and-publication)
-* [CV cloning](#clone)
+* [Cloning a resume](#clone)
 * [Deleting a resume](#delete)
 * [Checking for the ability to create a resume](#availability)
-* [CV fields conditions for editing](#conditions)
-  * [CV fields conditions for creating](#init-conditions)
-  * [CV contact fields conditions](#conditions-contacts)
-  * [Additional CV conditions](#conditions-other)
-* [CV minimal representation](#resume-nano)
+* [Conditions to fill in the fields of a resume](#conditions)
+  * [Conditions to fill in the fields of a new resume](#init-conditions)
+  * [Conditions for contacts in a resume](#conditions-contacts)
+  * [Additional rules for resume fields](#conditions-other)
+* [Resume abstract](#resume-nano)
 * [Resume summary](#resume-short)
 * [Resume download links](#download-links)
 * [CV status](#status)
 * [CV access type](#access_type)
   * [Resume visibility lists](#visibility_lists)
   * [Retrieving a list of resume visibility types](#get_access_types)
-* [CV view history](#views)
+* [Resume viewing history](#views)
 * [Searching for jobs similar to a resume](#similar)
 
 
@@ -992,23 +992,199 @@ The format of the `negotiations_history.vacancies` field is described on the
 in this case, the list will be limited to 3 jobs of this employer and the latest status change
 for the response/invitation for each of these jobs.
 
-
 <a name="create_edit"></a>
-## CV creation & editing
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#create_edit)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+## Creating and editing a resume
 
+`POST /resumes` — adding a resume
+
+`PUT /resumes/{resume_id}` — editing an existing resume. JSON of the same format as sent for a GET request
+                             is used as a request body. In this case, only id of transferred data is used
+                             for the fields with the directory data from the transferred JSON structure. 
+                             For example, in a resume, in the languages field, Russian is indicated as the native language:
+
+```json
+{
+    "language": [
+        {
+            "id": "rus",
+            "name": "Russian",
+            "level": {
+                "id": "native",
+                "name": "native"
+            }
+        }
+     ]
+   }
+```
+
+To add English with "read professional
+literature" level send the following JSON:
+
+```json
+{
+    "language": [
+        {
+            "id": "rus",
+            "name": "Russian",
+            "level": {
+                "id": "native",
+                "name": "native"
+            }
+        },
+        {
+            "id": "eng",
+            "level": {
+                "id": "can_read"
+            }
+        }
+    ]
+  }
+```
+
+The first element is Russian, which we already have in languages, the second is
+the new element, English, that we want to add. Fields `language.name` and
+`language.level.name` in this case are not in the way but also do not carry useful information.
+
+Sending data replaces existing data for the selected parameter.
+Each parameter can be sent separately.
+
+<a name="resume-keys"></a>
+Parameters:
+
+* `last_name` — second name;
+* `first_name` — first name;
+* `middle_name` — middle name;
+* `birth_date` — date of birth (YYYY-MM-DD);
+* `gender` — gender. Directory entries [gender](dictionaries.md);
+* `photo` — user photo. see. [artifacts](artifacts.md);
+* `portfolio` — user portfolio. see [artifacts](artifacts.md);
+* `area` — place of residence. Directory entries [areas](areas.md);
+* `metro` — nearest metro station. Directory entries [metro](metro.md).
+  It makes sense to show only for `area` with metro;
+* `relocation` — possible relocation. Consists of the fields:
+    * `type` — Directory entries [relocation_type](dictionaries.md);
+    * `areas` — relocation city (list). Makes sense only with the corresponding `type` field. Directory entries
+      [areas](areas.md);
+* `business_trip_readiness` — agree to go on business trips. Directory entries
+  [resume_trip_readiness](dictionaries.md#resume_trip_readiness)
+* `contact` — contact info (list). Consists of the fields:
+    * `type` — Directory entries [prefered_contact_type](dictionaries.md)
+    * `value` — contact value. For phone number, consists of four fields (`country`, `city`, `number`, `formatted`); 
+    for email: a string.
+    * `preferred` — preferred type of communication (`true` or `false`);
+    * `comment` — comment to the contact;
+* `site` — presence on other websites. Consists of the fields:
+    * `type` — type of website. Directory entries [resume_contacts_site_type](dictionaries.md);
+    * `url` — a link to a profile or an ID on a third-party website/service;
+* `title` — desired position;
+* `specialization` — candidate's profession (list). Directory entries [specializations](specializations.md);
+* `salary` — Desired salary. It consists of the following fields:
+    * `amount` — total;
+    * `currency` — [currency](dictionaries.md) ID;
+* `employments` — Employment. [employment](dictionaries.md) directory entries.
+* `schedules` — work schedule. List of directory [schedule](dictionaries.md) entries
+* `education` — education. Consists of the fields:
+    * `elementary` — secondary education (list). This field is usually only completed in the absence of higher education.
+     It consists of the following fields:
+        * `year` — year graduated;
+        * `name` — name of educational institution;
+    * `additional` — further training courses (list). It consists of the following fields:
+        * `organization` — the organisation that conducted the course;
+        * `name` — name of the course;
+        * `result` — profession / specialist area;
+        * `year` — year graduated;
+    * `attestation` — tests, exams (list):
+        * `organization` — the organisation that conducted the test or exam;
+        * `name` — name of the test or exam;
+        * `result` — profession / specialist area;
+        * `year` — year the test/exam was passed;
+    * `primary` — education higher than secondary (list). It consists of the following fields:
+        * `name` — name of educational institution;
+        * `name_id` — the id of the educational institution can be found in the [tips for college names](suggests.md#universities);
+        * `organization` — faculty;
+        * `organization_id` — faculty ID can be found in the [faculties directory](faculties.md);
+        * `result` — profession / specialist area;
+        * `result_id` — specialisation id can be found in the [tips for specialisations](suggests.md#specializations);
+                        education level;
+        * `year` — year graduated;
+    * `level` — education level. Directory entries [education_level](dictionaries.md)
+* `language` — languages (list). Consists of a [languages](languages.md) directory entry
+                 with added [language_level](dictionaries.md) in the `level` field.
+* `experience` — work experience (list). It consists of the following fields:
+    * `company` — company;
+    * `company_id` — company id, can be found in the [tips for companies](suggets.md#companies);
+    * `area` — region of the company. Directory entries [areas](areas.md);
+    * `company_url` — company website;
+    * `industries` — A list of the company's industries. Entries of the [directory of industries](industries.md)
+    * `position` — position;
+    * `start` — started work (YYYY-MM-DD);
+    * `end` — finished work (YYYY-MM-DD);
+    * `description` — responsibilities, functions, achievements;
+* `total_experience` — total years of work. If the applicant has no work experience, the value is `null`. 
+        If he or she has experience — the object from the fields:
+    * `months` — an integer, the total months of service, rounded up to a month;
+* `skills` — additional information, a free-form description of skills;
+* `skill_set` — key skills (a list of unique strings).
+* `citizenship` — citizenship (list). Directory entries [areas](areas.md);
+* `work_ticket` — work permit (list). Directory entries [areas](areas.md);
+* `travel_time` — acceptable travel time to the place of work. Directory entries [travel_time](dictionaries.md);
+* `recommendation` — recommendations (list). It consists of the following fields:
+    * `name` — name;
+    * `position` — position;
+    * `organization` — company;
+* `resume_locale` — resume locale. Directory entries [локали резюме](locales.md).
+
+Parameters taken from [tips](suggests.md) (`name_id`, `organization_id`, `result_id`, `faculty_id`, `company_id`) 
+are optional. In this case, if these parameters are indicated, then when saved they are checked for
+being correct. In case of errors, such as non-existent
+ids or unconnected university and faculty ids, it will return `HTTP 400 Bad Request` with an indication
+of the parent field containing the error.
+Additionally, when writing `company_id` in the work experience, the company name will
+be changed to the company name from the tips.
+
+### Response
+
+A successful response to resume creation comes with a code `201 Created`, and
+the Location header will contain the URL of the created resume:
+
+```
+Location: /resumes/0123456789abcdef
+```
+
+A successful response to resume update comes with a code and does not have a body.
+
+
+### Errors
+
+* `403 Forbidden` – The request is not from the applicant.
+* `400 Bad Request` - Errors in resume fields. In addition, the fields will be specified to show exactly where the errors are.
+* `404 Not Found` – The resume was not found or is not available to the current user (during an update)
+* `400 Bad Request` - The allowable number of resumes is exceeded (during creation)
+In addition, an [error will be specified](errors.md#resumes) with `type=resumes`, `value=total_limit_exceeded`.
 
 <a name="publish"></a>
-## CV publication & prolongation
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#publish)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+## Publishing a resume
+
+`POST /resumes/{resume_id}/publish`
+
+The resume can be used as soon as it is first published.
+
+Subsequent publications will update the renewal date of the resume. `next_publish_at` key
+in the resume indicates when the resume can be updated.
+
+### Response
+
+A successful response contains a code `204 No Content` and is body-less.
+
+
+### Errors
+
+* `429 Too Many Requests` - If the update is not available yet.
+* `400 Bad Request` - If publication/extension is not possible. The possible causes are:
+  * Mandatory fields are empty,
+  * The fields have not been not edited after banning by a moderator,
+  * The resume is being checked by a moderator.
+* `403 Forbidden` - If the resume cannot be published because of a lack of necessary privileges (for example, for an employer).
 
 
 <a name="status-and-publication"></a>
@@ -1114,12 +1290,15 @@ Successful server response is returned with `200 OK` code and contains:
 
 
 <a name="clone"></a>
-## CV cloning
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#clone)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+## Cloning a resume
+
+`POST /resumes?source_resume_id={resume_id}`
+
+Successful cloning will return the response code `201 Created` and the header
+`Location` of the response will contain the link to the new resume.
+
+You can only clone your own resumes, otherwise the response code
+will be `404 Not Found`.
 
 <a name="delete"></a>
 ## Deleting a resume
@@ -1178,49 +1357,232 @@ remaining  | number | The number of resumes that can be created
 * `403 Forbidden` – The request is not from the applicant.
 
 <a name="conditions"></a>
-## CV fields conditions for editing
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#conditions)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+## Conditions to fill in the fields of a resume
+
+`GET /resumes/{resume_id}/conditions` — returns a list of conditions for the fields of a resume.
+
+Conditions for a resume are only accessible to its author, otherwise it will return the code
+`403 Forbidden`.
+
+If the resume is not accessible, the response code will be `404 Not Found`.
+
+If conditions are received successfully, the response code will be `200 OK`.
+
+Example:
+
+```javascript
+{
+    "last_name": {
+        "required": true,
+        "max_length": 100,
+        "min_length": 1
+    },
+    "title": {
+        "max_length": 100,
+        "min_length": 2,
+        "required": true,
+        "not_in": [
+            "Бухгалтер"
+        ]
+    },
+    "citizenship": {
+        "required": true,
+        "min_count": 1,
+        "max_count": 3
+    },
+    "resume_locale": {
+        "required": true
+    },
+    "education": {
+        "required": true,
+        "fields": {
+            "elementary": {
+                "required": false,
+                "min_count": 0,
+                "max_count": 64,
+                "fields": {
+                    "name": {
+                        "required": true,
+                        "min_length": 1,
+                        "max_length": 512
+                    },
+                    "year": {
+                        "required": true,
+                        "min_value": 1950,
+                        "max_value": 2023
+                    }
+                }
+            },
+            "primary": {
+                "required": true,
+                "min_count": 1,
+                "max_count": 64,
+                "fields": {
+                    "result": {
+                        "required": false,
+                        "min_length": 1,
+                        "max_length": 128
+                    },
+                    "organization": {
+                        "required": true,
+                        "min_length": 1,
+                        "max_length": 128
+                    },
+                    "name": {
+                        "required": true,
+                        "min_length": 1,
+                        "max_length": 512
+                    },
+                    "year": {
+                        "required": true,
+                        "min_value": 1950,
+                        "max_value": 2023
+                    }
+                },
+            },
+            "level": {
+                "required": true
+            },
+            //...
+        }
+    },
+    "salary": {
+        "required": false,
+        "fields": {
+            "currency": {
+                "required": true,
+                "min_length": 3,
+                "max_length": 3
+            },
+            "amount": {
+                "required": true,
+                "min_value": 0,
+                "max_value": null
+            }
+        }
+    },
+    "birth_date": {
+        "required": false,
+        "min_date": "1900-01-01",
+        "max_date": "1999-10-21"
+    },
+    //...
+}
+```
+
+Each end field is described by a rules object. If the field in a resume consists of
+an object with several fields, these fields are described in `fields`.
+
+For all fields and their parts it is indicated if they are mandatory (`required`).
+Sometimes a field represented by an object with fields is not mandatory on its own,
+but if at least one field of the object is filled out,
+its other fields must be filled out, too. Example: the desired salary (`salary`) can be either not indicated
+or indicated but compulsorily with currency.
+
+Rules
+-------
+
+Name | Type | Description
+--- | --- | ---
+required | boolean | The resume field of the object field is mandatory.
+min_length | number | Minimum length for text fields.
+max_length | number | Maximum length for text fields.
+not_in | list | A list of invalid values
+min_count | number | Minimum number of objects, for fields with lists.
+max_count | number or `null` | Maximum number of objects, for fields with lists. `null` if the number is not limited.
+min_value | number | Lower limit for numerical values, inclusive.
+max_value | number or `null` | Upper limit for numerical values, inclusive. `null` if the upper limit is not defined.
+min_date | date string | Lower limit for dates, inclusive.
+max_date | date string | Upper limit for dates, inclusive.
 
 
 <a name="init-conditions"></a>
-## CV fields conditions for creating
+## Conditions to fill in the fields of a new resume
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#init-conditions)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+`GET /resume_conditions` returns a list of requirements for the fields in the new resume.
+If the authorized user is not an applicant, the system will return the
+`403 Forbidden` response code, otherwise it will be `200 OK`.
 
 
 <a name="conditions-contacts"></a>
-## CV contact fields conditions
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#conditions-contacts)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+## Conditions for contacts in a resume
+When filling out contacts in a resume, take the following into account:
+
+ * The resume must contain an email address (and only one).
+
+ * The resume must contain a phone number, and there can be only one number for each type.
+   
+ * Comments are only available for phone numbers, a comment for an email will not be saved.
+
+ * In the `email` contact, the value is email, for phone it is the object.
+
+
+Format of the phone number value:
+
+```json
+{
+    "formatted": "+7(123)456-78-90",
+    "country": "7",
+    "city": "123",
+    "number": "4567890"
+}
+```
+
+where:
+
+ * formatted — whole phone number
+ * country — country code;
+ * city — city code;
+ * number — phone number.
+
+You must provide either the whole phone number in the `formatted` field or all three parts of the phone number separately in 
+the fields `country`, `city` and `number`. If both options are available, the system uses data from the separate fields.
+The `formatted` field may contain additional symbols: spaces, brackets, and hyphens.
+The separate fields may only contain numbers.
 
 
 <a name="conditions-other"></a>
-## Additional CV conditions
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#conditions-other)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+## Additional rules for resume fields
 
+There are other rules for filling out a resume outside of the
+above-described format:
+
+ * It is not allowed to create several resumes with the same title.
+
+ * Specialisation must be from the same area of profession.
+
+ * The place of residence must be obtained from the `/areas` directory and the selected city cannot
+      contain daughter objects, for example, the user cannot indicate
+      "Russia" as the place of residence.
+
+ * The nearest metro station must be located in the place of residence.
+
+ * For specialisations from the area *Start of career, students* (id=15) it is not necessary to specify work experience. 
+ For other areas of profession these fields must contain at least one entry.
+
+ * Some of the fields of the resume are read-only and cannot be changed with POST/PUT at /resumes.
+   
 
 <a name="resume-nano"></a>
-## CV minimal representation
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#resume-nano)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+## Resume abstract
+
+The briefest resume abstract:
+
+```json
+{
+    "id": "502ff8b100018bddf30039ed1f63735f4dda66",
+    "title": "manager",
+    "url": "https://api.hh.ru/resumes/502ff8b100018bddf30039ed1f63735f4dda66"
+}
+```
+
+where:
+
+ Name  | Type    | Description
+ ---- | ------ | ---
+ id   | string | Resume ID
+ title | string | Desired position
+ url  | string | Link to the full resume
 
 
 <a name="resume-short"></a>
@@ -1394,20 +1756,66 @@ In addition to the HTTP code, the server can return a description of the [error 
 
 <a name="status"></a>
 ## CV status
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#status)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+
+The `status` key determines the current status of the resume and contains an entry from the
+[resume_status](dictionaries.md) directory. After creating a new resume, it
+gets the `not_published` status. No one can see a resume with this status,
+the user begins to fill in and save the resume (empty mandatory fields
+are present in the `progress.mandatory` list). 
+
+After all mandatory fields are filled in, the `can_publish_or_update` flag 
+will become `true`, and the resume will be available for
+[publication](#publish). After publication, the resume gets the `published` status.
+A resume with this status is searchable if permitted by the settings for
+[resume visibility](#access_type).
+
+After receiving the `published` status, the resume is available for moderators and
+can be banned (the `blocked` status), if the fields are invalid or
+contain insufficient information. Reasons for banning a resume can be found in
+the [`moderation_note` key](#author-moderation-notes). A banned resume
+is not searchable and cannot be used to respond to a job.
+
+After editing, the resume can be sent to the moderator for secondary revision.
+In this case, the resume status changes to `on_moderation` and from there it can
+go to `blocked` again or to `published`, depending on the moderator's decision.
+
+Once the resume is published (status changed to `published`) it cannot be changed back to
+`not_published` but it can be hidden in the [resume visibility](#access_type) settings.
+
+In `published` status, the resume can be used to [apply for jobs](negotiations.md) and it will appear on the
+[list of suitable vacancies](suitable_resumes.md) if it has not been used yet to apply for this job.
 
 
 <a name="access_type"></a>
 ## CV access type
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#access_type)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+
+Each resume has the `access` visibility setting that determines to whom the resume will be available
+in the search results or using a direct link. The field's format in the resume:
+
+```json
+{
+    "access": {
+        "type": {
+            "id": "clients",
+            "name": "visible to all companies registered on HeadHunter"
+        }
+    }
+}
+```
+
+After publication, the resume can be searched by all employers. Otherwise,
+for example, when a job is found and you want to hide the resume in the search results, you should change
+the resume visibility settings. The "access.type" key is responsible for this. Visibility type is a
+[resume_access_type](dictionaries.md) directory entry.
+
+ Code | Description
+ --- | --------
+ no_one | A resume of this type is not visible to anyone. However, it can be used to apply for a vacancy and the resume type will change to `whitelist`.
+ whitelist | The resume is visible only to the specified companies. If you respond to a job of a company that is not listed, that company will be automatically included in the list. Please see [resume visibility lists](#visibility_lists).
+ blacklist | РThe resume can be searched and viewed by all companies, except for ones specified. If you respond to a job of a company that is blacklisted, that company will be automatically excluded from the black list. Please see [resume visibility lists](#visibility_lists).
+ clients | The resume is visible to all companies registered on hh.ru.
+ everyone | The resume is visible to all users (everywhere on the Internet).
+ direct |The resume is visible only with a direct link (link specified in the `alternate_url` key).
 
 
 <a name="visibility_lists"></a>
@@ -1492,12 +1900,72 @@ Please see also [managing resume visibility lists](/docs/resume_visibility.md).
 
 
 <a name="views"></a>
-## CV view history
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/resumes.md.html#views)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+## Resume viewing history
+
+`GET /resumes/{resume_id}/views` will return the viewing history for the resume. On the main website it can be found by 
+clicking on the resume views number on the page with the list of the current user's resume
+([https://hh.ru/applicant/resumes](https://hh.ru/applicant/resumes)).
+
+Without authorisation or when requesting another user's resume, the system will return '403 Forbidden'.
+
+The number of views (including new) is shown when requesting a specific
+resume and list of resumes. The new views counter is reset to zero when requesting this resource.
+
+```json
+{
+    "per_page": 20,
+    "items": [
+        {
+            "created_at": "2014-02-05T19:05:58+0400",
+            "viewed": true,
+            "employer": {
+                "logo_urls": {
+                    "90": "https://hh.ru/employer/logo/1455",
+                },
+                "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
+                "name": "HeadHunter",
+                "url": "https://api.hh.ru/employers/1455",
+                "alternate_url": "https://hh.ru/employer/1455",
+                "id": "1455"
+            }
+        }
+    ],
+    "page": 0,
+    "pages": 1,
+    "found": 1,
+    "resume": {
+        "id": "502ff8b100018bddf30039ed1f63735f4dda66",
+        "title": "manager",
+        "url": "https://api.hh.ru/resumes/502ff8b100018bddf30039ed1f63735f4dda66"
+    }
+}
+```
+
+where:
+
+ Name | Type | Description
+ --- | --- | --------
+ found | number | Number of resume viewing records ( ≥ 0 )
+ pages | number | Page number ( ≥ 0 )
+ per_page | number | Number of elements per page ( > 0 )
+ page | number | Current page number ( ≥ 0 )
+ resume | object | [resume](#resume-nano)
+
+The `items` element contains data about negotiations:
+
+ Name | Type | Description
+ --- | --- | ---
+ created_at | string | Creation date, date when employer viewed the resume
+ viewed | boolean | note of viewing the record (when requesting this resource, all requests are marked as viewed)
+ employer | object | company info (see below)
+
+`employer` object returns brief company info, a subset of the [company/employer](employers.md) object.
+
+If an anonymous employer viewed the resume or the resume was viewed from
+applications to an anonymous vacancy, `employer` may contain only the `name` key.
+
+`logo_urls` — images of the company logo in different sizes. The client should take into account
+              the probability that the resource will not be available at the specified link (`404 Not Found`).
 
 
 <a name="similar"></a>

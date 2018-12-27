@@ -213,11 +213,17 @@ error list; it can be extended.
 <a name="artifacts"></a>
 ### Artifacts
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html#artifacts)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+When uploading artifacts, errors are possible, including:
+
+HTTP code | type | value | description
+----------|-----|--------|-----------
+400 | bad_argument | file | file not specified, or several files specified
+400 | bad_argument | type | incorrect parameter `type` value
+400 | bad_argument | description | description too long
+400 | artifacts | limit_exceeded | number of artifacts exceeded
+400 | artifacts | image_too_large | file size exceeds the limit
+400 | artifacts | unknown_format | unknown file format
+403 | forbidden | — | insufficient access rights
 
 
 
@@ -250,11 +256,13 @@ HTTP code| type| value| description
 <a name="vacancies_favorited"></a>
 ### Favorited vacancies
 
-Documentation translation for this section is in progress.
-See
-[machine translation](https://z5h64q92x9.net/proxy_u/ru-en.en/http/hhru.github.io/api/rendered-docs/docs/errors.md.html#vacancies_favorited)
-powered by
-[Yandex.Translate](https://translate.yandex.com/translate).
+When [adding to the list of selected vacancies](vacancies.md#favorited)
+the following errors can be returned, in addition to the error code:
+
+HTTP code | type | value | description
+----------|------|-------|-----------
+403 | vacancies_favorited | vacancy_archived | the vacancy is archived and cannot be added to the list of selected number of selected vacancies exceeds the limit
+403 | vacancies_favorited | limit_exceeded | `authorization_code` has already been used (it can only be used once)
 
 
 <a name="vacancies-create-n-edit"></a>

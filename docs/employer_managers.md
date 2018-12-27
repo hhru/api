@@ -51,7 +51,7 @@
  name | string | название типа менеджера
  available_permissions | array | список прав, которые можно дать данному типу менеджера
 
-Поля объекта списка available_permissions:
+Поля объекта списка `available_permissions`:
 
  Имя | Тип | Описание
  --- | --- | ---

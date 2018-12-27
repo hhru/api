@@ -1,7 +1,7 @@
 # Receiving vacancies
 
 * [View a vacancy](#item)
-* [Extra fields for the author of the vacancy](#author)
+* [Additional vacancy fields for employers](#author)
 * [Favorite vacancies](#favorited)
 * [Search for vacancies](#search)
 * [Search for vacancies similar to the vacancy](#similar)
@@ -33,9 +33,15 @@ See also:
 <a name="item"></a>
 ## View a vacancy
 
-`GET /vacancies/{vacancy_id}` will return a detailed information on the indicated vacancy
+`GET /vacancies/{vacancy_id}` 
 
-Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vacancies/12080698?locale=EN)
+where `vacancy_id` – vacancy ID
+
+Will return detailed information for the selected vacancy.
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
@@ -184,6 +190,79 @@ Example: [https://api.hh.ru/vacancies/12080698?locale=EN](https://api.hh.ru/vaca
 }
 ```
 
+<a name="vacancy-fields"></a>
+
+Name | Type | Description
+---- | --- | --------
+id | string | Vacancy ID
+description | string | Job description, contains html
+branded_description | string or null | [Branded job description](#branded_description)
+key_skills | array | Details of key skills indicated in the vacancy. This list may be empty.
+key_skills[].name | string | name of key skill
+schedule | object | Work schedule. [schedule directory entry](dictionaries.md)
+schedule.id | string | Schedule ID
+schedule.name | string | Schedule name
+accept_handicapped | boolean | Indication that the job is available for applicants with disabilities
+accept_kids | boolean | Indication that the job is available for applicants as young as 14 years old
+experience | object | Required work experience. [experience](dictionaries.md) directory entry
+experience.id | string | Required work experience ID
+experience.name | string | Name of required work experience
+address | object or null | [Vacancy address](address.md#Адрес)
+alternate_url | string | Link to the vacancy on the website
+apply_alternate_url | string | Link to the application for the vacancy on the website
+code | string or null | Employer's internal vacancy code
+department | object or null | Department on whose behalf the vacancy is uploaded (if available for the company). Employers can request [department directory](employer_departments.md).
+department.id | string | Department ID
+department.name | string | Department name
+employment | object or null | Type of employment. [employment](dictionaries.md) directory entry
+employment.id | string | Employment type ID
+employment.name | string | Employment type name
+salary | object or null | Salary
+salary.from | number or null | Lower limit of salary range
+salary.to | number or null | Upper limit of salary range
+salary.gross | boolean or null | Indication that the salary is shown before tax. If not indicated — null.
+salary.currency | string | Indication of salary currency ([currency](dictionaries.md) directory).
+archived | boolean | Whether the vacancy is archived
+name | string | Vacancy name
+area | object | Vacancy region
+area.id | string | Region ID
+area.name | string | Region name
+area.url | string | URL for getting information on the region
+published_at | string | Date and time of vacancy publication
+employer | object | Brief description of employer. See field description in [employer information](employers.md#item).
+employer.blacklisted | boolean | Whether all vacancies of the employer are added to the [list of hidden](blacklisted.md#employers)
+response_letter_required | boolean | Whether it is mandatory to fill out a message for application
+type | object | Vacancy type. [vacancy_type](dictionaries.md) directory entry.
+type.id | string | Vacancy type ID
+type.name | string | Vacancy type name
+response_url | string or null | You cannot apply for vacancies with `direct` type on hh.ru, these vacancies have an external website URL in the `response_url` key (in most cases, the employer's website with an application form)
+test | object or null | Information about attached test for the job. If there is no test — `null`. **At the moment it is impossible to apply for vacancies with mandatory test with API.**
+test.required | boolean | If the test is mandatory for an application
+specialization | array | Specialisations. [specialisations](specializations.md) directory entries
+specializations[].id | string | Specialisation ID
+specializations[].name | string | Specialisation name
+specializations[].profarea_id | string | ID of the profession that includes this specialisation
+specializations[].profarea_name | string | Name of the profession that includes this specialisation
+contacts | object or null | Contact info. For vacancies without contacts, it returns `null`.
+contacts.name | string or null | Name of contact person
+contacts.email | string or null | Email of contact person
+contacts.phones | array | List of phone numbers of contact person. This list may be empty.
+contacts.phones[].country | string | Country code
+contacts.phones[].city | string | City code
+contacts.phones[].number | string | Phone number
+contacts.phones[].comment | string or null | Commentary
+billing_type | object | Vacancy billing type. [vacancy_billing_type](dictionaries.md) directory entry.
+billing_type.id | string | ID of the vacancy billing type
+billing_type.name | string | Name of the vacancy billing type
+allow_messages | boolean | Whether the option is enabled for the candidate to send messages to the employer after invitation/application for the job
+premium | boolean | Whether it is a premium vacancy
+driver_license_types | array | List of required driver license categories
+driver_license_types[].id | string | Driving license category. [driver_license_types](dictionaries.md) directory entry.
+accept_incomplete_resumes | boolean | Whether it is possible to apply with an incomplete resume
+
+<a name="branded_description"></a>
+### Branded job description
+
 `branded_description` – a string with HTML code ( `<script/>` and `<style/>` may
 be present) that is an alternative to a standard vacancy description. The HTML
 code is adapted for mobile devices and displays correctly without javascript
@@ -197,51 +276,37 @@ support enabled. Whereas:
 * Images that can found in such description are adapted to retina displays.
 * Font size should be at least 12px, line spacing – at least 16px.
 
-The value may be null if the vacancy has no individual description.
+The value can be `null` if the vacancy does not have an individual description.
 
-If case of an authorized request, the `relations` key returns values from the
-`vacancy_relation` reference in [/dictionaries](dictionaries.md).
+<a name="vacancy-fields-applicant"></a>
+### Additional vacancy fields for candidates
 
+Additional fields are returned during candidate authorisation:
 
-The `negotiations_url` key returns a link to a list of applications/invitations
-for the vacancy of the current applicant user (for other user types, `null` is
-returned).
+```json
+{
+    "relations": [
+        "favorited",
+        "got_response"
+    ],
+    "negotiations_url": "https://api.hh.ru/negotiations?vacancy_id=8331228",
+    "suitable_resumes_url": "https://api.hh.ru/vacancies/8331228/suitable_resumes"
+}
+```
 
-One cannot apply for a vacancy of the `direct` type on hh.ru, as these vacancies
-have a URL to an external website in the `response_url` key (most often it is
-the employer's website with an application form). [More about documents on
-applications](negotiations.md#post_negotiation)
+Name | Type | Description
+---- | --- | --------
+relations | array | relations to the vacancy are returned during candidate authorisation. [vacancy_relation](dictionaries.md) directory entries.
+negotiations_url | string | links to get lists of applications/invitations
 
-The `contacts` key contains contact information. In vacancies with no indicated
-contact information, `null` is returned. All internal keys are either strings or
-null. The phone number list may be empty.
-
-The `test` key contains information about the test attached to the vacancy. If
-there is no test, `null` is returned. Otherwise, an object with the `required`
-key is returned, which means a test must be taken to complete the application.
-
------
-
-**At the moment, it is impossible to apply for vacancies that require to take a test via the API.**
-
------
-
-The returned `key_skills` key contains information about key skills specified in
-the vacancy.
-
-Possible values `billing_type` and `site` are available in directories in
-[/dictionaries](dictionaries.md) (`vacancy_billing_type` and `vacancy_site`
-respectively).
-
-The returned `allow_messages` key specifies whether the applicant will have the
-possibility to create messages after the invitation.
+See also [vacancy applications](negotiations.md#post_negotiation).
 
 
 <a name="author"></a>
-## Extra vacancy fields
+## Additional vacancy fields for employers
 
-For the vacancy request with initiator authorization, optional fields will be
-displayed:
+If the vacancy is requested when the author (employer) is authorised, the object
+will show additional fields:
 
 ```json
 {
@@ -264,7 +329,7 @@ key | type | description
 expires_at| string | date and time of vacancy posting termination
 response_notifications | logical | whether to notify manager on new responses
 hidden | logical | whether the vacancy is deleted (hidden from the archive)
-can_upgrade_billing_type | logical | Whether it is possible to upgrade vacancy billing type 
+can_upgrade_billing_type | logical | If the vacancy billing type can be upgraded
 
 In object `manager` – the information on the manager posted the vacancy.
 
@@ -413,12 +478,14 @@ Some parameters take multiple values: `key=value&key=value`.
   You can't indicate it with the `period` parameter.
   The value is indicated in the [ISO 8601](general.md#date-format) format –
   `YYYY-MM-DD` or with up-to-the-second precision `YYYY-MM-DDThh:mm:ss±hhmm`.
+  The shown value will be rounded down to the nearest 5 minutes.
 
 * `date_to` – an end date which restricts the date range of vacancy posting.
   You must give it only with the `date_from` parameter.
   You can't indicate it with the `period` parameter.
   The value is indicated in the [ISO 8601](general.md#date-format) format –
-  `YYYY-MM-DD` or with up-to-the-second precision `YYYY-MM-DDThh:mm:ss±hhmm`.
+  `YYYY-MM-DD` or with accuracy in seconds `YYYY-MM-DDThh:mm:ss±hhmm`.
+  The shown value will be rounded down to the nearest 5 minutes.
 
 * `top_lat`, `bottom_lat`, `left_lng`, `right_lng` – values of geographic
   coordinates.
@@ -437,8 +504,20 @@ Some parameters take multiple values: `key=value&key=value`.
   the point that is used to sort vacancies by distance. It must be indicated
   only in case when `order_by` is set to `distance`.
 
-* `clusters` – whether the cluster list should be returned for this search,
-  by default: `false`. More information on this [/docs/clusters.md](clusters.md).
+* `clusters` – whether the [clusters for this search](clusters.md) are returned, default: `false`.
+
+* `describe_arguments` — whether the [description of the used search parameters](vacancies_search_arguments.md) is returned, default: `false`
+
+* `per_page`, `page` — [pagination parameters](general.md.#pagination). The parameter per_page is limited by 100. 
+
+* `no_magic` – If 'false' — turn off automatic vacancy transformation. Default — `true`. 
+If automatic transformation is enabled, an attempt will be made to change the user's text query to a set of
+parameters. For example, a query `text=moscow accountant 100500` will be transformed to
+`text=accountant&only_with_salary=true&area=1&salary=100500`.
+
+* `premium` – If `true` — the results of vacancies will take into account
+premium vacancies. This type of sorting is used on the website.
+Default — `false`. 
 
 <a name="search-results"></a>
 
@@ -549,11 +628,12 @@ In addition to [standard vacancy fields](#nano) following optional fields will b
 
 key | type | description
 ---- |---- |---------
-sort_point_distance | number, null | Distance (meters) between sort center (defined by `sort_point_lat`, `sort_point_lng` parameters) and vacancy address point. In case of only metro stations are presented in address, distance between sort center and vacancy metro stations geometrical center is presented. `sort_point_distance` value is presented only if parameters `sort_point_lat`, `sort_point_lng`, `order_by=distance` are used for query.
+sort_point_distance | number, null | Distance in metres between the sorting centre (indicated by parameters `sort_point_lat` and `sort_point_lng`) and the address indicated in the vacancy. If the address only includes metro stations, it will show the distance between the sorting centre and the average geometric point of the indicated stations. `sort_point_distance` value is only shown if parameters for `sort_point_lat`, `sort_point_lgn` and `order_by=distance` are indicated.
 snippet | object | Additional text snippets on found vacancy. If snippet text contains search term (parameter `text`), it will be highlighted with tag `highlighttext`.
 snippet.requirement | string, null | Vacancy requirements snippet if available in the description text.
 snippet.responsibility | string, null | Vacancy responsibilities snippet if available in the description text.
 
+It is also possible to return [clusters](clusters.md) ('clusters' key) and [used parameters](vacancies_search_arguments.md) ('arguments' key) for this search.
 
 <a name="similar"></a>
 ## Search for vacancies similar to the vacancy
@@ -643,6 +723,8 @@ Name| Type| Description
  response_letter_required | logical | Whether the message must be written when applying
  type | object | Vacancy type, one of the elements `vacancy_type` in the [Directory](dictionaries.md)
  archived | logical | Whether it is an archived vacancy
+
+Please see the [full vacancy](#vacancy-fields) for a description of the fields.
 
 `url` and `alternate_url` can have the `null` meaning if the detailed
 information on the vacancy is unavailable (for instance, when the vacancy has

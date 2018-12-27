@@ -1,15 +1,18 @@
 # Vacancies for the employer
 
-* [Vacancy posting](#creation)
-* [Vacancy fields conditions](#conditions)
-* [Vacancy editing](#edit)
-* [Vacancy prolongation](#prolongate)
+* [Publishing job vacancies](#creation)
+* [Conditions for filling out fields when publishing and adding vacancies](#conditions)
+* [Editing vacancies](#edit)
+* [Editing billing type or vacancy manager](#edit_more)
+* [Extending vacancies](#prolongate)
+* [Information about possible vacancy extension](#prolongate-info)
 * [Published vacancy list](#active)
 * [Storing vacancies](#archive)
 * [Archived vacancy list](#archived)
 * [Deleting vacancies](#hide)
 * [Deleted vacancy list](#hidden)
 * [Restoring deleted vacancies](#restore)
+* [Vacancy statistics](#stats)
 
 See also:
 
@@ -17,36 +20,38 @@ See also:
 
 
 <a name="creation"></a>
-## Vacancy posting
+## Publishing job vacancies
 
 `POST /vacancies`
 
+you can additionally specify the following query-arguments:
+
+* `ignore_duplicates=true` - force [adding duplicate](#creation-ignore-duplicates).
 
 ### General information
 
-The request body should be [JSON](general.md#request-body) with data on the
-vacancy being posted. The format of the data is similar to the
-[vacancy view](#item), but also contains some additional fields.
+As the response body, send
+a [JSON](general.md#request-body) with the data of the job vacancy you are publishing,
+the format of data is similar to [view vacancies](#item) but also contains
+some additional fields.
 
-> In accordance with
-> [RF law № 1032-1 dated 19.04.1991, as amended on 02.07.2013](https://hh.ru/article/13967)
-> it is prohibited to post information limiting rights or providing privileges
-> for applicants on the base of their gender, age, marital status as well as
-> other circumstances that are not related to the qualifications of employees.
+> According to the [Federal Law of the Russian Federation No. 1032-1 dated April 19, 1991, as revised on July 2, 2013](https://hh.ru/article/13967)
+> it is prohibited to place information restricting rights or providing advantages
+> to certain candidates according to their gender, age, family status,
+> and other qualities unrelated to their professional aptitudes.
 
-* if posted successfully, a corresponding service will be written off.
-* all vacancies undergo manual moderation.
-* in a few minutes after having been posted, the vacancy will become available
-  for search.
+* in case of a successful publication the cost of corresponding services will be withdrawn.
+* all job vacancies are subject to manual moderation.
+* within a few minutes after publication, the vacancy will become visible in search results.
 
 
 ### Useful links
 
-* [rules for posting vacancies](https://hh.ru/article/341)
-* [how do I formulate a good vacancy description](https://hh.ru/article/16239)
+* [conditions of publishing vacancies](https://hh.ru/article/341)
+* [how to write a good vacancy description](https://hh.ru/article/16239)
 
 <a name="creation-example"></a>
-### Request body example
+### Sample request body
 
 ```json
 {
@@ -90,6 +95,7 @@ vacancy being posted. The format of the data is similar to the
     "salary": {
         "from": 100,
         "to": 500,
+        "gross": true,
         "currency": "USD"
     },
     "contacts": {
@@ -143,98 +149,113 @@ vacancy being posted. The format of the data is similar to the
 
 
 <a name="creation_fields"></a>
-### Request body
+### Request fields
 
-* `[]` (e.g. in specialization fields and in contacts) means that the value of
-  the key is an array of objects.
+* `[]` (for example, in the specialisation and contacts fields) signifies that the meaning of this key is an array of objects.
 
-* `a.b` means an object `a` with a key `b` of the described type.
+* `a.b` stands for object `a` with key `b` of the described type.
 
-| Path                        | JSON type       | Description |
-|-----------------------------|-----------------|-------------|
-| name                        | string          | title |
-| description                 | string          | description in html, at least 200 characters |
-| key_skills                  | array           | key skills list, no more than 30 |
-| key_skills[].name           | string          | key skill name |
-| specializations             | array           | specialization list |
-| specializations[].id        | string          | specialization from the [directory](specializations.md) |
-| area.id                     | string          | posting region from the [directory](areas.md) |
-| type.id                     | string          | type from the [vacancy_type directory](dictionaries.md) |
-| billing_type.id             | string          | billing type from the [vacancy_billing_type directory](dictionaries.md) |
-| site.id                     | string          | website for posting from the [vacancy_site directory](dictionaries.md) |
-| code                        | string          | internal vacancy code |
-| department.id               | string          | department from the [directory](employer_departments.md), on behalf of which the vacancy is being posted (if this feature is available for the company) |
-| salary                      | object or null  | salary |
-| salary.from                 | numeric or null | salary range minimum |
-| salary.to                   | numeric or null | salary range maximum |
-| salary.currency             | string          | currency code from the [currency directory](dictionaries.md) |
-| address                     | object or null  | address |
-| address.id                  | string          | address from the [list of employer's available addresses](employer_addresses.md) |
-| address.show_metro_only     | boolean         | show only metro for the indicated address |
-| experience.id               | string          | required work experience from the [experience directory](dictionaries.md) |
-| schedule.id                 | string          | work schedule from the [schedule directory](dictionaries.md) |
-| employment.id               | string          | employment type from the [employment directory](dictionaries.md) |
-| contacts                    | object          | contact information (for trade vacancies) |
-| contacts.name               | string          | contact person |
-| contacts.email              | string          | email |
-| contacts.phones             | array           | phone number list for communication |
-| contacts.phones[].country   | string          | country code |
-| contacts.phones[].city      | string          | city code |
-| contacts.phones[].number    | string          | telephone |
-| contacts.phones[].comment   | string or null  | comment (convenient time to call this number) |
-| test                        | object          | vacancy test |
-| test.id                     | string          | test that will be added to the vacancy |
-| test.required               | boolean         | require to take a test to apply for the vacancy |
-| response_url                | string          | application URL for direct vacancies (`type.id=direct`) |
-| custom_employer_name        | string          | company name for anonymous vacancies (`type.id=anonymous`), e.g. "a large Russian bank" |
-| employer.id                 | string          | employer who the vacancy is being posted for |
-| manager.id                  | string          | contact person (a manager) for the vacancy being posted; by default it is the current user |
-| response_notifications      | boolean         | whether to notify about new applications |
-| allow_messages              | boolean         | ability to [message candidates](http://inboxemp.hh.ru/) on the subject of the vacancy |
-| response_letter_required    | boolean         | demand a cover letter |
-| accept_handicapped          | boolean         | indication that the vacancy is available for disabled applicants |
-| accept_kids                 | boolean         | indication that the vacancy is available for applicants from 14 years [read more](employer_vacancies_accept_kids.md#accept-kids)|
-| branded_template.id         | string          | <a name="branded-template-field"></a> branded template from the [directory](employer_vacancy_branded_templates.md#list) |
-| driver_license_types        | array           | driver license types |
-| driver_license_types[].id   | string          | driver license type from [driver_license_types dictionary](dictionaries.md) |
-| accept_incomplete_resumes   | boolean         | indication that applicants are allowed to respond to the vacancy using incomplete resumes |
+ Path                        | JSON type       | Description 
+-----------------------------|-----------------|-------------
+ name                        | string          | name 
+ description                 | string          | html description, min. 200 characters
+ key_skills                  | array           | list of key skills, max. 30
+ key_skills[].name           | string          | name of key skill
+ specializations             | array           | list of specialisations
+ specializations[].id        | string          | specialisation [from directory](specializations.md)
+ area.id                     | string          | region of publication [from directory](areas.md)
+ type.id                     | string          | type from [vacancy_type directory](dictionaries.md)
+ billing_type.id             | string          | billing type from [vacancy_billing_type directory](dictionaries.md)
+ site.id                     | string          | publication website from [vacancy_site directory](dictionaries.md)
+ code                        | string          | internal vacancy code
+ department.id               | string          | department [from directory](employer_departments.md) on whose behalf the vacancy is uploaded (if available for the company)
+ salary                      | object or null  | salary
+ salary.from                 | numeric or null | lower salary limit
+ salary.to                   | numeric or null | upper salary limit
+ salary.gross                | boolean         | indication that salary limits specified are before taxes
+ salary.currency             | string          | currency code from [currency directory](dictionaries.md)
+ address                     | object or null  | address
+ address.id                  | string          | address from [list of employer's available addresses](employer_addresses.md)
+ address.show_metro_only     | boolean         | show only the metro station for this address
+ experience.id               | string          | required work experience from [experience directory](dictionaries.md)
+ schedule.id                 | string          | working schedule from [schedule directory](dictionaries.md) |
+ employment.id               | string          | employment type from [employment directory](dictionaries.md) |
+ contacts                    | object          | contact info
+ contacts.name               | string          | contact person
+ contacts.email              | string          | email
+ contacts.phones             | array           | list of contact phone numbers
+ contacts.phones[].country   | string          | country code
+ contacts.phones[].city      | string          | city code
+ contacts.phones[].number    | string          | phone number
+ contacts.phones[].comment   | string or null  | commentary (preferred time for calling this number)
+ test                        | object          | vacancy test
+ test.id                     | string          | the test that will be added to the vacancy
+ test.required               | boolean         | the test is mandatory for an application
+ response_url                | string          | application URL for direct vacancies (`type.id=direct`) |
+ custom_employer_name        | string          | company name for anonymous vacancies (`type.id=anonymous`), for example "major bank of Russia"
+ employer.id                 | string          | employer on whose behalf the job vacancy is published
+ manager.id                  | string          | contact person (manager) for the published vacancy, by default — current user
+ response_notifications      | boolean         | notify about new applications
+ allow_messages              | boolean         | [message candidate](http://inboxemp.hh.ru/) option for this vacancy
+ response_letter_required    | boolean         | mandatory cover letter
+ accept_handicapped          | boolean         | indication that the job is available for applicants with disabilities
+ accept_kids                 | boolean         | indication that the job is available for applicants as young as 14 years old [details](employer_vacancies_accept_kids.md#accept-kids)|
+ branded_template.id         | string          | <a name="branded-template-field"></a> branded vacancy description from [directory](employer_vacancy_branded_templates.md#list) |
+ driver_license_types        | array           | list of required driver license categories
+ driver_license_types[].id   | string          | driving license category. element of [driver_license_type](dictionaries.md) directory
+ accept_incomplete_resumes   | boolean         | whether it is possible to apply with an incomplete resume
 
 
 <a name="creation-results"></a>
-### Request result
+### Response
 
-* `204 No Content` – added successfully. The `Location` header will contain a
-  link to the added vacancy.
-* `403 Forbidden` – addition of vacancies is not available for this user or
-  is not available because a vacancy with similar data had already been posted
-  by this employer. If you are sure that addition of the duplicate is necessary,
-  you can add the `POST /vacancies?ignore_duplicates=true` parameter to
-  your request.
-* `400 Bad Request` – errors in fields when adding a vacancy.
+Successful response is returned with `201 Created` code. 
+The `Location` header will contain a link to the published vacancy:
 
-In addition to an HTTP code, the server can return
-[error reasons](errors.md#vacancies-create-n-edit).
+```
+HTTP/1.1 201 Created
+
+Location: /vacancies/78789890
+```
+
+The response body will return the id of the published vacancy:
+
+```json
+{
+    "id": "78789890"
+}
+```
+
+### Errors
+
+* `403 Forbidden` – current user cannot publish vacancies
+* <a name="creation-ignore-duplicates"></a> `403 Forbidden` –
+  the vacancy cannot be published because this employer has already published
+    a vacancy with similar details. If you are sure that
+    a duplicate is necessary, you can add
+  `POST /vacancies?ignore_duplicates=true`.
+* `400 Bad Request` – the field error argument to your request when publishing the vacancy.
+
+In addition to the HTTP code, the server can return a description of the [error reason](errors.md#vacancies-create-n-edit).
 
 
 <a name="conditions"></a>
-## Field filling and vacancy editing conditions
+## Conditions for filling out fields when publishing and adding vacancies
 
 `GET /vacancy_conditions`
 
-Each end field is described by the rules object. If the field consists of the
-object with a number of fields, these fields are described in the `fields`.
+Each end field is described by a rules object. If a field consists of
+an object with several fields, these fields are described in `fields`.
 
-The vacancy fields conditions are available only to employers, otherwise `403
-Forbidden` error code will be returned.
+Only employers have access to conditions for vacancy fields, otherwise
+the system will return a response code `403 Forbidden`.
 
-For all the fields and their parts it is specified whether they are required
-(`required`).
+For all fields and their parts it is indicated if they are mandatory (`required`).
 
 
-### Response example
+### Response
 
-Successful response will include the `200 OK` response code and will have a
-body:
+A successful response contains the `200 OK` response code and a body:
 
 ```json
 {
@@ -396,65 +417,87 @@ body:
 }
 ```
 
+### Rules
 
+Name | Type | Description
+--- | --- | --------
+required | boolean | Is the vacancy field or object field necessary?
+min_length | numeric | Minimum length for text fields.
+max_length | numeric | Maximum length for text fields.
+min_count | numeric | Minimum number of objects for fields with lists.
+max_count | numeric or `null` | Maximum number of objects for fields with lists. `null` if the number is not limited.
+
+### Errors
+
+`403 Forbidden` – The conditions for filling vacancy fields are not available to this user.
 
 <a name="edit"></a>
-## Vacancy editing
+## Editing vacancies
 
 `PUT /vacancies/{vacancy_id}`
 
-Vacancy editing is similar to vacancy creation, but there is also a possibility to transfer separate fields in the object for partial editing of the vacancy.
-Composite fields (e.g. `salary`, `contacts`, `specializations`) can be edited only wholly, indicating the entire object. For example, to edit a salary currency, one must also state the currency values, and to edit a specialization, one should also specify the entire list.
+* `ignore_duplicates=true` - ignore [duplicates](#edit-ignore-duplicates) after editing the vacancy.
 
+Editing is similar to publishing a vacancy but with an option to send individual fields in an object for partial editing.
+Compound fields (such as `salary`, `contacts`, `specializations`) can be edited only as a whole; 
+the entire object will be sent. For example, to edit salary currency, you will also have to change the salary value;
+to change the specialisation you will have to send a full list.
 
-### Fields available for editing
+### Editable fields
 
-| field                      | description                                                          |
-|----------------------------|----------------------------------------------------------------------|
-| name                       | title                                                                |
-| description                | description                                                          |
-| key_skills                 | key skills                                                           |
-| schedule                   | work schedule                                                        |
-| experience                 | required work experience                                             |
-| employment                 | employment type                                                      |
-| specializations            | specialization list                                                  |
-| salary                     | salary                                                               |
-| address                    | address                                                              |
-| test                       | test task                                                            |
-| department                 | department                                                           |
-| code                       | internal vacancy code                                                |
-| response_letter_required   | requirement to enclose a cover letter when applying                  |
-| accept_handicapped         | indication that the vacancy is available for disabled applicants     |
-| accept_kids                | indication that the vacancy is available for applicants from 14 years|
-| response_notifications     | tuning of the new application notifications                          |
-| allow_messages             | ability to message candidates on the subject of the vacancy          |
-| contacts                   | contact information (for trade vacancies)                            |
-| custom_employer_name       | company name for anonymous vacancies                                 |
-| response_url               | application URL for direct vacancies                                 |
+ field                      | description                                                          
+----------------------------|----------------------------------------------------------------------
+ name                       | title                                                                
+ description                | description                                                          
+ key_skills                 | key skills                                                           
+ schedule                   | work schedule                                                        
+ experience                 | required work experience                                     
+ employment                 | type of employment                                                   
+ specializations            | list of specialisations                                    
+ salary                     | salary                                                               
+ address                    | address                                                              
+ test                       | test task                                                           
+ department                 | department                                                           
+ code                       | internal vacancy code                                          
+ response_letter_required   | mandatory application cover letter              
+ accept_handicapped         | indication that the job is available for applicants with disabilities   
+ accept_kids                | indication that the job is available for applicants as young as 14 years old
+ response_notifications     | notification about new applications                 
+ allow_messages             | "message candidate" option for this vacancy
+ contacts                   | contact info                     
+ custom_employer_name       | company name for anonymous vacancies                                 
+ response_url               | application URL for direct vacancies   
+ accept_incomplete_resumes | whether it is possible to apply with an incomplete resume   
 
-Other fields are either read-only or can be set only when creating a vacancy.
+The remaining fields are read-only or can only be set during initial publication.
 
+### Response
 
-### Request result
+A successful response contains a code `204 No Content`.
 
-* `204 No Content` – updated successfully.
-* `404 Not Found` – the edited vacancy is not found.
-* `403 Forbidden` – vacancy editing is not available for this user.
-* `400 Bad Request` – errors in fields when editing a vacancy.
+### Errors
 
-In addition to an HTTP code, the server can return
-[error reasons](errors.md#vacancies-create-n-edit).
+* `404 Not Found` – vacancy for editing not found.
+* `403 Forbidden` – current user cannot edit vacancies.
+* `400 Bad Request` – error found in a field when editing the vacancy.
+* <a name="edit-ignore-duplicates"></a> `403 Forbidden` –
+  the vacancy cannot be edited, because editing makes the vacancy
+    similar to another vacancy from the same employer. If you are sure that
+    a duplicate is necessary, you can add
+  `PUT /vacancies/{vacancy_id}?ignore_duplicates=true`.
+
+In addition to the HTTP code, the server can return a description of the [error reason](errors.md#vacancies-create-n-edit).
 
 
 <a name="edit_more"></a>
-### Changing the billing type, vacancy manager
+### Editing billing type or vacancy manager
 
 It is possible only to improve vacancy's billing type.
 
-Changing the vacancy billing type as well as transferring the vacancy to another
-company manager is similar to editing `POST /vacancies/{vacancy_id}`. The only
-feature is that these fields (`billing_type` and `manager`) must be sent
-separately from other vacancy fields.
+Editing the billing type of a vacancy or passing the vacancy to another
+manager in the company is similar to editing `PUT /vacancies/{vacancy_id}`. 
+The only peculiarity is that the following fields (`billing_type` and `manager`) 
+must be sent separately from the remaining fields of the vacancy.
 
 ```
 PUT /vacancies/{vacancy_id}
@@ -482,27 +525,27 @@ PUT /vacancies/{vacancy_id}
 }
 ```
 
-If sent with any other fields, an error will be returned.
+Sending these fields with any other will return an error.
 
 
 <a name="other-actions"></a>
 ### Other actions
 
-* [archiving](#archive)
-* [deleting](#hide)
-* [restoring deleted vacancies](#restore)
+* [archive](#archive)
+* [delete](#hide)
+* [restore from deleted](#restore)
 
 
 <a name="prolongate"></a>
-## Vacancy extension
+## Extending vacancies
 
-**Extension of the vacancy costs the same as a new posting**
+**The cost of extending a vacancy is the same as publishing a new vacancy**
 
-Vacancy extension has variable limits, and at the moment, the
-following rules are applied:
+There are limits on extending vacancies, but they can change. At the moment
+the following rules apply:
 
-* standard vacancies can be extended if no less than 3 days have passed since the last extension.
-* "Standard Plus" vacancies can be extended no earlier than 5 days before the posting end date.
+* standard vacancies can be extended if it has been at least 3 days since the last extension.
+* "Standard Plus" vacancies can be extended at least 5 days before the end of publication.
 
 
 ### Request
@@ -514,18 +557,18 @@ where `vacancy_id` – ID of the vacancy.
 
 ### Response
 
-* `204 No Content` – vacancy was extended successfully
-* `403 Forbidden` – current user is not an employer or
-  extension is impossible.
-* `404 Not Found` – vacancy doesn't exist or current user
-  is not eligible for extension.
+A successful response contains a code `204 No Content` and is body-less.
 
-In addition to an HTTP code, the server can return
-[error reason](errors.md#vacancies-prolongate).
+### Errors
+
+* `403 Forbidden` – current user is not an employer or extension is impossible.
+* `404 Not Found` – the vacancy does not exist or the current user cannot extend it.
+
+In addition to an HTTP code, the server can return [error reason](errors.md#vacancies-prolongate).
 
 
 <a name="prolongate-info"></a>
-## Info on vacancy extension availability
+## Information about possible vacancy extension
 
 
 ### Request
@@ -539,7 +582,7 @@ where `vacancy_id` – ID of the vacancy.
 
 Successful response is returned with `200 OK` code.
 
-Example of the response if the extension is not possible:
+Sample response when extension is unavailable:
 
 ```json
 {
@@ -551,14 +594,14 @@ Example of the response if the extension is not possible:
             "enabled": false,
             "disable_reason": {
                 "id": "standard_plus_publication_is_updated_automatically",
-                "name": "The \"Standard Plus\" vacancy cannot be updated: it is updated automatically every three days."
+                "name": "A \"Standard Plus\" vacancy cannot be extended — it happens automatically once every three days."
             }
         }
     ]
 }
 ```
 
-Example of the response if the extension is possible:
+Sample response when extension is available:
 
 ```json
 {
@@ -575,55 +618,34 @@ Example of the response if the extension is possible:
 }
 ```
 
-where:
+Where:
 
-* `actions` – list of actions available for vacancy
-  extension. At the moment, only regular extension is possible.
+* `actions` – list of available actions to extend the vacancy. At the moment, the system only supports standard extension.
 * `id` – vacancy ID.
-* `expires_at` – date and time of vacancy posting termination.
+* `expires_at` – publication end date and time.
 
-Data available for the action:
+The following data is available for the action:
 
 * `id` – action ID,
-* `enabled` – action is possible,
-* `disable_reason` – reason of action disable.
-  Possible reasons are listed [in reference guide](dictionaries.md)
+* `enabled` – is the action possible,
+* `disable_reason` – the reason why extension is unavailable.
+  All possible reasons are listed [in the directory](dictionaries.md)
   `vacancy_not_prolonged_reason`.
-* `url` and `method` – url and HTTP method for the request to
-  perform an action.
+* `url` and `method` – are the URL and HTTP method required to make a query for this action.
 
 ### Errors
 
 * `403 Forbidden` – current user is not an employer.
-* `404 Not Found` – vacancy doesn't exist or current user
-  is not eligible to get the vacancy info.
-
-
-<a name="conditions"></a>
-## Field filling and vacancy editing conditions
-
-### Rules
-
-Name | Type | Description
---- | --- | --------
-required | logical | Is the vacancy field or object field mandatory?
-min_length | integer | Min length of text field.
-max_length | integer | Max length of text field.
-min_count | integer | Min number of objects for the fields with list transferring.
-max_count | integer or `null` | Max number of objects for the fields with list transferring. `null` – the number is not limited.
+* `404 Not Found` – the vacancy does not exist or the current user cannot obtain details of this vacancy.
 
 
 <a name="active"></a>
 ## Published vacancy list
 
+`GET /employers/{employer_id}/vacancies/active`
 
-### Request
-
-`GET /employers/{employer_id}/vacancies/active?manager_id={manager_id}`
-
-To view the list of published vacancies, you should indicate the manager ID even
-if you need to make a request for the current manager (the value can be taken
-from `/me`).
+By default, the system returns vacancies from the current user. If you need
+vacancies from another manager, send an additional argument `manager_id={manager_id}`.
 
 ### Response
 
@@ -704,14 +726,14 @@ fields will be returned:
 | counters.views             | number  | number of vacancy views                                                                         |
 | counters.responses         | number  | number of applications for a vacancy                                                            |
 | counters.unread_responses  | number  | number of unread applications for a vacancy                                                     |
-| counters.resumes_in_progress   | number  | number of resumes in progress for a vacancy                                                 |
+| counters.resumes_in_progress   | number  | number of resumes under revision for this vacancy                              |
 | counters.invitations       | number  | number of invitations for a vacancy                                                             |
 | expires_at                 | string  | expiration date for a vacancy posting                                                           |
 | has_updates                | boolean | Whether there are updates calling for attention in the applications/invitations for the vacancy |
-| billing_type               | object  | Vacancy billing type. An element of dictionary [vacancy_billing_type](dictionaries.md).         |
-| billing_type.id            | string  | Vacancy billing type identifier                                                                 |
-| billing_type.name          | string  | Vacancy billing type name                                                                       |
-| can_upgrade_billing_type   | boolean | Whether it is possible to upgrade vacancy billing type                                          |
+| billing_type               | object  | Vacancy billing type. [vacancy_billing_type](dictionaries.md) directory entry.         |
+| billing_type.id            | string  | ID of the vacancy billing type                                                                |
+| billing_type.name          | string  | Name of the vacancy billing type                                                    |
+| can_upgrade_billing_type   | boolean | If the vacancy billing type can be upgraded                                          |
 
 
 ### Supported parameters
@@ -744,13 +766,14 @@ If archived successfully, `204 No Content` will be returned.
 
 `GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}`
 
-To view the list of archived vacancies, you also need to indicated manager id,
-even if you need to make request for the current manager (the value can be taken
-from `/me`). Pagination (`per_page` and `page`) and sorting (`order_by`) are
-supported. Possible sorting values are available in the
-`employer_archived_vacancies_order` (`/dictionaries`) directory. As opposed to
-the list of published vacancies, this collection does not support search (the
-parameters `text` and `area`).
+By default, the system returns vacancies from the current user. If you need
+vacancies from another manager, send an additional argument.
+
+The system supports pagination (`per_page` and `page`) and sorting (`order_by`).
+Possible sorting options can be found in the [directory](dictionaries.md).
+
+Unlike the list of published vacancies, the collection does not support
+search (parameters `text` and `area`).
 
 
 ### Response
@@ -823,6 +846,12 @@ fields will be returned:
 | counters.responses | number | number of applications for a vacancy |
 | archived_at        | string | vacancy archivation date             |
 
+
+### Errors
+
+* `403 Forbidden` – current user is not an employer.
+* `403 Forbidden` – invalid employer id is specified.
+* `404 Not Found` – the current user cannot obtain archive vacancies.
 
 <a name="hide"></a>
 ## Deleting vacancies
@@ -914,3 +943,64 @@ Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
 You can restore only a vacancy deleted from the archive.
 If performed successfully, `204 No Content` will be returned.
 The vacancy will be returned to the archive.
+
+<a name="stats"></a>
+## Vacancy statistics
+
+`GET /vacancies/{vacancy_id}/stats`
+
+where `vacancy_id` - vacancy ID
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
+
+```json
+{
+    "items": [
+        {
+            "date": "2017-01-10",
+            "responses": 1,
+            "views": 36
+        },
+        {
+            "date": "2017-01-11",
+            "responses": 4,
+            "views": 35
+        },
+        {
+            "date": "2017-01-12",
+            "responses": 1,
+            "views": 32
+        },
+        {
+            "date": "2017-01-13",
+            "responses": null,
+            "views": null
+        },
+        {
+            "date": "2017-01-14",
+            "responses": null,
+            "views": null
+        }
+    ]
+}
+```
+
+Each element from `items` has the following fields:
+
+Name | Type | Description
+--- | --- | ---
+date | string | Date in format `YYYY-MM-DD`
+responses | number or null | Number of applications, `null` if the date is in the future or there is no data for this date
+views | number or null | Number of views, `null` if the date is in the future or there is no data for this date
+
+The system returns a window of the last 5 days of the publication life:
+
+* if the vacancy was created after the start of the window, the vacancy publication date will go first;
+* if the vacancy is archived or deleted, the archiving date will go last.
+
+### Errors
+
+If a vacancy with 'vacancy_id' does not exist or the current manager does not have sufficient rights to edit it,
+the system will return '404 Not Found'.
