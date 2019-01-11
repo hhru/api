@@ -126,48 +126,74 @@ In addition to the HTTP code, the server can return a description of the [error 
 <a name="conditions"></a>
 ## Conditions for uploading artifacts
 
+Artifacts uploading conditions are different for each type.
+
 ### Request
 
 ```
-GET /artifacts_conditions
+GET /artifacts/photo/conditions
+```
+
+```
+GET /artifacts/portfolio/conditions
 ```
 
 ### Response
 
-Successful response is returned with `201 Created` code and contains:
+Successful response is returned with `200 OK` code and body:
 
 ```json
 {
-    "description": {
-        "max_length": 255,
-        "min_length": 0,
-        "required": false
+    "fields": {
+        "description": {
+            "max_length": 255,
+            "min_length": 0,
+            "required": false
+        },
+        "file": {
+            "max_size": 6291456,
+            "mime_type": [
+                "image/jpeg",
+                "image/png",
+                "image/psd"
+            ],
+            "required": true
+        },
+        "type": {
+            "required": true
+        }
     },
-    "file": {
-        "max_size": 6291456,
-        "mime_type": [
-            "image/jpeg",
-            "image/png",
-            "image/psd"
-        ],
-        "required": true
-    },
-    "type": {
-        "required": true
+    "counters": {
+        "max": 20,
+        "uploaded": 2
     }
 }
 ```
 
-The response for each field contains conditions for filling:
+<a name="conditions-fields"></a>
+#### An object `fields`
 
 Name | Type | Description
 --- | --- | --------
-required | boolean | if the field is mandatory
-max_length | number | maximum size of the text field
-min_length | number | minimum size of the text field
-max_size | number | maximum file size
-mime_type | array  | list of allowed file types
-mime_type[] | string | [MIME-type](https://www.iana.org/assignments/media-types/media-types.xhtml)
+description | object | conditions for description field
+description.required | boolean | is description field required
+description.max_length | number | max size of description text field
+description.min_length | number | min size of description text field
+file | object | conditions for file field
+file.max_size | number | max file size
+file.mime_type | array | list of allowed files [MIME-types](https://www.iana.org/assignments/media-types/media-types.xhtml)
+file.required | boolean | is file field required
+type | object | conditions for type field
+type.required | boolean | is type field required
+
+
+<a name="conditions-counters"></a>
+#### An object `counters`
+
+Name | Type | Description
+--- | --- | --------
+max | number | maximum number of artifacts of this type
+uploaded | number | number of uploaded artifatcs of this type
 
 ### Errors
 

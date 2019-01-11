@@ -131,52 +131,78 @@ file | да | сам файл
 <a name="conditions"></a>
 ## Условия загрузки артефактов
 
+Условия загрузки артефактов для каждого типа запрашиваются отдельно.
+
 ### Запрос
 
 ```
-GET /artifacts_conditions
+GET /artifacts/photo/conditions
+```
+
+```
+GET /artifacts/portfolio/conditions
 ```
 
 ### Ответ
 
-Успешный ответ приходит с кодом `201 Created` и содержит:
+Успешный ответ приходит с кодом `200 OK` и содержит тело:
 
 ```json
 {
-    "description": {
-        "max_length": 255,
-        "min_length": 0,
-        "required": false
+    "fields": {
+        "description": {
+            "max_length": 255,
+            "min_length": 0,
+            "required": false
+        },
+        "file": {
+            "max_size": 6291456,
+            "mime_type": [
+                "image/jpeg",
+                "image/png",
+                "image/psd"
+            ],
+            "required": true
+        },
+        "type": {
+            "required": true
+        }
     },
-    "file": {
-        "max_size": 6291456,
-        "mime_type": [
-            "image/jpeg",
-            "image/png",
-            "image/psd"
-        ],
-        "required": true
-    },
-    "type": {
-        "required": true
+    "counters": {
+        "max": 20,
+        "uploaded": 2
     }
 }
 ```
 
-В ответе для каждого поля описаны условия его заполнения:
+<a name="conditions-fields"></a>
+#### Объект `fields`
 
 Имя | Тип | Описание
 --- | --- | --------
-required | boolean | является ли поле обязательным
-max_length | number | максимальный размер текстового поля
-min_length | number | минимальный размер текстового поля
-max_size | number | максимальный размер файла
-mime_type | array  | список допустимых типов файлов
-mime_type[] | string | [MIME-тип](https://www.iana.org/assignments/media-types/media-types.xhtml)
+description | object | условия для поля description
+description.required | boolean | является ли поле description обязательным
+description.max_length | number | максимальный размер текстового поля description
+description.min_length | number | минимальный размер текстового поля description
+file | object | условия для поля file
+file.max_size | number | максимальный размер файла
+file.mime_type | array | список допустимых [MIME-типов](https://www.iana.org/assignments/media-types/media-types.xhtml) файлов
+file.required | boolean | является ли поле file обязательным
+type | object | условия для поля type
+type.required | boolean | является ли поле type обязательным
+
+
+<a name="conditions-counters"></a>
+#### Объект `counters`
+
+Имя | Тип | Описание
+--- | --- | --------
+max | число | максимально возможное количество артефактов данного типа, которое можно загрузить
+uploaded | число | количество уже загруженных артефактов данного типа
 
 ### Ошибки
 
-* `403 Forbidden` – текущий пользователь не соискатель
+* `403 Forbidden` – текущий пользователь - не соискатель
 
 
 <a name="edit"></a>
