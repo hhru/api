@@ -139,7 +139,7 @@ GET /artifacts_conditions
 
 ### Ответ
 
-Успешный ответ приходит с кодом `201 Created` и содержит:
+Успешный ответ приходит с кодом `200 OK` и содержит тело:
 
 ```json
 {
@@ -159,24 +159,44 @@ GET /artifacts_conditions
     },
     "type": {
         "required": true
+    },
+    "counters": {
+        "photo": {
+            "max": 20,
+            "uploaded": 2
+        },
+        "portfolio": {
+            "max": 10,
+            "uploaded": 1
+        }
     }
 }
 ```
 
-В ответе для каждого поля описаны условия его заполнения:
-
 Имя | Тип | Описание
 --- | --- | --------
-required | boolean | является ли поле обязательным
-max_length | number | максимальный размер текстового поля
-min_length | number | минимальный размер текстового поля
-max_size | number | максимальный размер файла
-mime_type | array  | список допустимых типов файлов
-mime_type[] | string | [MIME-тип](https://www.iana.org/assignments/media-types/media-types.xhtml)
+description | object | условия для поля description
+description.required | boolean | является ли поле description обязательным
+description.max_length | number | максимальный размер текстового поля description
+description.min_length | number | минимальный размер текстового поля description
+file | object | условия для поля file
+file.max_size | number | максимальный размер файла
+file.mime_type | array | список допустимых типов файлов
+file.mime_type[] | string | [MIME-тип](https://www.iana.org/assignments/media-types/media-types.xhtml)
+file.required | boolean | является ли поле file обязательным
+type | object | условия для поля type
+type.required | boolean | является ли поле type обязательным
+counters | object | информация о количестве артефактов каждого типа
+counters.photo | object | информация по артефактам с типом photo
+counters.photo.max | число | максимально возможное количество файлов типа photo, которое можно загрузить
+counters.photo.uploaded | число | количество уже загруженных файлов типа photo
+counters.portfolio | object | информация по артефактам с типом portfolio
+counters.portfolio.max | число | максимально возможное количество файлов типа portfolio, которое можно загрузить
+counters.portfolio.uploaded | число | количество уже загруженных файлов типа portfolio
 
 ### Ошибки
 
-* `403 Forbidden` – текущий пользователь не соискатель
+* `403 Forbidden` – текущий пользователь - не соискатель
 
 
 <a name="edit"></a>

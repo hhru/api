@@ -134,7 +134,7 @@ GET /artifacts_conditions
 
 ### Response
 
-Successful response is returned with `201 Created` code and contains:
+Successful response is returned with `200 OK` code and body:
 
 ```json
 {
@@ -154,6 +154,16 @@ Successful response is returned with `201 Created` code and contains:
     },
     "type": {
         "required": true
+    },
+    "counters": {
+        "photo": {
+            "max": 20,
+            "uploaded": 2
+        },
+        "portfolio": {
+            "max": 10,
+            "uploaded": 1
+        }
     }
 }
 ```
@@ -162,12 +172,24 @@ The response for each field contains conditions for filling:
 
 Name | Type | Description
 --- | --- | --------
-required | boolean | if the field is mandatory
-max_length | number | maximum size of the text field
-min_length | number | minimum size of the text field
-max_size | number | maximum file size
-mime_type | array  | list of allowed file types
-mime_type[] | string | [MIME-type](https://www.iana.org/assignments/media-types/media-types.xhtml)
+description | object | conditions for description field
+description.required | boolean | is description field required
+description.max_length | number | max size of description text field
+description.min_length | number | min size of description text field
+file | object | conditions for file field
+file.max_size | number | max file size
+file.mime_type | array | list of allowed file types
+file.mime_type[] | string | [MIME-type](https://www.iana.org/assignments/media-types/media-types.xhtml)
+file.required | boolean | is file field required
+type | object | conditions for type field
+type.required | boolean | is type field required
+counters | object | counters information for artifacts each types 
+counters.photo | object | counters information for photo artifacts 
+counters.photo.max | number | maximum number of photo artifacts
+counters.photo.uploaded | number | number of uploaded photo artifatcs
+counters.portfolio | object | counters information for portfolio artifacts
+counters.portfolio.max | number | maximum number of portfolio artifacts
+counters.portfolio.uploaded | number | number of uploaded portfolio artifatcs
 
 ### Errors
 
