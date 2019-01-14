@@ -178,8 +178,7 @@ description.max_length | number | max size of description text field
 description.min_length | number | min size of description text field
 file | object | conditions for file field
 file.max_size | number | max file size
-file.mime_type | array | list of allowed file types
-file.mime_type[] | string | [MIME-type](https://www.iana.org/assignments/media-types/media-types.xhtml)
+file.mime_type | array | list of allowed files [MIME-types](https://www.iana.org/assignments/media-types/media-types.xhtml)
 file.required | boolean | is file field required
 type | object | conditions for type field
 type.required | boolean | is type field required

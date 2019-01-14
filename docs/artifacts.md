@@ -181,8 +181,7 @@ description.max_length | number | максимальный размер текс
 description.min_length | number | минимальный размер текстового поля description
 file | object | условия для поля file
 file.max_size | number | максимальный размер файла
-file.mime_type | array | список допустимых типов файлов
-file.mime_type[] | string | [MIME-тип](https://www.iana.org/assignments/media-types/media-types.xhtml)
+file.mime_type | array | список допустимых [MIME-типов](https://www.iana.org/assignments/media-types/media-types.xhtml) файлов
 file.required | boolean | является ли поле file обязательным
 type | object | условия для поля type
 type.required | boolean | является ли поле type обязательным
