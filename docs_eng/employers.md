@@ -13,7 +13,7 @@ Additional available parameters:
 * only_with_vacancies – return only employers who have open vacancies at the moment (`true`) or all employers (`false`).
                         Default — `false`.
 * page – number of page with employers (counted up from 0, default is 0)
-* per_page – number of elements on page (default — 20)
+* per_page – number of elements on page (default — 20, max value - 100)
 
 For page parameters (`page`, `per_page`) there is a limit:
 the depth of returned results cannot exceed 2000. For example, a request `per_page=10&page=199` 
