@@ -510,7 +510,7 @@ Some parameters take multiple values: `key=value&key=value`.
 
 * `per_page`, `page` — [pagination parameters](general.md.#pagination). The parameter per_page is limited by 100. 
 
-* `no_magic` – If 'false' — turn off automatic vacancy transformation. Default — `true`. 
+* `no_magic` – If `true` — turn off automatic vacancy transformation. Default — `false`. 
 If automatic transformation is enabled, an attempt will be made to change the user's text query to a set of
 parameters. For example, a query `text=moscow accountant 100500` will be transformed to
 `text=accountant&only_with_salary=true&area=1&salary=100500`.
