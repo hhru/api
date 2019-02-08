@@ -652,7 +652,7 @@ education.attestation[].year | number | Год сдачи
 education.primary | array | Список образований выше среднего
 education.primary[].name | string | Название учебного заведения
 education.primary[].name_id | string или null | Идентификатор учебного заведения
-education.primary[].organization | string или null| Факультет
+education.primary[].organization | string или null| Факультет. null, если не указан.
 education.primary[].organization_id | string или null | Идентификатор факультета
 education.primary[].result | string | Специальность / специализация
 education.primary[].result_id | string или null | Идентификатор специальности / специализации
