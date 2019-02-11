@@ -633,7 +633,7 @@ education.attestation[].year | number | Year the test/exam was passed
 education.primary | array | List of degrees higher than secondary education
 education.primary[].name | string | Name of educational institution
 education.primary[].name_id | string or null | Educational institution ID
-education.primary[].organization | string | Faculty
+education.primary[].organization | string | Faculty. If the faculty is unknown, the value is null.
 education.primary[].organization_id | string or null | Faculty ID
 education.primary[].result | string | Profession/specialist area
 education.primary[].result_id | string or null | Profession/specialist area ID
