@@ -6,7 +6,7 @@
   * [УObtaining a temporary `authorization_code` successfully](#get-authorization_code)
   * [Obtaining access and refresh tokens](#get-tokens)
 * [Refreshing the access and refresh token pair](#refresh_token)
-* [Запрос авторизации под другим пользователем](#force_login)
+* [Authorization request for another user](#force_login)
 
 <a name="get-auth"></a>
 ## Obtaining user authorization
@@ -182,13 +182,15 @@ The following scenario is possible:
    request.
 2. The user is already authorized on the website, and the application has
    already been granted access.
-3. Then the user is immediately redirected with a temporary token, and the
-   application exchanges it for an `access_token`.
+3. The user will be asked if they want to continue using the current account or log in under a different account.
 
-In this case the user authorized on the website is granted access automatically.
-If it is necessary to request access for another user, the application can add
-the `force_login=true` parameter to the `/oauth/authorize...` request. In
-this case the user will be showed an authorization form with the user name and
+If a redirect is required with a temporary token in step 3,
+add the `skip_choose_account=true` parameter to the `/oauth/authorize...` request.
+In this case, access is automatically provided to the user authorised on the website.
+
+If the authorisation form should always be shown, the application can
+add the `force_login=true` parameter to the `/oauth/authorize...` request.
+In this case the user will be showed an authorization form with the user name and
 password fields even if the user is already authorized.
 
 This can be helpful for applications that provide service only for applicants.

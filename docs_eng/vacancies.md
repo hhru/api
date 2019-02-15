@@ -104,6 +104,10 @@ Successful server response is returned with `200 OK` code and contains:
     },
     "archived": false,
     "name": "Secretary",
+    "insider_interview": {
+        "id": "12345",
+        "url": "https://hh.ru/interview/12345?employerId=777"
+    },
     "area": {
         "url": "https://api.hh.ru/areas/1?locale=EN",
         "id": "1",
@@ -224,6 +228,7 @@ salary.gross | boolean or null | Indication that the salary is shown before tax.
 salary.currency | string | Indication of salary currency ([currency](dictionaries.md) directory).
 archived | boolean | Whether the vacancy is archived
 name | string | Vacancy name
+insider_interview | object or null | [Interview about life in the company](#insider-interview)
 area | object | Vacancy region
 area.id | string | Region ID
 area.name | string | Region name
@@ -235,6 +240,7 @@ response_letter_required | boolean | Whether it is mandatory to fill out a messa
 type | object | Vacancy type. [vacancy_type](dictionaries.md) directory entry.
 type.id | string | Vacancy type ID
 type.name | string | Vacancy type name
+has_test | boolean | Information on whether there is an attached test task for the vacancy. If there is a test — `true`.
 response_url | string or null | You cannot apply for vacancies with `direct` type on hh.ru, these vacancies have an external website URL in the `response_url` key (in most cases, the employer's website with an application form)
 test | object or null | Information about attached test for the job. If there is no test — `null`. **At the moment it is impossible to apply for vacancies with mandatory test with API.**
 test.required | boolean | If the test is mandatory for an application
@@ -277,6 +283,17 @@ support enabled. Whereas:
 * Font size should be at least 12px, line spacing – at least 16px.
 
 The value can be `null` if the vacancy does not have an individual description.
+
+<a name="insider-interview"></a>
+### Interview about life in the company
+
+`insider_interview` — an object with information about the interview about life in the company or null if there is no interview for this vacancy. 
+The object contains the following fields:
+
+Name | Type | Description
+---- | --- | --------
+id | string | interview ID
+url | string | address of the page containing the interview
 
 <a name="vacancy-fields-applicant"></a>
 ### Additional vacancy fields for candidates
@@ -548,6 +565,10 @@ used for applicants.
         "gross": true
       },
       "name": "Secretary",
+      "insider_interview": {
+          "id": "12345",
+          "url": "https://hh.ru/interview/12345?employerId=777"
+      },
       "area": {
         "url": "https://api.hh.ru/areas/1",
         "id": "1",
@@ -674,6 +695,10 @@ returned in response.
         "gross": true
     },
     "name": "Test automation specialist (Java, Selenium)",
+    "insider_interview": {
+        "id": "12345",
+        "url": "https://hh.ru/interview/12345?employerId=777"
+    },
     "area": {
         "url": "https://api.hh.ru/areas/1",
         "id": "1",

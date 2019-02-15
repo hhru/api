@@ -492,7 +492,7 @@ In addition to the HTTP code, the server can return a description of the [error 
 <a name="edit_more"></a>
 ### Editing billing type or vacancy manager
 
-It is possible only to improve vacancy's billing type.
+You can only improve the vacancy type.
 
 Editing the billing type of a vacancy or passing the vacancy to another
 manager in the company is similar to editing `PUT /vacancies/{vacancy_id}`. 
@@ -525,8 +525,17 @@ PUT /vacancies/{vacancy_id}
 }
 ```
 
-Sending these fields with any other will return an error.
+### Response
 
+A successful response contains a code `204 No Content` and is body-less.
+
+### Errors
+
+* `404 Not Found` – vacancy for editing not found.
+* `403 Forbidden` – current user cannot edit vacancies.
+* `403 Forbidden` – `billing_type` and `manager` are passed along with others.
+
+In addition to the HTTP code, the server can return a description of the [error reason](errors.md#vacancies-create-n-edit).
 
 <a name="other-actions"></a>
 ### Other actions
@@ -562,7 +571,8 @@ A successful response contains a code `204 No Content` and is body-less.
 ### Errors
 
 * `403 Forbidden` – current user is not an employer or extension is impossible.
-* `404 Not Found` – the vacancy does not exist or the current user cannot extend it.
+* `404 Not Found` – current user does not have privileges to extend vacancies
+* `404 Not Found` – the vacancy does not exist
 
 In addition to an HTTP code, the server can return [error reason](errors.md#vacancies-prolongate).
 
@@ -636,8 +646,8 @@ The following data is available for the action:
 ### Errors
 
 * `403 Forbidden` – current user is not an employer.
-* `404 Not Found` – the vacancy does not exist or the current user cannot obtain details of this vacancy.
-
+* `404 Not Found` – the vacancy does not exist 
+* `404 Not Found` – the current user cannot obtain details of this vacancy.
 
 <a name="active"></a>
 ## Published vacancy list
@@ -747,6 +757,12 @@ collection supports:
 * `order_by` – sorting of vacancies, possible options are available in the
   `employer_active_vacancies_order` directory
 
+### Errors
+
+* `403 Forbidden` – current user is not an employer
+* `403 Forbidden` – provided employer ID is incorrect
+* `404 Not Found` – current user does not have the appropriate privileges to view published vacancies
+* `404 Not Found` – manager with the passed ID does not exist
 
 <a name="archive"></a>
 ## Storing vacancies
@@ -755,7 +771,16 @@ To archive a vacancy, you should send a PUT request:
 
 `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}`
 
-If archived successfully, `204 No Content` will be returned.
+### Response
+
+A successful response contains a code `204 No Content` and is body-less.
+
+### Errors
+
+* `403 Forbidden` – current user is not an employer
+* `404 Not Found` – provided employer ID is incorrect
+* `404 Not Found` – current user does not have the appropriate privileges to archive the vacancy
+* `404 Not Found` – vacancy with the passed ID does not exist
 
 
 <a name="archived"></a>
@@ -859,7 +884,18 @@ fields will be returned:
 `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}`
 
 You can delete only an archived vacancy.
-If performed successfully, `204 No Content` will be returned.
+
+### Response
+
+A successful response contains a code `204 No Content` and is body-less.
+
+### Errors
+
+* `403 Forbidden` – current user is not an employer
+* `403 Forbidden` – it is forbidden to delete a job that is not archived
+* `404 Not Found` – provided employer ID is incorrect
+* `404 Not Found` – current user does not have privileges to delete archived vacancies
+* `404 Not Found` – vacancy with the passed ID does not exist
 
 
 <a name="hidden"></a>
@@ -934,6 +970,11 @@ Successful server response is returned with `200 OK` code and contains:
 
 Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
 
+### Ошибки
+
+* `403 Forbidden` – current user is not an employer
+* `403 Forbidden` – provided employer ID is incorrect
+* `404 Not Found` – current user does not have the appropriate privileges to view deleted vacancies
 
 <a name="restore"></a>
 ## Restoring deleted vacancies
@@ -941,8 +982,18 @@ Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
 `DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}`
 
 You can restore only a vacancy deleted from the archive.
-If performed successfully, `204 No Content` will be returned.
-The vacancy will be returned to the archive.
+
+### Response
+
+A successful response contains a code `204 No Content` and is body-less.
+
+### Errors
+
+* `403 Forbidden` – current user is not an employer
+* `403 Forbidden` – restoring a non-deleted vacancy is forbidden
+* `404 Not Found` – provided employer ID is incorrect
+* `404 Not Found` – current user does not have privileges to restore deleted vacancies
+* `404 Not Found` – vacancy with the passed ID does not exist
 
 <a name="stats"></a>
 ## Vacancy statistics
@@ -1002,5 +1053,5 @@ The system returns a window of the last 5 days of the publication life:
 
 ### Errors
 
-If a vacancy with 'vacancy_id' does not exist or the current manager does not have sufficient rights to edit it,
-the system will return '404 Not Found'.
+* `403 Forbidden` – current user is not an employer
+* `404 Not Found` – vacancy with the passed ID does not exist

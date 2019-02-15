@@ -40,7 +40,7 @@ Successful server response is returned with `200 OK` code and contains:
 }
 ```
  
-> :warning: If you send the ID of a non-existent college, it will not return any information
+> :warning: If you send the ID of a non-existent university, it will not return any information
 
 The information for each university includes the following fields:
 

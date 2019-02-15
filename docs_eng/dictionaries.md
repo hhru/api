@@ -20,6 +20,7 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `resume_status` - CV status
 * `resume_moderation_note` - moderator's comment
 * `driver_license_types` — driver license types
+* `resume_hidden_fields` — resume fields that can be [hidden](resumes.md#hidden-fields)
 
 
 ## Directories for vacancy fields

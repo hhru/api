@@ -139,6 +139,8 @@ If autosearch is not found, response `404 Not Found` will be returned.
 Request is available only if authorized by an applicant, otherwise error
 `403 Forbidden` is returned.
 
+If the parameters are specified incorrectly, `400 Bad request` will be returned. 
+In addition to the HTTP code, the server can return a description of the [error reason](errors.md#general-errors).
 
 <a name="vacancies-saved-search-delete"></a>
 ## Deleting saved vacancy search

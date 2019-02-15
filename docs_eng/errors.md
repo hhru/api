@@ -283,6 +283,28 @@ HTTP code| type| value| description
 403 | vacancies | conflict_changes | a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
 403 | vacancies | can_not_accept_kids | you can't publish jobs to search for applicants with a minimum age of 14 ([read more](employer_vacancies_accept_kids.md#accept-kids))
 
+#### Reasons for errors
+
+reason | description 
+-------|---------
+is_empty | empty value
+wrong_size | wrong value size
+is_too_short | value size is too small
+is_too_long | value size is too big
+currency_code_is_invalid | the salary currency is incorrect
+chosen_area_is_not_a_leaf_or_not_exist | the vacancy location is incorrect or is not the final region (city, town)
+email_in_description | the vacancy description contains an email
+anonymous_vacancy_contains_address | an anonymous vacancy should not contain the employer's address
+anonymous_vacancy_has_real_company_name | the vacancy title should not contain the employer's company name
+only_for_anonymous_type | this action is only available for anonymous vacancies
+address_is_disabled | address is unavailable
+vacancy_type_employer_billing_type_mismatch | the vacancy type is incompatible with current billing type
+only_for_direct_type | this action is only available for direct vacancies
+address_is_empty_with_checked_show_metro_flag | empty address was entered together with an indication to show the metro station
+address_has_no_metro_but_checked_show_metro_flag | a metro station is not available at the entered address, but the option to show the metro station is selected
+default_vacancy_branded_template_is_invalid_or_not_enough_purchased_services | branded vacancy template is entered incorrectly, or you have not paid for the service allowing you to use a [branded vacancy template](https://hh.ru/price?from=menu#branding) 
+department_code_prohibited_in_anonymous_vacancy | you cannot specify a department code for an anonymous vacancy
+branded_template_prohibited_in_anonymous_vacancy | you cannot use a branded template for an anonymous vacancy
 
 <a name="vacancies-prolongate"></a>
 ### Vacancy extension

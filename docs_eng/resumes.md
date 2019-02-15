@@ -25,6 +25,7 @@
   * [Retrieving a list of resume visibility types](#get_access_types)
 * [Resume viewing history](#views)
 * [Searching for jobs similar to a resume](#similar)
+* [CV hidden fields](#hidden-fields)
 
 
 <a name="mine"></a>
@@ -188,7 +189,13 @@ Server returns `403 Forbidden` if authorization is failed.
                     "active": true,
                     "expires": "2016-06-08T18:25:25+0300"
                 }
-            ]
+            ],
+             "hidden_fields": [
+                 {
+                     "id": "phones",
+                     "name": "All phone numbers listed in the CV"
+                 }
+             ]
         }
     ],
     "page": 0,
@@ -536,7 +543,13 @@ authorization, some fields will contain `null`, and the `can_view_full_info` fie
         {
             "id": "B"
         }
-    ]
+    ],
+     "hidden_fields": [
+         {
+             "id": "phones",
+             "name": "All phone numbers listed in the CV"
+         }
+     ]
 }
 ```
 
@@ -701,6 +714,7 @@ download.rtf.url | string | A link to download an RTF resume
 has_vehicle | boolean | Does the applicant have their own car
 driver_license_types | array | A list of applicant's driving license categories
 driver_license_types[].id | string | Applicant's driver’s license category. [driver_license_types](dictionaries.md) directory entry
+hidden_fields | array | List of hidden fields. Entry of the [resume_hidden_fields](dictionaries.md) directory ([more info](#hidden-fields))
 
 
 ### Errors
@@ -719,7 +733,7 @@ In addition to the HTTP code, the server can return a description of the [error 
     "access": {
         "type": {
             "id": "clients",
-            "name": "видно всем компаниям, зарегистрированным на HeadHunter"
+            "name": "visible to all companies registered on HeadHunter"
         }
     },
     "blocked": false,
@@ -1382,7 +1396,7 @@ Example:
         "min_length": 2,
         "required": true,
         "not_in": [
-            "Бухгалтер"
+            "Accountant"
         ]
     },
     "citizenship": {
@@ -1906,7 +1920,7 @@ Please see also [managing resume visibility lists](/docs/resume_visibility.md).
 clicking on the resume views number on the page with the list of the current user's resume
 ([https://hh.ru/applicant/resumes](https://hh.ru/applicant/resumes)).
 
-Without authorisation or when requesting another user's resume, the system will return '403 Forbidden'.
+Without authorisation or when requesting another user's resume, the system will return `403 Forbidden`.
 
 The number of views (including new) is shown when requesting a specific
 resume and list of resumes. The new views counter is reset to zero when requesting this resource.
@@ -1982,3 +1996,14 @@ where `resume_id` – ID of the resume.
 It takes the same parameters and returns the results in the same format as the [searching for jobs](vacancies.md#search-params)
 
 In addition, if the resume with `resume_id` identifier does not exist or is unavailable, the response will be `404 Not Found`.
+
+<a name="hidden-fields"></a>
+## CV hidden fields
+
+The `hidden_fields` field contains a list of search fields hidden by the applicant. Hidden fields are replaced by `null`. The CV author is provided with relevant data.
+
+* `names_and_photo` enters `null` instead of the values of the `first_name`, `last_name`, `middle_name` and `photo` fields
+* `phones`  enters `null` instead of the value of the `contact[].value` field, when `contact[].type` contains `cell,` `work,` or `home`
+* `email`  enters `null` instead of the value of the `contact[].value` field, when `contact[].type` contains `email`
+* `other_contacts` enters `null` instead of the value of the `site[].url` field
+* `experience` enters `null` instead of the values of the `experience[].company`, `experience[].company_id`, `experience[].company_url`, `experience[].employer` fileds; enters an empty list instead of the value of the `recommendation` field

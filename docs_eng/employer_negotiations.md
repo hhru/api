@@ -101,6 +101,12 @@ After inviting the applicant, you can start a
 If necessary, you
 [can disable](employer_vacancies.md#allow_messages) conversations for a specific job (the "allow_messages" field).
 
+For an application to be considered as viewed by an employer, you must do the following:
+1. If there are unread messages: request a list of messages using the URL 
+that was received when requesting [a list (collection) of applications/invitations](#negotiations-list) or 
+[separate response/invitation](#get-negotiation), or simply [request messages](#get-messages) by application
+2. If there are no unread messages: request a CV using the URL that was received when requesting 
+[a list (collection) of applications/invitations](#negotiations-list) or[separate applications/invitation](#get-negotiation)  
 
 <a name="states"></a>
 <a name="collections"></a>
@@ -913,6 +919,8 @@ found | number | Number of messages in negotiation ( ≥ 0 )
 pages | number | Number of pages with messages ( ≥ 1 )
 per_page | number | Number of messages per page ( > 0 )
 page | number | Number of the current page ( ≥ 0 )
+
+Messages are sorted in the following order: the oldest message is first and the newest last.
 
 <a name="negotiations-message-item"></a>
 The `items` entity contains message data:

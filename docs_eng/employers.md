@@ -85,6 +85,18 @@ to the company's vacancies.
     "branded_description": "<style>...</style><div>...</div><script></script>",
     "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
     "alternate_url": "https://hh.ru/employer/1455",
+    "insider_interviews": [
+        {
+            "url": "https://hh.ru/interview/12345?employerId=1455",
+            "id": "12345",
+            "title": "The best of the best"
+        },
+        {
+            "url": "https://hh.ru/interview/54321?employerId=1455",
+            "id": "54321",
+            "title": "Success story"
+        }
+    ],
     "logo_urls": {
         "90": "https://hh.ru/employer-logo/289027.png",
         "240": "https://hh.ru/employer-logo/289169.png",
@@ -116,6 +128,16 @@ The value can be null, if the company doesn't have an individual description.
 
 `vacancies_url` – a link to the search results of the company's vacancies.
 
+`insider_interviews` — interview list or blank list if there are no interviews. 
+Each list item contains the following fields:
+
+Name | Type | Description
+---- | --- | --------
+id | string | interview ID
+title | string | interview title
+url | string | address of the page containing the interview
+
+<a name="logo-urls"></a>
 `logo_urls` – company logo images of different sizes.
 
 `original` – an unedited logo, which can be big in size. If the originally
