@@ -1,5 +1,7 @@
 # Metro directory
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 ## Obtaining all metro stations of all cities
 
 `GET /metro` will return a list of all metro stations and lines of all cities.

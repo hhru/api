@@ -1,5 +1,7 @@
 # Employer's address directory
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 Every employer can have several addresses. To learn the address list of a
 particular employer, one should send the `GET` request to
 `/employers/{employer_id}/addresses`.

@@ -113,6 +113,7 @@ Successful server response is returned with `200 OK` code and contains:
         "id": "1",
         "name": "Moscow"
     },
+    "created_at": "2013-07-08T16:17:21+0400",
     "published_at": "2013-07-08T16:17:21+0400",
     "relations": [],
     "negotiations_url": "https://api.hh.ru/negotiations?vacancy_id=8331228&locale=EN",
@@ -233,6 +234,7 @@ area | object | Vacancy region
 area.id | string | Region ID
 area.name | string | Region name
 area.url | string | URL for getting information on the region
+created_at | string | Date and time resume was created
 published_at | string | Date and time of vacancy publication
 employer | object | Brief description of employer. See field description in [employer information](employers.md#item).
 employer.blacklisted | boolean | Whether all vacancies of the employer are added to the [list of hidden](blacklisted.md#employers)
@@ -267,7 +269,7 @@ driver_license_types[].id | string | Driving license category. [driver_license_t
 accept_incomplete_resumes | boolean | Whether it is possible to apply with an incomplete resume
 
 <a name="branded_description"></a>
-### Branded job description
+#### Branded job description
 
 `branded_description` – a string with HTML code ( `<script/>` and `<style/>` may
 be present) that is an alternative to a standard vacancy description. The HTML
@@ -285,7 +287,7 @@ support enabled. Whereas:
 The value can be `null` if the vacancy does not have an individual description.
 
 <a name="insider-interview"></a>
-### Interview about life in the company
+#### Interview about life in the company
 
 `insider_interview` — an object with information about the interview about life in the company or null if there is no interview for this vacancy. 
 The object contains the following fields:
@@ -296,7 +298,7 @@ id | string | interview ID
 url | string | address of the page containing the interview
 
 <a name="vacancy-fields-applicant"></a>
-### Additional vacancy fields for candidates
+#### Additional vacancy fields for candidates
 
 Additional fields are returned during candidate authorisation:
 
@@ -314,13 +316,14 @@ Additional fields are returned during candidate authorisation:
 Name | Type | Description
 ---- | --- | --------
 relations | array | relations to the vacancy are returned during candidate authorisation. [vacancy_relation](dictionaries.md) directory entries.
-negotiations_url | string | links to get lists of applications/invitations
+negotiations_url | string | link to get the list of response/invitations
+suitable_resumes_url | string | appropriate CVs for the vacancy
 
 See also [vacancy applications](negotiations.md#post_negotiation).
 
 
 <a name="author"></a>
-## Additional vacancy fields for employers
+#### Additional vacancy fields for employers
 
 If the vacancy is requested when the author (employer) is authorised, the object
 will show additional fields:
@@ -391,6 +394,10 @@ counters.unread_responses | number | number of non-viewed responses to the vacan
 counters.resumes_in_progress| number | number of resumes in progress for a vacancy
 counters.invitations | number | number of invitations to the vacancy
 
+### Errors
+
+* `404 Not Found` - if the vacancy is not found, or the user does not have the appropriate privileges to view this vacancy
+
 
 <a name="favorited"></a>
 ## Selected vacancies
@@ -405,25 +412,32 @@ numbered from zero.
 `PUT /vacancies/favorited/{vacancy_id}` returns the indicated vacancy in the
 list. This operation is idempotent: when adding a vacancy that is already
 present in the favorites list, `204 No Content` will be returned, as in the case
-of initial adding. If a vacancy is not found, the server will return
-`404 Not Found`; if for some reason the user lacks rights to put a vacancy in
-the favorites list, the server will return `404 Not Found`. Apart from the HTTP
-code, the server can also return a description of
-[the cause of the error](errors.md#vacancies_favorited).
+of initial adding.
 
 `DELETE /vacancies/favorited/{vacancy_id}` will delete a vacancy from the
 authorized user's favorites list. The operation is also idempotent. If deleted
 successfully, the method returns `204 No Content`.
 
 
+### Errors
+
+* `404 Not Found` - if the vacancy is not found
+* `403 Forbidden` - user does not have the appropriate privileges
+* `403 Forbidden` - when the request is not from the applicant
+Apart from the HTTP code, the server can also return a description of [the cause of the error](errors.md#vacancies_favorited).
+
 
 <a name="search"></a>
 ## Search for vacancies
+
+### Request
 
 `GET /vacancies` will return the results of vacancy search.
 
 <a name="search-params"></a>
 Acceptable parameters:
+
+> Attention! Unknown parameters and parameters with an error in the name are ignored.
 
 Some parameters take multiple values: `key=value&key=value`.
 
@@ -544,14 +558,11 @@ request `per_page=10&page=199` (displaying vacancies from 1991 to 2000) is
 possible, but a request with `per_page=10&page=200` will return an error
 (displaying vacancies from 2001 to 2010).
 
-If parameters contain an error, `400 Bad request` will be returned in response
-with the error description in the body. Unknown parameters and parameters with
-an error in the name are ignored.
-
 Depending on the current authorization, results may differ, as filtering by
 [the list of hidden vacancies and companies](blacklisted.md) is
 used for applicants.
 
+### Response
 
 ```json
 {
@@ -656,6 +667,10 @@ snippet.responsibility | string, null | Vacancy responsibilities snippet if avai
 
 It is also possible to return [clusters](clusters.md) ('clusters' key) and [used parameters](vacancies_search_arguments.md) ('arguments' key) for this search.
 
+### Errors
+
+* `404 Bad Request` - if parameters have been communicated with an error
+
 <a name="similar"></a>
 ## Search for vacancies similar to the vacancy
 
@@ -665,11 +680,16 @@ It is also possible to return [clusters](clusters.md) ('clusters' key) and [used
 
 where `vacancy_id` – ID of the vacancy.
 
-Accepts the same parameters as [vacancy search](#search-params) and returns the same
-results as [vacancy search](#search-results)
+Accepts the same parameters as [the search by vacancy](#search-params).
 
-Additionally if vacancy with `vacancy_id` does not exist `404 Not Found` will be
-returned in response.
+### Response
+
+Returns the same results as [the search by vacancy](#search-results).
+
+### Errors
+
+Returns the same errors as [the search by vacancy](#search-results) and in addition: 
+* `404 Not Found` - if there is no vacancy with `vacancy_id` ID
 
 
 <a name="nano"></a>

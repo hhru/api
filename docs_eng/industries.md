@@ -1,5 +1,7 @@
 # Company branches
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 `GET /industries` returns two-level directory of all branches.
 
 ```json

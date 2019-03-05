@@ -1,5 +1,7 @@
 # Employer's test directory
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 To learn the list of employer's saved tests, you should send the `GET` request
 to `/employers/{employer_id}/tests`.
 

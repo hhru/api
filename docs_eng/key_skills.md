@@ -1,5 +1,7 @@
 # Key skills
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 The method returns information on the requested key skills.
 
 ## Request

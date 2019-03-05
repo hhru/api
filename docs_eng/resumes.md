@@ -244,6 +244,9 @@ visibility, comments of moderators, and status.
 As for the employer, if it is not possible to view the full information on the resume given the current
 authorization, some fields will contain `null`, and the `can_view_full_info` field will be `false`.
 
+Once this URL has been requested, if the employer has an response/invitation for this resume, 
+the response will be registered as viewed.
+
 ```json
 {
     "id": "12345678901234567890123456789012abcdef",

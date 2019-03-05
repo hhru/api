@@ -1,5 +1,7 @@
 # Employer's branded vacancy templates
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 Branded templates are available for those employers who paid for
 and activated the respective service.
 See more details on the [hh.ru website](https://hh.ru/article/brand).

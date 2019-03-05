@@ -1,5 +1,7 @@
 # Directories
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 `GET /dictionaries` returns the object with the directories of fields and entities used in our service.
 Most often, each directory consists of a list of objects containing an `id` and a `name`.
 

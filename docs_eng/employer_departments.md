@@ -1,5 +1,7 @@
 # Employer's department directory
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 To learn the employer's department list, one should send the `GET` request to
 `/employers/{employer_id}/departments`.
 

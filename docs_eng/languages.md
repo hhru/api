@@ -1,5 +1,6 @@
 # Language directory
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
 
 ## Obtaining available languages
 

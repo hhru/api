@@ -1,5 +1,7 @@
 # List of educational institution faculties
 
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
 ## Request
  
 ```

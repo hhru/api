@@ -14,7 +14,9 @@ A response `403 Forbidden` will be returned if the user is unauthorised or incor
 <a name="dict"></a>
 ## Directory of manager types and privileges
 
-### Response
+> Attention! The values in the directories may change at any time. Do not address them directly.
+
+### Request
 `GET /employers/{employer_id}/manager_types`
 
 where `employer_id` - employer id, you can find the employer's id in the [current user info](me.md#employer-info).
@@ -261,6 +263,8 @@ A successful response contains a code `204 No Content`.
 
 <a name="list"></a>
 ## Directory of employer's managers
+
+> Attention! The values in the directories may change at any time. Do not address them directly.
 
 ### Request
 

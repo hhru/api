@@ -99,14 +99,14 @@ After inviting the applicant, you can start a
 [free conversation](#get-messages). You will be able to
 [send messages](#add-messages) and receive responses from the applicant.
 If necessary, you
-[can disable](employer_vacancies.md#allow_messages) conversations for a specific job (the "allow_messages" field).
+[can disable](employer_vacancies.md#allow_messages) conversations for a specific job (the `allow_messages` field).
 
-For an application to be considered as viewed by an employer, you must do the following:
-1. If there are unread messages: request a list of messages using the URL 
-that was received when requesting [a list (collection) of applications/invitations](#negotiations-list) or 
-[separate response/invitation](#get-negotiation), or simply [request messages](#get-messages) by application
-2. If there are no unread messages: request a CV using the URL that was received when requesting 
-[a list (collection) of applications/invitations](#negotiations-list) or[separate applications/invitation](#get-negotiation)  
+Take one of the following actions to make sure that the application registers as viewed by the employer:
+* request a list of messages using the URL received upon request [a list (collection) of applications/invitations](#negotiations-list) 
+or [individual application/invitation](#get-negotiation)
+* [request message](#get-messages) by response
+* request resume using the URL received upon request [a list (collection) of applications/invitations](#negotiations-list) 
+or [individual response/invitation](#get-negotiation)  
 
 <a name="states"></a>
 <a name="collections"></a>
