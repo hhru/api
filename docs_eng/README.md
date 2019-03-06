@@ -185,8 +185,8 @@ Article labels:
 <a name="salary"></a>
 ### Salary Database
 
-* [Reports of the Salary Database](/docs/salary_reports.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Salary assessment without forecasts](/docs/salary_reports.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Reports of the Salary Database](salary_reports.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Salary assessment without forecasts](salary_reports.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Salary Database Dictionaries](salary_dictionaries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Industries](salary_dictionaries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Competency levels](salary_dictionaries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
