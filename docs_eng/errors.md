@@ -98,10 +98,22 @@ Below are some of the possible errors with descriptions.
 <table>
 <tr><th>HTTP code</th><th>error</th><th>error_description</th><th>описание</th></tr>
  <tr>
-    <td rowspan=5>400</td>
-    <td rowspan=5>invalid_request</td>
+    <td rowspan=8>400</td>
+    <td rowspan=8>invalid_request</td>
     <td>account not found</td>
     <td>This error can occur if an invalid client_id and client_secret pair was transferred</td>
+</tr>
+<tr>
+    <td>account is locked</td>
+    <td>User account is locked. The user must contact <a href="https://github.com/hhru/api/blob/master/docs_eng/README.md#feedback">the website support team</a></td>
+</tr>
+<tr>
+    <td>password invalidated</td>
+    <td>User account password is outdated. The user must restore the password on the website <a href="https://hh.ru">https://hh.ru</a></td>
+</tr>
+<tr>
+    <td>login not verified</td>
+    <td>User account is not verified. The user must contact <a href="https://github.com/hhru/api/blob/master/docs_eng/README.md#feedback">the website support team</a></td>
 </tr>
 <tr>
     <td>bad redirect url</td>
