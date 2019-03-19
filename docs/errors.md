@@ -101,10 +101,22 @@ error_description | строка | Дополнительное описание
 <tr><th>HTTP code</th><th>error</th><th>error_description</th><th>описание</th></tr>
 
 <tr>
-    <td rowspan=5>400</td>
-    <td rowspan=5>invalid_request</td>
+    <td rowspan=8>400</td>
+    <td rowspan=8>invalid_request</td>
     <td>account not found</td>
     <td>Ошибка может возникнуть, если передана неправильная пара client_id и client_secret</td>
+</tr>
+<tr>
+    <td>account is locked</td>
+    <td>Пользовательский аккаунт заблокирован. Пользователь должен обратиться в <a href="https://github.com/hhru/api#feedback">службу поддержки сайта</a></td>
+</tr>
+<tr>
+    <td>password invalidated</td>
+    <td>Пароль от пользовательского аккаунта устарел. Пользователь должен восстановить пароль на сайте <a href="https://hh.ru">https://hh.ru</a></td>
+</tr>
+<tr>
+    <td>login not verified</td>
+    <td>Пользовательский аккаунт не подтвержден. Пользователь должен обратиться в <a href="https://github.com/hhru/api#feedback">службу поддержки сайта</a></td>
 </tr>
 <tr>
     <td>bad redirect url</td>
