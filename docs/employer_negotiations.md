@@ -150,9 +150,9 @@
             },
             "order_types": [
                 {
-                    "id": "created_at",
-                    "name": "по дате создания",
-                    "url": "https://api.hh.ru/negotiations/somecollection?vacancy_id=123456&order_by=created_at"
+                    "id": "last_change_time_except_employer_inbox",
+                    "name": "По дате создания и активности соискателя",
+                    "url": "https://api.hh.ru/negotiations/somecollection?vacancy_id=123456&order_by=last_change_time_except_employer_inbox"
                 },
                 {
                     "id": "relevance",
@@ -171,9 +171,9 @@
             },
             "order_types": [
                 {
-                    "id": "created_at",
-                    "name": "по дате создания",
-                    "url": "https://api.hh.ru/negotiations/anothercollection?vacancy_id=123456&order_by=created_at",
+                    "id": "last_change_time_except_employer_inbox",
+                    "name": "По дате создания и активности соискателя",
+                    "url": "https://api.hh.ru/negotiations/anothercollection?vacancy_id=123456&order_by=last_change_time_except_employer_inbox",
                 }
             ]
         }
@@ -246,8 +246,8 @@ per_page | нет | Количество выдаваемых элементов
 ```json
 {
     "ordered_by": {
-        "id": "created_at",
-        "name": "по дате создания"
+        "id": "last_change_time_except_employer_inbox",
+        "name": "По дате создания и активности соискателя"
     },
     "found": 12,
     "pages": 1,
@@ -1111,8 +1111,8 @@ Location: /negotiations/321
 ```json
   {
       "order_type": {
-        "id": "created_at",
-        "name": "по дате"
+        "id": "last_change_time_except_employer_inbox",
+        "name": "По дате создания и активности соискателя"
       }
   }
 ```
