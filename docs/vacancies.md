@@ -189,7 +189,21 @@
             "id": "B"
         }
     ],
-    "accept_incomplete_resumes": false
+    "accept_incomplete_resumes": false,
+    "vacancy_constructor_template": {
+        "bottom_picture": {
+            "height": 376,
+            "path": "/vacancy-brand-pictures/00001.jpeg",
+            "width": 822
+        },
+        "id": 325,
+        "name": "Брендированный шаблон 1",
+        "top_picture": {
+            "height": 618,
+            "path": "/vacancy-brand-pictures/00002.jpeg",
+            "width": 1546
+        }
+    }
 }
 ```
 
@@ -265,6 +279,14 @@ premium | boolean | Является ли данная вакансия прем
 driver_license_types | array | Список требуемых категорий водительских прав
 driver_license_types[].id | string | Категория водительских прав. Элемент справочника [driver_license_types](dictionaries.md)
 accept_incomplete_resumes | boolean | Разрешен ли отклик на вакансию неполным резюме
+vacancy_constructor_template | object или null | информация по примененному шаблону из конструктора вакансий
+vacancy_constructor_template.id | number | id шаблона
+vacancy_constructor_template.name | string | название шаблона
+vacancy_constructor_template.top_picture | object | информация по верхней картинке шаблона
+vacancy_constructor_template.top_picture.path | string | адрес картинки
+vacancy_constructor_template.top_picture.width | number | ширина картинки
+vacancy_constructor_template.top_picture.height | number | высота картинки
+vacancy_constructor_template.bottom_picture | object или null | информация по нижней картинке шаблона
 
 
 <a name="branded_description"></a>

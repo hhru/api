@@ -191,7 +191,21 @@ Successful server response is returned with `200 OK` code and contains:
             "id": "B"
         }
     ],
-    "accept_incomplete_resumes": false
+    "accept_incomplete_resumes": false,
+    "vacancy_constructor_template": {
+        "bottom_picture": {
+            "height": 376,
+            "path": "/vacancy-brand-pictures/00001.jpeg",
+            "width": 822
+        },
+        "id": 325,
+        "name": "Branded template 1",
+        "top_picture": {
+            "height": 618,
+            "path": "/vacancy-brand-pictures/00002.jpeg",
+            "width": 1546
+        }
+    }
 }
 ```
 
@@ -267,6 +281,14 @@ premium | boolean | Whether it is a premium vacancy
 driver_license_types | array | List of required driver license categories
 driver_license_types[].id | string | Driving license category. [driver_license_types](dictionaries.md) directory entry.
 accept_incomplete_resumes | boolean | Whether it is possible to apply with an incomplete resume
+vacancy_constructor_template | object or null | vacancy constructor template info
+vacancy_constructor_template.id | number | template id
+vacancy_constructor_template.name | string | template name
+vacancy_constructor_template.top_picture | object | top image info
+vacancy_constructor_template.top_picture.path | string | image url
+vacancy_constructor_template.top_picture.width | number | image width
+vacancy_constructor_template.top_picture.height | number | image height
+vacancy_constructor_template.bottom_picture | object or null | bottom image info
 
 <a name="branded_description"></a>
 #### Branded job description
