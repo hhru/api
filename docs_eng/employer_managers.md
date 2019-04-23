@@ -274,6 +274,9 @@ where:
 
 * `employer_id` - Employer ID that can be obtained from the [information on the current user](me.md#employer-info).
 
+request applies [standard pagination parameters](/docs_eng/general.md#pagination) page и per_page (per_page can't be more 200).
+if `per_page` parameter is not received, it's default value equals 200
+
 ### Response
 
 A successful response will return a status `200 OK`. The response body will contain a list
@@ -309,9 +312,14 @@ of employer's managers, for example:
                 "url": "https://api.hh.ru/areas/1"
             }
         }
-    ]
+    ],
+    "found": 1,
+    "page": 0,
+    "pages": 1,
+    "per_page": 20
 }
 ```
+The response includes [standard pagination fields](general.md#pagination)
 
 The `items` element will contain a list of the employer's managers.
 Each element of `items` has fields described in
