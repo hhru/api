@@ -6,7 +6,6 @@ companies websites.
 In particular:
 
 * hh.ru
-* career.ru
 * hh.ua
 * jobs.tut.by
 * jobs.day.az

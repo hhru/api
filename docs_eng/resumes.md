@@ -1150,6 +1150,8 @@ Parameters:
     * `position` — position;
     * `organization` — company;
 * `resume_locale` — resume locale. Directory entries [локали резюме](locales.md).
+* `driver_license_types` - A list of applicant's driving license categories. [driver_license_types](dictionaries.md) directory entry.
+* `has_vehicle` - Does the applicant have their own car
 
 Parameters taken from [tips](suggests.md) (`name_id`, `organization_id`, `result_id`, `faculty_id`, `company_id`) 
 are optional. In this case, if these parameters are indicated, then when saved they are checked for

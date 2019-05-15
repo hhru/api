@@ -447,7 +447,7 @@ counters.invitations | number | количество приглашений на
 
 * `search_field` — область поиска.  
 Справочник с возможными значениями: `vacancy_search_fields` в [/dictionaries](dictionaries.md).  
-По умолчанию, используется все поля.  
+По умолчанию, используется `name`.  
 Возможно указание нескольких значений.  
 
 * `experience` — опыт работы.  

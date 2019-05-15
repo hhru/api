@@ -67,3 +67,21 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
   [applicant comment list](applicant_comments.md#list)
 * `vacancy_not_prolonged_reason` – the reasons why 
   [prolongation](employer_vacancies.md#prolongate-info) not available
+
+Each list item contains the following fields:
+
+Name | Type | Description
+----|-----|---------
+id | string | Id
+name | string | Name
+
+List item of element `currency` contains the following fields:
+
+Name | Type | Description
+----|-----|---------
+code | string | Code
+abbr | string | Short designation
+name | string | Name
+default | boolean | Is it used as default currency
+rate | int | Course against ruble
+in_use | boolean | Can I use on this host?

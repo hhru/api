@@ -449,7 +449,7 @@ Some parameters take multiple values: `key=value&key=value`.
 * `search_field` – an area of search.
   Directory with possible values: `vacancy_search_fields` in
   [/dictionaries](dictionaries.md).
-  By default, all fields are used.
+  By default, `name` is used.
   Several values can be indicated.
 
 * `experience` – work experience.

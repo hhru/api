@@ -6,7 +6,6 @@ HeadHunter.
 В частности:
 
 * hh.ru
-* career.ru
 * hh.ua
 * jobs.tut.by
 * jobs.day.az
