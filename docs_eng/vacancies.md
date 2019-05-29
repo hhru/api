@@ -251,14 +251,7 @@ specializations[].id | string | Specialisation ID
 specializations[].name | string | Specialisation name
 specializations[].profarea_id | string | ID of the profession that includes this specialisation
 specializations[].profarea_name | string | Name of the profession that includes this specialisation
-contacts | object or null | Contact info. For vacancies without contacts, it returns `null`.
-contacts.name | string or null | Name of contact person
-contacts.email | string or null | Email of contact person
-contacts.phones | array | List of phone numbers of contact person. This list may be empty.
-contacts.phones[].country | string | Country code
-contacts.phones[].city | string | City code
-contacts.phones[].number | string | Phone number
-contacts.phones[].comment | string or null | Commentary
+contacts | object or null | [Contact info](#contacts)
 billing_type | object | Vacancy billing type. [vacancy_billing_type](dictionaries.md) directory entry.
 billing_type.id | string | ID of the vacancy billing type
 billing_type.name | string | Name of the vacancy billing type
@@ -267,6 +260,29 @@ premium | boolean | Whether it is a premium vacancy
 driver_license_types | array | List of required driver license categories
 driver_license_types[].id | string | Driving license category. [driver_license_types](dictionaries.md) directory entry.
 accept_incomplete_resumes | boolean | Whether it is possible to apply with an incomplete resume
+
+
+<a name="contacts"></a>
+#### Contact info
+
+`contacts` - an object with information about the vacancy contact info. For vacancies without contacts, it returns `null`.
+
+The object contains the following fields:
+
+Name | Type | Description
+---- | --- | --------
+contacts.name | string or null | Name of contact person
+contacts.email | string or null | Email of contact person
+contacts.phones | array | List of phone numbers of contact person. This list may be empty.
+contacts.phones[].country | string | Country code
+contacts.phones[].city | string | City code
+contacts.phones[].number | string | Phone number
+contacts.phones[].comment | string or null | Commentary
+
+In archived vacancies contacts are available for:
+* vacancy manager
+* other users with permissions to the vacancy manager archive
+
 
 <a name="branded_description"></a>
 #### Branded job description
