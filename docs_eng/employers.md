@@ -1,5 +1,8 @@
 # Employers/companies
 
+* [сompany search](#search)
+* [employer/company](#item)
+
 <a name="search"></a>
 ## Company search
 
@@ -20,7 +23,9 @@ the depth of returned results cannot exceed 2000. For example, a request `per_pa
 (search results from 1991 to 2000 companies) is possible, but a request with `per_page=10&page=200` 
 will return an error (results from 2001 to 2010 companies).
 
-Response:
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
 
 ```json
 {
@@ -44,19 +49,19 @@ Response:
 }
 ```
 
-Name | Type | Description 
-----------|------------------|--------------------------------------------------------
-per_page  | number           | number of elements shown per page
-page      | number           | number of shown page
-pages     | number           | number of pages with data
-found     | number           | number of employers found for the selected search criteria
-items     | array of objects | found employers (maximum per_page elements)
+Name     | Type             | Description
+---------|------------------|--------------------------------------------------------
+per_page | number           | number of elements shown per page
+page     | number           | number of shown page
+pages    | number           | number of pages with data
+found    | number           | number of employers found for the selected search criteria
+items    | array of objects | found employers (maximum per_page elements)
 
 Each element of the items array contains a brief description of the employer
 with an additional value for the number of open vacancies.
 
- Name            | Type         | Description 
------------------|--------------|-------------------------------------------------------
+ Name           | Type         | Description
+----------------|--------------|-------------------------------------------------------
 id              | string       | employer ID
 name            | string       | employer name
 url             | string       | url for full description of the employer
@@ -74,6 +79,8 @@ logo_urls       | object, null | [company logos](#logo-urls)
 
 `GET /employers/{employer_id}` returns the data about the company with a link
 to the company's vacancies.
+
+### Response
 
 ```json
 {
@@ -107,9 +114,35 @@ to the company's vacancies.
         "id": "113",
         "name": "Russia"
     },
-    "trusted": true
+    "trusted": true,
+    "relations": []
 }
 ```
+
+Name | Type | Description
+---- | ---- | -----------
+id | string | employer ID
+name | string | employer name
+type | string, null | type of company (immediate employer, HR agency, etc). Possible values are described in [collection of directories](dictionaries.md) under the key `employer_type`. `null` is possible if the company type is hidden.
+site_url | string | link to employer website
+description | string, null | a string with the HTML code (`<script/>` and `<style/>` presence is not possible)
+branded_description | string, null | [branded description](#branded-description) as a string with the HTML code
+vacancies_url | string | a link to the search results of the company's vacancies
+trusted | boolean | the flag indicates that [the company is verified by the website](https://feedback.hh.ru/article/details/id/5951)
+alternate_url | string | link to employer description on the website
+insider_interviews | array | interview list or blank list if there are no interviews
+insider_interviews[].id | string | interview ID
+insider_interviews[].title | string | interview title
+insider_interviews[].url | string | address of the page containing the interview
+logo_urls | object, null | [company logos](#logo-urls)
+area | string | region of employer
+area.id | string | region ID [from dictionary](areas.md)
+area.name | string | region name
+area.url | string | link to information about the region
+relations | array | if the employer is blacklisted, it will return `['blacklisted']` else `[]`
+
+<a name="branded-description"></a>
+#### Branded description
 
 `branded_description` – a string with the HTML code (`<script/>` and `<style/>`
 presence is possible), which is an alternative to the standard company
@@ -126,18 +159,9 @@ without any javascript support. At that:
 
 The value can be null, if the company doesn't have an individual description.
 
-`vacancies_url` – a link to the search results of the company's vacancies.
-
-`insider_interviews` — interview list or blank list if there are no interviews. 
-Each list item contains the following fields:
-
-Name | Type | Description
----- | --- | --------
-id | string | interview ID
-title | string | interview title
-url | string | address of the page containing the interview
-
 <a name="logo-urls"></a>
+#### Logo images
+
 `logo_urls` – company logo images of different sizes.
 
 `original` – an unedited logo, which can be big in size. If the originally
@@ -146,11 +170,3 @@ the corresponding keys will have links to the original images. Object
 can be null, if the company hasn't uploaded its logo. The client should foresee
 the possibility of the logo missing in the indicated link (response with the
 `404 Not Found` code).
-
-`type` – type of company (immediate employer, HR agency, etc).
-         Possible values are described in [collection of directories](dictionaries.md) under
-         the key `employer_type`. `null` is possible if the company type is hidden.
-
-`area` — region of employer.
-
-`trusted` — the flag indicates that [the company is verified by the website](https://feedback.hh.ru/article/details/id/5951).
