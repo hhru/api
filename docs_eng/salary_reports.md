@@ -32,6 +32,7 @@ employee_level | not | Levels of specialists which will be included in the sampl
 industry | not | Industry codes on which the sample will be based to generate the report.  See [directory of industries](salary_dictionaries.md#salary-industries)
 speciality | not | Codes of professional areas and specialisations which will be included in the sample to generate the report. See [directory of professional areas and specialisations](salary_dictionaries.md#professional-areas)
 extend_sources | not | Data from CVs and vacancies shall be used if there is no data in the Salary Database that corresponds to the specified parameters. This parameter is set to 'true' or 'false'. Default — 'false'.
+position_name | not | Position name. If specified, the service determines the possible specializations for the specified position and industry. If the specializations are filled in the request, the parameter is ignored.
 
 <a name="salary-evaluation-examples"></a>
 ### Examples of requests
