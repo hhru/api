@@ -553,7 +553,7 @@ In addition to the HTTP code, the server can return a description of the [error 
 There are limits on extending vacancies, but they can change. At the moment
 the following rules apply:
 
-* standard vacancies can be extended if it has been at least 3 days since the last extension.
+* standard vacancies can be extended if it has been at least 1 minute since the last extension.
 * "Standard Plus" vacancies can be extended at least 5 days before the end of publication.
 
 
