@@ -6,6 +6,8 @@ Every employer can have several addresses. To learn the address list of a
 particular employer, one should send the `GET` request to
 `/employers/{employer_id}/addresses`.
 
+request applies [standard pagination parameters](/docs_eng/general.md#pagination) page и per_page (per_page can't be more 5000)
+
 In case of success, the `HTTP 200 OK` code will be returned, and the response
 body will contain the company address list.
 
@@ -27,7 +29,8 @@ An example of a successful response:
             "lng": null,
             "id": "244030",
             "metro_stations": [ ]
-        }, {
+        }, 
+        {
             "building": "10",
             "city": "Moscow",
             "street": "Kozhevnikova ul.",
@@ -47,9 +50,15 @@ An example of a successful response:
                 }
             ]
         }
-    ]
+    ],
+    "found": 2,
+    "page": 0,
+    "pages": 1,
+    "per_page": 20
 }
 ```
+
+The response includes [standard pagination fields](general.md#pagination)
 
 In a successful response, the `items` field contains the company address list.
 This list is similar to the [address in the vacancy](address.md).
