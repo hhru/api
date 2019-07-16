@@ -236,8 +236,6 @@ returns an indicated CV. If the CV visibility is set
 to "visible to entire Internet" or "by direct link" (`everyone` and `direct`
 respectively), it is possible to request the CV without being authorized.
 
-An employer can only view a resume if the company has a response/invitation to that resume as part of an active job vacancy.
-
 An authorized publisher receives more detailed information, including the type of
 visibility, comments of moderators, and status.
 
