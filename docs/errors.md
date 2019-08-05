@@ -437,3 +437,41 @@ HTTP code | type | value | reason | описание
 ----------|------|-------|---------|--------- 
 400 | bad_argument | id | too_many_bulk_items | слишком много id
 400 | bad_argument | id | | передан невалидный идентификатор
+
+<a name="manager-accounts"></a>
+### Рабочие аккаунты менеджера
+HTTP code | type | value | описание
+----------|------|-------|-----------
+403 | manager_extra_accounts | manager_extra_account_not_found | В заголовке передан некорректный id аккаунта
+403 | manager_accounts | manager_account_forbidden | [Рабочий аккаунт заблокирован](#manager-accounts-blocked)
+
+<a name="manager-accounts-blocked"></a>
+В случае, если аккаунт пользователя заблокирован, придет ошибка вида:
+```json
+{
+    "errors": [
+    {
+        "type": "manager_accounts",
+        "value": "manager_account_forbidden",
+        "allowed_accounts": [
+            {
+                "id": "1",
+                "employer": {
+                    "id": "12345678",
+                    "name": "Alpha Corp."
+                }
+            },
+            {
+                "id": "2",
+                "employer": {
+                    "id": "87654321",
+                    "name": "Beta Inc."
+                }
+            }
+        ]
+    }
+  ]
+}
+```
+где `allowed_accounts` содержит массив доступных для этого токена аккаунтов
+Элементы массива аналогичны [результату, выдаваемому в списке рабочих аккаунтов](private/ru/manager_accounts.md#account-info)

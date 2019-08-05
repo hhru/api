@@ -39,7 +39,8 @@
         "id": "87654321",
         "has_admin_rights": true,
         "is_main_contact_person": true,
-        "manager_settings_url": "https://api.hh.ru/employers/1455/managers/87654321/settings"
+        "manager_settings_url": "https://api.hh.ru/employers/1455/managers/87654321/settings",
+        "has_multiple_manager_accounts": true
     },
     "personal_manager": {
         "id": "1234567",
@@ -107,7 +108,7 @@ id | строка | идентификатор менеджера
 has_admin_rights | логический | обладает ли текущий менеджер правами администратора
 is_main_contact_person | логический | является ли текущий менеджер главным контактным лицом компании
 manager_settings_url | строка | url, на который нужно сделать GET запрос, чтобы получить [предпочтения менеджера](manager_settings.md)
-
+has_multiple_manager_accounts | логический | существуюет ли у пользователя несколько [рабочих аккаунтов](manager_accounts.md)
 
 <a name="personal-manager-info"></a>
 #### Объект `personal_manager`
