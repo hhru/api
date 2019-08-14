@@ -553,170 +553,262 @@ the response will be registered as viewed.
      ]
 }
 ```
-
 <a name="resume-fields"></a>
 
 Name | Type | Description
 -----|-----|---------
-id | string | Resume ID
-last_name | string or null | Last name
-first_name | string or null | First name
-middle_name | string or null | Middle name
-age | number or null | Age
-birth_date | string or null | Birthday (`YYYY-MM-DD`)
-gender | object or null | [Gender](dictionaries.md)
-gender.id | string | Gender ID
-gender.name | string | Gender name
-area | object or null | City of residence. [areas](areas.md) directory entry
-area.id | string | City ID
-area.name | string | City name
-area.url | string | URL for getting information on the city
-metro | object or null | The nearest metro station. [metro](metro.md) directory entry
-metro.id | string | Station ID
-metro.name | string | Station name
-metro.lat | number | Station latitude (a floating point number)
-metro.lng | number | Station longitude (a floating point number)
-metro.order | number | Sequence number of the station on the subway line (starting with 0)
-relocation | object | Information on the possibility of moving to another city
-relocation.type | object | Willingness to relocate. [relocation_type](dictionaries.md) directory entry
-relocation.type.id | string | Relocation type ID
-relocation.type.name | string | Relocation type name
-relocation.areas | array | List of cities for potential relocation. This list may be empty. Contains entries of the [directory of regions](areas.md).
-relocation.areas[].id | string | Region ID
-relocation.areas[].name | string | Region name
-relocation.areas[].url | string | URL for getting information on the region
-business_trip_readiness | object | Readiness to go on business trips. [resume_trip_readiness](dictionaries.md#resume_trip_readiness) directory entry
-business_trip_readiness.id | string | Business trip readiness type ID
-business_trip_readiness.name | string | Business trip readiness type name
-contact | array | Applicant's contact list. This list may be empty, for example, if the contact view is not available for the employer.
-contact[].type | object | Contact type. [prefered_contact_type](dictionaries.md) directory entry
-contact[].type.id | string | Contact type ID
-contact[].type.name | string | Contact type name
-contact[].value | string or object | Contact value. Phone number: a four-field object (`country`, `city`, `number`, `formatted`); email: a string.
-contact[].value.country | string | Country code (when specifying a phone number)
-contact[].value.city | string | City code (when specifying a phone number)
-contact[].value.number | string | Number (when specifying a phone number)
-contact[].value.formatted | string | Formatted number (when specifying a phone number)
-contact[].preferred | boolean | Is this the preferred method of communication
-contact[].comment | string | Comment to the contact
-contact[].verified | boolean | Is the phone number confirmed (when specifying a phone number)
-photo | object or null | User photo
-photo.id | string | Unique image ID
-photo.small | string | Small image URL. This URL provides access to the image for a limited time after receiving a response. The application should be ready to receive `404 Not Found` as a response to the image request.
-photo.medium | string | URL for a medium-sized image. This URL provides access to the image for a limited time after receiving a response. The application should be ready to receive `404 Not Found` as a response to the image request.
-portfolio | array | A list of images in the user's portfolio. This list may be empty.
-portfolio[].id | string | Unique image ID
-portfolio[].small | string | Small image URL. This URL provides access to the image for a limited time after receiving a response. The application should be ready to receive `404 Not Found` as a response to the image request.
-portfolio[].medium | string | URL for a medium-sized image. This URL provides access to the image for a limited time after receiving a response. The application should be ready to receive `404 Not Found` as a response to the image request.
-portfolio[].description | string | A description of the image in the portfolio
-site | array | Profiles in social networks and other services
-site[].type | object | Profile type. [resume_contacts_site_type](dictionaries.md) directory entry
-site[].type.id | string | Profile type ID
-site[].type.name | string | Profile type name
-site[].url | string | A link to profile or ID
-title | string or null | Desired position
-specialization | array | Applicant's specialist areas. [specializations](specializations.md) directory entries
-specialization[].id | string | Specialist area ID
-specialization[].name | string | Specialist area name
-specialization[].profarea_id | string | ID of the profession that includes this specialist area
-specialization[].profarea_name | string | Name of the profession that includes this specialist area
-specialization[].laboring | boolean | Is this specialist area associated with the list of blue-collar jobs
-salary | object or null | Desired salary
-salary.amount | number | Amount
-salary.currency | string | [currency](dictionaries.md) ID
-employments | array | List of types of employment that are suitable for the applicant. This list may be empty. [employment](dictionaries.md) directory entries
-employments[].id | string | Employment type ID
-employments[].name | string | Employment type name
-schedules | array | List of working hours that are suitable for the applicant. [schedule](dictionaries.md) directory entries
-schedules[].id | string | Working hours ID
-schedules[].name | string | Working hours name
-education | object | Education
-education.elementary | array | Secondary education. This field is usually only completed in the absence of higher education. This list may be empty.
-education.elementary[].year | number | Year graduated
-education.elementary[].name | string | Name of educational institution
-education.additional | array | List of training courses. This list may be empty.
-education.additional[].organization | string | The organization that conducted the courses
-education.additional[].name | string | Course name
-education.additional[].result | string | Profession/specialist area
-education.additional[].year | number | Year graduated
-education.attestation | array | List of passed tests or exams
-education.attestation[].organization | string | The organization that conducted the test or exam
-education.attestation[].name | string | The name of the test or exam
-education.attestation[].result | string | Profession/specialist area
-education.attestation[].year | number | Year the test/exam was passed
-education.primary | array | List of degrees higher than secondary education
-education.primary[].name | string | Name of educational institution
-education.primary[].name_id | string or null | Educational institution ID
-education.primary[].organization | string | Faculty. If the faculty is unknown, the value is null.
-education.primary[].organization_id | string or null | Faculty ID
-education.primary[].result | string | Profession/specialist area
-education.primary[].result_id | string or null | Profession/specialist area ID
-education.primary[].year | number | Year graduated
-education.level | object | УEducation level. [education_level](dictionaries.md) directory entry
-education.level.id | string | Education level ID
-education.level.name | string | Education level name
-language | array | List of languages spoken by the applicant. [languages](languages.md) directory entries. This list may be empty.
-language[].id | string | Language ID
-language[].name | string | Language name
-language[].level | object | Language proficiency. [language_level](dictionaries.md) directory entry
-language[].level.id | string | Language proficiency ID
-language[].level.name | string | Language proficiency name
-experience | array | Work experience. A list of items that can be empty.
-experience[].company | string | Organization
-experience[].company_id | string or null | Unique identifier of the organization. If the organization is unknown, the value is null.
-experience[].area | object or null | Region of the organization. An entry in the [directory of regions](areas.md). If the organization is not specified, the value is null.
-experience[].area.id | string | Region ID
-experience[].area.name | string | Region name
-experience[].area.url | string | URL for getting information on the region
-experience[].company_url | string | Company website
-experience[].industries | array | A list of the company's industries. Entries of the [directory of industries](industries.md)
-experience[].industries[].id | string | Industry ID
-experience[].industries[].name | string | Industry name
-experience[].position | string | Position
-experience[].start | string | Start date (`YYYY-MM-DD`)
-experience[].end | string or null | End date (`YYYY-MM-DD`). If the applicant is still working there, the value is null.
-experience[].description | string | Responsibilities, functions, achievements
-total_experience | object or null | Total years of service. If the applicant has no work experience, the value is null.
-total_experience.months | number | An integer, the total months of service, rounded up to a month
-skills | string or null | Additional information, a free-form description of skills
-skill_set | array | Key skills (a list of unique strings). This list may be empty.
-citizenship | array | Applicant's citizenship list. Entries of the [directory of regions](areas.md)
-citizenship[].id | string | Country ID
-citizenship[].name | string | Country name
-citizenship[].url | string | URL for getting information on the country
-work_ticket | array | A list of regions where the applicant has a work permit. Entries of the [directory of regions](areas.md)
-work_ticket[].id | string | Region ID
-work_ticket[].name | string | Region name
-work_ticket[].url | string | URL for getting information on the region
-travel_time | object | Acceptable travel time to the place of work. [travel_time](dictionaries.md) directory entry
-travel_time.id | string | ID of the acceptable travel time to the place of work
-travel_time.name | string | Name of the acceptable travel time to the place of work
-recommendation | array | List of recommendations. This list may be empty.
-recommendation[].name | string | Name of person providing recommendation
-recommendation[].position | string | Position
-recommendation[].organization | string | Organization
-resume_locale | object | Resume language (locale). [resume locales](locales.md) directory entry
-resume_locale.id | string | Language ID
-resume_locale.name | string | Language name
-certificate | array | Applicant's certificate list. This list may be empty.
-certificate[].title | string | Certificate name
-certificate[].achieved_at | string | Issue date (`YYYY-MM-DD`)
-certificate[].type | string | Certificate type. Available values: `custom`, `microsoft`.
-certificate[].owner | string or null | To whom the certificate is issued – only for certificates with `type = microsoft`
-certificate[].url | string or null | A link to the page with the certificate description
-alternate_url | string | URL for the resume on the website
-created_at | string | Date and time resume was created
-updated_at | string | Date and time resume was updated
-download | object | Links to download the resume in several formats ([more info](#download-links))
-download.pdf | object | PDF resume
-download.pdf.url | string | A link to download a PDF resume
-download.rtf | object | RTF resume
-download.rtf.url | string | A link to download an RTF resume
-has_vehicle | boolean | Does the applicant have their own car
-driver_license_types | array | A list of applicant's driving license categories
-driver_license_types[].id | string | Applicant's driver’s license category. [driver_license_types](dictionaries.md) directory entry
-hidden_fields | array | List of hidden fields. Entry of the [resume_hidden_fields](dictionaries.md) directory ([more info](#hidden-fields))
+id | string | Resume ID.
+last_name | string or null | Last name.
+first_name | string or null | First name.
+middle_name | string or null | Middle name.
+age | number or null | Age.
+birth_date | string or null | Birthday (`YYYY-MM-DD`).
+gender | [object](#id-name-object) or null | [Gender](dictionaries.md).
+area | [object](#id-name-url-object) or null | City of residence. [areas](areas.md) directory entry.
+metro | [object](#metro-object) or null | The nearest metro station. [metro](metro.md) directory entry.
+relocation | [object](#relocation-object) | Information on the possibility of moving to another city.
+business_trip_readiness | [object](#id-name-object) | Readiness to go on business trips. [resume_trip_readiness](dictionaries.md#resume_trip_readiness) directory entry.
+contact | [array](#contact-object) | Applicant's contact list. 
+photo | [object](#photo-object) or null | User photo.
+portfolio | [array](#portfolio-object) | A list of images in the user's portfolio.
+site | [array](#site-object) | Profiles in social networks and other services.
+title | string or null | Desired position.
+specialization | [array](#specialization-object) | Applicant's specialist areas. [specializations](specializations.md) directory entries.
+salary | [object](#salary-object) or null | Desired salary.
+employments | [array](#id-name-object) | List of types of employment that are suitable for the applicant. [employment](dictionaries.md) directory entries.
+schedules | [array](#id-name-object) | List of working hours that are suitable for the applicant. [schedule](dictionaries.md) directory entries.
+education | [object](#education-object) | Education.
+language | [array](#language-object) | List of languages spoken by the applicant. [languages](languages.md) directory entries. 
+experience | [array](#experience-object) | Work experience.
+total_experience | [object](#total-experience-object) or null | Total years of service.
+skills | string or null | Additional information, a free-form description of skills.
+skill_set | array | Key skills (a list of unique strings).
+citizenship | [array](#id-name-url-object) | Applicant's citizenship list. Entries of the [directory of regions](areas.md).
+work_ticket | [array](#id-name-url-object) | A list of regions where the applicant has a work permit. Entries of the [directory of regions](areas.md).
+travel_time | [object](#id-name-object) | Acceptable travel time to the place of work. [travel_time](dictionaries.md) directory entry.
+recommendation | [array](#recommendation-object) | List of recommendations.
+resume_locale | [object](#id-name-object) | Resume language (locale). [Resume locales](locales.md) directory entry.
+certificate | [array](#certificate-object) | Applicant's certificate list.
+alternate_url | string | URL for the resume on the website.
+created_at | string | Date and time resume was created.
+download | [object](#download-object) | Links to download the resume in several formats ([more info](#download-links)).
+updated_at | string | Date and time resume was updated.
+has_vehicle | boolean or null | Does the applicant have their own car.
+driver_license_types | [array](#driver-license-types-object) | A list of applicant's driving license categories.
+hidden_fields | [array](#id-name-object) | List of hidden fields. Entry of the [resume_hidden_fields](dictionaries.md) directory ([more info](#hidden-fields)).
 
+<a name="id-name-object"></a>
+Object with id and name
+
+Name | Type | Description
+-----|-----|---------
+id | string | Field Id.
+name | string | Name of field.
+
+<a name="id-name-url-object"></a>
+Object with id, name and url
+
+Name | Type | Description
+-----|-----|---------
+id | string | Field Id.
+name | string | Name of field.
+url | string | URL for getting information about the field.
+
+<a name="metro-object"></a>
+Object `metro`
+
+Name | Type | Description
+-----|-----|---------
+id | string | Station ID.
+name | string | Station name.
+lat | number | Station latitude (a floating point number).
+lng | number | Station longitude (a floating point number).
+order | number | Sequence number of the station on the subway line (starting with 0).
+
+<a name="relocation-object"></a>
+Object `relocation`
+
+Name | Type | Description
+-----|-----|---------
+type | [object](#id-name-object) | Willingness to relocate. [relocation_type](dictionaries.md) directory entry.
+areas | [array](#id-name-url-object) | List of cities for potential relocation. Contains entries of the [directory of regions](areas.md).
+
+<a name="contact-object"></a>
+Object `contact`
+
+Name | Type | Description
+-----|-----|---------
+type | [object](#id-name-object) | Contact type. [prefered_contact_type](dictionaries.md) directory entry.
+value | string or [object](#value-object) | Contact value. Phone number: an [object](#value-object); email: a string.
+preferred | boolean | Is this the preferred method of communication.
+comment | string or null | Comment to the contact.
+verified | boolean or null | Is the phone number confirmed (when specifying a phone number).
+
+<a name="value-object"></a>
+Object `value`
+
+Name | Type | Description
+-----|-----|---------
+country | string | Country code (when specifying a phone number).
+city | string | City code (when specifying a phone number).
+number | string | Number (when specifying a phone number).
+formatted | string | Formatted number (when specifying a phone number).
+
+<a name="photo-object"></a>
+Object `photo`
+
+Name | Type | Description
+-----|-----|---------
+id | string | Unique image ID.
+small | string | Small image URL. This URL provides access to the image for a limited time after receiving a response. The application should be ready to receive `404 Not Found` as a response to the image request.
+medium | string | URL for a medium-sized image. This URL provides access to the image for a limited time after receiving a response. The application should be ready to receive `404 Not Found` as a response to the image request.
+
+<a name="portfolio-object"></a>
+Object `portfolio`
+
+Name | Type | Description
+-----|-----|---------
+id | string | Unique image ID.
+small | string | Small image URL. This URL provides access to the image for a limited time after receiving a response. The application should be ready to receive `404 Not Found` as a response to the image request.
+medium | string | URL for a medium-sized image. This URL provides access to the image for a limited time after receiving a response. The application should be ready to receive `404 Not Found` as a response to the image request.
+description | string or null | A description of the image in the portfolio.
+
+<a name="site-object"></a>
+Object `site`
+
+Name | Type | Description
+-----|-----|---------
+type | [object](#id-name-object) | Profile type. [resume_contacts_site_type](dictionaries.md) directory entry.
+url | string or null | A link to profile or ID.
+
+<a name="specialization-object"></a>
+Object `specialization`
+
+Name | Type | Description
+-----|-----|---------
+id | string | Specialist area ID.
+name | string | Specialist area name.
+profarea_id | string | ID of the profession that includes this specialist area.
+profarea_name | string | Name of the profession that includes this specialist area.
+laboring | boolean | Is this specialist area associated with the list of blue-collar jobs.
+
+<a name="salary-object"></a>
+Object `salary`
+
+Name | Type | Description
+-----|-----|---------
+amount | number | Amount
+currency | string | [currency](dictionaries.md) ID.
+
+<a name="education-object"></a>
+Object `education`
+
+Name | Type | Description
+-----|-----|---------
+elementary | [array](#elementary-object) | Secondary education. This field is usually only completed in the absence of higher education. 
+additional | [array](#additional-education-object) | List of training courses.
+attestation | [array](#additional-education-object) | List of passed tests or exams.
+primary | [array](#primary-object) | List of degrees higher than secondary education.
+level | [object](#id-name-object) | Education level. [education_level](dictionaries.md) directory entry.
+
+<a name="elementary-object"></a>
+Object `elementary`
+
+Name | Type | Description
+-----|-----|---------
+year | number | Year graduated.
+name | string | Name of educational institution.
+
+<a name="additional-education-object"></a>
+Object with additional education
+
+Name | Type | Description
+-----|-----|---------
+organization | string | The organization that conducted the courses/test/exam.
+name | string | Course/test/exam name.
+result | string or null | Profession/specialist area.
+year | number | Year graduated/test/exam was passed.
+
+<a name="primary-object"></a>
+Object `primary`
+
+Name | Type | Description
+-----|-----|---------
+name | string | Name of educational institution.
+name_id | string or null | Educational institution ID.
+organization | string | Faculty.
+organization_id | string or null | Faculty ID.
+result | string or null | Profession/specialist area.
+result_id | string or null | Profession/specialist area ID.
+year | number | Year graduated.
+
+<a name="language-object"></a>
+Object `language`
+
+Name | Type | Description
+-----|-----|---------
+id | string | Language ID.
+name | string | Language name.
+level | [object](#id-name-object) | Language proficiency. [language_level](dictionaries.md) directory entry.
+
+<a name="experience-object"></a>
+Object `experience`
+
+Name | Type | Description
+-----|-----|---------
+company | string  or null | Organization.
+company_id | string or null | Unique identifier of the organization. 
+area | [object](#id-name-url-object) or null | Region of the organization. An entry in the [directory of regions](areas.md).
+company_url | string | Company website.
+industries | [array](#id-name-object) | A list of the company's industries. Entries of the [directory of industries](industries.md).
+position | string | Position.
+start | string | Start date (`YYYY-MM-DD`).
+end | string or null | End date (`YYYY-MM-DD`).
+description | string | Responsibilities, functions, achievements.
+
+<a name="total-experience-object"></a>
+Object `total_experience`
+
+Name | Type | Description
+-----|-----|---------
+months | number | An integer, the total months of service, rounded up to a month.
+
+<a name="recommendation-object"></a>
+Object `recommendation`
+
+Name | Type | Description
+-----|-----|---------
+name | string | Name of person providing recommendation.
+position | string | Position.
+organization | string | Organization.
+
+<a name="certificate-object"></a>
+Object `certificate`
+
+Name | Type | Description
+-----|-----|---------
+title | string | Certificate name.
+achieved_at | string | Issue date (`YYYY-MM-DD`).
+type | string | Certificate type. Available values: `custom`, `microsoft`.
+owner | string or null | To whom the certificate is issued – only for certificates with `type = microsoft`.
+url | string or null | A link to the page with the certificate description.
+
+<a name="download-object"></a>
+Object `download`
+
+Name | Type | Description
+-----|-----|---------
+pdf | object | PDF resume.
+pdf.url | string | A link to download a PDF resume.
+rtf | object | RTF resume.
+rtf.url | string | A link to download an RTF resume.
+
+<a name="driver-license-types-object"></a>
+Object `driver_license_types`
+
+Name | Type | Description
+-----|-----|---------
+id | string | Applicant's driver’s license category. [driver_license_types](dictionaries.md) directory entry.
 
 ### Errors
 
