@@ -443,7 +443,7 @@ HTTP code | type | value | reason | описание
 HTTP code | type | value | описание
 ----------|------|-------|-----------
 403 | manager_extra_accounts | manager_extra_account_not_found | В заголовке передан некорректный id аккаунта
-403 | manager_accounts | manager_account_forbidden | [Рабочий аккаунт заблокирован](#manager-accounts-blocked)
+403 | manager_accounts | used_manager_account_forbidden | [Рабочий аккаунт заблокирован](#manager-accounts-blocked)
 
 <a name="manager-accounts-blocked"></a>
 В случае, если аккаунт пользователя заблокирован, придет ошибка вида:
@@ -452,7 +452,7 @@ HTTP code | type | value | описание
     "errors": [
     {
         "type": "manager_accounts",
-        "value": "manager_account_forbidden",
+        "value": "used_manager_account_forbidden",
         "allowed_accounts": [
             {
                 "id": "1",
