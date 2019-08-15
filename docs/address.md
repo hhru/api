@@ -13,7 +13,6 @@
     "description": "на проходной потребуется паспорт",
     "lat": 55.807794,
     "lng": 37.638699,
-    "raw": "Москва, Годовикова 9, стр. 10 (территория завода «Калибр»)",
     "metro_stations": [
         {
             "station_id": "6.8",
@@ -35,7 +34,6 @@ building | string или null | Номер дома
 description | string или null | Дополнительная информация об адресе
 lat | number или null | Географическая широта
 lng | number или null | Географическая долгота
-raw | string или null | Текстовое описание адреса, как было введено
 metro_stations | array | Список станций метро
 metro_stations[].station_id | string | Идентификатор станции метро
 metro_stations[].station_name | string | Название станции метро
