@@ -872,7 +872,6 @@ with_text_only | нет | true/false | Вернуть только те сооб
                         "station_name": "Динамо"
                     }
                 ],
-                "raw": null,
                 "street": "ул. Динамо"
             },
             "assessments": [
