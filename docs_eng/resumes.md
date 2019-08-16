@@ -1630,23 +1630,40 @@ When filling out contacts in a resume, take the following into account:
  * In the `email` contact, the value is email, for phone it is the object.
 
 
-Format of the phone number value:
+Example message for changing contacts in the resume:
 
 ```json
 {
-    "formatted": "+7(123)456-78-90",
-    "country": "7",
-    "city": "123",
-    "number": "4567890"
+    "contact": [
+        {
+            "type": {
+                "id": "email"
+            },
+            "value": "box@test.ru"
+        },
+        {
+            "type": {
+                "id": "cell"
+            },
+            "value": {
+                "country": "7",
+                "city": "123",
+                "number": "4567890",
+                "preferred": true
+            }
+        },
+        {
+            "type": {
+                "id": "home"
+            },
+            "value": {
+                "formatted": "7(499)9078456"
+            },
+            "comment": "On phone before 9 PM"
+        }
+    ]
 }
 ```
-
-where:
-
- * formatted — whole phone number
- * country — country code;
- * city — city code;
- * number — phone number.
 
 You must provide either the whole phone number in the `formatted` field or all three parts of the phone number separately in 
 the fields `country`, `city` and `number`. If both options are available, the system uses data from the separate fields.
