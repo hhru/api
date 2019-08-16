@@ -441,8 +441,8 @@ the response will be registered as viewed.
             "id": "eng",
             "name": "English",
             "level": {
-                "id": "can_read",
-                "name": "I read professional literature"
+                "id": "b2",
+                "name": "B2 - upper intermediate"
             }
         }
     ],
@@ -1124,8 +1124,7 @@ for the response/invitation for each of these jobs.
    }
 ```
 
-To add English with "read professional
-literature" level send the following JSON:
+To add English with "B2 - upper intermediate" level send the following JSON:
 
 ```json
 {
@@ -1141,7 +1140,7 @@ literature" level send the following JSON:
         {
             "id": "eng",
             "level": {
-                "id": "can_read"
+                "id": "b2"
             }
         }
     ]
