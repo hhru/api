@@ -2111,6 +2111,12 @@ where `resume_id` – ID of the resume.
 
 It takes the same parameters as the [searching for jobs](vacancies.md#search-params)
 
+When indicating paging parameters (`page`, `per_page`), a restriction takes
+effect: the number of results returned can't exceed 2000. For instance, a
+request `per_page=10&page=199` (displaying vacancies from 1991 to 2000) is
+possible, but a request with `per_page=10&page=200` will return an error
+(displaying vacancies from 2001 to 2010).
+
 ### Response
 
 Successful server response is returned with `200 OK` code and contains the results in the same format 
@@ -2118,6 +2124,7 @@ as the [searching for jobs](vacancies.md#search-params):
 
 ### Errors
 
+* `400 Bad Request` – error in the request parameters
 * `404 Not Found` - if the resume with `resume_id` identifier does not exist or is unavailable
 
 

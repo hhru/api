@@ -518,6 +518,7 @@ to anonymous vacancy, the history will display anonymous name of the company.
 
 ### Errors
 
+* `400 Bad Request` – error in the request parameters
 * `404 Not Found` - if the vacancy of requested responses doesn't exist or
 not available to the current user
 
