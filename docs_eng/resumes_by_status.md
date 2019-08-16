@@ -12,7 +12,8 @@ The response will include the user's resumes grouped into four lists depending o
 
 ### Response
 
-A successful response contains the `200 OK` code and four lists [resume summaries](resumes.md#resume-short) of the user's resumes:
+A successful response contains the `200 OK` code and four lists of the user's CVs 
+in [resume summaries](resumes.md#resume-short) format and with [additional fields](#additional-fields):
 
 * `suitable` — List of resumes that can be used to apply for this job
 * `not_published` — Unpublished ([status](resumes.md#status) `not_published` or `blocked`) resumes
@@ -35,6 +36,7 @@ A successful response contains the `200 OK` code and four lists [resume summarie
                     "name": "is visible to all companies registered on Headhunter"
                 }
             },
+            "finished": false,
             "status": {
                 "id": "published",
                 "name": "published"
@@ -171,10 +173,15 @@ A successful response contains the `200 OK` code and four lists [resume summarie
 
 Please see the [full resume](resumes.md#resume-fields) for a description of the fields.
 
-Additionally, the `requires_completion` field is displayed for each resume; this field depends on the presence of the "accept incomplete resumes" flag in the corresponding job.
+<a name="additional-fields"></a>
+### Additional fields
+
+Additionally, the fields are displayed with format [resume summaries](resumes.md#resume-short):
 
 Имя | Тип | Описание
 ---- | --- | --------
+finished | boolean | mark for the CV completion percentage ([more info](resumes.md#author-progress))
+access | object | [the CV access type](resumes.md#access_type)
 requires_completion | boolean | Whether additional information is required in the [required fields](resumes.md#author-progress) of the resume to apply for this job. This parameter is set to `true` only if the "accept incomplete resumes" flag is not set for the job, and the resume is incomplete; otherwise, the value is set to `false`.
 
 The `counters` key displays information about the number of items in collections:
