@@ -516,8 +516,10 @@ sent to URL from JSON response. This is the only option
 to correctly process the request in view history. E.g, if the CV is requested from the response
 to anonymous vacancy, the history will display anonymous name of the company.
 
-If the vacancy of requested responses doesn't exist or
-not available to the current user, `404 Not Found` response will be returned.
+### Errors
+
+* `404 Not Found` - if the vacancy of requested responses doesn't exist or
+not available to the current user
 
 <a name="actions-info"></a>
 ### Response/invitation actions (`actions`)
