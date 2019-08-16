@@ -638,7 +638,7 @@ Object `contact`
 
 Name | Type | Description
 -----|-----|---------
-type | [object](#id-name-object) | Contact type. [prefered_contact_type](dictionaries.md) directory entry.
+type | [object](#id-name-object) | Contact type. [preferred_contact_type](dictionaries.md) directory entry.
 value | string or [object](#value-object) | Contact value. Phone number: an [object](#value-object); email: a string.
 preferred | boolean | Is this the preferred method of communication.
 comment | string or null | Comment to the contact.
@@ -1179,7 +1179,7 @@ Parameters:
 * `contact` — contact info (list). 
 Mandatory of the contact fields see in [conditions to fill in the fields of a resume](#conditions)
 Consists of the fields:
-    * `type` — Directory entries [prefered_contact_type](dictionaries.md)
+    * `type` — Directory entries [preferred_contact_type](dictionaries.md)
     * `value` — contact value. For phone number, consists of four fields (`country`, `city`, `number`, `formatted`); 
     for email: a string.
     * `preferred` — preferred type of communication (`true` or `false`);
