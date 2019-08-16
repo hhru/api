@@ -657,6 +657,8 @@ The following data is available for the action:
 By default, the system returns vacancies from the current user. If you need
 vacancies from another manager, send an additional argument `manager_id={manager_id}`.
 
+The maximum value of `per_page` is 50.
+
 ### Response
 
 Successful server response is returned with `200 OK` code and contains:
@@ -759,6 +761,7 @@ collection supports:
 
 ### Errors
 
+* `400 Bad Request` – error in the request parameters
 * `403 Forbidden` – current user is not an employer
 * `403 Forbidden` – provided employer ID is incorrect
 * `404 Not Found` – current user does not have the appropriate privileges to view published vacancies
@@ -795,6 +798,9 @@ By default, the system returns vacancies from the current user. If you need
 vacancies from another manager, send an additional argument.
 
 The system supports pagination (`per_page` and `page`) and sorting (`order_by`).
+
+The maximum value of `per_page` is 1000.
+
 Possible sorting options can be found in the [directory](dictionaries.md).
 
 Unlike the list of published vacancies, the collection does not support
@@ -874,6 +880,7 @@ fields will be returned:
 
 ### Errors
 
+* `400 Bad Request` – error in the request parameters
 * `403 Forbidden` – current user is not an employer.
 * `403 Forbidden` – invalid employer id is specified.
 * `404 Not Found` – the current user cannot obtain archive vacancies.
@@ -906,6 +913,9 @@ A successful response contains a code `204 No Content` and is body-less.
 `GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}`
 
 Pagination (`per_page` and `page`) and sorting (`order_by`) are supported.
+
+The maximum value of `per_page` is 1000.
+
 Possible sorting values are available in the `employer_hidden_vacancies_order`
 (`/dictionaries`) directory. As opposed to the list of published vacancies, this
 collection does not support search (the parameters `text` and `area`).
@@ -972,6 +982,7 @@ Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
 
 ### Ошибки
 
+* `400 Bad Request` – error in the request parameters
 * `403 Forbidden` – current user is not an employer
 * `403 Forbidden` – provided employer ID is incorrect
 * `404 Not Found` – current user does not have the appropriate privileges to view deleted vacancies
