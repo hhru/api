@@ -877,7 +877,6 @@ Successful server response is returned with `200 OK` code and contains:
                         "station_name": "Dinamo"
                     }
                 ],
-                "raw": null,
                 "street": "ul. Dinamo"
             },
             "assessments": [

@@ -73,7 +73,6 @@ Successful server response is returned with `200 OK` code and contains:
         "description": "Additional information",
         "lat": 55.807794,
         "lng": 37.638699,
-        "raw": "Textual address description as entered",
         "metro_stations": [
             {
                 "station_name": "station name",
@@ -636,7 +635,6 @@ used for applicants.
         "description": "Additional information",
         "lat": 55.807794,
         "lng": 37.638699,
-        "raw": "Textual address description as entered",
         "metro_stations": [
           {
             "station_name": "station name",

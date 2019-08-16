@@ -12,7 +12,6 @@ nearest metro stations and other location details. It appears as follows:
     "description": "Additional information",
     "lat": 55.807794,
     "lng": 37.638699,
-    "raw": "Textual address description as entered",
     "metro_stations": [
         {
             "station_name": "station name",
