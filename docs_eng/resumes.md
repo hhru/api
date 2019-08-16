@@ -2109,9 +2109,17 @@ The information is available only to the resume publisher.
 
 where `resume_id` – ID of the resume.
 
-It takes the same parameters and returns the results in the same format as the [searching for jobs](vacancies.md#search-params)
+It takes the same parameters as the [searching for jobs](vacancies.md#search-params)
 
-In addition, if the resume with `resume_id` identifier does not exist or is unavailable, the response will be `404 Not Found`.
+### Response
+
+Successful server response is returned with `200 OK` code and contains the results in the same format 
+as the [searching for jobs](vacancies.md#search-params):
+
+### Errors
+
+* `404 Not Found` - if the resume with `resume_id` identifier does not exist or is unavailable
+
 
 <a name="hidden-fields"></a>
 ## CV hidden fields
