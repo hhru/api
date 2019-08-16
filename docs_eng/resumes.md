@@ -1156,6 +1156,8 @@ Sending data replaces existing data for the selected parameter.
 Each parameter can be sent separately.
 
 <a name="resume-keys"></a>
+> Also, read the rules for filling the fields in the [Conditions to fill in the fields of a resume](#conditions)
+
 Parameters:
 
 * `last_name` — second name;
@@ -1174,7 +1176,9 @@ Parameters:
       [areas](areas.md);
 * `business_trip_readiness` — agree to go on business trips. Directory entries
   [resume_trip_readiness](dictionaries.md#resume_trip_readiness)
-* `contact` — contact info (list). Consists of the fields:
+* `contact` — contact info (list). 
+Mandatory of the contact fields see in [conditions to fill in the fields of a resume](#conditions)
+Consists of the fields:
     * `type` — Directory entries [prefered_contact_type](dictionaries.md)
     * `value` — contact value. For phone number, consists of four fields (`country`, `city`, `number`, `formatted`); 
     for email: a string.
