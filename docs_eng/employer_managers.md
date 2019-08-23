@@ -333,7 +333,7 @@ Name | Type | Description
 --- | --- | ---
 id | string | Manager ID
 full_name | string | Manager's full name
-vacancies_count | number | number of published (active) vacancies for this manager
+vacancies_count | number or null | number of published (active) vacancies for this manager. `null` - if user has not permission to that manager's vacancies
 
 ### Errors
  * `403 Forbidden` - Current authorisation is not allowed to view this employer's managers
