@@ -115,7 +115,17 @@ to the company's vacancies.
         "name": "Russia"
     },
     "trusted": true,
-    "relations": []
+    "relations": [],
+    "industries": [
+        {
+            "id": "7.540",
+            "name": "Software development"
+        },
+        {
+            "id": "9.399",
+            "name": "Mobile communication"
+        }
+    ]
 }
 ```
 
@@ -140,6 +150,15 @@ area.id | string | region ID [from dictionary](areas.md)
 area.name | string | region name
 area.url | string | link to information about the region
 relations | array | if the employer is blacklisted, it will return `['blacklisted']` else `[]`
+industries | [array](#id-name-object) | A list of the company's industries. Entries of the [directory of industries](industries.md).
+
+<a name="id-name-object"></a>
+Object with id and name
+
+Name | Type | Description
+-----|-----|---------
+id | string | field Id
+name | string | name of field
 
 <a name="branded-description"></a>
 #### Branded description

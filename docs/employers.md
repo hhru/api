@@ -124,7 +124,17 @@ logo_urls | object или null | [логотипы компании](#logo-urls)
         "id": "113",
         "name": "Россия"
     },
-    "relations": []
+    "relations": [],
+    "industries": [
+        {
+            "id": "7.540",
+            "name": "Разработка программного обеспечения"
+        },
+        {
+            "id": "9.399",
+            "name": "Мобильная связь"
+        }
+    ]
 }
 ```
 
@@ -149,6 +159,15 @@ area.id | string | id региона [из справочника](areas.md)
 area.name | string | название региона
 area.url | string | ссылка на информацию о регионе
 relations | array | если работодатель добавлен в черный список, то вернется `['blacklisted']` иначе `[]`
+industries | [array](#id-name-object) | Cписок отраслей компании. Элементы [справочника индустрий](industries.md).
+
+<a name="id-name-object"></a>
+Объект с именем и идентификатором
+
+Имя | Тип | Описание
+-----|-----|---------
+id | string | идентификатор поля
+name | string | название поля
 
 <a name="branded-description"></a>
 #### Брендированное описание компании
