@@ -7,6 +7,7 @@
   * [Obtaining access and refresh tokens](#get-tokens)
 * [Refreshing the access and refresh token pair](#refresh_token)
 * [Authorization request for another user](#force_login)
+* [Login to different work accounts](#implant)
 
 <a name="get-auth"></a>
 ## Obtaining user authorization
@@ -206,3 +207,8 @@ You have logged in as %Name_Surname%. Not you?
 
 and give a link with `force_login=true` for the user to be able to log in using
 a different account.
+
+<a name="implant"></a>
+## Login to different work accounts
+
+It is necessary to read the documentation on Manager Work Accounts in order to get a list of the Manager Work Accounts and to work on different [Manager Work Accounts](manager_accounts.md).

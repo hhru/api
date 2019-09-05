@@ -415,3 +415,41 @@ HTTP code | type | value | reason | описание
 ----------|------|-------|---------|---------
 400 | bad_argument | id | too_many_bulk_items | too many IDs
 400 | bad_argument | id | | an invalid ID was passed
+
+<a name="manager-accounts"></a>
+### Manager work accounts
+HTTP code | type | value | description
+----------|------|-------|-----------
+403 | manager_extra_accounts | manager_extra_account_not_found | Incorrect Account ID in the header
+403 | manager_accounts | used_manager_account_forbidden | [Work Account is blocked](#manager-accounts-blocked)
+
+<a name="manager-accounts-blocked"></a>
+If User Account is blocked, the following error message will be generated:
+```json
+{
+    "errors": [
+    {
+        "type": "manager_accounts",
+        "value": "used_manager_account_forbidden",
+        "allowed_accounts": [
+            {
+                "id": "1",
+                "employer": {
+                    "id": "12345678",
+                    "name": "Alpha Corp."
+                }
+            },
+            {
+                "id": "2",
+                "employer": {
+                    "id": "87654321",
+                    "name": "Beta Inc."
+                }
+            }
+        ]
+    }
+  ]
+}
+```
+where `allowed_accounts` contains an array of the accounts available for this token
+Array elements are similar to the [result in the list of the Work Accounts](private/ru/manager_accounts.md#account-info)

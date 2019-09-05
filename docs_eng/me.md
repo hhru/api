@@ -40,7 +40,8 @@ Successful server response is returned with `200 OK` code and contains:
         "id": "87654321",
         "has_admin_rights": true,
         "is_main_contact_person": true,
-        "manager_settings_url": "https://api.hh.ru/employers/1455/managers/87654321/settings"
+        "manager_settings_url": "https://api.hh.ru/employers/1455/managers/87654321/settings",
+        "has_multiple_manager_accounts": true
     },
     "personal_manager": {
         "id": "1234567",
@@ -108,6 +109,7 @@ id | string | manager ID
 has_admin_rights | logical | does the current manager have administrative privileges
 is_main_contact_person | logical | is the current manager the company's main contact person
 manager_settings_url | string | The URL to perform a GET request to obtain the [manager preferences](manager_settings.md)
+has_multiple_manager_accounts | logical | Does a User have multiple [Work Accounts](manager_accounts.md)?
 
 
 <a name="personal-manager-info"></a>
