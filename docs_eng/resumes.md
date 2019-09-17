@@ -1596,16 +1596,17 @@ Rules
 
 Name | Type | Description
 --- | --- | ---
-required | boolean | The resume field of the object field is mandatory.
-min_length | number | Minimum length for text fields.
-max_length | number | Maximum length for text fields.
+required | boolean | The resume field of the object field is mandatory. For string values the field must not be null or ""
+min_length | number or `null` | Minimum length for text fields. Calculated for text without `\r\n`. `null` if the lower limit is not defined.
+max_length | number or `null` | Maximum length for text fields. Calculated for result of trimming spaces at the beginning and end of a line. `null` if the upper limit is not defined.
 not_in | list | A list of invalid values
-min_count | number | Minimum number of objects, for fields with lists.
+min_count | number | Minimum number of objects, for fields with lists. `null` if the lower limit is not defined.
 max_count | number or `null` | Maximum number of objects, for fields with lists. `null` if the number is not limited.
-min_value | number | Lower limit for numerical values, inclusive.
+min_value | number or `null` | Lower limit for numerical values, inclusive. `null` if the lower limit is not defined.
 max_value | number or `null` | Upper limit for numerical values, inclusive. `null` if the upper limit is not defined.
-min_date | date string | Lower limit for dates, inclusive.
-max_date | date string | Upper limit for dates, inclusive.
+min_date | date string or `null` | Lower limit for dates, inclusive. `null` if the lower limit is not defined.
+max_date | date string or `null` | Upper limit for dates, inclusive. `null` if the upper limit is not defined.
+regexp | string or `null` | A regular expression for text fields. `null` if there are no restrictions.
 
 
 <a name="init-conditions"></a>
