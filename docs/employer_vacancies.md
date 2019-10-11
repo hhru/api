@@ -189,7 +189,7 @@ contacts.phones[].country | string | код страны
 contacts.phones[].city | string | код города
 contacts.phones[].number | string | телефон
 contacts.phones[].comment | string или null | комментарий (удобное время для звонка по этому номеру)
-test | object | тест для вакансии
+test | object | [тест](employer_tests.md) для вакансии
 test.id | string | тест, который будет добавлен в вакансию
 test.required | boolean | требовать прохождение теста для отклика на вакансию
 response_url | string | URL отклика для прямых вакансий (`type.id=direct`)

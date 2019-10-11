@@ -93,5 +93,5 @@ X-Manager-Account-Id: {account_id}
 <a name="errors"></a>
 ## Ошибки
 
-* `403 Forbidden` — рабочий аккаунт с переданным `account_id` не найден. Дополнительно к коду вернется [причина ошибки](errors_additional.md#manager-accounts)
+* `403 Forbidden` — рабочий аккаунт с переданным `account_id` не найден. Дополнительно к коду вернется [причина ошибки](errors.md#manager-accounts)
 * `403 Forbidden` — ошибка авторизации (при запросах с авторизацией не работодателя)
