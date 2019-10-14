@@ -119,6 +119,7 @@ Response fields are the same as for [element fields in the artifacts list](#item
 
 * `403 Forbidden` – current user is not a applicant
 * `400 Bad Request` – error in request parameters or adding an image impossible
+* `413 Request Entity Too Large` – image too large
 
 In addition to the HTTP code, the server can return a description of the [error reason](errors.md#artifacts).
 

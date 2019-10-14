@@ -1133,7 +1133,7 @@ To add English with "B2 - upper intermediate" level send the following JSON:
             "id": "rus",
             "name": "Russian",
             "level": {
-                "id": "native",
+                "id": "l1",
                 "name": "native"
             }
         },

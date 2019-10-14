@@ -216,8 +216,10 @@ employer_states | list | of [employer statuses](#term-employer-state) for respon
 employer_states[].id | string | status ID unique at least for this vacancy
 employer_states[].name | string | status name
 
-If parameter `vacancy_id` is not sent, the response with code
-`400 Bad Request` will be returned.
+### Errors
+* `400 Bad Request` - if parameter `vacancy_id` is not sent or sent bad value
+* `404 Not Found` - if the vacancy of requested responses doesn't exist or
+                    not available to the current user
 
 
 <a name="negotiations-list"></a>

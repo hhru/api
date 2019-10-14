@@ -92,5 +92,5 @@ In the absence of the header, your header may also send `account_id` of the Prim
 <a name="errors"></a>
 ## Errors
 
-* `403 Forbidden` – Work Account with the sent `account_id` not found. [Error cause] will be generated additionally to the code (errors_additional.md#manager-accounts)
+* `403 Forbidden` – Work Account with the sent `account_id` not found. [Error cause](errors.md#manager-accounts) will be generated additionally to the code
 * `403 Forbidden` – login error (upon login requests of non-employers)

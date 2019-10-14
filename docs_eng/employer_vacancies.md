@@ -189,7 +189,7 @@ some additional fields.
  contacts.phones[].number    | string          | phone number
  contacts.phones[].comment   | string or null  | commentary (preferred time for calling this number)
  test                        | object          | vacancy test
- test.id                     | string          | the test that will be added to the vacancy
+ test.id                     | string          | [the test](employer_tests.md) that will be added to the vacancy
  test.required               | boolean         | the test is mandatory for an application
  response_url                | string          | application URL for direct vacancies (`type.id=direct`) |
  custom_employer_name        | string          | company name for anonymous vacancies (`type.id=anonymous`), for example "major bank of Russia"
