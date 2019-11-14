@@ -256,7 +256,7 @@ billing_type.id | string | ID of the vacancy billing type
 billing_type.name | string | Name of the vacancy billing type
 allow_messages | boolean | Whether the option is enabled for the candidate to send messages to the employer after invitation/application for the job
 premium | boolean | Whether it is a premium vacancy
-driver_license_types | array | List of required driver license categories
+driver_license_types | array | List of required driver license categories. This list may be empty.
 driver_license_types[].id | string | Driving license category. [driver_license_types](dictionaries.md) directory entry.
 accept_incomplete_resumes | boolean | Whether it is possible to apply with an incomplete resume
 
