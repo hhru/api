@@ -34,7 +34,7 @@ building | string или null | Номер дома
 description | string или null | Дополнительная информация об адресе
 lat | number или null | Географическая широта
 lng | number или null | Географическая долгота
-metro_stations | array | Список станций метро
+metro_stations | array | Список станций метро, может быть пустым
 metro_stations[].station_id | string | Идентификатор станции метро
 metro_stations[].station_name | string | Название станции метро
 metro_stations[].line_id | string | Идентификатор линии метро, на которой находится станция
