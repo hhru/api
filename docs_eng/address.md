@@ -36,7 +36,7 @@ where:
  lat | number, null | Latitude
  lng | number, null | Longitude
  raw | string, null | Textual description of address
- metro_stations | array | Metro station list, see below
+ metro_stations | array | Metro station list, may be empty, see below
 
 The object contains key `metro` for backward compatibility.
 Key `metro_stations` should be used.
