@@ -54,7 +54,7 @@ Article labels:
 * Manager details
   * [Manager work accounts](manager_accounts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Manager preferences](manager_settings.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Information on active API services for paid methods](employer_services.md#payable-api-actions) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Information on active API services for paid methods](employer_services.md#payable-api-actions) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Locales](locales.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Site choice](hosts.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
