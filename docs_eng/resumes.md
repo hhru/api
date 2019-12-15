@@ -641,7 +641,7 @@ Name | Type | Description
 -----|-----|---------
 type | [object](#id-name-object) | Contact type. [preferred_contact_type](dictionaries.md) directory entry.
 value | string or [object](#value-object) | Contact value. Phone number: an [object](#value-object); email: a string.
-preferred | boolean | Is this the preferred method of communication.
+preferred | boolean | Is this the preferred method of communication (should mention only one preferred contact as `"preferred": true`, if preferred flag is not sent default value for this parameter is `false`).
 comment | string or null | Comment to the contact.
 verified | boolean or null | Is the phone number confirmed (when specifying a phone number).
 
