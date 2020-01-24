@@ -1,6 +1,7 @@
 # Резюме
 
 * [Список резюме авторизованного пользователя](#mine)
+* [Список резюме авторизованного пользователя со статистикой](#mine2)
 * [Просмотр резюме](#item)
   * [Дополнительные поля для автора резюме](#additional-author-fields)
   * [Платные услуги для соискателя, связанные с резюме](#applicant-paid-services)
@@ -222,6 +223,222 @@ similar_vacancies | object | информация о вакансиях, пох�
 similar_vacancies.url | string | url, по которому необходимо сделать GET запрос, для получения [вакансий, похожих на данное резюме](#similar)
 similar_vacancies.counters.total | number | общее количество похожих вакансий
 paid_services | object | [платные услуги по резюме для автора](#applicant-paid-services)
+
+
+# Список резюме авторизованного пользователя со статистикой
+
+`GET /resumes/mine2` возвращает список резюме в [сокращенном представлении](#resume-short) для авторизованного пользователя со статистикой. 
+Без авторизации вернёт `403 Forbidden`.
+
+```json
+{
+    "resumes": {
+        "items": [
+            {
+                "resume": {
+                    "access": {
+                        "type": {
+                            "id": "clients",
+                            "name": "видно всем компаниям, зарегистрированным на HeadHunter"
+                        }
+                    },
+                    "blocked": false,
+                    "finished": false,
+                    "total_views": 0,
+                    "new_views": 0,
+                    "status": {
+                        "id": "published",
+                        "name": "опубликовано"
+                    },
+                    "views_url": "https://api.hh.ru/resumes/0123456789abcdef/views",
+                    "id": "0123456789abcdef",
+                    "title": "Начинающий специалист",
+                    "url": "https://api.hh.ru/resumes/0123456789abcdef",
+                    "first_name": "Иван",
+                    "last_name": "Иванов",
+                    "middle_name": "Иванович",
+                    "age": 19,
+                    "alternate_url": "https://hh.ru/resume/0123456789abcdef",
+                    "created_at": "2015-02-06T12:00:00+0300",
+                    "updated_at": "2015-04-20T16:24:15+0300",
+                    "area": {
+                        "id": "1",
+                        "name": "Москва",
+                        "url": "https://api.hh.ru/areas/1"
+                    },
+                    "certificate": [
+                        {
+                            "achieved_at": "2015-01-01",
+                            "owner": null,
+                            "title": "тест",
+                            "type": "custom",
+                            "url": "http://example.com/"
+                        }
+                    ],
+                    "education": {
+                        "primary": [
+                            {
+                                "name": "Российский государственный социальный университет, Москва",
+                                "name_id": "39420",
+                                "organization": "Факультет информационных технологий",
+                                "organization_id": null,
+                                "result": "Информатика",
+                                "result_id": null,
+                                "year": 2012
+                            }
+                        ],
+                        "level": {
+                            "id": "higher",
+                            "name": "Высшее"
+                        }
+                    },
+                    "total_experience": {
+                        "months": 118
+                    },
+                    "experience": [
+                        {
+                            "position": "пастух",
+                            "start": "2010-01-01",
+                            "end": null,
+                            "company": "Рога и копыта",
+                            "industries": [
+                                {
+                                    "id": "51.643",
+                                    "name": "Благоустройство и уборка территорий и зданий"
+                                },
+                                {
+                                    "id": "29.503",
+                                    "name": "Земледелие, растениеводство, животноводство"
+                                }
+                            ],
+                            "company_url": "http://example.com/",
+                            "area": {
+                                "id": "1",
+                                "name": "Москва",
+                                "url": "https://api.hh.ru/areas/1"
+                            },
+                            "company_id": null,
+                            "employer": null
+                        },
+                        {
+                            "start": "2005-01-01",
+                            "end": "2009-03-01",
+                            "company": "HeadHunter",
+                            "area": {
+                                "id": "1",
+                                "name": "Москва",
+                                "url": "https://api.hh.ru/areas/1"
+                            },
+                            "industries": [
+                                {
+                                    "id": "7.513",
+                                    "name": "Интернет-компания (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
+                                }
+                            ],
+                            "company_url": "https://hh.ru",
+                            "company_id": "1455",
+                            "employer": {
+                                "alternate_url": "https://hh.ru/employer/1455",
+                                "id": "1455",
+                                "logo_urls": {
+                                    "90": "https://hh.ru/employer/logo/1455"
+                                },
+                                "name": "HeadHunter",
+                                "url": "https://api.hh.ru/employers/1455"
+                            }
+                        }
+                    ],
+                    "gender": {
+                        "id": "male",
+                        "name": "Мужской"
+                    },
+                    "salary": {
+                        "amount": 1000000,
+                        "currency": "RUR"
+                    },
+                    "photo": {
+                        "medium": "https://hh.ru/...",
+                        "small": "https://hh.ru/...",
+                        "id": "1337"
+                    },
+                    "similar_vacancies": {
+                        "url": "https://api.hh.ru/resumes/0123456789abcdef/similar_vacancies",
+                        "counters": {
+                            "total": 1507
+                        }
+                    },
+                    "download": {
+                        "pdf": {
+                            "url": "https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.pdf?type=pdf"
+                        },
+                        "rtf": {
+                            "url": "https://hh.ru/api_resume_converter/0123456789abcdef/ИвановИванИванович.rtf?type=rtf"
+                        }
+                    },
+                    "paid_services": [
+                        {
+                            "id": "resume_autoupdating",
+                            "name": "Автообновление резюме",
+                            "active": false
+                        },
+                        {
+                            "id": "resume_marked",
+                            "name": "Яркое резюме",
+                            "active": true,
+                            "expires": "2016-06-08T18:25:25+0300"
+                        }
+                    ],
+                    "hidden_fields": [
+                        {
+                            "id": "phones",
+                            "name": "Все указанные в резюме телефоны"
+                        }
+                    ]
+                }
+            }
+        ],
+        "page": 0,
+        "per_page": 1,
+        "pages": 1,
+        "found": 1
+    },
+    "statistics": {
+        "recommendation": "respond",
+        "statistics": {
+            "invitations": {
+                "averageComparison": -1,
+                "count": 0,
+                "countNew": 0
+            },
+            "searchShows": {
+                "averageComparison": -21,
+                "count": 2
+            },
+            "views": {
+                "averageComparison": -4,
+                "count": 1,
+                "countNew": 0
+            }
+        }
+    }
+}
+```
+
+<a name="resumes-mine2-author-fields"></a>
+Описание полей смотрите в [списке резюме авторизованного пользователя](#mine).
+Дополнительно ответ содержит:
+
+Имя | Тип | Описание
+--- | --- | --------
+statistics.recommendation | string | рекомендация по улучшению статистики
+statistics.statistics.invitations.count | number | количество пришлашений для данного резюме
+statistics.statistics.invitations.countNew | number | количество новых приглашений для данного резюме
+statistics.statistics.invitations.averageComparison | number | сравнение с конкурентами
+statistics.statistics.searchShows.count | number | количество показов в поиске
+statistics.statistics.searchShows.averageComparison | number | сравнение с конкурентами
+statistics.statistics.views.count | number | количество просмотров резюме
+statistics.statistics.views.countNew | number | количество новых просмотров резюме
+statistics.statistics.views.averageComparison | number | сравнение с конкурентами
 
 <a name="item"></a>
 ## Просмотр резюме
