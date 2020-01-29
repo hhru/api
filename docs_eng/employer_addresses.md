@@ -6,7 +6,7 @@ Every employer can have several addresses. To learn the address list of a
 particular employer, one should send the `GET` request to
 `/employers/{employer_id}/addresses`.
 
-request applies [standard pagination parameters](/docs_eng/general.md#pagination) page и per_page (per_page can't be more 5000)
+request applies [standard pagination parameters](/docs_eng/general.md#pagination) page и per_page (per_page can't be more 200)
 
 In case of success, the `HTTP 200 OK` code will be returned, and the response
 body will contain the company address list.
