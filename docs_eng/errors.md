@@ -452,4 +452,4 @@ If User Account is blocked, the following error message will be generated:
 }
 ```
 where `allowed_accounts` contains an array of the accounts available for this token
-Array elements are similar to the [result in the list of the Work Accounts](private/ru/manager_accounts.md#account-info)
+Array elements are similar to the [result in the list of the Work Accounts](manager_accounts.md#account-info)

@@ -1612,9 +1612,13 @@ regexp | string or `null` | A regular expression for text fields. `null` if ther
 <a name="init-conditions"></a>
 ## Conditions to fill in the fields of a new resume
 
-`GET /resume_conditions` returns a list of requirements for the fields in the new resume.
-If the authorized user is not an applicant, the system will return the
-`403 Forbidden` response code, otherwise it will be `200 OK`.
+`GET /resume_conditions` returns a [list of requirements](#conditions) for the fields in the new resume similar to existed resume.
+
+### Response
+A successful response contains a code `200 OK` and list of requirements
+
+### Errors
+`403 Forbidden` - authorized user is not an applicant
 
 
 <a name="conditions-contacts"></a>
