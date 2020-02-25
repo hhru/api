@@ -711,6 +711,10 @@ attestation | [array](#additional-education-object) | List of passed tests or ex
 primary | [array](#primary-object) | List of degrees higher than secondary education.
 level | [object](#id-name-object) | Education level. [education_level](dictionaries.md) directory entry.
 
+Features when saving `education`:
+If you submit both higher education and secondary education and the education level is "secondary", only secondary education will be saved.
+If you submit both higher education and secondary education and the education level is "higher", only higher education will be saved.
+
 <a name="elementary-object"></a>
 Object `elementary`
 
@@ -759,7 +763,7 @@ Name | Type | Description
 company | string  or null | Organization.
 company_id | string or null | Unique identifier of the organization. 
 area | [object](#id-name-url-object) or null | Region of the organization. An entry in the [directory of regions](areas.md).
-company_url | string | Company website.
+company_url | string or null | Company website.
 industries | [array](#id-name-object) | A list of the company's industries. Entries of the [directory of industries](industries.md).
 position | string | Position.
 start | string | Start date (`YYYY-MM-DD`).
@@ -1157,6 +1161,7 @@ Each parameter can be sent separately.
 <a name="resume-keys"></a>
 > Also, read the rules for filling the fields in the [Conditions to fill in the fields of a resume](#conditions)
 
+<a name="resume-edit-params"></a>
 Parameters:
 
 * `last_name` — second name;
@@ -1167,11 +1172,11 @@ Parameters:
 * `photo` — user photo. see. [artifacts](artifacts.md);
 * `portfolio` — user portfolio. see [artifacts](artifacts.md);
 * `area` — place of residence. Directory entries [areas](areas.md);
-* `metro` — nearest metro station. Directory entries [metro](metro.md).
+* `metro` — nearest metro station. Directory entries [metro](metro.md). If you submit a metro station that does not exist in submitted area, the field will be ignored;
   It makes sense to show only for `area` with metro;
 * `relocation` — possible relocation. Consists of the fields:
     * `type` — Directory entries [relocation_type](dictionaries.md);
-    * `areas` — relocation city (list). Makes sense only with the corresponding `type` field. Directory entries
+    * `area` — relocation city (list). Makes sense only with the corresponding `type` field. Directory entries
       [areas](areas.md);
 * `business_trip_readiness` — agree to go on business trips. Directory entries
   [resume_trip_readiness](dictionaries.md#resume_trip_readiness)
@@ -1218,11 +1223,12 @@ Consists of the fields:
                         education level;
         * `year` — year graduated;
     * `level` — education level. Directory entries [education_level](dictionaries.md)
-* `language` — languages (list). Consists of a [languages](languages.md) directory entry
-                 with added [language_level](dictionaries.md) in the `level` field.
+* `language` — languages (list):
+    * `id` - value from [languages](languages.md)
+    * `level` - value from [language_level](dictionaries.md).
 * `experience` — work experience (list). It consists of the following fields:
     * `company` — company;
-    * `company_id` — company id, can be found in the [tips for companies](suggets.md#companies);
+    * `company_id` — company id, can be found in the [tips for companies](suggests.md#companies);
     * `area` — region of the company. Directory entries [areas](areas.md);
     * `company_url` — company website;
     * `industries` — A list of the company's industries. Entries of the [directory of industries](industries.md)
@@ -1230,9 +1236,6 @@ Consists of the fields:
     * `start` — started work (YYYY-MM-DD);
     * `end` — finished work (YYYY-MM-DD);
     * `description` — responsibilities, functions, achievements;
-* `total_experience` — total years of work. If the applicant has no work experience, the value is `null`. 
-        If he or she has experience — the object from the fields:
-    * `months` — an integer, the total months of service, rounded up to a month;
 * `skills` — additional information, a free-form description of skills;
 * `skill_set` — key skills (a list of unique strings).
 * `citizenship` — citizenship (list). Directory entries [areas](areas.md);
@@ -1244,9 +1247,13 @@ Consists of the fields:
     * `organization` — company;
 * `resume_locale` — resume locale. Directory entries [локали резюме](locales.md).
 * `driver_license_types` - A list of applicant's driving license categories. [driver_license_types](dictionaries.md) directory entry.
-* `has_vehicle` - Does the applicant have their own car
+* `has_vehicle` - Does the applicant have their own car;
+* `hidden_fields` - [hidden fields](#hidden-fields) in the resume (list). Directory entry
+* `access` - [resume visibility](#access_type)
+    * `type` - visibility type. Directory entry [resume_access_type](dictionaries.md)
 
-Parameters taken from [tips](suggests.md) (`name_id`, `organization_id`, `result_id`, `faculty_id`, `company_id`) 
+
+Parameters taken from [tips](suggests.md) (`name_id`, `organization_id`, `result_id`, `company_id`) 
 are optional. In this case, if these parameters are indicated, then when saved they are checked for
 being correct. In case of errors, such as non-existent
 ids or unconnected university and faculty ids, it will return `HTTP 400 Bad Request` with an indication
@@ -1269,10 +1276,112 @@ A successful response to resume update comes with a code and does not have a bod
 ### Errors
 
 * `403 Forbidden` – The request is not from the applicant.
-* `400 Bad Request` - Errors in resume fields. In addition, the fields will be specified to show exactly where the errors are.
+* `400 Bad Request` - Errors in resume fields. You will receive additional [extended information](#resume-validation) on errors.
 * `404 Not Found` – The resume was not found or is not available to the current user (during an update)
 * `400 Bad Request` - The allowable number of resumes is exceeded (during creation)
 In addition, an [error will be specified](errors.md#resumes) with `type=resumes`, `value=total_limit_exceeded`.
+
+
+<a name="resume-validation"></a>
+### Errors in using fields when creating and editing resumes
+
+When creating and editing resumes, the values in the fields are validated to check the format of used fields and values (see [Parameters](#resume-edit-params)), existence of data, and business rules.
+
+In the event of errors, the response will be `400 Bad Request` with the following body:
+```json
+{
+   "errors": [
+        {
+            "type": "bad_json_data",
+            "value": "year",
+            "reason": "min_value",
+            "description": "Value is too low",
+            "pointer": "/education/additional/1/year"
+        },
+        {
+            "type": "bad_json_data",
+            "value": "access",
+            "reason": "required",
+            "description": "ID for access to resume is a required field",
+            "pointer": "/access/type/id"
+        }
+    ]
+}
+```
+Name | Type | Description
+--- | --- | ---
+type | string | Error class (always takes the value of `bad_json_data`)
+reason | string | Error reason
+value | string | Field where the error was found
+description | string | Error description for user
+pointer | string | [Data pointer](#error-pointer) with error in incoming message
+
+Validation error extends [standard API error](errors.md#general-errors).
+
+Possible causes of errors:
+
+Code | Explanation
+--- | ---
+required | this field is required
+not_found | no value found for submitted id
+faculty_without_university | you cannot set the faculty without the university
+not_in_dictionary | no value was found in the directory for submitted id
+not_a_leaf | value cannot include any leaf node
+end_date_before_start_date | `end` less than `start`
+not_country | 'area' must be a country (see [country directory](areas.md#countries))
+more_than_one_native_language | more than one native language
+must_contain_unique | submitted values must be unique
+from_different_profareas | submitted values are from different industries
+duplicate | value was already used
+bad_image_type | submitted value is of bad type (`portfolio` requires values from `GET /artifacts/portfolio`, `photo` requires values from `GET /artifacts/photo`)
+processing | object is being processed
+preferred_must_be_unique | preferred method of communication must be unique
+preferred_contact_not_specified | preferred method of communication is not specified or contact is not specified
+need_country_city_number_or_formatted | wrong telephone format in contact details (see [conditions for completing the contact details in the resume](#conditions-contacts))
+invalid | error in field value (fields must comply with [conditions for completing the fields](resumes.md#conditions))
+greater_than_max | value is greater than the maximum value
+less_than_min | value is less than the minimum value
+earlier_than_min | date is earlier than allowed
+later_than_max | date is later than allowed
+length_less_than_min | character number in the field is less than the minimum
+length_greater_than_max | character number in the field is greater than the maximum
+size_less_than_min | number of items is less than the minimum
+size_greater_than_max | number of items is greater than the maximum
+send_metro_without_area | no `area` specified for submitted metro station
+not_belong_this_city | this metro station is not in the specified city
+required_with_not_started_career | submit work experience if the specialty was not the career start
+not_match_regexp | value does not match regular expression
+more_than_one | more than one email sent
+
+<a name="error-pointer"></a>
+`pointer` for identifying the value uses JsonPointer format [RFC 6901](https://tools.ietf.org/html/rfc6901).
+For example, `/education/additional/1/year` means that that the error in the field comes from the message (`year` must be a number):
+```json
+{
+    "title": "Python programmer",
+    "education": {
+        "additional": [
+            {
+                "name": "Initial training course",
+                "organization": "Training organization",
+                "result": "General knowledge of Python",
+                "year": 2006
+            },
+            {
+                "name": "Further training course",
+                "organization": "Training organization",
+                "result": "In-depth knowledge of Python",
+                "year": "2012 - error"
+            }
+        ]
+   },
+   "salary": {
+        "amount": 100500,
+        "currency": "RUR"
+   }
+}
+```
+
 
 <a name="publish"></a>
 ## Publishing a resume
@@ -1591,6 +1700,7 @@ but if at least one field of the object is filled out,
 its other fields must be filled out, too. Example: the desired salary (`salary`) can be either not indicated
 or indicated but compulsorily with currency.
 
+<a name="condition-rules"></a>
 Rules
 -------
 

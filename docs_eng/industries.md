@@ -19,6 +19,8 @@
 ]
 ```
 
+All top-level objects are considered to be industries, while objects from `industries` arrays are specialties.
+
 The directory may have other values.
 
 Example: [https://api.hh.ru/industries?locale=EN](https://api.hh.ru/industries?locale=EN)
