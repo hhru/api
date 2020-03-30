@@ -255,7 +255,7 @@ GET /resumes/{resume_id}/{list_type}/search?text={text}
         },
         {
             "id": "9144",
-            "name": "HeadHunter::Украина (hh.ua)",
+            "name": "HeadHunter::Украина (grc.ua)",
             "url": "https://api.hh.ru/employers/9144",
             "alternate_url": "https://hh.ru/employer/9144",
             "logo_urls": {

@@ -245,7 +245,7 @@ Successful server response is returned with `200 OK` code and contains:
         },
         {
             "id": "9144",
-            "name": "HeadHunter::Ukraine (hh.ua)",
+            "name": "HeadHunter::Ukraine (grc.ua)",
             "url": "https://api.hh.ru/employers/9144",
             "alternate_url": "https://hh.ru/employer/9144",
             "logo_urls": {
