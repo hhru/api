@@ -1,5 +1,6 @@
 # Vacancies for the employer
 
+* [Possible options available to current manager for publishing of vacancies](employer_vacancies.md#available_types)
 * [Publishing job vacancies](#creation)
 * [Conditions for filling out fields when publishing and adding vacancies](#conditions)
 * [Editing vacancies](#edit)
@@ -18,6 +19,95 @@ See also:
 
 * [Extra fields for the author of the vacancy](vacancies.md#author)
 
+<a name="available_types"></a>
+## Possible options available to current manager for publishing of vacancies
+
+There is a need for a method to determine whether a manager can publish vacancies and what types of vacancies are available to the manager. It returns all possible types of publication.
+
+### Request
+
+```GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types```
+
+where:
+* `employer_id` is the employer ID, which can be found in [information on the current user](me.md#employer-info).
+* `manager_id` is the manager ID. It can be found in [information on the current user](me.md#manager-info).
+
+### Response
+
+A successful response will return a status of `200 OK`.
+The response body will contain information on options available for publishing a vacancy:
+
+```json
+{
+    "items": [
+        {
+            "name": "Standard: without updates",
+            "description": "it automatically rises in search results every 3 days; displays for 30 days. The vacancy is visible to invited applicants only. Applicants who have not been invited cannot view the vacancy nor find it using a search form",
+            "available_publications_count": 21,
+            "vacancy_billing_type": {
+                "id": "standart"
+            },
+            "vacancy_types": [
+                {
+                    "id": "closed"
+                },
+                {
+                    "id": "open"
+                }
+            ],
+            "publications": [
+                {
+                    "name": "Moscow and the Moscow Oblast",
+                    "count": 10,
+                    "areas_url": "https://api.hh.ru/areas?price_region_id=1000224&vacancy_publication_flag=true"
+                },
+                {
+                    "name": "In any region",
+                    "count": 11,
+                    "areas_url": "https://api.hh.ru/areas?vacancy_publication_flag=true"
+                }
+            ]
+        },
+        {
+            "name": "Premium: one week in the top results",
+            "description": "For the first 7 days, your publication will be highlighted, branded with your company logo, and remain in the top search results. The vacancy will be e-mailed to suitable candidates and it will be posted for 30 days.",
+            "available_publications_count": 0,
+            "vacancy_billing_type": {
+                "id": "free"
+            },
+            "vacancy_types": [
+                {
+                    "id": "open"
+                }
+            ],
+            "publications": []
+        }
+    ]
+}
+```
+
+Each element in `items` may include the following fields:
+
+Name | Type | Description
+--- | --- | --------
+name | string | Name of publication type
+description | string | Description
+available_publications_count | number | Total number of publications available to this manager. It is equal to the amount of `publications[].count` or the value indicated in the quotas if this value is lower than the above sum
+vacancy_billing_type.id | string | Billing type [vacancy_billing_type directory](dictionaries.md).
+vacancy_types | array | List of vacancy types
+vacancy_types[].id | string | Vacancy type [vacancy_type directory](dictionaries.md)
+publications | array | List of regions where the vacancy can be published and number of publications available to the employer 
+publications[].name | string | Name of the region 
+publications[].count | number | Number of publications in the region available to the employer
+publications[].areas_url | string | URL for the list of regions where a vacancy of this type can be published. The list is returned in a tree-like structure and the vacancies are published only in the final (leaf) nodes of the tree. They are flagged as `can_publish=true`
+
+When publishing a vacancy, `vacancy_billing_type.id` and `vacancy_type.id` values correspond to `billing_type` and `type` parameters 
+
+
+### Errors
+
+* `403 Forbidden` - Current user is not an employer, the current user attempts to request data for another manager, or the manager does not have access to publish vacancies
+* `404 Not Found` - Manager or company does not exist or is not available for the current user
 
 <a name="creation"></a>
 ## Publishing job vacancies
