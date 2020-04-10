@@ -18,7 +18,10 @@ HeadHunter API — это инструментарий для интеграци
 разрешение доступа к их персональным данным, без получения и хранения их
 логина и пароля.
 
-> ‼️ Обратите внимание - начиная с 16 июля 2018 года, доступ к ряду методов для работодателя стал [платным](docs/employer_payable_methods.md). 
+
+> ‼️ Обратите внимание на [описание](docs/payable/resume.md) новой модели работы с базой резюме. 
+
+> Доступ к ряду методов для работодателя [платный](docs/employer_payable_methods.md). 
 
 > Для уточнения стоимости API необходимо обратиться к Вашему персональному менеджеру или позвонить по телефону: 
 > +7 495 974-64-27 (для Москвы и Подмосковья),  
@@ -38,7 +41,7 @@ HeadHunter API — это инструментарий для интеграци
 * <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" /> –
   актуально для бесплатных методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
 * <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> –
-  актуально для [платных](docs/employer_payable_methods.md) методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
+  актуально для [платных](docs/payable/employer_methods.md) методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
 
 
 <a name="general"></a>
@@ -51,7 +54,8 @@ HeadHunter API — это инструментарий для интеграци
 * [Авторизация](docs/authorization.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Кэширование](docs/cache.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Ошибки и коды ответов](docs/errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Платный доступ для работодателей к некоторым методом API](docs/employer_payable_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Платный доступ для работодателей к некоторым методом API](docs/payable/employer_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Новая модель работы с базой резюме (поддержка в API)](docs/payable/resume.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="resources"></a>
 <a name="context"></a>
@@ -64,7 +68,7 @@ HeadHunter API — это инструментарий для интеграци
 * Информация о менеджере
   * [Рабочие аккаунты менеджера](docs/manager_accounts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Предпочтения менеджера](docs/manager_settings.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Информация по активным услугам API для платных методов](docs/employer_services.md#payable-api-actions) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Информация по активным услугам API для платных методов](docs/payable/employer_services.md#payable-api-actions) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Локализация](docs/locales.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Выбор сайта](docs/hosts.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
@@ -72,6 +76,14 @@ HeadHunter API — это инструментарий для интеграци
 <a name="resume"></a>
 ### Резюме
 
+* [Поиск резюме](docs/resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Сохраненные поиски резюме](docs/resumes_saved_searches.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Список сохраненных поисков резюме](docs/resumes_saved_searches.md#resumes-saved-search-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Получение единичного сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-item) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Создание нового сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-create) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Обновление сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-update) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Удаление сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-delete) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Передача сохраненного поиска резюме другому менеджеру](docs/resumes_saved_searches.md#resumes-saved-search-move-to-other-manager) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Просмотр резюме](docs/resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Работа с резюме для соискателя](docs/resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Список резюме авторизованного пользователя](docs/resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />

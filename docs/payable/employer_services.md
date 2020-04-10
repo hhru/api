@@ -11,7 +11,7 @@
 GET /employers/{employer_id}/services/payable_api_actions/active
 ```
 где `employer_id` - идентификатор работодателя, который можно узнать в
-[информации о текущем пользователе](me.md#employer-info).
+[информации о текущем пользователе](../me.md#employer-info).
 
 ### Ответ
 
@@ -57,8 +57,8 @@ GET /employers/{employer_id}/services/payable_api_actions/active
 ---|---|---
 id | строка | Идентификатор услуги
 service_type | объект | [Тип услуги](#service-type)
-activated_at | строка | Время активации услуги (в формате [ISO 8601](general.md#date-format) с точностью до секунды `YYYY-MM-DDThh:mm:ss±hhmm`)
-expires_at | строка | Время истечения услуги (в формате [ISO 8601](general.md#date-format) с точностью до секунды `YYYY-MM-DDThh:mm:ss±hhmm`)
+activated_at | строка | Время активации услуги (в формате [ISO 8601](../general.md#date-format) с точностью до секунды `YYYY-MM-DDThh:mm:ss±hhmm`)
+expires_at | строка | Время истечения услуги (в формате [ISO 8601](../general.md#date-format) с точностью до секунды `YYYY-MM-DDThh:mm:ss±hhmm`)
 balance | объект, null | [Значения баланса](#balance)
 
 <a name="service-type"></a>

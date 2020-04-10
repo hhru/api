@@ -1023,7 +1023,8 @@ expires | string (date) | service expiration time, if the service is enabled
                 },
                 "name": "Buy for 5000 rubles",
                 "price": 5000
-            }
+            },
+            "description": "Access to the resume database"
         }
     ],
     "negotiations_history": {
@@ -1072,6 +1073,7 @@ quick_purchase.alternate_url | string | link to the site where you will be asked
 quick_purchase.name | string | name of the action for the service order
 quick_purchase.price | nubmer | price of service
 quick_purchase.currency | object | currency of service
+description | string, null | description of services using
 
 
 <a name="owner-field"></a>
