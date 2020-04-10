@@ -213,7 +213,7 @@ HTTP code | type | value | описание
 <a name="employer_payable_methods"></a>
 ## Ошибки доступа к платному методу
 
-В случае, если вы запрашиваете один из [платных методов](employer_payable_methods.md) 
+В случае, если вы запрашиваете один из [платных методов](/payable/employer_payable_methods.md) 
 без купленного доступа, вернётся следующая ошибка:
 
 HTTP code | type | value | описание
@@ -373,6 +373,7 @@ HTTP code | type | value | reason | описание
 
 HTTP code | type | value | описание
 ----------|------|-------|---------
+400 | bad_argument | with_contact | не правильное значение поля `with_contact`
 400 | resumes | total_limit_exceeded | превышено допустимое количество резюме (актуально только для соискателей)
 429 | resumes | view_limit_exceeded | превышен лимит просмотров резюме в сутки (актуально только для работодателей)
 
