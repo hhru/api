@@ -50,7 +50,7 @@
 * `negotiations_state` - типы состояний откликов
 * `messaging_status` — статус возможности отправки сообщения в переписке
 * `negotiations_participant_type` – типы участников переписки
-* `negotiations_applicant_filter` - дополнительные фильтры при запросе списка откликов соискателем
+* `applicant_negotiation_status` - статусы откликов/приглашений
 
 <a name="etc"></a>
 ## Остальные справочники

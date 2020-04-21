@@ -40,7 +40,7 @@ GET /negotiations
  order_by | нет | тип сортировки, возможные значения указаны в [справочнике `negotiations_order`](dictionaries.md#negotiations)
  order | нет | направление сортировки. Возможные значения: `asc`, `desc`.
  vacancy_id | нет | фильтр по id вакансии
- filter | строка | дополнительная фильтрация применяемая к списку топиков. Возможные значения указаны в [справочнике `negotiations_applicant_filter`](dictionaries.md#negotiations)
+ status | строка | учитывать только топики находящиеся в определенном статусе. Возможные значения указаны в [справочнике `applicant_negotiation_status`](dictionaries.md#negotiations)
  has_updates | boolean | учитывать только топики для которых есть непросмотренные сообщения
 
 По-умолчанию отклики сортируются по последнему обновлению от новых к старым.
