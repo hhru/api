@@ -376,6 +376,8 @@ HTTP code | type | value | описание
 400 | bad_argument | with_contact | не правильное значение поля `with_contact`
 400 | resumes | total_limit_exceeded | превышено допустимое количество резюме (актуально только для соискателей)
 429 | resumes | view_limit_exceeded | превышен лимит просмотров резюме в сутки (актуально только для работодателей)
+403 | resumes | quota_exceeded | превышена квота просмотров резюме установленная менеджеру (актуально только для работодателей)
+403 | resumes | no_available_service | не хватает услуг для просмотра резюме
 
 
 <a name="vacancies_blacklist"></a>
