@@ -113,9 +113,9 @@ GET /negotiations
 
 ### Запрос
 
-Для получения списка активных откликов используйте параметр `filter=active` в запросе [списка откликов](#get_negotiations)
+Для получения списка активных откликов используйте параметр `status=active` в запросе [списка откликов](#get_negotiations)
  ```
- GET /negotiations?filter=active
+ GET /negotiations?status=active
  ```
 
 До 20.04.20 для запроса активных вакансий использвался ресурс:
