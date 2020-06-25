@@ -567,7 +567,7 @@ gender | [object](#id-name-object) or null | [Gender](dictionaries.md).
 area | [object](#id-name-url-object) or null | City of residence. [areas](areas.md) directory entry.
 metro | [object](#metro-object) or null | The nearest metro station. [metro](metro.md) directory entry.
 relocation | [object](#relocation-object) | Information on the possibility of moving to another city.
-business_trip_readiness | [object](#id-name-object) | Readiness to go on business trips. [resume_trip_readiness](dictionaries.md#resume_trip_readiness) directory entry.
+business_trip_readiness | [object](#id-name-object) | Readiness to go on business trips. [business_trip_readiness](dictionaries.md#business_trip_readiness) directory entry.
 contact | [array](#contact-object) | Applicant's contact list. 
 photo | [object](#photo-object) or null | User photo.
 portfolio | [array](#portfolio-object) | A list of images in the user's portfolio.
@@ -596,6 +596,7 @@ updated_at | string | Date and time resume was updated.
 has_vehicle | boolean or null | Does the applicant have their own car.
 driver_license_types | [array](#driver-license-types-object) | A list of applicant's driving license categories.
 hidden_fields | [array](#id-name-object) | List of hidden fields. Entry of the [resume_hidden_fields](dictionaries.md) directory ([more info](#hidden-fields)).
+can_view_full_info | boolean or null | Possibility of getting resume contact info.
 
 <a name="id-name-object"></a>
 Object with id and name
@@ -1179,7 +1180,7 @@ Parameters:
     * `area` — relocation city (list). Makes sense only with the corresponding `type` field. Directory entries
       [areas](areas.md);
 * `business_trip_readiness` — agree to go on business trips. Directory entries
-  [resume_trip_readiness](dictionaries.md#resume_trip_readiness)
+  [business_trip_readiness](dictionaries.md#business_trip_readiness)
 * `contact` — contact info (list). 
 Mandatory of the contact fields see in [conditions to fill in the fields of a resume](#conditions)
 Consists of the fields:

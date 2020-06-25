@@ -8,6 +8,8 @@ specified, where it is above a certain amount. This information can be obtained
 using the vacancies search by creating a separate request for each criterion
 you are interested in. However, there is a better way, a special search result option —
 divide data into clusters.
+Cluster includes vacancy search link with certain filter. 
+Thr purpose of usage clusters is getting less search result set.
 
 You can find an example of this on the hh.ru homepage,
 in the left column on the [page with vacancies search results](https://hh.ru/search/vacancy).
