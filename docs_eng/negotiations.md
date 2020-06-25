@@ -133,7 +133,7 @@ Request should be `Content-Type = multipart/form-data` with parameters:
   --- | --- | ---
  vacancy_id| yes| ID of the vacancy that was responded
  resume_id| yes| ID of the CV an applicant responded with
- message| yes| Response cover letter. Is required if the vacancy specifies the cover letter as mandatory
+ message| yes| Response cover letter. Is required if the vacancy specifies the cover letter as mandatory, max length of message - 10000 characters
 
 
 ### Response

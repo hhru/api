@@ -572,7 +572,7 @@ gender | [object](#id-name-object) или null | Пол. Элемент спра
 area | [object](#id-name-url-object) или null | Город проживания. Элемент справочника [areas](areas.md).
 metro | [object](#metro-object) или null | Ближайшая станция метро. Элемент справочника [metro](metro.md).
 relocation | [object](#relocation-object) | Информация о возможности переезда в другой город.
-business_trip_readiness | [object](#id-name-object) | Готовность к командировкам. Элемент справочника [resume_trip_readiness](dictionaries.md#resume_trip_readiness).
+business_trip_readiness | [object](#id-name-object) | Готовность к командировкам. Элемент справочника [business_trip_readiness](dictionaries.md#business_trip_readiness).
 contact | [array](#contact-object) | Список контактов соискателя.
 photo | [object](#photo-object) или null | Фотография пользователя.
 portfolio | [array](#portfolio-object) | Список изображений в портфолио пользователя.
@@ -601,6 +601,7 @@ download | [object](#download-object) | Ссылки для скачивания
 has_vehicle | boolean или null| Наличие личного автомобиля у соискателя.
 driver_license_types | [array](#driver-license-types-object) | Список категорий водительских прав соискателя.
 hidden_fields | [array](#id-name-object) | [Список скрытых полей](#hidden-fields). Элемент справочника [resume_hidden_fields](dictionaries.md).
+can_view_full_info | boolean или null | Наличие права просмотра контактной информации в резюме.
 
 <a name="id-name-object"></a>
 Объект с именем и идентификатором
@@ -1191,7 +1192,7 @@ comments.counters.total | number | общее количество коммен�
       только с соответствующим полем `type`. Элемент справочника
       [areas](areas.md);
 * `business_trip_readiness` — готовность к командировкам. Элемент справочника
-  [resume_trip_readiness](dictionaries.md#resume_trip_readiness)
+  [business_trip_readiness](dictionaries.md#business_trip_readiness)
 * `contact` — контактная информация (список). 
 Про обязательность полей и данных смотрите в [условиях заполнения контактов](#conditions-contacts). 
 Состоит из полей:
