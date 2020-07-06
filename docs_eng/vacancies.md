@@ -565,6 +565,8 @@ parameters. For example, a query `text=moscow accountant 100500` will be transfo
 premium vacancies. This type of sorting is used on the website.
 Default — `false`. 
 
+* `responses_count_enabled` — If `true` – include optional field `counters` with responses on a vacancy. Default – `false`.
+
 <a name="search-results"></a>
 
 When indicating paging parameters (`page`, `per_page`), a restriction takes
@@ -658,6 +660,13 @@ used for applicants.
       "snippet": {
         "requirement": "...experience as <highlighttext>secretary</highlighttext> / office manager. - presentable appearance. - knowledge of Excel, Lotus Notes and office appliances. - oral and written English.",
         "responsibility": "Keeping private zone order (meeting rooms, kitchen). - ordering necessary goods (stationery, marketing materials, products, flowers, household goods, cleaning services, etc."
+      },
+      "schedule": {
+        "id": "fullDay",
+        "name": "Full time"
+      },
+      "counters": {
+        "responses": 0
       }
     }
   ],
@@ -678,6 +687,7 @@ sort_point_distance | number, null | Distance in metres between the sorting cent
 snippet | object | Additional text snippets on found vacancy. If snippet text contains search term (parameter `text`), it will be highlighted with tag `highlighttext`.
 snippet.requirement | string, null | Vacancy requirements snippet if available in the description text.
 snippet.responsibility | string, null | Vacancy responsibilities snippet if available in the description text.
+counters.responses | number | number of responses to the vacancy
 
 It is also possible to return [clusters](clusters.md) ('clusters' key) and [used parameters](vacancies_search_arguments.md) ('arguments' key) for this search.
 
