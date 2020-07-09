@@ -226,7 +226,7 @@ paid_services | object | [платные услуги по резюме для �
 <a name="item"></a>
 ## Просмотр резюме
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Для работодателя данный метод требует наличия [платного доступа](/docs/payable/employer_payable_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Для работодателя данный метод требует наличия [платного доступа](/docs/payable/employer_methods.md)
 
 `GET /resumes/{resume_id}`
 
