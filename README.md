@@ -64,7 +64,7 @@ HeadHunter API — это инструментарий для интеграци
 * Информация о менеджере
   * [Рабочие аккаунты менеджера](docs/manager_accounts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Предпочтения менеджера](docs/manager_settings.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Информация по активным услугам API для платных методов](docs/employer_services.md#payable-api-actions) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Информация по активным услугам API для платных методов](docs/payable/employer_services.md#payable-api-actions) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Локализация](docs/locales.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Выбор сайта](docs/hosts.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
