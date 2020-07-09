@@ -38,7 +38,7 @@ HeadHunter API — это инструментарий для интеграци
 * <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" /> –
   актуально для бесплатных методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
 * <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> –
-  актуально для [платных](docs/employer_payable_methods.md) методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
+  актуально для [платных](docs/payable/employer_methods.md) методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
 
 
 <a name="general"></a>
@@ -51,7 +51,7 @@ HeadHunter API — это инструментарий для интеграци
 * [Авторизация](docs/authorization.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Кэширование](docs/cache.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Ошибки и коды ответов](docs/errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Платный доступ для работодателей к некоторым методом API](docs/employer_payable_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Платный доступ для работодателей к некоторым методом API](docs/payable/employer_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
 <a name="resources"></a>
 <a name="context"></a>
