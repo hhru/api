@@ -233,6 +233,18 @@ HTTP code | type | value | описание
 пришедший тип ответа. Приведенные ниже таблицы содержат неполный список ошибок,
 он может расширяться.
 
+<a name="resumes-saved-searches"></a>
+### Сохраненные поиски резюме
+
+Помимо кода ошибки при
+[передаче сохраненного поиска резюме другому менеджеру](resumes_saved_searches.md#resumes-saved-search-move-to-other-manager),
+могут быть возвращены следующие ошибки:
+
+HTTP code | type | value | описание
+----------|------|-------|-----------
+404 | saved_searches | saved_search_not_found | автопоиск не был найден или не принадлежит текущему пользователю
+404 | saved_searches | manager_not_found | несуществующий manager_id
+
 
 <a name="artifacts"></a>
 ### Артефакты
