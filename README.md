@@ -72,6 +72,7 @@ HeadHunter API — это инструментарий для интеграци
 <a name="resume"></a>
 ### Резюме
 
+* [Поиск резюме](docs/resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Просмотр резюме](docs/resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Работа с резюме для соискателя](docs/resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Список резюме авторизованного пользователя](docs/resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
