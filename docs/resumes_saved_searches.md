@@ -196,4 +196,4 @@ PUT /saved_searches/resumes/{saved_search_id}/managers/{manager_id}
 
 * `403 Forbidden` - запрос не от работодателя
 * `404 Not Found` - автопоиск не найден или не принадлежит текущему пользователю, а также для несуществующего менеджера. 
-Тело ответа может содержать подробности, позволяющие понять [причину ошибки](errors_additional.md#resumes-saved-searches)(`saved_search_not_found` или `manager_not_found`)
+Тело ответа может содержать подробности, позволяющие понять [причину ошибки](errors.md#resumes-saved-searches)(`saved_search_not_found` или `manager_not_found`)
