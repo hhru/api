@@ -74,7 +74,7 @@ HeadHunter API — это инструментарий для интеграци
 
 * [Поиск резюме](docs/resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Запрос и принимаемые параметры](docs/resumes_search.md#search-params) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Ответ](docs/resumes_search.md#search-results)<img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Ответ](docs/resumes_search.md#search-results) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Сохраненные поиски резюме](docs/resumes_saved_searches.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Список сохраненных поисков резюме](docs/resumes_saved_searches.md#resumes-saved-search-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Получение единичного сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-item) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
