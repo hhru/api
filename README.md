@@ -18,7 +18,10 @@ HeadHunter API — это инструментарий для интеграци
 разрешение доступа к их персональным данным, без получения и хранения их
 логина и пароля.
 
-> ‼️ Обратите внимание - начиная с 16 июля 2018 года, доступ к ряду методов для работодателя стал [платным](docs/employer_payable_methods.md). 
+
+> ‼️ Обратите внимание на [описание](docs/payable/resume.md) новой модели работы с базой резюме . 
+
+> С 16 июля 2018 года, доступ к ряду методов для работодателя стал [платным](docs/employer_payable_methods.md). 
 
 > Для уточнения стоимости API необходимо обратиться к Вашему персональному менеджеру или позвонить по телефону: 
 > +7 495 974-64-27 (для Москвы и Подмосковья),  
@@ -52,6 +55,7 @@ HeadHunter API — это инструментарий для интеграци
 * [Кэширование](docs/cache.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Ошибки и коды ответов](docs/errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Платный доступ для работодателей к некоторым методом API](docs/payable/employer_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Новая модель работы с базой резюме (поддержка в API)](docs/payable/resume.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="resources"></a>
 <a name="context"></a>
