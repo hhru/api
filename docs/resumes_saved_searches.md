@@ -108,7 +108,7 @@ GET /saved_searches/resumes/{id}
 POST /saved_searches/resumes
 ``` 
 
-со следующими параметрами:
+со следующими параметрами в теле запроса:
 
 * параметры поиска резюме. Соответствуют параметрам,
   передаваемым в поиск резюме [/resumes](resumes_search.md#search-params)
