@@ -37,7 +37,7 @@ GET /employers/{employer_id}/managers/{manager_id}/method_access
     * [Поиск резюме](/docs/resumes_search.md)
     * [Cохраненные поиски резюме](/docs/resumes_saved_searches.md)
 3. Наличие доступа к [просмотру резюме](/docs/resumes.md#item), у которого есть отклик или приглашение
-4. Наличие доступа к [просмотру резюме](/docs/resumes.md#item) для резюме найденых через [поиск по базе](/docs/resumes_search.md)
+4. Наличие доступа к [просмотру резюме](/docs/resumes.md#item) для резюме найденных через [поиск по базе](/docs/resumes_search.md)
 
 >!! Внимание произошли изменения в доступе к контактной информации. Прочитайте внимательно информацию про [поконтактный доступ к резюме](/docs/payable/resume.md)
 
