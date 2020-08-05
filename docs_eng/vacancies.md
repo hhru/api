@@ -259,6 +259,16 @@ premium | boolean | Whether it is a premium vacancy
 driver_license_types | array | List of required driver license categories. This list may be empty.
 driver_license_types[].id | string | Driving license category. [driver_license_types](dictionaries.md) directory entry.
 accept_incomplete_resumes | boolean | Whether it is possible to apply with an incomplete resume
+working_days | object or null | Working days. [working_days](dictionaries.md)
+working_days.id | string | Working days ID
+working_days.name | string | Working days name
+working_time_intervals | object or null | Working time intervals. [working_time_intervals](dictionaries.md)
+working_time_intervals.id | string | Working time intervals ID
+working_time_intervals.name | string | Working time intervals name
+working_time_modes | object or null | Working time modes. [working_time_modes](dictionaries.md)
+working_time_modes.id | string | Working time modes ID
+working_time_modes.name | string | Working time modes name
+accept_temporary | boolean or null | Indication that the job is available for applicants with accept temporary employment
 
 
 <a name="contacts"></a>
@@ -566,6 +576,15 @@ premium vacancies. This type of sorting is used on the website.
 Default — `false`. 
 
 * `responses_count_enabled` — If `true` – include optional field `counters` with responses on a vacancy. Default – `false`.
+
+* `part_time` — Vacancies for part times job. Possible values:  
+  * all elements from `working_days` in [/dictionaries](dictionaries.md).  
+  * all elements from `working_time_intervals` in [/dictionaries](dictionaries.md).  
+  * all elements from `working_time_modes` in [/dictionaries](dictionaries.md).  
+  * elements `part` or `project` from `employment` in [/dictionaries](dictionaries.md).  
+  * element `accept_temporary` that show only the vacancies with accept temporary employment  
+
+   Several values can be indicated.  
 
 <a name="search-results"></a>
 

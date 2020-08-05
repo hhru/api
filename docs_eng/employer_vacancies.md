@@ -233,7 +233,23 @@ some additional fields.
             "id": "B"
         }
     ],
-    "accept_incomplete_resumes": false
+    "accept_incomplete_resumes": false,
+    "working_days": [
+        {
+            "id": "only_saturday_and_sunday"
+        }
+    ],
+    "working_time_intervals": [
+        {
+            "id": "from_four_to_six_hours_in_a_day"
+        }
+    ],
+    "working_time_modes": [
+        {
+            "id": "start_after_sixteen"
+        }
+    ],
+    "accept_temporary": true
 }
 ```
 
@@ -294,7 +310,13 @@ some additional fields.
  driver_license_types        | array           | list of required driver license categories
  driver_license_types[].id   | string          | driving license category. element of [driver_license_type](dictionaries.md) directory
  accept_incomplete_resumes   | boolean         | whether it is possible to apply with an incomplete resume
-
+ working_days                | array or null   | list of working days
+ working_days[].id           | string          | working days ID. element of [справочника working_days](dictionaries.md)
+ working_time_intervals      | array or null   | list of working time intervals
+ working_time_intervals[].id | string          | working time interval ID. element of [справочника working_time_intervals](dictionaries.md)
+ working_time_modes          | array or null   | list of working time modes
+ working_time_modes[].id     | string          | working time modes ID. element of [справочника working_time_modes](dictionaries.md)
+ accept_temporary            | boolean or null | indication that the job is available for applicants with accept temporary employment
 
 <a name="creation-results"></a>
 ### Response
@@ -503,7 +525,25 @@ A successful response contains the `200 OK` response code and a body:
     },
     "type": {
         "required": true
-    }
+    },
+	"working_days": {
+		"min_count": 0,
+		"max_count": null,
+		"required": false
+	},
+	"working_time_intervals": {
+		"min_count": 0,
+		"max_count": null,
+		"required": false
+	},
+	"working_time_modes": {
+		"min_count": 0,
+		"max_count": null,
+		"required": false
+	},
+	"accept_temporary": {
+		"required": false
+	}
 }
 ```
 
