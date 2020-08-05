@@ -240,7 +240,23 @@ publications[].areas_url | string | URL на список регионов, в �
             "id": "B"
         }
     ],
-    "accept_incomplete_resumes": false
+    "accept_incomplete_resumes": false,
+    "working_days": [
+        {
+            "id": "only_saturday_and_sunday"
+        }
+    ],
+    "working_time_intervals": [
+        {
+            "id": "from_four_to_six_hours_in_a_day"
+        }
+    ],
+    "working_time_modes": [
+        {
+            "id": "start_after_sixteen"
+        }
+    ],
+    "accept_temporary": true
 }
 ```
 
@@ -299,7 +315,13 @@ branded_template.id | string | <a name="branded-template-field"></a> бренд�
 driver_license_types | array | список требуемых категорий водительских прав
 driver_license_types[].id | string | категория водительских прав. элемент справочника [driver_license_types](dictionaries.md)
 accept_incomplete_resumes | boolean | разрешен ли отклик на вакансию неполным резюме
-
+working_days | array или null | список рабочих дней
+working_days[].id | string | рабочие дни из [справочника working_days](dictionaries.md)
+working_time_intervals | array или null | список с временными интервалами работы
+working_time_intervals[].id | string | временной интервал работы из [справочника working_time_intervals](dictionaries.md)
+working_time_modes | array или null | список режимов времени работы
+working_time_modes[].id | string | режимы времени работы из [справочника working_time_modes](dictionaries.md)
+accept_temporary | boolean или null | указание, что вакансия доступна с временным трудоустройством
 
 <a name="creation-results"></a>
 ### Ответ
@@ -509,7 +531,25 @@ Location: /vacancies/78789890
     },
     "type": {
         "required": true
-    }
+    },
+	"working_days": {
+		"min_count": 0,
+		"max_count": null,
+		"required": false
+	},
+	"working_time_intervals": {
+		"min_count": 0,
+		"max_count": null,
+		"required": false
+	},
+	"working_time_modes": {
+		"min_count": 0,
+		"max_count": null,
+		"required": false
+	},
+	"accept_temporary": {
+		"required": false
+	}
 }
 ```
 
@@ -567,6 +607,10 @@ contacts | контактная информация
 custom_employer_name | название компании для анонимных вакансий
 response_url | URL отклика для прямых вакансий
 accept_incomplete_resumes | разрешен ли отклик на вакансию неполным резюме
+working_days | рабочие дни
+working_time_intervals | временные интервалы работы
+working_time_modes | режимы времени работы
+accept_temporary | указание, что вакансия доступна для соискателей с временным трудоустройством
 
 Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.
 

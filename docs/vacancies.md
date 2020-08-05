@@ -188,7 +188,26 @@
             "id": "B"
         }
     ],
-    "accept_incomplete_resumes": false
+    "accept_incomplete_resumes": false,
+    "working_days": [
+        {
+            "id": "only_saturday_and_sunday",
+            "name": "Работа только по сб и вс"
+        }
+    ],
+    "working_time_intervals": [
+        {
+            "id": "from_four_to_six_hours_in_a_day",
+            "name": "Можно работать сменами по 4-6 часов в день"
+        }
+    ],
+    "working_time_modes": [
+        {
+            "id": "start_after_sixteen",
+            "name": "Можно начинать работать после 16-00"
+        }
+    ],
+    "accept_temporary": false
 }
 ```
 
@@ -257,6 +276,16 @@ premium | boolean | Является ли данная вакансия прем
 driver_license_types | array | Список требуемых категорий водительских прав. Список может быть пустым.
 driver_license_types[].id | string | Категория водительских прав. Элемент справочника [driver_license_types](dictionaries.md)
 accept_incomplete_resumes | boolean | Разрешен ли отклик на вакансию неполным резюме
+working_days | object или null | Рабочие дни. Элемент справочника [working_days](dictionaries.md)
+working_days.id | string | Идентификатор рабочих дней
+working_days.name | string | Название рабочих дней
+working_time_intervals | object или null | Временные интервалы работы. Элемент справочника [working_time_intervals](dictionaries.md)
+working_time_intervals.id | string | Идентификатор временного интервала работы
+working_time_intervals.name | string | Название временного интервала работы
+working_time_modes | object или null | Режимы времени работы. Элемент справочника [working_time_modes](dictionaries.md)
+working_time_modes.id | string | Идентификатор режима времени работы
+working_time_modes.name | string | Название режима времени работы
+accept_temporary | boolean или null | Указание, что вакансия доступна для соискателей с временным трудоустройством
 
 
 <a name="contacts"></a>
@@ -562,6 +591,15 @@ counters.invitations | number | количество приглашений на
 
 * `responses_count_enabled` — Если значение `true` – включить дополнительное поле `counters` с количеством откликов для вакансии. По-умолчанию – `false`.  
 
+* `part_time` — Вакансии для подработки. Возможные значения:  
+  * все элементы из `working_days` в [/dictionaries](dictionaries.md).   
+  * все элементы из `working_time_intervals` в [/dictionaries](dictionaries.md).   
+  * все элементы из `working_time_modes` в [/dictionaries](dictionaries.md).   
+  * элементы `part` или `project` из `employment` в [/dictionaries](dictionaries.md).   
+  * элемент `accept_temporary`, показывает вакансии только с временным трудоустройством.  
+  
+   Возможно указание нескольких значений.  
+  
 <a name="search-results"></a>
 
 При указании параметров пагинации (page, per_page) работает ограничение: глубина
@@ -772,7 +810,26 @@ counters.responses | number | Количество откликов на вак�
         "id": "open",
         "name": "Открытая"
     },
-    "archived": "false"
+    "archived": "false",
+    "working_days": [
+        {
+            "id": "only_saturday_and_sunday",
+            "name": "Работа только по сб и вс"
+        }
+    ],
+    "working_time_intervals": [
+        {
+            "id": "from_four_to_six_hours_in_a_day",
+            "name": "Можно работать сменами по 4-6 часов в день"
+        }
+    ],
+    "working_time_modes": [
+        {
+            "id": "start_after_sixteen",
+            "name": "Можно начинать работать после 16-00"
+        }
+    ],
+    "accept_temporary": false
 }
 ```
 
