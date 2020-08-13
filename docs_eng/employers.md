@@ -91,6 +91,7 @@ to the company's vacancies.
     "description": "...",
     "branded_description": "<style>...</style><div>...</div><script></script>",
     "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
+    "open_vacancies": 19,
     "alternate_url": "https://hh.ru/employer/1455",
     "insider_interviews": [
         {
@@ -129,36 +130,37 @@ to the company's vacancies.
 }
 ```
 
-Name | Type | Description
----- | ---- | -----------
-id | string | employer ID
-name | string | employer name
-type | string, null | type of company (immediate employer, HR agency, etc). Possible values are described in [collection of directories](dictionaries.md) under the key `employer_type`. `null` is possible if the company type is hidden.
-site_url | string | link to employer website
-description | string, null | a string with the HTML code (`<script/>` and `<style/>` presence is not possible)
-branded_description | string, null | [branded description](#branded-description) as a string with the HTML code
-vacancies_url | string | a link to the search results of the company's vacancies
-trusted | boolean | the flag indicates that [the company is verified by the website](https://feedback.hh.ru/article/details/id/5951)
-alternate_url | string | link to employer description on the website
-insider_interviews | array | interview list or blank list if there are no interviews
-insider_interviews[].id | string | interview ID
-insider_interviews[].title | string | interview title
-insider_interviews[].url | string | address of the page containing the interview
-logo_urls | object, null | [company logos](#logo-urls)
-area | string | region of employer
-area.id | string | region ID [from dictionary](areas.md)
-area.name | string | region name
-area.url | string | link to information about the region
-relations | array | if the employer is blacklisted, it will return `['blacklisted']` else `[]`
-industries | [array](#id-name-object) | A list of the company's industries. Entries of the [directory of industries](industries.md).
+ Name                       | Type                     | Description
+----------------------------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ id                         | string                   | employer ID
+ name                       | string                   | employer name
+ type                       | string, null             | type of company (immediate employer, HR agency, etc). Possible values are described in [collection of directories](dictionaries.md) under the key `employer_type`. `null` is possible if the company type is hidden.
+ site_url                   | string                   | link to employer website
+ description                | string, null             | a string with the HTML code (`<script/>` and `<style/>` presence is not possible)
+ branded_description        | string, null             | [branded description](#branded-description) as a string with the HTML code
+ vacancies_url              | string                   | a link to the search results of the company's vacancies
+ open_vacancies             | number                   | number of employer's open vacancies
+ trusted                    | boolean                  | the flag indicates that [the company is verified by the website](https://feedback.hh.ru/article/details/id/5951)
+ alternate_url              | string                   | link to employer description on the website
+ insider_interviews         | array                    | interview list or blank list if there are no interviews
+ insider_interviews[].id    | string                   | interview ID
+ insider_interviews[].title | string                   | interview title
+ insider_interviews[].url   | string                   | address of the page containing the interview
+ logo_urls                  | object, null             | [company logos](#logo-urls)
+ area                       | string                   | region of employer
+ area.id                    | string                   | region ID [from dictionary](areas.md)
+ area.name                  | string                   | region name
+ area.url                   | string                   | link to information about the region
+ relations                  | array                    | if the employer is blacklisted, it will return `['blacklisted']` else `[]`
+ industries                 | [array](#id-name-object) | A list of the company's industries. Entries of the [directory of industries](industries.md).
 
 <a name="id-name-object"></a>
 Object with id and name
 
-Name | Type | Description
------|-----|---------
-id | string | field Id
-name | string | name of field
+ Name | Type   | Description
+------|--------|---------------
+ id   | string | field Id
+ name | string | name of field
 
 <a name="branded-description"></a>
 #### Branded description
