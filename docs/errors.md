@@ -201,14 +201,27 @@ error_description | строка | Дополнительное описание
 [совершаете авторизованный запрос](authorization.md#check-access_token)
 в api и предоставленная авторизация по каким-либо причинам не действительна,
 вернётся ошибка с `type` `oauth` и, возможно, одним из перечисленных `value`.
+Для некоторых значений `value` выводится причина в поле `reason`.
 
-HTTP code | type | value | описание
-----------|------|-------|-----------
-403 | oauth | bad_authorization | токен авторизации не существует или не валидный
-403 | oauth | token_expired | время жизни access_token завершилось, необходимо [выполнить обновление access_token](authorization.md#refresh_token)
-403 | oauth | token_revoked | токен отозван пользователем, приложению необходимо [запросить новую авторизацию](authorization.md)
-403 | oauth | application_not_found | ваше приложение было удалено
+HTTP code | type | value | reason | описание
+----------|------|-------|--------|-----------
+403 | oauth | bad_authorization | | токен авторизации не существует или не валидный
+403 | oauth | token_expired | | время жизни access_token завершилось, необходимо [выполнить обновление access_token](authorization.md#refresh_token)
+403 | oauth | token_revoked | *reason* | токен отозван пользователем, приложению необходимо [запросить новую авторизацию](authorization.md)
+403 | oauth | application_not_found | | ваше приложение было удалено
 
+#### Причины возникновения ошибок
+
+reason | описание 
+-------|---------
+user deleted | пользователь удалён
+disable account | учетная запись отключена
+reset password | пароль сброшен
+change password | пароль изменён
+deactivated by hhid admin resource method | отключено администратором сервиса авторизации
+user unleash authorisation type from account | пользователь отключил данный тип авторизации
+user password was invalidated | пароль помечен как недействительный
+force logout | принудительный выход из учетной записи
 
 <a name="employer_payable_methods"></a>
 ## Ошибки доступа к платному методу

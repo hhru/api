@@ -192,13 +192,27 @@ Below are some of the possible errors with descriptions.
 In case you [make an authorized request](authorization.md#check-access_token) in
 api and your authorization is not valid for any reason, an error with `type`
 `oauth`, and, possibly, with one of the listed `values`, will be returned.
+Some field `value` have an extended `reason` description.
 
-| HTTP code | type  | value                   | description  |
-|-----------|-------|-------------------------|--------------|
-| 403       | oauth | bad_authorization      | authorization token doesn't exist or is not valid |
-| 403       | oauth | token_expired          | access_token validity period has expired, it is necessary to [refresh the access_token](authorization.md#refresh_token)  authorization.md#refresh_token |
-| 403       | oauth | token_revoked          | the token is revoked by the user, the application should [request a new authorization](authorization.md) |
-| 403       | oauth | application_not_found  | your application has been deleted
+| HTTP code | type  | value                  | reason | description  |
+|-----------|-------|------------------------|--------|--------------|
+| 403       | oauth | bad_authorization      | | authorization token doesn't exist or is not valid |
+| 403       | oauth | token_expired          | | access_token validity period has expired, it is necessary to [refresh the access_token](authorization.md#refresh_token)  authorization.md#refresh_token |
+| 403       | oauth | token_revoked          | *reason* | the token is revoked by the user, the application should [request a new authorization](authorization.md) |
+| 403       | oauth | application_not_found  | | your application has been deleted
+
+#### Reasons for errors
+
+reason | description
+-------|---------
+user deleted | user deleted
+disable account | account is disabled
+reset password | password reset
+change password | password change
+deactivated by hhid admin resource method | disabled by the administrator of the authorization service
+user unleash authorisation type from account | the user has disabled this type of authorization
+user password was invalidated | user password was invalidated
+force logout | force logout 
 
 
 ### Errors when accessing a paid method
