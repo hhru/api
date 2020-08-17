@@ -214,14 +214,14 @@ HTTP code | type | value | reason | описание
 
 reason | описание 
 -------|---------
-user deleted | пользователь удалён
-disable account | учетная запись отключена
-reset password | пароль сброшен
-change password | пароль изменён
-deactivated by hhid admin resource method | отключено администратором сервиса авторизации
-user unleash authorisation type from account | пользователь отключил данный тип авторизации
-user password was invalidated | пароль помечен как недействительный
-force logout | принудительный выход из учетной записи
+user_deleted | пользователь удалён
+account_disabled | учетная запись пользователя сайта HH отключена
+password_reset | пароль сброшен
+password_changed | пароль изменён
+deactivated_by_admin | отключено администратором
+user_changed_type_of_authorization | при изменении типа авторизации пользователя сайта HH токен отзывается
+password_invalidated | пароль помечен администратором как недействительный
+force_logout | принудительный выход из учетной записи
 
 <a name="employer_payable_methods"></a>
 ## Ошибки доступа к платному методу
