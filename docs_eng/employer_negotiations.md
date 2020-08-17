@@ -467,10 +467,16 @@ Successful server response is returned with `200 OK` code and contains:
                     "id": "discard_after_interview"
                 }
             ],
-             "counters": {
-                 "messages": 100,
-                 "unread_messages": 50
-             }
+            "counters": {
+                "messages": 100,
+                "unread_messages": 50
+            },
+            "test_result": {
+                "url": "https://api.hh.ru/negotiations/1359970704/test/solution",
+                "alternate_url": "https://hh.ru/employer/vacancy_response/test?topicId=1359970704",
+                "score": 100,
+                "mark": "EXCELLENT"
+            }
         }
     ]
 }
@@ -489,22 +495,27 @@ page | number | Number of the current page ( ≥ 0 )
 <a name="negotiations-list-item"></a>
 The `items` entity contains response/invitation data and CVs for them:
 
-Name | Type | Description
---- | --- | --------
+Name                            | Type          | Description
+------------------------------- | ------------- | --------
 id | string | Response ID
 created_at | string | Response/invitation creation date and time
-updated_at| string | Response/invitation update date and time
+updated_at | string | Response/invitation update date and time
 state | object | The current [applicant's response status](#term-state).
 employer_state | object | The current [employer's response status](#term-employer-state).
-actions| list | list of possible [actions on response/invitation](#actions-info)
+actions | list | list of possible [actions on response/invitation](#actions-info)
 url | string | URL to get [the full version of response/invitation](#get-negotiation)
 messages_url | string | URL to get [the list of messages in the response](#get-messages)
-resume| object, null | [Short CV](resumes.md#resume-short). To get full CV, send a GET request to URL from key `url`. It can be `null`, if the applicant deleted the CV or disabled access to it.
-has_updates| logical | <a name="has_updates"></a> Whether the response/invitation includes updates that require attention. The flag can be disabled upon different response/invitation actions, e.g. upon [viewing message list](#get-messages), and [appropriate view of CV on response/invitation](#view-resume).
-viewed_by_opponent| logical | Whether the response was viewed by the applicant
+resume | object, null  | [Short CV](resumes.md#resume-short). To get full CV, send a GET request to URL from key `url`. It can be `null`, if the applicant deleted the CV or disabled access to it.
+has_updates | logical | <a name="has_updates"></a> Whether the response/invitation includes updates that require attention. The flag can be disabled upon different response/invitation actions, e.g. upon [viewing message list](#get-messages), and [appropriate view of CV on response/invitation](#view-resume).
+viewed_by_opponent | logical | Whether the response was viewed by the applicant
 counters | object | Counters
 counters.messages | number | Total number of messages
 counters.unread_messages | number | Number of messages that have not been read by the employer
+test_result | object, null | Test's result
+test_result.url | string | Full test's result link
+test_result.alternate_url | string | Full test's result site link
+test_result.score | number | Test's score
+test_result.mark | string | Test's mark (`UNFAIR` - from 0 to 14  points, `FAIR` - from 15 to 44 points, `GOOD` - from 45 to 79 points, `EXCELLENT` from 80 to 100 points)
 
 <a name="view-resume"></a>
 
@@ -785,6 +796,12 @@ Successful server response is returned with `200 OK` code and contains:
     "counters": {
         "messages": 100,
         "unread_messages": 50
+    },
+    "test_result": {
+        "url": "https://api.hh.ru/negotiations/1359970704/test/solution",
+        "alternate_url": "https://hh.ru/employer/vacancy_response/test?topicId=1359970704",
+        "score": 100,
+        "mark": "EXCELLENT"
     }
 }
 ```
