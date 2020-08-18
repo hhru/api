@@ -215,12 +215,9 @@ HTTP code | type | value | reason | описание
 reason | описание 
 -------|---------
 user_deleted | пользователь удалён
-account_disabled | учетная запись пользователя сайта HH отключена
+account_disabled | учетная запись пользователя сайта отключена
 password_reset | пароль сброшен
 password_changed | пароль изменён
-deactivated_by_admin | отключено администратором
-user_changed_type_of_authorization | при изменении типа авторизации пользователя сайта HH токен отзывается
-password_invalidated | пароль помечен администратором как недействительный
 force_logout | принудительный выход из учетной записи
 
 <a name="employer_payable_methods"></a>
