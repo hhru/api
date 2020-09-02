@@ -1,5 +1,7 @@
 # Tests solutions
 
+This method allowed only employer authorization 
+
 ### Request
 
 `GET /negotiations/{nid}/test/solution`
@@ -66,3 +68,7 @@ tasks[].closed_answers[].value | string | Answer's text
 tasks[].closed_answers[].selected | logical | Is current answer selected
 tasks[].closed_answers[].correct | logical | Is current answer correct
 
+### Errors
+
+* `403 Forbidden` - Current user is not an employer.
+* `404 Not Found` - Topic is not exists or current user has not access to this topic.
