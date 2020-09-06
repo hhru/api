@@ -289,7 +289,7 @@ HTTP code| type| value| description
 400 | vacancies | *field_name* | the is an error in a job's field, where the *field_name* is the key of the upper level field and the reason field may be missing
 403 | vacancies | not_enough_purchased_services | the purchased services are not enough to publish or update this type of job
 403 | vacancies | quota_exceeded | the manager's quota for the publication of this type of job is exhausted
-403 | vacancies | duplicate | a similar job has already been published; this error can be disabled by force (when [adding](employer_vacancies.md#creation-ignore-duplicates) or [editing](employer_vacancies.md#edit-ignore-duplicates))
+403 | vacancies | duplicate | a similar job has already been published; the [response](#vacancy-duplicate-response) contains information about duplicate jobs; this error can be disabled by force (when [adding](employer_vacancies.md#creation-ignore-duplicates) or [editing](employer_vacancies.md#edit-ignore-duplicates))
 403 | vacancies | creation_forbidden | jobs cannot be published by the current manager
 403 | vacancies | unavailable_for_archived | you cannot edit an archived job
 403 | vacancies | conflict_changes | a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
@@ -317,6 +317,37 @@ address_has_no_metro_but_checked_show_metro_flag | a metro station is not availa
 default_vacancy_branded_template_is_invalid_or_not_enough_purchased_services | branded vacancy template is entered incorrectly, or you have not paid for the service allowing you to use a [branded vacancy template](https://hh.ru/price?from=menu#branding) 
 department_code_prohibited_in_anonymous_vacancy | you cannot specify a department code for an anonymous vacancy
 branded_template_prohibited_in_anonymous_vacancy | you cannot use a branded template for an anonymous vacancy
+
+<a name="vacancies-duplicate-response"></a>
+#### Example response on error duplicate
+
+```json
+{
+    "errors": [
+        {
+            "type": "vacancies",
+            "value": "duplicate",
+            "found": 2,
+            "items": [
+                {
+                    "id": 1337
+                },
+                {
+                    "id": 78789890
+                }
+            ]
+        }
+    ]
+}
+```
+
+### Response fields
+
+Path | JSON type | Description
+--- | --- | --------
+found | number | total number of duplicate jobs
+items | array | limited number of records with information about duplicates. Does not guarantee all duplicates will be returned.
+items[].id | number | job id
 
 <a name="vacancies-prolongate"></a>
 ### Vacancy extension
