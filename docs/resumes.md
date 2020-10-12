@@ -1104,7 +1104,7 @@ expires | строка (дата) | время окончания действи
 ```
 
 
-<a name="actions-object"></a>
+<a name="actions-object-for-employer"></a>
 Объект `actions` (дополнительные действия)
 
 Имя | Тип | Описание
