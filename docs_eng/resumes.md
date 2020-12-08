@@ -817,6 +817,7 @@ id | string | Applicant's driver’s license category. [driver_license_types](di
 
 ### Errors
 
+* `403 Forbidden` - Forbidden resume access under application rights.
 * `404 Not Found` – If the resume does not exist or is not available to the user.
 * `429 Too Many Requests` - If the daily limit of resume views is exceeded (when the user is authorized as an employer).
 
