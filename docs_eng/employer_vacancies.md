@@ -208,9 +208,6 @@ some additional fields.
     "billing_type": {
         "id": "standard"
     },
-    "site": {
-        "id": "hh"
-    },
     "address": {
         "id": "123",
         "show_metro_only": true
@@ -272,7 +269,6 @@ some additional fields.
  area.id                     | string          | region of publication [from directory](areas.md)
  type.id                     | string          | type from [vacancy_type directory](dictionaries.md)
  billing_type.id             | string          | billing type from [vacancy_billing_type directory](dictionaries.md)
- site.id                     | string          | publication website from [vacancy_site directory](dictionaries.md)
  code                        | string          | internal vacancy code
  department.id               | string          | department [from directory](employer_departments.md) on whose behalf the vacancy is uploaded (if available for the company)
  salary                      | object or null  | salary
@@ -506,9 +502,6 @@ A successful response contains the `200 OK` response code and a body:
     },
     "schedule": {
         "required": false
-    },
-    "site": {
-        "required": true
     },
     "specializations": {
         "max_count": null,
