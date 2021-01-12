@@ -34,7 +34,6 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `vacancy_label` - vacancy tags
 * `vacancy_relation` - types of vacancy connection to the user
 * `vacancy_billing_type` - vacancy placement options with relation to billing
-* `vacancy_site` - possible website values for vacancy placement
 * `working_days` - working days
 * `working_time_intervals` - working time intervals
 * `working_time_modes` - working time modes

@@ -215,9 +215,6 @@ publications[].areas_url | string | URL на список регионов, в �
     "billing_type": {
         "id": "standard"
     },
-    "site": {
-        "id": "hh"
-    },
     "address": {
         "id": "123",
         "show_metro_only": true
@@ -278,7 +275,6 @@ specializations[].id | string | специализация [из справоч�
 area.id | string | регион публикации [из справочника](areas.md)
 type.id | string | тип из [справочника vacancy_type](dictionaries.md)
 billing_type.id | string | биллинговый тип [из справочника vacancy_billing_type](dictionaries.md)
-site.id | string | сайт для публикации [из справочника vacancy_site](dictionaries.md)
 code | string | внутренний код вакансии
 department.id | string | департамент [из справочника](employer_departments.md), от имени которого размещается вакансия (если данная возможность доступна для компании)
 salary | object или null | зарплата
@@ -512,9 +508,6 @@ Location: /vacancies/78789890
     },
     "schedule": {
         "required": false
-    },
-    "site": {
-        "required": true
     },
     "specializations": {
         "max_count": null,
