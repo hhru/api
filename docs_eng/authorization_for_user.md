@@ -81,12 +81,6 @@ HTTP/1.1 302 FOUND
 Location: {redirect_uri}?code={authorization_code}
 ```
 
-If the user is authorized on the website and access has been granted to the
-application once before, then there will be an immediate redirect with the
-`authorization_code` described above (without showing the login form and giving
-rights).
-
-
 <a name="get-tokens"></a>
 ### Obtaining access and refresh tokens
 

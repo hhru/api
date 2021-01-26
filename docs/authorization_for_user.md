@@ -73,6 +73,8 @@ https://hh.ru/oauth/authorize?
 перенаправлен на указанный `redirect_uri` с `?error=access_denied` и
 `state={state}`, если таковой был указан при первом запросе.
 
+Если пользователь авторизован, ему будет показана форма для подтверждения работы под текущим пользователем или смены пользователя.
+
 <a name="get-authorization_code"></a>
 ### Успешное получение временного `authorization_code`
 
@@ -83,11 +85,6 @@ https://hh.ru/oauth/authorize?
 HTTP/1.1 302 FOUND
 Location: {redirect_uri}?code={authorization_code}
 ```
-
-Если пользователь авторизован на сайте и доступ данному приложению однажды
-ранее выдан, ответом будет сразу вышеописанный редирект с `authorization_code`
-(без показа формы логина и выдачи прав).
-
 
 <a name="get-tokens"></a>
 ### Получение access и refresh токенов

@@ -235,7 +235,7 @@ area.name | string | Region name
 area.url | string | URL for getting information on the region
 created_at | string | Date and time resume was created
 published_at | string | Date and time of vacancy publication
-employer | object | Brief description of employer. See field description in [employer information](employers.md#item).
+employer | object or null | Brief description of an employer. See field description in [employer information](employers.md#item). null for anonymous vacancy
 employer.blacklisted | boolean | Whether all vacancies of the employer are added to the [list of hidden](blacklisted.md#employers)
 response_letter_required | boolean | Whether it is mandatory to fill out a message for application
 type | object | Vacancy type. [vacancy_type](dictionaries.md) directory entry.

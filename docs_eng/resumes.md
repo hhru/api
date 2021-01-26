@@ -433,7 +433,7 @@ the response will be registered as viewed.
             "id": "rus",
             "name": "Russian",
             "level": {
-                "id": "native",
+                "id": "l1",
                 "name": "native"
             }
         },
@@ -1979,7 +1979,6 @@ This option differs from the detailed display in the absence of some fields.
 
 At the moment, resumes can be downloaded in the following formats: PDF and RTF.
 Applicants can download their resumes. 
-An employer can only download an applicant's resume if the company has a response/invitation to that resume as part of an active job vacancy. 
 The name of the downloaded file may contain the applicant's name or desired position.
 
 ### Request
@@ -2154,10 +2153,10 @@ Please see also [managing resume visibility lists](/docs/resume_visibility.md).
 clicking on the resume views number on the page with the list of the current user's resume
 ([https://hh.ru/applicant/resumes](https://hh.ru/applicant/resumes)).
 
-Without authorisation or when requesting another user's resume, the system will return `403 Forbidden`.
-
 The number of views (including new) is shown when requesting a specific
 resume and list of resumes. The new views counter is reset to zero when requesting this resource.
+
+### Response
 
 ```json
 {
@@ -2215,6 +2214,10 @@ applications to an anonymous vacancy, `employer` may contain only the `name` key
 `logo_urls` — images of the company logo in different sizes. The client should take into account
               the probability that the resource will not be available at the specified link (`404 Not Found`).
 
+### Errors
+
+* `403 Forbidden` — The user is not an applicant.
+* `404 Not Found` — A resume with this ID was not found or is not available to the current user.
 
 <a name="similar"></a>
 ## Searching for jobs similar to a resume

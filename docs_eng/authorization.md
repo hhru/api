@@ -42,18 +42,8 @@ by transferring it in the header in the following format:
 <a name="check-access_token"></a>
 ## Checking an access token
 
-It is convenient to use the `/me` method to test the token.
+It is convenient to use the `/me` method to test the token:
 
-Request example:
-```http
-GET /me HTTP/1.1
-User-Agent: MyApp/1.0 (my-app-feedback@example.com)
-Host: api.hh.ru
-Accept: */*
-Authorization: Bearer access_token
-```
-
-See the more detailed description of the `/me` method in the corresponding sections:
 * [for the authorised application](me.md#application-info)
 * [for the authorised user](me.md#user-info)
 

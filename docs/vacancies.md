@@ -252,7 +252,7 @@ area.name | string | Название региона
 area.url | string | Url получения информации о регионе
 created_at | string | Дата и время создания вакансии
 published_at | string | Дата и время публикации вакансии
-employer | object | Короткое представление работодателя. Описание полей смотрите в [информации о работодателе](employers.md#item).
+employer | object или null | Короткое представление работодателя. Описание полей смотрите в [информации о работодателе](employers.md#item). Может не прийти в случае, если вакансия анонимная
 employer.blacklisted | boolean | Добавлены ли все вакансии работодателя в [список скрытых](blacklisted.md#employers)
 response_letter_required | boolean | Обязательно ли заполнять сообщение при отклике на вакансию
 type | object | Тип вакансии. Элемент справочника [vacancy_type](dictionaries.md).

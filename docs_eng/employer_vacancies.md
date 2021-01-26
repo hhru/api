@@ -106,7 +106,7 @@ When publishing a vacancy, `vacancy_billing_type.id` and `vacancy_type.id` value
 
 ### Errors
 
-* `403 Forbidden` - Current user is not an employer, the current user attempts to request data for another manager, or the manager does not have access to publish vacancies
+* `404 Not Found` - The current user is not an employer, the current user attempts to request data for another manager, or the manager does not have access to publish vacancies
 * `404 Not Found` - Manager or company does not exist or is not available for the current user
 
 <a name="creation"></a>
@@ -266,7 +266,7 @@ some additional fields.
  key_skills[].name           | string          | name of key skill
  specializations             | array           | list of specialisations
  specializations[].id        | string          | specialisation [from directory](specializations.md)
- area.id                     | string          | region of publication [from directory](areas.md)
+ area.id                     | string          | city of publication [from directory](areas.md)
  type.id                     | string          | type from [vacancy_type directory](dictionaries.md)
  billing_type.id             | string          | billing type from [vacancy_billing_type directory](dictionaries.md)
  code                        | string          | internal vacancy code
