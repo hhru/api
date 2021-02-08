@@ -1047,14 +1047,17 @@ expires | строка (дата) | время окончания действи
         },
         "download_with_contact": {
             "pdf": {
-                "url": "https://hh.ru/api_resume_converter/12345678901234567890123456789012abcdef/ФамилияИмяОтчество.pdf?type=pdf&with_contact=2703892fa808bc3"
+                "url": "https://hh.ru/api_resume_converter/12345678901234567890123456789012abcdef/ФамилияИмяОтчество.pdf?type=pdf&with_contact=2703892fa808bc3",
+                "division_id": 123
             },
             "rtf": {
-                "url": "https://hh.ru/api_resume_converter/12345678901234567890123456789012abcdef/ФамилияИмяОтчество.rtf?type=rtf&with_contact=2703892fa808bc3"
+                "url": "https://hh.ru/api_resume_converter/12345678901234567890123456789012abcdef/ФамилияИмяОтчество.rtf?type=rtf&with_contact=2703892fa808bc3",
+                "division_id": 123
             }
         },
         "get_with_contact": {
-            "url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef?with_contact=2703892fa808bc3"
+            "url": "https://api.hh.ru/resumes/12345678901234567890123456789012abcdef?with_contact=2703892fa808bc3",
+            "division_id": 123          
         }         
     },
     "paid_services": [

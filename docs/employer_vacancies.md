@@ -26,13 +26,14 @@
 
 ### Запрос
 
-```GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types```
+```GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types?divisionId={division_id}```
 
 где:
 
 * `employer_id` - идентификатор работодателя, который можно узнать в 
 [информации о текущем пользователе](me.md#employer-info).
 * `manager_id` - идентификатор менеджера. Можно узнать в [информации о текущем пользователе](me.md#manager-info).
+* `division_id` - идентификатор отдела. 
 
 ### Ответ
 
@@ -221,6 +222,9 @@ publications[].areas_url | string | URL на список регионов, в �
     },
     "manager": {
         "id": "321"
+    },
+    "division": {
+        "id": "111"
     },
     "test": {
         "id": "42",
