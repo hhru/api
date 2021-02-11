@@ -75,5 +75,6 @@ X-Manager-Division-Id: {division_id}
 <a name="errors"></a>
 ## Ошибки
 
-* `403 Forbidden` — отдел с переданным `division_id` не найден. Дополнительно к коду вернется причина ошибки
 * `403 Forbidden` — ошибка авторизации (при запросах с авторизацией не работодателя)
+* `404 Not Found` — отдел с переданным `division_id` не найден
+* [Дополнительные ошибки с описанием причины](/docs/errors.md#manager-divisions).
