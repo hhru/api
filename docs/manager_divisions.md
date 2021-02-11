@@ -24,6 +24,10 @@ GET /manager_divisions/mine
 
 ```json
 {
+    "found": 2,
+    "page": 0,
+    "pages": 1,
+    "per_page": 2,
     "items": [
         {
             "id": "1",
