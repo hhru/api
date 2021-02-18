@@ -659,7 +659,14 @@ counters.invitations | number | количество приглашений на
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
-        "trusted": true
+        "trusted": true,
+        "badges": [
+           {
+               "type": "employer-hh-rating",
+               "description": "2-е место в Рейтинге работодателей России (небольшие компании)",
+               "url": "https://rating.hh.ru/profile/rating2020"
+           }  
+        ]
       },
       "contacts": {
           "name": "Имя",
