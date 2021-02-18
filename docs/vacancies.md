@@ -124,7 +124,14 @@
         "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true,
-        "blacklisted": false
+        "blacklisted": false,
+        "badges": [
+            {
+                "type": "employer-hh-rating",
+                "description": "2-е место в Рейтинге работодателей России (небольшие компании)",
+                "url": "https://rating.hh.ru/profile/rating2020"
+            }  
+        ]
     },
     "response_letter_required": true,
     "type": {
@@ -803,7 +810,14 @@ counters.responses | number | Количество откликов на вак�
             "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
-        "id": "1455"
+        "id": "1455",
+        "badges": [
+            {
+                "type": "employer-hh-rating",
+                "description": "2-е место в Рейтинге работодателей России (небольшие компании)",
+                "url": "https://rating.hh.ru/profile/rating2020"
+            }  
+        ]
     },
     "response_letter_required": false,
     "type": {
