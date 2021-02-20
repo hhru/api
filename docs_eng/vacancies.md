@@ -128,7 +128,14 @@ Successful server response is returned with `200 OK` code and contains:
         "url": "https://api.hh.ru/employers/1455?locale=EN",
         "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
-        "trusted": true
+        "trusted": true,
+        "badges": [
+            {
+                "type": "employer-hh-rating",
+                "description": "2-е место в Рейтинге работодателей России (небольшие компании)",
+                "url": "https://rating.hh.ru/profile/rating2020"
+            }  
+        ]
     },
     "response_letter_required": true,
     "type": {
@@ -634,7 +641,14 @@ used for applicants.
         "url": "https://api.hh.ru/employers/1455",
         "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
-        "trusted": true
+        "trusted": true,
+        "badges": [
+           {
+               "type": "employer-hh-rating",
+               "description": "2-е место в Рейтинге работодателей России (небольшие компании)",
+               "url": "https://rating.hh.ru/profile/rating2020"
+           }  
+        ]
       },
       "contacts": {
           "name": "Name",
@@ -779,7 +793,14 @@ Returns the same errors as [the search by vacancy](#search-results) and in addit
             "original": "https://hh.ru/file/2352807.png"
         },
         "name": "HeadHunter",
-        "id": "1455"
+        "id": "1455",
+        "badges": [
+            {
+                "type": "employer-hh-rating",
+                "description": "2-е место в Рейтинге работодателей России (небольшие компании)",
+                "url": "https://rating.hh.ru/profile/rating2020"
+            }  
+        ]
     },
     "response_letter_required": false,
     "type": {

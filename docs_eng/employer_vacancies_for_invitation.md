@@ -119,7 +119,8 @@ Successful server response is returned with `200 OK` code and contains:
             "type": {
                 "id": "open",
                 "name": "Open"
-            }
+            },
+            "badges": []
         }
     ],
     "page": 0,

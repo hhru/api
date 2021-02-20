@@ -43,7 +43,14 @@ Successful server response is returned with `200 OK` code and contains:
             "open_vacancies": 19,
             "logo_urls": {
               "90":  "https://hh.ru/employer-logo/289027.png"
-            }
+            },
+            "badges": [
+                {
+                    "type": "employer-hh-rating",
+                    "description": "2-е место в Рейтинге работодателей России (небольшие компании)",
+                    "url": "https://rating.hh.ru/profile/rating2020"
+                }  
+            ]
         }
     ]
 }
@@ -69,6 +76,7 @@ alternate_url   | string       | link to employer description on the website
 vacancies_url   | string       | url for search results with vacancies of this company
 open_vacancies  | number       | number of employer's open vacancies
 logo_urls       | object, null | [company logos](#logo-urls)
+badges          | array        | [company badges list](#badges)
 
 ### Errors
 
@@ -126,6 +134,13 @@ to the company's vacancies.
             "id": "9.399",
             "name": "Mobile communication"
         }
+    ],
+    "badges": [
+        {
+            "type": "employer-hh-rating",
+            "description": "2-е место в Рейтинге работодателей России (небольшие компании)",
+            "url": "https://rating.hh.ru/profile/rating2020"
+        }  
     ]
 }
 ```
@@ -153,6 +168,7 @@ to the company's vacancies.
  area.url                   | string                   | link to information about the region
  relations                  | array                    | if the employer is blacklisted, it will return `['blacklisted']` else `[]`
  industries                 | [array](#id-name-object) | A list of the company's industries. Entries of the [directory of industries](industries.md).
+ badges                     | array                    | [company badges list](#badges)
 
 <a name="id-name-object"></a>
 Object with id and name
@@ -191,3 +207,14 @@ the corresponding keys will have links to the original images. Object
 can be null, if the company hasn't uploaded its logo. The client should foresee
 the possibility of the logo missing in the indicated link (response with the
 `404 Not Found` code).
+
+<a name="badges"></a>
+#### Company badges
+Objects of company badges
+
+ Имя            | Тип    | Описание
+----------------|--------|--------------------
+ type           | string | Badge type
+ description    | string | Badge description
+ url            | string | Link
+

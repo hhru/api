@@ -114,7 +114,8 @@
                     "original": "https://hh.ru/file/1455.png"
                 },
                 "name": "HeadHunter",
-                "id": "1455"
+                "id": "1455",
+                "badges": []
             },
             "response_letter_required": false,
             "type": {
