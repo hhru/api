@@ -212,7 +212,7 @@ the possibility of the logo missing in the indicated link (response with the
 #### Company badges
 Objects of company badges
 
- Имя            | Тип    | Описание
+ Name           | Type   | Description
 ----------------|--------|--------------------
  type           | string | Badge type
  description    | string | Badge description
