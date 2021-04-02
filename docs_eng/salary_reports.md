@@ -11,7 +11,7 @@
 ## Salary assessment without forecasts
 
 Method for obtaining salary assessment without forecasts.
-[Authorisation](authorization.md) is required
+[User authorisation](authorization_for_user.md) is required
 and a user must have access to paid reports of the Salary Database(https://salary.hh.ru).
 
 ```
