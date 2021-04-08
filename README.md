@@ -33,192 +33,192 @@ HeadHunter API — это инструментарий для интеграци
 
 Пометки в документации:
 
-* <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> –
+* ![anonymous](./newbages/anonymous.png) –
   актуально для анонимных запросов, не требует авторизации.
-* <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> – актуально для запросов от имени приложения, требует [авторизацию приложения](docs/authorization_for_application.md)
-* <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> –
+* ![application](./newbages/application.png) – актуально для запросов от имени приложения, требует [авторизацию приложения](docs/authorization_for_application.md)
+* ![applicant](./newbages/applicant.png) –
   актуально для запросов от имени соискателя, требует [авторизацию пользователя](docs/authorization_for_user.md).
-* <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" /> –
+* ![employer](./newbages/employer_free.png) –
   актуально для бесплатных методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
-* <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> –
+* ![employer with paid access](./newbages/employer_paid.png) –
   актуально для [платных](docs/payable/employer_methods.md) методов работодателя, требует  [авторизацию пользователя](docs/authorization_for_user.md).
 
 
 <a name="general"></a>
 ### Общая информация
 
-* [Общая информация](docs/general.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Условия использования сервиса API](https://dev.hh.ru/admin/developer_agreement) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Требования к использованию логотипов](https://dev.hh.ru/articles/logos) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Требования к названию приложений](https://dev.hh.ru/articles/apps) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Авторизация](docs/authorization.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Кэширование](docs/cache.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Ошибки и коды ответов](docs/errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Платный доступ для работодателей к некоторым методом API](docs/payable/employer_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Новая модель работы с базой резюме (поддержка в API)](docs/payable/resume.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Общая информация](docs/general.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Условия использования сервиса API](https://dev.hh.ru/admin/developer_agreement) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Требования к использованию логотипов](https://dev.hh.ru/articles/logos) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Требования к названию приложений](https://dev.hh.ru/articles/apps) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Авторизация](docs/authorization.md) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Кэширование](docs/cache.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Ошибки и коды ответов](docs/errors.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Платный доступ для работодателей к некоторым методом API](docs/payable/employer_methods.md) ![employer with paid access](./newbages/employer_paid.png)
+* [Новая модель работы с базой резюме (поддержка в API)](docs/payable/resume.md) ![employer](./newbages/employer_free.png)
 
 <a name="resources"></a>
 <a name="context"></a>
 ### Контекст
 
-* [Информация об авторизованном пользователе или приложении](docs/me.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Получение информации об авторизованном пользователе](docs/me.md#user-info) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Редактирование информации авторизованного пользователя](docs/me.md#user-edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Получение информации об авторизованном приложении](docs/me.md#application-info) <img src="http://hhru.github.io/api/badges/client.png" alt="client" />
+* [Информация об авторизованном пользователе или приложении](docs/me.md) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Получение информации об авторизованном пользователе](docs/me.md#user-info) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Редактирование информации авторизованного пользователя](docs/me.md#user-edit) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Получение информации об авторизованном приложении](docs/me.md#application-info) ![application](./newbages/application.png)
 * Информация о менеджере
-  * [Рабочие аккаунты менеджера](docs/manager_accounts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Предпочтения менеджера](docs/manager_settings.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Информация по активным услугам API для платных методов](docs/payable/employer_services.md#payable-api-actions) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Локализация](docs/locales.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Выбор сайта](docs/hosts.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Рабочие аккаунты менеджера](docs/manager_accounts.md) ![employer](./newbages/employer_free.png)
+  * [Предпочтения менеджера](docs/manager_settings.md) ![employer](./newbages/employer_free.png)
+* [Информация по активным услугам API для платных методов](docs/payable/employer_services.md#payable-api-actions) ![employer](./newbages/employer_free.png)
+* [Локализация](docs/locales.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Выбор сайта](docs/hosts.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
 
 
 <a name="resume"></a>
 ### Резюме
 
-* [Поиск резюме](docs/resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Сохраненные поиски резюме](docs/resumes_saved_searches.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Список сохраненных поисков резюме](docs/resumes_saved_searches.md#resumes-saved-search-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Получение единичного сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-item) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Создание нового сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-create) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Обновление сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-update) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Удаление сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-delete) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Передача сохраненного поиска резюме другому менеджеру](docs/resumes_saved_searches.md#resumes-saved-search-move-to-other-manager) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Просмотр резюме](docs/resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Работа с резюме для соискателя](docs/resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Список резюме авторизованного пользователя](docs/resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Создание и редактирование резюме](docs/resumes.md#create_edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Публикация и продление резюме](docs/resumes.md#publish) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Удаление резюме](docs/resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [История просмотра резюме](docs/resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Информация о статусе резюме и готовности резюме к публикации](docs/resumes.md#status-and-publication) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Списки видимости резюме](docs/resume_visibility.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Артефакты (фото, портфолио)](docs/artifacts.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Поиск по вакансиям, похожим на резюме](docs/resumes.md#similar) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [История откликов/приглашений по резюме](docs/resume_negotiations_history.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Поиск резюме](docs/resumes_search.md) ![employer with paid access](./newbages/employer_paid.png)
+* [Сохраненные поиски резюме](docs/resumes_saved_searches.md) ![employer with paid access](./newbages/employer_paid.png)
+  * [Список сохраненных поисков резюме](docs/resumes_saved_searches.md#resumes-saved-search-list) ![employer with paid access](./newbages/employer_paid.png)
+  * [Получение единичного сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-item) ![employer with paid access](./newbages/employer_paid.png)
+  * [Создание нового сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-create) ![employer with paid access](./newbages/employer_paid.png)
+  * [Обновление сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-update) ![employer with paid access](./newbages/employer_paid.png)
+  * [Удаление сохраненного поиска резюме](docs/resumes_saved_searches.md#resumes-saved-search-delete) ![employer with paid access](./newbages/employer_paid.png)
+  * [Передача сохраненного поиска резюме другому менеджеру](docs/resumes_saved_searches.md#resumes-saved-search-move-to-other-manager) ![employer with paid access](./newbages/employer_paid.png)
+* [Просмотр резюме](docs/resumes.md#item) ![applicant](./newbages/applicant.png) ![employer with paid access](./newbages/employer_paid.png)
+* [Работа с резюме для соискателя](docs/resumes.md) ![applicant](./newbages/applicant.png)
+  * [Список резюме авторизованного пользователя](docs/resumes.md#mine) ![applicant](./newbages/applicant.png)
+  * [Создание и редактирование резюме](docs/resumes.md#create_edit) ![applicant](./newbages/applicant.png)
+  * [Публикация и продление резюме](docs/resumes.md#publish) ![applicant](./newbages/applicant.png)
+  * [Удаление резюме](docs/resumes.md#delete) ![applicant](./newbages/applicant.png)
+  * [История просмотра резюме](docs/resumes.md#views) ![applicant](./newbages/applicant.png)
+  * [Информация о статусе резюме и готовности резюме к публикации](docs/resumes.md#status-and-publication) ![applicant](./newbages/applicant.png)
+  * [Списки видимости резюме](docs/resume_visibility.md) ![applicant](./newbages/applicant.png)
+* [Артефакты (фото, портфолио)](docs/artifacts.md) ![applicant](./newbages/applicant.png)
+* [Поиск по вакансиям, похожим на резюме](docs/resumes.md#similar) ![applicant](./newbages/applicant.png)
+* [История откликов/приглашений по резюме](docs/resume_negotiations_history.md) ![employer with paid access](./newbages/employer_paid.png)
 
 <a name="vacancies"></a>
 ### Вакансии
 
-* [Получение вакансий](docs/vacancies.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Поиск по вакансиям](docs/vacancies.md#search) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-    * [Кластеры](docs/clusters.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-    * [Описание использованных параметров](docs/vacancies_search_arguments.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Получение информации о вакансии](docs/vacancies.md#item) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Поиск по вакансиям, похожим на вакансию](docs/vacancies.md#similar) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Отобранные вакансии](docs/vacancies.md#favorited) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Скрытые вакансии](docs/blacklisted.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Сохраненные поиски вакансий](docs/saved_search.md#vacancies-saved-search-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Работа с вакансиями](docs/employer_vacancies.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Возможные варианты публикации вакансий](docs/employer_vacancies.md#available_types) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Публикация вакансий](docs/employer_vacancies.md#creation) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Редактирование вакансий](docs/employer_vacancies.md#edit) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Продление вакансий](docs/employer_vacancies.md#prolongate) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Список опубликованных вакансий](docs/employer_vacancies.md#active) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Архивация вакансий](docs/employer_vacancies.md#archive) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Список архивных вакансий](docs/employer_vacancies.md#archived) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Удаление вакансий](docs/employer_vacancies.md#hide) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Список удаленных вакансий](docs/employer_vacancies.md#hidden) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Статистика по вакансии](docs/employer_vacancies.md#stats) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Получение вакансий](docs/vacancies.md) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Поиск по вакансиям](docs/vacancies.md#search) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+    * [Кластеры](docs/clusters.md) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+    * [Описание использованных параметров](docs/vacancies_search_arguments.md) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Получение информации о вакансии](docs/vacancies.md#item) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Поиск по вакансиям, похожим на вакансию](docs/vacancies.md#similar) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Отобранные вакансии](docs/vacancies.md#favorited) ![applicant](./newbages/applicant.png)
+* [Скрытые вакансии](docs/blacklisted.md) ![applicant](./newbages/applicant.png)
+* [Сохраненные поиски вакансий](docs/saved_search.md#vacancies-saved-search-list) ![applicant](./newbages/applicant.png)
+* [Работа с вакансиями](docs/employer_vacancies.md) ![employer](./newbages/employer_free.png)
+  * [Возможные варианты публикации вакансий](docs/employer_vacancies.md#available_types) ![employer](./newbages/employer_free.png)
+  * [Публикация вакансий](docs/employer_vacancies.md#creation) ![employer](./newbages/employer_free.png)
+  * [Редактирование вакансий](docs/employer_vacancies.md#edit) ![employer](./newbages/employer_free.png)
+  * [Продление вакансий](docs/employer_vacancies.md#prolongate) ![employer](./newbages/employer_free.png)
+  * [Список опубликованных вакансий](docs/employer_vacancies.md#active) ![employer](./newbages/employer_free.png)
+  * [Архивация вакансий](docs/employer_vacancies.md#archive) ![employer](./newbages/employer_free.png)
+  * [Список архивных вакансий](docs/employer_vacancies.md#archived) ![employer](./newbages/employer_free.png)
+  * [Удаление вакансий](docs/employer_vacancies.md#hide) ![employer](./newbages/employer_free.png)
+  * [Список удаленных вакансий](docs/employer_vacancies.md#hidden) ![employer](./newbages/employer_free.png)
+* [Статистика по вакансии](docs/employer_vacancies.md#stats) ![employer](./newbages/employer_free.png)
 
 <a name="applicants"></a>
 ### Соискатели
 
-* [Комментарии к соискателю](docs/applicant_comments.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Комментарии к соискателю](docs/applicant_comments.md) ![employer with paid access](./newbages/employer_paid.png)
 
 
 <a name="employers"></a>
 ### Работодатели/компании
 
-* [Поиск компаний](docs/employers.md#search) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Получение информации о компании](docs/employers.md#item) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Поиск компаний](docs/employers.md#search) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Получение информации о компании](docs/employers.md#item) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
 
 <a name="employer_managers"></a>
 ### Менеджеры работодателя
 
-* [Менеджеры](docs/employer_managers.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Добавление менеджера](docs/employer_managers.md#add) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Редактирование менеджера](docs/employer_managers.md#edit) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Удаление менеджера](docs/employer_managers.md#delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Справочник менеджеров работодателя](docs/employer_managers.md#list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Получение информации о менеджере](docs/employer_managers.md#item) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Дневной лимит просмотра резюме для текущего менеджера](docs/employer_manager_resume_limit.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Менеджеры](docs/employer_managers.md) ![employer](./newbages/employer_free.png)
+  * [Добавление менеджера](docs/employer_managers.md#add) ![employer](./newbages/employer_free.png)
+  * [Редактирование менеджера](docs/employer_managers.md#edit) ![employer](./newbages/employer_free.png)
+  * [Удаление менеджера](docs/employer_managers.md#delete) ![employer](./newbages/employer_free.png)
+  * [Справочник менеджеров работодателя](docs/employer_managers.md#list) ![employer](./newbages/employer_free.png)
+  * [Получение информации о менеджере](docs/employer_managers.md#item) ![employer](./newbages/employer_free.png)
+  * [Дневной лимит просмотра резюме для текущего менеджера](docs/employer_manager_resume_limit.md) ![employer](./newbages/employer_free.png)
 
 <a name="negotiations"></a>
 ### Переписка (отклики/приглашения)
 
-* [Переписка для соискателя](docs/negotiations.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Получение списка откликов](docs/negotiations.md#get_negotiations) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Получение списка активных откликов](docs/negotiations.md#get_negotiations_active) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Откликнуться на вакансию](docs/negotiations.md#post_negotiation) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Просмотр отклика/приглашения](docs/negotiations.md#get_negotiation) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Скрыть отклик](docs/negotiations.md#hide_message) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Просмотр списка сообщений в отклике](docs/negotiations.md#get_messages) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Отправка сообщений в отклике](docs/negotiations.md#send_message) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Редактирование сообщения в отклике](docs/negotiations.md#edit_message) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* Резюме для отклика на указанную вакансию <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Список резюме, которыми можно откликнуться на указанную вакансию](docs/suitable_resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Резюме, сгруппированные по возможности отклика на данную вакансию](docs/resumes_by_status.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Переписка для работодателя](docs/employer_negotiations.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Модель работы, термины и процедуры](docs/employer_negotiations.md#model) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Общее описание процесса работы с откликами/приглашениями](docs/employer_negotiations.md#flow) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Коллекции и работодательские состояния откликов/приглашений](docs/employer_negotiations.md#collections) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Список откликов/приглашений](docs/employer_negotiations.md#negotiations-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Просмотр отклика/приглашения](docs/employer_negotiations.md#get-negotiation) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Работа с сообщениями по отклику/приглашению для работодателя](docs/employer_negotiations.md#get-messages) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Приглашение соискателя на вакансию](docs/employer_negotiations.md#add-invite) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Действия по отклику/приглашению (смена состояния)](docs/employer_negotiations.md#actions) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Статистика по работе с откликами](docs/employer_negotiations_statistics.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Тексты сообщений](docs/negotiation_message_templates.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Инструменты оценки](docs/assessment.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Переписка для соискателя](docs/negotiations.md) ![applicant](./newbages/applicant.png)
+  * [Получение списка откликов](docs/negotiations.md#get_negotiations) ![applicant](./newbages/applicant.png)
+  * [Получение списка активных откликов](docs/negotiations.md#get_negotiations_active) ![applicant](./newbages/applicant.png)
+  * [Откликнуться на вакансию](docs/negotiations.md#post_negotiation) ![applicant](./newbages/applicant.png)
+  * [Просмотр отклика/приглашения](docs/negotiations.md#get_negotiation) ![applicant](./newbages/applicant.png)
+  * [Скрыть отклик](docs/negotiations.md#hide_message) ![applicant](./newbages/applicant.png)
+  * [Просмотр списка сообщений в отклике](docs/negotiations.md#get_messages) ![applicant](./newbages/applicant.png)
+  * [Отправка сообщений в отклике](docs/negotiations.md#send_message) ![applicant](./newbages/applicant.png)
+  * [Редактирование сообщения в отклике](docs/negotiations.md#edit_message) ![applicant](./newbages/applicant.png)
+* Резюме для отклика на указанную вакансию ![applicant](./newbages/applicant.png)
+  * [Список резюме, которыми можно откликнуться на указанную вакансию](docs/suitable_resumes.md) ![applicant](./newbages/applicant.png)
+  * [Резюме, сгруппированные по возможности отклика на данную вакансию](docs/resumes_by_status.md) ![applicant](./newbages/applicant.png)
+* [Переписка для работодателя](docs/employer_negotiations.md) ![employer with paid access](./newbages/employer_paid.png)
+  * [Модель работы, термины и процедуры](docs/employer_negotiations.md#model) ![employer with paid access](./newbages/employer_paid.png)
+  * [Общее описание процесса работы с откликами/приглашениями](docs/employer_negotiations.md#flow) ![employer with paid access](./newbages/employer_paid.png)
+  * [Коллекции и работодательские состояния откликов/приглашений](docs/employer_negotiations.md#collections) ![employer with paid access](./newbages/employer_paid.png)
+  * [Список откликов/приглашений](docs/employer_negotiations.md#negotiations-list) ![employer with paid access](./newbages/employer_paid.png)
+  * [Просмотр отклика/приглашения](docs/employer_negotiations.md#get-negotiation) ![employer with paid access](./newbages/employer_paid.png)
+  * [Работа с сообщениями по отклику/приглашению для работодателя](docs/employer_negotiations.md#get-messages) ![employer with paid access](./newbages/employer_paid.png)
+  * [Приглашение соискателя на вакансию](docs/employer_negotiations.md#add-invite) ![employer with paid access](./newbages/employer_paid.png)
+  * [Действия по отклику/приглашению (смена состояния)](docs/employer_negotiations.md#actions) ![employer with paid access](./newbages/employer_paid.png)
+  * [Статистика по работе с откликами](docs/employer_negotiations_statistics.md) ![employer with paid access](./newbages/employer_paid.png)
+* [Тексты сообщений](docs/negotiation_message_templates.md) ![employer with paid access](./newbages/employer_paid.png)
+* [Инструменты оценки](docs/assessment.md) ![applicant](./newbages/applicant.png) ![employer with paid access](./newbages/employer_paid.png)
 
 
 <a name="dictionaries"></a>
 ### Справочники
 
-* [Регионы](docs/areas.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Специализации](docs/specializations.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Метро](docs/metro.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Языки](docs/languages.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Отрасли компаний](docs/industries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Учебные заведения](docs/educational_institutions.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Основная информация об учебных заведениях](docs/university.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Факультеты учебных заведений](docs/faculties.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Справочники работодателя](docs/employer_dictionaries.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Адреса](docs/employer_addresses.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Типы и права менеджера](docs/employer_managers.md#dict) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Менеджеры работодателя](docs/employer_managers.md#list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Департаменты](docs/employer_departments.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Тесты](docs/employer_tests.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Регионы вакансий](docs/employer_vacancy_areas_active.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Брендированные шаблоны вакансий](docs/employer_vacancy_branded_templates.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Ключевые навыки](docs/key_skills.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Прочие справочники](docs/dictionaries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Регионы](docs/areas.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Специализации](docs/specializations.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Метро](docs/metro.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Языки](docs/languages.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Отрасли компаний](docs/industries.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Учебные заведения](docs/educational_institutions.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Основная информация об учебных заведениях](docs/university.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Факультеты учебных заведений](docs/faculties.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Справочники работодателя](docs/employer_dictionaries.md) ![employer](./newbages/employer_free.png)
+  * [Адреса](docs/employer_addresses.md) ![employer](./newbages/employer_free.png)
+  * [Типы и права менеджера](docs/employer_managers.md#dict) ![employer](./newbages/employer_free.png)
+  * [Менеджеры работодателя](docs/employer_managers.md#list) ![employer](./newbages/employer_free.png)
+  * [Департаменты](docs/employer_departments.md) ![employer](./newbages/employer_free.png)
+  * [Тесты](docs/employer_tests.md) ![employer](./newbages/employer_free.png)
+  * [Регионы вакансий](docs/employer_vacancy_areas_active.md) ![employer](./newbages/employer_free.png)
+  * [Брендированные шаблоны вакансий](docs/employer_vacancy_branded_templates.md) ![employer](./newbages/employer_free.png)
+* [Ключевые навыки](docs/key_skills.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+* [Прочие справочники](docs/dictionaries.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
 
 
 <a name="suggests"></a>
 ### Подсказки (autosuggest, autocomplete)
 
-* [Подсказки](docs/suggests.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [по названиям университетов](docs/suggests.md#educational_institutions) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [по организациям](docs/suggests.md#companies) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [по специализациям](docs/suggests.md#specializations) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [по ключевым навыкам](docs/suggests.md#key-skills) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [по должностям](docs/suggests.md#positions) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [по регионам](docs/suggests.md#areas) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [по ключевым словам поиска вакансий](docs/suggests.md#vacancy-search-keyword) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Подсказки](docs/suggests.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [по названиям университетов](docs/suggests.md#educational_institutions) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [по организациям](docs/suggests.md#companies) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [по специализациям](docs/suggests.md#specializations) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [по ключевым навыкам](docs/suggests.md#key-skills) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [по должностям](docs/suggests.md#positions) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [по регионам](docs/suggests.md#areas) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [по ключевым словам поиска вакансий](docs/suggests.md#vacancy-search-keyword) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
 
 
 <a name="salary"></a>
 ### Банк данных заработных плат
 
-* [Отчёты Банка данных заработных плат](docs/salary_reports.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Оценка заработной платы без прогнозов](docs/salary_reports.md#salary-evaluation) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Справочники Банка данных заработных плат](docs/salary_dictionaries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Отрасли](docs/salary_dictionaries.md#salary-industries) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Уровни специалистов](docs/salary_dictionaries.md#employee-levels) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Профобласти и специализации](docs/salary_dictionaries.md#professional-areas) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Регионы и города](docs/salary_dictionaries.md#salary-areas) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Отчёты Банка данных заработных плат](docs/salary_reports.md) ![employer](./newbages/employer_free.png)
+  * [Оценка заработной платы без прогнозов](docs/salary_reports.md#salary-evaluation) ![employer](./newbages/employer_free.png)
+* [Справочники Банка данных заработных плат](docs/salary_dictionaries.md) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Отрасли](docs/salary_dictionaries.md#salary-industries) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Уровни специалистов](docs/salary_dictionaries.md#employee-levels) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Профобласти и специализации](docs/salary_dictionaries.md#professional-areas) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
+  * [Регионы и города](docs/salary_dictionaries.md#salary-areas) ![anonymous](./newbages/anonymous.png) ![application](./newbages/application.png) ![applicant](./newbages/applicant.png) ![employer](./newbages/employer_free.png)
 
 
 <a name="feedback"></a>
