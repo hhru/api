@@ -494,30 +494,30 @@ counters.invitations | number | количество приглашений на
 Возможно указание нескольких значений.  
 
 * `experience` — опыт работы.  
-Справочник с возможными значениями: `experience` в [/dictionaries](dictionaries.md).  
+Необходимо передавать `id` из справочника `experience` в [/dictionaries](dictionaries.md).  
 
-* `employment` — тип занятости.  
-Справочник с возможными значениями: `employment` в [/dictionaries](dictionaries.md).  
+* `employment` — тип занятости.
+Необходимо передавать `id` из справочника `employment` в [/dictionaries](dictionaries.md).  
 Возможно указание нескольких значений.  
 
 * `schedule` — график работы.  
-Справочник с возможными значениями: `schedule` в [/dictionaries](dictionaries.md).  
+Необходимо передавать `id` из справочника `schedule` в [/dictionaries](dictionaries.md).  
 Возможно указание нескольких значений.  
 
 * <a name="field-area"></a> `area` — регион.
-Справочник с возможными значениями: [/areas](areas.md).    
+Необходимо передавать `id` из справочника [/areas](areas.md).    
 Возможно указание нескольких значений.  
 
 * `metro` — ветка или станция метро.  
-Справочник с возможными значениями: [/metro](metro.md).    
+Необходимо передавать `id` из справочника [/metro](metro.md).    
 Возможно указание нескольких значений.  
 
-* `specialization` — профобласть или специализация.  
-Справочник с возможными значениями: [/specializations](specializations.md).    
+* `specialization` — профобласть или специализация. 
+Необходимо передавать `id` из справочника [/specializations](specializations.md).    
 Возможно указание нескольких значений.
   
-* `industry` - индустрия компании, разместившей вакансию.
-Справочник с возможными значениями: [/industries](industries.md).
+* `industry` - индустрия компании, разместившей вакансию. 
+Необходимо передавать `id` из справочника [/industries](industries.md).
 Возможно указание нескольких значений.
   
 * `employer_id` — идентификатор [компании](employers.md).  
@@ -537,7 +537,7 @@ counters.invitations | number | количество приглашений на
 чтобы такие вакансии отфильтровать, используйте `only_with_salary=true`.
 
 * `label` — фильтр по меткам вакансий.   
-Справочник с возможными значениями: `vacancy_label` в [/dictionaries](dictionaries.md).  
+Необходимо передавать `id` из справочника `vacancy_label` в [/dictionaries](dictionaries.md).  
 Возможно указание нескольких значений.  
 
 * `only_with_salary` — показывать вакансии только с указанием зарплаты.  
