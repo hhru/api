@@ -7,7 +7,7 @@ HeadHunter.
 
 * hh.ru
 * grc.ua
-* jobs.tut.by
+* rabota.by
 * hh1.az
 * hh.uz
 * hh.kz
