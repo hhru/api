@@ -121,6 +121,10 @@ HeadHunter API — это инструментарий для интеграци
   * [Список удаленных вакансий](docs/employer_vacancies.md#hidden) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Список улучшений для вакансии](docs/employer_vacancy_upgrades.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Статистика по вакансии](docs/employer_vacancies.md#stats) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Черновики вакансий](docs/vacancy_drafts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Получение списка черновиков](docs/vacancy_drafts.md#draft_list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Удаление черновика](docs/vacancy_drafts.md#draft_delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Отмена автопубликации](docs/vacancy_autopublication.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="applicants"></a>
 ### Соискатели
