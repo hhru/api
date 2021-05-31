@@ -28,6 +28,7 @@ HeadHunter API — это инструментарий для интеграци
 > +7 812 458-45-45 (для Санкт-Петербурга),  
 > 8 800 100-64-27 (для регионов России).
 
+
 ## OpenAPI
 
 Часть документации доступна в OpenAPI, которая будет со временем пополняться.
@@ -36,6 +37,7 @@ HeadHunter API — это инструментарий для интеграци
 Визуализации [ReDoc](https://api.hh.ru/openapi/redoc) и [Swagger](https://api.hh.ru/openapi/swagger).
 
 Спецификация HeadHunter API: [openapi.yml](https://api.hh.ru/openapi/specification/public).
+
 
 <a name="content"></a>
 ## Содержание

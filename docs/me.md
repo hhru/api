@@ -12,7 +12,7 @@
 <a name="user-info"></a>
 ## Получение информации об авторизованном пользователе
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Soiskatelskie/paths/~1me/get)
+> ‼ Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Soiskatelskie/paths/~1me/get)
 
 `GET /me` вернёт информацию о текущем авторизованном пользователе.
 
