@@ -604,6 +604,7 @@ working_days | рабочие дни
 working_time_intervals | временные интервалы работы
 working_time_modes | режимы времени работы
 accept_temporary | указание, что вакансия доступна для соискателей с временным трудоустройством
+branded_template.id | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
 
 Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.
 

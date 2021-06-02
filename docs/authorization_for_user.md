@@ -96,8 +96,6 @@ Location: {redirect_uri}?code={authorization_code}
 
 * `grant_type=authorization_code`
 * `client_id` и `client_secret` - необходимо заполнить значениями, выданными при [регистрации приложения](https://dev.hh.ru/admin)
-* `redirect_uri` - необходимо передать то же, что было указано при
-  [получении авторизации](#get-auth). В противном случае вернется ошибка.
 * `code` – значение `authorization_code`, полученное при
   [перенаправлении пользователя](#get-authorization_code)
 

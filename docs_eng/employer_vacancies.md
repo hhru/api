@@ -590,7 +590,8 @@ to change the specialisation you will have to send a full list.
  contacts                   | contact info                     
  custom_employer_name       | company name for anonymous vacancies                                 
  response_url               | application URL for direct vacancies   
- accept_incomplete_resumes | whether it is possible to apply with an incomplete resume   
+ accept_incomplete_resumes  | whether it is possible to apply with an incomplete resume   
+ branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](employer_vacancy_branded_templates.md#list) |
 
 The remaining fields are read-only or can only be set during initial publication.
 
