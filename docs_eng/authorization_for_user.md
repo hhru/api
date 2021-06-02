@@ -88,17 +88,12 @@ After obtaining the `authorization_code`, the application needs to send a
 server-server POST request to`https://hh.ru/oauth/token` to change the
 `authorization_code` obtained for an `access_token`.
 
-The request should contain the following information:
+The request body should contain the following information:
 
-```
-grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={authorization_code}&redirect_uri={redirect_uri}
-```
-
-If, when obtaining the `authorization_code`, `redirect_uri` was indicated, then
-this value must be sent in the request (strings are compared); otherwise this
-parameter is optional. If `redirect_uri` is not indicated when requesting
-`/oauth/authorize`, then, when indicating it in the second request
-(`/oauth/token`), the server will return an error.
+* `grant_type=authorization_code`
+* `client_id={client_id}`
+* `client_secret={client_secret}`
+* `code={authorization_code}`
 
 Request body must be sent in standard `application/x-www-form-urlencoded`
 with the indication of a corresponding title `Content-Type`.
