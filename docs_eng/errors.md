@@ -293,7 +293,6 @@ HTTP code| type| value| description
 403 | vacancies | creation_forbidden | jobs cannot be published by the current manager
 403 | vacancies | unavailable_for_archived | you cannot edit an archived job
 403 | vacancies | conflict_changes | a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
-403 | vacancies | can_not_accept_kids | you can't publish jobs to search for applicants with a minimum age of 14 ([read more](employer_vacancies_accept_kids.md#accept-kids))
 
 #### Reasons for errors
 
@@ -317,6 +316,7 @@ address_has_no_metro_but_checked_show_metro_flag | a metro station is not availa
 default_vacancy_branded_template_is_invalid_or_not_enough_purchased_services | branded vacancy template is entered incorrectly, or you have not paid for the service allowing you to use a [branded vacancy template](https://hh.ru/price?from=menu#branding) 
 department_code_prohibited_in_anonymous_vacancy | you cannot specify a department code for an anonymous vacancy
 branded_template_prohibited_in_anonymous_vacancy | you cannot use a branded template for an anonymous vacancy
+value_conflict_with_business_rules | you cannot use specified billing_type 
 
 <a name="vacancies-duplicate-response"></a>
 #### Example response on error duplicate
