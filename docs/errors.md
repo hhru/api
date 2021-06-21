@@ -524,3 +524,9 @@ HTTP code | type | value | описание
 ```
 где `allowed_accounts` содержит массив доступных для этого токена аккаунтов
 Элементы массива аналогичны [результату, выдаваемому в списке рабочих аккаунтов](manager_accounts.md#account-info)
+
+<a name="manager-divisions"></a>
+### Отделы менеджера
+HTTP code | type | value | описание
+----------|------|-------|-----------
+400 | manager_divisions | manager_not_in_division | Менеджер не состоит в отделе. Попросите администратора добавить вас в отдел или [посмотрите доступные отделы](manager_divisions.md#get-manager-divisions)
