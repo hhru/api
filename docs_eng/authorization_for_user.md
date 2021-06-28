@@ -95,6 +95,12 @@ The request body should contain the following information:
 * `client_secret={client_secret}`
 * `code={authorization_code}`
 
+If, when obtaining the `authorization_code`, `redirect_uri` was indicated, then
+this value must be sent in the request (strings are compared); otherwise this
+parameter is optional. If `redirect_uri` is not indicated when requesting
+`/oauth/authorize`, then, when indicating it in the second request
+(`/oauth/token`), the server will return an error.
+
 Request body must be sent in standard `application/x-www-form-urlencoded`
 with the indication of a corresponding title `Content-Type`.
 
