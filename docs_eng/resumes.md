@@ -195,7 +195,9 @@ Server returns `403 Forbidden` if authorization is failed.
                      "id": "phones",
                      "name": "All phone numbers listed in the CV"
                  }
-             ]
+             ],
+            "can_publish_or_update": false,
+            "next_publish_at": "2021-07-02T21:29:45+0300"
         }
     ],
     "page": 0,
@@ -222,6 +224,8 @@ similar_vacancies | object | information on jobs similar to this resume
 similar_vacancies.url | string | the URL to perform a GET request to obtain [jobs similar to this resume](#similar)
 similar_vacancies.counters.total | number | total number of similar jobs
 paid_services | object | [resume-related paid services for the resume publisher](#applicant-paid-services)
+can_publish_or_update | boolean or null | Is it possible to update this resume (only for published resume, it is null for unpublished)
+next_publish_at | string or null | Date and time for next CV renew possibility (only for published resume, it is null for unpublished)
 
 <a name="item"></a>
 ## View a CV
