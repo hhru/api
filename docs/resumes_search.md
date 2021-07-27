@@ -39,7 +39,7 @@
   `experience_position`, `experience_description`, но указывать его необходимо
   всегда  при указании других `text.*`. В этом случае он может быть пустым.
 
-* `age_from`, `age_to` — возраст соискателя в годах, диапазон от и до.
+* `age_from`, `age_to` — возраст соискателя в годах, диапазон от и до. Обратите внимание, по умолчанию в выдачу добавляются так же резюме с неуказанным возрастом, для выдачи резюме только с указанным возрастом используйте специальный [label](#resume_search_label) "only_with_age"
 
 * `area` — регион. Справочник с возможными значениями: [/areas](https://github.com/hhru/api/blob/master/docs/areas.md).
   Можно указать несколько значений. По умолчанию выбираются
@@ -82,6 +82,7 @@
   параметра будут найдены резюме, в которых пол не указан, убрать такие резюме
   можно с помощью `label=only_with_gender`.
 
+<a name="resume_search_label"></a>
 * `label` — дополнительный фильтр. Справочник с возможными значениями:
   `resume_search_label` в [/dictionaries](https://github.com/hhru/api/blob/master/docs/dictionaries.md). Можно указать
   несколько значений.
@@ -98,7 +99,7 @@
 * `currency` — код валюты. Справочник с возможными значениями: `currency`
   (ключ code) в [/dictionaries](https://github.com/hhru/api/blob/master/docs/dictionaries.md).
 
-* `salary_from`, `salary_to` — диапазон желаемой заработной платы, от и до.
+* `salary_from`, `salary_to` — диапазон желаемой заработной платы (ЗП), от и до. Обратите внимание, по умолчанию в выдачу добавляются так же резюме с неуказанной ЗП, для выдачи резюме только с указанной ЗП используйте специальный [label](#resume_search_label) "only_with_salary"
 
 * `schedule` — график работы. Справочник с возможными значениями:
   `schedule` в [/dictionaries](https://github.com/hhru/api/blob/master/docs/dictionaries.md). Можно указать несколько
