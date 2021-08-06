@@ -11,13 +11,7 @@ The API supports the following authorisation levels:
 * [application authorisation](authorization_for_application.md)
 * [user authorisation](authorization_for_user.md)
 
----
-
-m.hh.ru was the main API domain until April 1, 2015. It will be possible to
-authorize through m.hh.ru, but from now on it is preferable to use the hh.ru
-domain. Documentation has been updated in accordance with the new address.
-
----
+> Attention! For authorization, you need to use the hh.ru domain, the m.hh.ru domain is no longer available.
 
 * [Getting an access token](#get-access_token)
 * [Using an access token](#use-access_token)
