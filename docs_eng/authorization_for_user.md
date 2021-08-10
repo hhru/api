@@ -6,6 +6,7 @@
   * [УObtaining a temporary `authorization_code` successfully](#get-authorization_code)
   * [Obtaining access and refresh tokens](#get-tokens)
 * [Refreshing the access and refresh token pair](#refresh_token)
+* [Access token invalidation](#invalidate_token)
 * [Authorization request for another user](#force_login)
 * [Login to different work accounts](#implant)
 
@@ -168,6 +169,33 @@ period expires.
 
 When a new access and refresh token pair is received, it should be used in
 further api requests and token renewal requests.
+
+<a name="invalidate_token"></a>
+## Access token invalidation
+
+To invalidate access token make the request:
+
+```
+DELETE https://api.hh.ru/oauth/token
+```
+
+[Passing active token like for any other authorized api request](authorization.md#use-access_token):
+
+```Authorization: Bearer ACCESS_TOKEN```
+
+Invalidation works only for active tokens.
+
+After access token had been invalidated, it can't be refreshed with corresponding refresh token - new authorization is required for user to continue using api.
+
+Only user token can be invalidated in same way.
+
+### Response
+
+A successful response contains a code `204 No Content` and is body-less.
+
+### Errors
+
+* `403 Forbidden` – If active user access token was not used for request.
 
 <a name="force_login"></a>
 ### Authorization request for another user
