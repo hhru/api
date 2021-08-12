@@ -263,6 +263,7 @@ HTTP code| type| value| description
 403 | negotiations | disabled_by_employer | negotiation by response is disabled by the employer
 403 | negotiations | resume_deleted | the message can't be sent as the CV referenced in the response is deleted or hidden
 403 | negotiations | archived | the message can't be sent as the vacancy referenced in the response is archived
+403 | negotiations | chat_archived | action regarding a response/invitation can't be performed as response/invitation is archived
 
 
 <a name="vacancies_favorited"></a>
