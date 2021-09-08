@@ -11,7 +11,7 @@ You must be authorised as an employer to obtain information.
 GET /employers/{employer_id}/services/payable_api_actions/active
 ```
 where `employer_id` - employer id, 
-you can find the employer's id in the [current user info](me.md#employer-info).
+you can find the employer's id in the [current user info](../me.md#employer-info).
 
 ### Response
 
@@ -57,8 +57,8 @@ Name | Type | Description
 ---|---|---
 id | string | Service ID
 service_type | object | [Service type](#service-type)
-activated_at | string | Service activation time (according to [ISO 8601](general.md#date-format) accurate to second `YYYY-MM-DDThh:mm:ss±hhmm`)
-expires_at | string | Service expiration time (according to [ISO 8601](general.md#date-format) accurate to second `YYYY-MM-DDThh:mm:ss±hhmm`)
+activated_at | string | Service activation time (according to [ISO 8601](../general.md#date-format) accurate to second `YYYY-MM-DDThh:mm:ss±hhmm`)
+expires_at | string | Service expiration time (according to [ISO 8601](../general.md#date-format) accurate to second `YYYY-MM-DDThh:mm:ss±hhmm`)
 balance | object, null | [Balance values](#balance)
 
 <a name="service-type"></a>

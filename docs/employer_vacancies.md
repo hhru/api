@@ -177,9 +177,6 @@ publications[].areas_url | string | URL на список регионов, в �
     "type": {
         "id": "open"
     },
-    "employer": {
-        "id": "1455"
-    },
     "specializations": [
         {
             "id": "17.324"
@@ -275,7 +272,7 @@ specializations[].id | string | специализация [из справоч�
 area.id | string | город публикации [из справочника](areas.md)
 type.id | string | тип из [справочника vacancy_type](dictionaries.md)
 billing_type.id | string | биллинговый тип [из справочника vacancy_billing_type](dictionaries.md)
-code | string | внутренний код вакансии
+code | string или null | внутренний код вакансии
 department.id | string | департамент [из справочника](employer_departments.md), от имени которого размещается вакансия (если данная возможность доступна для компании)
 salary | object или null | зарплата
 salary.from | numeric или null | нижняя граница зарплаты
@@ -285,10 +282,10 @@ salary.currency | string | код валюты из [справочника curr
 address | object или null | адрес
 address.id | string | адрес из [списка доступных адресов работодателя](employer_addresses.md)
 address.show_metro_only | boolean | показывать только метро для указанного адреса
-experience.id | string | требуемый опыт работы из [справочника experience](dictionaries.md)
-schedule.id | string | график работы из [справочника schedule](dictionaries.md)
+experience.id | string или null | требуемый опыт работы из [справочника experience](dictionaries.md)
+schedule.id | string или null | график работы из [справочника schedule](dictionaries.md)
 employment.id | string | тип занятости из [справочника employment](dictionaries.md)
-contacts | object | контактная информация
+contacts | object или null | контактная информация
 contacts.name | string | контактное лицо
 contacts.email | string | email
 contacts.phones | array | список телефонов для связи
@@ -296,21 +293,21 @@ contacts.phones[].country | string | код страны
 contacts.phones[].city | string | код города
 contacts.phones[].number | string | телефон
 contacts.phones[].comment | string или null | комментарий (удобное время для звонка по этому номеру)
-test | object | [тест](employer_tests.md) для вакансии
+test | object или null | [тест](employer_tests.md) для вакансии
 test.id | string | тест, который будет добавлен в вакансию
 test.required | boolean | требовать прохождение теста для отклика на вакансию
 response_url | string | URL отклика для прямых вакансий (`type.id=direct`)
 custom_employer_name | string | название компании для анонимных вакансий (`type.id=anonymous`), например "крупный российский банк"
-manager.id | string | контактное лицо (менеджер) по размещаемой вакансии, по умолчанию текущий пользователь
-response_notifications | boolean | уведомлять о новых откликах
-<a name="allow_messages"></a> allow_messages | boolean | возможность [переписки с кандидатами](https://inboxemp.hh.ru/) по данной вакансии
-response_letter_required | boolean | требовать сопроводительное письмо
-accept_handicapped | boolean | указание, что вакансия доступна для соискателей с инвалидностью
-accept_kids | boolean | указание, что вакансия доступна для соискателей от 14 лет [подробнее](employer_vacancies_accept_kids.md#accept-kids)
-branded_template.id | string | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
-driver_license_types | array | список требуемых категорий водительских прав
+manager.id | string или null | контактное лицо (менеджер) по размещаемой вакансии, по умолчанию текущий пользователь
+response_notifications | boolean или null | уведомлять о новых откликах
+<a name="allow_messages"></a> allow_messages | boolean или null | возможность [переписки с кандидатами](https://inboxemp.hh.ru/) по данной вакансии
+response_letter_required | boolean или null | требовать сопроводительное письмо
+accept_handicapped | boolean или null | указание, что вакансия доступна для соискателей с инвалидностью
+accept_kids | boolean или null | указание, что вакансия доступна для соискателей от 14 лет [подробнее](employer_vacancies_accept_kids.md#accept-kids)
+branded_template.id | string или null | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
+driver_license_types | array или null | список требуемых категорий водительских прав
 driver_license_types[].id | string | категория водительских прав. элемент справочника [driver_license_types](dictionaries.md)
-accept_incomplete_resumes | boolean | разрешен ли отклик на вакансию неполным резюме
+accept_incomplete_resumes | boolean или null | разрешен ли отклик на вакансию неполным резюме
 working_days | array или null | список рабочих дней
 working_days[].id | string | рабочие дни из [справочника working_days](dictionaries.md)
 working_time_intervals | array или null | список с временными интервалами работы
