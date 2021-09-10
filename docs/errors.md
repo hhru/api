@@ -208,6 +208,8 @@ HTTP code | type | value | описание
 403 | oauth | token_expired | время жизни access_token завершилось, необходимо [выполнить обновление access_token](authorization.md#refresh_token)
 403 | oauth | token_revoked | токен отозван пользователем, приложению необходимо [запросить новую авторизацию](authorization.md)
 403 | oauth | application_not_found | ваше приложение было удалено
+403 | oauth | application_auth_expected | метод работает только с [авторизацией приложения](authorization_for_application.md)
+403 | oauth | user_auth_expected | метод работает только с [авторизацией пользователя](authorization_for_user.md)
 
 
 <a name="employer_payable_methods"></a>
