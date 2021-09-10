@@ -170,9 +170,6 @@ some additional fields.
     "type": {
         "id": "open"
     },
-    "employer": {
-        "id": "1455"
-    },
     "specializations": [
         {
             "id": "17.324"
@@ -269,7 +266,7 @@ some additional fields.
  area.id                     | string          | city of publication [from directory](areas.md)
  type.id                     | string          | type from [vacancy_type directory](dictionaries.md)
  billing_type.id             | string          | billing type from [vacancy_billing_type directory](dictionaries.md)
- code                        | string          | internal vacancy code
+ code                        | string or null  | internal vacancy code
  department.id               | string          | department [from directory](employer_departments.md) on whose behalf the vacancy is uploaded (if available for the company)
  salary                      | object or null  | salary
  salary.from                 | numeric or null | lower salary limit
@@ -279,10 +276,10 @@ some additional fields.
  address                     | object or null  | address
  address.id                  | string          | address from [list of employer's available addresses](employer_addresses.md)
  address.show_metro_only     | boolean         | show only the metro station for this address
- experience.id               | string          | required work experience from [experience directory](dictionaries.md)
- schedule.id                 | string          | working schedule from [schedule directory](dictionaries.md) |
+ experience.id               | string or null  | required work experience from [experience directory](dictionaries.md)
+ schedule.id                 | string or null  | working schedule from [schedule directory](dictionaries.md) |
  employment.id               | string          | employment type from [employment directory](dictionaries.md) |
- contacts                    | object          | contact info
+ contacts                    | object or null  | contact info
  contacts.name               | string          | contact person
  contacts.email              | string          | email
  contacts.phones             | array           | list of contact phone numbers
@@ -290,22 +287,21 @@ some additional fields.
  contacts.phones[].city      | string          | city code
  contacts.phones[].number    | string          | phone number
  contacts.phones[].comment   | string or null  | commentary (preferred time for calling this number)
- test                        | object          | vacancy test
+ test                        | object or null  | vacancy test
  test.id                     | string          | [the test](employer_tests.md) that will be added to the vacancy
  test.required               | boolean         | the test is mandatory for an application
  response_url                | string          | application URL for direct vacancies (`type.id=direct`) |
  custom_employer_name        | string          | company name for anonymous vacancies (`type.id=anonymous`), for example "major bank of Russia"
- employer.id                 | string          | employer on whose behalf the job vacancy is published
- manager.id                  | string          | contact person (manager) for the published vacancy, by default — current user
- response_notifications      | boolean         | notify about new applications
- allow_messages              | boolean         | [message candidate](http://inboxemp.hh.ru/) option for this vacancy
- response_letter_required    | boolean         | mandatory cover letter
- accept_handicapped          | boolean         | indication that the job is available for applicants with disabilities
- accept_kids                 | boolean         | indication that the job is available for applicants as young as 14 years old [details](employer_vacancies_accept_kids.md#accept-kids)|
- branded_template.id         | string          | <a name="branded-template-field"></a> branded vacancy description from [directory](employer_vacancy_branded_templates.md#list) |
- driver_license_types        | array           | list of required driver license categories
+ manager.id                  | string or null  | contact person (manager) for the published vacancy, by default — current user
+ response_notifications      | boolean or null | notify about new applications
+ allow_messages              | boolean or null | [message candidate](http://inboxemp.hh.ru/) option for this vacancy
+ response_letter_required    | boolean or null | mandatory cover letter
+ accept_handicapped          | boolean or null | indication that the job is available for applicants with disabilities
+ accept_kids                 | boolean or null | indication that the job is available for applicants as young as 14 years old [details](employer_vacancies_accept_kids.md#accept-kids)|
+ branded_template.id         | string or null  | <a name="branded-template-field"></a> branded vacancy description from [directory](employer_vacancy_branded_templates.md#list) |
+ driver_license_types        | array or null   | list of required driver license categories
  driver_license_types[].id   | string          | driving license category. element of [driver_license_type](dictionaries.md) directory
- accept_incomplete_resumes   | boolean         | whether it is possible to apply with an incomplete resume
+ accept_incomplete_resumes   | boolean or null  | whether it is possible to apply with an incomplete resume
  working_days                | array or null   | list of working days
  working_days[].id           | string          | working days ID. element of [справочника working_days](dictionaries.md)
  working_time_intervals      | array or null   | list of working time intervals
@@ -678,7 +674,7 @@ There are limits on extending vacancies, but they can change. At the moment
 the following rules apply:
 
 * standard vacancies can be extended if it has been at least 1 minute since the last extension.
-* "Standard Plus" vacancies can be extended at least 5 days before the end of publication.
+* "Standard Plus" vacancies can be extended at least 7 days before the end of publication.
 
 
 ### Request

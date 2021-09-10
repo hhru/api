@@ -554,7 +554,8 @@ the response will be registered as viewed.
              "id": "phones",
              "name": "All phone numbers listed in the CV"
          }
-     ]
+     ],
+    "marked": false
 }
 ```
 <a name="resume-fields"></a>
@@ -601,6 +602,7 @@ has_vehicle | boolean or null | Does the applicant have their own car.
 driver_license_types | [array](#driver-license-types-object) | A list of applicant's driving license categories.
 hidden_fields | [array](#id-name-object) | List of hidden fields. Entry of the [resume_hidden_fields](dictionaries.md) directory ([more info](#hidden-fields)).
 can_view_full_info | boolean or null | Possibility of getting resume contact info.
+marked | boolean | Availability "Bright summary"
 
 <a name="id-name-object"></a>
 Object with id and name

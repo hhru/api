@@ -19,9 +19,9 @@ Additional available parameters:
 * per_page – number of elements on page (default — 20, max value - 100)
 
 For page parameters (`page`, `per_page`) there is a limit:
-the depth of returned results cannot exceed 2000. For example, a request `per_page=10&page=199` 
-(search results from 1991 to 2000 companies) is possible, but a request with `per_page=10&page=200` 
-will return an error (results from 2001 to 2010 companies).
+the depth of returned results cannot exceed 5000. For example, a request `per_page=10&page=499` 
+(search results from 4991 to 5000 companies) is possible, but a request with `per_page=10&page=500` 
+will return an error (results from 5001 to 5010 companies).
 
 ### Response
 
