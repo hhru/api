@@ -776,6 +776,7 @@ The following data is available for the action:
 
 By default, the system returns vacancies from the current user. If you need
 vacancies from another manager, send an additional argument `manager_id={manager_id}`.
+You can send only 1 `manager_id`, if you pass several, the last one will be used.
 
 The maximum value of `per_page` is 50.
 
@@ -915,7 +916,8 @@ A successful response contains a code `204 No Content` and is body-less.
 `GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}`
 
 By default, the system returns vacancies from the current user. If you need
-vacancies from another manager, send an additional argument.
+vacancies from another manager, send an additional argument `manager_id={manager_id}`.
+You can send only 1 `manager_id`, if you pass several, the last one will be used.
 
 The system supports pagination (`per_page` and `page`) and sorting (`order_by`).
 
@@ -1031,6 +1033,10 @@ A successful response contains a code `204 No Content` and is body-less.
 ### Request
 
 `GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}`
+
+By default, the system returns vacancies from the current user. If you need
+vacancies from another manager, send an additional argument `manager_id={manager_id}`.
+You can send only 1 `manager_id`, if you pass several, the last one will be used.
 
 Pagination (`per_page` and `page`) and sorting (`order_by`) are supported.
 
