@@ -181,6 +181,8 @@ In order to obtain a suggestion on positions, you should send a `GET` request to
 string. We recommend using this data when creating a CV or a vacancy. We remind
 that when a CV is created, the user can indicate no more than three
 specializations, and all of them must be from the same professional area.
+The `accept_incomplete_resumes` indicates the ability to accept responses
+incomplete resume, when the professional role in the resume and the vacancy coincide.
 
 If the request is performed successfully, such a response will be returned:
 
@@ -196,6 +198,13 @@ If the request is performed successfully, such a response will be returned:
           "name": "Customer relationship manager",
           "profarea_id": "17",
           "profarea_name": "Procurement"
+        }
+      ],
+      "professional_roles": [
+        {
+          "id": "70",
+          "name": "Customer relationship manager",
+          "accept_incomplete_resumes": false
         }
       ]
     }
