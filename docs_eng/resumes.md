@@ -1592,6 +1592,11 @@ remaining  | number | The number of resumes that can be created
 
 `GET /resumes/{resume_id}/conditions` — returns a list of conditions for the fields of a resume.
 
+The `position.professional_roles` is required only when the following additional parameter was passed when executing request:
+`with_professional_roles`. In this case, the GET request should look like this:
+
+`GET /resumes/{resume_id}/conditions?with_professional_roles=true`
+
 Conditions for a resume are only accessible to its author, otherwise it will return the code
 `403 Forbidden`.
 
