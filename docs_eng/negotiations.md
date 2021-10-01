@@ -40,7 +40,9 @@ Parameters:
  per_page| no| Number of elements displayed per page, default is 20.
  order_by| no| The field to sort the displayed data by. Possible values: `updated_at`, `created_at`. Default: `updated_at`
  order| no| Sort order. Possible values: `asc`, `desc`. Default: `desc`
- vacancy_id| no| filter by a vacancy id
+ vacancy_id| no| Filter by a vacancy id
+ has_updates| no| Display elements only with unread messages. Possible values: `true`, `false`
+
 
 ### Response
 
