@@ -1203,6 +1203,8 @@ Consists of the fields:
     * `url` — a link to a profile or an ID on a third-party website/service;
 * `title` — desired position;
 * `specialization` — candidate's profession (list). Directory entries [specializations](specializations.md);
+* `professional_roles` — candidate's professional roles (list). Directory entries
+      [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get)
 * `salary` — Desired salary. It consists of the following fields:
     * `amount` — total;
     * `currency` — [currency](dictionaries.md) ID;
@@ -1262,6 +1264,10 @@ Consists of the fields:
 * `access` - [resume visibility](#access_type)
     * `type` - visibility type. Directory entry [resume_access_type](dictionaries.md)
 
+
+The `professional_roles` field can be saved by passing parameter `with_professional_roles`. In this case PUT request should look like this:
+
+`PUT /resumes/{resume_id}?with_professional_roles=true`
 
 Parameters taken from [tips](suggests.md) (`name_id`, `organization_id`, `result_id`, `company_id`) 
 are optional. In this case, if these parameters are indicated, then when saved they are checked for
@@ -1402,6 +1408,10 @@ The resume can be used as soon as it is first published.
 
 Subsequent publications will update the renewal date of the resume. `next_publish_at` key
 in the resume indicates when the resume can be updated.
+
+To successfully publish resume with the `professional_roles` field you should add a parameter `with_professional_roles`. In this case POST request should look like this:
+
+`PUT /resumes/{resume_id}/publish?with_professional_roles=true`
 
 ### Response
 
