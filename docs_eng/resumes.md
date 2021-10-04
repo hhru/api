@@ -555,7 +555,13 @@ the response will be registered as viewed.
              "name": "All phone numbers listed in the CV"
          }
      ],
-    "marked": false
+    "marked": false,
+    "professional_roles": [
+        {
+            "id": 5,
+            "name": "Technician"
+        }
+    ]
 }
 ```
 <a name="resume-fields"></a>
@@ -603,6 +609,8 @@ driver_license_types | [array](#driver-license-types-object) | A list of applica
 hidden_fields | [array](#id-name-object) | List of hidden fields. Entry of the [resume_hidden_fields](dictionaries.md) directory ([more info](#hidden-fields)).
 can_view_full_info | boolean or null | Possibility of getting resume contact info.
 marked | boolean | Availability "Bright summary"
+professional_roles | [array](#professional-role-object) | Array of professional role objects
+
 
 <a name="id-name-object"></a>
 Object with id and name
@@ -820,6 +828,14 @@ Object `driver_license_types`
 Name | Type | Description
 -----|-----|---------
 id | string | Applicant's driver’s license category. [driver_license_types](dictionaries.md) directory entry.
+
+<a name="professional-role-object"></a>
+Object with id and name
+
+Name | Type | Description
+-----|-----|---------
+id | string | Field Id.
+name | string | Name of field.
 
 ### Errors
 
@@ -1732,7 +1748,9 @@ regexp | string or `null` | A regular expression for text fields. `null` if ther
 <a name="init-conditions"></a>
 ## Conditions to fill in the fields of a new resume
 
-`GET /resume_conditions` returns a [list of requirements](#conditions) for the fields in the new resume similar to existed resume.
+`GET /resume_conditions?with_professional_roles=true` returns a [list of requirements](#conditions) for the fields in the new resume similar to existed resume.
+
+If `with_professional_roles` argument is passed when executing request, `professional_role` field is required, `specialization` field is non-required. If `with_professional_roles` is not passed or is false `professional_role` field is non-required, `specialization` field is required.
 
 ### Response
 A successful response contains a code `200 OK` and list of requirements
