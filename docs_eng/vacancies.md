@@ -190,7 +190,13 @@ Successful server response is returned with `200 OK` code and contains:
             "id": "B"
         }
     ],
-    "accept_incomplete_resumes": false
+    "accept_incomplete_resumes": false,
+    "professional_roles": [
+        {
+            "id": "96",
+            "name": "Software Development"
+        }
+    ]
 }
 ```
 
@@ -269,6 +275,7 @@ working_time_modes | object or null | Working time modes. [working_time_modes](d
 working_time_modes.id | string | Working time modes ID
 working_time_modes.name | string | Working time modes name
 accept_temporary | boolean or null | Indication that the job is available for applicants with accept temporary employment
+professional_roles | array | Array of [professional role objects](#professional-role). This list can be empty.
 
 
 <a name="contacts"></a>
@@ -321,6 +328,16 @@ Name | Type | Description
 ---- | --- | --------
 id | string | interview ID
 url | string | address of the page containing the interview
+
+<a name="professional-role"></a>
+#### Professional role
+Professional roles will replace specializations.
+Currently, professional roles and specializations are used in parallel for backward compatibility.
+
+Name | Type | Description
+-----|-----|---------
+id | string | Professional role ID
+name | string | Name of professional role
 
 <a name="vacancy-fields-applicant"></a>
 #### Additional vacancy fields for candidates
