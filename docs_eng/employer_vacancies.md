@@ -117,7 +117,10 @@ When publishing a vacancy, `vacancy_billing_type.id` and `vacancy_type.id` value
 you can additionally specify the following query-arguments:
 
 * `ignore_duplicates=true` - force [adding duplicate](#creation-ignore-duplicates).
+* `with_professional_roles=true` - force vacancy publication with professional roles instead of specializations
 
+With argument `with_professional_roles=true` field `specializations` is not required and is ignored, field `professional_roles` is required.
+Without this argument field `professional_roles` is not required and is ignored
 ### General information
 
 As the response body, send
@@ -176,6 +179,11 @@ some additional fields.
         },
         {
             "id": "3.148"
+        }
+    ],
+    "professional_roles": [
+        {
+            "id": "59"
         }
     ],
     "response_letter_required": true,
@@ -263,6 +271,8 @@ some additional fields.
  key_skills[].name           | string          | name of key skill
  specializations             | array           | list of specialisations
  specializations[].id        | string          | specialisation [from directory](specializations.md)
+ professional_roles          | array           | list of professional roles
+ professional_roles[].id     | string          | professional role [from directory](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get)
  area.id                     | string          | city of publication [from directory](areas.md)
  type.id                     | string          | type from [vacancy_type directory](dictionaries.md)
  billing_type.id             | string          | billing type from [vacancy_billing_type directory](dictionaries.md)
