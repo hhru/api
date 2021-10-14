@@ -366,6 +366,12 @@ Location: /vacancies/78789890
 
 `GET /vacancy_conditions`
 
+дополнительно можно указать query-параметр:
+
+* `with_professional_roles=true` - для получение условий для вакансии с профессиональными ролями вместо специализаций
+
+При указании параметра `with_professional_roles=true` поле `specializations` не возвращается в ответе, а поле [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get) появляется вместе с другими полями
+
 Каждое конечное поле описано объектом правил. Если поле состоит из
 объекта с несколькими полями, эти поля описаны в `fields`.
 
