@@ -2094,13 +2094,16 @@ for example, when a job is found and you want to hide the resume in the search r
 the resume visibility settings. The "access.type" key is responsible for this. Visibility type is a
 [resume_access_type](dictionaries.md) directory entry.
 
+<a name="access_type_restrictions"></a>
+‼️ Since September 1, 2021, the type of resume visibility with the id `everyone` (visible to entire internet) has become unavailable for saving due to legal restrictions.
+
  Code | Description
  --- | --------
  no_one | A resume of this type is not visible to anyone. However, it can be used to apply for a vacancy and the resume type will change to `whitelist`.
  whitelist | The resume is visible only to the specified companies. If you respond to a job of a company that is not listed, that company will be automatically included in the list. Please see [resume visibility lists](#visibility_lists).
  blacklist | РThe resume can be searched and viewed by all companies, except for ones specified. If you respond to a job of a company that is blacklisted, that company will be automatically excluded from the black list. Please see [resume visibility lists](#visibility_lists).
  clients | The resume is visible to all companies registered on hh.ru.
- everyone | The resume is visible to all users (everywhere on the Internet).
+ everyone | The resume is visible to all users (everywhere on the Internet). This type [is not available for saving](#access_type_restrictions).
  direct |The resume is visible only with a direct link (link specified in the `alternate_url` key).
 
 
