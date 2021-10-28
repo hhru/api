@@ -603,6 +603,10 @@ Default — `false`.
 
    Several values can be indicated.  
 
+* `professional_role` – a professional role.
+  Directory with possible values: [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get).
+  Several values can be indicated.
+
 <a name="search-results"></a>
 
 When indicating paging parameters (`page`, `per_page`), a restriction takes

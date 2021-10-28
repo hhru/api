@@ -623,6 +623,10 @@ HTTP code | type | value | описание
   
    Возможно указание нескольких значений.  
   
+* `professional_role` — профессиональная роль. Необходимо передавать `id` из справочника
+  [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get).
+  Возможно указание нескольких значений.
+
 <a name="search-results"></a>
 
 При указании параметров пагинации (page, per_page) работает ограничение: глубина
