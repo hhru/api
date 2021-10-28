@@ -518,7 +518,7 @@ Some parameters take multiple values: `key=value&key=value`.
 
 * `specialization` – a professional area or specialization.
   Directory with possible values: [/specializations](specializations.md).
-  Several values can be indicated.
+  Several values can be indicated. Will be replaced by professional role (parameter `professional_role`), preserved for backward compatibility.
 
 * `industry` – an industry of the company that posted the vacancy.
   Directory with possible values: [/industries](industries.md).
@@ -602,6 +602,10 @@ Default — `false`.
   * element `accept_temporary` that show only the vacancies with accept temporary employment  
 
    Several values can be indicated.  
+
+* `professional_role` – a professional role.
+  Directory with possible values: [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get).
+  Several values can be indicated. Will replace specializations (parameter `specialization`)
 
 <a name="search-results"></a>
 

@@ -272,6 +272,16 @@ real queries will be shorter):
             "value_description": null,
             "disable_url": "https://api.hh.ru/vacancies?per_page=10&area=1&area=2&...",
             "cluster_group": null
+        },
+        {
+            "argument": "professional_role",
+            "value": "90",
+            "value_description": "Security guard",
+            "disable_url": "https://api.hh.ru/vacancies?per_page=10&area=1&area=2&...",
+            "cluster_group": {
+                "id": "professional_role",
+                "name": "Professional role"
+            }
         }
     ]
 }

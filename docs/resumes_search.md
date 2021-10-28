@@ -107,7 +107,7 @@
 
 * `specialization` — профобласть или специализация. Справочник с возможными
   значениями: [/specializations](https://github.com/hhru/api/blob/master/docs/specializations.md). Можно указать несколько
-  значений.
+  значений. Будет заменен профессиональными ролями (параметр `professional_role`), в настоящее время работает в режиме обратной совместимости.
 
 * `order_by` — сортировка списка резюме. Справочник с возможными значениями:
   `resume_search_order` в [/dictionaries](https://github.com/hhru/api/blob/master/docs/dictionaries.md).
@@ -140,6 +140,10 @@
 * `per_page` — количество результатов на страницу (не может превышать 50).
 
 * `page` — номер страницы.
+
+* `professional_role` — профессиональная роль. Элемент справочника
+  [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get). Можно указать несколько
+  значений. Замена специализациям (параметр `specialization`)
 
 При указании параметров пагинации (`page`, `per_page`) работает ограничение:
 глубина возвращаемых результатов не может быть больше 2000. Например, возможен
