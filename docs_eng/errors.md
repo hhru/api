@@ -200,8 +200,8 @@ api and your authorization is not valid for any reason, an error with `type`
 | 403       | oauth | token_revoked          | the token is revoked by the user, the application should [request a new authorization](authorization.md) |
 | 403       | oauth | application_not_found  | your application has been deleted
 
-
-### Errors when accessing a paid method
+<a name="employer_payable_methods"></a>
+## Errors when accessing a paid method
 
 In case you request a [paid method](employer_payable_methods.md) without buying access, the following error will be generated:
 
