@@ -1,21 +1,21 @@
-# API services for employer
+# API services for employers
 
 <a name="payable-api-actions"></a>
-## Information on active API services for paid methods
+## Information about active API services for payable methods
 
-You must be authorised as an employer to obtain information.
+You must be authorized under an employer to obtain information.
 
 ### Request
 
 ```
 GET /employers/{employer_id}/services/payable_api_actions/active
 ```
-where `employer_id` - employer id, 
-you can find the employer's id in the [current user info](../me.md#employer-info).
+where `employer_id` is the employer's ID, which can be found in
+[current user information](../me.md#employer-info).
 
 ### Response
 
-Successful server response is returned with `200 OK` code and contains:
+A successful response contains the code `200 OK` and this body:
 
 ```json
 {
@@ -24,7 +24,7 @@ Successful server response is returned with `200 OK` code and contains:
       "id": "12345678",
       "service_type": {
         "id": "API_UNLIMITED",
-        "name": "Access to the API HH"
+        "name": "HH API access"
       },
       "activated_at": "2018-02-01T12:00:00+0300",
       "expires_at": "2019-01-31T12:00:00+0300",
@@ -34,7 +34,7 @@ Successful server response is returned with `200 OK` code and contains:
       "id": "12345680",
       "service_type": {
         "id": "API_LIMITED",
-        "name": "The package of requests to the API HH"
+        "name": "HH API request packet"
       },
       "activated_at": "2019-02-01T12:00:00+0300",
       "expires_at": "2020-01-31T12:00:00+0300",
@@ -47,9 +47,9 @@ Successful server response is returned with `200 OK` code and contains:
 }
 ```
 
-Each enabled service is displayed as a separate object in the `items` array, 
-even if there are multiple enabled services of the same type.
-If the employer has no active services, the response will have an empty `items` array.
+Every enabled service is displayed as a separate object in the `items` array,
+even if multiple services of the same type are enabled.
+If the employer has no active services, the response will return an empty `items` array.
 
 Each element of `items` has the following fields:
 
@@ -57,8 +57,8 @@ Name | Type | Description
 ---|---|---
 id | string | Service ID
 service_type | object | [Service type](#service-type)
-activated_at | string | Service activation time (according to [ISO 8601](../general.md#date-format) accurate to second `YYYY-MM-DDThh:mm:ss±hhmm`)
-expires_at | string | Service expiration time (according to [ISO 8601](../general.md#date-format) accurate to second `YYYY-MM-DDThh:mm:ss±hhmm`)
+activated_at | string | Service activation time (in the format [ISO 8601](../general.md#date-format) with to-the-second accuracy `YYYY-MM-DDThh:mm:ss±hhmm`)
+expires_at | string| Service expiration time (in the format [ISO 8601](../general.md#date-format) with to-the-second accuracy `YYYY-MM-DDThh:mm:ss±hhmm`)
 balance | object, null | [Balance values](#balance)
 
 <a name="service-type"></a>
@@ -67,20 +67,20 @@ balance | object, null | [Balance values](#balance)
 Name | Type | Description
 ---|---|---
 id | string | Service type ID
-name | string | Localised name of service type
+name | string | Localized name of service type
 
 <a name="balance"></a>
 #### Object `balance`
 
-Balance is current for package services.
+Balance is up-to-date for packet services.
 
 Name | Type | Description
 ---|---|---
-initial | number | Balance value at the time of service activation
-actual | number | Current balance value
+initial | numeral | Balance value at the time of service activation
+actual | numeral | Current balance value
 
-### Ошибки
+### Errors
 
-* `403 Forbidden` – current user is not an employer
-* `404 Not Found` – specified employer does not exist
-* `404 Not Found` – current user does not have the appropriate privileges to view information
+* `403 Forbidden` — current user is not the employer
+* `404 Not Found` – the employer named does not exist
+* `404 Not Found` – current user has no data viewing rights
