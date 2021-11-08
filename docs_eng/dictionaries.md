@@ -58,6 +58,7 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `negotiations_state` - application state types
 * `messaging_status` - status of the message sending possibility in messaging
 * `negotiations_participant_type` - types of messaging participants
+* `applicant_negotiation_status` — response/invite statuses
 
 <a name="etc"></a>
 ## Other directories

@@ -67,7 +67,7 @@ For example:
 
 ---
 
-* `age_from`, `age_to` – the applicant's age in years, in the "from... to" range.
+* `age_from`, `age_to` – the applicant's age in years, in the "from... to" range. Note that the search results will include resumes with unspecified age by default. To see resumes with specified age only, use the special [label](#resume_search_label) "only_with_age"
 * `area` – region. Possible values reference: [/areas](https://github.com/hhru/api/blob/master/docs_eng/areas.md).
   You can indicate several values. CVs of applicants from
   indicated regions or those who ready to move to such regions

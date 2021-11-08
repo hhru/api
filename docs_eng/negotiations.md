@@ -96,7 +96,7 @@ The `items` entity contains response data:
  url| string| Link to the full response
  resume| object, null| [CV short view](resumes.md#resume-nano)
  vacancy| object, null| [Vacancy short view](vacancies.md#nano)
- has_updates| logical| Whether the response includes updates that require attention. The flag is reset by various actions on the response, e.g. [messages list view](#get_messages).
+has_updates | logical | Are there any unread messages in the topic. The flag is reset by a variety of response acts, such as [viewing the list of messages](#get_messages).
  viewed_by_opponent| logical| Whether the response was viewed by the employer
  messaging_status | string | The current messaging status. Possible values are in the [`messaging_status` directory](./dictionaries.md).
  decline_allowed | logical | If available [hide the response](#hide_message) with decline message to employer
@@ -110,13 +110,18 @@ vacancy is unavailable (deleted).
 
 ### Request
 
+Use the `status=active` parameter in your request for [the list of responses](#get_negotiations) to obtain the list of active responses.
+ ```
+ GET /negotiations?status=active
+ ```
+
+The following resource was used before April 20, 2020 to request active vacancies:
+
 ```
 GET /negotiations/active
 ```
 
-Optional parameters and the response are the same as in the
-[list of responses](#get_negotiations)
-
+The resource is currently out of date, and is supported for backward connectivity purposes only.
 
 <a name="post_negotiation"></a>
 ## Respond to the vacancy

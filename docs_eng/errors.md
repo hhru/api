@@ -221,6 +221,17 @@ To facilitate the work with the application, it is recommended to also process
 the response type that has come. The tables listed below contain an incomplete
 error list; it can be extended.
 
+<a name="resumes-saved-searches"></a>
+### Saved resume searches
+
+In addition to the error code pertaining to
+[the transfer of a saved resume search to another manager](resumes_saved_searches.md#resumes-saved-search-move-to-other-manager),
+the following errors may return:
+
+HTTP code | type | value | description
+----------|------|-------|-----------
+404 | saved_searches | saved_search_not_found | auto search not found or not owned by current user
+404 | saved_searches | manager_not_found | invalid manager_id
 
 <a name="artifacts"></a>
 ### Artifacts
@@ -386,9 +397,14 @@ the following errors can be returned when [getting](resumes.md#item) or [updatin
 
 HTTP code | type | value | description
 ----------|------|-------|---------
+400 | bad_argument | with_contact | incorrect field value `with_contact`
 400 | resumes | total_limit_exceeded | the allowed number of resumes is exceeded (this applies only to applicants)
 429 | resumes | view_limit_exceeded | the allowed number of resume views is exceeded (this applies only to employers)
+403 | resumes | quota_exceeded | resume viewing quota available to manager has been exceeded (applies to employers only)
+403 | resumes | no_available_service | no sufficient services available to view resume
+403 | resumes | cant_view_contacts | no contact viewing rights
 
+In addition to the `type` and `value`, the returned error response body may contain a `description`, i.e., description of the events that give rise to the error in question.
 
 <a name="vacancies_blacklist"></a>
 ### Adding hidden jobs to the list
@@ -485,3 +501,33 @@ If User Account is blocked, the following error message will be generated:
 ```
 where `allowed_accounts` contains an array of the accounts available for this token
 Array elements are similar to the [result in the list of the Work Accounts](manager_accounts.md#account-info)
+
+### The captcha requirement
+
+Some operations in API may be protected with a captcha.
+It is clearly indicated in the resource description where the captcha test applies.
+The following error is returned in this case :
+
+```json
+{
+    "type": "captcha_required",
+    "value": "captcha_required",
+    "fallback_url": "https://hh.ru/account/connect/register....",
+    "captcha_url": "https://hh.ru/account/captcha?state=..."
+}
+```
+
+Name | Type | Description
+--- | --- | ---
+fallback_url | string or null | Address of the webpage where a similar operation can be completed (more often than not, the page itself is protected with a captcha)
+captcha_url | string or null | Address of the webpage where to pass the captcha. Once the captcha is passed successfully, a similar request in API should also be completed successfully. The app is to add to `captcha_url` the required parameter `backurl`, to which the redirect will go after the captcha is passed. The `backurl` must always contain a schema, e.g., `https://`, or the app schema
+
+One or the other of the `fallback_url` or `captcha_url` parameters may be absent, but both cannot be absent at the same time.
+
+* `403 Forbidden` — captcha required (this will never come, unless the token has not been transmitted)
+
+Additional description of the errors:
+
+HTTP code | type | value | description
+----------|------|-------|-----------
+403 | captcha_required | captcha_required | [Learn more about captcha](errors_additional.md#captcha_required)

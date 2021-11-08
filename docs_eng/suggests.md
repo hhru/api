@@ -281,3 +281,17 @@ Response example:
   ]
 }
 ```
+
+## Resume search keyword prompts
+
+This prompt is intended for use in the `text`  field when
+[searching resumes](resumes_search.md#search-params). The prompt suggests
+job titles, company names, and other phrases frequently used in
+resume search.
+
+`GET /suggests/resume_search_keyword`
+
+Parameters:
+
+* `text` — text for keyword search
+* 

@@ -14,7 +14,8 @@ application at [https://dev.hh.ru](https://dev.hh.ru) and set up the [authorizat
 After registration, the application can request of hh.ru users permission to access their personal data without obtaining 
 and storing their usernames and password.
 
-> ‼️ Please note that as of July 16, 2018, access to some methods became [paid](employer_payable_methods.md) for employers.
+> ‼️ Note the [description](./payable/resume.md) of the new resume database management model.
+> The employer has to [pay](./employer_payable_methods.md) for access to some methods .
 
 <a name="content"></a>
 ## Content
@@ -42,6 +43,7 @@ Article labels:
 * [Caching](cache.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Errors and response codes](errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Paid access to some API methods for employers](employer_payable_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [New resume database management model (supported by API)](./payable/resume.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="resources"></a>
 <a name="context"></a>

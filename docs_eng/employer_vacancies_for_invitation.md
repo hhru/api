@@ -142,8 +142,8 @@ with [standard fields](vacancies.md#nano), as well as additional fields:
    texts for invitation
  * <a name="actions"></a> `negotiations_actions`-- list of possible actions on
    response/invitation for [creating invitation](employer_negotiations.md#add-invite).
-   Response format is similar to
-   [the responses/invitations actions](employer_negotiations.md#actions-info).
+   Where a response cannot be generated (e.g., the required services are not available), an empty array will return.
+   The action results format is identical to the [response/invite actions](employer_negotiations.md#actions-info).
 
 When deciding whether to grant a user the possibility to invite a selected CV
 for the vacancy, you should not rely on the fact that `negotiations_state` has

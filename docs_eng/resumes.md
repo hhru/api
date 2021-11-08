@@ -236,6 +236,8 @@ next_publish_at | string or null | Date and time for next CV renew possibility (
 GET /resumes/{resume_id}
 ``` 
 
+>!! Note that there have been changes in access to contact details. Please read the information on [contact-by-co
+
 returns an indicated CV. If the CV visibility is set
 to "visible to entire Internet" or "by direct link" (`everyone` and `direct`
 respectively), it is possible to request the CV without being authorized.
@@ -602,7 +604,8 @@ resume_locale | [object](#id-name-object) | Resume language (locale). [Resume lo
 certificate | [array](#certificate-object) | Applicant's certificate list.
 alternate_url | string | URL for the resume on the website.
 created_at | string | Date and time resume was created.
-download | [object](#download-object) | Links to download the resume in several formats ([more info](#download-links)).
+*download* | [object](#download-object) | Obsolete (use `actions`).
+actions | [object](#actions-object) | Additional actions
 updated_at | string | Date and time resume was updated.
 has_vehicle | boolean or null | Does the applicant have their own car.
 driver_license_types | [array](#driver-license-types-object) | A list of applicant's driving license categories.
@@ -1047,7 +1050,7 @@ expires | string (date) | service expiration time, if the service is enabled
                 "name": "Buy for 5000 rubles",
                 "price": 5000
             },
-            "description": "Access to the resume database"
+            "description": "To view a candidate's hidden contacts and photos, purchase access to the resume database."
         }
     ],
     "negotiations_history": {
@@ -1076,6 +1079,19 @@ expires | string (date) | service expiration time, if the service is enabled
 }
 ```
 
+<a name="actions-object-for-employer"></a>
+Object `actions` (additional actions)
+
+Name | Type | Description
+-----|-----|---------
+download | [object](#download-object) | Links to download a resume in multiple formats ([learn more](#download-links)).
+download_with_contact | [object](#download-object) or null | Links to download resume with contacts (the service is spent) in multiple formats ([learn more](#download-links)).
+get_with_contact | object or null | Link to get resume with contacts (the service is spent).
+get_with_contact.url | string | Link to get resumes with contacts. Returns an object similar to [viewing a resume](#item)
+
+When contacts are viewed via `download_with_contact` and `get_with_contact` it may transpire that the user has hidden their contact details([learn more](/docs/payable/resume.md#contact-data)), yet the viewing will be debited regardless while the reply body will return null in the respective contact data fields. To safeguard against this, make sure the fields you want are available in [hidden_fields](#hidden-fields) the resume.
+The URL in the fields `download_with_contact` and `get_with_contact` is generated automatically and will be different every time.
+
 <a name="paid-services"></a>
 ### Resume-related paid services for the employer
 
@@ -1096,7 +1112,7 @@ quick_purchase.alternate_url | string | link to the site where you will be asked
 quick_purchase.name | string | name of the action for the service order
 quick_purchase.price | nubmer | price of service
 quick_purchase.currency | object | currency of service
-description | string, null | description of services using
+description | string, null | service use note
 
 
 <a name="owner-field"></a>
@@ -1128,6 +1144,11 @@ The format of the `negotiations_history.vacancies` field is described on the
 [detailed history of responses/invitations for a resume](resume_negotiations_history.md#response) page, and the only difference is that
 in this case, the list will be limited to 3 jobs of this employer and the latest status change
 for the response/invitation for each of these jobs.
+
+<a name="viewed-field"></a>
+#### Flag, indicating whether the resume has been viewed by employer
+
+The `viewed` field is always given and may take on the values `true` or `false`.
 
 <a name="create_edit"></a>
 ## Creating and editing a resume
@@ -2036,6 +2057,7 @@ A successful response comes with a code and contains the requested file in its b
 
 * `404 Not Found` - If the resume does not exist or is not available to the user.
 * `429 Too Many Requests` - If the daily limit of resume views is exceeded (when the user is authorized as an employer).
+* `403 Forbidden` - Services not sufficient to download resume with contacts
 
 In addition to the HTTP code, the server can return a description of the [error cause](errors.md#resumes).
 
