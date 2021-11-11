@@ -23,21 +23,21 @@ GET /employers/{employer_id}/managers/{manager_id}/method_access
 ```
 
 where:
-* `employer_id` is the employer's ID, which you can find in [current user information](/docs/me.md#employer-info).
-* `manager_id` is the manager's ID, which you can find in [current user information](/docs/me.md#manager-info).
+* `employer_id` is the employer's ID, which you can find in [current user information](/docs_eng/me.md#employer-info).
+* `manager_id` is the manager's ID, which you can find in [current user information](/docs_eng/me.md#manager-info).
 
 All existing method groups will return complete with their access details.
 
 The following groups currently exist:
 1. Availability of access to the methods:
-    * [Resume viewing](/docs/resumes.md#item)
-    * [Response management](/docs/employer_negotiations.md)
-    * [Correspondence](/docs/employer_negotiations.md#get-messages)
+    * [Resume viewing](/docs_eng/resumes.md#item)
+    * [Response management](/docs_eng/employer_negotiations.md)
+    * [Correspondence](/docs_eng/employer_negotiations.md#get-messages)
 2. Availability of access to the methods:
-    * [Resume search](/docs/resumes_search.md)
-    * [Saved resume searches](/docs/resumes_saved_searches.md)
-3. Availability of access to the [viewing of resumes](/docs/resumes.md#item) that have a response or invite
-4. Availability of access to the [viewing of resumes](/docs/resumes.md#item) for resumes found via [database search](/docs/resumes_search.md)
+    * [Resume search](/docs_eng/resumes_search.md)
+    * [Saved resume searches](/docs_eng/resumes_saved_searches.md)
+3. Availability of access to the [viewing of resumes](/docs_eng/resumes.md#item) that have a response or invite
+4. Availability of access to the [viewing of resumes](/docs_eng/resumes.md#item) for resumes found via [database search](/docs_eng/resumes_search.md)
 
 >!! Note that there have been changes in access to contact details. Please read the information on [contact-by-contact resume access](/docs_eng/payable/resume.md) carefully
 

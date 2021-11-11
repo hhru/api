@@ -236,7 +236,7 @@ next_publish_at | string or null | Date and time for next CV renew possibility (
 GET /resumes/{resume_id}
 ``` 
 
->!! Note that there have been changes in access to contact details. Please read the information on [contact-by-co
+>!! Note that there have been changes in access to contact details. Please read the information on [contact-by-contact resume access](payable/resume.md#contact-data) carefully
 
 returns an indicated CV. If the CV visibility is set
 to "visible to entire Internet" or "by direct link" (`everyone` and `direct`
@@ -1079,7 +1079,7 @@ expires | string (date) | service expiration time, if the service is enabled
 }
 ```
 
-<a name="actions-object-for-employer"></a>
+<a name="actions-object"></a>
 Object `actions` (additional actions)
 
 Name | Type | Description

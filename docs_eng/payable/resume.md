@@ -1,4 +1,4 @@
-#New resume database management model (supported in API)
+# New resume database management model (supported in API)
 
 [We are enacting a new schedule of rates for resume database access as of August 1, 2020](https://hh.ru/article/26941), which uses flat candidate contact quotas.
 

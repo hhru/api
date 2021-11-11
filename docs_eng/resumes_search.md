@@ -65,8 +65,6 @@ For example:
   `text.logic=all&text.field=everywhere&text.period=all_time` for the
   `text=responsible` parameter.
 
----
-
 * `age_from`, `age_to` – the applicant's age in years, in the "from... to" range. Note that the search results will include resumes with unspecified age by default. To see resumes with specified age only, use the special [label](#resume_search_label) "only_with_age"
 * `area` – region. Possible values reference: [/areas](https://github.com/hhru/api/blob/master/docs_eng/areas.md).
   You can indicate several values. CVs of applicants from
@@ -98,6 +96,7 @@ For example:
   [key skills suggestion](https://github.com/hhru/api/blob/master/docs_eng/suggests.md#key-skills).
 * `gender` – a gender. Directory with possible values: `gender` in
   [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md).
+<a name="resume_search_label"></a>
 * `label` – an extra filter. Directory with possible values:
   `resume_search_label` in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md). You can indicate
   several values.
