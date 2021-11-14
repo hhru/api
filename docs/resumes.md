@@ -1519,7 +1519,7 @@ more_than_one | передано более одного email
 
 При публикации резюме с полем `professional_roles` нужно добавить параметр `with_professional_roles`. В этом случае POST запрос должен иметь вид:
 
-`PUT /resumes/{resume_id}/publish?with_professional_roles=true`
+`POST /resumes/{resume_id}/publish?with_professional_roles=true`
 
 ### Ответ
 
