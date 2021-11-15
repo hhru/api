@@ -853,7 +853,8 @@ Successful server response is returned with `200 OK` code and contains:
                 "responses": 5,
                 "unread_responses": 3,
                 "resumes_in_progress": 5,
-                "invitations": 10
+                "invitations": 10,
+                "invitations_and_responses": 14
             },
             "expires_at": "2013-07-08T16:17:21+0400",
             "has_updates": false,
@@ -877,6 +878,7 @@ fields will be returned:
 | counters.unread_responses  | number  | number of unread applications for a vacancy                                                     |
 | counters.resumes_in_progress   | number  | number of resumes under revision for this vacancy                              |
 | counters.invitations       | number  | number of invitations for a vacancy                                                             |
+| counters.invitations_and_responses       | number  | number of invitations and responses for a vacancy
 | expires_at                 | string  | expiration date for a vacancy posting                                                           |
 | has_updates                | boolean | Whether there are updates calling for attention in the applications/invitations for the vacancy |
 | billing_type               | object  | Vacancy billing type. [vacancy_billing_type](dictionaries.md) directory entry.         |
