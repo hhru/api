@@ -1302,7 +1302,9 @@ Consists of the fields:
     * `type` - visibility type. Directory entry [resume_access_type](dictionaries.md)
 
 
-The `professional_roles` field can be saved by passing parameter `with_professional_roles`. In this case PUT request should look like this:
+The `professional_roles` field can be saved by passing parameter `with_professional_roles`. In this case resume adding and editing requests should look like this accordingly:
+
+`POST /resumes?with_professional_roles=true`
 
 `PUT /resumes/{resume_id}?with_professional_roles=true`
 
@@ -1448,7 +1450,7 @@ in the resume indicates when the resume can be updated.
 
 To successfully publish resume with the `professional_roles` field you should add a parameter `with_professional_roles`. In this case POST request should look like this:
 
-`PUT /resumes/{resume_id}/publish?with_professional_roles=true`
+`POST /resumes/{resume_id}/publish?with_professional_roles=true`
 
 ### Response
 
