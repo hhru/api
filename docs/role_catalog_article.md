@@ -6,11 +6,11 @@
 
 В API так же добавлена поддержка использования нового каталога специализаций (профессиональных ролей), а так же реализована [обратная совместимость](#backward) для интеграций использующих старый каталог специализаций. 
 
-Все ранее опубликованные вакансии, автоматически получили значения из нового каталога профессиональных ролей, дополнительно изменять эти вакансии не требуется.
+Все ранее опубликованные вакансии автоматически получили значения из нового каталога профессиональных ролей, дополнительно изменять эти вакансии не требуется.
 
 ## Подробнее о поддержке нового каталога в API:
 
-Новый каталог специализаций (профессиональных ролей) - 'professional_roles'. Новый каталог специализаций (профессиональных ролей) приходит на замену [специализациям](https://github.com/hhru/api/blob/master/docs/specializations.md). В настоящее время новый каталог специализаций (профессиональных ролей) и устаревший каталог специализации используются параллельно для обеспечения обратной совместимости.
+Новый каталог специализаций (профессиональных ролей, поле - 'professional_roles') приходит на замену [специализациям](https://github.com/hhru/api/blob/master/docs/specializations.md). В настоящее время новый каталог специализаций (профессиональных ролей) и устаревший каталог специализации используются параллельно для обеспечения обратной совместимости.
 
 Для нового каталога специализаций (профессиональных ролей) создан отдельный [справочник](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get) и [подсказки (autosuggest, autocomplete)](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1suggests~1professional_roles/get) 
 
@@ -34,7 +34,7 @@
 
 2. [Создание и редактирование резюме](https://github.com/hhru/api/blob/master/docs/resumes.md#create_edit) - добавлен параметр 'with_professional_roles' и поле 'professional_roles'
 
-3. [Публикация резюме](https://github.com/hhru/api/blob/master/docs/resumes.md#%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5) - - добавлен параметр 'with_professional_roles'
+3. [Публикация резюме](https://github.com/hhru/api/blob/master/docs/resumes.md#%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5) - добавлен параметр 'with_professional_roles'
 
 4. [Условия заполнения полей резюме](https://github.com/hhru/api/blob/master/docs/resumes.md#%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F-%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B9-%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5) - добавлен параметр 'with_professional_roles' и поле 'professional_roles'. 
 
