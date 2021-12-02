@@ -19,7 +19,7 @@ HeadHunter API — это инструментарий для интеграци
 логина и пароля.
 
 
-> ‼️ Обратите внимание на [описание](docs/payable/resume.md) новой модели работы с базой резюме. 
+> ‼️ Обратите внимание на [Поддержку нового каталога специализаций (профессиональных ролей)](docs/role_catalog_article.md) . 
 
 > Доступ к ряду методов для работодателя [платный](docs/payable/employer_methods.md). 
 
@@ -63,6 +63,7 @@ HeadHunter API — это инструментарий для интеграци
 * [Ошибки и коды ответов](docs/errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Платный доступ для работодателей к некоторым методом API](docs/payable/employer_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Новая модель работы с базой резюме (поддержка в API)](docs/payable/resume.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Новый каталог специализаций (профессиональных ролей). Поддержка в API HH](docs/role_catalog_article.md)  <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="resources"></a>
 <a name="context"></a>
