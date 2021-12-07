@@ -373,6 +373,7 @@ will show additional fields:
 ```json
 {
   "expires_at": "2015-01-09T17:03:35+0300",
+  "archived_at": "2015-01-08T16:17:21+0400",
   "response_notifications": false,
   "manager": {
     "id": "1337"
@@ -389,6 +390,7 @@ will show additional fields:
 key | type | description
 ---- | --- | --------
 expires_at| string | date and time of vacancy posting termination
+archived_at | string or null | date and time of archiving vacancy
 response_notifications | logical | whether to notify manager on new responses
 hidden | logical | whether the vacancy is deleted (hidden from the archive)
 can_upgrade_billing_type | logical | If the vacancy billing type can be upgraded
