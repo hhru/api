@@ -100,7 +100,10 @@ Article labels:
   * [Deleting vacancies](employer_vacancies.md#hide) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Deleted vacancy list](employer_vacancies.md#hidden) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Vacancy statistics](employer_vacancies.md#stats) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-
+* [Vacancy drafts](vacancy_drafts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Getting a list of vacancy drafts](vacancy_drafts.md#draft_list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Deleting a draft](vacancy_drafts.md#draft_delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Publishing a vacancy from draft](vacancy_drafts.md#draft_publish) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 <a name="applicants"></a>
 ### Applicants
 

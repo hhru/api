@@ -19,7 +19,7 @@ Employers subscribed to certain service configurations (more on this in "API and
 * [Resume search](/docs_eng/resumes_search.md)
 * [Saved resume searches](/docs_eng/resumes_saved_searches.md)
 
-There is a special [method](/docs/payable/employer_methods.md) they can use to find out if they have access to the options listed above
+There is a special [method](/docs_eng/employer_payable_methods.md) they can use to find out if they have access to the options listed above
 
 <a name="contact-data"></a>
 ## Viewing of resumes with contact info
