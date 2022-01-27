@@ -1012,10 +1012,11 @@ Successful server response is returned with `200 OK` code and contains:
 In addition to [the standard vacancy fields](vacancies.md#nano), additional
 fields will be returned:
 
-| key                | type   | description                          |
-|--------------------|--------|--------------------------------------|
-| counters.responses | number | number of applications for a vacancy |
-| archived_at        | string | vacancy archivation date             |
+| key                                | type   | description                                          |
+|------------------------------------|--------|------------------------------------------------------|
+| counters.responses                 | number | number of applications for a vacancy                 |
+| counters.invitations_and_responses | number | number of applications and invitations for a vacancy |
+| archived_at                        | string | vacancy archivation date                             |
 
 
 ### Errors
