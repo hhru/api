@@ -128,6 +128,12 @@ For example:
 * `educational_institution` – the applicant's educational institutions.
   Suggestions on university names are used as parameters:
   [/suggests/educational_institutions](https://github.com/hhru/api/blob/master/docs_eng/suggests.md). Several values can be indicated.
+* `folder` — the ID of the folder with favourite resumes. The search will be limited to the contents of the specified folder.
+Multiple folder IDs can be passed, for example: `folder=111&folder=222&folder=333`
+* `include_all_folders` — a parameter indicating whether it is necessary to search through all folders with favourite resumes.
+If a manager has access to favourite folders, the search will be limited to favourite folders by default.
+If you pass the `include_all_folders=false` parameter, the search will not be limited to any folder.
+The `400 Bad Request` error will be returned if `folder` and `include_all_folders` parameters are passed in the same request.
 
 If parameters contain an error, `400 Bad request` will be returned in response
 with the error description in the body. Unknown parameters and parameters with
