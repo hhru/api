@@ -32,9 +32,9 @@ GET /vacancies/{vacancy_id}/upgrades
         },
         {
           "type": "buy",
-          "url": "https://hh.ru/employer/invoice/purchase?code=VPREM&count=1",
+          "url": "https://hh.ru/employer/create_cart?products=%5B%7B%22code%22%3A+%22VPPL%22%2C+%22price%22%3A+1284200%2C+%22pricePerOne%22%3A+1284200%2C+%22count%22%3A+1%2C+%22period%22%3A+%2230%22%2C+%22currency%22%3A+%22RUR%22%2C+%22region%22%3A+%222000231%22%2C+%22professionalArea%22%3A+%5B%220%22%5D%2C+%22products%22%3A+%7B%220%22%3A+%7B%22code%22%3A+%22VPREM%22%2C+%22count%22%3A+1%2C+%22products%22%3A+%7B%7D%7D%7D%7D%5D&source=API",
           "price": {
-            "amount": "10152.0",
+            "amount": "12842.0",
             "currency_code": "RUR"
           }
         }
