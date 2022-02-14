@@ -195,10 +195,12 @@ api and your authorization is not valid for any reason, an error with `type`
 
 | HTTP code | type  | value                   | description  |
 |-----------|-------|-------------------------|--------------|
-| 403       | oauth | bad_authorization      | authorization token doesn't exist or is not valid |
-| 403       | oauth | token_expired          | access_token validity period has expired, it is necessary to [refresh the access_token](authorization.md#refresh_token)  authorization.md#refresh_token |
-| 403       | oauth | token_revoked          | the token is revoked by the user, the application should [request a new authorization](authorization.md) |
-| 403       | oauth | application_not_found  | your application has been deleted
+| 403       | oauth | bad_authorization         | authorization token doesn't exist or is not valid |
+| 403       | oauth | token_expired             | access_token validity period has expired, it is necessary to [refresh the access_token](authorization.md#refresh_token)  authorization.md#refresh_token |
+| 403       | oauth | token_revoked             | the token is revoked by the user, the application should [request a new authorization](authorization.md) |
+| 403       | oauth | application_not_found     | your application has been deleted
+| 403       | oauth | application_auth_expected | method requires [application authorisation](authorization_for_application.md)
+| 403       | oauth | user_auth_expected        | method requires [user authorisation](authorization_for_application.md)
 
 <a name="employer_payable_methods"></a>
 ## Errors when accessing a paid method
