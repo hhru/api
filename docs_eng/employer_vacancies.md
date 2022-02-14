@@ -119,6 +119,7 @@ you can additionally specify the following query-arguments:
 * `ignore_duplicates=true` - force [adding duplicate](#creation-ignore-duplicates).
 * `with_professional_roles=true` - force vacancy publication with professional roles instead of specializations
 
+<a name="creation-with_professional_roles"></a>
 With argument `with_professional_roles=true` field `specializations` is not required and is ignored, field `professional_roles` is required.
 Without this argument field `professional_roles` is not required and is ignored
 ### General information
@@ -572,9 +573,11 @@ max_count | numeric or `null` | Maximum number of objects for fields with lists.
 `PUT /vacancies/{vacancy_id}`
 
 * `ignore_duplicates=true` - ignore [duplicates](#edit-ignore-duplicates) after editing the vacancy.
+* `with_professional_roles=true` - force vacancy editing with professional roles instead of specializations. Behavior is
+  similar to the parameter `with_professional_roles` [on publishing vacancy](#creation-with_professional_roles)
 
 Editing is similar to publishing a vacancy but with an option to send individual fields in an object for partial editing.
-Compound fields (such as `salary`, `contacts`, `specializations`) can be edited only as a whole; 
+Compound fields (such as `salary`, `contacts`, `specializations`, `professional_roles`) can be edited only as a whole; 
 the entire object will be sent. For example, to edit salary currency, you will also have to change the salary value;
 to change the specialisation you will have to send a full list.
 
@@ -589,6 +592,7 @@ to change the specialisation you will have to send a full list.
  experience                 | required work experience                                     
  employment                 | type of employment                                                   
  specializations            | list of specialisations                                    
+ professional_roles         | list of professional roles
  salary                     | salary                                                               
  address                    | address                                                              
  test                       | test task                                                           
