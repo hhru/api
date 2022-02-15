@@ -24,7 +24,7 @@ There is a special [method](/docs_eng/employer_payable_methods.md) they can use 
 <a name="contact-data"></a>
 ## Viewing of resumes with contact info
 
-> !Note that there is a cap on the number of requests for the [resume viewing method](/docs_eng/resumes.md#item) in relation to resumes retrieved through the use of [resume database search](/docs_eng/resumes_search.md). To receive your current request quota, there is a special [method](/docs_eng/payable/employer_services.md#payable-api-actions) you can use , "id": "API_LIMITED". Once the quota is exceeded, an error will return when a request is lodged for the [resume viewing method](/docs_eng/resumes.md#item).
+> !Note that there is a cap on the number of requests for the [resume viewing method](/docs_eng/resumes.md#item) in relation to resumes retrieved through the use of [resume database search](/docs_eng/resumes_search.md). To receive your current request quota, there is a special [method](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1{employer_id}~1services~1payable_api_actions~1active/get) you can use , "id": "API_LIMITED". Once the quota is exceeded, an error will return when a request is lodged for the [resume viewing method](/docs_eng/resumes.md#item).
 
 Where not a single manager has thus far viewed a resume with contact info, in all places where that [full](/docs_eng/resumes.md#items)
 or [short](/docs_eng/resumes.md#resume-short) resume appears, the resume will be displayed without the contact info (null in the respective fields).
