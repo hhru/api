@@ -56,7 +56,7 @@ Article labels:
 * Manager details
   * [Manager work accounts](manager_accounts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Manager preferences](manager_settings.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Information on active API services for paid methods](payable/employer_services.md#payable-api-actions) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Information on active API services for paid methods](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1{employer_id}~1services~1payable_api_actions~1active/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Locales](locales.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Site choice](hosts.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
