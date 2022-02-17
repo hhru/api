@@ -411,7 +411,7 @@ HTTP code | type | value | reason | описание
 ### Работа с резюме
 
 Помимо [общих ошибок](#general-errors) при
-[получении](resumes.md#item) и [обновлении](resumes.md#create_edit) резюме могут
+[получении](employer_resumes.md#item) и [обновлении](employer_resumes.md#create_edit) резюме могут
 быть возвращены следующие ошибки:
 
 HTTP code | type | value | описание
