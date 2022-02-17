@@ -6,7 +6,7 @@
 Смотрите также:
 
 * [Просмотр резюме](https://github.com/hhru/api/blob/master/docs/resumes.md#item)
-  * [Платные услуги для работодателя связанные с резюме](https://github.com/hhru/api/blob/master/docs/resumes.md#paid-services)
+  * [Платные услуги для работодателя связанные с резюме](https://github.com/hhru/api/blob/master/docs/employer_resumes.md#paid-services)
 
 <a name="search-params"></a>
 ## Запрос

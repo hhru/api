@@ -10,7 +10,7 @@
 ### Запрос
 
 Нет необходимости собирать url запроса вручную, его нужно получать
-из [поля `negotiations_history` в резюме](resumes.md#negotiations-history-field).
+из [поля `negotiations_history` в резюме](employer_resumes.md#negotiations-history-field).
 
 `GET /resumes/{resume_id}/negotiations_history`,
 

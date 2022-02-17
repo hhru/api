@@ -13,7 +13,7 @@ GET /vacancies/{vacancy_id}/resumes_by_status
 ### Ответ
 
 Успешный ответ приходит с кодом `200 OK` и содержит четыре списка резюме пользователя 
-в формате [сокращенных представлений](resumes.md#resume-short) и [дополнительных полей](#additional-fields):
+в формате [сокращенных представлений](employer_resumes.md#resume-short) и [дополнительных полей](#additional-fields):
 
 * `suitable` — резюме, которыми возможно откликнуться на данную вакансию
 * `not_published` — неопубликованные резюме (в [статусе](resumes.md#status) `not_published` либо `blocked`)
@@ -171,12 +171,12 @@ GET /vacancies/{vacancy_id}/resumes_by_status
 }
 ```
 
-Описание полей смотрите в [выдаче полного резюме](resumes.md#resume-fields).
+Описание полей смотрите в [выдаче полного резюме](employer_resumes.md#resume-fields).
 
 <a name="additional-fields"></a>
 ### Дополнительные поля
 
-Дополнительно к [сокращенному представлению](resumes.md#resume-short) объекты резюме содержат:
+Дополнительно к [сокращенному представлению](employer_resumes.md#resume-short) объекты резюме содержат:
 
 Имя | Тип | Описание
 ---- | --- | --------
