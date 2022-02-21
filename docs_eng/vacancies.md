@@ -425,7 +425,8 @@ optional field with different counters on vacancy will be displayed in the objec
     "responses": 5,
     "unread_responses": 3,
     "resumes_in_progress": 5,
-    "invitations": 10
+    "invitations": 10,
+    "invitations_and_responses": 14
   }
 }
 ```
@@ -437,6 +438,7 @@ counters.responses | number | number of responses to the vacancy
 counters.unread_responses | number | number of non-viewed responses to the vacancy
 counters.resumes_in_progress| number | number of resumes in progress for a vacancy
 counters.invitations | number | number of invitations to the vacancy
+counters.invitations_and_responses | number | number of invitations and responses to a vacancy
 
 ### Errors
 
