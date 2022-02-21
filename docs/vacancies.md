@@ -467,7 +467,7 @@ counters.invitations | number | количество приглашений на
 
 HTTP code | type | value | описание
 ----------|------|-------|-----------
-403 | captcha_required | captcha_required | [Подробнее о капче](errors_additional.md#captcha_required)
+403 | captcha_required | captcha_required | [Подробнее о капче](errors.md#captcha_required)
 
 <a name="favorited"></a>
 ## Отобранные вакансии
@@ -773,7 +773,7 @@ counters.responses | number | Количество откликов на вак�
 
 HTTP code | type | value | описание
 ----------|------|-------|-----------
-403 | captcha_required | captcha_required | [Подробнее о капче](errors_additional.md#captcha_required)
+403 | captcha_required | captcha_required | [Подробнее о капче](errors.md#captcha_required)
 
 <a name="similar"></a>
 ## Поиск по вакансиям, похожим на вакансию

@@ -11,7 +11,7 @@ To obtain permission to post vacancy for applicants from 14 years old, contact y
 To post vacancy for applicants from 14 years old, add field to request body
 ```json
 {
-    "accept_kids": "true"
+    "accept_kids": true
 }
 ```
 [Main article about vacancy posting](employer_vacancies.md#creation)
@@ -23,7 +23,7 @@ To post vacancy for applicants from 14 years old, add field to request body
 Request body:
 ```json
 {
-    "accept_kids": "true"
+    "accept_kids": true
 }
 ```
 [Main article about vacancy editing](employer_vacancies.md#edit)
@@ -31,7 +31,7 @@ Request body:
 <a name="edit-results"></a>
 ## Error and HTTP response code
 
-In addition to an HTTP code `403 Forbidden`, the server will return error reason
+In addition to an HTTP code `400 Bad Request`, the server will return error reason
 ```json
 {
     "errors": [
