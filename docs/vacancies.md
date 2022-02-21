@@ -445,7 +445,8 @@ can_upgrade_billing_type | логический | Можно ли улучшит
         "responses": 5,
         "unread_responses": 3,
         "resumes_in_progress": 5,
-        "invitations": 10
+        "invitations": 10,
+        "invitations_and_responses": 14
     }
 }
 ```
@@ -457,6 +458,7 @@ counters.responses | number | количество откликов на вак�
 counters.unread_responses | number | количество непросмотренных откликов на вакансию
 counters.resumes_in_progress | number | количество резюме в работе на вакансию
 counters.invitations | number | количество приглашений на вакансию
+counters.invitations_and_responses | number | количество откликнувшихся и приглашенных соискателей на вакансию
 
 ### Ошибки
 
