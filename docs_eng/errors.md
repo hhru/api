@@ -501,7 +501,7 @@ If User Account is blocked, the following error message will be generated:
 ```
 where `allowed_accounts` contains an array of the accounts available for this token
 Array elements are similar to the [result in the list of the Work Accounts](manager_accounts.md#account-info)
-
+<a name="captcha_required"></a>
 ### The captcha requirement
 
 Some operations in API may be protected with a captcha.
@@ -530,4 +530,4 @@ Additional description of the errors:
 
 HTTP code | type | value | description
 ----------|------|-------|-----------
-403 | captcha_required | captcha_required | [Learn more about captcha](errors_additional.md#captcha_required)
+403 | captcha_required | captcha_required | [Learn more about captcha](errors.md#captcha_required)
