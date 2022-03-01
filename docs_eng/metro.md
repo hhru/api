@@ -1,52 +1,7 @@
-# Metro directory
+Metro directory
+=================
 
-> Attention! The values in the directories may change at any time. Do not address them directly.
+Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc) specification.
 
-## Obtaining all metro stations of all cities
-
-`GET /metro` will return a list of all metro stations and lines of all cities.
-
-```json
-[
-  {
-    "id": "1",
-    "url": "https://api.hh.ru/metro/1",
-    "name": "Moscow",
-    "lines": [
-      {
-        "hex_color": "339999",
-        "id": "11",
-        "name": "Kakhovskaya",
-        "stations": [
-          {
-            "id": "11.46",
-            "name": "Kashirskaya",
-            "lat": 55.654327,
-            "lng": 37.647705,
-            "order": 0
-          }
-        ]
-      }
-    ]
-  }
-]
-```
-
-The first level has the list of cities that have a metro. The second level has
-the list of city metro lines indicated in the `lines` parameter. The third level
-has metro stations of the line indicated in the `stations` parameter.
-
-* `hex_color` — HEX color RRGGBB code of the line (from 000000 to FFFFFF);
-* `lat`, `lng` — coordinates of the station location;
-* `order` — an order number of the station on its line, starting from 0.
-
-Example: [https://api.hh.ru/metro?locale=EN](https://api.hh.ru/metro?locale=EN)
-
-
-## List of metro stations and lines in a specific city
-
-`GET /metro/{city_id}` will return the list of metro stations and lines in the
-indicated city. A root element is not a list (as in the request to `/metro`),
-but an object with data on the indicated city.
-
-Example: [https://api.hh.ru/metro/1?locale=EN](https://api.hh.ru/metro/1?locale=EN)
+* [The list of metro stations in all cities](https://api.hh.ru/openapi/en/redoc#tag/Directories/paths/~1metro/get)
+* [The list of metro stations in the specified city](https://api.hh.ru/openapi/en/redoc#tag/Directories/paths/~1metro~1{city_id}/get)
