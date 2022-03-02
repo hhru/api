@@ -72,7 +72,8 @@ GET /negotiations
             "has_updates": true,
             "viewed_by_opponent": true,
             "messaging_status": "ok",
-            "decline_allowed": true
+            "decline_allowed": true,
+            "source": "NEGOTIATION",
         }
         // , .....
     ]
@@ -104,6 +105,7 @@ GET /negotiations
  viewed_by_opponent | логический | Был ли отклик просмотрен работодателем
  messaging_status | строка | Текущий статус переписки. Возможные значения находятся в [справочнике `messaging_status`](./dictionaries.md).
  decline_allowed | Логический | Возможно ли [скрыть отклик](#hide_message) вместе с сообщением работодателю об отказе
+ source | строка | Источник отклика. Возможные значения NEGOTIATION, PHONE_CALL, CHAT.
 
 В объекте вакансии ключи `url` и `alternate_url` могут быть `null`, если вакансия недоступна (удалена).
 
