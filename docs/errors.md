@@ -246,22 +246,6 @@ HTTP code | type | value | описание
 404 | saved_searches | manager_not_found | несуществующий manager_id
 
 
-<a name="artifacts"></a>
-### Артефакты
-
-При загрузке артефактов помимо прочих возможны следующие ошибки:
-
-HTTP code | type | value | описание
-----------|-----|--------|-----------
-400 | bad_argument | file | не указан файл, либо указано несколько
-400 | bad_argument | type | некорректное значение параметра type
-400 | bad_argument | description | слишком длинное описание
-400 | artifacts | limit_exceeded | превышено количество артефактов
-400 | artifacts | image_too_large | размер файла больше допустимого
-400 | artifacts | unknown_format | неизвестный формат файла
-403 | forbidden | — | ошибка прав доступа
-
-
 <a name="negotiations"></a>
 ### Переписка (отклики/приглашения)
 
@@ -291,19 +275,6 @@ HTTP code | type | value | описание
 403 | negotiations | resume_deleted | отправить сообщение невозможно, так как резюме, с которым совершался отклик, удалено или скрыто
 403 | negotiations | archived | отправить сообщение невозможно, так как вакансия, на которую совершался отклик, заархивирована
 403 | negotiations | chat_archived | действие по отклику/приглашению невозможно, так как отклик/приглашение заархивировано
-
-
-<a name="vacancies_favorited"></a>
-### Отобранные вакансии
-
-Помимо кода ошибки при
-[добавлении в список отобранных вакансий](vacancies.md#favorited) могут
-быть возвращены следующие ошибки:
-
-HTTP code | type | value | описание
-----------|------|-------|-----------
-403 | vacancies_favorited | vacancy_archived | вакансия уже архивирована и не может быть добавлена в отобранное
-403 | vacancies_favorited | limit_exceeded | превышен лимит количества отобранных вакансий
 
 
 <a name="vacancies-create-n-edit"></a>
@@ -424,60 +395,6 @@ HTTP code | type | value | описание
 403 | resumes | cant_view_contacts | нет прав на просмотр контактов
 
 Помимо `type` и `value` в теле ответа ошибки может вернуться `description` - описание при каких обстоятельствах возникает ошибка
-
-
-<a name="vacancies_blacklist"></a>
-### Добавление в список скрытых вакансий
-
-Помимо [общих ошибок](#general-errors) при
-[добавлении в список скрытых вакансий](blacklisted.md#vacancies)
-могут быть возвращены следующие ошибки:
-
-HTTP code | type | value | описание
-----------|------|-------|---------
-400 | vacancies_blacklist | limit_exceeded | превышен лимит на количество вакансий в списке скрытых
-404 | vacancies_blacklist | not_found | вакансия для добавления в список не найдена
-
-
-<a name="employers_blacklist"></a>
-### Добавление в список скрытых компаний
-
-Помимо [общих ошибок](#general-errors) при
-[добавлении в список скрытых вакансий компаний](blacklisted.md#employers)
-могут быть возвращены следующие ошибки:
-
-HTTP code | type | value | описание
-----------|------|-------|---------
-400 | employers_blacklist | limit_exceeded | превышен лимит на количество вакансий в списке скрытых
-404 | employers_blacklist | not_found | вакансия для добавления в список не найдена
-
-
-<a name="resume-visibility-lists"></a>
-### Списки видимости резюме
-
-<a name="resume-visibility-lists-get"></a>
-#### Получение списков видимости
-
-HTTP code | type | value | описание
-----------|------|-------|---------
-400 | bad_argument | per_page | передано невалидное количество элементов на странице (максимум 100)
-
-<a name="resume-visibility-lists-add"></a>
-#### Добавление компаний в список
-
-HTTP code | type | value | описание
-----------|------|-------|---------
-400 | resume_visibility_list | unknown_employer | передан неизвестный идентификатор работодателя
-400 | resume_visibility_list | limit_exceeded | превышен лимит списка видимости
-400 | resume_visibility_list | too_many_employers | передано слишком много работодателей
-
-<a name="resume-visibility-lists-remove"></a>
-#### Удаление компаний из списка
-
-HTTP code | type | value | описание
-----------|------|-------|---------
-400 | bad_argument | id | передан невалидный идентификатор работодателя
-400 | resume_visibility_list | too_many_employers | передано слишком много работодателей
 
 <a name="bulk-request"></a>
 #### bulk-запрос
