@@ -125,7 +125,16 @@ file | да | сам файл
 * `413 Request Entity Too Large` – слишком большое изображение
 
 Дополнительно к HTTP коду сервер может вернуть описание
-[причины ошибки](errors.md#artifacts).
+
+HTTP code | type | value | описание
+----------|-----|--------|-----------
+400 | bad_argument | file | не указан файл, либо указано несколько
+400 | bad_argument | type | некорректное значение параметра type
+400 | bad_argument | description | слишком длинное описание
+400 | artifacts | limit_exceeded | превышено количество артефактов
+400 | artifacts | image_too_large | размер файла больше допустимого
+400 | artifacts | unknown_format | неизвестный формат файла
+403 | forbidden | — | ошибка прав доступа
 
 
 <a name="conditions"></a>
