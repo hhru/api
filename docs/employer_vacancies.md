@@ -312,7 +312,7 @@ response_url | string | URL отклика для прямых вакансий 
 custom_employer_name | string | название компании для анонимных вакансий (`type.id=anonymous`), например "крупный российский банк"
 manager.id | string или null | контактное лицо (менеджер) по размещаемой вакансии, по умолчанию текущий пользователь
 response_notifications | boolean или null | уведомлять о новых откликах
-<a name="allow_messages"></a> allow_messages | boolean или null | возможность [переписки с кандидатами](https://inboxemp.hh.ru/) по данной вакансии
+<a name="allow_messages"></a> allow_messages | boolean или null | возможность [переписки с кандидатами](employer_negotiations.md) по данной вакансии
 response_letter_required | boolean или null | требовать сопроводительное письмо
 accept_handicapped | boolean или null | указание, что вакансия доступна для соискателей с инвалидностью
 accept_kids | boolean или null | указание, что вакансия доступна для соискателей от 14 лет [подробнее](employer_vacancies_accept_kids.md#accept-kids)
