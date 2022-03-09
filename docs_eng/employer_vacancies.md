@@ -305,7 +305,7 @@ some additional fields.
  custom_employer_name        | string          | company name for anonymous vacancies (`type.id=anonymous`), for example "major bank of Russia"
  manager.id                  | string or null  | contact person (manager) for the published vacancy, by default — current user
  response_notifications      | boolean or null | notify about new applications
- allow_messages              | boolean or null | [message candidate](http://inboxemp.hh.ru/) option for this vacancy
+ allow_messages              | boolean or null | [message candidate](employer_negotiations.md) option for this vacancy
  response_letter_required    | boolean or null | mandatory cover letter
  accept_handicapped          | boolean or null | indication that the job is available for applicants with disabilities
  accept_kids                 | boolean or null | indication that the job is available for applicants as young as 14 years old [details](employer_vacancies_accept_kids.md#accept-kids)|
