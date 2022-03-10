@@ -69,6 +69,25 @@ GET /negotiations
             "url": "https://api.hh.ru/negotiations/123",
             "resume": {},
             "vacancy": {},
+            "phone_calls": {
+                "picked_up_phone_by_opponent": true,
+                "items": [
+                  {
+                    "id": 123,
+                    "status": "CALL_IN_PROGRESS",
+                    "creation_time": "2022-03-04T16:39:58.857853Z",
+                    "last_change_time": null,
+                    "duration_seconds": null
+                  },
+                  {
+                    "id": 111,
+                    "status": "CALL_ENDED",
+                    "creation_time": "2022-03-01T16:39:58.857853Z",
+                    "last_change_time": "2022-03-01T16:41:58.857853Z",
+                    "duration_seconds": 120   
+                  }
+                ]
+            },
             "has_updates": true,
             "viewed_by_opponent": true,
             "messaging_status": "ok",
@@ -100,6 +119,7 @@ GET /negotiations
  url | строка | Ссылка на полную версию отклика
  resume | объект, null | [Короткое представление резюме](employer_resumes.md#resume-nano)
  vacancy | объект, null | [Короткое представление вакансии](vacancies.md#nano)
+ phone_calls | объект, null | [Представление истории звонков по вакансии](phone_calls.md)
  has_updates | логический | Есть ли непросмотренные сообщения в отклике. Флаг сбрасывается при различных действиях по отклику, например, [просмотре списка сообщений](#get_messages).
  viewed_by_opponent | логический | Был ли отклик просмотрен работодателем
  messaging_status | строка | Текущий статус переписки. Возможные значения находятся в [справочнике `messaging_status`](./dictionaries.md).
