@@ -501,6 +501,7 @@ Some parameters take multiple values: `key=value&key=value`.
 * `experience` – work experience.
   Directory with possible values: `experience` in
   [/dictionaries](dictionaries.md).
+  Several values can be indicated.
 
 * `employment` – employment type.
   Directory with possible values: `employment` in

@@ -469,6 +469,7 @@ HTTP code | type | value | описание
 
 * `experience` — опыт работы.  
 Необходимо передавать `id` из справочника `experience` в [/dictionaries](dictionaries.md).  
+Возможно указание нескольких значений.
 
 * `employment` — тип занятости.
 Необходимо передавать `id` из справочника `employment` в [/dictionaries](dictionaries.md).  
