@@ -1089,7 +1089,7 @@ download_with_contact | [object](#download-object) or null | Links to download r
 get_with_contact | object or null | Link to get resume with contacts (the service is spent).
 get_with_contact.url | string | Link to get resumes with contacts. Returns an object similar to [viewing a resume](#item)
 
-When contacts are viewed via `download_with_contact` and `get_with_contact` it may transpire that the user has hidden their contact details([learn more](/docs/payable/resume.md#contact-data)), yet the viewing will be debited regardless while the reply body will return null in the respective contact data fields. To safeguard against this, make sure the fields you want are available in [hidden_fields](#hidden-fields) the resume.
+When contacts are viewed via `download_with_contact` and `get_with_contact` it may transpire that the user has hidden their contact details([learn more](docs_eng/payable/resume.md#viewing-of-resumes-with-contact-info)), yet the viewing will be debited regardless while the reply body will return null in the respective contact data fields. To safeguard against this, make sure the fields you want are available in [hidden_fields](#hidden-fields) the resume.
 The URL in the fields `download_with_contact` and `get_with_contact` is generated automatically and will be different every time.
 
 <a name="paid-services"></a>
@@ -2209,7 +2209,7 @@ items[].limit | number | Maximum number of companies in the visibility list (onl
 * `404 Not Found` — A resume with this ID was not found or is not available to the current user.
 
 
-Please see also [managing resume visibility lists](/docs/resume_visibility.md).
+Please see also [managing resume visibility lists](/docs_eng/resume_visibility.md).
 
 
 <a name="views"></a>
