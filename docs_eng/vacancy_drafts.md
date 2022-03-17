@@ -143,8 +143,8 @@ Object format with the number of publications
 
 Name | Type | Description
 ---- | --- | --------
-publication_type | string | Publication type (directory[vacancy_billing_type](https://github.com/hhru/api/blob/master/docs/dictionaries.md))
-vacancy_type | string | Vacancy type (directory[vacancy_type](dictionaries.md))
+publication_type | string | Publication type (directory [vacancy_billing_type](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md))
+vacancy_type | string | Vacancy type (directory [vacancy_type](dictionaries.md))
 count | number |Quantity
 
 ### Errors
