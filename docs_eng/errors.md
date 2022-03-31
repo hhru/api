@@ -203,7 +203,7 @@ api and your authorization is not valid for any reason, an error with `type`
 <a name="employer_payable_methods"></a>
 ## Errors when accessing a paid method
 
-In case you request a [paid method](employer_payable_methods.md) without buying access, the following error will be generated:
+In case you request a [paid method](/docs_eng/payable/employer_payable_methods.md) without buying access, the following error will be generated:
 
 HTTP code | type | value | description
 ----------|------|-------|-----------

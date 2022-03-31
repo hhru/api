@@ -230,7 +230,7 @@ next_publish_at | string or null | Date and time for next CV renew possibility (
 <a name="item"></a>
 ## View a CV
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](employer_payable_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](/docs_eng/payable/employer_payable_methods.md)
 
 ```
 GET /resumes/{resume_id}
