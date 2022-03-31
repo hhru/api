@@ -1,6 +1,6 @@
 # History of responses/invitations for a resume
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](employer_payable_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](/docs_eng/payable/employer_payable_methods.md)
 
 Only employers can get the history of responses/invitations. The list will contain the last actions
 with the resumes specified: no more than 30 jobs of this employer, and no more than 10 status changes in responses/invitations

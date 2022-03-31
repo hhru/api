@@ -15,7 +15,7 @@ After registration, the application can request of hh.ru users permission to acc
 and storing their usernames and password.
 
 > ‼️ Note the [description](./payable/resume.md) of the new resume database management model.
-> The employer has to [pay](./employer_payable_methods.md) for access to some methods .
+> The employer has to [pay](/docs_eng/payable/employer_payable_methods.md) for access to some methods .
 
 <a name="content"></a>
 ## Content
@@ -31,7 +31,7 @@ Article labels:
 * <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" /> –
   relevant for free methods for the employer, requires [user authorisation](authorization_for_user.md).
 * <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> –
-  relevant for [paid](employer_payable_methods.md) methods for the employer, requires [user authorisation](authorization_for_user.md).
+  relevant for [paid](/docs_eng/payable/employer_payable_methods.md) methods for the employer, requires [user authorisation](authorization_for_user.md).
 
 
 ## Main
@@ -42,7 +42,7 @@ Article labels:
 * [Authorization](authorization.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Caching](cache.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Errors and response codes](errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Paid access to some API methods for employers](employer_payable_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Paid access to some API methods for employers](/docs_eng/payable/employer_payable_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [New resume database management model (supported by API)](./payable/resume.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="resources"></a>
