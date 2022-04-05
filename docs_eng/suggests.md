@@ -42,7 +42,7 @@ returned with detailed error description in the response body:
 * [Organization suggestions](#companies)
 * [Specialization suggestions](#specializations)
 * [Key skills suggestions](#key-skills)
-* [Position suggestions](#positions)
+* [Resume position suggestions](#resume-positions)
 * [Region tips](#areas)
 * [Tips for vacancy search key words](#vacancy-search-keyword)
 
@@ -173,10 +173,10 @@ If the request is performed successfully, such a response will be returned:
 ```
 
 
-<a name="positions"></a>
-## Position suggestions
+<a name="resume-positions"></a>
+## Resume position suggestions
 
-In order to obtain a suggestion on positions, you should send a `GET` request to
+In order to obtain a suggestion on resume positions, you should send a `GET` request to
 `/suggests/positions` with the mandatory parameter `text` – a key skill search
 string. We recommend using this data when creating a CV or a vacancy. We remind
 that when a CV is created, the user can indicate no more than three
@@ -294,4 +294,3 @@ resume search.
 Parameters:
 
 * `text` — text for keyword search
-* 
