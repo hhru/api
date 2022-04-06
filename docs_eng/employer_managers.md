@@ -17,52 +17,7 @@ A response `403 Forbidden` will be returned if the user is unauthorised or incor
 > Attention! The values in the directories may change at any time. Do not address them directly.
 
 ### Request
-`GET /employers/{employer_id}/manager_types`
-
-where `employer_id` - employer id, you can find the employer's id in the [current user info](me.md#employer-info).
-
-### Response
-
-Successful response is returned with `200 OK` code and contains:
-
-```json
-{
-    "items": [
-        {
-            "id": "manager",
-            "name": "Manager",
-            "available_permissions": [
-                {
-                    "id": "can_create_vacancy",
-                    "name": "Creation and extension of vacancies"
-                },
-                {
-                    "id": "can_view_resume_contacts",
-                    "name": "View contacts of the applicant"
-                }
-            ]
-        }
-    ]
-}
-```
-
-Each element of `items` has the following fields:
-
-Name | Type | Description
---- | --- | ---
-id | string | manager type ID
-name | string | manager type name
-available_permissions | array | list of privileges that can be granted to the selected manager type
-
-Fields of the object from the list `available_permissions`:
-
-Name | Type | Description
---- | --- | ---
-id | string | privilege ID
-name | string | privilege name
-
-### Errors
-* `404 Not found` - The employer was not found, or the user does not have the appropriate privileges
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1{employer_id}~1manager_types/get) specification.
 
 
 <a name="add"></a>

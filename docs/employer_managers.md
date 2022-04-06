@@ -16,52 +16,7 @@
 > ‼️ Внимание! Значения в справочниках могут поменяться в любой момент. Не нужно завязываться на них.
 
 ### Запрос
-`GET /employers/{employer_id}/manager_types`
-
- где `employer_id` - идентификатор работодателя, который можно узнать в
- [информации о текущем пользователе](me.md#employer-info).
-
-### Ответ
-
-Пример ответа:
-```json
-{
-    "items": [
-        {
-            "id": "manager",
-            "name": "Менеджер",
-            "available_permissions": [
-                {
-                    "id": "can_create_vacancy",
-                    "name": "Создание и продление вакансий"
-                },
-                {
-                    "id": "can_view_resume_contacts",
-                    "name": "Просмотр контактов соискателей"
-                }
-            ]
-        }
-    ]
-}
-```
-
-Каждый элемент из `items` обладает следующими полями:
-
- Имя | Тип | Описание
- --- | --- | ---
- id | string | идентификатор типа менеджера
- name | string | название типа менеджера
- available_permissions | array | список прав, которые можно дать данному типу менеджера
-
-Поля объекта списка `available_permissions`:
-
- Имя | Тип | Описание
- --- | --- | ---
- id | string | идентификатор права
- name | string | название права
-
-### Ошибки
-* `404 Not found` - Работодатель не найден, или у пользователя нет прав
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Rabotodatelskie/paths/~1employers~1{employer_id}~1manager_types/get)
 
 <a name="add"></a>
 ## Добавление менеджера
