@@ -74,14 +74,14 @@ GET /negotiations
                 "items": [
                   {
                     "id": 123,
-                    "status": "CALL_IN_PROGRESS",
+                    "status": "call_in_progress",
                     "creation_time": "2022-03-04T16:39:58.857853Z",
                     "last_change_time": null,
                     "duration_seconds": null
                   },
                   {
                     "id": 111,
-                    "status": "CALL_ENDED",
+                    "status": "call_ended",
                     "creation_time": "2022-03-01T16:39:58.857853Z",
                     "last_change_time": "2022-03-01T16:41:58.857853Z",
                     "duration_seconds": 120   
