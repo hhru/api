@@ -10,7 +10,7 @@
     "items": [
       {
         "id": 123,
-        "status": "CALL_IN_PROGRESS",
+        "status": "call_in_progress",
         "creation_time": "2022-03-04T19:39:58+0300",
         "last_change_time": null,
         "duration_seconds": null
@@ -36,7 +36,7 @@ items | массив | Массив звонков
 ```json
 {
   "id": 111,
-  "status": "CALL_ENDED",
+  "status": "call_ended",
   "creation_time": "2022-03-04T19:39:58+0300",
   "last_change_time": "2022-03-04T19:41:58+0300",
   "duration_seconds": 120     
