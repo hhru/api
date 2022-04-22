@@ -491,6 +491,8 @@ HTTP code | type | value | описание
 Необходимо передавать `id` из справочника [/specializations](specializations.md).    
 Возможно указание нескольких значений. Будет заменен профессиональными ролями (параметр `professional_role`), в настоящее время работает в режиме обратной совместимости.
   
+* `professional_role` - профессиональная область. Необходимо передавать `id` из справочника [/professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get)
+
 * `industry` - индустрия компании, разместившей вакансию. 
 Необходимо передавать `id` из справочника [/industries](industries.md).
 Возможно указание нескольких значений.
