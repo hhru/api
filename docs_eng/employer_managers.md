@@ -17,7 +17,7 @@ A response `403 Forbidden` will be returned if the user is unauthorised or incor
 > Attention! The values in the directories may change at any time. Do not address them directly.
 
 ### Request
->!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1{employer_id}~1manager_types/get) specification.
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1employers~1{employer_id}~1manager_types/get) specification.
 
 
 <a name="add"></a>
@@ -219,7 +219,7 @@ A successful response contains a code `204 No Content`.
 <a name="list"></a>
 ## Directory of employer's managers
 
->!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Directories/paths/~1employers~1{employer_id}~1managers/get)
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1employers~1{employer_id}~1managers/get)
 
 <a name="item"></a>
 ## Getting information about a manager

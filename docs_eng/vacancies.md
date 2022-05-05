@@ -609,7 +609,7 @@ Default — `false`.
    Several values can be indicated.  
 
 * `professional_role` – a professional role.
-  Directory with possible values: [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get).
+  Directory with possible values: [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get).
   Several values can be indicated. Will replace specializations (parameter `specialization`)
 
 <a name="search-results"></a>

@@ -7,6 +7,8 @@
 <a name="draft_list"></a>
 ## Getting a list of vacancy drafts
 
+> !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-draft/paths/~1vacancies~1drafts/get) specification.
+
 A request for retrieval of available vacancy drafts for the current manager. If the manager has multiple work accounts,
 they can use any of them according to the instructions on [manager work accounts](manager_accounts.md).
 
@@ -154,6 +156,8 @@ count | number |Quantity
 <a name="draft_delete"></a>
 ## Deleting a draft
 
+> !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-draft/paths/~1vacancies~1drafts~1{draft_id}/delete) specification.
+
 ### Request
 
 ```DELETE /vacancies/drafts/{draft_id}```
@@ -169,6 +173,8 @@ A successful response will return the `204 No Content` status code.
 <a name="draft_publish"></a>
 
 ## Publishing a vacancy from draft
+
+> !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-draft/paths/~1vacancies~1drafts/post) specification.
 
 ``` POST /vacancies/drafts/{draft_id}/publish```
 

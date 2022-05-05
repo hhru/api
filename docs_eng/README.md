@@ -33,7 +33,6 @@ Article labels:
 * <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> –
   relevant for [paid](/docs_eng/payable/employer_payable_methods.md) methods for the employer, requires [user authorisation](authorization_for_user.md).
 
-
 ## Main
 * [General information](general.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [API Service Terms of Use](https://dev.hh.ru/admin/developer_agreement) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
@@ -44,6 +43,7 @@ Article labels:
 * [Errors and response codes](errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Paid access to some API methods for employers](/docs_eng/payable/employer_payable_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [New resume database management model (supported by API)](./payable/resume.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+
 
 <a name="resources"></a>
 <a name="context"></a>

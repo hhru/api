@@ -7,10 +7,12 @@
 <a name="draft_list"></a>
 ## Получение списка черновиков вакансий
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Rabotodatelskie/paths/~1vacancies~1drafts/get)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts/get)
 
 <a name="draft_delete"></a>
 ## Удаление черновика
+
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1{draft_id}/delete)
 
 ### Запрос
 
@@ -27,6 +29,8 @@
 <a name="draft_publish"></a>
 
 ## Публикация вакансии на основе черновика
+
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts/post)
 
 ``` POST /vacancies/drafts/{draft_id}/publish```
 

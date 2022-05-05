@@ -16,7 +16,7 @@
 > ‼️ Внимание! Значения в справочниках могут поменяться в любой момент. Не нужно завязываться на них.
 
 ### Запрос
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Rabotodatelskie/paths/~1employers~1{employer_id}~1manager_types/get)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya/paths/~1employers~1{employer_id}~1manager_types/get)
 
 <a name="add"></a>
 ## Добавление менеджера
@@ -220,7 +220,7 @@
 <a name="list"></a>
 ## Справочник менеджеров работодателя
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1employers~1{employer_id}~1managers/get)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya/paths/~1employers~1{employer_id}~1managers/get)
 
 <a name="item"></a>
 ## Получение информации о менеджере
