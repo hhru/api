@@ -142,7 +142,7 @@
 * `page` — номер страницы.
 
 * `professional_role` — профессиональная роль. Элемент справочника
-  [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get). Можно указать несколько
+  [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get). Можно указать несколько
   значений. Замена специализациям (параметр `specialization`)
 
 * `folder` — один или несколько идентификаторов папок с отобранными резюме.

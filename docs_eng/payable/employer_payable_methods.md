@@ -8,7 +8,7 @@ Paid methods are marked with the following label in the [Table of Contents](/doc
 Please contact your personal manager to buy access to paid methods for employers.
 
 Please note that where the app is used by several employer accounts (employer_id), each employer account has to have access to the paid API methods.
-There is a [special method](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1{employer_id}~1services~1payable_api_actions~1active/get) you can use to verify information about the enabled employer services.
+There is a [special method](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/paths/~1employers~1{employer_id}~1services~1payable_api_actions~1active/get) you can use to verify information about the enabled employer services.
 
 If you request a paid method without purchasing access, you'll get this [error](/docs_eng/errors.md#employer_payable_methods) `403 Forbidden`.
 

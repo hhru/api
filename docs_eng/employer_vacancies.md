@@ -273,7 +273,7 @@ some additional fields.
  specializations             | array           | list of specialisations
  specializations[].id        | string          | specialisation [from directory](specializations.md)
  professional_roles          | array           | list of professional roles
- professional_roles[].id     | string          | professional role [from directory](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get)
+ professional_roles[].id     | string          | professional role [from directory](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
  area.id                     | string          | city of publication [from directory](areas.md)
  type.id                     | string          | type from [vacancy_type directory](dictionaries.md)
  billing_type.id             | string          | billing type from [vacancy_billing_type directory](dictionaries.md)
@@ -363,7 +363,7 @@ you can additionally specify query-argument:
 
 * `with_professional_roles=true` - force conditions for vacancy with professional roles instead of specializations
 
-With argument `with_professional_roles=true` field `specializations` is not returned in the response, field [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get) appears along with other fields
+With argument `with_professional_roles=true` field `specializations` is not returned in the response, field [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get) appears along with other fields
 
 Each end field is described by a rules object. If a field consists of
 an object with several fields, these fields are described in `fields`.

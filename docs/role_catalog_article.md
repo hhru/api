@@ -12,7 +12,7 @@
 
 Новый каталог специализаций (профессиональных ролей, поле - 'professional_roles') приходит на замену [специализациям](https://github.com/hhru/api/blob/master/docs/specializations.md). В настоящее время новый каталог специализаций (профессиональных ролей) и устаревший каталог специализации используются параллельно для обеспечения обратной совместимости.
 
-Для нового каталога специализаций (профессиональных ролей) создан отдельный [справочник](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get) и [подсказки (autosuggest, autocomplete)](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1suggests~1professional_roles/get) 
+Для нового каталога специализаций (профессиональных ролей) создан отдельный [справочник](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get) и [подсказки (autosuggest, autocomplete)](https://api.hh.ru/openapi/redoc#tag/Podskazki/paths/~1suggests~1professional_roles/get) 
 
 На текущий момент поддержка нового каталога специализаций (профессиональных ролей) не полностью завершена в API, ниже представлен список методов с поддержкой нового каталога (список будет пополняться со временем)
 

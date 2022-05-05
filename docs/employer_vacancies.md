@@ -280,7 +280,7 @@ key_skills[].name | string | название ключевого навыка
 specializations | array | список специализаций
 specializations[].id | string | специализация [из справочника](specializations.md)
 professional_roles | array | массив профессиональных ролей с количеством элементов равным 1 (если передать больше возникнет [ошибка](errors.md#причины-возникновения-ошибок) `is_too_long`) [при использовании параметра](#creation-with_professional_roles) `with_professional_roles=true`
-professional_roles[].id | string | индификатор профессиональной роли [из справочника](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get)
+professional_roles[].id | string | индификатор профессиональной роли [из справочника](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
 area.id | string | город публикации [из справочника](areas.md)
 type.id | string | тип из [справочника vacancy_type](dictionaries.md)
 billing_type.id | string | биллинговый тип [из справочника vacancy_billing_type](dictionaries.md)
@@ -437,7 +437,7 @@ pointer | string | [Указатель на данные](#error-pointer) с о�
 
 * `with_professional_roles=true` - для получение условий для вакансии с профессиональными ролями вместо специализаций
 
-При указании параметра `with_professional_roles=true` поле `specializations` не возвращается в ответе, а поле [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get) появляется вместе с другими полями
+При указании параметра `with_professional_roles=true` поле `specializations` не возвращается в ответе, а поле [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get) появляется вместе с другими полями
 
 Каждое конечное поле описано объектом правил. Если поле состоит из
 объекта с несколькими полями, эти поля описаны в `fields`.

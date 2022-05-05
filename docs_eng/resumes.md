@@ -1241,7 +1241,7 @@ Consists of the fields:
 * `title` — desired position;
 * `specialization` — candidate's profession (list). Directory entries [specializations](specializations.md);
 * `professional_roles` — candidate's professional roles (list). Directory entries
-      [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get)
+      [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
 * `salary` — Desired salary. It consists of the following fields:
     * `amount` — total;
     * `currency` — [currency](dictionaries.md) ID;

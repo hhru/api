@@ -39,7 +39,7 @@
 * [Подсказки по названиям университетов](#educational_institutions)
 * [Подсказки по организациям](#companies)
 * [Подсказки по специализациям](#specializations)
-* [Подсказки по профессиональным ролям](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1suggests~1professional_roles/get)
+* [Подсказки по профессиональным ролям](https://api.hh.ru/openapi/redoc#tag/Podskazki/paths/~1suggests~1professional_roles/get)
 * [Подсказки по ключевым навыкам](#key-skills)
 * [Подсказки по должностям резюме](#resume-positions)
 * [Подсказки по регионам](#areas)
