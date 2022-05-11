@@ -197,7 +197,32 @@ Server returns `403 Forbidden` if authorization is failed.
                  }
              ],
             "can_publish_or_update": false,
-            "next_publish_at": "2021-07-02T21:29:45+0300"
+            "next_publish_at": "2021-07-02T21:29:45+0300",
+            "contact": [
+                 {
+                     "value": {
+                         "country": "7",
+                         "city": "926",
+                         "number": "2222222",
+                         "formatted": "+7 (926) 222-22-22"
+                     },
+                     "type": {
+                         "id": "cell",
+                         "name": "Мобильный телефон"
+                     },
+                     "preferred": true,
+                     "comment": "Mobile",
+                     "verified": false
+                 },
+                 {
+                     "type": {
+                         "id": "email",
+                         "name": "Эл. почта"
+                     },
+                     "value": "test@gmail.com",
+                     "preferred": false
+                 }
+            ]
         }
     ],
     "page": 0,
@@ -226,6 +251,7 @@ similar_vacancies.counters.total | number | total number of similar jobs
 paid_services | object | [resume-related paid services for the resume publisher](#applicant-paid-services)
 can_publish_or_update | boolean or null | Is it possible to update this resume (only for published resume, it is null for unpublished)
 next_publish_at | string or null | Date and time for next CV renew possibility (only for published resume, it is null for unpublished)
+contact | array | applicant contact list
 
 <a name="item"></a>
 ## View a CV

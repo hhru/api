@@ -190,7 +190,32 @@
                 }
             ],
             "can_publish_or_update": false,
-            "next_publish_at": "2021-07-02T21:29:45+0300"
+            "next_publish_at": "2021-07-02T21:29:45+0300",
+            "contact": [    
+                {
+                    "value": {
+                        "country": "7",
+                        "city": "926",
+                        "number": "2222222",
+                        "formatted": "+7 (926) 222-22-22"
+                    },
+                    "type": {
+                        "id": "cell",
+                        "name": "Мобильный телефон"
+                    },
+                    "preferred": true,
+                    "comment": "Mobile",
+                    "verified": false
+                },
+                {
+                  "type": {
+                    "id": "email",
+                    "name": "Эл. почта"
+                  },
+                  "value": "test@gmail.com",
+                  "preferred": false
+                }
+            ]
         }
     ],
     "page": 0,
@@ -219,7 +244,7 @@ similar_vacancies.counters.total | number | общее количество по
 paid_services | object | [платные услуги по резюме для автора](#applicant-paid-services)
 can_publish_or_update | boolean или null | Можно ли обновить данное резюме (заполняется только для опубликованных резюме, содержит null для неопубликованных)
 next_publish_at | string или null | Дата и время следующего возможного обновления (заполняется только для опубликованных резюме, содержит null для неопубликованных)
-
+contact | array | [список контактов соискателя](employer_resumes.md#contact-object)
 <a name="item"></a>
 ## Просмотр резюме
 
