@@ -14,18 +14,6 @@
 
 > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1{draft_id}/delete)
 
-### Запрос
-
-```DELETE /vacancies/drafts/{draft_id}```
-
-В случае успешного выполнения запроса, будет возвращён статус `204 No Content`.
-
-### Ошибки
-
-* `403 Forbidden` — текущий пользователь не является работодателем
-* `404 Not Found` — если черновик не найден или у пользователя нет прав на удаление данного черновика
-
-
 <a name="draft_publish"></a>
 
 ## Публикация вакансии на основе черновика
