@@ -211,6 +211,16 @@
             "id": "96",
             "name": "Программист, разработчик"
         }
+    ],
+    "languages": [
+      {
+        "id": "eng",
+        "name": "Английский",
+        "level": {
+          "id": "b2",
+          "name": "B2 — Средне-продвинутый"
+        }
+      }
     ]
 }
 ```
@@ -266,7 +276,7 @@ has_test | boolean | Информация о наличии прикреплен
 response_url | string или null | На вакансии с типом `direct` нельзя откликнуться на сайте hh.ru, у этих вакансий в ключе `response_url` выдаётся URL внешнего сайта (чаще всего это сайт работодателя с формой отклика).
 test | object или null | Информация о прикрепленном тестовом задании к вакансии. В случае отсутствия теста — `null`. **В данный момент отклик на вакансии с обязательным тестом через API невозможен.**
 test.required | boolean | Обязательно ли заполнение теста для отклика
-specialization | array | Специализации. Элементы справочника [specializations](specializations.md)
+specializations | array | Специализации. Элементы справочника [specializations](specializations.md)
 specializations[].id | string | Идентификатор специализации
 specializations[].name | string | Название специализации
 specializations[].profarea_id | string | Идентификатор профессиональной области, в которую входит специализация
@@ -290,7 +300,13 @@ working_time_modes | object или null | Режимы времени работ
 working_time_modes.id | string | Идентификатор режима времени работы
 working_time_modes.name | string | Название режима времени работы
 accept_temporary | boolean или null | Указание, что вакансия доступна для соискателей с временным трудоустройством
-professional_roles | array | Массив [объектов профролей](#professional-role). Список может быть пустым.
+professional_roles | array| Массив [объектов профролей](#professional-role). Список может быть пустым.
+languages | array | Список языков. Элементы справочника [languages](languages.md).
+languages[].id | string | Идентификатор языка.
+languages[].name | string | Название языка.
+languages[].level | object| Уровень знания языка. Элемент справочника [language_level](dictionaries.md).
+languages[].level.id | string| Идентификатор уровня знания языка.
+languages[].level.name | string| Название уровня знания языка.
 
 <a name="contacts"></a>
 #### Контактная информация
