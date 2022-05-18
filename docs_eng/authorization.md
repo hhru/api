@@ -38,8 +38,9 @@ by transferring it in the header in the following format:
 
 It is convenient to use the `/me` method to test the token:
 
-* [for the authorised application](me.md#application-info)
-* [for the authorised user](me.md#user-info)
+* [for the authorised application](https://api.hh.ru/openapi/en/redoc#tag/Application-info/paths/~1me/get)
+* [for the authorised employer manager](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get)
+* [for the authorised applicant](https://api.hh.ru/openapi/en/redoc#tag/Applicant-info/paths/~1me/get)
 
 <a name="links"></a>
 ## Useful links

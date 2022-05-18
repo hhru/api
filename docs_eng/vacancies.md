@@ -518,7 +518,7 @@ Some parameters take multiple values: `key=value&key=value`.
   Several values can be indicated.
 
 * `metro` – a metro line or station.
-  Directory with possible values: [/metro](metro.md).
+  Directory with possible values: [/metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get).
   Several values can be indicated.
 
 * `specialization` – a professional area or specialization.

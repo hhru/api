@@ -29,8 +29,8 @@ There is a need for a method to determine whether a manager can publish vacancie
 ```GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types```
 
 where:
-* `employer_id` is the employer ID, which can be found in [information on the current user](me.md#employer-info).
-* `manager_id` is the manager ID. It can be found in [information on the current user](me.md#manager-info).
+* `employer_id` is the employer ID, which can be found in [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
+* `manager_id` is the manager ID. It can be found in [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
 
 ### Response
 

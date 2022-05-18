@@ -484,7 +484,7 @@ HTTP code | type | value | описание
 Возможно указание нескольких значений.  
 
 * `metro` — ветка или станция метро.  
-Необходимо передавать `id` из справочника [/metro](metro.md).    
+Необходимо передавать `id` из справочника [/metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get).    
 Возможно указание нескольких значений.  
 
 * `specialization` — профобласть или специализация. 

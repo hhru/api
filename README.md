@@ -70,15 +70,18 @@ HeadHunter API — это инструментарий для интеграци
 <a name="context"></a>
 ### Контекст
 
-* [Информация об авторизованном пользователе или приложении](docs/me.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Получение информации об авторизованном пользователе](docs/me.md#user-info) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Редактирование информации авторизованного пользователя](docs/me.md#user-edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Получение информации об авторизованном приложении](docs/me.md#application-info) <img src="http://hhru.github.io/api/badges/client.png" alt="client" />
+* Информация об авторизованном пользователе или приложении <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * Получение информации об авторизованном пользователе:
+    * [Соискатель](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-soiskatele/paths/~1me/get)
+    * [Работодатель](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get)
+  * [Редактирование информации авторизованного пользователя](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-soiskatele/paths/~1me/post)
+  * [Получение информации об авторизованном приложении](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-prilozhenii/paths/~1me/get)
 * Информация о менеджере
-  * [Рабочие аккаунты менеджера](docs/manager_accounts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Предпочтения менеджера](docs/manager_settings.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Рабочие аккаунты менеджера](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya/paths/~1manager_accounts~1mine/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Предпочтения менеджера](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya/paths/~1employers~1{employer_id}~1managers~1{manager_id}~1settings/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Информация по активным услугам API для платных методов](https://api.hh.ru/openapi/redoc#tag/Rabotodatelskie/paths/~1employers~1{employer_id}~1services~1payable_api_actions~1active/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Локализация](docs/locales.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Локализация](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1locales/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Локализация для резюме](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1locales~1resume/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Выбор сайта](docs/hosts.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 
@@ -95,6 +98,7 @@ HeadHunter API — это инструментарий для интеграци
   * [Передача сохраненного поиска резюме другому менеджеру](docs/resumes_saved_searches.md#resumes-saved-search-move-to-other-manager) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Просмотр резюме](docs/employer_resumes.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Работа с резюме для соискателя](docs/resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Работа с телефоном](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Rabota-s-telefonom) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Список резюме авторизованного пользователя](docs/resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Просмотр резюме](docs/resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Создание и редактирование резюме](docs/resumes.md#create_edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
@@ -132,22 +136,27 @@ HeadHunter API — это инструментарий для интеграци
   * [Список удаленных вакансий](docs/employer_vacancies.md#hidden) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Список улучшений для вакансии](docs/employer_vacancy_upgrades.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Статистика по вакансии](docs/employer_vacancies.md#stats) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Черновики вакансий](docs/vacancy_drafts.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Получение списка черновиков](docs/vacancy_drafts.md#draft_list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Удаление черновика](docs/vacancy_drafts.md#draft_delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Отмена автопубликации](docs/vacancy_autopublication.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Черновики вакансий](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Получение списка черновиков](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Удаление черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1{draft_id}/delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Публикация черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts/post) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Публикация вакансий на основе черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1{draft_id}~1publish/post) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="applicants"></a>
 ### Соискатели
 
 * [Комментарии к соискателю](docs/applicant_comments.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-
+* [Авторизация соискателя](https://api.hh.ru/openapi/redoc#tag/Avtorizaciya-soiskatelya) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* [Соискательские статусы](https://api.hh.ru/openapi/redoc#tag/Soiskatelskie-statusy) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 
 <a name="employers"></a>
 ### Работодатели/компании
 
 * [Поиск компаний](docs/employers.md#search) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Получение информации о компании](docs/employers.md#item) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Услуги работодателя](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Авторизация работодателя](https://api.hh.ru/openapi/redoc#tag/Avtorizaciya-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Менеджеры работоадателя](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="employer_managers"></a>
 ### Менеджеры работодателя
@@ -191,11 +200,12 @@ HeadHunter API — это инструментарий для интеграци
 
 <a name="dictionaries"></a>
 ### Справочники
-
+* [Справочники в OpenAPI](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Регионы](docs/areas.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Специализации](docs/specializations.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Метро](docs/metro.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Языки](docs/languages.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Станции метро в указанном городе](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro~1{city_id}/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Станции метро во всех городах](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Языки](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1languages/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Отрасли компаний](docs/industries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Учебные заведения](docs/educational_institutions.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Основная информация об учебных заведениях](docs/university.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
@@ -214,7 +224,7 @@ HeadHunter API — это инструментарий для интеграци
 
 <a name="suggests"></a>
 ### Подсказки (autosuggest, autocomplete)
-
+* [Подсказки в OpenAPI](https://api.hh.ru/openapi/redoc#tag/Podskazki) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Подсказки](docs/suggests.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [по названиям университетов](docs/suggests.md#educational_institutions) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [по организациям](docs/suggests.md#companies) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />

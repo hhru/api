@@ -23,8 +23,8 @@ GET /employers/{employer_id}/managers/{manager_id}/method_access
 ```
 
 где:
-* `employer_id` - идентификатор работодателя, который можно узнать в [информации о текущем пользователе](/docs/me.md#employer-info).
-* `manager_id` - идентификатор менеджера, который можно узнать в [информации о текущем пользователе](/docs/me.md#manager-info).
+* `employer_id` - идентификатор работодателя, который можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
+* `manager_id` - идентификатор менеджера, который можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
 
 Вернутся все существующие группы методов с информацией о доступе к ним.
 

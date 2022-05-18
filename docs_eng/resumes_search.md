@@ -102,11 +102,11 @@ For example:
   several values.
 * `language` – knowledge of a language. You can indicate several values. It is
   set in the language.level format, where:
-    * `language` is a value from the [/languages](https://github.com/hhru/api/blob/master/docs_eng/languages.md) directory,
+    * `language` is a value from the [/languages](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1languages/get) directory,
     * `level` is a value from the `language_level`
       [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md) directory.
 * `metro` – a metro line or station. Directory with possible values:
-  [/metro](https://github.com/hhru/api/blob/master/docs_eng/metro.md).
+  [/metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get).
 * `currency` – a currency code. Directory with possible values: `currency`
   (code key) in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md).
 * `salary_from`, `salary_to` – desired salary range, from...to.

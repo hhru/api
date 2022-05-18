@@ -23,8 +23,8 @@ GET /employers/{employer_id}/managers/{manager_id}/method_access
 ```
 
 where:
-* `employer_id` is the employer's ID, which you can find in [current user information](/docs_eng/me.md#employer-info).
-* `manager_id` is the manager's ID, which you can find in [current user information](/docs_eng/me.md#manager-info).
+* `employer_id` is the employer's ID, which you can find in [current user information](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
+* `manager_id` is the manager's ID, which you can find in [current user information](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
 
 All existing method groups will return complete with their access details.
 

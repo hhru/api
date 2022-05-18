@@ -8,8 +8,8 @@
 ### Request
 `GET /employers/{employer_id}/managers/{manager_id}/limits/resume`
  
- where `employer_id` is the employer ID, which you can find in [information on the current employer](me.md#employer-info).
- where `manager_id` is the manager ID, which you can find in [information on the current user](me.md#manager-info).
+ where `employer_id` is the employer ID, which you can find in [information on the current employer](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
+ where `manager_id` is the manager ID, which you can find in [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
  
 ### Response
  

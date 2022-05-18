@@ -22,7 +22,7 @@
 `GET /employers/{employer_id}/vacancy_branded_templates`
 
 где `employer_id` – идентификатор компании, который можно узнать при
-[получении информации о текущем пользователе](me.md#employer-info).
+[получении информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
 
 
 <a name="list-response"></a>

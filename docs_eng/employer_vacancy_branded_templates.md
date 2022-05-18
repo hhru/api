@@ -22,7 +22,7 @@ List of all templates available from the employer.
 `GET /employers/{employer_id}/vacancy_branded_templates`
 
 where `employer_id` – company ID available
-[from the information on current user](me.md#employer-info).
+[from the information on current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
 
 
 <a name="list-response"></a>

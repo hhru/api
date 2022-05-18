@@ -8,8 +8,8 @@
 ### Запрос
 `GET /employers/{employer_id}/managers/{manager_id}/limits/resume`
 
- где `employer_id` - идентификатор работодателя, который можно узнать в [информации о текущем работодателе](me.md#employer-info).
- где `manager_id` - идентификатор менеджера, который можно узнать в [информации о текущем пользователе](me.md#manager-info).
+ где `employer_id` - идентификатор работодателя, который можно узнать в [информации о текущем работодателе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere).
+ где `manager_id` - идентификатор менеджера, который можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
 
 ### Ответ
 

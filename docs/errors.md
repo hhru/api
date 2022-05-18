@@ -440,7 +440,7 @@ HTTP code | type | value | описание
 }
 ```
 где `allowed_accounts` содержит массив доступных для этого токена аккаунтов
-Элементы массива аналогичны [результату, выдаваемому в списке рабочих аккаунтов](manager_accounts.md#account-info)
+Элементы массива аналогичны [результату, выдаваемому в списке рабочих аккаунтов](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya/paths/~1manager_accounts~1mine/get)
 <a name="captcha_required"></a>
 ### Необходимость пройти капчу
 

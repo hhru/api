@@ -500,7 +500,7 @@ If User Account is blocked, the following error message will be generated:
 }
 ```
 where `allowed_accounts` contains an array of the accounts available for this token
-Array elements are similar to the [result in the list of the Work Accounts](manager_accounts.md#account-info)
+Array elements are similar to the [result in the list of the Work Accounts](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1manager_accounts~1mine/get)
 <a name="captcha_required"></a>
 ### The captcha requirement
 
