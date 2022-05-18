@@ -89,12 +89,12 @@
 
 * `language` — знание языка. Можно указать несколько значений. Задается в
   формате language.level, где:
-     * `language` — значение из справочника [/languages](https://github.com/hhru/api/blob/master/docs/languages.md),
+     * `language` — значение из справочника [/languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1languages/get),
      * `level` — значение из справочника `language_level`
        [/dictionaries](https://github.com/hhru/api/blob/master/docs/dictionaries.md).
 
 * `metro` — линия, либо станция метро. Справочник с возможными значениями:
-  [/metro](https://github.com/hhru/api/blob/master/docs/metro.md).
+  [/metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get).
 
 * `currency` — код валюты. Справочник с возможными значениями: `currency`
   (ключ code) в [/dictionaries](https://github.com/hhru/api/blob/master/docs/dictionaries.md).

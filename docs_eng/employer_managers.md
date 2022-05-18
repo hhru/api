@@ -27,7 +27,7 @@ A response `403 Forbidden` will be returned if the user is unauthorised or incor
 
 `POST /employers/{employer_id}/managers`
 
-where `employer_id` - employer id, you can find the employer's id in the [current user info](me.md#employer-info).
+where `employer_id` - employer id, you can find the employer's id in the [current user info](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
 
 JSON will be returned in the response:
 
@@ -137,7 +137,7 @@ The ID of the created manager is sent as:
 
 where:
 
-* `employer_id` - Employer ID that can be obtained from the [information on the current user](me.md#employer-info).
+* `employer_id` - Employer ID that can be obtained from the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
 * `manager_id` - Manager ID.
 
 The request body passes the following JSON:
@@ -198,7 +198,7 @@ This is why if you request a list of managers **immediately** after successfully
 
 where:
 
-* `employer_id` - Employer ID that can be obtained from the [information on the current user](me.md#employer-info).
+* `employer_id` - Employer ID that can be obtained from the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
 * `manager_id` - Manager ID.
 
 As a mandatory parameter you must include: `successor_id` — ID of the manager who will receive all data related 
@@ -230,7 +230,7 @@ A successful response contains a code `204 No Content`.
 
 where:
 
-* `employer_id` - Employer ID that can be obtained from the [information on the current user](me.md#employer-info).
+* `employer_id` - Employer ID that can be obtained from the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
 * `manager_id` - Manager ID.
 
 ### Response

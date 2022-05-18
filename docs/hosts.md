@@ -19,5 +19,5 @@ HeadHunter.
 При необходимости учесть специфику сайта, можно добавить в запрос параметр
 `?host=`. По умолчанию используется `hh.ru`.
 
-Например, для получения [локализаций](locales.md), доступных на hh.kz необходимо
+Например, для получения [локализаций](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1locales/get), доступных на hh.kz необходимо
 сделать GET запрос на `https://api.hh.ru/locales?host=hh.kz`.

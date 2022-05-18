@@ -501,7 +501,7 @@ expires | строка (дата) | время окончания действи
 * `photo` — фотография пользователя. см. [артефакты](artifacts.md);
 * `portfolio` — портфолио пользователя. см. [артефакты](artifacts.md);
 * `area` — город проживания. Элемент справочника [areas](areas.md);
-* `metro` — ближайшая станция метро. Элемент справочника [metro](metro.md). Если передать метро не принадлежащее переданной `area`, поле проигнорируется
+* `metro` — ближайшая станция метро. Элемент справочника [metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get). Если передать метро не принадлежащее переданной `area`, поле проигнорируется
   Имеет смысл указывать только для `area` с метро;
 * `relocation` — возможен ли переезд в другой город. Состоит из полей:
     * `type` — элемент справочника [relocation_type](dictionaries.md);
@@ -562,7 +562,7 @@ expires | строка (дата) | время окончания действи
     * `level` — уровень образования. Элемент справочника
       [education_level](dictionaries.md)
 * `language` — владение языками (список). 
-    * `id` - значение из справочника [languages](languages.md) 
+    * `id` - значение из справочника [languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1languages/get) 
     * `level` - значение из справочника [language_level](dictionaries.md)
 * `experience` — опыт работы (список). Состоит из полей:
     * `company` — организация;
@@ -588,7 +588,7 @@ expires | строка (дата) | время окончания действи
     * `name` — имя;
     * `position` — должность;
     * `organization` — организация;
-* `resume_locale` — локаль резюме. Элемент справочника [локали резюме](locales.md).
+* `resume_locale` — локаль резюме. Элемент справочника [локали резюме](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1locales~1resume/get).
 * `driver_license_types` - cписок категорий водительских прав соискателя. Элемент справочника [тип водительских прав](dictionaries.md.md).
 * `has_vehicle` - наличие личного автомобиля у соискателя
 * `hidden_fields` - [скрытые поля](#hidden-fields) в резюме (список). Элемент справочника [resume_hidden_fields](dictionaries.md).

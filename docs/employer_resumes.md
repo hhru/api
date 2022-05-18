@@ -372,7 +372,7 @@ age | number или null | Возраст.
 birth_date | string или null | День рождения (в формате `ГГГГ-ММ-ДД`).
 gender | [object](#id-name-object) или null | Пол. Элемент справочника [gender](dictionaries.md).
 area | [object](#id-name-url-object) или null | Город проживания. Элемент справочника [areas](areas.md).
-metro | [object](#metro-object) или null | Ближайшая станция метро. Элемент справочника [metro](metro.md).
+metro | [object](#metro-object) или null | Ближайшая станция метро. Элемент справочника [metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get).
 relocation | [object](#relocation-object) | Информация о возможности переезда в другой город.
 business_trip_readiness | [object](#id-name-object) | Готовность к командировкам. Элемент справочника [business_trip_readiness](dictionaries.md#business_trip_readiness).
 contact | [array](#contact-object) | Список контактов соискателя.
@@ -385,7 +385,7 @@ salary | [object](#salary-object) или null | Желаемая зарплат�
 employments | [array](#id-name-object) | Список подходящих соискателю типов занятостей. Элементы справочника [employment](dictionaries.md).
 schedules | [array](#id-name-object) | Список подходящих соискателю графиков работы. Элементы справочника [schedule](dictionaries.md).
 education | [object](#education-object) | Образование.
-language | [array](#language-object) | Список языков, которыми владеет соискатель. Элементы справочника [languages](languages.md).
+language | [array](#language-object) | Список языков, которыми владеет соискатель. Элементы справочника [languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1languages/get).
 experience | [array](#experience-object) | Опыт работы.
 total_experience | [object](#total-experience-object) или null | Общий опыт работы.
 skills | string или null | Дополнительная информация, описание навыков в свободной форме.
@@ -394,7 +394,7 @@ citizenship | [array](#id-name-url-object) | Список гражданств �
 work_ticket | [array](#id-name-url-object) | Список регионов, в который соискатель имеет разрешение на работу. Элементы [справочника регионов](areas.md).
 travel_time | [object](#id-name-object) | Желательное время в пути до работы. Элемент справочника [travel_time](dictionaries.md).
 recommendation | [array](#recommendation-object) | Список рекомендаций. 
-resume_locale | [object](#id-name-object) | Язык, на котором составлено резюме (локаль). Элемент справочника [локали резюме](locales.md).
+resume_locale | [object](#id-name-object) | Язык, на котором составлено резюме (локаль). Элемент справочника [локали резюме](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1locales~1resume/get).
 certificate | [array](#certificate-object) | Список сертификатов соискателя. 
 alternate_url | string | URL резюме на сайте.
 created_at | string | Дата и время создания резюме.

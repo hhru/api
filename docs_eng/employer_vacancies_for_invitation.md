@@ -10,7 +10,7 @@ The request is used for selection of a suitable vacancy when
 
 where
 * `employer_id` – the employer ID that can be found using the
-  [current user information request](me.md#info),
+  [current user information request](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get),
 * `resume_id` – the CV ID.
 
 Additionally, [pagination parameters](general.md#pagination) `page`, `per_page`

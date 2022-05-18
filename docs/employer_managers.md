@@ -25,7 +25,7 @@
 `POST /employers/{employer_id}/managers`
 
 где `employer_id` - идентификатор работодателя, который можно узнать в
-  [информации о текущем пользователе](me.md#employer-info).
+  [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
 
 В теле запроса передается json вида:
 
@@ -134,7 +134,7 @@
 где:
 
 * `employer_id` - идентификатор работодателя, который можно узнать в
-  [информации о текущем пользователе](me.md#employer-info).
+  [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
 * `manager_id` - идентификатор менеджера.
 
 В теле запроса передается json вида:
@@ -197,7 +197,7 @@
 где:
 
 * `employer_id` - идентификатор работодателя, который можно узнать в
-  [информации о текущем пользователе](me.md#employer-info).
+  [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
 * `manager_id` - идентификатор менеджера.
 
 На вход в качестве обязательного параметра необходимо передавать:
@@ -232,7 +232,7 @@
 где:
 
 * `employer_id` - идентификатор работодателя, который можно узнать в
-  [информации о текущем пользователе](me.md#employer-info).
+  [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
 * `manager_id` - идентификатор менеджера.
 
 ### Ответ

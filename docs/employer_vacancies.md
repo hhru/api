@@ -31,8 +31,8 @@
 где:
 
 * `employer_id` - идентификатор работодателя, который можно узнать в 
-[информации о текущем пользователе](me.md#employer-info).
-* `manager_id` - идентификатор менеджера. Можно узнать в [информации о текущем пользователе](me.md#manager-info).
+[информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
+* `manager_id` - идентификатор менеджера. Можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
 
 ### Ответ
 

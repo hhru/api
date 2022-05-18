@@ -234,4 +234,4 @@ a different account.
 <a name="implant"></a>
 ## Login to different work accounts
 
-It is necessary to read the documentation on Manager Work Accounts in order to get a list of the Manager Work Accounts and to work on different [Manager Work Accounts](manager_accounts.md).
+It is necessary to read the documentation on Manager Work Accounts in order to get a list of the Manager Work Accounts and to work on different [Manager Work Accounts](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1manager_accounts~1mine/get).

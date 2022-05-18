@@ -604,7 +604,7 @@ age | number or null | Age.
 birth_date | string or null | Birthday (`YYYY-MM-DD`).
 gender | [object](#id-name-object) or null | [Gender](dictionaries.md).
 area | [object](#id-name-url-object) or null | City of residence. [areas](areas.md) directory entry.
-metro | [object](#metro-object) or null | The nearest metro station. [metro](metro.md) directory entry.
+metro | [object](#metro-object) or null | The nearest metro station. [metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get) directory entry.
 relocation | [object](#relocation-object) | Information on the possibility of moving to another city.
 business_trip_readiness | [object](#id-name-object) | Readiness to go on business trips. [business_trip_readiness](dictionaries.md#business_trip_readiness) directory entry.
 contact | [array](#contact-object) | Applicant's contact list. 
@@ -617,7 +617,7 @@ salary | [object](#salary-object) or null | Desired salary.
 employments | [array](#id-name-object) | List of types of employment that are suitable for the applicant. [employment](dictionaries.md) directory entries.
 schedules | [array](#id-name-object) | List of working hours that are suitable for the applicant. [schedule](dictionaries.md) directory entries.
 education | [object](#education-object) | Education.
-language | [array](#language-object) | List of languages spoken by the applicant. [languages](languages.md) directory entries. 
+language | [array](#language-object) | List of languages spoken by the applicant. [languages](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1languages/get) directory entries. 
 experience | [array](#experience-object) | Work experience.
 total_experience | [object](#total-experience-object) or null | Total years of service.
 skills | string or null | Additional information, a free-form description of skills.
@@ -626,7 +626,7 @@ citizenship | [array](#id-name-url-object) | Applicant's citizenship list. Entri
 work_ticket | [array](#id-name-url-object) | A list of regions where the applicant has a work permit. Entries of the [directory of regions](areas.md).
 travel_time | [object](#id-name-object) | Acceptable travel time to the place of work. [travel_time](dictionaries.md) directory entry.
 recommendation | [array](#recommendation-object) | List of recommendations.
-resume_locale | [object](#id-name-object) | Resume language (locale). [Resume locales](locales.md) directory entry.
+resume_locale | [object](#id-name-object) | Resume language (locale). [Resume locales](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1locales~1resume/get) directory entry.
 certificate | [array](#certificate-object) | Applicant's certificate list.
 alternate_url | string | URL for the resume on the website.
 created_at | string | Date and time resume was created.
@@ -1245,7 +1245,7 @@ Parameters:
 * `photo` — user photo. see. [artifacts](artifacts.md);
 * `portfolio` — user portfolio. see [artifacts](artifacts.md);
 * `area` — place of residence. Directory entries [areas](areas.md);
-* `metro` — nearest metro station. Directory entries [metro](metro.md). If you submit a metro station that does not exist in submitted area, the field will be ignored;
+* `metro` — nearest metro station. Directory entries [metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get). If you submit a metro station that does not exist in submitted area, the field will be ignored;
   It makes sense to show only for `area` with metro;
 * `relocation` — possible relocation. Consists of the fields:
     * `type` — Directory entries [relocation_type](dictionaries.md);
@@ -1299,7 +1299,7 @@ Consists of the fields:
         * `year` — year graduated;
     * `level` — education level. Directory entries [education_level](dictionaries.md)
 * `language` — languages (list):
-    * `id` - value from [languages](languages.md)
+    * `id` - value from [languages](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1languages/get)
     * `level` - value from [language_level](dictionaries.md).
 * `experience` — work experience (list). It consists of the following fields:
     * `company` — company;
@@ -1320,7 +1320,7 @@ Consists of the fields:
     * `name` — name;
     * `position` — position;
     * `organization` — company;
-* `resume_locale` — resume locale. Directory entries [локали резюме](locales.md).
+* `resume_locale` — resume locale. Directory entries [локали резюме](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1locales~1resume/get).
 * `driver_license_types` - A list of applicant's driving license categories. [driver_license_types](dictionaries.md) directory entry.
 * `has_vehicle` - Does the applicant have their own car;
 * `hidden_fields` - [hidden fields](#hidden-fields) in the resume (list). Directory entry

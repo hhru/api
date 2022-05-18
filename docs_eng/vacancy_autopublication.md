@@ -2,7 +2,7 @@
 
 When auto publishing is active for a draft, this means that payment is pending for an invoice linked with the draft. When the payment
 has cleared, the vacancy from the draft will be published automatically. To get information about the active auto publications,
-refer to the [draft information resource](vacancy_drafts.md).
+refer to the [draft information resource](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-draft).
 
 ## Canceling automatic publication of a vacancy from draft
 
