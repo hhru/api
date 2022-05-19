@@ -768,20 +768,14 @@ Sample response when extension is available:
 }
 ```
 
-Where:
-
-* `actions` – list of available actions to extend the vacancy. At the moment, the system only supports standard extension.
-* `id` – vacancy ID.
-* `expires_at` – publication end date and time.
-
-The following data is available for the action:
-
-* `id` – action ID,
-* `enabled` – is the action possible,
-* `disable_reason` – the reason why extension is unavailable.
-  All possible reasons are listed [in the directory](dictionaries.md)
-  `vacancy_not_prolonged_reason`.
-* `url` and `method` – are the URL and HTTP method required to make a query for this action.
+Path | JSON type | Description
+---- | --- | --------
+actions | object | List of available actions to extend the vacancy. The system supports standard extension only
+actions.id | string | Action ID
+actions.enabled | boolean | Is the action possible
+actions.disable_reason | object | The reason why extension is unavailable. Element of dictionary [vacancy_not_prolonged_reason](dictionaries.md) 
+actions.url | string | url required to make a query for this action
+actions.method | string | HTTP-method required to make a query for this action
 
 ### Errors
 
