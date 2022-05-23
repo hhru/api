@@ -17,11 +17,11 @@ in the left column on the [page with vacancies search results](https://hh.ru/sea
 To obtain data by clusters, add `clusters=true` argument in the `/vacancies` search. In this case, the search response
 will return additional division by clusters, as well as
 normal search results. If you want to get only clusters without a list of found vacancies,
-you can add `?per_page=0` to the query.
+you can add `?per_page=0` to the query. 
 
 Clusters are divided into groups; groups consist of clusters with
 similar meaning. For example, the `Salary` group may contain clusters
-"starts from RUB45,000" and "starts from RUB75,000".
+"starts from RUB45,000" and "starts from RUB75,000". If the cluster doesn't consist searching criteria, then it has an empty array of clusters when following the url. 
 
 Example cluster results in the search, the `clusters` key is added to
 [standard vacancies search results](vacancies.md#search-results).
