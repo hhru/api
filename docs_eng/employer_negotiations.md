@@ -129,7 +129,7 @@ GET /negotiations?vacancy_id={vacancy_id}
 
 where `vacancy_id` – ID of the vacancy.
 
-
+<a name="collections_response"></a>
 ### Response
 
 Successful server response is returned with `200 OK` code and contains:
@@ -1164,7 +1164,8 @@ The response will contain a JSON:
 PUT /vacancies/{id}/preferred_negotiations_order
 ```
 
-where order_by (sorting option ID) should be passed as a parameter
+where order (sorting option ID) should be passed as a parameter from [order_types list](#collections_response). 
+Currently, API doesn't support some kinds of sorting. In this case request return [error](errors.md#general-errors) `400 Bad Request`. 
 
 ### Response
 
