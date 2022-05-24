@@ -130,61 +130,8 @@ The ID of the created manager is sent as:
 
 <a name="edit"></a>
 ## Editing a manager
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1employers~1%7Bemployer_id%7D~1managers~1%7Bmanager_id%7D/put) specification.
 
-### Request
-
-`PUT /employers/{employer_id}/managers/{manager_id}`
-
-where:
-
-* `employer_id` - Employer ID that can be obtained from the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
-* `manager_id` - Manager ID.
-
-The request body passes the following JSON:
-
-```json
-{
-    "position": "Adaptation manager",
-    "phone": {
-        "country": "7",
-        "city": "495",
-        "number": "1568055",
-        "comment": "с 9 до 17"
-    },
-    "additional_phone": {
-         "country": "7",
-         "city": "916",
-         "number": "4555555",
-         "comment": "personal"
-    },
-    "permissions": [
-       {
-           "id": "can_create_vacancy",
-           "name": "Creation and extension of vacancies"
-       },
-       {
-           "id": "can_view_resume_contacts",
-           "name": "View contacts of the applicant"
-       }
-   ]
-}
-```
-
-Can only be edited in the field from the JSON example given here. The description of fields can be found in the [creation request](#add).
-During an update, you can resend all fields or only the fields that will be updated.
-
-### Response
-
-Successful response is returned with `200 OK`.
-
-### Errors
-
-* `404 Not Found` – the employer or manager you specified does not exist or the user does not have enough rights to edit a manager
-* `400 Bad Request` – parameters in the input JSON contain an error. The system will return the error description in the body.
-                      Unknown parameters and parameters with errors in the names are ignored.
-* `403 Forbidden`– incorrect authorisation or other reasons to cancel manager editing
-                   In addition to the HTTP code, the server can return
-                   a description of the [error reason](errors.md#employer_managers).
 
 <a name="delete"></a>
 ## Deleting a manager
