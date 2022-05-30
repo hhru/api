@@ -196,6 +196,16 @@ Successful server response is returned with `200 OK` code and contains:
             "id": "96",
             "name": "Software Development"
         }
+    ],
+    "languages": [
+      {
+        "id": "eng",
+        "name": "English",
+        "level": {
+          "id": "b2",
+          "name": "B2 - upper intermediate"
+        }
+      }
     ]
 }
 ```
@@ -251,7 +261,7 @@ has_test | boolean | Information on whether there is an attached test task for t
 response_url | string or null | You cannot apply for vacancies with `direct` type on hh.ru, these vacancies have an external website URL in the `response_url` key (in most cases, the employer's website with an application form)
 test | object or null | Information about attached test for the job. If there is no test — `null`. **At the moment it is impossible to apply for vacancies with mandatory test with API.**
 test.required | boolean | If the test is mandatory for an application
-specialization | array | Specialisations. [specialisations](specializations.md) directory entries
+specializations | array | Specialisations. [specialisations](specializations.md) directory entries
 specializations[].id | string | Specialisation ID
 specializations[].name | string | Specialisation name
 specializations[].profarea_id | string | ID of the profession that includes this specialisation
@@ -276,7 +286,12 @@ working_time_modes.id | string | Working time modes ID
 working_time_modes.name | string | Working time modes name
 accept_temporary | boolean or null | Indication that the job is available for applicants with accept temporary employment
 professional_roles | array | Array of [professional role objects](#professional-role). This list can be empty.
-
+languages | array or absent | List of languages spoken by the applicant. [languages](languages.md) directory entries.
+languages[].id | string | Language ID.
+languages[].name | string | Language name.
+languages[].level | object | Language proficiency. [language_level](dictionaries.md) directory entry.
+languages[].level.id | string | Field Id.
+languages[].level.name | string | Name of field.
 
 <a name="contacts"></a>
 #### Contact info
