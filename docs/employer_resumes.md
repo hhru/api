@@ -357,7 +357,8 @@
             "id": 5,
             "name": "Автослесарь, автомеханик"
         }
-    ]
+    ],
+    "user_statuses": "В активном поиске работы"
 }
 ```
 <a name="resume-fields"></a>
@@ -407,6 +408,7 @@ hidden_fields | [array](#id-name-object) | [Список скрытых поле
 can_view_full_info | boolean или null | Наличие права просмотра контактной информации в резюме.
 marked | boolean | Наличие "Яркое резюме"
 professional_roles | [array](#professional-role-object) | Массив объектов профролей
+user_statuses | string | [статус поиска работы кандидатом](#user-statuses). [Возможные варианты значений](https://api.hh.ru/user_statuses/available).
 
 
 <a name="id-name-object"></a>
