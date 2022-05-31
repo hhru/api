@@ -108,7 +108,7 @@ GET /negotiations
  per_page | число | Количество элементов на страницу ( > 0 )
  page | число | Номер текущей страницы ( ≥ 0 )
 
-В элементе `items` содержатся данные о откликах:
+В элементе `items` содержатся данные об откликах:
 
  Имя | Тип | Описание
  --- | --- | ---
@@ -126,6 +126,7 @@ GET /negotiations
  messaging_status | строка | Текущий статус переписки. Возможные значения находятся в [справочнике `messaging_status`](./dictionaries.md).
  decline_allowed | Логический | Возможно ли [скрыть отклик](#hide_message) вместе с сообщением работодателю об отказе
  source | строка | Источник отклика. Возможные значения NEGOTIATION, PHONE_CALL, CHAT.
+ job_search_status | объект, null | [Статус поиска работы кандидатом](employer_resumes.md#job-search-status-object). Для получения данных нужно передать параметр `with_job_search_status=true`.
 
 В объекте вакансии ключи `url` и `alternate_url` могут быть `null`, если вакансия недоступна (удалена).
 
@@ -140,7 +141,7 @@ GET /negotiations
  GET /negotiations?status=active
  ```
 
-До 20.04.20 для запроса активных вакансий использвался ресурс:
+До 20.04.20 для запроса активных вакансий использовался ресурс:
 
 ```
 GET /negotiations/active
