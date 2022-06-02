@@ -1109,12 +1109,12 @@ expires | string (date) | service expiration time, if the service is enabled
 Object `actions` (additional actions)
 
 Name | Type | Description
------|-----|---------
+-----|--|---------
 download | [object](#download-object) | Links to download a resume in multiple formats ([learn more](#download-links)).
 download_with_contact | [object](#download-object) or null | Links to download resume with contacts (the service is spent) in multiple formats ([learn more](#download-links)).
 get_with_contact | object or null | Link to get resume with contacts (the service is spent).
 get_with_contact.url | string | Link to get resumes with contacts. Returns an object similar to [viewing a resume](#item)
-
+viewed | logic | field of resume object obtained from the [search request](resumes_search.md). It has value `true` if employer viewed CV
 When contacts are viewed via `download_with_contact` and `get_with_contact` it may transpire that the user has hidden their contact details([learn more](docs_eng/payable/resume.md#viewing-of-resumes-with-contact-info)), yet the viewing will be debited regardless while the reply body will return null in the respective contact data fields. To safeguard against this, make sure the fields you want are available in [hidden_fields](#hidden-fields) the resume.
 The URL in the fields `download_with_contact` and `get_with_contact` is generated automatically and will be different every time.
 
