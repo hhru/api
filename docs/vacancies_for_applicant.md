@@ -1,8 +1,8 @@
 # Работа с вакансиями для соискателя
 
-*[Отобранные вакансии](#favorited)
-*[Дополнительные поля вакансии для соискателей](#vacancy-fields-applicant)
-*[Скрытые вакансии](blacklisted.md)
+* [Отобранные вакансии](#favorited)
+* [Дополнительные поля вакансии для соискателей](#vacancy-fields-applicant)
+* [Скрытые вакансии](blacklisted.md)
 
 
 <a name="favorited"></a>
@@ -10,8 +10,8 @@
 
 Данные методы требуют авторизации соискателем, иначе вернут `403 Forbidden`.
 
-`GET /vacancies/favorited` - возвращает подмножество вакансий, добавленных
-пользователем в отобранные.  Пейджинг работает по стандартным page&per_page,
+`GET /vacancies/favorited` - возвращает [подмножество вакансий](vacancies.md#item), добавленных
+пользователем в отобранные с [дополнительными полями для соискателя](#vacancy-fields-applicant). Пейджинг работает по стандартным page&per_page,
 страницы нумеруются с нуля.
 
 `PUT /vacancies/favorited/{vacancy_id}` добавит указанную вакансию в список.
@@ -55,8 +55,8 @@ HTTP code | type | value | описание
 
 Имя | Тип | Описание
 ---- | --- | --------
-relations | array | При авторизации соискателем, возвращает связи с вакансией. Значения из [справочника vacancy_relation](../docs_eng/dictionaries.md).
+relations | array | При авторизации соискателем, возвращает связи с вакансией. Значения из [справочника vacancy_relation](dictionaries.md).
 negotiations_url | string | Cсылка для получения списка откликов/приглашений
 suitable_resumes_url | string | Подходящие резюме на вакансию
 
-Смотрите также [отклики на вакансии](../docs_eng/negotiations.md#post_negotiation).
+Смотрите также [отклики на вакансии](negotiations.md#post_negotiation).
