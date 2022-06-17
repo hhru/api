@@ -378,8 +378,7 @@ HTTP code | type | value | description
 <a name="employer_managers"></a>
 ### Employer's managers
 
-In addition to [general errors](#general-errors), the following errors can be returned when [adding](employer_managers.md#add)
-and [editing](employer_managers.md#edit) an employer's manager:
+In addition to [general errors](#general-errors), the following errors can be returned when [editing](employer_managers.md#edit) an employer's manager:
 
 HTTP code | type | value | reason | description
 ----------|------|-------|--------|---------

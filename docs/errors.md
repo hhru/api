@@ -367,8 +367,7 @@ HTTP code | type | value | описание
 <a name="employer_managers"></a>
 ### Менеджеры работодателя
 
-Помимо [общих ошибок](#general-errors) при [добавлении](employer_managers.md#add) и
-[редактировании](employer_managers.md#edit) менеджера работодателя могут быть возвращены следующие ошибки:
+Помимо [общих ошибок](#general-errors) при [редактировании](employer_managers.md#edit) менеджера работодателя могут быть возвращены следующие ошибки:
 
 HTTP code | type | value | reason | описание
 ----------|------|-------|--------|---------
