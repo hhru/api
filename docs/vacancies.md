@@ -109,6 +109,7 @@
         "id": "1",
         "name": "Москва"
     },
+    "initial_created_at": "2013-06-08T16:17:21+0400",
     "created_at": "2013-07-08T16:17:21+0400",
     "published_at": "2013-07-08T16:17:21+0400",
     "employer": {
@@ -264,7 +265,8 @@ area | object | Регион размещения вакансии
 area.id | string | Идентификатор региона
 area.name | string | Название региона
 area.url | string | Url получения информации о регионе
-created_at | string | Дата и время создания вакансии
+initial_created_at | string | Дата и время создания вакансии
+created_at | string | Дата и время публикации вакансии
 published_at | string | Дата и время публикации вакансии
 employer | object или null | Короткое представление работодателя. Описание полей смотрите в [информации о работодателе](employers.md#item). Может не прийти в случае, если вакансия анонимная
 employer.blacklisted | boolean | Добавлены ли все вакансии работодателя в [список скрытых](blacklisted.md#employers)

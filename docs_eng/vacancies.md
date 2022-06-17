@@ -112,6 +112,7 @@ Successful server response is returned with `200 OK` code and contains:
         "id": "1",
         "name": "Moscow"
     },
+    "initial_created_at": "2013-06-08T16:17:21+0400",
     "created_at": "2013-07-08T16:17:21+0400",
     "published_at": "2013-07-08T16:17:21+0400",
     "relations": [],
@@ -249,7 +250,8 @@ area | object | Vacancy region
 area.id | string | Region ID
 area.name | string | Region name
 area.url | string | URL for getting information on the region
-created_at | string | Date and time resume was created
+initial_created_at | string | Date and time resume was created
+created_at | string | Date and time of vacancy publication
 published_at | string | Date and time of vacancy publication
 employer | object or null | Brief description of an employer. See field description in [employer information](employers.md#item). null for anonymous vacancy
 employer.blacklisted | boolean | Whether all vacancies of the employer are added to the [list of hidden](blacklisted.md#employers)
