@@ -1487,7 +1487,7 @@ A successful response contains a code `204 No Content` and is body-less.
 
 * `429 Too Many Requests` - If the update is not available yet.
 * `400 Bad Request` - If publication/extension is not possible. The possible causes are:
-  * Mandatory fields are empty,
+  * Mandatory fields are empty (to understand what exactly is not filled in, you can call the url [get resume](#item) and look at the `mandatory` field),
   * The fields have not been not edited after banning by a moderator,
   * The resume is being checked by a moderator.
 * `403 Forbidden` - If the resume cannot be published because of a lack of necessary privileges (for example, for an employer).
