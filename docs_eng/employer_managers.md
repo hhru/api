@@ -31,33 +31,7 @@ A response `403 Forbidden` will be returned if the user is unauthorised or incor
 
 <a name="delete"></a>
 ## Deleting a manager
-
-Deleting a manager is not immediate and can take a while.
-This is why if you request a list of managers **immediately** after successfully deleting a manager the response may include the deleted manager.
-
-### Request
-
-`DELETE /employers/{employer_id}/managers/{manager_id}`
-
-where:
-
-* `employer_id` - Employer ID that can be obtained from the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
-* `manager_id` - Manager ID.
-
-As a mandatory parameter you must include: `successor_id` — ID of the manager who will receive all data related 
-to the deleted manager, in particular: vacancies, applications, files with selected resumes, comments on candidates, automatic searches.
-
-### Response
-
-A successful response contains a code `204 No Content`.
-
-### Errors
-
-* `404 Not Found` – the employer or manager you specified does not exist or the user does not have enough rights to delete
-                    this manager
-* `400 Bad Request` – parameters in the input JSON contain an error. The system will return the error description in the body.
-                      Unknown parameters and parameters with errors in the names are ignored.
-* `403 Forbidden`– incorrect authorisation or other reasons to cancel manager deletion
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1employers~1%7Bemployer_id%7D~1managers~1%7Bmanager_id%7D/delete) specification.
 
 <a name="list"></a>
 ## Directory of employer's managers
