@@ -471,6 +471,7 @@ Successful server response is returned with `200 OK` code and contains:
                 "messages": 100,
                 "unread_messages": 50
             },
+          "source": "NEGOTIATION",
             "test_result": {
                 "url": "https://api.hh.ru/negotiations/1359970704/test/solution",
                 "alternate_url": "https://hh.ru/employer/vacancy_response/test?topicId=1359970704",
@@ -516,6 +517,7 @@ test_result.url | string | Full test's result link
 test_result.alternate_url | string | Full test's result site link
 test_result.score | number | Test's score
 test_result.mark | string | Test's mark (`UNFAIR` - from 0 to 14  points, `FAIR` - from 15 to 44 points, `GOOD` - from 45 to 79 points, `EXCELLENT` from 80 to 100 points)
+source | string | Response source. Available values are NEGOTIATION, PHONE_CALL, CHAT.
 
 <a name="view-resume"></a>
 

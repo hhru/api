@@ -465,6 +465,7 @@ per_page | нет | Количество выдаваемых элементов
                 "messages": 100,
                 "unread_messages": 50
             },
+            "source": "NEGOTIATION",
             "test_result": {
                 "url": "https://api.hh.ru/negotiations/1359970704/test/solution",
                 "alternate_url": "https://hh.ru/employer/vacancy_response/test?topicId=1359970704",
@@ -510,6 +511,7 @@ test_result.url | строка | Ссылка на результат теста
 test_result.alternate_url | строка | Ссылка на результат теста на сайте
 test_result.score | число | Результат прохождения теста (от 0 до 100)
 test_result.mark | строка | Оценка дифференцированная (`UNFAIR` - от 0 до 14  баллов, `FAIR` - от 15 до 44 баллов, `GOOD` - от 45 до 79 баллов, `EXCELLENT` от 80 до 100 баллов)
+source | строка | Источник отклика. Возможные значения NEGOTIATION, PHONE_CALL, CHAT.
 
 <a name="view-resume"></a>
 
@@ -786,6 +788,7 @@ required_arguments | список | Аргументы, которые необ�
         "messages": 100,
         "unread_messages": 50
     },
+  "source": "NEGOTIATION",
     "test_result": {
         "url": "https://api.hh.ru/negotiations/1359970704/test/solution",
         "alternate_url": "https://hh.ru/employer/vacancy_response/test?topicId=1359970704",
