@@ -139,8 +139,10 @@ HeadHunter API — это инструментарий для интеграци
 * [Черновики вакансий](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Получение списка черновиков](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Удаление черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1{draft_id}/delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Публикация черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts/post) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Создание черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts/post) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Публикация вакансий на основе черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1{draft_id}~1publish/post) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Получение черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1%7Bdraft_id%7D/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Изменение черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1%7Bdraft_id%7D/put) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="applicants"></a>
 ### Соискатели
@@ -156,7 +158,7 @@ HeadHunter API — это инструментарий для интеграци
 * [Получение информации о компании](docs/employers.md#item) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Услуги работодателя](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Авторизация работодателя](https://api.hh.ru/openapi/redoc#tag/Avtorizaciya-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Менеджеры работоадателя](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Менеджеры работодателя](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="employer_managers"></a>
 ### Менеджеры работодателя

@@ -17,6 +17,13 @@ and storing their usernames and password.
 > ‼️ Note the [description](./payable/resume.md) of the new resume database management model.
 > The employer has to [pay](/docs_eng/payable/employer_payable_methods.md) for access to some methods .
 
+## [OpenAPI](https://api.hh.ru/openapi/en/redoc)
+
+[OpenAPI](https://api.hh.ru/openapi/en/redoc) documentation will be complemented.  
+Methods are defined in OpenAPI have relevant links.
+
+Specification HeadHunter API: [openapi.yml](https://api.hh.ru/openapi/specification/public/en).
+
 <a name="content"></a>
 ## Content
 
