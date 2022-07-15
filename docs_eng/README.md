@@ -140,7 +140,7 @@ Article labels:
   * [Deleting a manager](employer_managers.md#delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Employer's manager directory](employer_managers.md#list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Getting information about a manager](employer_managers.md#item) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Manager's limits ](employer_manager_resume_limit.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Manager's limits ](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1employers~1%7Bemployer_id%7D~1managers~1%7Bmanager_id%7D~1limits~1resume/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   
 
 <a name="negotiations"></a>
