@@ -253,7 +253,7 @@ area.url | string | URL for getting information on the region
 initial_created_at | string | Date and time resume was created
 created_at | string | Date and time of vacancy publication
 published_at | string | Date and time of vacancy publication
-employer | object or null | Brief description of an employer. See field description in [employer information](employers.md#item). null for anonymous vacancy
+employer | object or null | Brief description of an employer. See field description in [employer information](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1%7Bemployer_id%7D/get). null for anonymous vacancy
 employer.blacklisted | boolean | Whether all vacancies of the employer are added to the [list of hidden](blacklisted.md#employers)
 response_letter_required | boolean | Whether it is mandatory to fill out a message for application
 type | object | Vacancy type. [vacancy_type](dictionaries.md) directory entry.
@@ -546,7 +546,7 @@ Some parameters take multiple values: `key=value&key=value`.
   Directory with possible values: [/industries](industries.md).
   Several values can be indicated.
 
-* `employer_id` – a [company](employers.md) identifier.
+* `employer_id` – a [company](https://api.hh.ru/openapi/en/redoc#tag/Employer) identifier.
   Several values can be indicated.
 
 * `currency` – a currency code.

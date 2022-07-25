@@ -2298,7 +2298,7 @@ The `items` element contains data about negotiations:
  viewed | boolean | note of viewing the record (when requesting this resource, all requests are marked as viewed)
  employer | object | company info (see below)
 
-`employer` object returns brief company info, a subset of the [company/employer](employers.md) object.
+`employer` object returns brief company info, a subset of the [company/employer](https://api.hh.ru/openapi/en/redoc#tag/Employer) object.
 
 If an anonymous employer viewed the resume or the resume was viewed from
 applications to an anonymous vacancy, `employer` may contain only the `name` key.

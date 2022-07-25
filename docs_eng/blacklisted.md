@@ -28,7 +28,7 @@ This operation is idempotent. After successful deletion, the method returns `204
 
 In addition to adding individual vacancies, it is possible to add all vacancies from a particular company.
 
-`GET /employers/blacklisted` returns a [subset of employers](employers.md#search) hidden by the user.
+`GET /employers/blacklisted` returns a [subset of employers](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers/get) hidden by the user.
 Authorisation is required, otherwise it will return `403 Forbidden`. Pagination is available; pages are numbered from '0.'
 In addition, the `"limit_reached": true/false` key is returned in the root object, which indicates whether
 the maximum number of items in the list is exceeded. 
