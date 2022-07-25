@@ -202,7 +202,8 @@ some additional fields.
                 "country": "7",
                 "city": "495",
                 "number": "1234567",
-                "comment": "from 10 to 20"
+                "comment": "from 10 to 20",
+                "formatted": "79198883344"
             }
         ]
     },
@@ -454,7 +455,13 @@ A successful response contains the `200 OK` response code and a body:
                         "min_length": 4,
                         "regexp": "^[\\d -]{4,32}$",
                         "required": true
-                    }
+                    },
+                    "formatted": {
+                        "max_length": 43,
+                        "min_length": 6,
+                        "regexp": "^\\d{6,43}$",
+                        "required": false
+                  }
                 },
                 "max_count": 2,
                 "min_count": 0,
