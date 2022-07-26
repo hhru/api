@@ -118,7 +118,7 @@ Article labels:
 <a name="applicants"></a>
 ### Applicants
 
-* [Applicant comments](applicant_comments.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Applicant comments](https://api.hh.ru/openapi/en/redoc#tag/Applicant-comments) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Info on current authorized user](https://api.hh.ru/openapi/en/redoc#tag/Applicant-info/paths/~1me/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Editing information on the authorized user](https://api.hh.ru/openapi/en/redoc#tag/Applicant-info/paths/~1me/post) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 

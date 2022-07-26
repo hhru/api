@@ -67,7 +67,7 @@ Example: [https://api.hh.ru/dictionaries?locale=EN](https://api.hh.ru/dictionari
 * `employer_type` - employer type
 * `employer_relation` - methods of contacting applicants
 * `applicant_comments_order` - sorting type of the 
-  [applicant comment list](applicant_comments.md#list)
+  [applicant comment list](https://api.hh.ru/openapi/en/redoc#tag/Applicant-comments/paths/~1applicant_comments~1%7Bapplicant_id%7D/get)
 * `vacancy_not_prolonged_reason` – the reasons why 
   [prolongation](employer_vacancies.md#prolongate-info) not available
 

@@ -1149,7 +1149,7 @@ The `owner` field contains the following information on the resume owner:
 Name | Type | Description
 --- | --- | ---
 id | string | Resume owner ID
-comments | object | [comments for the resume owner](applicant_comments.md#list)
+comments | object | [comments for the resume owner](https://api.hh.ru/openapi/en/redoc#tag/Applicant-comments/paths/~1applicant_comments~1%7Bapplicant_id%7D/get)
 comments.url | string | The URL to perform a GET request to obtain the list of comments
 comments.counters | object | information on the number of comments
 comments.counters.total | number | total number of comments
