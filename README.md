@@ -147,7 +147,7 @@ HeadHunter API — это инструментарий для интеграци
 <a name="applicants"></a>
 ### Соискатели
 
-* [Комментарии к соискателю](docs/applicant_comments.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Комментарии к соискателю](https://api.hh.ru/openapi/redoc#tag/Kommentarii-k-soiskatelyu) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Авторизация соискателя](https://api.hh.ru/openapi/redoc#tag/Avtorizaciya-soiskatelya) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Соискательские статусы](https://api.hh.ru/openapi/redoc#tag/Soiskatelskie-statusy) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 

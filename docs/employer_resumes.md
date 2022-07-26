@@ -794,7 +794,7 @@ description | строка, null | примечание к использова�
 Имя | Тип | Описание
 --- | --- | ---
 id | string | id владельца резюме
-comments | object | [комментарии к владельцу резюме](applicant_comments.md#list)
+comments | object | [комментарии к владельцу резюме](https://api.hh.ru/openapi/redoc#tag/Kommentarii-k-soiskatelyu/paths/~1applicant_comments~1%7Bapplicant_id%7D/get)
 comments.url | string | url, GET-запрос на который возвращает список комментариев
 comments.counters | object | информация о количестве комментариев
 comments.counters.total | number | общее количество комментариев

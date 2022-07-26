@@ -62,7 +62,7 @@
 * `vacancy_not_prolonged_reason` — причины, из-за которых невозможно
   [продлить вакансию](employer_vacancies.md#prolongate-info).
 * `applicant_comments_order` — типы сортировки
-  [списка комментариев к соискателю](applicant_comments.md#list)
+  [списка комментариев к соискателю](https://api.hh.ru/openapi/redoc#tag/Kommentarii-k-soiskatelyu/paths/~1applicant_comments~1%7Bapplicant_id%7D/get)
 * `applicant_comment_access_type` - тип доступа для комментария к соискателю
 * `phone_call_status` — статус звонка, зафиксированного в системе кол-трекинг
 
