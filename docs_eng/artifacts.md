@@ -9,7 +9,7 @@ a resume.
 
 * [Get artifacts](#list)
 * [Uploading an artifact](#upload)
-* [Conditions for uploading artifacts](#conditions)
+* [Conditions for uploading artifacts](https://api.hh.ru/openapi/en/redoc#tag/Artifact-managing)
 * [Editing an artifact](#edit)
 * [Deleting an artifact](#delete)
 * [Attaching a photo/portfolio to a resume](#link-with-resume)
@@ -95,7 +95,7 @@ type | yes | type of artifact: `photo` or `portfolio`
 description | no | text description, makes sense for `portfolio`
 file | yes | file
 
-Restrictions on file types and size can be found in [conditions for uploading artifacts](#conditions).
+Restrictions on file types and size can be found in [conditions for uploading artifacts](https://api.hh.ru/openapi/en/redoc#tag/Artifact-managing).
 
 ### Response
 
@@ -122,83 +122,6 @@ Response fields are the same as for [element fields in the artifacts list](#item
 * `413 Request Entity Too Large` – image too large
 
 In addition to the HTTP code, the server can return a description of the [error reason](errors.md#artifacts).
-
-
-<a name="conditions"></a>
-## Conditions for uploading artifacts
-
-Artifacts uploading conditions are different for each type.
-
-### Request
-
-```
-GET /artifacts/photo/conditions
-```
-
-```
-GET /artifacts/portfolio/conditions
-```
-
-### Response
-
-Successful response is returned with `200 OK` code and body:
-
-```json
-{
-    "fields": {
-        "description": {
-            "max_length": 255,
-            "min_length": 0,
-            "required": false
-        },
-        "file": {
-            "max_size": 6291456,
-            "mime_type": [
-                "image/jpeg",
-                "image/png",
-                "image/psd"
-            ],
-            "required": true
-        },
-        "type": {
-            "required": true
-        }
-    },
-    "counters": {
-        "max": 20,
-        "uploaded": 2
-    }
-}
-```
-
-<a name="conditions-fields"></a>
-#### An object `fields`
-
-Name | Type | Description
---- | --- | --------
-description | object | conditions for description field
-description.required | boolean | is description field required
-description.max_length | number | max size of description text field
-description.min_length | number | min size of description text field
-file | object | conditions for file field
-file.max_size | number | max file size
-file.mime_type | array | list of allowed files [MIME-types](https://www.iana.org/assignments/media-types/media-types.xhtml)
-file.required | boolean | is file field required
-type | object | conditions for type field
-type.required | boolean | is type field required
-
-
-<a name="conditions-counters"></a>
-#### An object `counters`
-
-Name | Type | Description
---- | --- | --------
-max | number | maximum number of artifacts of this type
-uploaded | number | number of uploaded artifatcs of this type
-
-### Errors
-
-* `403 Forbidden` – current user is not a applicant
 
 
 <a name="edit"></a>
