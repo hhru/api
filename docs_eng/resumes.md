@@ -1433,6 +1433,7 @@ not_belong_this_city | this metro station is not in the specified city
 required_with_not_started_career | submit work experience if the specialty was not the career start
 not_match_regexp | value does not match regular expression
 more_than_one | more than one email sent
+not_available | provided not available value
 
 <a name="error-pointer"></a>
 `pointer` for identifying the value uses JsonPointer format [RFC 6901](https://tools.ietf.org/html/rfc6901).
