@@ -7,4 +7,4 @@
 * [Department directory](employer_departments.md)
 * [Test directory](employer_tests.md)
 * [List of regions with active vacancies](employer_vacancy_areas_active.md)
-* [List of branded vacancy templates](employer_vacancy_branded_templates.md)
+* [List of branded vacancy templates](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)

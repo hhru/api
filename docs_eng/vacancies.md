@@ -415,7 +415,7 @@ can_upgrade_billing_type | logical | If the vacancy billing type can be upgraded
 In object `manager` – the information on the manager posted the vacancy.
 
 In object `branded_template` – info on
-[branded template](employer_vacancy_branded_templates.md) used in vacancy.
+[branded template](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) used in vacancy.
 
 In object `test` key `id` is available for the initiator, in object
 `address` following objects are available:

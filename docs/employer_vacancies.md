@@ -316,7 +316,7 @@ response_notifications | boolean или null | уведомлять о новы�
 response_letter_required | boolean или null | требовать сопроводительное письмо
 accept_handicapped | boolean или null | указание, что вакансия доступна для соискателей с инвалидностью
 accept_kids | boolean или null | указание, что вакансия доступна для соискателей от 14 лет [подробнее](employer_vacancies_accept_kids.md#accept-kids)
-branded_template.id | string или null | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
+branded_template.id | string или null | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)
 driver_license_types | array или null | список требуемых категорий водительских прав
 driver_license_types[].id | string | категория водительских прав. элемент справочника [driver_license_types](dictionaries.md)
 accept_incomplete_resumes | boolean или null | разрешен ли отклик на вакансию неполным резюме
@@ -688,7 +688,7 @@ working_days | рабочие дни
 working_time_intervals | временные интервалы работы
 working_time_modes | режимы времени работы
 accept_temporary | указание, что вакансия доступна для соискателей с временным трудоустройством
-branded_template.id | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](employer_vacancy_branded_templates.md#list)
+branded_template.id | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)
 
 Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.
 

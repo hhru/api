@@ -309,7 +309,7 @@ some additional fields.
  response_letter_required    | boolean or null | mandatory cover letter
  accept_handicapped          | boolean or null | indication that the job is available for applicants with disabilities
  accept_kids                 | boolean or null | indication that the job is available for applicants as young as 14 years old [details](employer_vacancies_accept_kids.md#accept-kids)|
- branded_template.id         | string or null  | <a name="branded-template-field"></a> branded vacancy description from [directory](employer_vacancy_branded_templates.md#list) |
+ branded_template.id         | string or null  | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
  driver_license_types        | array or null   | list of required driver license categories
  driver_license_types[].id   | string          | driving license category. element of [driver_license_type](dictionaries.md) directory
  accept_incomplete_resumes   | boolean or null  | whether it is possible to apply with an incomplete resume
@@ -607,7 +607,7 @@ to change the specialisation you will have to send a full list.
  custom_employer_name       | company name for anonymous vacancies                                 
  response_url               | application URL for direct vacancies   
  accept_incomplete_resumes  | whether it is possible to apply with an incomplete resume   
- branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](employer_vacancy_branded_templates.md#list) |
+ branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
 
 The remaining fields are read-only or can only be set during initial publication.
 
