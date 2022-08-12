@@ -260,6 +260,12 @@ publications[].areas_url | string | URL на список регионов, в �
             "id": "start_after_sixteen"
         }
     ],
+    "languages": {
+        "id": "eng",
+        "level": {
+          "id": "a1"
+        }
+    },
     "accept_temporary": true
 }
 ```
@@ -327,6 +333,10 @@ working_time_intervals[].id | string | временной интервал ра�
 working_time_modes | array или null | список режимов времени работы
 working_time_modes[].id | string | режимы времени работы из [справочника working_time_modes](dictionaries.md)
 accept_temporary | boolean или null | указание, что вакансия доступна с временным трудоустройством
+languages | object или null | Язык. Элемент справочника [languages](languages.md).
+languages.id | string | Идентификатор языка.
+languages.level | object| Уровень знания языка. Элемент справочника [language_level](dictionaries.md).
+languages.level.id | string| Идентификатор уровня знания языка.
 
 <a name="creation-results"></a>
 ### Ответ
@@ -689,6 +699,8 @@ working_time_intervals | временные интервалы работы
 working_time_modes | режимы времени работы
 accept_temporary | указание, что вакансия доступна для соискателей с временным трудоустройством
 branded_template.id | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)
+languages[].id | Элемент справочника [languages](languages.md).
+languages[].level.id | Идентификатор уровня знания языка. Элемент справочника [language_level](dictionaries.md).
 
 Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.
 

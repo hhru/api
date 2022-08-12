@@ -252,6 +252,12 @@ some additional fields.
             "id": "start_after_sixteen"
         }
     ],
+    "languages": {
+        "id": "eng",
+        "level": {
+            "id": "a1"
+        }
+    },
     "accept_temporary": true
 }
 ```
@@ -312,7 +318,7 @@ some additional fields.
  branded_template.id         | string or null  | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
  driver_license_types        | array or null   | list of required driver license categories
  driver_license_types[].id   | string          | driving license category. element of [driver_license_type](dictionaries.md) directory
- accept_incomplete_resumes   | boolean or null  | whether it is possible to apply with an incomplete resume
+ accept_incomplete_resumes   | boolean or null | whether it is possible to apply with an incomplete resume
  working_days                | array or null   | list of working days
  working_days[].id           | string          | working days ID. element of [справочника working_days](dictionaries.md)
  working_time_intervals      | array or null   | list of working time intervals
@@ -320,6 +326,10 @@ some additional fields.
  working_time_modes          | array or null   | list of working time modes
  working_time_modes[].id     | string          | working time modes ID. element of [справочника working_time_modes](dictionaries.md)
  accept_temporary            | boolean or null | indication that the job is available for applicants with accept temporary employment
+languages                    | object or null  | language object. 
+languages.id                 | string          | language ID. [Languages](languages.md) directory entries.
+languages.level              | object          | language proficiency. 
+languages.level.id           | string          | field Id. [Language_level](dictionaries.md) directory entry.
 
 <a name="creation-results"></a>
 ### Response
@@ -608,6 +618,8 @@ to change the specialisation you will have to send a full list.
  response_url               | application URL for direct vacancies   
  accept_incomplete_resumes  | whether it is possible to apply with an incomplete resume   
  branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
+languages[].id | string | language ID. [Languages](languages.md) directory entries.
+languages[].level.id | string | field Id. [anguage_level](dictionaries.md) directory entry.
 
 The remaining fields are read-only or can only be set during initial publication.
 
