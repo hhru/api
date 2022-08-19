@@ -13,7 +13,6 @@
 ----|---------
 invite | текст при приглашении соискателя на вакансию
 invite_after_response | текст [при приглашении после отклика со стороны соискателя](employer_negotiations.md#invite)
-quick_discard_after_response | текст пригодный для [быстрого отказа](employer_negotiations.md#discard) (без вывода на подтверждение пользователю текста отказа)
 discard_after_response | текст при [отказе после отклика](employer_negotiations.md#discard)
 discard_after_interview | текст при [отказе после приглашения соискателя на интервью](employer_negotiations.md#discard)
 
