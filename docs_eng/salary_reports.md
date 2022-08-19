@@ -6,6 +6,19 @@
     * [Successful response](#salary-evaluation-response)
         * [Parameters of indirect salary assessment](#salary-evaluation-response-indirect-calculation)
     * [Errors](#salary-evaluation-errors)
+## Description of salary statistics
+
+Information on actual wages provided by project participants is used as the main source of data. All participant questionnaires are checked by moderators, information about wages that is significantly different from the prevailing market conditions is not included in the salary databank.
+If there is a lack of data on actual salaries, the API can additionally use information from vacancies and resumes. This source is less reliable, since the data on salaries in vacancies is not moderated additionally and may contain information that differs significantly from the current market situation. In addition, the specialization and level of the specialist are not always determined correctly for vacancies and resumes. Therefore, information about salaries from vacancies and resumes is used only when information about actual salaries is insufficient.
+The salary databank API uses several ways to extend the sample if there is not enough data to get results for a query:
+- Combining information from multiple industries if there is insufficient data for the requested industry.
+- Combining information from several closely related specializations if the data on the requested specialization is insufficient.
+- Combining information from multiple cities within a region if there is not enough data for the requested city.
+- Using information on the requested specializations from another region and then correcting it for the calculated coefficient of the difference in salaries between the regions.
+
+The salary databank API supports sending requests in two ways.
+- Query for specific specializations according to the salary databank directory. This method is recommended.
+- Query by job title. In this case, the program tries to independently match the job title with the specializations from the salary databank. Further calculations are performed for automatically identified specializations using the same algorithm.
 
 <a name="salary-evaluation"></a>
 ## Salary assessment without forecasts

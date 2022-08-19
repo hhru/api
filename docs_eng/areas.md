@@ -5,6 +5,7 @@
 * [Tree view of all regions](#areas)
 * [Region directory, starting from the indicated region](#item)
 * [Countries](#countries)
+* [Additional request parameters](#additional_parameters)
 
 See also:
 
@@ -66,3 +67,39 @@ Example: [https://api.hh.ru/areas/1146?locale=EN](https://api.hh.ru/areas/1146?l
   }
 ]
  ```
+<a name="additional_parameters"></a>
+## Additional request parameters
+
+Only for Russian localization, you can get an additional field — area name in prepositional case. To do this, pass the query parameter:
+
+`GET /areas/{area_id}?additional_case=prepositional`
+
+Example: [https://api.hh.ru/areas/1?additional_case=prepositional](https://api.hh.ru/areas/1?additional_case=prepositional)
+
+```json
+{
+  "id": "1",
+  "parent_id": "113",
+  "name": "Москва",
+  "areas": [],
+  "name_prepositional": "в Москве"
+}
+```
+
+### Errors when querying
+Passing an unsupported case returns the error
+
+`GET /areas/{area_id}?additional_case=wrong_case`
+
+Example: [https://api.hh.ru/areas/1?additional_case=wrong_case](https://api.hh.ru/areas/1?additional_case=wrong_case)
+
+```json
+{
+  "errors": [
+    {
+      "type": "bad_argument",
+      "value": "wrong_case"
+    }
+  ]
+}
+```

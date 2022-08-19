@@ -360,10 +360,60 @@ The response body will return the id of the published vacancy:
     a vacancy with similar details. If you are sure that
     a duplicate is necessary, you can add
   `POST /vacancies?ignore_duplicates=true`.
-* `400 Bad Request` – the field error argument to your request when publishing the vacancy.
+* `400 Bad Request` – the field error argument to your request when publishing the vacancy.Additionally,
+  [extended information](#vacancy-validation) on errors is expected.
 
-In addition to the HTTP code, the server can return a description of the [error reason](errors.md#vacancies-create-n-edit).
+In addition to the HTTP code, the server can return a description of [the error cause](errors.md#vacancies-create-n-edit).
 
+<a name="vacancy-validation"></a>
+### Errors in using fields when creating and editing a job
+
+When creating and editing a job, the values in the fields are checked (validation) - the format of using the fields and
+values (see [Parameters](#creation_fields)), data availability, business rules.
+
+In the event of errors, the response will be `400 Bad Request` with the following body:
+
+Name | Type | Description
+--- | --- | ---
+type | string | Error class (always takes the value of 'bad_json_data')
+reason | string | Error reason
+value | string | Field where the error was found
+description | string | Error description for user
+pointer | string | [Data pointer](#error-pointer) with error in the incoming message
+
+Validation error extends [the standard API error](errors.md#general-errors).
+Possible [causes of errors](errors.md#vacancies-create-n-edit)
+
+<a name="error-pointer"></a>
+`pointer` the JsonPointer format [RFC 6901](https://tools.ietf.org/html/rfc6901) is used for the specification.
+For example, `/contacts/phones/1/number` means that an error is in the field from the message (`number` - must be a string):
+
+```json
+{
+  
+...
+  
+  "contacts": {
+    "phones": [
+      {
+        "country": "7",
+        "city": "912",
+        "number": "3456789",
+        "comment": ""
+      },
+      {
+        "country": "7",
+        "city": "912",
+        "number": 3456789,
+        "comment": "number задан числом - ошибка"
+      }
+    ]
+  }
+  
+...
+        
+}
+```
 
 <a name="conditions"></a>
 ## Conditions for filling out fields when publishing and adding vacancies
