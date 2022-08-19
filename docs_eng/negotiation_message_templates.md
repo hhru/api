@@ -10,7 +10,6 @@ Name| Description
 ----|---------
 invite| text for invitation of the applicant for a vacancy
 invite_after_response| text [for invitation after the applicant's response](employer_negotiations.md#invite)
-quick_discard_after_response| text suitable for [quick rejection](employer_negotiations.md#discard) (without displaying the rejection text confirmation to the user)
 discard_after_response| text for [rejection after the response](employer_negotiations.md#discard)
 discard_after_interview| text for [rejection after invitation of the applicant for an interview](employer_negotiations.md#discard)
 
