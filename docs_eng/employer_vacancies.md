@@ -360,64 +360,9 @@ The response body will return the id of the published vacancy:
     a vacancy with similar details. If you are sure that
     a duplicate is necessary, you can add
   `POST /vacancies?ignore_duplicates=true`.
-* `400 Bad Request` – the field error argument to your request when publishing the vacancy.Additionally,
-  [extended information](#vacancy-validation) on errors is expected.
+* `400 Bad Request` – the field error argument to your request when publishing the vacancy.
 
-In addition to the HTTP code, the server can return a description of [the error cause](errors.md#vacancies-create-n-edit).
-
-<a name="vacancy-validation"></a>
-### Errors in using fields when creating and editing a job
-
-When creating and editing a job, the values in the fields are checked (validation) - the format of using the fields and
-values (see [Parameters](#creation_fields)), data availability, business rules.
-
-In the event of errors, the response will be '400 Bad Request' with the following body:
-
-Name | Type | Description
---- | --- | ---
-type | string | Error class (always takes the value of 'bad_json_data')
-reason | string | Error reason
-value | string | Field where the error was found
-description | string | Error description for user
-pointer | string | [Data pointer](#error-pointer) with error in the incoming message
-
-Validation error extends [the standard API error](errors.md#general-errors).
-
-<a name="error-pointer"></a>
-'pointer' the JsonPointer format [RFC 6901] is used for the specification (https://tools.ietf.org/html/rfc6901).
-For example, `/contacts/phones/1/number` means that an error is in the field from the message (`number` - must be a string):
-
-https://github.com/hhru/api/pull/566/files
-[Additional request parameters](#additional_parameters)
-
-Only for Russian localization, you can get an additional field — area name in prepositional case. To do this, pass the query parameter:
-
-### Errors when querying
-Passing an unsupported case returns the error
-
-Possible causes of errors:
-
-reason | description
--------|---------
-is_empty | empty value
-wrong_size | wrong size of the value
-is_too_short | the value is too small
-is_too_long | the value is too large
-currency_code_is_invalid | the wage currency is entered incorrectly
-chosen_area_is_not_a_leaf_or_not_exist | the location of the job is entered incorrectly (for example, an id was sent that does not exist) or is not the final region (city, town)
-email_in_description | the job description contains an email
-anonymous_vacancy_contains_address | the anonymous vacancy must not contain the employer's address
-anonymous_vacancy_has_real_company_name | the job title must not contain the employer's company name
-only_for_anonymous_type | the action is available only for anonymous vacancies
-address_is_disabled | the address is not available
-vacancy_type_employer_billing_type_mismatch | the vacancy type is not compatible with the current billing type
-only_for_direct_type | the action is available only for direct vacancies
-address_is_empty_with_checked_show_metro_flag | an empty address with an instruction to show the subway station is entered
-address_has_no_metro_but_checked_show_metro_flag | no subway station is available for the entered address, but the option to show the subway is specified
-default_vacancy_branded_template_is_invalid_or_not_enough_purchased_services | the request specifies a template that is not on the list of available templates (this list can be obtained using [the request](https://github.com/hhru/api/blob/master/docs/employer_vacancy_branded_templates.md#list) ). The template may also not be on the list of available templates if the use of [branded job template](https://hh.ru/price?from=menu#branding) is not paid for.
-department_code_prohibited_in_anonymous_vacancy | you cannot specify a department code for an anonymous vacancy
-branded_template_prohibited_in_anonymous_vacancy | branded template cannot be used for anonymous vacancies
-value_conflict_with_business_rules | the posting of a job with the specified billing_type is not allowed
+In addition to the HTTP code, the server can return a description of the [error reason](errors.md#vacancies-create-n-edit).
 
 
 <a name="conditions"></a>
