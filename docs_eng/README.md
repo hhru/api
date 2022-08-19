@@ -13,6 +13,8 @@ application at [https://dev.hh.ru](https://dev.hh.ru) and set up the [authorizat
 
 After registration, the application can request of hh.ru users permission to access their personal data without obtaining 
 and storing their usernames and password.
+>‼️ Note [Support for a new catalog of specializations (professional roles)](docs_eng/role_catalog_article.md).
+New catalog of specializations (professional roles). [Support in API HH](docs_eng/role_catalog_article.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 > ‼️ Note the [description](./payable/resume.md) of the new resume database management model.
 > The employer has to [pay](/docs_eng/payable/employer_payable_methods.md) for access to some methods .
