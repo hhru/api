@@ -55,7 +55,7 @@ HTTP code | type | value | описание
 
 Имя | Тип | Описание
 ---- | --- | --------
-relations | array | При авторизации соискателем, возвращает связи с вакансией. Значения из [справочника vacancy_relation](dictionaries.md).
+relations | array | При авторизации соискателем, возвращает связи с вакансией. Значения из [справочника vacancy_relation](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 negotiations_url | string | Cсылка для получения списка откликов/приглашений
 suitable_resumes_url | string | Подходящие резюме на вакансию
 

@@ -174,7 +174,7 @@
 ```
 
 Возможные значения состояния отклика/приглашения для соискателя доступны в
-[справочнике negotiations_state](dictionaries.md), а для работодателя – в
+[справочнике negotiations_state](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get), а для работодателя – в
 [списке работодательских состояний по вакансии](employer_negotiations.md#states)
 (могут различаться в разных вакансиях).
 

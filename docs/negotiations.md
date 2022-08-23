@@ -37,10 +37,10 @@ GET /negotiations
 
  Имя | Обязательный | Описание
  --- | ------------ | ---
- order_by | нет | тип сортировки, возможные значения указаны в [справочнике `negotiations_order`](dictionaries.md#negotiations)
+ order_by | нет | тип сортировки, возможные значения указаны в [справочнике `negotiations_order`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
  order | нет | направление сортировки. Возможные значения: `asc`, `desc`.
  vacancy_id | нет | фильтр по id вакансии
- status | нет | учитывать только отклики находящиеся в определенном статусе. Возможные значения указаны в [справочнике `applicant_negotiation_status`](dictionaries.md#negotiations)
+ status | нет | учитывать только отклики находящиеся в определенном статусе. Возможные значения указаны в [справочнике `applicant_negotiation_status`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
  has_updates | нет | учитывать только отклики, для которых есть непросмотренные сообщения. Возможные значения: `true`, `false`
 
 По умолчанию отклики сортируются по последнему обновлению от новых к старым.
@@ -113,7 +113,7 @@ GET /negotiations
  Имя | Тип | Описание
  --- | --- | ---
  id | строка | Идентификатор отклика
- state | объект | Текущее состояние отклика. Разрешенные значения находятся в справочнике [/dictionaries](./dictionaries.md) в разделе ```negotiations_state``` 
+ state | объект | Текущее состояние отклика. Разрешенные значения находятся в справочнике [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get) в разделе ```negotiations_state``` 
  hidden | логический | Скрыт ли текущий отклик (True - отклик скрыт, False - отклик активен)
  created_at | строка | Дата и время создания отклика
  updated_at | строка | Дата и время последнего обновления отклика
@@ -123,7 +123,7 @@ GET /negotiations
  phone_calls | объект, null | [Представление истории звонков по вакансии](phone_calls.md)
  has_updates | логический | Есть ли непросмотренные сообщения в отклике. Флаг сбрасывается при различных действиях по отклику, например, [просмотре списка сообщений](#get_messages).
  viewed_by_opponent | логический | Был ли отклик просмотрен работодателем
- messaging_status | строка | Текущий статус переписки. Возможные значения находятся в [справочнике `messaging_status`](./dictionaries.md).
+ messaging_status | строка | Текущий статус переписки. Возможные значения находятся в [справочнике `messaging_status`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
  decline_allowed | Логический | Возможно ли [скрыть отклик](#hide_message) вместе с сообщением работодателю об отказе
  source | строка | Источник отклика. Возможные значения NEGOTIATION, PHONE_CALL, CHAT.
  job_search_status | объект, null | [Статус поиска работы кандидатом](employer_resumes.md#job-search-status-object). Для получения данных нужно передать параметр `with_job_search_status=true`.
@@ -360,9 +360,9 @@ GET /negotiations/{nid}/messages
  editable | логический | Можно ли редактировать текст сообщения
  created_at | строка | Дата и время создания сообщения
  text | строка | Текст сообщения
- state | объект | Текущее состояние отклика. Возможные значения находятся в справочнике [/dictionaries](./dictionaries.md) в разделе `negotiations_state`
+ state | объект | Текущее состояние отклика. Возможные значения находятся в справочнике [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get) в разделе `negotiations_state`
  author | объект | Кто автор сообщения
- author.participant_type | строка | Роль автора сообщения. Возможные значения находятся в справочнике [/dictionaries](./dictionaries.md) в разделе `negotiations_participant_type`
+ author.participant_type | строка | Роль автора сообщения. Возможные значения находятся в справочнике [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get) в разделе `negotiations_participant_type`
  address | объект, null | [Адрес](./address.md), привязанный к отклику/приглашению
  assessments | массив | [инструменты оценки](assessment.md), привязанные к сообщению
 

@@ -96,9 +96,9 @@
 name | string | Название типа публикации
 description | string | Описание
 available_publications_count | number | Общее количество публикаций, доступных данному менеджеру. Равняется сумме `publications[].count` или значению, выставленному в квотах, если оно меньше
-vacancy_billing_type.id | string | Биллинговый тип [из справочника vacancy_billing_type](dictionaries.md).
+vacancy_billing_type.id | string | Биллинговый тип [из справочника vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 vacancy_types | array | Список типов вакансии
-vacancy_types[].id | string | Тип вакансии [из справочника vacancy_type](dictionaries.md)
+vacancy_types[].id | string | Тип вакансии [из справочника vacancy_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 publications | array | Список регионов, где может быть опубликована вакансия и количество публикаций, доступных работодателю 
 publications[].name | string | Название региона
 publications[].count | number | Количество публикаций в регионе, доступных работодателю
@@ -289,21 +289,21 @@ specializations[].id | string | специализация [из справоч�
 professional_roles | array | массив профессиональных ролей с количеством элементов равным 1 (если передать больше возникнет [ошибка](errors.md#причины-возникновения-ошибок) `is_too_long`) [при использовании параметра](#creation-with_professional_roles) `with_professional_roles=true`
 professional_roles[].id | string | индификатор профессиональной роли [из справочника](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
 area.id | string | город публикации [из справочника](areas.md)
-type.id | string | тип из [справочника vacancy_type](dictionaries.md)
-billing_type.id | string | биллинговый тип [из справочника vacancy_billing_type](dictionaries.md)
+type.id | string | тип из [справочника vacancy_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+billing_type.id | string | биллинговый тип [из справочника vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 code | string или null | внутренний код вакансии
 department.id | string | департамент [из справочника](employer_departments.md), от имени которого размещается вакансия (если данная возможность доступна для компании)
 salary | object или null | зарплата
 salary.from | numeric или null | нижняя граница зарплаты
 salary.to | numeric или null | верхняя граница зарплаты
 salary.gross | boolean | признак что границы зарплаты указаны до вычета налогов
-salary.currency | string | код валюты из [справочника currency](dictionaries.md)
+salary.currency | string | код валюты из [справочника currency](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 address | object или null | адрес
 address.id | string | адрес из [списка доступных адресов работодателя](employer_addresses.md)
 address.show_metro_only | boolean | показывать только метро для указанного адреса
-experience.id | string или null | требуемый опыт работы из [справочника experience](dictionaries.md)
-schedule.id | string или null | график работы из [справочника schedule](dictionaries.md)
-employment.id | string | тип занятости из [справочника employment](dictionaries.md)
+experience.id | string или null | требуемый опыт работы из [справочника experience](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+schedule.id | string или null | график работы из [справочника schedule](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+employment.id | string | тип занятости из [справочника employment](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 contacts | object или null | контактная информация
 contacts.name | string | контактное лицо
 contacts.email | string | email
@@ -325,18 +325,18 @@ accept_handicapped | boolean или null | указание, что ваканс
 accept_kids | boolean или null | указание, что вакансия доступна для соискателей от 14 лет [подробнее](employer_vacancies_accept_kids.md#accept-kids)
 branded_template.id | string или null | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)
 driver_license_types | array или null | список требуемых категорий водительских прав
-driver_license_types[].id | string | категория водительских прав. элемент справочника [driver_license_types](dictionaries.md)
+driver_license_types[].id | string | категория водительских прав. элемент справочника [driver_license_types](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 accept_incomplete_resumes | boolean или null | разрешен ли отклик на вакансию неполным резюме
 working_days | array или null | список рабочих дней
-working_days[].id | string | рабочие дни из [справочника working_days](dictionaries.md)
+working_days[].id | string | рабочие дни из [справочника working_days](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 working_time_intervals | array или null | список с временными интервалами работы
-working_time_intervals[].id | string | временной интервал работы из [справочника working_time_intervals](dictionaries.md)
+working_time_intervals[].id | string | временной интервал работы из [справочника working_time_intervals](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 working_time_modes | array или null | список режимов времени работы
-working_time_modes[].id | string | режимы времени работы из [справочника working_time_modes](dictionaries.md)
+working_time_modes[].id | string | режимы времени работы из [справочника working_time_modes](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 accept_temporary | boolean или null | указание, что вакансия доступна с временным трудоустройством
 languages | object или null | Язык. Элемент справочника [languages](languages.md).
 languages.id | string | Идентификатор языка.
-languages.level | object| Уровень знания языка. Элемент справочника [language_level](dictionaries.md).
+languages.level | object| Уровень знания языка. Элемент справочника [language_level](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 languages.level.id | string| Идентификатор уровня знания языка.
 
 <a name="creation-results"></a>
@@ -707,7 +707,7 @@ working_time_modes | режимы времени работы
 accept_temporary | указание, что вакансия доступна для соискателей с временным трудоустройством
 branded_template.id | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)
 languages[].id | Элемент справочника [languages](languages.md).
-languages[].level.id | Идентификатор уровня знания языка. Элемент справочника [language_level](dictionaries.md).
+languages[].level.id | Идентификатор уровня знания языка. Элемент справочника [language_level](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 
 Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.
 
@@ -876,7 +876,7 @@ PUT /vacancies/{vacancy_id}
 actions | object | Cписок действий, которые можно предпринять для продления вакансии. В данный момент поддерживается только обычное продление.
 actions.id | string | Идентификатор действия
 actions.enabled | boolean | Флаг возможно ли действие
-actions.disable_reason | object | Причина, по которой совершить действие невозможно. Элемент справочника [vacancy_not_prolonged_reason](dictionaries.md) 
+actions.disable_reason | object | Причина, по которой совершить действие невозможно. Элемент справочника [vacancy_not_prolonged_reason](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get) 
 actions.url | string | url, с которыми нужно сделать запрос, чтобы совершить действие
 actions.method | string | HTTP-метод, с которыми нужно сделать запрос, чтобы совершить действие
 
@@ -986,7 +986,7 @@ counters.invitations | number | количество приглашений на
 counters.invitations_and_responses | number | количество откликнувшихся и приглашенных соискателей на вакансию
 expires_at | string | дата окончания публикации вакансии
 has_updates | boolean | Есть ли в откликах/приглашениях по данной вакансии обновления, требующие внимания
-billing_type | object | Биллинговый тип вакансии. Элемент справочника [vacancy_billing_type](dictionaries.md).
+billing_type | object | Биллинговый тип вакансии. Элемент справочника [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 billing_type.id | string | Идентификатор биллингового типа вакансии
 billing_type.name | string | Название биллингового типа вакансии
 can_upgrade_billing_type | boolean | Можно ли улучшить биллинговый тип вакансии
@@ -1045,7 +1045,7 @@ can_upgrade_billing_type | boolean | Можно ли улучшить билли
 Максимальное значение `per_page`, которое можно передать в данном запросе: 1000.
 
 Возможные значения сортировки доступны в
-[справочнике `employer_archived_vacancies_order`](dictionaries.md).
+[справочнике `employer_archived_vacancies_order`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 
 В отличие от списка опубликованных вакансий, данная коллекция не поддерживает
 поиск (параметры `text` и `area`).
@@ -1166,7 +1166,7 @@ can_upgrade_billing_type | boolean | Можно ли улучшить билли
 Максимальное значение `per_page`, которое можно передать в данном запросе: 1000.
 
 Возможные значения сортировки доступны в справочнике
-[справочнике `employer_hidden_vacancies_order`](dictionaries.md).
+[справочнике `employer_hidden_vacancies_order`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 
 В отличие от списка опубликованных вакансий, данная коллекция не поддерживает
 поиск (параметры `text` и `area`).
