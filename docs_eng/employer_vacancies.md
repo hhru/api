@@ -93,9 +93,9 @@ Name | Type | Description
 name | string | Name of publication type
 description | string | Description
 available_publications_count | number | Total number of publications available to this manager. It is equal to the amount of `publications[].count` or the value indicated in the quotas if this value is lower than the above sum
-vacancy_billing_type.id | string | Billing type [vacancy_billing_type directory](dictionaries.md).
+vacancy_billing_type.id | string | Billing type [vacancy_billing_type directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 vacancy_types | array | List of vacancy types
-vacancy_types[].id | string | Vacancy type [vacancy_type directory](dictionaries.md)
+vacancy_types[].id | string | Vacancy type [vacancy_type directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
 publications | array | List of regions where the vacancy can be published and number of publications available to the employer 
 publications[].name | string | Name of the region 
 publications[].count | number | Number of publications in the region available to the employer
@@ -282,21 +282,21 @@ some additional fields.
  professional_roles          | array           | list of professional roles
  professional_roles[].id     | string          | professional role [from directory](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
  area.id                     | string          | city of publication [from directory](areas.md)
- type.id                     | string          | type from [vacancy_type directory](dictionaries.md)
- billing_type.id             | string          | billing type from [vacancy_billing_type directory](dictionaries.md)
+ type.id                     | string          | type from [vacancy_type directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
+ billing_type.id             | string          | billing type from [vacancy_billing_type directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  code                        | string or null  | internal vacancy code
  department.id               | string          | department [from directory](employer_departments.md) on whose behalf the vacancy is uploaded (if available for the company)
  salary                      | object or null  | salary
  salary.from                 | numeric or null | lower salary limit
  salary.to                   | numeric or null | upper salary limit
  salary.gross                | boolean         | indication that salary limits specified are before taxes
- salary.currency             | string          | currency code from [currency directory](dictionaries.md)
+ salary.currency             | string          | currency code from [currency directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  address                     | object or null  | address
  address.id                  | string          | address from [list of employer's available addresses](employer_addresses.md)
  address.show_metro_only     | boolean         | show only the metro station for this address
- experience.id               | string or null  | required work experience from [experience directory](dictionaries.md)
- schedule.id                 | string or null  | working schedule from [schedule directory](dictionaries.md) |
- employment.id               | string          | employment type from [employment directory](dictionaries.md) |
+ experience.id               | string or null  | required work experience from [experience directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
+ schedule.id                 | string or null  | working schedule from [schedule directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) |
+ employment.id               | string          | employment type from [employment directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) |
  contacts                    | object or null  | contact info
  contacts.name               | string          | contact person
  contacts.email              | string          | email
@@ -318,19 +318,19 @@ some additional fields.
  accept_kids                 | boolean or null | indication that the job is available for applicants as young as 14 years old [details](employer_vacancies_accept_kids.md#accept-kids)|
  branded_template.id         | string or null  | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
  driver_license_types        | array or null   | list of required driver license categories
- driver_license_types[].id   | string          | driving license category. element of [driver_license_type](dictionaries.md) directory
+ driver_license_types[].id   | string          | driving license category. element of [driver_license_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory
  accept_incomplete_resumes   | boolean or null | whether it is possible to apply with an incomplete resume
  working_days                | array or null   | list of working days
- working_days[].id           | string          | working days ID. element of [справочника working_days](dictionaries.md)
+ working_days[].id           | string          | working days ID. element of [directory working_days](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  working_time_intervals      | array or null   | list of working time intervals
- working_time_intervals[].id | string          | working time interval ID. element of [справочника working_time_intervals](dictionaries.md)
+ working_time_intervals[].id | string          | working time interval ID. element of [directory working_time_intervals](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  working_time_modes          | array or null   | list of working time modes
- working_time_modes[].id     | string          | working time modes ID. element of [справочника working_time_modes](dictionaries.md)
+ working_time_modes[].id     | string          | working time modes ID. element of [directory working_time_modes](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  accept_temporary            | boolean or null | indication that the job is available for applicants with accept temporary employment
 languages                    | object or null  | language object. 
 languages.id                 | string          | language ID. [Languages](languages.md) directory entries.
 languages.level              | object          | language proficiency. 
-languages.level.id           | string          | field Id. [Language_level](dictionaries.md) directory entry.
+languages.level.id           | string          | field Id. [Language_level](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 
 <a name="creation-results"></a>
 ### Response
@@ -842,7 +842,7 @@ Path | JSON type | Description
 actions | object | List of available actions to extend the vacancy. The system supports standard extension only
 actions.id | string | Action ID
 actions.enabled | boolean | Is the action possible
-actions.disable_reason | object | The reason why extension is unavailable. Element of dictionary [vacancy_not_prolonged_reason](dictionaries.md) 
+actions.disable_reason | object | The reason why extension is unavailable. Element of dictionary [vacancy_not_prolonged_reason](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) 
 actions.url | string | url required to make a query for this action
 actions.method | string | HTTP-method required to make a query for this action
 
@@ -948,7 +948,7 @@ fields will be returned:
 | counters.invitations_and_responses       | number  | number of invitations and responses for a vacancy
 | expires_at                 | string  | expiration date for a vacancy posting                                                           |
 | has_updates                | boolean | Whether there are updates calling for attention in the applications/invitations for the vacancy |
-| billing_type               | object  | Vacancy billing type. [vacancy_billing_type](dictionaries.md) directory entry.         |
+| billing_type               | object  | Vacancy billing type. [vacancy_billing_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.         |
 | billing_type.id            | string  | ID of the vacancy billing type                                                                |
 | billing_type.name          | string  | Name of the vacancy billing type                                                    |
 | can_upgrade_billing_type   | boolean | If the vacancy billing type can be upgraded                                          |
@@ -1008,7 +1008,7 @@ The system supports pagination (`per_page` and `page`) and sorting (`order_by`).
 
 The maximum value of `per_page` is 1000.
 
-Possible sorting options can be found in the [directory](dictionaries.md).
+Possible sorting options can be found in the [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 
 Unlike the list of published vacancies, the collection does not support
 search (parameters `text` and `area`).

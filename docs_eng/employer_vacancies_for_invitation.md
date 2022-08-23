@@ -170,7 +170,7 @@ state will be specified as:
 ```
 
 Possible values of the state/invitation for an applicant are available in the
-[negotiations_state reference](dictionaries.md), for employer in the
+[negotiations_state reference](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get), for employer in the
 [employer statuses for responses/invitations on vacancy](employer_negotiations.md#collection).
 
 

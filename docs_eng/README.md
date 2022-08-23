@@ -196,7 +196,7 @@ Article labels:
   * [List of regions with active vacancies](employer_vacancy_areas_active.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [List of branded vacancy templates](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Key skills](key_skills.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Other directories](dictionaries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Other directories](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="suggests"></a>
 ### Suggestions (autosuggest, autocomplete)

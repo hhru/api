@@ -57,7 +57,7 @@ url | string | the URL to perform a GET request to obtain the [information on th
 archived | logical | a flag that indicates that the job is in the archive
 can_edit | logical | a flag that indicates that the manager can edit job data and work with information on the responses/invitations for this job
 items | list | a list of the latest changes in the statuses of responses/invitations for the specified resume and job
-items[].employer_state.id | string | a unique identifier of the [response/invitation status](dictionaries.md#negotiations)
+items[].employer_state.id | string | a unique identifier of the [response/invitation status](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
 items[].employer_state.name | string | response/invitation status name
 items[].created_at | string (date) | date of the response/invitation status change
 items[].with_message | logical | a flag that indicates that a message was sent to the applicant when the response/invitation status was changed

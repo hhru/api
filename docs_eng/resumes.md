@@ -602,11 +602,11 @@ first_name | string or null | First name.
 middle_name | string or null | Middle name.
 age | number or null | Age.
 birth_date | string or null | Birthday (`YYYY-MM-DD`).
-gender | [object](#id-name-object) or null | [Gender](dictionaries.md).
+gender | [object](#id-name-object) or null | [Gender](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 area | [object](#id-name-url-object) or null | City of residence. [areas](areas.md) directory entry.
 metro | [object](#metro-object) or null | The nearest metro station. [metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get) directory entry.
 relocation | [object](#relocation-object) | Information on the possibility of moving to another city.
-business_trip_readiness | [object](#id-name-object) | Readiness to go on business trips. [business_trip_readiness](dictionaries.md#business_trip_readiness) directory entry.
+business_trip_readiness | [object](#id-name-object) | Readiness to go on business trips. [business_trip_readiness](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 contact | [array](#contact-object) | Applicant's contact list. 
 photo | [object](#photo-object) or null | User photo.
 portfolio | [array](#portfolio-object) | A list of images in the user's portfolio.
@@ -614,8 +614,8 @@ site | [array](#site-object) | Profiles in social networks and other services.
 title | string or null | Desired position.
 specialization | [array](#specialization-object) | Applicant's specialist areas. [specializations](specializations.md) directory entries.
 salary | [object](#salary-object) or null | Desired salary.
-employments | [array](#id-name-object) | List of types of employment that are suitable for the applicant. [employment](dictionaries.md) directory entries.
-schedules | [array](#id-name-object) | List of working hours that are suitable for the applicant. [schedule](dictionaries.md) directory entries.
+employments | [array](#id-name-object) | List of types of employment that are suitable for the applicant. [employment](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entries.
+schedules | [array](#id-name-object) | List of working hours that are suitable for the applicant. [schedule](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entries.
 education | [object](#education-object) | Education.
 language | [array](#language-object) | List of languages spoken by the applicant. [languages](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1languages/get) directory entries. 
 experience | [array](#experience-object) | Work experience.
@@ -624,7 +624,7 @@ skills | string or null | Additional information, a free-form description of ski
 skill_set | array | Key skills (a list of unique strings).
 citizenship | [array](#id-name-url-object) | Applicant's citizenship list. Entries of the [directory of regions](areas.md).
 work_ticket | [array](#id-name-url-object) | A list of regions where the applicant has a work permit. Entries of the [directory of regions](areas.md).
-travel_time | [object](#id-name-object) | Acceptable travel time to the place of work. [travel_time](dictionaries.md) directory entry.
+travel_time | [object](#id-name-object) | Acceptable travel time to the place of work. [travel_time](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 recommendation | [array](#recommendation-object) | List of recommendations.
 resume_locale | [object](#id-name-object) | Resume language (locale). [Resume locales](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1locales~1resume/get) directory entry.
 certificate | [array](#certificate-object) | Applicant's certificate list.
@@ -635,7 +635,7 @@ actions | [object](#actions-object) | Additional actions
 updated_at | string | Date and time resume was updated.
 has_vehicle | boolean or null | Does the applicant have their own car.
 driver_license_types | [array](#driver-license-types-object) | A list of applicant's driving license categories.
-hidden_fields | [array](#id-name-object) | List of hidden fields. Entry of the [resume_hidden_fields](dictionaries.md) directory ([more info](#hidden-fields)).
+hidden_fields | [array](#id-name-object) | List of hidden fields. Entry of the [resume_hidden_fields](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory ([more info](#hidden-fields)).
 can_view_full_info | boolean or null | Possibility of getting resume contact info.
 marked | boolean | Availability "Bright summary"
 professional_roles | [array](#professional-role-object) | Array of professional role objects
@@ -674,7 +674,7 @@ Object `relocation`
 
 Name | Type | Description
 -----|-----|---------
-type | [object](#id-name-object) | Willingness to relocate. [relocation_type](dictionaries.md) directory entry.
+type | [object](#id-name-object) | Willingness to relocate. [relocation_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 areas | [array](#id-name-url-object) | List of cities for potential relocation. Contains entries of the [directory of regions](areas.md).
 
 <a name="contact-object"></a>
@@ -682,7 +682,7 @@ Object `contact`
 
 Name | Type | Description
 -----|-----|---------
-type | [object](#id-name-object) | Contact type. [preferred_contact_type](dictionaries.md) directory entry.
+type | [object](#id-name-object) | Contact type. [preferred_contact_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 value | string or [object](#value-object) | Contact value. Phone number: an [object](#value-object); email: a string.
 preferred | boolean | Is this the preferred method of communication (should mention only one preferred contact as `"preferred": true`, if preferred flag is not sent default value for this parameter is `false`).
 comment | string or null | Comment to the contact.
@@ -722,7 +722,7 @@ Object `site`
 
 Name | Type | Description
 -----|-----|---------
-type | [object](#id-name-object) | Profile type. [resume_contacts_site_type](dictionaries.md) directory entry.
+type | [object](#id-name-object) | Profile type. [resume_contacts_site_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 url | string or null | A link to profile or ID.
 
 <a name="specialization-object"></a>
@@ -742,7 +742,7 @@ Object `salary`
 Name | Type | Description
 -----|-----|---------
 amount | number | Amount
-currency | string | [currency](dictionaries.md) ID.
+currency | string | [currency](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) ID.
 
 <a name="education-object"></a>
 Object `education`
@@ -753,7 +753,7 @@ elementary | [array](#elementary-object) | Secondary education. This field is us
 additional | [array](#additional-education-object) | List of training courses.
 attestation | [array](#additional-education-object) | List of passed tests or exams.
 primary | [array](#primary-object) | List of degrees higher than secondary education.
-level | [object](#id-name-object) | Education level. [education_level](dictionaries.md) directory entry.
+level | [object](#id-name-object) | Education level. [education_level](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 
 Features when saving `education`:
 If you submit both higher education and secondary education and the education level is "secondary", only secondary education will be saved.
@@ -797,7 +797,7 @@ Name | Type | Description
 -----|-----|---------
 id | string | Language ID.
 name | string | Language name.
-level | [object](#id-name-object) | Language proficiency. [language_level](dictionaries.md) directory entry.
+level | [object](#id-name-object) | Language proficiency. [language_level](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 
 <a name="experience-object"></a>
 Object `experience`
@@ -856,7 +856,7 @@ Object `driver_license_types`
 
 Name | Type | Description
 -----|-----|---------
-id | string | Applicant's driver’s license category. [driver_license_types](dictionaries.md) directory entry.
+id | string | Applicant's driver’s license category. [driver_license_types](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 
 <a name="professional-role-object"></a>
 Object with id and name
@@ -1018,7 +1018,7 @@ The resume publisher can see the information on the resume completion percentage
 The moderator can add comments to the resume to the following list:
 `moderation_note`. In some cases, comments can lead to
 [resume banning](#status). A full list of comments is available
-[in the `resume_moderation_note` directory](dictionaries.md).
+[in the `resume_moderation_note` directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 
 
 The following fields are available for comments:
@@ -1241,28 +1241,28 @@ Parameters:
 * `first_name` — first name;
 * `middle_name` — middle name;
 * `birth_date` — date of birth (YYYY-MM-DD);
-* `gender` — gender. Directory entries [gender](dictionaries.md);
+* `gender` — gender. Directory entries [gender](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get);
 * `photo` — user photo. see. [artifacts](artifacts.md);
 * `portfolio` — user portfolio. see [artifacts](artifacts.md);
 * `area` — place of residence. Directory entries [areas](areas.md);
 * `metro` — nearest metro station. Directory entries [metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get). If you submit a metro station that does not exist in submitted area, the field will be ignored;
   It makes sense to show only for `area` with metro;
 * `relocation` — possible relocation. Consists of the fields:
-    * `type` — Directory entries [relocation_type](dictionaries.md);
+    * `type` — Directory entries [relocation_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get);
     * `area` — relocation city (list). Makes sense only with the corresponding `type` field. Directory entries
       [areas](areas.md);
 * `business_trip_readiness` — agree to go on business trips. Directory entries
-  [business_trip_readiness](dictionaries.md#business_trip_readiness)
+  [business_trip_readiness](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
 * `contact` — contact info (list). 
 Mandatory of the contact fields see in [conditions to fill in the fields of a resume](#conditions)
 Consists of the fields:
-    * `type` — Directory entries [preferred_contact_type](dictionaries.md)
+    * `type` — Directory entries [preferred_contact_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
     * `value` — contact value. For phone number, consists of four fields (`country`, `city`, `number`, `formatted`); 
     for email: a string.
     * `preferred` — preferred type of communication (`true` or `false`);
     * `comment` — comment to the contact;
 * `site` — presence on other websites. Consists of the fields:
-    * `type` — type of website. Directory entries [resume_contacts_site_type](dictionaries.md);
+    * `type` — type of website. Directory entries [resume_contacts_site_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get);
     * `url` — a link to a profile or an ID on a third-party website/service;
 * `title` — desired position;
 * `specialization` — candidate's profession (list). Directory entries [specializations](specializations.md);
@@ -1270,9 +1270,9 @@ Consists of the fields:
       [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
 * `salary` — Desired salary. It consists of the following fields:
     * `amount` — total;
-    * `currency` — [currency](dictionaries.md) ID;
-* `employments` — Employment. [employment](dictionaries.md) directory entries.
-* `schedules` — work schedule. List of directory [schedule](dictionaries.md) entries
+    * `currency` — [currency](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) ID;
+* `employments` — Employment. [employment](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entries.
+* `schedules` — work schedule. List of directory [schedule](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) entries
 * `education` — education. Consists of the fields:
     * `elementary` — secondary education (list). This field is usually only completed in the absence of higher education.
      It consists of the following fields:
@@ -1297,10 +1297,10 @@ Consists of the fields:
         * `result_id` — specialisation id can be found in the [tips for specialisations](suggests.md#specializations);
                         education level;
         * `year` — year graduated;
-    * `level` — education level. Directory entries [education_level](dictionaries.md)
+    * `level` — education level. Directory entries [education_level](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
 * `language` — languages (list):
     * `id` - value from [languages](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1languages/get)
-    * `level` - value from [language_level](dictionaries.md).
+    * `level` - value from [language_level](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 * `experience` — work experience (list). It consists of the following fields:
     * `company` — company;
     * `company_id` — company id, can be found in the [tips for companies](suggests.md#companies);
@@ -1315,17 +1315,17 @@ Consists of the fields:
 * `skill_set` — key skills (a list of unique strings).
 * `citizenship` — citizenship (list). Directory entries [areas](areas.md);
 * `work_ticket` — work permit (list). Directory entries [areas](areas.md);
-* `travel_time` — acceptable travel time to the place of work. Directory entries [travel_time](dictionaries.md);
+* `travel_time` — acceptable travel time to the place of work. Directory entries [travel_time](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get);
 * `recommendation` — recommendations (list). It consists of the following fields:
     * `name` — name;
     * `position` — position;
     * `organization` — company;
 * `resume_locale` — resume locale. Directory entries [локали резюме](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1locales~1resume/get).
-* `driver_license_types` - A list of applicant's driving license categories. [driver_license_types](dictionaries.md) directory entry.
+* `driver_license_types` - A list of applicant's driving license categories. [driver_license_types](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 * `has_vehicle` - Does the applicant have their own car;
 * `hidden_fields` - [hidden fields](#hidden-fields) in the resume (list). Directory entry
 * `access` - [resume visibility](#access_type)
-    * `type` - visibility type. Directory entry [resume_access_type](dictionaries.md)
+    * `type` - visibility type. Directory entry [resume_access_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
 
 
 The `professional_roles` field can be saved by passing parameter `with_professional_roles`. In this case resume adding and editing requests should look like this accordingly:
@@ -2095,7 +2095,7 @@ In addition to the HTTP code, the server can return a description of the [error 
 ## CV status
 
 The `status` key determines the current status of the resume and contains an entry from the
-[resume_status](dictionaries.md) directory. After creating a new resume, it
+[resume_status](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory. After creating a new resume, it
 gets the `not_published` status. No one can see a resume with this status,
 the user begins to fill in and save the resume (empty mandatory fields
 are present in the `progress.mandatory` list). 
@@ -2143,7 +2143,7 @@ in the search results or using a direct link. The field's format in the resume:
 After publication, the resume can be searched by all employers. Otherwise,
 for example, when a job is found and you want to hide the resume in the search results, you should change
 the resume visibility settings. The "access.type" key is responsible for this. Visibility type is a
-[resume_access_type](dictionaries.md) directory entry.
+[resume_access_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 
 <a name="access_type_restrictions"></a>
 ‼️ Since September 1, 2021, the type of resume visibility with the id `everyone` (visible to entire internet) has become unavailable for saving due to legal restrictions.

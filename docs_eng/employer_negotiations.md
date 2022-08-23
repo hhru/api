@@ -44,7 +44,7 @@ the same.
 
 * <a name="term-state"></a> *applicant's response/invitation status* is the
   response/invitation status that is **displayed for the applicant**. The possible values
-  are available [in the `negotiations_state` directory](dictionaries.md#negotiations) and
+  are available [in the `negotiations_state` directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) and
   do not depend on the job in response/invitation.
 
 * <a name="term-employer-state"></a> *employer's response/invitation status* is the
@@ -816,7 +816,7 @@ contains key `vacancy` giving
 <a name="messaging_status"></a>
 Additionally, field `messaging_status` showing negotiation status
 is returned for the response/invitation. Possible values
-see in [messaging_status](dictionaries.md) reference guide.
+see in [messaging_status](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) reference guide.
 
 If response/invitation doesn't exist or not available to the current user,
 `404 Not Found` response will be returned.
@@ -955,9 +955,9 @@ viewed_by_me| logical | Whether the message was read by the viewer (for messages
 viewed_by_opponent| logical | Whether the message was read by the applicant (for messages sent by applicant the value is always `true`)
 created_at | string | Message creation date and time
 text| string, null | Message text. `null` can be displayed if the applicant didn't attach the cover letter to the response.
-state | object | Current state of the application. Possible values are listed in the [/dictionaries](./dictionaries.md) reference, section `negotiations_state`
+state | object | Current state of the application. Possible values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) reference, section `negotiations_state`
 author| object | Who is the message author
-author.participant_type| string | Message author role. Possible values are listed in the [/dictionaries](./dictionaries.md) reference, section `negotiations_participant_type`
+author.participant_type| string | Message author role. Possible values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) reference, section `negotiations_participant_type`
 address| object, null | [Address](./address.md) linked to the response/invitation
 assessments| array | [assessment tools](assessment.md) linked to the message
 
