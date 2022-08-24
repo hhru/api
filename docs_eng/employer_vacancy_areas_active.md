@@ -2,8 +2,7 @@
 
 > Attention! The values in the directories may change at any time. Do not address them directly.
 
-To filter the list of active vacancies, you can indicate a region in the `area`
-parameter. `GET /employers/{employer_id}/vacancy_areas/active` will show the
+`GET /employers/{employer_id}/vacancy_areas/active` will show the
 list of regions that currently have active vacancies.
 
 An example of a successful response:
