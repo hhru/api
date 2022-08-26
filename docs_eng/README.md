@@ -192,7 +192,7 @@ Article labels:
   * [Types of managers and their rights](employer_managers.md#dict) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Employer's managers](employer_managers.md#list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Department directory](employer_departments.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Test directory](employer_tests.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Test directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-directories/paths/~1employers~1%7Bemployer_id%7D~1tests/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [List of regions with active vacancies](employer_vacancy_areas_active.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [List of branded vacancy templates](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Key skills](key_skills.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
