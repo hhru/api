@@ -9,6 +9,6 @@
 * [Адреса](employer_addresses.md)
 * [Менеджеры](employer_managers.md)
 * [Департаменты](employer_departments.md)
-* [Тесты](employer_tests.md)
+* [Тесты](https://api.hh.ru/openapi/redoc#tag/Spravochniki-rabotodatelya/paths/~1employers~1%7Bemployer_id%7D~1tests/get)
 * [Регионы вакансий](employer_vacancy_areas_active.md)
 * [Брендированные шаблоны вакансий](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)
