@@ -6,7 +6,7 @@
 В различных запросах может использоваться ранее введённая работодателем информация, к примеру, адреса офисов компании.
 Для того, чтобы предоставить доступ к этой информации, используются справочники работодателя:
 
-* [Адреса](employer_addresses.md)
+* [Адреса](https://api.hh.ru/openapi/redoc#tag/Adresa-rabotodatelya)
 * [Менеджеры](employer_managers.md)
 * [Департаменты](employer_departments.md)
 * [Тесты](https://api.hh.ru/openapi/redoc#tag/Spravochniki-rabotodatelya/paths/~1employers~1%7Bemployer_id%7D~1tests/get)

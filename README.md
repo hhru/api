@@ -214,7 +214,7 @@ HeadHunter API — это инструментарий для интеграци
   * [Основная информация об учебных заведениях](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1educational_institutions/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Факультеты учебных заведений](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1educational_institutions~1%7Bid%7D~1faculties/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Справочники работодателя](docs/employer_dictionaries.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Адреса](docs/employer_addresses.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Адреса](https://api.hh.ru/openapi/redoc#tag/Adresa-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Типы и права менеджера](docs/employer_managers.md#dict) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Менеджеры работодателя](docs/employer_managers.md#list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Департаменты](docs/employer_departments.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
