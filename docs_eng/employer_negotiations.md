@@ -558,7 +558,7 @@ arguments | list | Mandatory and additional arguments for the request
 There is a list of arguments for the action; at this point, you may encounter the following arguments:
 
 * `message` – the message that will be sent to the applicant's email. Use [templates](negotiation_message_templates.md) to obtain texts.
-* `address_id` – [address](employer_addresses.md) ID that will be specified in the invitation
+* `address_id` – [address](https://api.hh.ru/openapi/en/redoc#tag/Employer-addresses) ID that will be specified in the invitation
 * `send_sms` – whether to notify the applicant of the invitation via SMS. To initiate the sending of a message, pass "true"; the default is "false".
 
 The application should be able to fill in these arguments. Other arguments may be added in the future;

@@ -188,7 +188,7 @@ Article labels:
   * [Basic information about educational institutions](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1educational_institutions/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [List of educational institution faculties](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1educational_institutions~1%7Bid%7D~1faculties/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Employer directories](employer_dictionaries.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Address directory](employer_addresses.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Address directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-addresses) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Types of managers and their rights](employer_managers.md#dict) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Employer's managers](employer_managers.md#list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Department directory](employer_departments.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />

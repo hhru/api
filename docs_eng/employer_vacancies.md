@@ -292,7 +292,7 @@ some additional fields.
  salary.gross                | boolean         | indication that salary limits specified are before taxes
  salary.currency             | string          | currency code from [currency directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  address                     | object or null  | address
- address.id                  | string          | address from [list of employer's available addresses](employer_addresses.md)
+ address.id                  | string          | address from [list of employer's available addresses](https://api.hh.ru/openapi/en/redoc#tag/Employer-addresses)
  address.show_metro_only     | boolean         | show only the metro station for this address
  experience.id               | string or null  | required work experience from [experience directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  schedule.id                 | string or null  | working schedule from [schedule directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) |
