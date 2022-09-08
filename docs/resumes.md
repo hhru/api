@@ -553,7 +553,7 @@ expires | строка (дата) | время окончания действи
           [подсказок по названиям вузов](suggests.md#universities);
         * `organization` — факультет;
         * `organization_id` — идентификатор факультета, можно получить из
-          [справочника факультетов](faculties.md);
+          [справочника факультетов](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1educational_institutions~1%7Bid%7D~1faculties/get);
         * `result` — специальность / специализация;
         * `result_id` — идентификатор специальности / специализации, можно
           получить из
