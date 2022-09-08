@@ -1292,7 +1292,7 @@ Consists of the fields:
         * `name` — name of educational institution;
         * `name_id` — the id of the educational institution can be found in the [tips for college names](suggests.md#universities);
         * `organization` — faculty;
-        * `organization_id` — faculty ID can be found in the [faculties directory](faculties.md);
+        * `organization_id` — faculty ID can be found in the [faculties directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1educational_institutions~1%7Bid%7D~1faculties/get);
         * `result` — profession / specialist area;
         * `result_id` — specialisation id can be found in the [tips for specialisations](suggests.md#specializations);
                         education level;
