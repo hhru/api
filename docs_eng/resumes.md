@@ -808,7 +808,7 @@ company | string  or null | Organization.
 company_id | string or null | Unique identifier of the organization. 
 area | [object](#id-name-url-object) or null | Region of the organization. An entry in the [directory of regions](areas.md).
 company_url | string or null | Company website.
-industries | [array](#id-name-object) | A list of the company's industries. Entries of the [directory of industries](industries.md).
+industries | [array](#id-name-object) | A list of the company's industries. Entries of the [directory of industries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1industries/get).
 position | string | Position.
 start | string | Start date (`YYYY-MM-DD`).
 end | string or null | End date (`YYYY-MM-DD`).
@@ -1306,7 +1306,7 @@ Consists of the fields:
     * `company_id` — company id, can be found in the [tips for companies](suggests.md#companies);
     * `area` — region of the company. Directory entries [areas](areas.md);
     * `company_url` — company website;
-    * `industries` — A list of the company's industries. Entries of the [directory of industries](industries.md)
+    * `industries` — A list of the company's industries. Entries of the [directory of industries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1industries/get)
     * `position` — position;
     * `start` — started work (YYYY-MM-DD);
     * `end` — finished work (YYYY-MM-DD);

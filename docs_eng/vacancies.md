@@ -543,7 +543,7 @@ Some parameters take multiple values: `key=value&key=value`.
   Several values can be indicated. Will be replaced by professional role (parameter `professional_role`), preserved for backward compatibility.
 
 * `industry` – an industry of the company that posted the vacancy.
-  Directory with possible values: [/industries](industries.md).
+  Directory with possible values: [/industries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1industries/get).
   Several values can be indicated.
 
 * `employer_id` – a [company](https://api.hh.ru/openapi/en/redoc#tag/Employer) identifier.
