@@ -572,7 +572,7 @@ expires | строка (дата) | время окончания действи
       [areas](areas.md);
     * `company_url` — сайт компании;
     * `industries` — отрасли компании. Элемент справочника
-      [/industries](industries.md)
+      [/industries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1industries/get)
     * `position` — должность;
     * `start` — начало работы (ГГГГ-ММ-ДД);
     * `end` — окончание работы (ГГГГ-ММ-ДД);

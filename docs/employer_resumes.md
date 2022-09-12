@@ -581,7 +581,7 @@ company | string или null | Организация.
 company_id | string или null | Уникальный идентификатор организации.
 area | [object](#id-name-url-object) или null | Регион расположения организации. Элемент [справочника регионов](areas.md).
 company_url | string или null | Cайт компании.
-industries | [array](#id-name-object) | Cписок отраслей компании. Элементы [справочника индустрий](industries.md).
+industries | [array](#id-name-object) | Cписок отраслей компании. Элементы [справочника индустрий](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1industries/get).
 position | string | Должность.
 start | string | Начало работы (дата в формате `ГГГГ-ММ-ДД`).
 end | string или null | Окончание работы (дата в формате `ГГГГ-ММ-ДД`).

@@ -512,7 +512,7 @@ HTTP code | type | value | описание
 * `professional_role` - профессиональная область. Необходимо передавать `id` из справочника [/professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
 
 * `industry` - индустрия компании, разместившей вакансию. 
-Необходимо передавать `id` из справочника [/industries](industries.md).
+Необходимо передавать `id` из справочника [/industries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1industries/get).
 Возможно указание нескольких значений.
   
 * `employer_id` — идентификатор [компании](https://api.hh.ru/openapi/redoc#tag/Rabotodatel).  
