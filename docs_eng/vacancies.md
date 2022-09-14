@@ -232,7 +232,7 @@ address | object or null | [Vacancy address](address.md#Адрес)
 alternate_url | string | Link to the vacancy on the website
 apply_alternate_url | string | Link to the application for the vacancy on the website
 code | string or null | Employer's internal vacancy code
-department | object or null | Department on whose behalf the vacancy is uploaded (if available for the company). Employers can request [department directory](employer_departments.md).
+department | object or null | Department on whose behalf the vacancy is uploaded (if available for the company). Employers can request [department directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1departments/get).
 department.id | string | Department ID
 department.name | string | Department name
 employment | object or null | Type of employment. [employment](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry
@@ -842,7 +842,7 @@ Name| Type| Description
  address | object, null | [vacancy address](address.md#Address)
  alternate_url | string, null | Link to the full vacancy presentation in web site
  apply_alternate_url | string, null | Link to the vacancy respond page in web site
- department | object, null | department from the [directory](employer_departments.md), on behalf of which the vacancy is being posted (if this feature is available for the company)
+ department | object, null | department from the [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1departments/get), on behalf of which the vacancy is being posted (if this feature is available for the company)
  department.id | string | Department identifier
  department.name | string | Department name
  salary | object, null | Wage

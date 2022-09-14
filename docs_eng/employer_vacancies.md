@@ -285,7 +285,7 @@ some additional fields.
  type.id                     | string          | type from [vacancy_type directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  billing_type.id             | string          | billing type from [vacancy_billing_type directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  code                        | string or null  | internal vacancy code
- department.id               | string          | department [from directory](employer_departments.md) on whose behalf the vacancy is uploaded (if available for the company)
+ department.id               | string          | department [from directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1departments/get) on whose behalf the vacancy is uploaded (if available for the company)
  salary                      | object or null  | salary
  salary.from                 | numeric or null | lower salary limit
  salary.to                   | numeric or null | upper salary limit
