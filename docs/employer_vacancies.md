@@ -292,7 +292,7 @@ area.id | string | город публикации [из справочника]
 type.id | string | тип из [справочника vacancy_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 billing_type.id | string | биллинговый тип [из справочника vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
 code | string или null | внутренний код вакансии
-department.id | string | департамент [из справочника](employer_departments.md), от имени которого размещается вакансия (если данная возможность доступна для компании)
+department.id | string | департамент [из справочника](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1departments/get), от имени которого размещается вакансия (если данная возможность доступна для компании)
 salary | object или null | зарплата
 salary.from | numeric или null | нижняя граница зарплаты
 salary.to | numeric или null | верхняя граница зарплаты

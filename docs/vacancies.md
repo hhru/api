@@ -247,7 +247,7 @@ address | object или null | [Адрес вакансии](address.md#Адре
 alternate_url | string | Ссылка на представление вакансии на сайте
 apply_alternate_url | string | Ссылка на отклик на вакансию на сайте
 code | string или null | Внутренний код вакансии работадателя
-department | object или null | Департамент, от имени которого размещается вакансия (если данная возможность доступна для компании). Работодатели могут запросить [справочник департаментов](employer_departments.md).
+department | object или null | Департамент, от имени которого размещается вакансия (если данная возможность доступна для компании). Работодатели могут запросить [справочник департаментов](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1departments/get).
 department.id | string | Идентификатор департамента
 department.name | string | Название департамента
 employment | object или null | Тип занятости. Элемент справочника [employment](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
