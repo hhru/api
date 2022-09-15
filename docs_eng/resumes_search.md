@@ -28,13 +28,13 @@ Some parameters take multiple values: `key=value&key=value`.
   `400 Bad request` will be returned.
 
 * `text.logic` – describes how the search works. Directory with possible values:
-  `resume_search_logic` in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md).
+  `resume_search_logic` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 
 * `text.field` – describes where words from the `text` search
   phrase should be found. In the `text.field` parameter you can
   indicate several values separated by commas, e.g.
   `?text.field=education,keywords`. Directory with possible values:
-  `resume_search_fields` in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md).
+  `resume_search_fields` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 
 * `text.period` – a period for searching in work experience. The parameter
   works only when `text.field` equals one of: `experience`, `experience_company`,
@@ -71,7 +71,7 @@ For example:
   indicated regions or those who ready to move to such regions
   are selected by default. Enter field `relocation` to change this behavior.
 * `relocation` – willingness to relocate. Directory with possible values:
-  `resume_search_relocation` in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md). You can
+  `resume_search_relocation` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get). You can
   indicate it only with `area` parameter.
 * `period` – in days, searches CVs published in the given time period.
   If not indicated, the search is performed without any restrictions on
@@ -84,40 +84,40 @@ For example:
   `YYYY-MM-DD` or with up-to-the-second precision `YYYY-MM-DDThh:mm:ss±hhmm`. You can indicate it only with the
   `date_from` parameter. You can't indicate it with the `period` parameter.
 * `education_level` – a level of education. Directory with possible values:
-  `education_level` in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md). If not indicated,
+  `education_level` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get). If not indicated,
   the search is performed without any restrictions on the education level.
 * `employment` – employment type.
   Directory with possible values: `employment` in
-  [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md). You can indicate several values.
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get). You can indicate several values.
 * `experience` – work experience. Directory with possible values: `experience`
-  in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md).
+  in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 * `skill` – key skills. At least one key skill identifier is indicated. You
   can get values from the `id` field in the
   [key skills suggestion](https://github.com/hhru/api/blob/master/docs_eng/suggests.md#key-skills).
 * `gender` – a gender. Directory with possible values: `gender` in
-  [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md).
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 <a name="resume_search_label"></a>
 * `label` – an extra filter. Directory with possible values:
-  `resume_search_label` in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md). You can indicate
+  `resume_search_label` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get). You can indicate
   several values.
 * `language` – knowledge of a language. You can indicate several values. It is
   set in the language.level format, where:
     * `language` is a value from the [/languages](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1languages/get) directory,
     * `level` is a value from the `language_level`
-      [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md) directory.
+      [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory.
 * `metro` – a metro line or station. Directory with possible values:
   [/metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get).
 * `currency` – a currency code. Directory with possible values: `currency`
-  (code key) in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md).
+  (code key) in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 * `salary_from`, `salary_to` – desired salary range, from...to.
 * `schedule` – work schedule. Directory with possible values:
-  `schedule` in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md). You can indicate
+  `schedule` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get). You can indicate
   several values.
 * `specialization` – a professional area or specialization. Directory with
   possible values: [/specializations](https://github.com/hhru/api/blob/master/docs_eng/specializations.md). You can indicate
   several values.
 * `order_by` – CV list sorting. Directory with possible values:
-  `resume_search_order` in [/dictionaries](https://github.com/hhru/api/blob/master/docs_eng/dictionaries.md).
+  `resume_search_order` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 * `per_page` – the number of results per page (cannot exceed 50).
 * `page` – a page number.
 * `citizenship` – a desired country of citizenship. You can find possible
@@ -296,5 +296,5 @@ CV fields are similar to the
 The employer will have additional fields:
 
 * `owner.comments.url` containing url. GET request on it will return
-  [applicant comments list of CV owner](https://github.com/hhru/api/blob/master/docs_eng/applicant_comments.md#list).
+  [applicant comments list of CV owner](https://api.hh.ru/openapi/en/redoc#tag/Applicant-comments/paths/~1applicant_comments~1%7Bapplicant_id%7D/get).
 * `owner.comments.counters.total` containing total comments amount.

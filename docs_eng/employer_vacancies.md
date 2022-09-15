@@ -676,7 +676,7 @@ to change the specialisation you will have to send a full list.
  accept_incomplete_resumes  | whether it is possible to apply with an incomplete resume   
  branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
 languages[].id | string | language ID. [Languages](languages.md) directory entries.
-languages[].level.id | string | field Id. [anguage_level](dictionaries.md) directory entry.
+languages[].level.id | string | field Id. [Language_level](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 
 The remaining fields are read-only or can only be set during initial publication.
 
