@@ -21,16 +21,16 @@
 ```json
 [
     {
-        "name": "Украина",
-        "id": "5",
+        "name": "Казахстан",
+        "id": "40",
         "parent_id": null,
         "areas": [
-            {
-                "name": "Киев",
-                "id": "115",
-                "parent_id": "5",
-                "areas": []
-            }
+          {
+            "id": "6251",
+            "parent_id": "40",
+            "name": "Абай",
+            "areas": []
+          }
         ]
     }
 ]
@@ -62,9 +62,9 @@
     "name": "Россия"
   },
   {
-    "url": "https://api.hh.ru/areas/5",
-    "id": "5",
-    "name": "Украина"
+    "url": "https://api.hh.ru/areas/6",
+    "id": "6",
+    "name": "Австралия"
   }
 ]
 ```
