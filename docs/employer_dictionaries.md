@@ -10,5 +10,5 @@
 * [Менеджеры](employer_managers.md)
 * [Департаменты](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1departments/get)
 * [Тесты](https://api.hh.ru/openapi/redoc#tag/Spravochniki-rabotodatelya/paths/~1employers~1%7Bemployer_id%7D~1tests/get)
-* [Регионы вакансий](employer_vacancy_areas_active.md)
+* [Регионы вакансий](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_areas~1active/get)
 * [Брендированные шаблоны вакансий](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)
