@@ -21,14 +21,14 @@ region name and ID and the link to a parent region `parent_id`.
 ```json
 [
     {
-        "name": "Ukraine",
-        "id": "5",
+        "name": "Kazakhstan",
+        "id": "40",
         "parent_id": null,
         "areas": [
             {
-                "name": "Kiev",
-                "id": "115",
-                "parent_id": "5",
+                "name": "Abai",
+                "id": "6251",
+                "parent_id": "40",
                 "areas": []
             }
         ]
@@ -61,9 +61,9 @@ Example: [https://api.hh.ru/areas/1146?locale=EN](https://api.hh.ru/areas/1146?l
     "name": "Russia"
   },
   {
-    "url": "https://api.hh.ru/areas/5",
-    "id": "5",
-    "name": "Ukraine"
+    "url": "https://api.hh.ru/areas/6",
+    "id": "6",
+    "name": "Australia"
   }
 ]
  ```

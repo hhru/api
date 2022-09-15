@@ -244,12 +244,12 @@ Successful server response is returned with `200 OK` code and contains:
             "selected": true
         },
         {
-            "id": "9144",
-            "name": "HeadHunter::Ukraine (grc.ua)",
-            "url": "https://api.hh.ru/employers/9144",
-            "alternate_url": "https://hh.ru/employer/9144",
+            "id": "87891",
+            "name": "HeadHunter: Kazakhstan",
+            "url": "https://api.hh.ru/employers/87891",
+            "alternate_url": "https://hh.ru/employer/87891",
             "logo_urls": {
-                "90": "https://hh.ru/employer/logo/9144"
+                "90": "https://hh.ru/employer/logo/87891"
             },
             "selected": false
         }
