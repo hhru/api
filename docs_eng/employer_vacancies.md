@@ -961,7 +961,7 @@ collection supports:
 
 * `text` – string for searching by vacancy name
 * `area` – region id (see
-  [the list of regions with active vacancies](employer_vacancy_areas_active.md))
+  [the list of regions with active vacancies](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_areas~1active/get))
 * `order_by` – sorting of vacancies, possible options are available in the
   `employer_active_vacancies_order` directory
 
