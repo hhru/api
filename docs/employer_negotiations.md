@@ -227,7 +227,7 @@ employer_states[].name | строка | название состояния
 
 Получив `collections[].url` из [списка коллекций](#collections) нужно сделать GET запрос на него, например:
 
-`GET https://api.hh.ru/negotiations/invited?vacancy_id=123456`
+`GET https://api.hh.ru/negotiations/somecollection?vacancy_id=123456`
 
 Параметры:
 
@@ -273,7 +273,7 @@ per_page | нет | Количество выдаваемых элементов
                     "name": "Пригласить",
                     "enabled": true,
                     "method": "PUT",
-                    "url": "https://api.hh.ru/negotiations/invited/123456789",
+                    "url": "https://api.hh.ru/negotiations/somecollection/123456789",
                     "resulting_employer_state": {
                         "id": "invitation",
                         "name": "Приглашение"
@@ -603,7 +603,7 @@ required_arguments | список | Аргументы, которые необ�
             "name": "Пригласить",
             "enabled": true,
             "method": "PUT",
-            "url": "https://api.hh.ru/negotiations/invited/123456789",
+            "url": "https://api.hh.ru/negotiations/somecollection/123456789",
             "resulting_employer_state": {
                 "id": "invitation",
                 "name": "Приглашение"
