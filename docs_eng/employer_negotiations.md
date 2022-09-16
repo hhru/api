@@ -232,7 +232,7 @@ Upon getting URL from the [collection list](#collections) send a GET request to
 this URL, e.g.:
 
 ```
-GET https://api.hh.ru/negotiations/invited?vacancy_id=123456
+GET https://api.hh.ru/negotiations/somecollection?vacancy_id=123456
 ```
 
 Parameters:
@@ -279,7 +279,7 @@ Successful server response is returned with `200 OK` code and contains:
                     "name": "Invite",
                     "enabled": true,
                     "method": "PUT",
-                    "url": "https://api.hh.ru/negotiations/invited/123456789",
+                    "url": "https://api.hh.ru/negotiations/somecollection/123456789",
                     "resulting_employer_state": {
                         "id": "invitation",
                         "name": "Invitation"
@@ -614,7 +614,7 @@ Successful server response is returned with `200 OK` code and contains:
             "name": "Invite",
             "enabled": true,
             "method": "PUT",
-            "url": "https://api.hh.ru/negotiations/invited/123456789",
+            "url": "https://api.hh.ru/negotiations/somecollection/123456789",
             "resulting_employer_state": {
                 "id": "invitation",
                 "name": "Invitation"
