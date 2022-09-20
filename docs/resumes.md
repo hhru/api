@@ -498,8 +498,8 @@ expires | строка (дата) | время окончания действи
 * `middle_name` — отчество;
 * `birth_date` — день рождения (ГГГГ-ММ-ДД);
 * `gender` — пол. Элемент справочника [gender](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get);
-* `photo` — фотография пользователя. см. [артефакты](artifacts.md);
-* `portfolio` — портфолио пользователя. см. [артефакты](artifacts.md);
+* `photo` — фотография пользователя. см. [артефакты](https://api.hh.ru/openapi/redoc#tag/Rabota-s-artefaktami);
+* `portfolio` — портфолио пользователя. см. [артефакты](https://api.hh.ru/openapi/redoc#tag/Rabota-s-artefaktami);
 * `area` — город проживания. Элемент справочника [areas](areas.md);
 * `metro` — ближайшая станция метро. Элемент справочника [metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get). Если передать метро не принадлежащее переданной `area`, поле проигнорируется
   Имеет смысл указывать только для `area` с метро;
