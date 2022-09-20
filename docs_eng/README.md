@@ -85,7 +85,7 @@ Article labels:
   * [CV view history](resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Information on a resume's status and readiness for publication](resumes.md#status-and-publication) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Resume visibility lists](resume_visibility.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Artifacts (photos, portfolio)](artifacts.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* [Artifacts (photos, portfolio)](https://api.hh.ru/openapi/en/redoc#tag/Artifact-managing) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Search for vacancies similar to the CV](resumes.md#similar) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [History of responses/invitations for a resume](resume_negotiations_history.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 

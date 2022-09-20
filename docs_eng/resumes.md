@@ -1242,8 +1242,8 @@ Parameters:
 * `middle_name` — middle name;
 * `birth_date` — date of birth (YYYY-MM-DD);
 * `gender` — gender. Directory entries [gender](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get);
-* `photo` — user photo. see. [artifacts](artifacts.md);
-* `portfolio` — user portfolio. see [artifacts](artifacts.md);
+* `photo` — user photo. see. [artifacts](https://api.hh.ru/openapi/en/redoc#tag/Artifact-managing);
+* `portfolio` — user portfolio. see [artifacts](https://api.hh.ru/openapi/en/redoc#tag/Artifact-managing);
 * `area` — place of residence. Directory entries [areas](areas.md);
 * `metro` — nearest metro station. Directory entries [metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get). If you submit a metro station that does not exist in submitted area, the field will be ignored;
   It makes sense to show only for `area` with metro;
