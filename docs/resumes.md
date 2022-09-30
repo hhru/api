@@ -205,7 +205,8 @@
                     },
                     "preferred":true,
                     "comment":"Mobile",
-                    "verified":false
+                    "verified":false,
+                    "need_verification":false
                 },
                 {
                   "type": {
