@@ -87,10 +87,10 @@ HeadHunter API — это инструментарий для интеграци
 <a name="webhook"></a>
 ### [Webhook API](https://api.hh.ru/openapi/redoc#tag/Webhook-API)
 
-* [Список уведомлений, на которые подписан пользователь](https://api.hh.ru/openapi/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions/get)
-* [Подписка на уведомления](https://api.hh.ru/openapi/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions/post)
-* [Удаление подписки](https://api.hh.ru/openapi/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions~1%7Bsubscription_id%7D/delete)
-* [Изменение подписки](https://api.hh.ru/openapi/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions~1%7Bsubscription_id%7D/put)
+* [Список уведомлений, на которые подписан пользователь](https://api.hh.ru/openapi/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Подписка на уведомления](https://api.hh.ru/openapi/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions/post) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Удаление подписки](https://api.hh.ru/openapi/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions~1%7Bsubscription_id%7D/delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Изменение подписки](https://api.hh.ru/openapi/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions~1%7Bsubscription_id%7D/put) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="resume"></a>
 ### Резюме
