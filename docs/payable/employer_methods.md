@@ -8,7 +8,7 @@
 Для покупки доступа к платным методам для работодателей обратитесь к своему персональному менеджеру.
 
 Обратите внимание, что при работе приложения от имени нескольких учетных записей работодателей (employer_id), у каждой учетной записи работодателя должен быть доступ к платным методам API.
-Проверить информацию о подключенных услугах работодателя можно с помощью [специального метода](https://api.hh.ru/openapi/redoc#tag/Rabotodatelskie/paths/~1employers~1{employer_id}~1services~1payable_api_actions~1active/get).
+Проверить информацию о подключенных услугах работодателя можно с помощью [специального метода](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/paths/~1employers~1%7Bemployer_id%7D~1services~1payable_api_actions~1active/get).
 
 В случае запроса платного метода без купленного доступа будет выдана [ошибка](/docs/errors.md#employer_payable_methods) `403 Forbidden`.
 
