@@ -2,7 +2,7 @@
 
 * [Отобранные вакансии](#favorited)
 * [Дополнительные поля вакансии для соискателей](#vacancy-fields-applicant)
-* [Скрытые вакансии](blacklisted.md)
+* [Скрытые вакансии](https://api.hh.ru/openapi/redoc#tag/Skrytye-vakansii)
 
 
 <a name="favorited"></a>

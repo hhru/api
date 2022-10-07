@@ -610,7 +610,7 @@ HTTP code | type | value | описание
 
 В зависимости от текущей авторизации выдача может отличаться, так как для
 соискателей применяется фильтрация по
-[списку скрытых вакансий](blacklisted.md) и [списку скрытых компаний](https://api.hh.ru/openapi/redoc#tag/Skrytye-rabotodateli).
+[списку скрытых вакансий](https://api.hh.ru/openapi/redoc#tag/Skrytye-vakansii) и [списку скрытых компаний](https://api.hh.ru/openapi/redoc#tag/Skrytye-rabotodateli).
 
 Выдача может отличаться при выборе [различных сайтов](hosts.md) (параметр
 `host`). Однако выбор регионального сайта, например `hh.kz`, не сужает выборку
