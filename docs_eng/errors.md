@@ -420,7 +420,7 @@ HTTP code | type | value | description
 ### Adding hidden companies to the list
 
 In addition to [general errors](#general-errors),
-the following errors can be returned when [adding company's hidden jobs to the list](blacklisted.md#employers):
+the following errors can be returned when [adding company's hidden jobs to the list](https://api.hh.ru/openapi/en/redoc#tag/Blacklisted-employers):
 
 HTTP code | type | value | description
 ----------|------|-------|---------

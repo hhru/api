@@ -254,7 +254,7 @@ initial_created_at | string | Date and time resume was created
 created_at | string | Date and time of vacancy publication
 published_at | string | Date and time of vacancy publication
 employer | object or null | Brief description of an employer. See field description in [employer information](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1%7Bemployer_id%7D/get). null for anonymous vacancy
-employer.blacklisted | boolean | Whether all vacancies of the employer are added to the [list of hidden](blacklisted.md#employers)
+employer.blacklisted | boolean | Whether all vacancies of the employer are added to the [list of hidden](https://api.hh.ru/openapi/en/redoc#tag/Blacklisted-employers)
 response_letter_required | boolean | Whether it is mandatory to fill out a message for application
 type | object | Vacancy type. [vacancy_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 type.id | string | Vacancy type ID
@@ -638,7 +638,7 @@ possible, but a request with `per_page=10&page=200` will return an error
 (displaying vacancies from 2001 to 2010).
 
 Depending on the current authorization, results may differ, as filtering by
-[the list of hidden vacancies and companies](blacklisted.md) is
+[the list of hidden vacancies](blacklisted.md) and [companies](https://api.hh.ru/openapi/en/redoc#tag/Blacklisted-employers) is
 used for applicants.
 
 ### Response
