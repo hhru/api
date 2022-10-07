@@ -269,7 +269,7 @@ initial_created_at | string | Дата и время создания вакан
 created_at | string | Дата и время публикации вакансии
 published_at | string | Дата и время публикации вакансии
 employer | object или null | Короткое представление работодателя. Описание полей смотрите в [информации о работодателе](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/paths/~1employers~1%7Bemployer_id%7D/get). Может не прийти в случае, если вакансия анонимная
-employer.blacklisted | boolean | Добавлены ли все вакансии работодателя в [список скрытых](blacklisted.md#employers)
+employer.blacklisted | boolean | Добавлены ли все вакансии работодателя в [список скрытых](https://api.hh.ru/openapi/redoc#tag/Skrytye-rabotodateli)
 response_letter_required | boolean | Обязательно ли заполнять сообщение при отклике на вакансию
 type | object | Тип вакансии. Элемент справочника [vacancy_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 type.id | string | Идентификатор типа вакансии
@@ -610,7 +610,7 @@ HTTP code | type | value | описание
 
 В зависимости от текущей авторизации выдача может отличаться, так как для
 соискателей применяется фильтрация по
-[списку скрытых вакансий и компаний](blacklisted.md).
+[списку скрытых вакансий](blacklisted.md) и [списку скрытых компаний](https://api.hh.ru/openapi/redoc#tag/Skrytye-rabotodateli).
 
 Выдача может отличаться при выборе [различных сайтов](hosts.md) (параметр
 `host`). Однако выбор регионального сайта, например `hh.kz`, не сужает выборку
