@@ -6,7 +6,7 @@
 * [Search for vacancies](#search)
 * [Search for vacancies similar to the vacancy](#similar)
 * [Short description of the vacancy](#nano)
-* [Hidden vacancies](blacklisted.md)
+* [Hidden vacancies](https://api.hh.ru/openapi/en/redoc#tag/Hidden-vacancies)
 
 See also:
 
@@ -638,7 +638,7 @@ possible, but a request with `per_page=10&page=200` will return an error
 (displaying vacancies from 2001 to 2010).
 
 Depending on the current authorization, results may differ, as filtering by
-[the list of hidden vacancies](blacklisted.md) and [companies](https://api.hh.ru/openapi/en/redoc#tag/Blacklisted-employers) is
+[the list of hidden vacancies](https://api.hh.ru/openapi/en/redoc#tag/Hidden-vacancies) and [companies](https://api.hh.ru/openapi/en/redoc#tag/Blacklisted-employers) is
 used for applicants.
 
 ### Response

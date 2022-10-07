@@ -408,7 +408,7 @@ In addition to the `type` and `value`, the returned error response body may cont
 <a name="vacancies_blacklist"></a>
 ### Adding hidden jobs to the list
 
-In addition to [general errors](#general-errors), the following errors can be returned when [adding hidden jobs to the list](blacklisted.md#vacancies):
+In addition to [general errors](#general-errors), the following errors can be returned when [adding hidden jobs to the list](https://api.hh.ru/openapi/en/redoc#tag/Hidden-vacancies):
 
 HTTP code | type | value | description
 ----------|------|-------|---------
