@@ -468,27 +468,14 @@ counters.invitations_and_responses | number | number of invitations and response
 These methods require applicant authorization, otherwise `403 Forbidden` will be
 returned.
 
-`GET /vacancies/favorited` – returns a subset of vacancies added in the
-favorites list. Paging works with standard page&per\_page parameters, pages are
-numbered from zero.
+## Receiving favorite vacancies
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/paths/~1vacancies~1favorited/get)
 
-`PUT /vacancies/favorited/{vacancy_id}` returns the indicated vacancy in the
-list. This operation is idempotent: when adding a vacancy that is already
-present in the favorites list, `204 No Content` will be returned, as in the case
-of initial adding.
+## Adding favorite vacancies
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/paths/~1vacancies~1favorited~1%7Bvacancy_id%7D/put)
 
-`DELETE /vacancies/favorited/{vacancy_id}` will delete a vacancy from the
-authorized user's favorites list. The operation is also idempotent. If deleted
-successfully, the method returns `204 No Content`.
-
-
-### Errors
-
-* `404 Not Found` - if the vacancy is not found
-* `403 Forbidden` - user does not have the appropriate privileges
-* `403 Forbidden` - when the request is not from the applicant
-Apart from the HTTP code, the server can also return a description of [the cause of the error](errors.md#vacancies_favorited).
-
+## Deleting favorite vacancies
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/paths/~1vacancies~1favorited~1%7Bvacancy_id%7D/delete)
 
 <a name="search"></a>
 ## Search for vacancies
