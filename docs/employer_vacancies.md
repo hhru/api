@@ -1,6 +1,6 @@
 # Вакансии для работодателя
 
-* [Возможные варианты публикации вакансий](#available_types)
+* [Варианты публикации вакансий](#available_types)
 * [Публикация вакансий](#creation)
 * [Условия заполнения полей при добавлении и редактировании вакансий](#conditions)
 * [Редактирование вакансий](#edit)
@@ -20,92 +20,9 @@
 
 
 <a name="available_types"></a>
-## Возможные варианты публикации вакансий у текущего менеджера
+## Варианты публикации вакансий у текущего менеджера
 
-Метод нужен, чтобы понять, может ли менеджер публиковать вакансии и какие типы вакансий ему доступны. Возвращает все возможные типы публикации.
-
-### Запрос
-
-```GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types```
-
-где:
-
-* `employer_id` - идентификатор работодателя, который можно узнать в 
-[информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
-* `manager_id` - идентификатор менеджера. Можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
-
-### Ответ
-
-В случае успешного выполнения запроса, будет возвращён статус `200 OK`.
-В теле ответа будет содержаться информация о вариантах публикации вакансии:
-
-```json
-{
-    "items": [
-        {
-            "name": "Стандарт: без обновления",
-            "description": "Автоматически поднимается в поисковой выдаче вакансий каждые 3 дня; размещается на 30 дней. Вакансия видна только приглашенным кандидатам. Такую вакансию нельзя будет найти через поиск и увидеть неприглашенным кандидатам",
-            "available_publications_count": 21,
-            "vacancy_billing_type": {
-                "id": "standart"
-            },
-            "vacancy_types": [
-                {
-                    "id": "closed"
-                },
-                {
-                    "id": "open"
-                }
-            ],
-            "publications": [
-                {
-                    "name": "Москва и Московская область",
-                    "count": 10,
-                    "areas_url": "https://api.hh.ru/areas?price_region_id=1000224&vacancy_publication_flag=true"
-                },
-                {
-                    "name": "В любом регионе",
-                    "count": 11,
-                    "areas_url": "https://api.hh.ru/areas?vacancy_publication_flag=true"
-                }
-            ]
-        },
-        {
-            "name": "Премиум: неделя в топе",
-            "description": "Первые 7 дней публикация выделена цветом, брендирована логотипом вашей компании и находится вверху поисковой выдачи; вакансия отправляется в рассылке подходящим соискателям; размещается на 30 дней.",
-            "available_publications_count": 0,
-            "vacancy_billing_type": {
-                "id": "free"
-            },
-            "vacancy_types": [
-                {
-                    "id": "open"
-                }
-            ],
-            "publications": []
-        }
-    ]
-}
-
-```
-
-Каждый элемент из `items` может обладать следующими полями:
-
-Имя | Тип | Описание
---- | --- | --------
-name | string | Название типа публикации
-description | string | Описание
-available_publications_count | number | Общее количество публикаций, доступных данному менеджеру. Равняется сумме `publications[].count` или значению, выставленному в квотах, если оно меньше
-vacancy_billing_type.id | string | Биллинговый тип [из справочника vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
-vacancy_types | array | Список типов вакансии
-vacancy_types[].id | string | Тип вакансии [из справочника vacancy_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
-publications | array | Список регионов, где может быть опубликована вакансия и количество публикаций, доступных работодателю 
-publications[].name | string | Название региона
-publications[].count | number | Количество публикаций в регионе, доступных работодателю
-publications[].areas_url | string | URL на список регионов, в которых можно опубликовать вакансию данного типа. Список возвращается в древовидной структуре и публикация вакансий возможна только в конечных (листовых) узлах дерева. Они помечеты флагом `can_publish=true`
-
-Значения `vacancy_billing_type.id` и `vacancy_type.id` соответствуют параметрам `billing_type` и `type` при публикации вакансии 
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1employers~1%7Bemployer_id%7D~1managers~1%7Bmanager_id%7D~1vacancies~1available_types/get)
 
 ### Ошибки
 
