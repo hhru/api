@@ -23,9 +23,9 @@ At the moment, support for the new catalog of specializations (professional role
 
 3. [Viewing jobs](vacancies.md#item) - the `professional_roles` field is added
 
-4. [Draft-based job posting](vacancy_drafts.md#draft_publish) - the `with_professional_roles` parameter is added
+4. [Draft-based job posting](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-draft/paths/~1vacancies~1drafts~1%7Bdraft_id%7D~1publish/post) - the `with_professional_roles` parameter is added
 
-5. 5. [Vacancy editing](https://github.com/hhru/api/blob/master/docs_eng/employer_vacancies.md#edit) - the `with_professional_roles` parameter is added
+5. [Vacancy editing](https://github.com/hhru/api/blob/master/docs_eng/employer_vacancies.md#edit) - the `with_professional_roles` parameter is added
 
 #### For resume:
 
