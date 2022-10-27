@@ -133,7 +133,6 @@ Article labels:
 * [Employer services](https://api.hh.ru/openapi/en/redoc#tag/Employer-services) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Employer info](https://api.hh.ru/openapi/en/redoc#tag/Employer-info) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Employer managers](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [List of branded vacancy templates](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
 <a name="employer_managers"></a>
 ### Employer's managers
