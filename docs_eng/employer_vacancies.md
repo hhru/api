@@ -14,6 +14,7 @@
 * [Deleted vacancy list](#hidden)
 * [Restoring deleted vacancies](#restore)
 * [Vacancy statistics](#stats)
+* [Vacancy visitors](#visitors)
 
 See also:
 
@@ -1186,3 +1187,149 @@ The system returns a window of the last 5 days of the publication life:
 
 * `403 Forbidden` – current user is not an employer
 * `404 Not Found` – vacancy with the passed ID does not exist
+
+
+<a name="visitors"></a>
+## Vacancy visitors
+
+`GET /vacancies/{vacancy_id}/visitors`
+
+Success response returns a list of CV of users who viewed the vacancy in the last week. List sorted by viewing date
+descending. If the user has multiple CVs, then a CV with the latest update date will be returned.
+
+
+Parameters:
+
+Name | Required | Description
+--- | ------------ | --------
+vacancy_id| yes | Vacancy ID
+page | no | Page number, default: 0
+per_page | no | Number of items per page: default value is 20; the maximum value is 50
+
+### Response
+
+Successful server response is returned with `200 OK` code and contains:
+```json
+{
+  "found": 12,
+  "pages": 1,
+  "page": 0,
+  "per_page": 20,
+  "items": [
+    {
+      "id": "0123456789abcdef",
+      "title": "Young specialist",
+      "url": "https://api.hh.ru/resumes/0123456789abcdef?topic_id=123456789",
+      "first_name": "Ivan",
+      "last_name": "Ivanov",
+      "middle_name": "Ivanovich",
+      "age": 19,
+      "alternate_url": "https://hh.ru/resume/0123456789abcdef?vacancyId=123456&t=123456789",
+      "created_at": "2015-02-06T12:00:00+0300",
+      "updated_at": "2015-04-20T16:24:15+0300",
+      "area": {
+        "id": "1",
+        "name": "Moscow",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "certificate": [
+        {
+          "achieved_at": "2015-01-01",
+          "owner": null,
+          "title": "test",
+          "type": "custom",
+          "url": "http://example.com/"
+        }
+      ],
+      "education": {
+        "primary": [
+          {
+            "name": "Russian State Social University, Moscow",
+            "name_id": "39420",
+            "organization": "IT Department",
+            "organization_id": null,
+            "result": "",
+            "result_id": null,
+            "year": 2012
+          }
+        ],
+        "level": {
+          "id": "higher",
+          "name": "Higher"
+        }
+      },
+      "total_experience": {
+        "months": 118
+      },
+      "experience": [
+        {
+          "area": {
+            "id": "1",
+            "name": "Moscow",
+            "url": "https://api.hh.ru/areas/1"
+          },
+          "company": "Roga i Kopyta",
+          "company_id": null,
+          "company_url": "http://example.com/",
+          "employer": null,
+          "end": "1999-03-01",
+          "industries": [
+            {
+              "id": "45.507",
+              "name": "Mining and dressing of ferrous, non-ferrous, precious, noble and rare metals"
+            }
+          ],
+          "industry": null,
+          "start": "1998-01-01"
+        }
+      ],
+      "gender": {
+        "id": "male",
+        "name": "Male"
+      },
+      "salary": {
+        "amount": 1000000,
+        "currency": "RUR"
+      },
+      "owner": {
+        "id": "123456",
+        "comments": {
+          "url": "https://api.hh.ru/applicant_comments/123456",
+          "counters": {
+            "total": 7
+          }
+        }
+      },
+      "negotiations_history": {
+        "url": "https://api.hh.ru/resumes/0123456789abcdef/negotiations_history"
+      },
+      "download": {
+        "pdf": {
+          "url": "https://hh.ru/api_resume_converter/0123456789abcdef/IvanovIvanIvanovich.pdf?type=pdf"
+        },
+        "rtf": {
+          "url": "https://hh.ru/api_resume_converter/0123456789abcdef/IvanovIvanIvanovich.rtf?type=rtf"
+        }
+      }
+    }
+  ]
+}
+```
+where:
+
+Name | Type | Description
+--- | --- | --------
+found | number | Number of responses found ( ≥ 0 )
+pages | number | Number of pages with responses ( ≥ 1 )
+per_page | number | Number of elements per page ( > 0 )
+page | number | Number of the current page ( ≥ 0 )
+
+
+The `items` entity contains list of [short CV's](resumes.md#resume-short)
+
+### Errors
+
+* `400 Bad Request` - error in the request parameters
+* `404 Not Found` - if the vacancy of requested мшышещкы doesn't exist or
+  not available to the current user
+
