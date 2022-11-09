@@ -129,7 +129,13 @@ Successful server response is returned with `200 OK` code and contains:
         "url": "https://api.hh.ru/employers/1455?locale=EN",
         "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
-        "trusted": true
+        "trusted": true,
+        "blacklisted": false,
+        "applicant_services": {
+          "target_employer": {
+            "count": 2
+          }
+        }
     },
     "response_letter_required": true,
     "type": {

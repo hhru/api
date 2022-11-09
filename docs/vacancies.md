@@ -123,7 +123,12 @@
         "alternate_url": "https://hh.ru/employer/1455",
         "id": "1455",
         "trusted": true,
-        "blacklisted": false
+        "blacklisted": false,
+        "applicant_services": {
+          "target_employer": {
+            "count": 2
+          }
+        }
     },
     "response_letter_required": true,
     "type": {
