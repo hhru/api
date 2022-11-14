@@ -24,7 +24,7 @@
   * [Resume visibility lists](#visibility_lists)
   * [Retrieving a list of resume visibility types](#get_access_types)
 * [Resume viewing history](#views)
-* [Searching for jobs similar to a resume](#similar)
+* [Searching for jobs similar to a resume](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)
 * [CV hidden fields](#hidden-fields)
 
 
@@ -2319,36 +2319,4 @@ The information is available only to the resume publisher.
 
 ### Request
 
-`GET /resumes/{resume_id}/similar_vacancies`
-
-where `resume_id` – ID of the resume.
-
-It takes the same parameters as the [searching for jobs](vacancies.md#search-params)
-
-When indicating paging parameters (`page`, `per_page`), a restriction takes
-effect: the number of results returned can't exceed 2000. For instance, a
-request `per_page=10&page=199` (displaying vacancies from 1991 to 2000) is
-possible, but a request with `per_page=10&page=200` will return an error
-(displaying vacancies from 2001 to 2010).
-
-### Response
-
-Successful server response is returned with `200 OK` code and contains the results in the same format 
-as the [searching for jobs](vacancies.md#search-params):
-
-### Errors
-
-* `400 Bad Request` – error in the request parameters
-* `404 Not Found` - if the resume with `resume_id` identifier does not exist or is unavailable
-
-
-<a name="hidden-fields"></a>
-## CV hidden fields
-
-The `hidden_fields` field contains a list of search fields hidden by the applicant. Hidden fields are replaced by `null`. The CV author is provided with relevant data.
-
-* `names_and_photo` enters `null` instead of the values of the `first_name`, `last_name`, `middle_name` and `photo` fields
-* `phones`  enters `null` instead of the value of the `contact[].value` field, when `contact[].type` contains `cell,` `work,` or `home`
-* `email`  enters `null` instead of the value of the `contact[].value` field, when `contact[].type` contains `email`
-* `other_contacts` enters `null` instead of the value of the `site[].url` field
-* `experience` enters `null` instead of the values of the `experience[].company`, `experience[].company_id`, `experience[].company_url`, `experience[].employer` fileds; enters an empty list instead of the value of the `recommendation` field
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)

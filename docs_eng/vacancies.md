@@ -4,7 +4,7 @@
 * [Additional vacancy fields for employers](#author)
 * [Favorite vacancies](#favorited)
 * [Search for vacancies](#search)
-* [Search for vacancies similar to the vacancy](#similar)
+* [Search for vacancies similar to the vacancy](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
 * [Short description of the vacancy](#nano)
 * [Hidden vacancies](https://api.hh.ru/openapi/en/redoc#tag/Hidden-vacancies)
 
@@ -749,21 +749,7 @@ It is also possible to return [clusters](clusters.md) ('clusters' key) and [used
 
 ### Request
 
-`GET /vacancies/{vacancy_id}/similar_vacancies`
-
-where `vacancy_id` – ID of the vacancy.
-
-Accepts the same parameters as [the search by vacancy](#search-params).
-
-### Response
-
-Returns the same results as [the search by vacancy](#search-results).
-
-### Errors
-
-Returns the same errors as [the search by vacancy](#search-results) and in addition: 
-* `404 Not Found` - if there is no vacancy with `vacancy_id` ID
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
 
 <a name="nano"></a>
 ## Short description of the vacancy
