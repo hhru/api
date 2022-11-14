@@ -2,7 +2,7 @@
 
 * [Просмотр вакансии](#item)
 * [Поиск по вакансиям](#search)
-* [Поиск по вакансиям, похожим на вакансию](#similar)
+* [Поиск по вакансиям, похожим на вакансию](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
 * [Короткое представление вакансии](#nano)
 
 Смотрите также:
@@ -748,20 +748,7 @@ HTTP code | type | value | описание
 
 ### Запрос
 
-`GET /vacancies/{vacancy_id}/similar_vacancies`
-
-где `vacancy_id` - идентификатор вакансии.
-
-Принимает те же параметры, что и [поиск по вакансиям](#search-params)
-
-### Ответ
-
-Возвращает результаты в том же виде, что и [поиск по вакансиям](#search-results).
-
-### Ошибки
-
-Возвращает те же ошибки, что и [поиск по вакансиям](#search-results) и дополнительно:
-* `404 Not Found` - если вакансия с идентификатором `vacancy_id` не существует
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
 
 <a name="nano"></a>
 ## Короткое представление вакансии
