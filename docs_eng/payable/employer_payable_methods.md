@@ -35,7 +35,7 @@ The following groups currently exist:
     * [Correspondence](/docs_eng/employer_negotiations.md#get-messages)
 2. Availability of access to the methods:
     * [Resume search](/docs_eng/resumes_search.md)
-    * [Saved resume searches](/docs_eng/resumes_saved_searches.md)
+    * [Saved resume searches](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes/get)
 3. Availability of access to the [viewing of resumes](/docs_eng/resumes.md#item) that have a response or invite
 4. Availability of access to the [viewing of resumes](/docs_eng/resumes.md#item) for resumes found via [database search](/docs_eng/resumes_search.md)
 
