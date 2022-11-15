@@ -116,7 +116,7 @@ HeadHunter API — это инструментарий для интеграци
   * [Списки видимости резюме](docs/resume_visibility.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Артефакты (фото, портфолио)](https://api.hh.ru/openapi/redoc#tag/Rabota-s-artefaktami) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Поиск по вакансиям, похожим на резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [История откликов/приглашений по резюме](docs/resume_negotiations_history.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [История откликов/приглашений по резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
 <a name="vacancies"></a>
 ### Вакансии
