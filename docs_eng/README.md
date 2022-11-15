@@ -85,6 +85,14 @@ Article labels:
   * [CV view history](resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Information on a resume's status and readiness for publication](resumes.md#status-and-publication) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Resume visibility lists](resume_visibility.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* [Search for CV](docs/resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Saved CV search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [List of saved CV searches](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Getting single saved CV search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes~1%7Bid%7D/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Creating new saved resume search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes/post) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Updating saved resume search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes~1%7Bid%7D/put) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Deleting saved resume search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes~1%7Bid%7D/delete) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Moving saved resume search to other manager](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes~1%7Bsaved_search_id%7D~1managers~1%7Bmanager_id%7D/put) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Artifacts (photos, portfolio)](https://api.hh.ru/openapi/en/redoc#tag/Artifact-managing) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Search for vacancies similar to the CV](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [History of responses/invitations for a resume](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
