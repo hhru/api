@@ -357,7 +357,7 @@
 * `owner.comments.counters.total` — общее количество таких комментариев
 * `last_negotiation` — информация о последнем статусе в истории откликов/приглашений. Поля `employer_state` и
 `created_at` аналогичны соответствующим полям в
-[истории откликов/приглашений по резюме](https://github.com/hhru/api/blob/master/docs/resume_negotiations_history.md#response).
+[истории откликов/приглашений по резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get).
 
 ## Ошибки
 
