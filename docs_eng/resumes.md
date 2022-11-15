@@ -1158,7 +1158,7 @@ comments.counters.total | number | total number of comments
 #### Brief history of responses/invitations for a resume
 
 The `negotiations_history.url` field is always available and contains the URL to perform a GET request to obtain the
-[detailed history of responses/invitations for a resume](resume_negotiations_history.md).
+[detailed history of responses/invitations for a resume](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get).
 
 The `negotiations_history.vacancies` is available only when
 the following additional parameter was passed when executing the [request for resume](resumes.md#item):
@@ -1167,7 +1167,7 @@ the following additional parameter was passed when executing the [request for re
 `GET /resumes/{resume_id}?with_negotiations_history=true`
 
 The format of the `negotiations_history.vacancies` field is described on the
-[detailed history of responses/invitations for a resume](resume_negotiations_history.md#response) page, and the only difference is that
+[detailed history of responses/invitations for a resume](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get) page, and the only difference is that
 in this case, the list will be limited to 3 jobs of this employer and the latest status change
 for the response/invitation for each of these jobs.
 
