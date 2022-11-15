@@ -237,7 +237,7 @@ HTTP code | type | value | описание
 ### Сохраненные поиски резюме
 
 Помимо кода ошибки при
-[передаче сохраненного поиска резюме другому менеджеру](resumes_saved_searches.md#resumes-saved-search-move-to-other-manager),
+[передаче сохраненного поиска резюме другому менеджеру](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes~1%7Bsaved_search_id%7D~1managers~1%7Bmanager_id%7D/put),
 могут быть возвращены следующие ошибки:
 
 HTTP code | type | value | описание
