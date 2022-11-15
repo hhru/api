@@ -87,7 +87,7 @@ Article labels:
   * [Resume visibility lists](resume_visibility.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Artifacts (photos, portfolio)](https://api.hh.ru/openapi/en/redoc#tag/Artifact-managing) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Search for vacancies similar to the CV](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [History of responses/invitations for a resume](resume_negotiations_history.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [History of responses/invitations for a resume](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
 <a name="vacancies"></a>
 ### Vacancies
