@@ -101,7 +101,12 @@ Article labels:
 * [Favorite vacancies](vacancies.md#favorited) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Hidden vacancies](https://api.hh.ru/openapi/en/redoc#tag/Hidden-vacancies) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Blacklisted employers](https://api.hh.ru/openapi/en/redoc#tag/Blacklisted-employers) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Saved vacancy searches](saved_search.md#vacancies-saved-search-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* [Saved vacancy searches](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1saved_searches~1vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [List of saved vacancy searches](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1saved_searches~1vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Obtaining single saved vacancy search](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1saved_searches~1vacancies~1%7Bid%7D/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Creating new saved vacancy search](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1saved_searches~1vacancies/post) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Updating saved vacancy search](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1saved_searches~1vacancies~1%7Bid%7D/put) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Deleting saved vacancy search](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1saved_searches~1vacancies~1%7Bid%7D/delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Vacancies for the employer / manager](employer_vacancies.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Possible options available to current manager for publishing of vacancies](employer_vacancies.md#available_types) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Vacancy posting](employer_vacancies.md#creation) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
