@@ -131,7 +131,12 @@ HeadHunter API — это инструментарий для интеграци
 * [Отобранные вакансии](docs/vacancies_for_applicant.md#favorited) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Скрытые вакансии](https://api.hh.ru/openapi/redoc#tag/Skrytye-vakansii) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Скрытые работодатели](https://api.hh.ru/openapi/redoc#tag/Skrytye-rabotodateli) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Сохраненные поиски вакансий](docs/saved_search.md#vacancies-saved-search-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* [Сохраненные поиски вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Список сохраненных поисков вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Получение единичного сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Создание нового сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies/post) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Обновление сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/put) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Удаление сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Работа с вакансиями](docs/employer_vacancies.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Возможные варианты публикации вакансий](docs/employer_vacancies.md#available_types) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Публикация вакансий](docs/employer_vacancies.md#creation) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
