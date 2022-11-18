@@ -113,9 +113,6 @@ For example:
 * `schedule` – work schedule. Directory with possible values:
   `schedule` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get). You can indicate
   several values.
-* `specialization` – a professional area or specialization. Directory with
-  possible values: [/specializations](https://github.com/hhru/api/blob/master/docs_eng/specializations.md). You can indicate
-  several values.
 * `order_by` – CV list sorting. Directory with possible values:
   `resume_search_order` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
 * `per_page` – the number of results per page (cannot exceed 50).

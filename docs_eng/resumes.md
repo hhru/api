@@ -377,26 +377,6 @@ the response will be registered as viewed.
             "description": "..."
         }
     ],
-    "specialization": [
-        {
-            "id": "1.221",
-            "name": "Programming, Development",
-            "profarea_id": "1",
-            "profarea_name": "Information technology, Internet, telecom"
-        },
-        {
-            "id": "1.89",
-            "name": "Internet",
-            "profarea_id": "1",
-            "profarea_name": "Information technology, Internet, telecom"
-        },
-        {
-            "id": "1.9",
-            "name": "Web engineer",
-            "profarea_id": "1",
-            "profarea_name": "Information technology, Internet, telecom"
-        }
-    ],
     "salary": {
         "amount": 100500,
         "currency": "RUR"
@@ -612,7 +592,6 @@ photo | [object](#photo-object) or null | User photo.
 portfolio | [array](#portfolio-object) | A list of images in the user's portfolio.
 site | [array](#site-object) | Profiles in social networks and other services.
 title | string or null | Desired position.
-specialization | [array](#specialization-object) | Applicant's specialist areas. [specializations](specializations.md) directory entries.
 salary | [object](#salary-object) or null | Desired salary.
 employments | [array](#id-name-object) | List of types of employment that are suitable for the applicant. [employment](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entries.
 schedules | [array](#id-name-object) | List of working hours that are suitable for the applicant. [schedule](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entries.
@@ -724,17 +703,6 @@ Name | Type | Description
 -----|-----|---------
 type | [object](#id-name-object) | Profile type. [resume_contacts_site_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 url | string or null | A link to profile or ID.
-
-<a name="specialization-object"></a>
-Object `specialization`
-
-Name | Type | Description
------|-----|---------
-id | string | Specialist area ID.
-name | string | Specialist area name.
-profarea_id | string | ID of the profession that includes this specialist area.
-profarea_name | string | Name of the profession that includes this specialist area.
-laboring | boolean | Is this specialist area associated with the list of blue-collar jobs.
 
 <a name="salary-object"></a>
 Object `salary`
@@ -924,10 +892,6 @@ In addition to the HTTP code, the server can return a description of the [error 
             {
                 "id": "education",
                 "name": "Education"
-            },
-            {
-                "id": "specialization",
-                "name": "Specialization"
             }
         ],
         "recommended": [
@@ -1265,7 +1229,6 @@ Consists of the fields:
     * `type` — type of website. Directory entries [resume_contacts_site_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get);
     * `url` — a link to a profile or an ID on a third-party website/service;
 * `title` — desired position;
-* `specialization` — candidate's profession (list). Directory entries [specializations](specializations.md);
 * `professional_roles` — candidate's professional roles (list). Directory entries
       [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
 * `salary` — Desired salary. It consists of the following fields:
@@ -1326,13 +1289,6 @@ Consists of the fields:
 * `hidden_fields` - [hidden fields](#hidden-fields) in the resume (list). Directory entry
 * `access` - [resume visibility](#access_type)
     * `type` - visibility type. Directory entry [resume_access_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
-
-
-The `professional_roles` field can be saved by passing parameter `with_professional_roles`. In this case resume adding and editing requests should look like this accordingly:
-
-`POST /resumes?with_professional_roles=true`
-
-`PUT /resumes/{resume_id}?with_professional_roles=true`
 
 Parameters taken from [tips](suggests.md) (`name_id`, `organization_id`, `result_id`, `company_id`) 
 are optional. In this case, if these parameters are indicated, then when saved they are checked for
@@ -1475,9 +1431,6 @@ The resume can be used as soon as it is first published.
 Subsequent publications will update the renewal date of the resume. `next_publish_at` key
 in the resume indicates when the resume can be updated.
 
-To successfully publish resume with the `professional_roles` field you should add a parameter `with_professional_roles`. In this case POST request should look like this:
-
-`POST /resumes/{resume_id}/publish?with_professional_roles=true`
 
 ### Response
 
@@ -1543,10 +1496,6 @@ Successful server response is returned with `200 OK` code and contains:
             {
                 "id": "education",
                 "name": "Education"
-            },
-            {
-                "id": "specialization",
-                "name": "Specialization"
             }
         ],
         "recommended": [
@@ -1667,11 +1616,6 @@ remaining  | number | The number of resumes that can be created
 ## Conditions to fill in the fields of a resume
 
 `GET /resumes/{resume_id}/conditions` — returns a list of conditions for the fields of a resume.
-
-The `position.professional_roles` is required only when the following additional parameter was passed when executing request:
-`with_professional_roles`. In this case, the GET request should look like this:
-
-`GET /resumes/{resume_id}/conditions?with_professional_roles=true`
 
 Conditions for a resume are only accessible to its author, otherwise it will return the code
 `403 Forbidden`.
@@ -1813,9 +1757,7 @@ regexp | string or `null` | A regular expression for text fields. `null` if ther
 <a name="init-conditions"></a>
 ## Conditions to fill in the fields of a new resume
 
-`GET /resume_conditions?with_professional_roles=true` returns a [list of requirements](#conditions) for the fields in the new resume similar to existed resume.
-
-If `with_professional_roles` argument is passed when executing request, `professional_role` field is required, `specialization` field is non-required. If `with_professional_roles` is not passed or is false `professional_role` field is non-required, `specialization` field is required.
+`GET /resume_conditions` returns a [list of requirements](#conditions) for the fields in the new resume similar to existed resume.
 
 ### Response
 A successful response contains a code `200 OK` and list of requirements

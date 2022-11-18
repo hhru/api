@@ -87,26 +87,6 @@
             "hex_color": "13703a"
         },
         {
-            "argument": "specialization",
-            "value": "24",
-            "value_description": "Спорт, фитнес",
-            "disable_url": "https://api.hh.ru/vacancies?per_page=10&page=0&area=2&...",
-            "cluster_group": {
-                "id": "professional_area",
-                "name": "Профобласть"
-            }
-        },
-        {
-            "argument": "specialization",
-            "value": "24.624",
-            "value_description": "Ногтевой сервис",
-            "disable_url": "https://api.hh.ru/vacancies?per_page=10&page=0&area=2&specialization=24&...",
-            "cluster_group": {
-                "id": "specialization",
-                "name": "Специализация"
-            }
-        },
-        {
             "argument": "industry",
             "value": "51",
             "value_description": "ЖКХ",

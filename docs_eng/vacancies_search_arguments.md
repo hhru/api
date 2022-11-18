@@ -85,26 +85,6 @@ real queries will be shorter):
             "hex_color": "13703a"
         },
         {
-            "argument": "specialization",
-            "value": "24",
-            "value_description": "Sport",
-            "disable_url": "https://api.hh.ru/vacancies?per_page=10&page=0&area=2&...",
-            "cluster_group": {
-                "id": "professional_area",
-                "name": "Industry"
-            }
-        },
-        {
-            "argument": "specialization",
-            "value": "24.624",
-            "value_description": "Service",
-            "disable_url": "https://api.hh.ru/vacancies?per_page=10&page=0&area=2&specialization=24&...",
-            "cluster_group": {
-                "id": "specialization",
-                "name": "Specialist field"
-            }
-        },
-        {
             "argument": "industry",
             "value": "51",
             "value_description": "Other",
