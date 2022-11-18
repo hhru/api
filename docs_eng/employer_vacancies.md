@@ -38,11 +38,7 @@ See also:
 you can additionally specify the following query-arguments:
 
 * `ignore_duplicates=true` - force [adding duplicate](#creation-ignore-duplicates).
-* `with_professional_roles=true` - force vacancy publication with professional roles instead of specializations
 
-<a name="creation-with_professional_roles"></a>
-With argument `with_professional_roles=true` field `specializations` is not required and is ignored, field `professional_roles` is required.
-Without this argument field `professional_roles` is not required and is ignored
 ### General information
 
 As the response body, send
@@ -95,14 +91,6 @@ some additional fields.
     "type": {
         "id": "open"
     },
-    "specializations": [
-        {
-            "id": "17.324"
-        },
-        {
-            "id": "3.148"
-        }
-    ],
     "professional_roles": [
         {
             "id": "59"
@@ -192,8 +180,6 @@ some additional fields.
  description                 | string          | html description, min. 200 characters
  key_skills                  | array           | list of key skills, max. 30
  key_skills[].name           | string          | name of key skill
- specializations             | array           | list of specialisations
- specializations[].id        | string          | specialisation [from directory](specializations.md)
  professional_roles          | array           | list of professional roles
  professional_roles[].id     | string          | professional role [from directory](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
  area.id                     | string          | city of publication [from directory](areas.md)
