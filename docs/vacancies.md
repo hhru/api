@@ -140,32 +140,6 @@
     "test": {
         "required": false
     },
-    "specializations": [
-        {
-            "profarea_id": "4",
-            "profarea_name": "Административный персонал",
-            "id": "4.255",
-            "name": "Ресепшен"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Административный персонал",
-            "id": "4.429",
-            "name": "Делопроизводство"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Административный персонал",
-            "id": "4.264",
-            "name": "Секретарь"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Административный персонал",
-            "id": "4.181",
-            "name": "Начальный уровень, Мало опыта"
-        }
-    ],
     "contacts": {
         "name": "Имя",
         "email": "user@example.com",
@@ -283,11 +257,6 @@ has_test | boolean | Информация о наличии прикреплен
 response_url | string или null | На вакансии с типом `direct` нельзя откликнуться на сайте hh.ru, у этих вакансий в ключе `response_url` выдаётся URL внешнего сайта (чаще всего это сайт работодателя с формой отклика).
 test | object или null | Информация о прикрепленном тестовом задании к вакансии. В случае отсутствия теста — `null`. **В данный момент отклик на вакансии с обязательным тестом через API невозможен.**
 test.required | boolean | Обязательно ли заполнение теста для отклика
-specializations | array | Специализации. Элементы справочника [specializations](specializations.md)
-specializations[].id | string | Идентификатор специализации
-specializations[].name | string | Название специализации
-specializations[].profarea_id | string | Идентификатор профессиональной области, в которую входит специализация
-specializations[].profarea_name | string | Название профессиональной области, в которую входит специализация
 contacts | object или null | [Контактная информация](#contacts)
 billing_type | object | Биллинговый тип вакансии. Элемент справочника [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 billing_type.id | string | Идентификатор биллингового типа вакансии
@@ -510,10 +479,6 @@ HTTP code | type | value | описание
 Необходимо передавать `id` из справочника [/metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get).    
 Возможно указание нескольких значений.  
 
-* `specialization` — профобласть или специализация. 
-Необходимо передавать `id` из справочника [/specializations](specializations.md).    
-Возможно указание нескольких значений. Будет заменен профессиональными ролями (параметр `professional_role`), в настоящее время работает в режиме обратной совместимости.
-
 * `industry` - индустрия компании, разместившей вакансию. 
 Необходимо передавать `id` из справочника [/industries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1industries/get).
 Возможно указание нескольких значений.
@@ -600,7 +565,7 @@ HTTP code | type | value | описание
   
 * `professional_role` — профессиональная роль. Необходимо передавать `id` из справочника
   [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get).
-  Возможно указание нескольких значений. Замена специализациям (параметр `specialization`)
+  Возможно указание нескольких значений.
 
 <a name="search-results"></a>
 

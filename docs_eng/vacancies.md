@@ -147,32 +147,6 @@ Successful server response is returned with `200 OK` code and contains:
     "test": {
         "required": false
     },
-    "specializations": [
-        {
-            "profarea_id": "4",
-            "profarea_name": "Administrative staff",
-            "id": "4.255",
-            "name": "Reception"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Administrative staff",
-            "id": "4.429",
-            "name": "Office work"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Administrative staff",
-            "id": "4.264",
-            "name": "Secretary"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Administrative staff",
-            "id": "4.181",
-            "name": "Beginner level, Little experience"
-        }
-    ],
     "contacts": {
         "name": "First name",
         "email": "user@example.com",
@@ -269,11 +243,6 @@ has_test | boolean | Information on whether there is an attached test task for t
 response_url | string or null | You cannot apply for vacancies with `direct` type on hh.ru, these vacancies have an external website URL in the `response_url` key (in most cases, the employer's website with an application form)
 test | object or null | Information about attached test for the job. If there is no test — `null`. **At the moment it is impossible to apply for vacancies with mandatory test with API.**
 test.required | boolean | If the test is mandatory for an application
-specializations | array | Specialisations. [specialisations](specializations.md) directory entries
-specializations[].id | string | Specialisation ID
-specializations[].name | string | Specialisation name
-specializations[].profarea_id | string | ID of the profession that includes this specialisation
-specializations[].profarea_name | string | Name of the profession that includes this specialisation
 contacts | object or null | [Contact info](#contacts)
 billing_type | object | Vacancy billing type. [vacancy_billing_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 billing_type.id | string | ID of the vacancy billing type
@@ -531,10 +500,6 @@ Some parameters take multiple values: `key=value&key=value`.
   Directory with possible values: [/metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get).
   Several values can be indicated.
 
-* `specialization` – a professional area or specialization.
-  Directory with possible values: [/specializations](specializations.md).
-  Several values can be indicated. Will be replaced by professional role (parameter `professional_role`), preserved for backward compatibility.
-
 * `industry` – an industry of the company that posted the vacancy.
   Directory with possible values: [/industries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1industries/get).
   Several values can be indicated.
@@ -620,7 +585,7 @@ Default — `false`.
 
 * `professional_role` – a professional role.
   Directory with possible values: [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get).
-  Several values can be indicated. Will replace specializations (parameter `specialization`)
+  Several values can be indicated.
 
 <a name="search-results"></a>
 
