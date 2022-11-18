@@ -41,11 +41,6 @@
 * `ignore_duplicates=true` - форсировать
   [добавление дубликата](#creation-ignore-duplicates).
 
-* `with_professional_roles=true` - для публикации вакансии с профессиональными ролями вместо специализаций
-
-<a name="creation-with_professional_roles"></a>
-При указании параметра `with_professional_roles=true` поле `specializations` перестает быть обязательным и игнорируется, а массив `professional_roles` становится обязательным, при этом количество его элементов равно 1.
-Без этого параметра массив `professional_roles` необязателен и игнорируется
 ### Общая информация
 
 В качестве тела запроса необходимо передавать
@@ -100,14 +95,6 @@
     "type": {
         "id": "open"
     },
-    "specializations": [
-        {
-            "id": "17.324"
-        },
-        {
-            "id": "3.148"
-        }
-    ],
     "professional_roles": [
         {
           "id": "59"
@@ -196,9 +183,7 @@ name | string | название
 description | string | описание в html, не менее 200 символов
 key_skills | array | список ключевых навыков, не более 30
 key_skills[].name | string | название ключевого навыка
-specializations | array | список специализаций
-specializations[].id | string | специализация [из справочника](specializations.md)
-professional_roles | array | массив профессиональных ролей с количеством элементов равным 1 (если передать больше возникнет [ошибка](errors.md#причины-возникновения-ошибок) `is_too_long`) [при использовании параметра](#creation-with_professional_roles) `with_professional_roles=true`
+professional_roles | array | массив профессиональных ролей с количеством элементов равным 1 (если передать больше возникнет [ошибка](errors.md#причины-возникновения-ошибок) `is_too_long`)
 professional_roles[].id | string | индификатор профессиональной роли [из справочника](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
 area.id | string | город публикации [из справочника](areas.md)
 type.id | string | тип из [справочника vacancy_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
