@@ -141,32 +141,6 @@ Successful server response is returned with `200 OK` code and contains:
     "test": {
         "required": false
     },
-    "specializations": [
-        {
-            "profarea_id": "4",
-            "profarea_name": "Administrative staff",
-            "id": "4.255",
-            "name": "Reception"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Administrative staff",
-            "id": "4.429",
-            "name": "Office work"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Administrative staff",
-            "id": "4.264",
-            "name": "Secretary"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Administrative staff",
-            "id": "4.181",
-            "name": "Beginner level, Little experience"
-        }
-    ],
     "contacts": {
         "name": "First name",
         "email": "user@example.com",
