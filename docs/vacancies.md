@@ -140,32 +140,6 @@
     "test": {
         "required": false
     },
-    "specializations": [
-        {
-            "profarea_id": "4",
-            "profarea_name": "Административный персонал",
-            "id": "4.255",
-            "name": "Ресепшен"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Административный персонал",
-            "id": "4.429",
-            "name": "Делопроизводство"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Административный персонал",
-            "id": "4.264",
-            "name": "Секретарь"
-        },
-        {
-            "profarea_id": "4",
-            "profarea_name": "Административный персонал",
-            "id": "4.181",
-            "name": "Начальный уровень, Мало опыта"
-        }
-    ],
     "contacts": {
         "name": "Имя",
         "email": "user@example.com",
