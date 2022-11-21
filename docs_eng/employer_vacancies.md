@@ -317,12 +317,6 @@ For example, `/contacts/phones/1/number` means that an error is in the field fro
 
 `GET /vacancy_conditions`
 
-you can additionally specify query-argument:
-
-* `with_professional_roles=true` - force conditions for vacancy with professional roles instead of specializations
-
-With argument `with_professional_roles=true` field `specializations` is not returned in the response, field [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get) appears along with other fields
-
 Each end field is described by a rules object. If a field consists of
 an object with several fields, these fields are described in `fields`.
 
