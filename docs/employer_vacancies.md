@@ -865,7 +865,9 @@ actions.method | string | HTTP-метод, с которыми нужно сде
                 "unread_responses": 3,
                 "resumes_in_progress": 5,
                 "invitations": 10,
-                "invitations_and_responses": 14
+                "invitations_and_responses": 14,
+                "calls": 99,
+                "new_missed_calls": 11
             },
             "expires_at": "2013-07-08T16:17:21+0400",
             "has_updates": false,
@@ -890,6 +892,8 @@ counters.unread_responses | number | количество непросмотре
 counters.resumes_in_progress | number | количество резюме в работе на вакансию
 counters.invitations | number | количество приглашений на вакансию
 counters.invitations_and_responses | number | количество откликнувшихся и приглашенных соискателей на вакансию
+counters.calls | number | общее количество звонков по вакансии
+counters.new_missed_calls | number | количество новых пропущенных звонков
 expires_at | string | дата окончания публикации вакансии
 has_updates | boolean | Есть ли в откликах/приглашениях по данной вакансии обновления, требующие внимания
 billing_type | object | Биллинговый тип вакансии. Элемент справочника [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
