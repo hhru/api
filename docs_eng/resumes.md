@@ -377,26 +377,6 @@ the response will be registered as viewed.
             "description": "..."
         }
     ],
-    "specialization": [
-        {
-            "id": "1.221",
-            "name": "Programming, Development",
-            "profarea_id": "1",
-            "profarea_name": "Information technology, Internet, telecom"
-        },
-        {
-            "id": "1.89",
-            "name": "Internet",
-            "profarea_id": "1",
-            "profarea_name": "Information technology, Internet, telecom"
-        },
-        {
-            "id": "1.9",
-            "name": "Web engineer",
-            "profarea_id": "1",
-            "profarea_name": "Information technology, Internet, telecom"
-        }
-    ],
     "salary": {
         "amount": 100500,
         "currency": "RUR"
@@ -612,7 +592,6 @@ photo | [object](#photo-object) or null | User photo.
 portfolio | [array](#portfolio-object) | A list of images in the user's portfolio.
 site | [array](#site-object) | Profiles in social networks and other services.
 title | string or null | Desired position.
-specialization | [array](#specialization-object) | Applicant's specialist areas. [specializations](specializations.md) directory entries.
 salary | [object](#salary-object) or null | Desired salary.
 employments | [array](#id-name-object) | List of types of employment that are suitable for the applicant. [employment](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entries.
 schedules | [array](#id-name-object) | List of working hours that are suitable for the applicant. [schedule](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entries.
@@ -724,17 +703,6 @@ Name | Type | Description
 -----|-----|---------
 type | [object](#id-name-object) | Profile type. [resume_contacts_site_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
 url | string or null | A link to profile or ID.
-
-<a name="specialization-object"></a>
-Object `specialization`
-
-Name | Type | Description
------|-----|---------
-id | string | Specialist area ID.
-name | string | Specialist area name.
-profarea_id | string | ID of the profession that includes this specialist area.
-profarea_name | string | Name of the profession that includes this specialist area.
-laboring | boolean | Is this specialist area associated with the list of blue-collar jobs.
 
 <a name="salary-object"></a>
 Object `salary`
