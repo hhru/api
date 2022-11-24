@@ -1,4 +1,4 @@
-# Application authorisation
+# Application authorization
 
 The application token must be generated once.
 If the token was compromised, it must be requested again. In this case, the previously issued token is revoked.

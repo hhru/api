@@ -8,8 +8,8 @@ Registered application can ask hh.ru users for permission to access their
 personal data without getting and storing their user name and password.
 
 The API supports the following authorisation levels:
-* [application authorisation](authorization_for_application.md)
-* [user authorisation](authorization_for_user.md)
+* [application authorization](authorization_for_application.md)
+* [user authorization](authorization_for_user.md)
 
 > Attention! For authorization, you need to use the hh.ru domain, the m.hh.ru domain is no longer available.
 
@@ -31,7 +31,7 @@ by transferring it in the header in the following format:
 
 ```Authorization: Bearer ACCESS_TOKEN```
 
-[Description of authorisation errors](errors.md#oauth).
+[Description of authorization errors](errors.md#oauth).
 
 <a name="check-access_token"></a>
 ## Checking an access token

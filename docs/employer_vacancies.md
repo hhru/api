@@ -695,105 +695,11 @@ PUT /vacancies/{vacancy_id}
 
 <a name="prolongate"></a>
 ## Продление вакансий
+> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/post)
 
-**Продление вакансии по стоимости приравнивается к новой публикации**
-
-Существуют ограничения по продлению вакансии, они могут меняться, на данный
-момент работают следующие правила:
-
-* стандартные вакансии можно продлевать, если с предыдущего продления прошло не менее 1 минуты.
-* вакансии "стандарт-плюс" возможно продлевать не ранее 7 дней до окончания публикации.
-
-
-### Запрос
-
-`POST /vacancies/{vacancy_id}/prolongate`
-
-где `vacancy_id` - идентификатор вакансии.
-
-### Ответ
-
-При успешном продлениии вакансии вернется `204 No Content`.
-
-### Ошибки
-
-* `403 Forbidden` – текущий пользователь не является работодателем или
-  продление невозможно.
-* `404 Not Found` – текущему пользователю недоступно продление вакансии.
-* `404 Not Found` – вакансия с переданным идентификатором не существует.
-
-Дополнительно к HTTP коду сервер может вернуть
-описание [причины ошибки](errors.md#vacancies-prolongate).
-
-
-<a name="prolongate-info"></a>
 ## Информация о возможности продления вакансии
+> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/get)
 
-
-### Запрос
-
-`GET /vacancies/{vacancy_id}/prolongate`
-
-где `vacancy_id` - идентификатор вакансии.
-
-
-### Ответ
-
-Успешный ответ приходит с кодом `200 OK`.
-
-Пример ответа, когда продление невозможно:
-
-```json
-{
-    "id": "123456789",
-    "expires_at": "2015-11-19T17:10:48+0300",
-    "actions": [
-        {
-            "id": "prolongate",
-            "enabled": false,
-            "disable_reason": {
-                "id": "standard_plus_publication_is_updated_automatically",
-                "name": "Вакансия \"Стандарт Плюс\" не может быть обновлена, это происходит автоматически раз в три дня."
-            }
-        }
-    ]
-}
-```
-
-Пример ответа, когда продление возможно:
-
-```json
-{
-    "id": "123456789",
-    "expires_at": "2015-11-19T17:10:48+0300",
-    "actions": [
-        {
-            "id": "prolongate",
-            "enabled": true,
-            "url": "https://api.hh.ru/vacancies/123456789/prolongate",
-            "method": "POST"
-        }
-    ]
-}
-```
-
-Имя | Тип | Описание
----- | --- | --------
-actions | object | Cписок действий, которые можно предпринять для продления вакансии. В данный момент поддерживается только обычное продление.
-actions.id | string | Идентификатор действия
-actions.enabled | boolean | Флаг возможно ли действие
-actions.disable_reason | object | Причина, по которой совершить действие невозможно. Элемент справочника [vacancy_not_prolonged_reason](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get) 
-actions.url | string | url, с которыми нужно сделать запрос, чтобы совершить действие
-actions.method | string | HTTP-метод, с которыми нужно сделать запрос, чтобы совершить действие
-
-### Ошибки
-
-* `403 Forbidden` – текущий пользователь не является работодателем.
-* `404 Not Found` – текущему пользователю недоступно получение информации о вакансии.
-* `404 Not Found` – вакансия с переданным идентификатором не существует.
-
-
-<a name="active"></a>
 ## Список опубликованных вакансий
 
 `GET /employers/{employer_id}/vacancies/active`

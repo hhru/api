@@ -665,103 +665,11 @@ In addition to the HTTP code, the server can return a description of the [error 
 
 <a name="prolongate"></a>
 ## Extending vacancies
+> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/post) specification.
 
-**The cost of extending a vacancy is the same as publishing a new vacancy**
-
-There are limits on extending vacancies, but they can change. At the moment
-the following rules apply:
-
-* standard vacancies can be extended if it has been at least 1 minute since the last extension.
-* "Standard Plus" vacancies can be extended at least 7 days before the end of publication.
-
-
-### Request
-
-`POST /vacancies/{vacancy_id}/prolongate`
-
-where `vacancy_id` – ID of the vacancy.
-
-
-### Response
-
-A successful response contains a code `204 No Content` and is body-less.
-
-### Errors
-
-* `403 Forbidden` – current user is not an employer or extension is impossible.
-* `404 Not Found` – current user does not have privileges to extend vacancies
-* `404 Not Found` – the vacancy does not exist
-
-In addition to an HTTP code, the server can return [error reason](errors.md#vacancies-prolongate).
-
-
-<a name="prolongate-info"></a>
 ## Information about possible vacancy extension
+> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/get) specification.
 
-
-### Request
-
-`GET /vacancies/{vacancy_id}/prolongate`
-
-where `vacancy_id` – ID of the vacancy.
-
-
-### Response
-
-Successful response is returned with `200 OK` code.
-
-Sample response when extension is unavailable:
-
-```json
-{
-    "id": "123456789",
-    "expires_at": "2015-11-19T17:10:48+0300",
-    "actions": [
-        {
-            "id": "prolongate",
-            "enabled": false,
-            "disable_reason": {
-                "id": "standard_plus_publication_is_updated_automatically",
-                "name": "A \"Standard Plus\" vacancy cannot be extended — it happens automatically once every three days."
-            }
-        }
-    ]
-}
-```
-
-Sample response when extension is available:
-
-```json
-{
-    "id": "123456789",
-    "expires_at": "2015-11-19T17:10:48+0300",
-    "actions": [
-        {
-            "id": "prolongate",
-            "enabled": true,
-            "url": "https://api.hh.ru/vacancies/123456789/prolongate",
-            "method": "POST"
-        }
-    ]
-}
-```
-
-Path | JSON type | Description
----- | --- | --------
-actions | object | List of available actions to extend the vacancy. The system supports standard extension only
-actions.id | string | Action ID
-actions.enabled | boolean | Is the action possible
-actions.disable_reason | object | The reason why extension is unavailable. Element of dictionary [vacancy_not_prolonged_reason](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) 
-actions.url | string | url required to make a query for this action
-actions.method | string | HTTP-method required to make a query for this action
-
-### Errors
-
-* `403 Forbidden` – current user is not an employer.
-* `404 Not Found` – the vacancy does not exist 
-* `404 Not Found` – the current user cannot obtain details of this vacancy.
-
-<a name="active"></a>
 ## Published vacancy list
 
 `GET /employers/{employer_id}/vacancies/active`
