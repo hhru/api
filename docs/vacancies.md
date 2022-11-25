@@ -479,10 +479,6 @@ HTTP code | type | value | описание
 Необходимо передавать `id` из справочника [/metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get).    
 Возможно указание нескольких значений.  
 
-* `specialization` — профобласть или специализация. 
-Необходимо передавать `id` из справочника [/specializations](specializations.md).    
-Возможно указание нескольких значений. Будет заменен профессиональными ролями (параметр `professional_role`), в настоящее время работает в режиме обратной совместимости.
-
 * `industry` - индустрия компании, разместившей вакансию. 
 Необходимо передавать `id` из справочника [/industries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1industries/get).
 Возможно указание нескольких значений.
@@ -569,7 +565,7 @@ HTTP code | type | value | описание
   
 * `professional_role` — профессиональная роль. Необходимо передавать `id` из справочника
   [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get).
-  Возможно указание нескольких значений. Замена специализациям (параметр `specialization`)
+  Возможно указание нескольких значений.
 
 <a name="search-results"></a>
 
