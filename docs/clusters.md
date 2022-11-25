@@ -175,6 +175,16 @@
                     "name": "Только доступные для соискателей от 14 лет",
                     "url": "https://api.hh.ru/vacancies?clusters=true&label=accept_kids",
                     "count": 607
+                },
+                {
+                    "name": "Только аккредитованные ИТ-компании",
+                    "url": "https://api.hh.ru/vacancies?clusters=true&label=accredited_it",
+                    "count": 421
+                },
+                {
+                    "name": "Только вакансии, у которых меньше 10 откликов",
+                    "url": "https://api.hh.ru/vacancies?clusters=true&label=low_performance",
+                    "count": 254
                 }
             ]
         },
@@ -246,6 +256,27 @@
                     "count": 22859
                 }
             ]
+        },
+        {
+          "name": "Образование",
+          "id": "education",
+          "items": [
+            {
+              "name": "Не требуется или не указано",
+              "url": "https://api.hh.ru/vacancies?clusters=true&text=java&education=not_required_or_not_specified",
+              "count": 410
+            },
+            {
+              "name": "Среднее профессиональное",
+              "url": "https://api.hh.ru/vacancies?clusters=true&text=java&education=special_secondary",
+              "count": 5219
+            },
+            {
+              "name": "Высшее",
+              "url": "https://api.hh.ru/vacancies?clusters=true&text=java&education=higher",
+              "count": 4310
+            }
+          ]
         }
     ]
 }
