@@ -499,10 +499,6 @@ Some parameters take multiple values: `key=value&key=value`.
   Directory with possible values: [/metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get).
   Several values can be indicated.
 
-* `specialization` – a professional area or specialization.
-  Directory with possible values: [/specializations](specializations.md).
-  Several values can be indicated. Will be replaced by professional role (parameter `professional_role`), preserved for backward compatibility.
-
 * `industry` – an industry of the company that posted the vacancy.
   Directory with possible values: [/industries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1industries/get).
   Several values can be indicated.
@@ -588,7 +584,7 @@ Default — `false`.
 
 * `professional_role` – a professional role.
   Directory with possible values: [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get).
-  Several values can be indicated. Will replace specializations (parameter `specialization`)
+  Several values can be indicated.
 
 <a name="search-results"></a>
 
