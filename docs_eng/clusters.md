@@ -45,8 +45,220 @@ Example cluster results in the search, the `clusters` key is added to
           "url": "https://api.hh.ru/vacancies?clusters=true&specialization=25&per_page=1"
         }
       ]
+    },
+    {
+      "id": "specialization",
+      "name": "Specialist field",
+      "items": [
+        {
+          "name": "Sales",
+          "url": "https://api.hh.ru/vacancies?clusters=true&specialization=15.389",
+          "count": 3098
+        },
+        {
+          "name": "Administrative Personnel",
+          "url": "https://api.hh.ru/vacancies?clusters=true&specialization=15.388",
+          "count": 1035
+        }
+      ]
+    },
+    {
+      "id": "area",
+      "name": "Region",
+      "items": [
+        {
+          "name": "Moscow",
+          "url": "https://api.hh.ru/vacancies?clusters=true&area=1",
+          "count": 83285
+        },
+        {
+          "name": "Moscow Oblast",
+          "url": "https://api.hh.ru/vacancies?clusters=true&area=2019",
+          "count": 16413
+        }
+      ]
+    },
+    {
+      "id": "metro",
+      "name": "Metro",
+      "items": [
+        {
+          "name": "Zamoskvoretskaya",
+          "url": "https://api.hh.ru/vacancies?clusters=true&metro=2&area=1",
+          "count": 11639,
+          "type": "metro_line",
+          "metro_line": {
+            "id": "2",
+            "hex_color": "4FB04F",
+            "area": {
+              "id": "1",
+              "name": "Moscow",
+              "url": "https://api.hh.ru/areas/1"
+            }
+          }
+        },
+        {
+          "name": "Alekseevskaya",
+          "url": "https://api.hh.ru/vacancies?clusters=true&metro=6.8&area=1",
+          "count": 1046,
+          "type": "metro_station",
+          "metro_station": {
+            "id": "6.8",
+            "hex_color": "4FB04F",
+            "lat": 55.807794,
+            "lng": 37.638699,
+            "order": 5,
+            "area": {
+              "id": "1",
+              "name": "Moscow",
+              "url": "https://api.hh.ru/areas/1"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "schedule",
+      "name": "Work schedule",
+      "items": [
+        {
+          "name": "Full day",
+          "url": "https://api.hh.ru/vacancies?clusters=true&schedule=fullDay",
+          "count": 67101
+        },
+        {
+          "name": "Shift schedule",
+          "url": "https://api.hh.ru/vacancies?clusters=true&schedule=shift",
+          "count": 10736
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "name": "Work experience",
+      "items": [
+        {
+          "name": "Between 1 and 3 years",
+          "url": "https://api.hh.ru/vacancies?clusters=true&experience=between1And3",
+          "count": 39873
+        },
+        {
+          "name": "Between 3 and 6 years",
+          "url": "https://api.hh.ru/vacancies?clusters=true&experience=between3And6",
+          "count": 22922
+        }
+      ]
+    },
+    {
+      "id": "label",
+      "name": "Exclusion",
+      "items": [
+        {
+          "name": "No vacancies from agencies",
+          "url": "https://api.hh.ru/vacancies?clusters=true&label=not_from_agency",
+          "count": 77116
+        },
+        {
+          "name": "With address only",
+          "url": "https://api.hh.ru/vacancies?clusters=true&label=with_address",
+          "count": 47774
+        },
+        {
+          "name": "Only vacancies suitable for people with a disability",
+          "url": "https://api.hh.ru/vacancies?clusters=true&label=accept_handicapped",
+          "count": 1407
+        },
+        {
+          "name": "Only available to candidates aged 14+",
+          "url": "https://api.hh.ru/vacancies?clusters=true&label=accept_kids",
+          "count": 607
+        },
+        {
+          "name": "Vacancies from accredited IT employers",
+          "url": "https://api.hh.ru/vacancies?clusters=true&label=accredited_it",
+          "count": 421
+        },
+        {
+          "name": "Only vacancies with less than 10 responses",
+          "url": "https://api.hh.ru/vacancies?clusters=true&label=low_performance",
+          "count": 254
+        }
+      ]
+    },
+    {
+      "id": "salary",
+      "name": "Salary",
+      "items": [
+        {
+          "name": "Specified",
+          "url": "https://api.hh.ru/vacancies?clusters=true&only_with_salary=true",
+          "count": 51300
+        },
+        {
+          "name": "from 45000 RUB",
+          "url": "https://api.hh.ru/vacancies?salary=45000&clusters=true&only_with_salary=true",
+          "count": 40026
+        },
+        {
+          "name": "from 75000 RUB",
+          "url": "https://api.hh.ru/vacancies?salary=75000&clusters=true&only_with_salary=true",
+          "count": 19903
+        }
+      ]
+    },
+    {
+      "id": "employment",
+      "name": "Employment type",
+      "items": [
+        {
+          "name": "Full time",
+          "url": "https://api.hh.ru/vacancies?clusters=true&employment=full",
+          "count": 79713
+        },
+        {
+          "name": "Part time",
+          "url": "https://api.hh.ru/vacancies?clusters=true&employment=part",
+          "count": 2699
+        }
+      ]
+    },
+    {
+      "id": "industry",
+      "name": "Company branch",
+      "items": [
+        {
+          "name": "IT, System Integration, Internet",
+          "url": "https://api.hh.ru/vacancies?clusters=true&industry=7",
+          "count": 10316
+        },
+        {
+          "name": "Agriculture",
+          "url": "https://api.hh.ru/vacancies?clusters=true&industry=29",
+          "count": 512
+        }
+      ]
+    },
+    {
+      "name": "Education",
+      "id": "education",
+      "items": [
+        {
+          "name": "Not required or not specified",
+          "url": "https://api.hh.ru/vacancies?clusters=true&text=java&education=not_required_or_not_specified",
+          "count": 410
+        },
+        {
+          "name": "Special secondary",
+          "url": "https://api.hh.ru/vacancies?clusters=true&text=java&education=special_secondary",
+          "count": 5219
+        },
+        {
+          "name": "Higher",
+          "url": "https://api.hh.ru/vacancies?clusters=true&text=java&education=higher",
+          "count": 4310
+        }
+      ]
     }
-    // ...
   ]
 }
 ```
