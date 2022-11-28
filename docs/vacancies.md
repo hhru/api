@@ -176,7 +176,8 @@
                 "number": "000-00-00",
                 "comment": null
             }
-        ]
+        ],
+        "call_tracking_enabled": true
     },
     "billing_type": {
         "id": "standard",
@@ -331,6 +332,7 @@ contacts.phones[].country | string | Код страны
 contacts.phones[].city | string | Код города
 contacts.phones[].number | string | Номер телефона
 contacts.phones[].comment | string или null | Комментарий
+contacts.call_tracking_enabled | boolean или null | флаг подключения виртуального номера
 
 В архивных вакансиях контакты доступны:
 * менеджеру вакансии
