@@ -1127,6 +1127,7 @@ Successful server response is returned with `200 OK` code and contains:
   "pages": 1,
   "page": 0,
   "per_page": 20,
+  "hidden_on_page": 0,
   "items": [
     {
       "id": "0123456789abcdef",
@@ -1231,17 +1232,40 @@ where:
 
 Name | Type | Description
 --- | --- | --------
-found | number | Number of responses found ( ≥ 0 )
-pages | number | Number of pages with responses ( ≥ 1 )
+found | number | Number of CVs found ( ≥ 0 )
+pages | number | Number of pages with CVs ( ≥ 1 )
 per_page | number | Number of elements per page ( > 0 )
 page | number | Number of the current page ( ≥ 0 )
+hidden_on_page | number | Number of deleted or hidden CVs on the page ( ≥ 0 )
 
 
-The `items` entity contains list of [short CV's](resumes.md#resume-short)
+The `items` entity contains list of [short CV's](resumes.md#resume-short).
+
+If the applicant has deleted or hidden the resume from the employer, then in the list of `items` these CVs
+will be skipped, but will be taken into account during pagination (`per_page`) and in the number of CVs found (`found`),
+the field `hidden_on_page` indicates the number of such omitted CVs per page.
+
+For example
+
+```json
+{
+   "found": 12,
+   "pages": 2,
+   "page": 0,
+   "per_page": 10,
+   "hidden_on_page": 5,
+   "items": [
+     // ...
+   ]
+}
+```
+
+This response indicates that 12 CVs were found in total, the first page is requested with `per_page=10`.
+`hidden_on_page=5` in the response indicates that there are only 5 items in the `items` list and 5 CVs are omitted.
 
 ### Errors
 
 * `400 Bad Request` - error in the request parameters
-* `404 Not Found` - if the vacancy of requested мшышещкы doesn't exist or
+* `404 Not Found` - if the vacancy of requested visitors doesn't exist or
   not available to the current user
 
