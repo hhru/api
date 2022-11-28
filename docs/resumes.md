@@ -523,8 +523,6 @@ expires | строка (дата) | время окончания действи
       [resume_contacts_site_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get);
     * `url` — ссылка на профиль, либо идентификатор на стороннем сайте/сервисе;
 * `title` — желаемая должность;
-* `specialization` — специализация соискателя (список). Элемент справочника
-  [specializations](specializations.md);
 * `professional_roles` — профессиональные роли соискателя (список). Элемент справочника
   [professional_roles](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get);
 * `salary` — желаемая зарплата. Состоит из полей:
@@ -594,14 +592,6 @@ expires | строка (дата) | время окончания действи
 * `hidden_fields` - [скрытые поля](#hidden-fields) в резюме (список). Элемент справочника [resume_hidden_fields](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
 * `access` - [видимость резюме](#access_type)
     * `type` - тип видимости. Элемент справочника [resume_access_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
-
-
-Поле `professional_roles` можно сохранять, добавив параметр `with_professional_roles`. В этом случае запросы на сохранение и редактирование резюме соответственно должны выглядеть:
-
-`POST /resumes?with_professional_roles=true`
-
-`PUT /resumes/{resume_id}?with_professional_roles=true`
-
 
 Параметры, берущиеся из [подсказок](suggests.md) (`name_id`, `organization_id`,
 `result_id`, `company_id`), являются опциональными. При этом, если
