@@ -1628,11 +1628,6 @@ remaining  | number | The number of resumes that can be created
 
 `GET /resumes/{resume_id}/conditions` — returns a list of conditions for the fields of a resume.
 
-The `position.professional_roles` is required only when the following additional parameter was passed when executing request:
-`with_professional_roles`. In this case, the GET request should look like this:
-
-`GET /resumes/{resume_id}/conditions?with_professional_roles=true`
-
 Conditions for a resume are only accessible to its author, otherwise it will return the code
 `403 Forbidden`.
 
@@ -1773,9 +1768,7 @@ regexp | string or `null` | A regular expression for text fields. `null` if ther
 <a name="init-conditions"></a>
 ## Conditions to fill in the fields of a new resume
 
-`GET /resume_conditions?with_professional_roles=true` returns a [list of requirements](#conditions) for the fields in the new resume similar to existed resume.
-
-If `with_professional_roles` argument is passed when executing request, `professional_role` field is required, `specialization` field is non-required. If `with_professional_roles` is not passed or is false `professional_role` field is non-required, `specialization` field is required.
+`GET /resume_conditions` returns a [list of requirements](#conditions) for the fields in the new resume similar to existed resume.
 
 ### Response
 A successful response contains a code `200 OK` and list of requirements
