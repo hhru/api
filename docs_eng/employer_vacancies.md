@@ -1123,6 +1123,7 @@ Successful server response is returned with `200 OK` code and contains:
   "pages": 1,
   "page": 0,
   "per_page": 20,
+  "hidden_on_page": 0,
   "items": [
     {
       "id": "0123456789abcdef",
@@ -1231,6 +1232,7 @@ found | number | Number of responses found ( ≥ 0 )
 pages | number | Number of pages with responses ( ≥ 1 )
 per_page | number | Number of elements per page ( > 0 )
 page | number | Number of the current page ( ≥ 0 )
+hidden_on_page | number | Number of deleted or hidden CV's on the page ( ≥ 0 )
 
 
 The `items` entity contains list of [short CV's](resumes.md#resume-short)
