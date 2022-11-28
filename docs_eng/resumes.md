@@ -1233,7 +1233,6 @@ Consists of the fields:
     * `type` — type of website. Directory entries [resume_contacts_site_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get);
     * `url` — a link to a profile or an ID on a third-party website/service;
 * `title` — desired position;
-* `specialization` — candidate's profession (list). Directory entries [specializations](specializations.md);
 * `professional_roles` — candidate's professional roles (list). Directory entries
       [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get)
 * `salary` — Desired salary. It consists of the following fields:
@@ -1294,13 +1293,6 @@ Consists of the fields:
 * `hidden_fields` - [hidden fields](#hidden-fields) in the resume (list). Directory entry
 * `access` - [resume visibility](#access_type)
     * `type` - visibility type. Directory entry [resume_access_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
-
-
-The `professional_roles` field can be saved by passing parameter `with_professional_roles`. In this case resume adding and editing requests should look like this accordingly:
-
-`POST /resumes?with_professional_roles=true`
-
-`PUT /resumes/{resume_id}?with_professional_roles=true`
 
 Parameters taken from [tips](suggests.md) (`name_id`, `organization_id`, `result_id`, `company_id`) 
 are optional. In this case, if these parameters are indicated, then when saved they are checked for
