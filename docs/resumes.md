@@ -742,9 +742,6 @@ not_available | недопустимое значение
 Повторная публикация означает обновление даты резюме. Ключ `next_publish_at`
 у резюме указывает время, когда можно обновить резюме.
 
-При публикации резюме с полем `professional_roles` нужно добавить параметр `with_professional_roles`. В этом случае POST запрос должен иметь вид:
-
-`POST /resumes/{resume_id}/publish?with_professional_roles=true`
 
 ### Ответ
 
