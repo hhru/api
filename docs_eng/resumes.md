@@ -1435,9 +1435,6 @@ The resume can be used as soon as it is first published.
 Subsequent publications will update the renewal date of the resume. `next_publish_at` key
 in the resume indicates when the resume can be updated.
 
-To successfully publish resume with the `professional_roles` field you should add a parameter `with_professional_roles`. In this case POST request should look like this:
-
-`POST /resumes/{resume_id}/publish?with_professional_roles=true`
 
 ### Response
 
