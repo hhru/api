@@ -1503,10 +1503,6 @@ Successful server response is returned with `200 OK` code and contains:
             {
                 "id": "education",
                 "name": "Education"
-            },
-            {
-                "id": "specialization",
-                "name": "Specialization"
             }
         ],
         "recommended": [

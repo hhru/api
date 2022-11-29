@@ -810,10 +810,6 @@ GET /resumes/{resume_id}/status
             {
                 "id": "education",
                 "name": "Образование"
-            },
-            {
-                "id": "specialization",
-                "name": "Специализация"
             }
         ],
         "recommended": [
