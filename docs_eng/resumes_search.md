@@ -131,6 +131,9 @@ Multiple folder IDs can be passed, for example: `folder=111&folder=222&folder=33
 If a manager has access to favourite folders, the search will be limited to favourite folders by default.
 If you pass the `include_all_folders=false` parameter, the search will not be limited to any folder.
 The `400 Bad Request` error will be returned if `folder` and `include_all_folders` parameters are passed in the same request.
+* `job_search_status` — job search status. 
+Directory with possible values: `job_search_status` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1user_statuses~1available/get). 
+You can indicate several values.
 
 If parameters contain an error, `400 Bad request` will be returned in response
 with the error description in the body. Unknown parameters and parameters with
