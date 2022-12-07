@@ -162,7 +162,21 @@ some additional fields.
             "id": "start_after_sixteen"
         }
     ],
-    "accept_temporary": true
+    "accept_temporary": true,
+    "languages": [
+        {
+            "id": "rus",
+            "level": {
+                "id": "c2"
+            }
+        },
+        {
+            "id": "ita",
+            "level": {
+                "id": "a1"
+            }
+        }
+    ]
 }
 ```
 
@@ -228,6 +242,7 @@ some additional fields.
  working_time_modes          | array or null   | list of working time modes
  working_time_modes[].id     | string          | working time modes ID. element of [directory working_time_modes](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
  accept_temporary            | boolean or null | indication that the job is available for applicants with accept temporary employment
+ languages                   | array или null  | list of languages
 
 <a name="creation-results"></a>
 ### Response
@@ -558,6 +573,7 @@ to change the specialisation you will have to send a full list.
  response_url               | application URL for direct vacancies   
  accept_incomplete_resumes  | whether it is possible to apply with an incomplete resume   
  branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
+ languages                  | list of languages
 
 The remaining fields are read-only or can only be set during initial publication.
 
