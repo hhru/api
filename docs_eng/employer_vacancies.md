@@ -276,6 +276,7 @@ to change the specialisation you will have to send a full list.
  response_url               | application URL for direct vacancies   
  accept_incomplete_resumes  | whether it is possible to apply with an incomplete resume   
  branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
+ languages                  | list of languages
 
 The remaining fields are read-only or can only be set during initial publication.
 
