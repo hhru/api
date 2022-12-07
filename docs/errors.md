@@ -289,7 +289,7 @@ HTTP code | type | value | reason | описание
 400 | bad_json_data | *field_name* | *reason* | ошибка в поле вакансии, где *field_name* – ключ поля верхнего уровня, поле reason может не присутствовать
 403 | vacancies | not_enough_purchased_services | | купленных услуг для публикации или обновления данного типа вакансии не достаточно
 403 | vacancies | quota_exceeded | | квота менеджера на публикацию данного типа вакансии закончилась
-403 | vacancies | duplicate | | аналогичная вакансия уже опубликована. В [ответе](#vacancies-duplicate-response) передается информация по дубликатам вакансии. Данную ошибку можно форсировано отключить (при [добавлении](employer_vacancies.md#creation-ignore-duplicates) и [редактировании](employer_vacancies.md#edit-ignore-duplicates))
+403 | vacancies | duplicate | | аналогичная вакансия уже опубликована. В [ответе](#vacancies-duplicate-response) передается информация по дубликатам вакансии. Данную ошибку можно форсировано отключить (при [добавлении](employer_vacancies.md#creation) и [редактировании](employer_vacancies.md#edit-ignore-duplicates))
 403 | vacancies | creation_forbidden | | публикация вакансий недоступна текущему менеджеру
 403 | vacancies | unavailable_for_archived | | редактирование недоступно для архивной вакансии
 403 | vacancies | conflict_changes | | конфликтные изменения данных вакансии ([подробнее](employer_vacancies.md#edit_more))
