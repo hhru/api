@@ -301,7 +301,7 @@ HTTP code| type| value| description
 400 | vacancies | *field_name* | the is an error in a job's field, where the *field_name* is the key of the upper level field and the reason field may be missing
 403 | vacancies | not_enough_purchased_services | the purchased services are not enough to publish or update this type of job
 403 | vacancies | quota_exceeded | the manager's quota for the publication of this type of job is exhausted
-403 | vacancies | duplicate | a similar job has already been published; the [response](#vacancy-duplicate-response) contains information about duplicate jobs; this error can be disabled by force (when [adding](employer_vacancies.md#creation-ignore-duplicates) or [editing](employer_vacancies.md#edit-ignore-duplicates))
+403 | vacancies | duplicate | a similar job has already been published; the [response](#vacancy-duplicate-response) contains information about duplicate jobs; this error can be disabled by force (when [adding](employer_vacancies.md#creation) or [editing](employer_vacancies.md#edit-ignore-duplicates))
 403 | vacancies | creation_forbidden | jobs cannot be published by the current manager
 403 | vacancies | unavailable_for_archived | you cannot edit an archived job
 403 | vacancies | conflict_changes | a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
