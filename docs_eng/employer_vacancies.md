@@ -360,6 +360,7 @@ In addition to the HTTP code, the server can return a description of the [error 
 ## Information about possible vacancy extension
 > > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/get) specification.
 
+<a name="active"></a>
 ## Published vacancy list
 
 `GET /employers/{employer_id}/vacancies/active`
