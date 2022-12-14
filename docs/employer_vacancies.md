@@ -369,6 +369,7 @@ PUT /vacancies/{vacancy_id}
 ## Информация о возможности продления вакансии
 > > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/get)
 
+<a name="active"></a>
 ## Список опубликованных вакансий
 
 `GET /employers/{employer_id}/vacancies/active`
