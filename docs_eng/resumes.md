@@ -24,7 +24,7 @@
   * [Resume visibility lists](#visibility_lists)
   * [Retrieving a list of resume visibility types](#get_access_types)
 * [Resume viewing history](#views)
-* [Searching for jobs similar to a resume](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)
+* [Searching for jobs similar to a resume](https://api.hh.ru/openapi/en/redoc#tag/Saved-vacancy-searches/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)
 * [CV hidden fields](#hidden-fields)
 
 
@@ -2261,4 +2261,4 @@ The information is available only to the resume publisher.
 
 ### Request
 
->!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Saved-vacancy-searches/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)

@@ -10,7 +10,7 @@ All previously published jobs were automatically assigned values from the new pr
 
 A new catalog of specializations (professional roles, `professional_roles` field) replaces [specializations](specializations.md). Currently, the new catalog of specializations (professional roles) and the outdated catalog of specializations are used in parallel to ensure backward compatibility.
 
-A separate [directory](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1professional_roles/get) and [prompts (autosuggest, autocomplete)](https://api.hh.ru/openapi/redoc#tag/Spravochniki/paths/~1suggests~1professional_roles/get) are created for the new catalog of specializations (professional roles)
+A separate [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1professional_roles/get) and [prompts (autosuggest, autocomplete)](https://api.hh.ru/openapi/en/redoc#tag/Suggestions/paths/~1suggests~1professional_roles/get) are created for the new catalog of specializations (professional roles)
 
 At the moment, support for the new catalog of specializations (professional roles) is not fully completed in the API. Below is a list of methods that support the new catalog (the list will be updated over time)
 

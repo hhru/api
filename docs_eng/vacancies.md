@@ -4,7 +4,7 @@
 * [Additional vacancy fields for employers](#author)
 * [Favorite vacancies](#favorited)
 * [Search for vacancies](#search)
-* [Search for vacancies similar to the vacancy](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
+* [Search for vacancies similar to the vacancy](https://api.hh.ru/openapi/en/redoc#tag/Saved-vacancy-searches/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
 * [Short description of the vacancy](#nano)
 * [Hidden vacancies](https://api.hh.ru/openapi/en/redoc#tag/Hidden-vacancies)
 
@@ -720,7 +720,7 @@ It is also possible to return [clusters](clusters.md) ('clusters' key) and [used
 
 ### Request
 
->!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Saved-vacancy-searches/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
 
 <a name="nano"></a>
 ## Short description of the vacancy

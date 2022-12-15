@@ -96,13 +96,13 @@ HeadHunter API — это инструментарий для интеграци
 ### Резюме
 
 * [Поиск резюме](docs/resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Сохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Список сохраненных поисков резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Получение единичного сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes~1%7Bid%7D/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Создание нового сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes/post) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Обновление сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes~1%7Bid%7D/put) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Удаление сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes~1%7Bid%7D/delete) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Передача сохраненного поиска резюме другому менеджеру](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes~1%7Bsaved_search_id%7D~1managers~1%7Bmanager_id%7D/put) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Сохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Список сохраненных поисков резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Получение единичного сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes~1%7Bid%7D/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Создание нового сохраненного поиска резюме](hhttps://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes/post) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Обновление сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes~1%7Bid%7D/put) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Удаление сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes~1%7Bid%7D/delete) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Передача сохраненного поиска резюме другому менеджеру](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes~1%7Bsaved_search_id%7D~1managers~1%7Bmanager_id%7D/put) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Просмотр резюме](docs/employer_resumes.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Работа с резюме для соискателя](docs/resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Работа с телефоном](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Rabota-s-telefonom) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
@@ -131,12 +131,12 @@ HeadHunter API — это инструментарий для интеграци
 * [Отобранные вакансии](docs/vacancies_for_applicant.md#favorited) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Скрытые вакансии](https://api.hh.ru/openapi/redoc#tag/Skrytye-vakansii) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Скрытые работодатели](https://api.hh.ru/openapi/redoc#tag/Skrytye-rabotodateli) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Сохраненные поиски вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Список сохраненных поисков вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Получение единичного сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Создание нового сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies/post) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Обновление сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/put) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Удаление сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* [Сохраненные поиски вакансий](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Список сохраненных поисков вакансий](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1saved_searches~1vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Получение единичного сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Создание нового сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1saved_searches~1vacancies/post) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Обновление сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/put) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Удаление сохраненного поиска вакансий](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1saved_searches~1vacancies~1%7Bid%7D/delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Работа с вакансиями](docs/employer_vacancies.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Возможные варианты публикации вакансий](docs/employer_vacancies.md#available_types) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Публикация вакансий](docs/employer_vacancies.md#creation) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />

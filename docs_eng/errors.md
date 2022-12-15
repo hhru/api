@@ -225,7 +225,7 @@ error list; it can be extended.
 ### Saved resume searches
 
 In addition to the error code pertaining to
-[the transfer of a saved resume search to another manager](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes~1%7Bsaved_search_id%7D~1managers~1%7Bmanager_id%7D/put),
+[the transfer of a saved resume search to another manager](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/paths/~1saved_searches~1resumes~1%7Bsaved_search_id%7D~1managers~1%7Bmanager_id%7D/put),
 the following errors may return:
 
 HTTP code | type | value | description
