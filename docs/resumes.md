@@ -19,7 +19,7 @@
   * [Списки видимости резюме](#visibility_lists)
   * [Получение списка типов видимости резюме](#get_access_types)
 * [История просмотра резюме](#views)
-* [Поиск по вакансиям, похожим на резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)
+* [Поиск по вакансиям, похожим на резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)
 
 <a name="mine"></a>
 ## Список резюме авторизованного пользователя
@@ -1390,4 +1390,4 @@ items[].limit | number | Максимальное количество комп�
 
 ### Запрос
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get)

@@ -35,7 +35,7 @@ GET /employers/{employer_id}/managers/{manager_id}/method_access
     * [Переписка](/docs/employer_negotiations.md#get-messages)
 2. Наличие доступа к методам:
     * [Поиск резюме](/docs/resumes_search.md)
-    * [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes/get)
+    * [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes/get)
 3. Наличие доступа к [просмотру резюме](/docs/employer_resumes.md#item), у которого есть отклик или приглашение
 4. Наличие доступа к [просмотру резюме](/docs/employer_resumes.md#item) для резюме найденных через [поиск по базе](/docs/resumes_search.md)
 

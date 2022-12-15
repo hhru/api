@@ -17,7 +17,7 @@ For employers who are YET to switch to the new model or never use resume databas
 Employers subscribed to certain service configurations (more on this in "API and Process Automation" block of the [article](https://hh.ru/article/27029)) will be offered more options on API:
 
 * [Resume search](/docs_eng/resumes_search.md)
-* [Saved resume searches](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/paths/~1saved_searches~1resumes/get)
+* [Saved resume searches](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/paths/~1saved_searches~1resumes/get)
 
 There is a special [method](/docs_eng/payable/employer_payable_methods.md) they can use to find out if they have access to the options listed above
 

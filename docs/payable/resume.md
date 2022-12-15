@@ -17,7 +17,7 @@
 Для работодателей с определенными конфигурациями данной услуги (подробнее в блоке "API и автоматизация процессов" в [статье](https://hh.ru/article/27029)) появляются возможности в API:
 
 * [Поиск резюме](/docs/resumes_search.md)
-* [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/paths/~1saved_searches~1resumes/get)
+* [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes/get)
 
 Для уточнения наличия доступа к описанным возможностям можно воспользоваться специальным [методом](/docs/payable/employer_methods.md)
 

@@ -7,7 +7,7 @@
 See also:
 
 * [View a CV](https://github.com/hhru/api/blob/master/docs_eng/resumes.md#item)
-* [Saved CV search](https://github.com/hhru/api/blob/master/docs_eng/saved_search.md#resumes-saved-search-list)
+* [Saved CV search](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/paths/~1saved_searches~1resumes/get)
 
 <a name="search-params"></a>
 ## Request and acceptable parameters

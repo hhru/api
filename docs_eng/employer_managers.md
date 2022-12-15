@@ -41,4 +41,4 @@ A response `403 Forbidden` will be returned if the user is unauthorised or incor
 <a name="item"></a>
 ## Getting information about a manager
 
->!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya/paths/~1employers~1{employer_id}~1managers~1{manager_id}/get)
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1employers~1%7Bemployer_id%7D~1managers/get)
