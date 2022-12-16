@@ -71,6 +71,14 @@ Article labels:
 * [CV locales](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1locales~1resume/get) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Site choice](hosts.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
+<a name="webhook"></a>
+### [Webhook API](https://api.hh.ru/openapi/en/redoc#tag/Webhook-API)
+
+* [The list of notifications that the user is subscripted](https://api.hh.ru/openapi/en/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions/get) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Subscription to notifications](https://api.hh.ru/openapi/en/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions/post) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Delete a subscription on notifications](https://api.hh.ru/openapi/en/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions~1%7Bsubscription_id%7D/delete) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Change a subscription on notifications](https://api.hh.ru/openapi/en/redoc#tag/Webhook-API/paths/~1webhook~1subscriptions~1%7Bsubscription_id%7D/put) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+
 
 <a name="resume"></a>
 ### CV
