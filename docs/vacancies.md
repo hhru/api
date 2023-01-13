@@ -2,7 +2,7 @@
 
 * [Просмотр вакансии](#item)
 * [Поиск по вакансиям](#search)
-* [Поиск по вакансиям, похожим на вакансию](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
+* [Поиск по вакансиям, похожим на вакансию](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1vacancies~1{vacancy_id}~1similar_vacancies/get)
 * [Короткое представление вакансии](#nano)
 
 Смотрите также:
@@ -724,7 +724,7 @@ HTTP code | type | value | описание
 
 ### Запрос
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-vakansij/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1vacancies~1{vacancy_id}~1similar_vacancies/get)
 
 <a name="nano"></a>
 ## Короткое представление вакансии
