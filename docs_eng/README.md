@@ -102,7 +102,7 @@ Article labels:
   * [Deleting saved resume search](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/paths/~1saved_searches~1resumes~1%7Bid%7D/delete) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Moving saved resume search to other manager](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/paths/~1saved_searches~1resumes~1%7Bsaved_search_id%7D~1managers~1%7Bmanager_id%7D/put) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Artifacts (photos, portfolio)](https://api.hh.ru/openapi/en/redoc#tag/Artifact-managing) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Search for vacancies similar to the CV](https://api.hh.ru/openapi/en/redoc#tag/Saved-vacancy-searches/paths/~1resumes~1%7Bresume_id%7D~1similar_vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* [Search for vacancies similar to the CV](https://api.hh.ru/openapi/en/redoc#tag/Applicant-vacancy-search/paths/~1resumes~1{resume_id}~1similar_vacancies/get) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [History of responses/invitations for a resume](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
 <a name="vacancies"></a>
@@ -113,7 +113,7 @@ Article labels:
     * [Clusters](clusters.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
     * [Description of the used parameters](vacancies_search_arguments.md) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [View a vacancy](vacancies.md#item) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Search for vacancies similar to the vacancy](https://api.hh.ru/openapi/en/redoc#tag/Saved-vacancy-searches/paths/~1vacancies~1%7Bvacancy_id%7D~1similar_vacancies/get) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Search for vacancies similar to the vacancy](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1vacancies~1{vacancy_id}~1similar_vacancies/get) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Favorite vacancies](vacancies.md#favorited) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Hidden vacancies](https://api.hh.ru/openapi/en/redoc#tag/Hidden-vacancies) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Blacklisted employers](https://api.hh.ru/openapi/en/redoc#tag/Blacklisted-employers) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
