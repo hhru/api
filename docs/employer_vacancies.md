@@ -452,7 +452,13 @@ PUT /vacancies/{vacancy_id}
                 "id": "standard",
                 "name": "Стандарт"
             },
-            "can_upgrade_billing_type": true
+            "can_upgrade_billing_type": true,
+            "manager": {
+              "first_name": "Петр",
+              "last_name": "Иванов",
+              "id": "5032",
+              "middle_name": null
+            }
         }
     ]
 }
@@ -489,6 +495,7 @@ can_upgrade_billing_type | boolean | Можно ли улучшить билли
 * `text` — строка для поиска по названию вакансии
 * `area` — id региона (см.
   [список регионов, в которых есть активные вакансии](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_areas~1active/get))
+* `resume_id` - выборка сужается для работы с конкретным резюме
 * `order_by` — сортировка вакансий, возможные варианты доступны в справочнике
   `employer_active_vacancies_order`
 

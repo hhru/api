@@ -440,7 +440,13 @@ Successful server response is returned with `200 OK` code and contains:
                 "id": "standard",
                 "name": "Standard"
             },
-            "can_upgrade_billing_type": true
+            "can_upgrade_billing_type": true,
+            "manager": {
+              "first_name": "John",
+              "last_name": "Smith",
+              "id": "5032",
+              "middle_name": null
+            }
         }
     ]
 }
@@ -475,6 +481,7 @@ collection supports:
 * `text` – string for searching by vacancy name
 * `area` – region id (see
   [the list of regions with active vacancies](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_areas~1active/get))
+* `resume_id` - to work with a specific resume
 * `order_by` – sorting of vacancies, possible options are available in the
   `employer_active_vacancies_order` directory
 
