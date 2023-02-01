@@ -275,7 +275,10 @@ When the authorized user is an applicant or anonymous, a `403` error will return
                 }
             }
         }
-    ]
+    ],
+    "platform": {
+      "id": "headhunter"
+    }
 }
 ```
 

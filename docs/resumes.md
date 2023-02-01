@@ -215,7 +215,10 @@
                   "value":"test@gmail.com",
                   "preferred":false
                 }
-            ]
+            ],
+            "platform": {
+              "id": "headhunter"
+            }
         }
     ],
     "page": 0,
