@@ -222,7 +222,10 @@ Server returns `403 Forbidden` if authorization is failed.
                      "value":"test@gmail.com",
                      "preferred":false
                  }
-            ]
+            ],
+            "platform": {
+              "id": "headhunter"
+            }
         }
     ],
     "page": 0,
@@ -569,7 +572,10 @@ the response will be registered as viewed.
             "id": 5,
             "name": "Technician"
         }
-    ]
+    ],
+    "platform": {
+      "id": "headhunter"
+    }
 }
 ```
 <a name="resume-fields"></a>
@@ -618,6 +624,7 @@ hidden_fields | [array](#id-name-object) | List of hidden fields. Entry of the [
 can_view_full_info | boolean or null | Possibility of getting resume contact info.
 marked | boolean | Availability "Bright summary"
 professional_roles | [array](#professional-role-object) | Array of professional role objects
+platform | [object](#platform) | The platform on which the resume was posted
 
 
 <a name="id-name-object"></a>
@@ -833,6 +840,13 @@ Name | Type | Description
 -----|-----|---------
 id | string | Field Id.
 name | string | Name of field.
+
+<a name="platform"></a>
+The platform on which the resume was posted
+
+Name | Type | Description
+-----|-----|---------
+id | string | Platform. Available values: headhunter, zarplata, rabota
 
 ### Errors
 
