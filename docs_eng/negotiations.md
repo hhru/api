@@ -89,7 +89,7 @@ The `items` entity contains response data:
  Name| Type| Description
  --- | --- | ---
  id| string| Response ID
- state| object| Current state of the application. Allowed values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) reference, section ```negotiations_state``` 
+ state| object| Current state of the application. Allowed values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) reference, section ```negotiations_state``` 
  hidden| logical| Whether the current response is hidden (True – the response is hidden, False – the response is active)
  created_at| string| Response creation date and time
  updated_at| string| Response update date and time
@@ -98,7 +98,7 @@ The `items` entity contains response data:
  vacancy| object, null| [Vacancy short view](vacancies.md#nano)
 has_updates | logical | Are there any unread messages in the topic. The flag is reset by a variety of response acts, such as [viewing the list of messages](#get_messages).
  viewed_by_opponent| logical| Whether the response was viewed by the employer
- messaging_status | string | The current messaging status. Possible values are in the [`messaging_status` directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+ messaging_status | string | The current messaging status. Possible values are in the [`messaging_status` directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
  decline_allowed | logical | If available [hide the response](#hide_message) with decline message to employer
 
 Within the vacancy object, keys `url` and `alternate_url` can be `null` if the
@@ -206,7 +206,7 @@ The returned object is completely identical to an individual response from the [
 
  Name | Type | Description
  --- | --- | ---
- messaging_status | string | Current negotiation status. Possible values are provided in the [`messaging_status` reference guide](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+ messaging_status | string | Current negotiation status. Possible values are provided in the [`messaging_status` reference guide](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
 
 
 <a name="hide_message"></a>
@@ -337,9 +337,9 @@ where:
  editable| logical| Whether the message text can be edited
  created_at| string| Message creation date and time
  text| string| Message text
- state| object| Current state of the application. Possible values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) reference, section `negotiations_state`
+ state| object| Current state of the application. Possible values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) reference, section `negotiations_state`
  author| object| Who is the message author
- author.participant_type| string| Message author role. Possible values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) reference, section `negotiations_participant_type`
+ author.participant_type| string| Message author role. Possible values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) reference, section `negotiations_participant_type`
  address| object, null| [Address](./address.md) linked to the response/invitation
  assessments| array| [assessment tools](assessment.md) linked to the message
 

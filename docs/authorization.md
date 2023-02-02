@@ -39,9 +39,9 @@ API поддерживает следующие уровни авторизац�
 
 Для тестирования токена удобно использовать метод `/me`:
 
-* [для авторизованного приложения](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-prilozhenii/paths/~1me/get)
-* [для авторизованного менеджера работодателя](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get)
-* [для авторизованного соискателя](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-soiskatele/paths/~1me/get)
+* [для авторизованного приложения](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-prilozhenii/operation/get-current-user-info)
+* [для авторизованного менеджера работодателя](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/operation/get-current-user-info)
+* [для авторизованного соискателя](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-soiskatele/operation/get-current-user-info)
 
 <a name="links"></a>
 ## Полезные ссылки

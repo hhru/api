@@ -11,13 +11,13 @@
 Данные методы требуют авторизации соискателем, иначе вернут `403 Forbidden`.
 
 ## Получение списка отобранных вакансий
-> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Otobrannye-vakansii/paths/~1vacancies~1favorited/get)
+> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Otobrannye-vakansii/operation/get-favorite-vacancies)
 
 ## Добавление вакансии в список отобранных 
-> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Otobrannye-vakansii/paths/~1vacancies~1favorited~1%7Bvacancy_id%7D/put)
+> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Otobrannye-vakansii/operation/add-vacancy-to-favorite)
 
 ## Удаление вакансии из списка отобранных
-> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Otobrannye-vakansii/paths/~1vacancies~1favorited~1%7Bvacancy_id%7D/delete)
+> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Otobrannye-vakansii/operation/delete-vacancy-from-favorite)
 
 <a name="vacancy-fields-applicant"></a>
 ## Дополнительные поля вакансии для соискателей
@@ -37,7 +37,7 @@
 
 Имя | Тип | Описание
 ---- | --- | --------
-relations | array | При авторизации соискателем, возвращает связи с вакансией. Значения из [справочника vacancy_relation](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+relations | array | При авторизации соискателем, возвращает связи с вакансией. Значения из [справочника vacancy_relation](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 negotiations_url | string | Cсылка для получения списка откликов/приглашений
 suitable_resumes_url | string | Подходящие резюме на вакансию
 

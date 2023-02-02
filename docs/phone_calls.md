@@ -48,7 +48,7 @@ items | массив | Массив звонков
 Имя | Тип | Описание
  --- | --- | ---
 id | число | Идентификатор звонка
-status | строка | Статус звонка. Разрешенные значения находятся в справочнике [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get) в разделе ```phone_call_status```
+status | строка | Статус звонка. Разрешенные значения находятся в справочнике [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries) в разделе ```phone_call_status```
 creation_time | строка | Дата и время создания звонка
 last_change_time | строка | Дата и время обновления звонка
 duration_seconds | число | Длительность звонка в секундах

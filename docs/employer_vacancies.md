@@ -23,12 +23,12 @@
 <a name="available_types"></a>
 ## Варианты публикации вакансий у текущего менеджера
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1employers~1%7Bemployer_id%7D~1managers~1%7Bmanager_id%7D~1vacancies~1available_types/get)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/operation/get-available-vacancy-types)
 
 <a name="creation"></a>
 ## Публикация вакансий
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/paths/~1vacancies/post)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/publish-vacancy)
 
 <a name="conditions"></a>
 ## Условия заполнения полей при добавлении и редактировании вакансий
@@ -282,7 +282,7 @@ working_days | рабочие дни
 working_time_intervals | временные интервалы работы
 working_time_modes | режимы времени работы
 accept_temporary | указание, что вакансия доступна для соискателей с временным трудоустройством
-branded_template.id | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get)
+branded_template.id | <a name="branded-template-field"></a> брендированное оформление вакансии из [справочника](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/operation/get-vacancy-branded-templates-list)
 languages | список языков
 
 Остальные поля доступны только для чтения, либо их можно задать только при создании вакансии.
@@ -365,10 +365,10 @@ PUT /vacancies/{vacancy_id}
 
 <a name="prolongate"></a>
 ## Продление вакансий
-> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/post)
+> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/vacancy-prolongation)
 
 ## Информация о возможности продления вакансии
-> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/get)
+> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/get-prolongation-vacancy-info)
 
 <a name="active"></a>
 ## Список опубликованных вакансий
@@ -479,7 +479,7 @@ counters.calls | number | общее количество звонков по в
 counters.new_missed_calls | number | количество новых пропущенных звонков
 expires_at | string | дата окончания публикации вакансии
 has_updates | boolean | Есть ли в откликах/приглашениях по данной вакансии обновления, требующие внимания
-billing_type | object | Биллинговый тип вакансии. Элемент справочника [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+billing_type | object | Биллинговый тип вакансии. Элемент справочника [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 billing_type.id | string | Идентификатор биллингового типа вакансии
 billing_type.name | string | Название биллингового типа вакансии
 can_upgrade_billing_type | boolean | Можно ли улучшить биллинговый тип вакансии
@@ -494,7 +494,7 @@ can_upgrade_billing_type | boolean | Можно ли улучшить билли
 
 * `text` — строка для поиска по названию вакансии
 * `area` — id региона (см.
-  [список регионов, в которых есть активные вакансии](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_areas~1active/get))
+  [список регионов, в которых есть активные вакансии](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/operation/get-employer-vacancy-areas))
 * `resume_id` - выборка сужается для работы с конкретным резюме
 * `order_by` — сортировка вакансий, возможные варианты доступны в справочнике
   `employer_active_vacancies_order`
@@ -539,7 +539,7 @@ can_upgrade_billing_type | boolean | Можно ли улучшить билли
 Максимальное значение `per_page`, которое можно передать в данном запросе: 1000.
 
 Возможные значения сортировки доступны в
-[справочнике `employer_archived_vacancies_order`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+[справочнике `employer_archived_vacancies_order`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 В отличие от списка опубликованных вакансий, данная коллекция не поддерживает
 поиск (параметры `text` и `area`).
@@ -660,7 +660,7 @@ can_upgrade_billing_type | boolean | Можно ли улучшить билли
 Максимальное значение `per_page`, которое можно передать в данном запросе: 1000.
 
 Возможные значения сортировки доступны в справочнике
-[справочнике `employer_hidden_vacancies_order`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+[справочнике `employer_hidden_vacancies_order`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 В отличие от списка опубликованных вакансий, данная коллекция не поддерживает
 поиск (параметры `text` и `area`).

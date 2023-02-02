@@ -60,7 +60,7 @@ with the following indicated for each `items` element:
 
 Name | Type | Description
 ---- | --- | ---
-vacancy_billing_type.id | string | publication type (directory [vacancy_billing_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get))
+vacancy_billing_type.id | string | publication type (directory [vacancy_billing_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries))
 vacancy_billing_type.name | string | name of publication type
 vacancy_billing_type.description | string | description of vacancy type
 actions | array | list of possible actions
@@ -76,7 +76,7 @@ url | string or null | link to action
 cart_id | integer or null | ID of the order awaiting activation. Shown for `type=activate`
 price | object or null | price. Shown for `type=buy`
 price.amount | double | price amount
-price.currency | string | currency ID (directory [currency](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get))
+price.currency | string | currency ID (directory [currency](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries))
 
 <a name="action_types"></a>
 `actions.type` values for action types

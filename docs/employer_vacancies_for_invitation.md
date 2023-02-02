@@ -11,7 +11,7 @@
 где
 
 * `employer_id` - идентификатор работодателя, который можно узнать в
-  [запросе информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get),
+  [запросе информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/operation/get-current-user-info),
 * `resume_id` – идентификатор резюме.
 
 Дополнительно поддерживаются [параметры пагинации](general.md#pagination)
@@ -174,7 +174,7 @@
 ```
 
 Возможные значения состояния отклика/приглашения для соискателя доступны в
-[справочнике negotiations_state](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get), а для работодателя – в
+[справочнике negotiations_state](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries), а для работодателя – в
 [списке работодательских состояний по вакансии](employer_negotiations.md#states)
 (могут различаться в разных вакансиях).
 

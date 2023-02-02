@@ -27,12 +27,12 @@
   необходимо указывать весь набор (триаду) параметров. 
 
 * `text.logic` – описывает, как производится поиск. Справочник с возможными
-  значениями: `resume_search_logic` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+  значениями: `resume_search_logic` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 * `text.field` – описывает, где должны встречаться слова из поисковой фразы
   `text`. В параметре text.field можно укзать несколько значений через запятую,
   например – `?text.field=education,keywords`. Справочник с возможными
-  значениями: `resume_search_fields` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+  значениями: `resume_search_fields` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 * `text.period` – период для поиска в опыте работы. Параметр имеет смысл
   только для `text.field` равного одному из: `experience`, `experience_company`,
@@ -47,7 +47,7 @@
   переехать, поменять это поведение можно указанием поля `relocation`.
 
 * `relocation` — готовность к переезду. Справочник с возможными
-  значениями: `resume_search_relocation` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+  значениями: `resume_search_relocation` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
   Необходимо указывать вместе с параметром `area`.
 
 * `period` — в днях, ищет резюме опубликованные за указанный период.
@@ -63,50 +63,50 @@
   с параметром `date_from`. Нельзя передавать вместе с параметром `period`.
 
 * `education_level` —  уровень образования. Справочник с возможными значениями:
-  `education_level` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get). Если не указан, поиск
+  `education_level` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries). Если не указан, поиск
   ведется без ограничений на уровень образования.
 
 * `employment` — тип занятости.
   Справочник с возможными значениями: `employment` в
-  [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get). Можно указать несколько значений.
+  [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать несколько значений.
 
 * `experience` — опыт работы. Справочник с возможными значениями: `experience`
-  в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+  в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 * `skill` - ключевые навыки. Указывается один или несколько идентификаторов
   ключевых навыков. Значения можно получить из поля `id` в
   [подсказке по ключевым навыкам](https://github.com/hhru/api/blob/master/docs/suggests.md#key-skills).
 
 * `gender` — пол. Справочник с возможными значениями: `gender` в
-  [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get). По умолчанию вне зависимости от значения
+  [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries). По умолчанию вне зависимости от значения
   параметра будут найдены резюме, в которых пол не указан, убрать такие резюме
   можно с помощью `label=only_with_gender`.
 
 <a name="resume_search_label"></a>
 * `label` — дополнительный фильтр. Справочник с возможными значениями:
-  `resume_search_label` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get). Можно указать
+  `resume_search_label` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать
   несколько значений.
 
 * `language` — знание языка. Можно указать несколько значений. Задается в
   формате language.level, где:
-     * `language` — значение из справочника [/languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1languages/get),
+     * `language` — значение из справочника [/languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-languages),
      * `level` — значение из справочника `language_level`
-       [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+       [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 * `metro` — линия, либо станция метро. Справочник с возможными значениями:
-  [/metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get).
+  [/metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-metro-stations).
 
 * `currency` — код валюты. Справочник с возможными значениями: `currency`
-  (ключ code) в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+  (ключ code) в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 * `salary_from`, `salary_to` — диапазон желаемой заработной платы (ЗП), от и до. Обратите внимание, по умолчанию в выдачу добавляются так же резюме с неуказанной ЗП, для выдачи резюме только с указанной ЗП используйте специальный [label](#resume_search_label) "only_with_salary"
 
 * `schedule` — график работы. Справочник с возможными значениями:
-  `schedule` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get). Можно указать несколько
+  `schedule` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать несколько
   значений.
 
 * `order_by` — сортировка списка резюме. Справочник с возможными значениями:
-  `resume_search_order` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+  `resume_search_order` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 * `citizenship` — страна желаемого гражданства. Возможные значения можно
   посмотреть в справочнике стран. Возможно указание нескольких значений.
@@ -129,7 +129,7 @@
   совпадения слов, но еще и слова, начинающиеся с `text`. По умолчанию стоит значение `false`.
   
 * `driver_license_types` — категории водительских прав. Справочник с возможными значениями:
-  `driver_license_types` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+  `driver_license_types` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
   
 * `vacancy_id` — идентификатор вакансии для поиска похожих резюме. Необходимо передавать идентификатор активной или архивной вакансии работодателя.
 
@@ -138,7 +138,7 @@
 * `page` — номер страницы.
 
 * `professional_role` — профессиональная роль. Элемент справочника
-  [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get). Можно указать несколько
+  [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-professional-roles-dictionary). Можно указать несколько
   значений.
 
 * `folder` — один или несколько идентификаторов папок с отобранными резюме.
@@ -151,7 +151,7 @@
 Если будут переданы параметры `folder` и `include_all_folders` в одном запросе, вернется ошибка `400 Bad Request`.
 
 * `job_search_status` — статус поиска работы. 
-Справочник с возможными значениями: `job_search_status` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1user_statuses~1available/get). 
+Справочник с возможными значениями: `job_search_status` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-available-user-statuses). 
 Можно указать несколько значений.
 
 При указании параметров пагинации (`page`, `per_page`) работает ограничение:
@@ -353,11 +353,11 @@
 
 Дополнительно работодателю выдаются следующие поля:
 * `owner.comments.url` — содержит url, GET запрос на который возвращает
-[список комментариев к владельцу резюме](https://api.hh.ru/openapi/redoc#tag/Kommentarii-k-soiskatelyu/paths/~1applicant_comments~1%7Bapplicant_id%7D/get)
+[список комментариев к владельцу резюме](https://api.hh.ru/openapi/redoc#tag/Kommentarii-k-soiskatelyu/operation/get-applicant-comments-list)
 * `owner.comments.counters.total` — общее количество таких комментариев
 * `last_negotiation` — информация о последнем статусе в истории откликов/приглашений. Поля `employer_state` и
 `created_at` аналогичны соответствующим полям в
-[истории откликов/приглашений по резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get).
+[истории откликов/приглашений по резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/get-resume-negotiations-history).
 
 ## Ошибки
 

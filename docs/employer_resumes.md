@@ -351,30 +351,30 @@ first_name | string или null | Имя.
 middle_name | string или null | Отчество.
 age | number или null | Возраст.
 birth_date | string или null | День рождения (в формате `ГГГГ-ММ-ДД`).
-gender | [object](#id-name-object) или null | Пол. Элемент справочника [gender](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+gender | [object](#id-name-object) или null | Пол. Элемент справочника [gender](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 area | [object](#id-name-url-object) или null | Город проживания. Элемент справочника [areas](areas.md).
-metro | [object](#metro-object) или null | Ближайшая станция метро. Элемент справочника [metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get).
+metro | [object](#metro-object) или null | Ближайшая станция метро. Элемент справочника [metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-metro-stations).
 relocation | [object](#relocation-object) | Информация о возможности переезда в другой город.
-business_trip_readiness | [object](#id-name-object) | Готовность к командировкам. Элемент справочника [business_trip_readiness](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+business_trip_readiness | [object](#id-name-object) | Готовность к командировкам. Элемент справочника [business_trip_readiness](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 contact | [array](#contact-object) | Список контактов соискателя.
 photo | [object](#photo-object) или null | Фотография пользователя.
 portfolio | [array](#portfolio-object) | Список изображений в портфолио пользователя.
 site | [array](#site-object) | Профили в соц. сетях и других сервисах.
 title | string или null | Желаемая должность.
 salary | [object](#salary-object) или null | Желаемая зарплата.
-employments | [array](#id-name-object) | Список подходящих соискателю типов занятостей. Элементы справочника [employment](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
-schedules | [array](#id-name-object) | Список подходящих соискателю графиков работы. Элементы справочника [schedule](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+employments | [array](#id-name-object) | Список подходящих соискателю типов занятостей. Элементы справочника [employment](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
+schedules | [array](#id-name-object) | Список подходящих соискателю графиков работы. Элементы справочника [schedule](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 education | [object](#education-object) | Образование.
-language | [array](#language-object) | Список языков, которыми владеет соискатель. Элементы справочника [languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1languages/get).
+language | [array](#language-object) | Список языков, которыми владеет соискатель. Элементы справочника [languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-languages).
 experience | [array](#experience-object) | Опыт работы.
 total_experience | [object](#total-experience-object) или null | Общий опыт работы.
 skills | string или null | Дополнительная информация, описание навыков в свободной форме.
 skill_set | array | Ключевые навыки (список уникальных строк).
 citizenship | [array](#id-name-url-object) | Список гражданств соискателя. Элементы [справочника регионов](areas.md).
 work_ticket | [array](#id-name-url-object) | Список регионов, в который соискатель имеет разрешение на работу. Элементы [справочника регионов](areas.md).
-travel_time | [object](#id-name-object) | Желательное время в пути до работы. Элемент справочника [travel_time](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+travel_time | [object](#id-name-object) | Желательное время в пути до работы. Элемент справочника [travel_time](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 recommendation | [array](#recommendation-object) | Список рекомендаций. 
-resume_locale | [object](#id-name-object) | Язык, на котором составлено резюме (локаль). Элемент справочника [локали резюме](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1locales~1resume/get).
+resume_locale | [object](#id-name-object) | Язык, на котором составлено резюме (локаль). Элемент справочника [локали резюме](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-locales-for-resume).
 certificate | [array](#certificate-object) | Список сертификатов соискателя. 
 alternate_url | string | URL резюме на сайте.
 created_at | string | Дата и время создания резюме.
@@ -383,7 +383,7 @@ updated_at | string | Дата и время обновления резюме.
 actions | [object](#actions-object) | Дополнительные действия
 has_vehicle | boolean или null| Наличие личного автомобиля у соискателя.
 driver_license_types | [array](#driver-license-types-object) | Список категорий водительских прав соискателя.
-hidden_fields | [array](#id-name-object) | [Список скрытых полей](#hidden-fields). Элемент справочника [resume_hidden_fields](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+hidden_fields | [array](#id-name-object) | [Список скрытых полей](#hidden-fields). Элемент справочника [resume_hidden_fields](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 can_view_full_info | boolean или null | Наличие права просмотра контактной информации в резюме.
 marked | boolean | Наличие "Яркое резюме"
 professional_roles | [array](#professional-role-object) | Массив объектов профролей
@@ -423,7 +423,7 @@ order | number | Порядковый номер станции на линии 
 
 Имя | Тип | Описание
 -----|-----|---------
-type | [object](#id-name-object) | Готовность к переезду. Элемент справочника [relocation_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+type | [object](#id-name-object) | Готовность к переезду. Элемент справочника [relocation_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 areas | [array](#id-name-url-object) | Список городов, в которые возможен переезд. Содержит элементы [справочника регионов](areas.md).
 
 <a name="contact-object"></a>
@@ -431,7 +431,7 @@ areas | [array](#id-name-url-object) | Список городов, в кото�
 
 Имя | Тип | Описание
 -----|-----|---------
-type | [object](#id-name-object) | Тип контакта. Элемент справочника [preferred_contact_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+type | [object](#id-name-object) | Тип контакта. Элемент справочника [preferred_contact_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 value | string или [object](#value-object) или null | Значение контакта. Для телефона  – [объект](#value-object), для email — строка.
 preferred | boolean | Является ли данный способ связи предпочитаемым (обязательно указать один контакт как предпочитаемый `"preferred": true`, в случае если preferred не передан, считаем, что передано значение `false`).
 comment | string или null | Комментарий к контакту.
@@ -471,7 +471,7 @@ description | string или null | Описание изображения в п
 
 Имя | Тип | Описание
 -----|-----|---------
-type | [object](#id-name-object) | Тип профиля. Элемент справочника [resume_contacts_site_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+type | [object](#id-name-object) | Тип профиля. Элемент справочника [resume_contacts_site_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 url | string или null | Ссылка на профиль или идентификатор.
 
 <a name="salary-object"></a>
@@ -480,7 +480,7 @@ url | string или null | Ссылка на профиль или иденти�
 Имя | Тип | Описание
 -----|-----|---------
 amount | number | Сумма.
-currency | string | Идентификатор [валюты](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+currency | string | Идентификатор [валюты](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 <a name="education-object"></a>
 Объект `education`
@@ -491,7 +491,7 @@ elementary | [array](#elementary-object) | Среднее образование
 additional | [array](#additional-education-object) | Список куров повышения квалификации.
 attestation | [array](#additional-education-object) | Список пройденных тестов или экзаменов.
 primary | [array](#primary-object) | Список образований выше среднего. 
-level | [object](#id-name-object) | Уровень образования. Элемент справочника [education_level](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+level | [object](#id-name-object) | Уровень образования. Элемент справочника [education_level](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 Особенности сохранения образования:
 * Если передать и высшее и среднее образование и уровень образования "средний", то сохранится только среднее образование.
@@ -535,7 +535,7 @@ year | number | Год окончания.
 -----|-----|---------
 id | string | Идентификатор языка.
 name | string | Название языка.
-level | [object](#id-name-object) | Уровень знания языка. Элемент справочника [language_level](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+level | [object](#id-name-object) | Уровень знания языка. Элемент справочника [language_level](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 <a name="experience-object"></a>
 Объект `experience`
@@ -546,7 +546,7 @@ company | string или null | Организация.
 company_id | string или null | Уникальный идентификатор организации.
 area | [object](#id-name-url-object) или null | Регион расположения организации. Элемент [справочника регионов](areas.md).
 company_url | string или null | Cайт компании.
-industries | [array](#id-name-object) | Cписок отраслей компании. Элементы [справочника индустрий](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1industries/get).
+industries | [array](#id-name-object) | Cписок отраслей компании. Элементы [справочника индустрий](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-industries).
 position | string | Должность.
 start | string | Начало работы (дата в формате `ГГГГ-ММ-ДД`).
 end | string или null | Окончание работы (дата в формате `ГГГГ-ММ-ДД`).
@@ -601,7 +601,7 @@ rtf.url | string | ссылка для получение rft-версии ре�
 
 Имя | Тип | Описание
 -----|-----|---------
-id | string | Категория водительских прав соискателя. Элемент справочника [тип водительских прав](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+id | string | Категория водительских прав соискателя. Элемент справочника [тип водительских прав](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 
 <a name="professional-role-object"></a>
 Объект с именем и идентификатором
@@ -759,7 +759,7 @@ description | строка, null | примечание к использова�
 Имя | Тип | Описание
 --- | --- | ---
 id | string | id владельца резюме
-comments | object | [комментарии к владельцу резюме](https://api.hh.ru/openapi/redoc#tag/Kommentarii-k-soiskatelyu/paths/~1applicant_comments~1%7Bapplicant_id%7D/get)
+comments | object | [комментарии к владельцу резюме](https://api.hh.ru/openapi/redoc#tag/Kommentarii-k-soiskatelyu/operation/get-applicant-comments-list)
 comments.url | string | url, GET-запрос на который возвращает список комментариев
 comments.counters | object | информация о количестве комментариев
 comments.counters.total | number | общее количество комментариев
@@ -768,7 +768,7 @@ comments.counters.total | number | общее количество коммен�
 #### Краткая история откликов/приглашений по резюме
 
 Поле `negotiations_history.url` выдается всегда и содержит url, на который необходимо делать GET запрос для получения
-[подробной истории откликов/приглашений по данному резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get).
+[подробной истории откликов/приглашений по данному резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/get-resume-negotiations-history).
 
 Поле `negotiations_history.vacancies` выдается только в том случае, когда при выполнении
 [запроса на получение резюме](employer_resumes.md#item) передан дополнительный параметр
@@ -777,7 +777,7 @@ comments.counters.total | number | общее количество коммен�
 `GET /resumes/{resume_id}?with_negotiations_history=true`
 
 Формат поля `negotiations_history.vacancies` подробно описан на странице
-[полной истории откликов/приглашений по резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/paths/~1resumes~1%7Bresume_id%7D~1negotiations_history/get) и различается лишь тем, что
+[полной истории откликов/приглашений по резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/get-resume-negotiations-history) и различается лишь тем, что
 в данном случае список будет ограничен 3-мя вакансиями данного работодателя и последним изменением состояния
 отклика/приглашения по каждой из этих вакансий.
 

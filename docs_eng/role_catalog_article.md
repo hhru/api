@@ -10,7 +10,7 @@ All previously published jobs were automatically assigned values from the new pr
 
 A new catalog of specializations (professional roles, `professional_roles` field) replaces [specializations](specializations.md). Currently, the new catalog of specializations (professional roles) and the outdated catalog of specializations are used in parallel to ensure backward compatibility.
 
-A separate [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1professional_roles/get) and [prompts (autosuggest, autocomplete)](https://api.hh.ru/openapi/en/redoc#tag/Suggestions/paths/~1suggests~1professional_roles/get) are created for the new catalog of specializations (professional roles)
+A separate [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-professional-roles-dictionary) and [prompts (autosuggest, autocomplete)](https://api.hh.ru/openapi/en/redoc#tag/Suggestions/operation/get-professional-roles-suggests) are created for the new catalog of specializations (professional roles)
 
 At the moment, support for the new catalog of specializations (professional roles) is not fully completed in the API. Below is a list of methods that support the new catalog (the list will be updated over time)
 
@@ -23,7 +23,7 @@ At the moment, support for the new catalog of specializations (professional role
 
 3. [Viewing jobs](vacancies.md#item) - the `professional_roles` field is added
 
-4. [Draft-based job posting](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-draft/paths/~1vacancies~1drafts~1%7Bdraft_id%7D~1publish/post) - the `with_professional_roles` parameter is added
+4. [Draft-based job posting](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-draft/operation/publish-vacancy-from-draft) - the `with_professional_roles` parameter is added
 
 5. [Vacancy editing](https://github.com/hhru/api/blob/master/docs_eng/employer_vacancies.md#edit) - the `with_professional_roles` parameter is added
 

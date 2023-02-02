@@ -265,7 +265,7 @@ Example cluster results in the search, the `clusters` key is added to
 
 The set of cluster groups (elements of the `clusters` array) may vary
 from query to query and depends on the parameters of the search query. You can find the list of all possible cluster groups
-in the [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get), in the elements with the `vacancy_cluster` key.
+in the [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries), in the elements with the `vacancy_cluster` key.
 
 In this case, if the search query contained `clusters=false` or the
 `cluster` argument was not specified, the `clusters` field will have `null` in the response.

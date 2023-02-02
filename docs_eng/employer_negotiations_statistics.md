@@ -16,7 +16,7 @@ Manager statistics are available to the manager, as well as to managers with the
 GET /employers/{employer_id}/negotiations_statistics
 ```
 
-where `employer_id` - Employer ID that can be obtained from the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
+where `employer_id` - Employer ID that can be obtained from the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-current-user-info).
 
 
 ### Response
@@ -84,7 +84,7 @@ GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics
 
 where:
 * `employer_id` - employer ID that can be obtained from
-  the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get).
+  the [information on the current user](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-current-user-info).
 * `manager_id` - manager ID.
 
 ### Response

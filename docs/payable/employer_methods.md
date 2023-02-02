@@ -8,7 +8,7 @@
 Для покупки доступа к платным методам для работодателей обратитесь к своему персональному менеджеру.
 
 Обратите внимание, что при работе приложения от имени нескольких учетных записей работодателей (employer_id), у каждой учетной записи работодателя должен быть доступ к платным методам API.
-Проверить информацию о подключенных услугах работодателя можно с помощью [специального метода](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/paths/~1employers~1%7Bemployer_id%7D~1services~1payable_api_actions~1active/get).
+Проверить информацию о подключенных услугах работодателя можно с помощью [специального метода](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/operation/get-payable-api-actions).
 
 В случае запроса платного метода без купленного доступа будет выдана [ошибка](/docs/errors.md#employer_payable_methods) `403 Forbidden`.
 
@@ -23,8 +23,8 @@ GET /employers/{employer_id}/managers/{manager_id}/method_access
 ```
 
 где:
-* `employer_id` - идентификатор работодателя, который можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
-* `manager_id` - идентификатор менеджера, который можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/paths/~1me/get).
+* `employer_id` - идентификатор работодателя, который можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/operation/get-current-user-info).
+* `manager_id` - идентификатор менеджера, который можно узнать в [информации о текущем пользователе](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-menedzhere/operation/get-current-user-info).
 
 Вернутся все существующие группы методов с информацией о доступе к ним.
 
@@ -35,7 +35,7 @@ GET /employers/{employer_id}/managers/{manager_id}/method_access
     * [Переписка](/docs/employer_negotiations.md#get-messages)
 2. Наличие доступа к методам:
     * [Поиск резюме](/docs/resumes_search.md)
-    * [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/paths/~1saved_searches~1resumes/get)
+    * [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/operation/get-saved-resume-searches)
 3. Наличие доступа к [просмотру резюме](/docs/employer_resumes.md#item), у которого есть отклик или приглашение
 4. Наличие доступа к [просмотру резюме](/docs/employer_resumes.md#item) для резюме найденных через [поиск по базе](/docs/resumes_search.md)
 

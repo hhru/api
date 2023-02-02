@@ -60,7 +60,7 @@ GET /vacancies/{vacancy_id}/upgrades
 
 Имя | Тип | Описание
 ---- | --- | ---
-vacancy_billing_type.id | string | тип публикации (справочник [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get))
+vacancy_billing_type.id | string | тип публикации (справочник [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries))
 vacancy_billing_type.name | string | название типа публикации
 vacancy_billing_type.description | string | описание типа вакансии
 actions | array | список возможных действий
@@ -76,7 +76,7 @@ url | string или null | ссылка на действие
 cart_id | integer или null | идентификатор заказа, ожидающего активации. Присутствует для `type=activate` 
 price | object или null | стоимость. Присутствует для `type=buy`
 price.amount | double | значение цены
-price.currency | string | Идентификатор валюты (справочник [currency](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get))
+price.currency | string | Идентификатор валюты (справочник [currency](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries))
 
 <a name="action_types"></a>
 Значения типов действия `actions.type`

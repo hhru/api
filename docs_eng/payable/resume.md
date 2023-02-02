@@ -17,14 +17,14 @@ For employers who are YET to switch to the new model or never use resume databas
 Employers subscribed to certain service configurations (more on this in "API and Process Automation" block of the [article](https://hh.ru/article/27029)) will be offered more options on API:
 
 * [Resume search](/docs_eng/resumes_search.md)
-* [Saved resume searches](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/paths/~1saved_searches~1resumes/get)
+* [Saved resume searches](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/operation/get-saved-resume-searches)
 
 There is a special [method](/docs_eng/payable/employer_payable_methods.md) they can use to find out if they have access to the options listed above
 
 <a name="contact-data"></a>
 ## Viewing of resumes with contact info
 
-> !Note that there is a cap on the number of requests for the [resume viewing method](/docs_eng/resumes.md#item) in relation to resumes retrieved through the use of [resume database search](/docs_eng/resumes_search.md). To receive your current request quota, there is a special [method](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/paths/~1employers~1{employer_id}~1services~1payable_api_actions~1active/get) you can use , "id": "API_LIMITED". Once the quota is exceeded, an error will return when a request is lodged for the [resume viewing method](/docs_eng/resumes.md#item).
+> !Note that there is a cap on the number of requests for the [resume viewing method](/docs_eng/resumes.md#item) in relation to resumes retrieved through the use of [resume database search](/docs_eng/resumes_search.md). To receive your current request quota, there is a special [method](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/operation/get-payable-api-actions) you can use , "id": "API_LIMITED". Once the quota is exceeded, an error will return when a request is lodged for the [resume viewing method](/docs_eng/resumes.md#item).
 
 Where not a single manager has thus far viewed a resume with contact info, in all places where that [full](/docs_eng/resumes.md#items)
 or [short](/docs_eng/resumes.md#resume-short) resume appears, the resume will be displayed without the contact info (null in the respective fields).

@@ -16,7 +16,7 @@
 для которых резюме должно быть видимо или скрыто.
 
 Список видимости содержит идентификаторы работодателей
-(см. [поиск компаний](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/paths/~1employers/get) и [получение информации о компании](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/paths/~1employers~1%7Bemployer_id%7D/get)).
+(см. [поиск компаний](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/operation/search-employer) и [получение информации о компании](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/operation/get-employer-info)).
 
 Списки видимости настраиваются отдельно для каждого резюме.
 Можно получить [список всех доступных типов видимости](/docs/resumes.md#get_access_types) для конкретного резюме.

@@ -2,7 +2,7 @@
 
 * [Просмотр вакансии](#item)
 * [Поиск по вакансиям](#search)
-* [Поиск по вакансиям, похожим на вакансию](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1vacancies~1{vacancy_id}~1similar_vacancies/get)
+* [Поиск по вакансиям, похожим на вакансию](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/operation/get-vacancies-similar-to-vacancy)
 * [Короткое представление вакансии](#nano)
 
 Смотрите также:
@@ -215,29 +215,29 @@ description | string | Описание вакансии, содержит html
 branded_description | string или null | [Брендированное описание вакансии](#branded_description)
 key_skills | array | Информация о ключевых навыках, заявленных в вакансии. Список может быть пустым.
 key_skills[].name | string | название ключевого навыка
-schedule | object | График работы. Элемент справочника [schedule](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+schedule | object | График работы. Элемент справочника [schedule](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 schedule.id | string | Идентификатор графика работы
 schedule.name | string | Название графика работы
 accept_handicapped | boolean | Указание, что вакансия доступна для соискателей с инвалидностью
 accept_kids | boolean | Указание, что вакансия доступна для соискателей от 14 лет
-experience | object | Требуемый опыт работы. Элемент справочника [experience](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+experience | object | Требуемый опыт работы. Элемент справочника [experience](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 experience.id | string | Идентификатор требуемого опыта работы
 experience.name | string | Название требуемого опыта работы
 address | object или null | [Адрес вакансии](address.md#Адрес)
 alternate_url | string | Ссылка на представление вакансии на сайте
 apply_alternate_url | string | Ссылка на отклик на вакансию на сайте
 code | string или null | Внутренний код вакансии работадателя
-department | object или null | Департамент, от имени которого размещается вакансия (если данная возможность доступна для компании). Работодатели могут запросить [справочник департаментов](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1departments/get).
+department | object или null | Департамент, от имени которого размещается вакансия (если данная возможность доступна для компании). Работодатели могут запросить [справочник департаментов](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/operation/get-employer-departments).
 department.id | string | Идентификатор департамента
 department.name | string | Название департамента
-employment | object или null | Тип занятости. Элемент справочника [employment](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+employment | object или null | Тип занятости. Элемент справочника [employment](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 employment.id | string | Идентификатор типа занятости
 employment.name | string | Название типа занятости
 salary | object или null | Оклад
 salary.from | number или null | Нижняя граница вилки оклада
 salary.to | number или null | Верняя граница вилки оклада
 salary.gross | boolean или null | Признак того что оклад указан до вычета налогов. В случае если не указано - null.
-salary.currency | string | Идентификатор валюты оклада (справочник [currency](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)).
+salary.currency | string | Идентификатор валюты оклада (справочник [currency](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)).
 archived | boolean | Находится ли данная вакансия в архиве
 name | string | Название вакансии
 insider_interview | object или null | [Интервью о жизни в компании](#insider-interview)
@@ -248,10 +248,10 @@ area.url | string | Url получения информации о регион�
 initial_created_at | string | Дата и время создания вакансии
 created_at | string | Дата и время публикации вакансии
 published_at | string | Дата и время публикации вакансии
-employer | object или null | Короткое представление работодателя. Описание полей смотрите в [информации о работодателе](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/paths/~1employers~1%7Bemployer_id%7D/get). Может не прийти в случае, если вакансия анонимная
+employer | object или null | Короткое представление работодателя. Описание полей смотрите в [информации о работодателе](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/operation/get-employer-info). Может не прийти в случае, если вакансия анонимная
 employer.blacklisted | boolean | Добавлены ли все вакансии работодателя в [список скрытых](https://api.hh.ru/openapi/redoc#tag/Skrytye-rabotodateli)
 response_letter_required | boolean | Обязательно ли заполнять сообщение при отклике на вакансию
-type | object | Тип вакансии. Элемент справочника [vacancy_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+type | object | Тип вакансии. Элемент справочника [vacancy_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 type.id | string | Идентификатор типа вакансии
 type.name | string | Название типа вакансии
 has_test | boolean | Информация о наличии прикрепленного тестового задании к вакансии. В случае присутствия теста - `true`.
@@ -259,21 +259,21 @@ response_url | string или null | На вакансии с типом `direct`
 test | object или null | Информация о прикрепленном тестовом задании к вакансии. В случае отсутствия теста — `null`. **В данный момент отклик на вакансии с обязательным тестом через API невозможен.**
 test.required | boolean | Обязательно ли заполнение теста для отклика
 contacts | object или null | [Контактная информация](#contacts)
-billing_type | object | Биллинговый тип вакансии. Элемент справочника [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+billing_type | object | Биллинговый тип вакансии. Элемент справочника [vacancy_billing_type](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 billing_type.id | string | Идентификатор биллингового типа вакансии
 billing_type.name | string | Название биллингового типа вакансии
 allow_messages | boolean | Включена ли возможность соискателю писать сообщения работодателю, после приглашения/отклика на вакансию
 premium | boolean | Является ли данная вакансия премиум-вакансией
 driver_license_types | array | Список требуемых категорий водительских прав. Список может быть пустым.
-driver_license_types[].id | string | Категория водительских прав. Элемент справочника [driver_license_types](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+driver_license_types[].id | string | Категория водительских прав. Элемент справочника [driver_license_types](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 accept_incomplete_resumes | boolean | Разрешен ли отклик на вакансию неполным резюме
-working_days | object или null | Рабочие дни. Элемент справочника [working_days](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+working_days | object или null | Рабочие дни. Элемент справочника [working_days](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 working_days.id | string | Идентификатор рабочих дней
 working_days.name | string | Название рабочих дней
-working_time_intervals | object или null | Временные интервалы работы. Элемент справочника [working_time_intervals](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+working_time_intervals | object или null | Временные интервалы работы. Элемент справочника [working_time_intervals](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 working_time_intervals.id | string | Идентификатор временного интервала работы
 working_time_intervals.name | string | Название временного интервала работы
-working_time_modes | object или null | Режимы времени работы. Элемент справочника [working_time_modes](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get)
+working_time_modes | object или null | Режимы времени работы. Элемент справочника [working_time_modes](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 working_time_modes.id | string | Идентификатор режима времени работы
 working_time_modes.name | string | Название режима времени работы
 accept_temporary | boolean или null | Указание, что вакансия доступна для соискателей с временным трудоустройством
@@ -281,7 +281,7 @@ professional_roles | array| Массив [объектов профролей](#
 languages | array или отсутствует | Список языков. Элементы справочника [languages](languages.md).
 languages[].id | string | Идентификатор языка.
 languages[].name | string | Название языка.
-languages[].level | object| Уровень знания языка. Элемент справочника [language_level](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).
+languages[].level | object| Уровень знания языка. Элемент справочника [language_level](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
 languages[].level.id | string| Идентификатор уровня знания языка.
 languages[].level.name | string| Название уровня знания языка.
 
@@ -384,7 +384,7 @@ can_upgrade_billing_type | логический | Можно ли улучшит
 В объекте `manager` — информация о менеджере, который разместил данную вакансию.
 
 В объекте `branded_template` — информация об используемом в вакансии
-[брендированном шаблоне](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get).
+[брендированном шаблоне](https://api.hh.ru/openapi/redoc#tag/Informaciya-o-rabotodatele/operation/get-vacancy-branded-templates-list).
 
 Также для автора вакансии в объекте `test` доступен ключ `id`, а в объекте
 `address` доступны:
@@ -461,20 +461,20 @@ HTTP code | type | value | описание
 Специально для этого поля есть [автодополнение](suggests.md#vacancy-search-keyword).
 
 * `search_field` — область поиска.  
-Справочник с возможными значениями: `vacancy_search_fields` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).  
+Справочник с возможными значениями: `vacancy_search_fields` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).  
 По умолчанию, используются все поля.  
 Возможно указание нескольких значений.  
 
 * `experience` — опыт работы.  
-Необходимо передавать `id` из справочника `experience` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).  
+Необходимо передавать `id` из справочника `experience` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).  
 Возможно указание нескольких значений.
 
 * `employment` — тип занятости.
-Необходимо передавать `id` из справочника `employment` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).  
+Необходимо передавать `id` из справочника `employment` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).  
 Возможно указание нескольких значений.  
 
 * `schedule` — график работы.  
-Необходимо передавать `id` из справочника `schedule` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).  
+Необходимо передавать `id` из справочника `schedule` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).  
 Возможно указание нескольких значений.  
 
 * <a name="field-area"></a> `area` — регион.
@@ -482,18 +482,18 @@ HTTP code | type | value | описание
 Возможно указание нескольких значений.  
 
 * `metro` — ветка или станция метро.  
-Необходимо передавать `id` из справочника [/metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1metro/get).    
+Необходимо передавать `id` из справочника [/metro](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-metro-stations).    
 Возможно указание нескольких значений.  
 
 * `industry` - индустрия компании, разместившей вакансию. 
-Необходимо передавать `id` из справочника [/industries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1industries/get).
+Необходимо передавать `id` из справочника [/industries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-industries).
 Возможно указание нескольких значений.
   
 * `employer_id` — идентификатор [компании](https://api.hh.ru/openapi/redoc#tag/Rabotodatel).  
 Возможно указание нескольких значений.  
 
 * `currency` — код валюты.  
-Справочник с возможными значениями: `currency` (ключ code) в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).  
+Справочник с возможными значениями: `currency` (ключ code) в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).  
 Имеет смысл указывать только совместно с параметром `salary`.
 
 * `salary` — размер заработной платы.  
@@ -506,7 +506,7 @@ HTTP code | type | value | описание
 чтобы такие вакансии отфильтровать, используйте `only_with_salary=true`.
 
 * `label` — фильтр по меткам вакансий.   
-Необходимо передавать `id` из справочника `vacancy_label` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).  
+Необходимо передавать `id` из справочника `vacancy_label` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).  
 Возможно указание нескольких значений.  
 
 * `only_with_salary` — показывать вакансии только с указанием зарплаты.  
@@ -537,7 +537,7 @@ HTTP code | type | value | описание
 Необходимо передавать одновременно все четыре параметра гео-координат, иначе вернется ошибка.  
 
 * `order_by` — сортировка списка вакансий.  
-Справочник с возможными значениями: `vacancy_search_order` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).   
+Справочник с возможными значениями: `vacancy_search_order` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).   
 Если выбрана сортировка по удалённости от гео-точки `distance`, необходимо также задать её координаты `sort_point_lat`,`sort_point_lng`.
 
 * `sort_point_lat`, `sort_point_lng` - значение гео-координат точки, по расстоянию от которой будут отсортированы вакансии. Необходимо указывать только, если `order_by` установлено в `distance`.
@@ -561,16 +561,16 @@ HTTP code | type | value | описание
 * `responses_count_enabled` — Если значение `true` – включить дополнительное поле `counters` с количеством откликов для вакансии. По-умолчанию – `false`.  
 
 * `part_time` — Вакансии для подработки. Возможные значения:  
-  * все элементы из `working_days` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).   
-  * все элементы из `working_time_intervals` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).   
-  * все элементы из `working_time_modes` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).   
-  * элементы `part` или `project` из `employment` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get).   
+  * все элементы из `working_days` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).   
+  * все элементы из `working_time_intervals` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).   
+  * все элементы из `working_time_modes` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).   
+  * элементы `part` или `project` из `employment` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).   
   * элемент `accept_temporary`, показывает вакансии только с временным трудоустройством.  
   
    Возможно указание нескольких значений.  
   
 * `professional_role` — профессиональная роль. Необходимо передавать `id` из справочника
-  [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get).
+  [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-professional-roles-dictionary).
   Возможно указание нескольких значений.
 
 <a name="search-results"></a>
@@ -724,7 +724,7 @@ HTTP code | type | value | описание
 
 ### Запрос
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/paths/~1vacancies~1{vacancy_id}~1similar_vacancies/get)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/operation/get-vacancies-similar-to-vacancy)
 
 <a name="nano"></a>
 ## Короткое представление вакансии

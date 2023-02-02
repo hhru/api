@@ -15,7 +15,7 @@ Resume visibility type is determined by the value of its [key `access.type`](res
 Some types of visibility, such as `whitelist` and `blacklist`, imply the use of a list of employers 
 who can or can't see the resume.
 
-The visibility list contains employer IDs (see the [company search](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers/get) and [getting information about a company](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1%7Bemployer_id%7D/get)).
+The visibility list contains employer IDs (see the [company search](https://api.hh.ru/openapi/en/redoc#tag/Employer/operation/search-employer) and [getting information about a company](https://api.hh.ru/openapi/en/redoc#tag/Employer/operation/get-employer-info)).
 
 Visibility lists are set up separately for each resume.
 You can get [a list of all available visibility types](resumes.md#get_access_types) for a particular resume.

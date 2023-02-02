@@ -284,7 +284,7 @@
 
 Набор групп кластеров (элементы массива `clusters`) может отличаться от
 запроса к запросу и зависит от параметров поискового запроса. Список всех
-возможных групп кластеров можно узнать в [справочнике](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1dictionaries/get) в
+возможных групп кластеров можно узнать в [справочнике](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries) в
 элементе с ключом `vacancy_cluster`.
 
 При этом, если в поисковом запросе было указано `clusters=false` или параметр

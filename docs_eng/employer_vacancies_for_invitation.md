@@ -10,7 +10,7 @@ The request is used for selection of a suitable vacancy when
 
 where
 * `employer_id` – the employer ID that can be found using the
-  [current user information request](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1me/get),
+  [current user information request](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-current-user-info),
 * `resume_id` – the CV ID.
 
 Additionally, [pagination parameters](general.md#pagination) `page`, `per_page`
@@ -170,7 +170,7 @@ state will be specified as:
 ```
 
 Possible values of the state/invitation for an applicant are available in the
-[negotiations_state reference](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get), for employer in the
+[negotiations_state reference](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries), for employer in the
 [employer statuses for responses/invitations on vacancy](employer_negotiations.md#collection).
 
 

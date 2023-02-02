@@ -232,4 +232,4 @@ DELETE https://api.hh.ru/oauth/token
 <a name="implant"></a>
 ## Авторизация под разными рабочими аккаунтами
 
-Для получения списка рабочих аккаунтов менеджера и для работы под разными рабочими аккаунтами менеджера необходимо прочитать документацию по [рабочим аккаунтам менеджера](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya/paths/~1manager_accounts~1mine/get)
+Для получения списка рабочих аккаунтов менеджера и для работы под разными рабочими аккаунтами менеджера необходимо прочитать документацию по [рабочим аккаунтам менеджера](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya/operation/get-manager-accounts)

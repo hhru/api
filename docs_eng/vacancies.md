@@ -4,7 +4,7 @@
 * [Additional vacancy fields for employers](#author)
 * [Favorite vacancies](#favorited)
 * [Search for vacancies](#search)
-* [Search for vacancies similar to the vacancy](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1vacancies~1{vacancy_id}~1similar_vacancies/get)
+* [Search for vacancies similar to the vacancy](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/operation/get-vacancies-similar-to-vacancy)
 * [Short description of the vacancy](#nano)
 * [Hidden vacancies](https://api.hh.ru/openapi/en/redoc#tag/Hidden-vacancies)
 
@@ -200,29 +200,29 @@ description | string | Job description, contains html
 branded_description | string or null | [Branded job description](#branded_description)
 key_skills | array | Details of key skills indicated in the vacancy. This list may be empty.
 key_skills[].name | string | name of key skill
-schedule | object | Work schedule. [schedule directory entry](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
+schedule | object | Work schedule. [schedule directory entry](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries)
 schedule.id | string | Schedule ID
 schedule.name | string | Schedule name
 accept_handicapped | boolean | Indication that the job is available for applicants with disabilities
 accept_kids | boolean | Indication that the job is available for applicants as young as 14 years old
-experience | object | Required work experience. [experience](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry
+experience | object | Required work experience. [experience](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory entry
 experience.id | string | Required work experience ID
 experience.name | string | Name of required work experience
 address | object or null | [Vacancy address](address.md#Адрес)
 alternate_url | string | Link to the vacancy on the website
 apply_alternate_url | string | Link to the application for the vacancy on the website
 code | string or null | Employer's internal vacancy code
-department | object or null | Department on whose behalf the vacancy is uploaded (if available for the company). Employers can request [department directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1departments/get).
+department | object or null | Department on whose behalf the vacancy is uploaded (if available for the company). Employers can request [department directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-employer-departments).
 department.id | string | Department ID
 department.name | string | Department name
-employment | object or null | Type of employment. [employment](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry
+employment | object or null | Type of employment. [employment](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory entry
 employment.id | string | Employment type ID
 employment.name | string | Employment type name
 salary | object or null | Salary
 salary.from | number or null | Lower limit of salary range
 salary.to | number or null | Upper limit of salary range
 salary.gross | boolean or null | Indication that the salary is shown before tax. If not indicated — null.
-salary.currency | string | Indication of salary currency ([currency](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory).
+salary.currency | string | Indication of salary currency ([currency](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory).
 archived | boolean | Whether the vacancy is archived
 name | string | Vacancy name
 insider_interview | object or null | [Interview about life in the company](#insider-interview)
@@ -233,10 +233,10 @@ area.url | string | URL for getting information on the region
 initial_created_at | string | Date and time resume was created
 created_at | string | Date and time of vacancy publication
 published_at | string | Date and time of vacancy publication
-employer | object or null | Brief description of an employer. See field description in [employer information](https://api.hh.ru/openapi/en/redoc#tag/Employer/paths/~1employers~1%7Bemployer_id%7D/get). null for anonymous vacancy
+employer | object or null | Brief description of an employer. See field description in [employer information](https://api.hh.ru/openapi/en/redoc#tag/Employer/operation/get-employer-info). null for anonymous vacancy
 employer.blacklisted | boolean | Whether all vacancies of the employer are added to the [list of hidden](https://api.hh.ru/openapi/en/redoc#tag/Blacklisted-employers)
 response_letter_required | boolean | Whether it is mandatory to fill out a message for application
-type | object | Vacancy type. [vacancy_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
+type | object | Vacancy type. [vacancy_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory entry.
 type.id | string | Vacancy type ID
 type.name | string | Vacancy type name
 has_test | boolean | Information on whether there is an attached test task for the vacancy. If there is a test — `true`.
@@ -244,21 +244,21 @@ response_url | string or null | You cannot apply for vacancies with `direct` typ
 test | object or null | Information about attached test for the job. If there is no test — `null`. **At the moment it is impossible to apply for vacancies with mandatory test with API.**
 test.required | boolean | If the test is mandatory for an application
 contacts | object or null | [Contact info](#contacts)
-billing_type | object | Vacancy billing type. [vacancy_billing_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
+billing_type | object | Vacancy billing type. [vacancy_billing_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory entry.
 billing_type.id | string | ID of the vacancy billing type
 billing_type.name | string | Name of the vacancy billing type
 allow_messages | boolean | Whether the option is enabled for the candidate to send messages to the employer after invitation/application for the job
 premium | boolean | Whether it is a premium vacancy
 driver_license_types | array | List of required driver license categories. This list may be empty.
-driver_license_types[].id | string | Driving license category. [driver_license_types](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
+driver_license_types[].id | string | Driving license category. [driver_license_types](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory entry.
 accept_incomplete_resumes | boolean | Whether it is possible to apply with an incomplete resume
-working_days | object or null | Working days. [working_days](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
+working_days | object or null | Working days. [working_days](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries)
 working_days.id | string | Working days ID
 working_days.name | string | Working days name
-working_time_intervals | object or null | Working time intervals. [working_time_intervals](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
+working_time_intervals | object or null | Working time intervals. [working_time_intervals](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries)
 working_time_intervals.id | string | Working time intervals ID
 working_time_intervals.name | string | Working time intervals name
-working_time_modes | object or null | Working time modes. [working_time_modes](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
+working_time_modes | object or null | Working time modes. [working_time_modes](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries)
 working_time_modes.id | string | Working time modes ID
 working_time_modes.name | string | Working time modes name
 accept_temporary | boolean or null | Indication that the job is available for applicants with accept temporary employment
@@ -266,7 +266,7 @@ professional_roles | array | Array of [professional role objects](#professional-
 languages | array or absent | List of languages spoken by the applicant. [languages](languages.md) directory entries.
 languages[].id | string | Language ID.
 languages[].name | string | Language name.
-languages[].level | object | Language proficiency. [language_level](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.
+languages[].level | object | Language proficiency. [language_level](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory entry.
 languages[].level.id | string | Field Id.
 languages[].level.name | string | Name of field.
 
@@ -349,7 +349,7 @@ Additional fields are returned during candidate authorisation:
 
 Name | Type | Description
 ---- | --- | --------
-relations | array | relations to the vacancy are returned during candidate authorisation. [vacancy_relation](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entries.
+relations | array | relations to the vacancy are returned during candidate authorisation. [vacancy_relation](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory entries.
 negotiations_url | string | link to get the list of response/invitations
 suitable_resumes_url | string | appropriate CVs for the vacancy
 
@@ -390,7 +390,7 @@ can_upgrade_billing_type | logical | If the vacancy billing type can be upgraded
 In object `manager` – the information on the manager posted the vacancy.
 
 In object `branded_template` – info on
-[branded template](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) used in vacancy.
+[branded template](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-vacancy-branded-templates-list) used in vacancy.
 
 In object `test` key `id` is available for the initiator, in object
 `address` following objects are available:
@@ -448,13 +448,13 @@ These methods require applicant authorization, otherwise `403 Forbidden` will be
 returned.
 
 ## Receiving favorite vacancies
-> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/paths/~1vacancies~1favorited/get)
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/operation/get-favorite-vacancies)
 
 ## Adding favorite vacancies
-> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/paths/~1vacancies~1favorited~1%7Bvacancy_id%7D/put)
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/operation/add-vacancy-to-favorite)
 
 ## Deleting favorite vacancies
-> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/paths/~1vacancies~1favorited~1%7Bvacancy_id%7D/delete)
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Favorited-vacancies/operation/delete-vacancy-from-favorite)
 
 <a name="search"></a>
 ## Search for vacancies
@@ -477,23 +477,23 @@ Some parameters take multiple values: `key=value&key=value`.
 
 * `search_field` – an area of search.
   Directory with possible values: `vacancy_search_fields` in
-  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
   By default, all fields are used.
   Several values can be indicated.
 
 * `experience` – work experience.
   Directory with possible values: `experience` in
-  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
   Several values can be indicated.
 
 * `employment` – employment type.
   Directory with possible values: `employment` in
-  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
   Several values can be indicated.
 
 * `schedule` – work schedule.
   Directory with possible values: `schedule` in
-  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
   Several values can be indicated.
 
 * <a name="field-area"></a> `area` – a region.
@@ -501,11 +501,11 @@ Some parameters take multiple values: `key=value&key=value`.
   Several values can be indicated.
 
 * `metro` – a metro line or station.
-  Directory with possible values: [/metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1metro/get).
+  Directory with possible values: [/metro](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-metro-stations).
   Several values can be indicated.
 
 * `industry` – an industry of the company that posted the vacancy.
-  Directory with possible values: [/industries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1industries/get).
+  Directory with possible values: [/industries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-industries).
   Several values can be indicated.
 
 * `employer_id` – a [company](https://api.hh.ru/openapi/en/redoc#tag/Employer) identifier.
@@ -513,7 +513,7 @@ Some parameters take multiple values: `key=value&key=value`.
 
 * `currency` – a currency code.
   Directory with possible values: `currency` (code key) in
-  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
 
 * `salary` – a salary rate.
   If this field is indicated, but `currency` is not, then the RUR value is
@@ -521,7 +521,7 @@ Some parameters take multiple values: `key=value&key=value`.
 
 * `label` – filter by vacancy labels.
   Directory with possible values: `vacancy_label` in
-  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
   Several values can be indicated.
 
 * `only_with_salary` – show only the vacancies with salary specified.
@@ -553,7 +553,7 @@ Some parameters take multiple values: `key=value&key=value`.
 
 * `order_by` – vacancy list sorting.
   Directory with possible values: `vacancy_search_order` in
-  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+  [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
   If the sorting by `distance` from a geo-point is selected, the coordinates
   of the geo-point must be set: `sort_point_lat`, `sort_point_lng`.
 
@@ -579,16 +579,16 @@ Default — `false`.
 * `responses_count_enabled` — If `true` – include optional field `counters` with responses on a vacancy. Default – `false`.
 
 * `part_time` — Vacancies for part times job. Possible values:  
-  * all elements from `working_days` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).  
-  * all elements from `working_time_intervals` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).  
-  * all elements from `working_time_modes` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).  
-  * elements `part` or `project` from `employment` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).  
+  * all elements from `working_days` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).  
+  * all elements from `working_time_intervals` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).  
+  * all elements from `working_time_modes` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).  
+  * elements `part` or `project` from `employment` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).  
   * element `accept_temporary` that show only the vacancies with accept temporary employment  
 
    Several values can be indicated.  
 
 * `professional_role` – a professional role.
-  Directory with possible values: [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get).
+  Directory with possible values: [professional_roles](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-professional-roles-dictionary).
   Several values can be indicated.
 
 <a name="search-results"></a>
@@ -724,7 +724,7 @@ It is also possible to return [clusters](clusters.md) ('clusters' key) and [used
 
 ### Request
 
->!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/paths/~1vacancies~1{vacancy_id}~1similar_vacancies/get)
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/operation/get-vacancies-similar-to-vacancy)
 
 <a name="nano"></a>
 ## Short description of the vacancy
@@ -790,7 +790,7 @@ Name| Type| Description
  address | object, null | [vacancy address](address.md#Address)
  alternate_url | string, null | Link to the full vacancy presentation in web site
  apply_alternate_url | string, null | Link to the vacancy respond page in web site
- department | object, null | department from the [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1departments/get), on behalf of which the vacancy is being posted (if this feature is available for the company)
+ department | object, null | department from the [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-employer-departments), on behalf of which the vacancy is being posted (if this feature is available for the company)
  department.id | string | Department identifier
  department.name | string | Department name
  salary | object, null | Wage
@@ -800,7 +800,7 @@ Name| Type| Description
  published_at | string | Vacancy posting date and time
  employer | object | Short description of the employer
  response_letter_required | logical | Whether the message must be written when applying
- type | object | Vacancy type, one of the elements `vacancy_type` in the [Directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get)
+ type | object | Vacancy type, one of the elements `vacancy_type` in the [Directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries)
  archived | logical | Whether it is an archived vacancy
 
 Please see the [full vacancy](#vacancy-fields) for a description of the fields.

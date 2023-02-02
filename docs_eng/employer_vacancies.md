@@ -23,12 +23,12 @@ See also:
 <a name="available_types"></a>
 ## Possible options available to current manager for publishing of vacancies
 
->!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Manager-info/paths/~1employers~1%7Bemployer_id%7D~1managers~1%7Bmanager_id%7D~1vacancies~1available_types/get)
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Manager-info/operation/get-available-vacancy-types)
 
 <a name="creation"></a>
 ## Publishing job vacancies
 
->!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/paths/~1vacancies/post)
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/publish-vacancy)
 
 <a name="conditions"></a>
 ## Conditions for filling out fields when publishing and adding vacancies
@@ -275,7 +275,7 @@ to change the specialisation you will have to send a full list.
  custom_employer_name       | company name for anonymous vacancies                                 
  response_url               | application URL for direct vacancies   
  accept_incomplete_resumes  | whether it is possible to apply with an incomplete resume   
- branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_branded_templates/get) |
+ branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-vacancy-branded-templates-list) |
  languages                  | list of languages
 
 The remaining fields are read-only or can only be set during initial publication.
@@ -356,10 +356,10 @@ In addition to the HTTP code, the server can return a description of the [error 
 
 <a name="prolongate"></a>
 ## Extending vacancies
-> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/post) specification.
+> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/vacancy-prolongation) specification.
 
 ## Information about possible vacancy extension
-> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/paths/~1vacancies~1%7Bvacancy_id%7D~1prolongate/get) specification.
+> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-prolongation-vacancy-info) specification.
 
 <a name="active"></a>
 ## Published vacancy list
@@ -467,7 +467,7 @@ fields will be returned:
 | counters.new_missed_calls | number | number of new missed calls on vacancy
 | expires_at                 | string  | expiration date for a vacancy posting                                                           |
 | has_updates                | boolean | Whether there are updates calling for attention in the applications/invitations for the vacancy |
-| billing_type               | object  | Vacancy billing type. [vacancy_billing_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get) directory entry.         |
+| billing_type               | object  | Vacancy billing type. [vacancy_billing_type](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) directory entry.         |
 | billing_type.id            | string  | ID of the vacancy billing type                                                                |
 | billing_type.name          | string  | Name of the vacancy billing type                                                    |
 | can_upgrade_billing_type   | boolean | If the vacancy billing type can be upgraded                                          |
@@ -480,7 +480,7 @@ collection supports:
 
 * `text` – string for searching by vacancy name
 * `area` – region id (see
-  [the list of regions with active vacancies](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/paths/~1employers~1%7Bemployer_id%7D~1vacancy_areas~1active/get))
+  [the list of regions with active vacancies](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-employer-vacancy-areas))
 * `resume_id` - to work with a specific resume
 * `order_by` – sorting of vacancies, possible options are available in the
   `employer_active_vacancies_order` directory
@@ -528,7 +528,7 @@ The system supports pagination (`per_page` and `page`) and sorting (`order_by`).
 
 The maximum value of `per_page` is 1000.
 
-Possible sorting options can be found in the [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/paths/~1dictionaries/get).
+Possible sorting options can be found in the [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
 
 Unlike the list of published vacancies, the collection does not support
 search (parameters `text` and `area`).

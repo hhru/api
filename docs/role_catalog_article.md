@@ -12,7 +12,7 @@
 
 Новый каталог специализаций (профессиональных ролей, поле - `professional_roles`) приходит на замену [специализациям](https://github.com/hhru/api/blob/master/docs/specializations.md). В настоящее время новый каталог специализаций (профессиональных ролей) и устаревший каталог специализации используются параллельно для обеспечения обратной совместимости.
 
-Для нового каталога специализаций (профессиональных ролей) создан отдельный [справочник](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/paths/~1professional_roles/get) и [подсказки (autosuggest, autocomplete)](https://api.hh.ru/openapi/redoc#tag/Podskazki/paths/~1suggests~1professional_roles/get) 
+Для нового каталога специализаций (профессиональных ролей) создан отдельный [справочник](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-professional-roles-dictionary) и [подсказки (autosuggest, autocomplete)](https://api.hh.ru/openapi/redoc#tag/Podskazki/operation/get-professional-roles-suggests) 
 
 На текущий момент поддержка нового каталога специализаций (профессиональных ролей) не полностью завершена в API, ниже представлен список методов с поддержкой нового каталога (список будет пополняться со временем)
 
@@ -24,7 +24,7 @@
 
 3. [Просмотр вакансии](https://github.com/hhru/api/blob/master/docs/vacancies.md#item) - добавлено поле `professional_roles`
 
-4. [Публикация вакансии на основе черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/paths/~1vacancies~1drafts~1%7Bdraft_id%7D~1publish/post) - добавлен параметр `with_professional_roles`
+4. [Публикация вакансии на основе черновика](https://api.hh.ru/openapi/redoc#tag/Chernoviki-vakansij/operation/publish-vacancy-from-draft) - добавлен параметр `with_professional_roles`
 
 5. [Редактирование вакансии](https://github.com/hhru/api/blob/master/docs/employer_vacancies.md#edit) - добавлен параметр `with_professional_roles`.
 

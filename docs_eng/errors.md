@@ -225,7 +225,7 @@ error list; it can be extended.
 ### Saved resume searches
 
 In addition to the error code pertaining to
-[the transfer of a saved resume search to another manager](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/paths/~1saved_searches~1resumes~1%7Bsaved_search_id%7D~1managers~1%7Bmanager_id%7D/put),
+[the transfer of a saved resume search to another manager](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/operation/move-saved-resume-search),
 the following errors may return:
 
 HTTP code | type | value | description
@@ -499,7 +499,7 @@ If User Account is blocked, the following error message will be generated:
 }
 ```
 where `allowed_accounts` contains an array of the accounts available for this token
-Array elements are similar to the [result in the list of the Work Accounts](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/paths/~1manager_accounts~1mine/get)
+Array elements are similar to the [result in the list of the Work Accounts](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers/operation/get-manager-accounts)
 <a name="captcha_required"></a>
 ### The captcha requirement
 
