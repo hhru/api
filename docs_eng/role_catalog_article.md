@@ -19,7 +19,7 @@ At the moment, support for the new catalog of specializations (professional role
 
 1. [Job posting](employer_vacancies.md#creation) - the `with_professional_roles` parameter and the 'professional_roles' field are added.
 
-2. [Conditions for completing fields when adding and posting jobs](employer_vacancies.md#conditions) - the `with_professional_roles` parameter and the 'professional_roles' field are added.
+2. [Conditions for completing fields when adding and posting jobs](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-vacancy-conditions) - the `with_professional_roles` parameter and the 'professional_roles' field are added.
 
 3. [Viewing jobs](vacancies.md#item) - the `professional_roles` field is added
 
