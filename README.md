@@ -113,7 +113,12 @@ HeadHunter API — это инструментарий для интеграци
   * [Удаление резюме](docs/resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [История просмотра резюме](docs/resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Информация о статусе резюме и готовности резюме к публикации](docs/resumes.md#status-and-publication) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Списки видимости резюме](docs/resume_visibility.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Списки видимости резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Получение списков видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/get-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Добавление компаний в список видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/add-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Удаление компаний из списка видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/delete-employer-from-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Очистка списка видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/delete-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Поиск работодателей для добавления в список видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/get-resume-visibility-employers-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Артефакты (фото, портфолио)](https://api.hh.ru/openapi/redoc#tag/Rabota-s-artefaktami) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Поиск по вакансиям, похожим на резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij-dlya-soiskatelya/operation/get-vacancies-similar-to-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [История откликов/приглашений по резюме](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/get-resume-negotiations-history) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
