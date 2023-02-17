@@ -2119,7 +2119,7 @@ the resume visibility settings. The "access.type" key is responsible for this. V
 
 
 Some types of visibility, such as `whitelist` and `blacklist`, imply the use of a list of employers
-who can or cannot see the resume. Please see [managing resume visibility lists](resume_visibility.md).
+who can or cannot see the resume. Please see [managing resume visibility lists](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists).
 
 
 <a name="get_access_types"></a>
@@ -2192,7 +2192,7 @@ items[].limit | number | Maximum number of companies in the visibility list (onl
 * `404 Not Found` — A resume with this ID was not found or is not available to the current user.
 
 
-Please see also [managing resume visibility lists](/docs_eng/resume_visibility.md).
+Please see also [managing resume visibility lists](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists).
 
 
 <a name="views"></a>

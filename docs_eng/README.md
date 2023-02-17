@@ -92,7 +92,12 @@ Article labels:
   * [Deleting a resume](resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CV view history](resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Information on a resume's status and readiness for publication](resumes.md#status-and-publication) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Resume visibility lists](resume_visibility.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Resume visibility lists](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Getting visibility lists](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/get-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Adding companies to the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/add-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Removing companies from the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/delete-employer-from-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Clearing the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/delete-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Searching for employers to add to the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/get-resume-visibility-employers-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Search for CV](docs/resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Saved CV search](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [List of saved CV searches](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/operation/get-saved-resume-searches) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
