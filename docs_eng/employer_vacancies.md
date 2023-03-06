@@ -538,64 +538,7 @@ A successful response contains a code `204 No Content` and is body-less.
 <a name="stats"></a>
 ## Vacancy statistics
 
-`GET /vacancies/{vacancy_id}/stats`
-
-where `vacancy_id` - vacancy ID
-
-### Response
-
-Successful server response is returned with `200 OK` code and contains:
-
-```json
-{
-    "items": [
-        {
-            "date": "2017-01-10",
-            "responses": 1,
-            "views": 36
-        },
-        {
-            "date": "2017-01-11",
-            "responses": 4,
-            "views": 35
-        },
-        {
-            "date": "2017-01-12",
-            "responses": 1,
-            "views": 32
-        },
-        {
-            "date": "2017-01-13",
-            "responses": null,
-            "views": null
-        },
-        {
-            "date": "2017-01-14",
-            "responses": null,
-            "views": null
-        }
-    ]
-}
-```
-
-Each element from `items` has the following fields:
-
-Name | Type | Description
---- | --- | ---
-date | string | Date in format `YYYY-MM-DD`
-responses | number or null | Number of applications, `null` if the date is in the future or there is no data for this date
-views | number or null | Number of views, `null` if the date is in the future or there is no data for this date
-
-The system returns a window of the last 5 days of the publication life:
-
-* if the vacancy was created after the start of the window, the vacancy publication date will go first;
-* if the vacancy is archived or deleted, the archiving date will go last.
-
-### Errors
-
-* `403 Forbidden` – current user is not an employer
-* `404 Not Found` – vacancy with the passed ID does not exist
-
+> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-vacancy-stats)
 
 <a name="visitors"></a>
 ## Vacancy visitors
