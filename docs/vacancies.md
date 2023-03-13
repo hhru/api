@@ -387,7 +387,15 @@ HTTP code | type | value | описание
             "name": "Можно начинать работать после 16-00"
         }
     ],
-    "accept_temporary": false
+    "accept_temporary": false,
+    "experience": {
+      "id": "noExperience",
+      "name": "Нет опыта"
+    },
+    "employment": {
+      "id": "full",
+      "name": "Полная занятость"
+    }
 }
 ```
 
