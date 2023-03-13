@@ -293,122 +293,12 @@ collection supports:
 <a name="archive"></a>
 ## Storing vacancies
 
-To archive a vacancy, you should send a PUT request:
-
-`PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}`
-
-### Response
-
-A successful response contains a code `204 No Content` and is body-less.
-
-### Errors
-
-* `403 Forbidden` – current user is not an employer
-* `404 Not Found` – provided employer ID is incorrect
-* `404 Not Found` – current user does not have the appropriate privileges to archive the vacancy
-* `404 Not Found` – vacancy with the passed ID does not exist
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/add-vacancy-to-archive)
 
 <a name="archived"></a>
 ## Archived vacancy list
 
-
-### Request
-
-`GET /employers/{employer_id}/vacancies/archived?manager_id={manager_id}`
-
-By default, the system returns vacancies from the current user. If you need
-vacancies from another manager, send an additional argument `manager_id={manager_id}`.
-You can send only 1 `manager_id`, if you pass several, the last one will be used.
-
-The system supports pagination (`per_page` and `page`) and sorting (`order_by`).
-
-The maximum value of `per_page` is 1000.
-
-Possible sorting options can be found in the [directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
-
-Unlike the list of published vacancies, the collection does not support
-search (parameters `text` and `area`).
-
-
-### Response
-
-Successful server response is returned with `200 OK` code and contains:
-
-```json
-{
-    "found": 1,
-    "page": 0,
-    "pages": 1,
-    "per_page": 20,
-    "items": [
-        {
-            "salary": {
-                "to": null,
-                "from": 30000,
-                "currency": "RUR"
-            },
-            "name": "Secretary",
-            "area": {
-                "url": "https://api.hh.ru/areas/1",
-                "id": "1",
-                "name": "Moscow"
-            },
-            "url": "https://api.hh.ru/vacancies/8331228",
-            "published_at": "2013-07-08T16:17:21+0400",
-            "relations": [],
-            "employer": {
-                "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
-                },
-                "name": "HeadHunter",
-                "url": "https://api.hh.ru/employers/1455",
-                "alternate_url": "https://hh.ru/employer/1455",
-                "id": "1455"
-            },
-            "response_letter_required": true,
-            "address": null,
-            "alternate_url": "https://hh.ru/vacancy/8331228",
-            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-            "department": {
-                "id": "18320489-18320489-dept1",
-                "name": "DEPT1"
-            },
-            "premium": false,
-            "type": {
-                "id": "open",
-                "name": "Open"
-            },
-            "id": "8331228",
-            "archived": true,
-            "counters": {
-                "responses": 3,
-                "invitations_and_responses": 5
-            },
-            "archived_at": "2013-08-08T16:17:21+0400"
-        }
-    ]
-}
-```
-
-In addition to [the standard vacancy fields](vacancies.md#nano), additional
-fields will be returned:
-
-| key                                | type   | description                                          |
-|------------------------------------|--------|------------------------------------------------------|
-| counters.responses                 | number | number of applications for a vacancy                 |
-| counters.invitations_and_responses | number | number of applications and invitations for a vacancy |
-| archived_at                        | string | vacancy archivation date                             |
-
-
-### Errors
-
-* `400 Bad Request` – error in the request parameters
-* `403 Forbidden` – current user is not an employer.
-* `403 Forbidden` – invalid employer id is specified.
-* `404 Not Found` – the current user cannot obtain archive vacancies.
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-archived-vacancies)
 
 <a name="hide"></a>
 ## Deleting vacancies
