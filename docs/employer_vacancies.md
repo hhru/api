@@ -426,132 +426,17 @@ can_upgrade_billing_type | boolean | Можно ли улучшить билли
 <a name="hide"></a>
 ## Удаление вакансий
 
-`PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}`
-
-Удалить можно только вакансию из архива.
-
-### Ответ
-
-При успешной операции вернётся `204 No Content`.
-
-### Ошибки
-
-* `403 Forbidden` – текущий пользователь не является работодателем.
-* `403 Forbidden` – удалять вакансию не из архива запрещено.
-* `404 Not Found` – указан неверный идентификатор работодателя.
-* `404 Not Found` – у текущего пользователя нет прав на удаление вакансиии из архива.
-* `404 Not Found` – вакансия с переданным идентификатором не существует.
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/add-vacancy-to-hidden)
 
 <a name="hidden"></a>
 ## Список удаленных вакансий
 
-`GET /employers/{employer_id}/vacancies/hidden`
-
-По умолчанию возвращаются вакансии текущего пользователя. Если требуется
-получить вакансии другого менеджера, необходимо передать дополнительный параметр
-`manager_id={manager_id}`. Можно передать только 1 `manager_id`, если передать несколько, будет использоваться последний.
-
-Поддерживается пагинация (`per_page` и `page`) и сортировка (`order_by`).
-
-Максимальное значение `per_page`, которое можно передать в данном запросе: 1000.
-
-Возможные значения сортировки доступны в справочнике
-[справочнике `employer_hidden_vacancies_order`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
-
-В отличие от списка опубликованных вакансий, данная коллекция не поддерживает
-поиск (параметры `text` и `area`).
-
-
-### Ответ
-
-Успешный ответ приходит с кодом `200 OK` и содержит:
-
-```json
-{
-    "found": 1,
-    "page": 0,
-    "pages": 1,
-    "per_page": 20,
-    "items": [
-        {
-            "salary": {
-                "to": null,
-                "from": 30000,
-                "currency": "RUR",
-                "gross": true
-            },
-            "name": "Секретарь",
-            "area": {
-                "url": "https://api.hh.ru/areas/1",
-                "id": "1",
-                "name": "Москва"
-            },
-            "url": "https://api.hh.ru/vacancies/8331228",
-            "published_at": "2013-07-08T16:17:21+0400",
-            "relations": [],
-            "employer": {
-                "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
-                },
-                "name": "HeadHunter",
-                "url": "https://api.hh.ru/employers/1455",
-                "alternate_url": "https://hh.ru/employer/1455",
-                "id": "1455",
-                "trusted": true
-            },
-            "response_letter_required": true,
-            "address": null,
-            "alternate_url": "https://hh.ru/vacancy/8331228",
-            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-            "department": {
-                "id": "HH-1455-TECH",
-                "name": "HeadHunter::Технический департамент"
-            },
-            "premium": false,
-            "type": {
-                "id": "open",
-                "name": "Открытая"
-            },
-            "id": "8331228",
-            "archived": true
-        }
-    ]
-}
-```
-
-Ответ состоит из [стандартных полей вакансии](vacancies.md#nano).
-
-### Ошибки
-
-* `400 Bad Request` - параметры переданы с ошибкой
-* `403 Forbidden` – текущий пользователь не является работодателем.
-* `403 Forbidden` – указан неверный идентификатор работодателя.
-* `404 Not Found` – у текущего пользователя нет прав на просмотр удаленных вакансиий.
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/get-hidden-vacancies)
 
 <a name="restore"></a>
 ## Восстановление из удаленных
 
-`DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}`
-
-Восстановить можно только удаленную из архива вакансию.
-Вакансия вернется в архив.
-
-### Ответ
-
-При успешной операции вернётся `204 No Content`.
-
-### Ошибки
-
-* `403 Forbidden` – текущий пользователь не является работодателем.
-* `403 Forbidden` – восстанавливать не удаленную вакансию запрещено.
-* `404 Not Found` – указан неверный идентификатор работодателя.
-* `404 Not Found` – у текущего пользователя нет прав на восстановление вакансии из удаленных.
-* `404 Not Found` – вакансия с переданным идентификатором не существует.
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/restore-vacancy-from-hidden)
 
 <a name="stats"></a>
 ## Статистика по вакансии
