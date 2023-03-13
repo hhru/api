@@ -138,6 +138,7 @@ Article labels:
   * [Archived vacancy list](employer_vacancies.md#archived) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Deleting vacancies](employer_vacancies.md#hide) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Deleted vacancy list](employer_vacancies.md#hidden) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [List of vacancy upgrades](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-vacancy-upgrade-list) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Vacancy statistics](employer_vacancies.md#stats) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Vacancy visitors](employer_vacancies.md#visitors) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Vacancy drafts](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-draft) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
