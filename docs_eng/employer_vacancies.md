@@ -413,127 +413,17 @@ fields will be returned:
 <a name="hide"></a>
 ## Deleting vacancies
 
-`PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}`
-
-You can delete only an archived vacancy.
-
-### Response
-
-A successful response contains a code `204 No Content` and is body-less.
-
-### Errors
-
-* `403 Forbidden` – current user is not an employer
-* `403 Forbidden` – it is forbidden to delete a job that is not archived
-* `404 Not Found` – provided employer ID is incorrect
-* `404 Not Found` – current user does not have privileges to delete archived vacancies
-* `404 Not Found` – vacancy with the passed ID does not exist
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/add-vacancy-to-hidden)
 
 <a name="hidden"></a>
 ## Deleted vacancy list
 
-### Request
-
-`GET /employers/{employer_id}/vacancies/hidden?manager_id={manager_id}`
-
-By default, the system returns vacancies from the current user. If you need
-vacancies from another manager, send an additional argument `manager_id={manager_id}`.
-You can send only 1 `manager_id`, if you pass several, the last one will be used.
-
-Pagination (`per_page` and `page`) and sorting (`order_by`) are supported.
-
-The maximum value of `per_page` is 1000.
-
-Possible sorting values are available in the `employer_hidden_vacancies_order`
-(`/dictionaries`) directory. As opposed to the list of published vacancies, this
-collection does not support search (the parameters `text` and `area`).
-
-
-### Response
-
-Successful server response is returned with `200 OK` code and contains:
-
-```json
-{
-    "found": 1,
-    "page": 0,
-    "pages": 1,
-    "per_page": 20,
-    "items": [
-        {
-            "salary": {
-                "to": null,
-                "from": 30000,
-                "currency": "RUR"
-            },
-            "name": "Secretary",
-            "area": {
-                "url": "https://api.hh.ru/areas/1",
-                "id": "1",
-                "name": "Moscow"
-            },
-            "url": "https://api.hh.ru/vacancies/8331228",
-            "published_at": "2013-07-08T16:17:21+0400",
-            "relations": [],
-            "employer": {
-                "logo_urls": {
-                    "90": "https://hh.ru/employer-logo/289027.png",
-                    "240": "https://hh.ru/employer-logo/289169.png",
-                    "original": "https://hh.ru/file/2352807.png"
-                },
-                "name": "HeadHunter",
-                "url": "https://api.hh.ru/employers/1455",
-                "alternate_url": "https://hh.ru/employer/1455",
-                "id": "1455"
-            },
-            "response_letter_required": true,
-            "address": null,
-            "alternate_url": "https://hh.ru/vacancy/8331228",
-            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
-            "department": {
-                "id": "18320489-18320489-dept1",
-                "name": "DEPT1"
-            },
-            "premium": false,
-            "type": {
-                "id": "open",
-                "name": "Open"
-            },
-            "id": "8331228",
-            "archived": true
-        }
-    ]
-}
-```
-
-Response with [the standard vacancy fields](vacancies.md#nano) will be returned.
-
-### Ошибки
-
-* `400 Bad Request` – error in the request parameters
-* `403 Forbidden` – current user is not an employer
-* `403 Forbidden` – provided employer ID is incorrect
-* `404 Not Found` – current user does not have the appropriate privileges to view deleted vacancies
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-hidden-vacancies)
 
 <a name="restore"></a>
 ## Restoring deleted vacancies
 
-`DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}`
-
-You can restore only a vacancy deleted from the archive.
-
-### Response
-
-A successful response contains a code `204 No Content` and is body-less.
-
-### Errors
-
-* `403 Forbidden` – current user is not an employer
-* `403 Forbidden` – restoring a non-deleted vacancy is forbidden
-* `404 Not Found` – provided employer ID is incorrect
-* `404 Not Found` – current user does not have privileges to restore deleted vacancies
-* `404 Not Found` – vacancy with the passed ID does not exist
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/restore-vacancy-from-hidden)
 
 <a name="stats"></a>
 ## Vacancy statistics
