@@ -74,7 +74,7 @@ to change the specialisation you will have to send a full list.
  accept_incomplete_resumes  | whether it is possible to apply with an incomplete resume   
  branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-vacancy-branded-templates-list) |
  languages                  | list of languages
-
+driver_license_types        | driver's license category. Item of the `driver_license_types` [dictionary](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries)
 The remaining fields are read-only or can only be set during initial publication.
 
 ### Response
