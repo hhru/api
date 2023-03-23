@@ -28,13 +28,11 @@ Successful server response is returned with `200 OK` code and contains:
     "employer_statistics": {
         "received": 20,
         "viewed_percent": 23,
-        "viewed_percent_change": 10,
         "replied_percent": 0,
-        "replied_percent_change": -15,
         "average_reply_time": 1.0,
         "politeness": {
             "index": 62,
-            "index_change": -1,
+            "index_change": 0,
             "hint": "You have a medium value of politeness index. This is good, but you can increase it.",
             "description": "An applicant see the politeness index after he has been responded to a vacancy. The companies with low politeness index lose the applicants trust and may miss suitable candidates.",
             "article_url": "https://hh.ru/article/23734"
@@ -50,9 +48,7 @@ Name | Type | Description
 --- | --- | --------
 received | number | number of responses to employer jobs received in the last `30 days` (the "Period")
 viewed_percent | number or null | percentage of read responses to the employer's jobs for the Period, or `null` if there are no responses
-viewed_percent_change | number or null | difference between the current viewed_percent value compared to the previous Period, or `null` if there are no responses
 replied_percent | number or null | percentage of responses to employer jobs that have been moved to any other [collection](employer_negotiations.md#term-collection) and accompanied by messages for a Period, or `null` if there are no responses 
-replied_percent_change | number or null | difference between the current replied_percent value compared to the previous Period, or `null` if there are no responses
 average_reply_time | number or null | average time in days between receiving a response to an employer job and sending a message, or `null` if no messages were sent
 politeness | object or null | [The object `politeness`](#employer_politeness_field) or `null`, if company [politeness index](https://hh.ru/article/23734)  is not calculated, for example,  the company has no vacancies or responses
 
@@ -64,7 +60,7 @@ Contains information about company [politeness index](https://hh.ru/article/2373
 Name | Type | Description
 -----|-----|----------
 index | number | company politeness index 
-index_change | number | company politeness index delta for the Period
+index_change | number | Attention! This param is deprecated, because politeness index is calculated in runtime
 hint | string | description about current value of politeness index
 description | string | short information about politeness index 
 article_url | string | url of orticle about politeness index 
@@ -96,9 +92,7 @@ Successful server response is returned with `200 OK` code and contains:
     "manager_statistics": {
         "received": 20,
         "viewed_percent": 23,
-        "viewed_percent_change": 10,
         "replied_percent": 0,
-        "replied_percent_change": -15,
         "average_reply_time": 1.0,
         "politeness": {
             "index": 19,
@@ -118,9 +112,7 @@ Name | Type | Description
 --- | --- | --------
 received | number | number of responses to manager jobs received in the last `30 days` (the "Period")
 viewed_percent | number или null | percentage of read responses to the manager's jobs for the Period, or `null` if there are no responses
-viewed_percent_change | number или null | difference between the current viewed_percent value compared to the previous Period, or `null` if there are no responses
 replied_percent | number или null | percentage of responses to manager jobs that have been moved to any other [collection](employer_negotiations.md#term-collection) and accompanied by messages for a Period, or `null` if there are no responses 
-replied_percent_change | number или null | difference between the current replied_percent value compared to the previous Period, or `null` if there are no responses
 average_reply_time | number или null | average time in days between receiving a response to a manager job and sending a message, or `null` if no messages were sent
 politeness | object or null | [The object `politeness`](#manager_politeness_field) or `null`, if manager [politeness index](https://hh.ru/article/23734)  is not calculated, for example, the manager has no vacancies or responses
 
@@ -132,7 +124,7 @@ Contains information about manager [politeness index](https://hh.ru/article/2373
 Name | Type | Description
 -----|-----|----------
 index | number | manager politeness index 
-index_change | number | manager politeness index delta for the Period
+index_change | number | Attention! This param is deprecated, because politeness index is calculated in runtime
 hint | string | description about current value of politeness index
 description | string | short information about politeness index 
 article_url | string | url of orticle about politeness index 
