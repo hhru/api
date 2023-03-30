@@ -212,7 +212,7 @@ HeadHunter API — это инструментарий для интеграци
   * [Список откликов/приглашений](docs/employer_negotiations.md#negotiations-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Просмотр отклика/приглашения](docs/employer_negotiations.md#get-negotiation) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Работа с сообщениями по отклику/приглашению для работодателя](docs/employer_negotiations.md#get-messages) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Приглашение соискателя на вакансию](docs/employer_negotiations.md#add-invite) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Приглашение соискателя на вакансию](https://api.hh.ru/openapi/redoc#tag/Vakansii/operation/get-active-vacancy-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Действия по отклику/приглашению (смена состояния)](docs/employer_negotiations.md#actions) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Статистика по работе с откликами](docs/employer_negotiations_statistics.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Тексты сообщений](docs/negotiation_message_templates.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />

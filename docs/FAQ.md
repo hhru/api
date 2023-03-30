@@ -90,7 +90,7 @@ PUT /negotiations/interview/123456789?message=new_msg
 
 ### Вариант 2. Приглашение соискателя, который не откликнулся на вакансию
 1. Для создания приглашения необходимо запросить вакансии работодателя, применимые к выбранному резюме.
-Получить эту информацию можно в [списке вакансий работодателя](employer_vacancies_for_invitation.md):
+Получить эту информацию можно в [списке вакансий работодателя](https://api.hh.ru/openapi/redoc#tag/Vakansii/operation/get-active-vacancy-list):
 ```
 GET /employers/{employer_id}/vacancies/active?resume_id={resume_id}
 ```
