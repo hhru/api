@@ -78,7 +78,7 @@ statuses is used only as a directory.
 
 To **create an invitation**, you should request employer's jobs
 applicable to the selected resume. You can get this information in the 
-[employer job list](employer_vacancies_for_invitation.md), which also
+[employer job list](https://api.hh.ru/openapi/redoc#tag/Vakansii/operation/get-active-vacancy-list), which also
 contains the required parameters (the "arguments" key) and the status of the created
 response (the "resulting_employer_state" key). Different employers and different
 jobs may have different rules and statuses for added responses. Each
@@ -1027,7 +1027,7 @@ POST /negotiations/{state}
 where `state` – is the initial state of the invitation
 
 You can get the invitation parameters from the
-[action list](employer_vacancies_for_invitation.md#actions-info).
+[action list](https://api.hh.ru/openapi/en/redoc#tag/Vacancies/operation/get-active-vacancy-list).
 
 Parameters should be sent in standard format
 `application/x-www-form-urlencoded`.

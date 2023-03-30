@@ -197,7 +197,7 @@ Article labels:
   * [View the response/invitation](employer_negotiations.md#get-negotiation) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Work with messages in the response/invitation](employer_negotiations.md#get-messages) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Sending a message in the response/invitation](employer_negotiations.md#add-messages) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Inviting an applicant for a vacancy](employer_negotiations.md#add-invite) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Inviting an applicant for a vacancy](https://api.hh.ru/openapi/redoc#tag/Vakansii/operation/get-active-vacancy-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Response/invitation actions (status change)](employer_negotiations.md#actions) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Message templates](negotiation_message_templates.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Assessments](assessment.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
