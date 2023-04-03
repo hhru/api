@@ -125,6 +125,9 @@ For example:
 * `educational_institution` – the applicant's educational institutions.
   Suggestions on university names are used as parameters:
   [/suggests/educational_institutions](https://github.com/hhru/api/blob/master/docs_eng/suggests.md). Several values can be indicated.
+* `search_in_responses` — `true`: search only in resumes with applicants who responded to vacancies of the current user's company,
+`false`: search in all resumes. If this parameter is not specified, the search will take place in all resumes by default.
+* `search_by_vacancy_id` — vacancy identifier. The search will be limited to the responses of this vacancy.
 * `folder` — the ID of the folder with favourite resumes. The search will be limited to the contents of the specified folder.
 Multiple folder IDs can be passed, for example: `folder=111&folder=222&folder=333`
 * `include_all_folders` — a parameter indicating whether it is necessary to search through all folders with favourite resumes.
