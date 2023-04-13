@@ -2276,3 +2276,15 @@ The information is available only to the resume publisher.
 ### Request
 
 >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Applicant-vacancy-search/operation/get-vacancies-similar-to-resume)
+
+<a name="hidden-fields"></a>
+## CV hidden fields
+
+The `hidden_fields` field contains a list of search fields hidden by the applicant. Hidden fields are replaced by `null`. The CV author is provided with relevant data.
+
+* `names_and_photo` enters `null` instead of the values of the `first_name`, `last_name`, `middle_name` and `photo` fields
+* `phones`  enters `null` instead of the value of the `contact[].value` field, when `contact[].type` contains `cell,` `work,` or `home`
+* `email`  enters `null` instead of the value of the `contact[].value` field, when `contact[].type` contains `email`
+* `other_contacts` enters `null` instead of the value of the `site[].url` field
+* `experience` enters `null` instead of the values of the `experience[].company`, `experience[].company_id`, `experience[].company_url`, `experience[].employer` fileds; enters an empty list instead of the value of the `recommendation` field
+
