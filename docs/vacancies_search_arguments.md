@@ -282,7 +282,7 @@ argument | string | параметр поиска вакансии
 value | string | значение параметра
 name | string или null | название значения, если оно есть, либо `null`
 disable_url | string | url поиска вакансий, который получится, если перестать учитывать в поиске данный параметр
-cluster_group | object или null | [группа кластеров](clusters.md), которая связана с данным параметром, если она есть, либо `null`
+cluster_group | object или null | [группа кластеров](https://api.hh.ru/openapi/redoc#tag/Poisk-vakansij/Klastery-v-poiske-vakansij), которая связана с данным параметром, если она есть, либо `null`
 cluster_group.id | string | идентификатор группы кластеров
 cluster_group.name | string | название группы кластеров
 
