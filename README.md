@@ -112,7 +112,7 @@ HeadHunter API — это инструментарий для интеграци
   * [Публикация и продление резюме](docs/resumes.md#publish) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Удаление резюме](docs/resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [История просмотра резюме](docs/resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Информация о статусе резюме и готовности резюме к публикации](docs/resumes.md#status-and-publication) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Информация о статусе резюме и готовности резюме к публикации](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Prosmotr-informacii/operation/get-resume-status) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Списки видимости резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Получение списков видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/get-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Добавление компаний в список видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/add-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
