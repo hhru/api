@@ -279,7 +279,7 @@ argument | string | vacancy search argument
 value | string | argument value
 name | string or null | name of value if it exists, otherwise — `null`
 disable_url | string | url of the resulting vacancy search if this argument is no longer selected
-cluster_group | object или null | [cluster group](clusters.md) related to this argument if it exists, otherwise — `null`
+cluster_group | object или null | [cluster group](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/Clusters-of-vacancy-search) related to this argument if it exists, otherwise — `null`
 cluster_group.id | string | id of cluster group
 cluster_group.name | string | name of cluster group
 
