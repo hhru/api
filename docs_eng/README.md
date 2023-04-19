@@ -91,7 +91,7 @@ Article labels:
   * [CV publication & prolongation](resumes.md#publish) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Deleting a resume](resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CV view history](resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Information on a resume's status and readiness for publication](resumes.md#status-and-publication) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Information on a resume's status and readiness for publication](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-information/operation/get-resume-status) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Resume visibility lists](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Getting visibility lists](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/get-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Adding companies to the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/add-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
