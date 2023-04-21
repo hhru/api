@@ -2105,75 +2105,7 @@ Please see also [managing resume visibility lists](https://api.hh.ru/openapi/en/
 <a name="views"></a>
 ## Resume viewing history
 
-`GET /resumes/{resume_id}/views` will return the viewing history for the resume. On the main website it can be found by 
-clicking on the resume views number on the page with the list of the current user's resume
-([https://hh.ru/applicant/resumes](https://hh.ru/applicant/resumes)).
-
-The number of views (including new) is shown when requesting a specific
-resume and list of resumes. The new views counter is reset to zero when requesting this resource.
-
-### Response
-
-```json
-{
-    "per_page": 20,
-    "items": [
-        {
-            "created_at": "2014-02-05T19:05:58+0400",
-            "viewed": true,
-            "employer": {
-                "logo_urls": {
-                    "90": "https://hh.ru/employer/logo/1455",
-                },
-                "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455",
-                "name": "HeadHunter",
-                "url": "https://api.hh.ru/employers/1455",
-                "alternate_url": "https://hh.ru/employer/1455",
-                "id": "1455"
-            }
-        }
-    ],
-    "page": 0,
-    "pages": 1,
-    "found": 1,
-    "resume": {
-        "id": "502ff8b100018bddf30039ed1f63735f4dda66",
-        "title": "manager",
-        "url": "https://api.hh.ru/resumes/502ff8b100018bddf30039ed1f63735f4dda66"
-    }
-}
-```
-
-where:
-
- Name | Type | Description
- --- | --- | --------
- found | number | Number of resume viewing records ( ≥ 0 )
- pages | number | Page number ( ≥ 0 )
- per_page | number | Number of elements per page ( > 0 )
- page | number | Current page number ( ≥ 0 )
- resume | object | [resume](#resume-nano)
-
-The `items` element contains data about negotiations:
-
- Name | Type | Description
- --- | --- | ---
- created_at | string | Creation date, date when employer viewed the resume
- viewed | boolean | note of viewing the record (when requesting this resource, all requests are marked as viewed)
- employer | object | company info (see below)
-
-`employer` object returns brief company info, a subset of the [company/employer](https://api.hh.ru/openapi/en/redoc#tag/Employer) object.
-
-If an anonymous employer viewed the resume or the resume was viewed from
-applications to an anonymous vacancy, `employer` may contain only the `name` key.
-
-`logo_urls` — images of the company logo in different sizes. The client should take into account
-              the probability that the resource will not be available at the specified link (`404 Not Found`).
-
-### Errors
-
-* `403 Forbidden` — The user is not an applicant.
-* `404 Not Found` — A resume with this ID was not found or is not available to the current user.
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume-view-history)
 
 <a name="similar"></a>
 ## Searching for jobs similar to a resume
