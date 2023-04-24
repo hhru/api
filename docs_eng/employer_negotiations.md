@@ -235,6 +235,8 @@ this URL, e.g.:
 GET https://api.hh.ru/negotiations/somecollection?vacancy_id=123456
 ```
 
+Some parameters take multiple values: `key=value&key=value`.
+
 Parameters:
 
 Name | Required | Description
@@ -243,6 +245,24 @@ vacancy_id| yes | Vacancy ID
 order_by | no | Sorting option. Possible values may differ for different collections; the available options are specified in the [list of collections in the `order_types` field](#order-types).
 page | no | Page number, default: 0
 per_page | no | Number of items per page: default value is 20; the maximum value is 50
+age_from | no | Applicant's age in years, range from
+age_to | no | Applicant's age in years, range up to
+area | no | Area. Multiple values can be specified. Possible values: [/areas](https://github.com/hhru/api/blob/master/docs/areas.md)
+citizenship | no | Country of desired citizenship. Multiple values can be specified. Possible values can be found in the [country dictionary](areas.md#countries)
+currency_code | no | Currency code. Possible values: `currency` (key=code) from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries
+driver_license_type | no | Driver license categories. Multiple values can be specified. Possible values: `driver_license_types` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+education | no | Education. Possible values: `education_level` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+experience | no | Work experience. Multiple values can be specified. Possible values: `experience` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+gender | no | Gender. Possible values: `gender` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+language | no | Language skills. Multiple values can be specified. Set in the format language.level, where `language` is the value from the dictionary [/languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-languages), `level` is the value from the dictionary `language_level` [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+relocation | no | Ready to relocate. Possible values: `resume_search_relocation` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+salary_from | no | Desired salary (range from)
+salary_to | no | Desired salary (range up to)
+search_radius_meters | no | Distance to a potential candidate (in meters)
+search_text | no | Search string
+show_only_new_responses | no | Show only new responses (these responses have not been viewed yet)
+show_only_with_vehicle | no | Filter by car availability
+university | no | ID of the [educational institution](https://github.com/hhru/api/blob/master/docs_eng/suggests.md). Multiple values can be specified.
 
 
 ### Response
