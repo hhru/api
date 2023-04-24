@@ -229,6 +229,8 @@ employer_states[].name | строка | название состояния
 
 `GET https://api.hh.ru/negotiations/somecollection?vacancy_id=123456`
 
+Некоторые параметры принимают множественные значения: `key=value&key=value`.
+
 Параметры:
 
 Имя | Обязательный | Описание
@@ -237,6 +239,24 @@ vacancy_id | да | Идентификатор вакансии
 order_by | нет | Тип сортировки. Возможные значения могут отличаться у разных коллекций, варианты указаны в [списке коллекций в поле `order_types`](#order-types).
 page | нет | Номер страницы, по умолчанию: 0
 per_page | нет | Количество выдаваемых элементов на страницу, по умолчанию: 20, максимальное значение: 50
+age_from | нет | Возраст соискателя в годах, диапазон от
+age_to | нет | Возраст соискателя в годах, диапазон до
+area | нет | Регион. Можно передать множественные значения. Возможные значения: [/areas](https://github.com/hhru/api/blob/master/docs/areas.md)
+citizenship | нет | Страна желаемого гражданства. Можно передать множественные значения. Возможные значения можно посмотреть в [справочнике стран](areas.md#countries)
+currency_code | нет | Код валюты. Возможные значения: `currency` (ключ code) в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries
+driver_license_type | нет | Категории водительских прав. Можно передать множественные значения. Возможные значения: `driver_license_types` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+education | нет | Образование. Возможные значения: `education_level` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+experience | нет | Опыт работы. Можно передать множественные значения. Возможные значения: `experience` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+gender | нет | Пол. Возможные значения: `gender` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+language | нет | Знание языков. Можно передать множественные значения. Задается в формате language.level, где: `language` — значение из справочника [/languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-languages), `level` — значение из справочника `language_level` [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+relocation | нет | Готовность к переезду. Возможные значения: `resume_search_relocation` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+salary_from | нет | Желаемая заработная плата, диапазон от
+salary_to | нет | Желаемая заработная плата, диапазон до
+search_radius_meters | нет | Расстояние до потенциального кандидата (в метрах)
+search_text | нет | Поисковая строка
+show_only_new_responses | нет | Показывать только новые отклики (то есть отклики, которые не были просмотрены)
+show_only_with_vehicle | нет | Фильтровать по наличию автомобиля
+university | нет | Идентификатор [учебного заведения](https://github.com/hhru/api/blob/master/docs_eng/suggests.md). Можно передать множественные значения.
 
 
 ### Ответ
