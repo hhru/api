@@ -176,6 +176,30 @@ Successful server response is returned with `200 OK` code and contains:
             ]
         }
     ],
+    "generated_collections": [
+        {
+            "id": "some_generated_collection",
+            "name": "Generated collection's name",
+            "description": "Generated collection's description",
+            "url": "https://api.hh.ru/negotiations/some_generated_collection?vacancy_id=123456",
+            "counters": {
+                "with_updates": 4,
+                "total": 5
+            },
+            "order_types": [
+                {
+                    "id": "created_at",
+                    "name": "by created date",
+                    "url": "https://api.hh.ru/negotiations/some_generated_collection?vacancy_id=123456&order_by=created_at"
+                },
+                {
+                    "id": "relevance",
+                    "name": "relevance",
+                    "url": "https://api.hh.ru/negotiations/some_generated_collection?vacancy_id=123456&order_by=relevance"
+                }
+            ]
+        }
+    ],
     "employer_states": [
         {
             "id": "response",
@@ -212,6 +236,14 @@ collections[].url | string | URL to send the GET request to in order to get resp
 collections[].counters.with_updates | number | the number of responses/invitations in this collection that [require attention](#has_updates)
 collections[].counters.total | number | the total number of responses/invitations in this collection
 collections[].order_types | list | <a name="order-types"></a> possible options for sorting responses/invitations in a collection
+generated_collections | list | of generated [collections](#term-collection) of responses/invitations for this vacancy. These collections are not connected with the negotiation status, such as "Consider", "Interview" or "Offer", but are created to facilitate the user's work.
+generated_collections[].id | string | collection ID unique at least for this vacancy. Possible variants: vacancy_visitors, relevant_responses, by_location, phone_calls.
+generated_collections[].name | string | collection name
+generated_collections[].description | string | collection description
+generated_collections[].url | string | URL to send the GET request to in order to get responses/invitations for this collection
+generated_collections[].counters.with_updates | number | the number of responses/invitations in this collection that [require attention](#has_updates)
+generated_collections[].counters.total | number | the total number of responses/invitations in this collection
+generated_collections[].order_types | list | <a name="order-types"></a> possible options for sorting responses/invitations in a collection
 employer_states | list | of [employer statuses](#term-employer-state) for responses/invitations on the vacancy
 employer_states[].id | string | status ID unique at least for this vacancy
 employer_states[].name | string | status name
@@ -236,6 +268,7 @@ GET https://api.hh.ru/negotiations/somecollection?vacancy_id=123456
 ```
 
 Some parameters take multiple values: `key=value&key=value`.
+Collection `phone_calls` accepts only parameters `vacancy_id`, `order_by`, `page` and `per_page` from the table below.
 
 Parameters:
 

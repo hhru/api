@@ -178,6 +178,30 @@
             ]
         }
     ],
+    "generated_collections": [
+        {
+            "id": "some_generated_collection",
+            "name": "Название сгенерированной коллекции",
+            "description": "Описание сгенерированной коллекции",
+            "url": "https://api.hh.ru/negotiations/some_generated_collection?vacancy_id=123456",
+            "counters": {
+                "with_updates": 4,
+                "total": 5
+            },
+            "order_types": [
+                {
+                    "id": "last_change_time_except_employer_inbox",
+                    "name": "По дате создания и активности соискателя",
+                    "url": "https://api.hh.ru/negotiations/some_generated_collection?vacancy_id=123456&order_by=last_change_time_except_employer_inbox"
+                },
+                {
+                    "id": "relevance",
+                    "name": "лучшие",
+                    "url": "https://api.hh.ru/negotiations/some_generated_collection?vacancy_id=123456&order_by=relevance"
+                }
+            ]
+        }
+    ],
     "employer_states": [
         {
             "id": "response",
@@ -210,6 +234,14 @@ collections[].url | строка | url, на который необходимо
 collections[].counters.with_updates | число | количество откликов/приглашений в коллекции, [требующих внимания](#has_updates)
 collections[].counters.total | число | общее количество откликов/приглашений в коллекции
 collections[].order_types | список | <a name="order-types"></a> возможные варианты сортировки откликов/приглашений в коллекции
+generated_collections | список | сгенерированные [коллекции](#term-collection) откликов/приглашений для данной вакансии. Данные коллекции не привязаны к статусу отклика, как, например, "Подумать", "Интервью" или "Предложение о работе", а созданы для облегчения работы пользователя.
+generated_collections[].id | строка | идентификатор сгенерированной коллекции, уникальный как минимум для данной вакансии. Возможные варианты: vacancy_visitors, relevant_responses, by_location, phone_calls.
+generated_collections[].name | строка | название сгенерированной коллекции
+generated_collections[].description | строка | описание сгенерированной коллекции
+generated_collections[].url | строка | url, на который необходимо делать GET запрос для получения откликов/приглашений данной коллекции
+generated_collections[].counters.with_updates | число | количество откликов/приглашений в сгенерированной коллекции, [требующих внимания](#has_updates)
+generated_collections[].counters.total | число | общее количество откликов/приглашений в сгенерированной коллекции
+generated_collections[].order_types | список | <a name="order-types"></a> возможные варианты сортировки откликов/приглашений в сгенерированной коллекции
 employer_states | список | [работодательские состояния](#term-employer-state) откликов/приглашений данной вакансии
 employer_states[].id | строка | идентификатор состояния, уникальный как минимум для данной вакансии
 employer_states[].name | строка | название состояния
@@ -230,6 +262,7 @@ employer_states[].name | строка | название состояния
 `GET https://api.hh.ru/negotiations/somecollection?vacancy_id=123456`
 
 Некоторые параметры принимают множественные значения: `key=value&key=value`.
+Коллекция `phone_calls` принимает только параметры `vacancy_id`, `order_by`, `page` и `per_page` из таблицы ниже.
 
 Параметры:
 
