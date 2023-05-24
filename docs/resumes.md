@@ -1191,6 +1191,21 @@ GET /resumes/{resume_id}/access_types
             "id": "direct",
             "name": "доступно только по прямой ссылке"
         }
+    ],
+    "auto_hide_time_options": [
+        {
+            "id": "month_12",
+            "name": "1 год"
+        },
+        {
+            "id": "month_10",
+            "name": "10 месяцев",
+            "active": true
+        },
+        {
+            "id": "month_8",
+            "name": "8 месяцев"
+        }
     ]
 }
 ```
@@ -1204,6 +1219,11 @@ items[].active | boolean или null | Выбран ли тип видимост
 items[].list_url | string | Адрес списка (только для типов `blacklist` и `whitelist`).
 items[].total | number | Количество компаний, добавленных в соответствующий список видимости (только для типов `blacklist` и `whitelist`).
 items[].limit | number | Максимальное количество компаний в списке видимости (только для типов `blacklist` и `whitelist`).
+auto_hide_time_options | array | Варианты времени автоскрытия резюме при неактивности пользователя, это поле возвращается только для пользователей rabota.by.
+auto_hide_time_options[].id | string | Идентификатор варианта автоскрытия.
+auto_hide_time_options[].name | string | Название варианта автоскрытия.
+auto_hide_time_options[].active | boolean или null | Выбран ли вариант автоскрытия.
+
 
 #### Ошибки
 

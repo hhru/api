@@ -2077,6 +2077,21 @@ Successful server response is returned with `200 OK` code and contains:
             "id": "direct",
             "name": "available only by direct link"
         }
+    ],
+    "auto_hide_time_options": [
+        {
+            "id": "month_12",
+            "name": "1 year"
+        },
+        {
+          "id": "month_10",
+          "name": "10 months",
+          "active": true
+        },
+        {
+            "id": "month_8",
+            "name": "8 months"
+        }
     ]
 }
 ```
@@ -2092,6 +2107,10 @@ items[].active | boolean or null | Visibility type selection indicator.
 items[].list_url | string | List address (only for "blacklist" and "whitelist" types).
 items[].total | number | Number of companies in the corresponding visibility list (only for `blacklist` and `whitelist` types).
 items[].limit | number | Maximum number of companies in the visibility list (only for `blacklist` and `whitelist` types).
+auto_hide_time_options | array | Resume auto hide by user inactivity time options, this field is only available for rabota.by users.
+auto_hide_time_options[].id | string | Auto hide option ID.
+auto_hide_time_options[].name | string | Auto hide option name.
+auto_hide_time_options[].active | boolean or null | Auto hide option selection indicator.
 
 #### Errors
 
