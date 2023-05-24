@@ -212,7 +212,8 @@ Server returns `403 Forbidden` if authorization is failed.
                      },
                      "preferred":true,
                      "comment":"Mobile",
-                     "verified":false
+                     "verified":false,
+                     "need_verification":false
                  },
                  {
                      "type": {
@@ -329,6 +330,7 @@ the response will be registered as viewed.
     "contact": [
         {
             "verified": true,
+            "need_verification": true,
             "comment": null,
             "type": {
                 "id": "cell",
@@ -673,6 +675,7 @@ value | string or [object](#value-object) | Contact value. Phone number: an [obj
 preferred | boolean | Is this the preferred method of communication (should mention only one preferred contact as `"preferred": true`, if preferred flag is not sent default value for this parameter is `false`).
 comment | string or null | Comment to the contact.
 verified | boolean or null | Is the phone number confirmed (when specifying a phone number).
+need_verification | boolean or null | Is phone confirmation required (when specifying a phone number).
 
 <a name="value-object"></a>
 Object `value`
