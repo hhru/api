@@ -276,9 +276,10 @@ age_from | нет | Возраст соискателя в годах, диап�
 age_to | нет | Возраст соискателя в годах, диапазон до
 area | нет | Регион. Можно передать множественные значения. Возможные значения: [/areas](https://github.com/hhru/api/blob/master/docs/areas.md)
 citizenship | нет | Страна желаемого гражданства. Можно передать множественные значения. Возможные значения можно посмотреть в [справочнике стран](areas.md#countries)
-currency_code | нет | Код валюты. Возможные значения: `currency` (ключ code) в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries
-driver_license_type | нет | Категории водительских прав. Можно передать множественные значения. Возможные значения: `driver_license_types` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
-education | нет | Образование. Возможные значения: `education_level` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+currency | нет | Код валюты. Возможные значения: `currency` (ключ code) в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries
+driver_license_types | нет | Категории водительских прав. Можно передать множественные значения. Возможные значения: `driver_license_types` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+educational_institution | нет | Идентификатор [учебного заведения](https://github.com/hhru/api/blob/master/docs/suggests.md). Можно передать множественные значения
+education_level | нет | Образование. Возможные значения: `education_level` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 experience | нет | Опыт работы. Можно передать множественные значения. Возможные значения: `experience` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 gender | нет | Пол. Возможные значения: `gender` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 language | нет | Знание языков. Можно передать множественные значения. Задается в формате language.level, где: `language` — значение из справочника [/languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-languages), `level` — значение из справочника `language_level` [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
@@ -289,7 +290,6 @@ search_radius_meters | нет | Расстояние до потенциальн
 search_text | нет | Поисковая строка
 show_only_new_responses | нет | Показывать только новые отклики (то есть отклики, которые не были просмотрены)
 show_only_with_vehicle | нет | Фильтровать по наличию автомобиля
-university | нет | Идентификатор [учебного заведения](https://github.com/hhru/api/blob/master/docs_eng/suggests.md). Можно передать множественные значения.
 
 
 ### Ответ

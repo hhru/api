@@ -282,9 +282,10 @@ age_from | no | Applicant's age in years, range from
 age_to | no | Applicant's age in years, range up to
 area | no | Area. Multiple values can be specified. Possible values: [/areas](https://github.com/hhru/api/blob/master/docs/areas.md)
 citizenship | no | Country of desired citizenship. Multiple values can be specified. Possible values can be found in the [country dictionary](areas.md#countries)
-currency_code | no | Currency code. Possible values: `currency` (key=code) from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries
-driver_license_type | no | Driver license categories. Multiple values can be specified. Possible values: `driver_license_types` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
-education | no | Education. Possible values: `education_level` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+currency | no | Currency code. Possible values: `currency` (key=code) from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries
+driver_license_types | no | Driver license categories. Multiple values can be specified. Possible values: `driver_license_types` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
+educational_institution | no | ID of the [educational institution](https://github.com/hhru/api/blob/master/docs_eng/suggests.md). Multiple values can be specified
+education_level | no | Education. Possible values: `education_level` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 experience | no | Work experience. Multiple values can be specified. Possible values: `experience` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 gender | no | Gender. Possible values: `gender` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 language | no | Language skills. Multiple values can be specified. Set in the format language.level, where `language` is the value from the dictionary [/languages](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-languages), `level` is the value from the dictionary `language_level` [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
@@ -295,7 +296,6 @@ search_radius_meters | no | Distance to a potential candidate (in meters)
 search_text | no | Search string
 show_only_new_responses | no | Show only new responses (these responses have not been viewed yet)
 show_only_with_vehicle | no | Filter by car availability
-university | no | ID of the [educational institution](https://github.com/hhru/api/blob/master/docs_eng/suggests.md). Multiple values can be specified.
 
 
 ### Response
