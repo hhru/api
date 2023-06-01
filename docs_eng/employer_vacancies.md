@@ -44,7 +44,7 @@ See also:
 
 Editing is similar to publishing a vacancy but with an option to send individual fields in an object for partial editing.
 Compound fields (such as `salary`, `contacts`, `professional_roles`) can be edited only as a whole; 
-the entire object will be sent. For example, to edit salary currency, you will also have to change the salary value;
+the entire object will be sent. For example, to edit salary currency, you will also have to pass the salary value;
 to change the specialisation you will have to send a full list.
 
 ### Editable fields
@@ -75,6 +75,7 @@ to change the specialisation you will have to send a full list.
  branded_template.id        | <a name="branded-template-field"></a> branded vacancy description from [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-vacancy-branded-templates-list) |
  languages                  | list of languages
 driver_license_types        | driver's license category. Item of the `driver_license_types` [dictionary](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries)
+hiring_plan                 | hiring plan
 The remaining fields are read-only or can only be set during initial publication.
 
 ### Response
