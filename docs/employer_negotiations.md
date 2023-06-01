@@ -127,9 +127,9 @@
 
 ### Запрос
 
-`GET /negotiations?vacancy_id={vacancy_id}`
+`GET /negotiations?vacancy_id={vacancy_id}&with_generated_collections={true|false}`
 
-где `vacancy_id` - id вакансии.
+где `vacancy_id` - id вакансии, `with_generated_collections` - Добавить в выдачу информацию по сгенерированным [коллекциям](#term-collection) откликов/приглашений для данной вакансии, значение по умолчанию — `false`
 
 <a name="collections_response"></a>
 ### Ответ

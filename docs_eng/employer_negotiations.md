@@ -124,10 +124,10 @@ To get a complete list, you need to sequentially request all collections.
 ### Request
 
 ```
-GET /negotiations?vacancy_id={vacancy_id}
+GET /negotiations?vacancy_id={vacancy_id}&with_generated_collections={true|false}
 ```
 
-where `vacancy_id` – ID of the vacancy.
+where `vacancy_id` – ID of the vacancy, `with_generated_collections` - Request additional [generated collections](#term-collection) info, default value - `false`
 
 <a name="collections_response"></a>
 ### Response
