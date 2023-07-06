@@ -1186,48 +1186,9 @@ For example:
 <a name="get-preference-order"></a>
 ## Viewing preferred options for sorting responses
 
-### Request
-
-```
-GET /vacancies/{id}/preferred_negotiations_order
-```
-
-where id - ID of the vacancy
-
-### Response
-
-The response will contain a JSON:
-
-```json
-  {
-      "order_type": {
-        "id": "created_at",
-        "name": "by created date"
-      }
-  }
-```
-
-### Errors
-
-* `404 Not Found` - the vacancy was not found or it is impossible to view the responses/invitations.
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/get-pref-negotiations-order)
 
 <a name="update-preference-order"></a>
 ## Changing preferred options for sorting responses
 
-### Request
-
-```
-PUT /vacancies/{id}/preferred_negotiations_order
-```
-
-where order (sorting option ID) should be passed as a parameter from [order_types list](#collections_response). 
-Currently, API doesn't support some kinds of sorting. In this case request return [error](errors.md#general-errors) `400 Bad Request`. 
-
-### Response
-
-A successful response contains a code `204 No Content` and is body-less.
-
-### Errors
-
-* `400 Bad Request` – one of the mandatory parameters has not been passed.
-* `404 Not Found` – the job was not found or it is impossible to view the responses/invitations.
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/put-pref-negotiations-order)
