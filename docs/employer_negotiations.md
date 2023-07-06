@@ -1170,45 +1170,12 @@ actions[].url можно получить из [списка откликов/п
 <a name="get-preference-order"></a>
 ## Просмотр предпочитаемой сортировки откликов
 
-### Запрос
-
-`GET /vacancies/{id}/preferred_negotiations_order`
-
-где id - идентификатор вакансии
-
-### Ответ
-
-В ответе вернётся JSON:
-
-```json
-  {
-      "order_type": {
-        "id": "last_change_time_except_employer_inbox",
-        "name": "По дате создания и активности соискателя"
-      }
-  }
-```
-
-### Ошибки
-
-* `404 Not Found` - вакансия не найдена или просмотр откликов/приглашений по ней не доступен.
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/get-pref-negotiations-order)
 
 <a name="update-preference-order"></a>
 ## Изменение предпочитаемой сортировки откликов
 
 ### Запрос
 
-`PUT /vacancies/{id}/preferred_negotiations_order`
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/put-pref-negotiations-order)
 
-где в качестве параметра необходимо передать order - идентификатор типа сортировки доступный из [списка order_types](#collections_response) коллекций. 
-На данный момент доступны не все типы сортировки из списка для изменения. 
-В случае неверно использованного идентификатора вернется [ошибка](errors.md#general-errors)`400 Bad Request`.
-
-### Ответ
-
-Успешный ответ приходит с кодом `204 No Content` и не содержит тела.
-
-### Ошибки
-
-* `400 Bad Request` – один из обязательных параметров не передан.
-* `404 Not Found` - вакансия не найдена или просмотр откликов/приглашений по ней не доступен.
