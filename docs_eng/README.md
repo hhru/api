@@ -83,7 +83,7 @@ Article labels:
 <a name="resume"></a>
 ### CV
 
-* [View a CV](resumes.md#item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [View a CV](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Work with CVs for an applicant](resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CVs for an applicant. Phone](https://api.hh.ru/openapi/en/redoc#tag/CVs-for-an-applicant)
   * [List of CVs for current user](resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
