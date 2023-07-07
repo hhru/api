@@ -267,7 +267,7 @@ this URL, e.g.:
 GET https://api.hh.ru/negotiations/somecollection?vacancy_id=123456
 ```
 
-Some parameters take multiple values: `key=value&key=value`.
+Some parameters take multiple values: `key=value&key=value`. If a parameter can take multiple values, this is explicitly stated in its description.
 Collection `phone_calls` accepts only parameters `vacancy_id`, `order_by`, `page` and `per_page` from the table below.
 
 Parameters:

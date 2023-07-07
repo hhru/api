@@ -14,7 +14,7 @@ See also:
 
 `GET /resumes` will return the results of CV search.
 
-Some parameters take multiple values: `key=value&key=value`.
+Some parameters take multiple values: `key=value&key=value`. If a parameter can take multiple values, this is explicitly stated in its description.
 
 * `text` – search phrase. Finds CVs that have all the words from the set phrase.
   Several values can be indicated. Each additional
