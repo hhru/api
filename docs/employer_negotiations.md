@@ -109,6 +109,7 @@
 * [запросить сообщения](#get-messages) по отклику
 * запросить резюме по урлу, пришедшему при запросе [списка (коллекции) откликов/приглашений](#negotiations-list) 
 или [отдельного отклика/приглашения](#get-negotiation)
+* с помощью отдельного метода [отметить определенные отклики как прочитанные](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/post-negotiations-topics-read)
 
 
 <a name="states"></a>
