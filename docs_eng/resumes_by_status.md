@@ -171,7 +171,7 @@ in [resume summaries](resumes.md#resume-short) format and with [additional field
 }
 ```
 
-Please see the [full resume](resumes.md#resume-fields) for a description of the fields.
+Please see the [full resume](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) for a description of the fields.
 
 <a name="additional-fields"></a>
 ### Additional fields
@@ -180,9 +180,9 @@ Additionally, the fields are displayed with format [resume summaries](resumes.md
 
 Имя | Тип | Описание
 ---- | --- | --------
-finished | boolean | mark for the CV completion percentage ([more info](resumes.md#author-progress))
+finished | boolean | mark for the CV completion percentage ([more info](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume))
 access | object | [the CV access type](resumes.md#access_type)
-requires_completion | boolean | Whether additional information is required in the [required fields](resumes.md#author-progress) of the resume to apply for this job. This parameter is set to `true` only if the "accept incomplete resumes" flag is not set for the job, and the resume is incomplete; otherwise, the value is set to `false`.
+requires_completion | boolean | Whether additional information is required in the [required fields](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) of the resume to apply for this job. This parameter is set to `true` only if the "accept incomplete resumes" flag is not set for the job, and the resume is incomplete; otherwise, the value is set to `false`.
 
 The `counters` key displays information about the number of items in collections:
 

@@ -99,7 +99,7 @@ After inviting the applicant, you can start a
 [free conversation](#get-messages). You will be able to
 [send messages](#add-messages) and receive responses from the applicant.
 If necessary, you
-[can disable](employer_vacancies.md#allow_messages) conversations for a specific job (the `allow_messages` field).
+[can disable](https://api.hh.ru/openapi/en/redoc#tag/Vacancies/operation/get-vacancy) conversations for a specific job (the `allow_messages` field).
 
 Take one of the following actions to make sure that the application registers as viewed by the employer:
 * request a list of messages using the URL received upon request [a list (collection) of applications/invitations](#negotiations-list) 

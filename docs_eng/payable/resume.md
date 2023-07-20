@@ -4,7 +4,7 @@
 
 Employers subscribed to the new rate plan are expected to expressly expose contact details when viewing resumes from the database.
 
-The website has a dedicated "Show Contacts" button to open contact information. In API, the appropriate [links](/docs_eng/resumes.md#actions-object-for-employer) will arrive when [resumes are retrieved by their ID](/docs_eng/resumes.md#item)
+The website has a dedicated "Show Contacts" button to open contact information. In API, the appropriate [links in `actions`](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) will arrive when [resumes are retrieved by their ID](/docs_eng/resumes.md#item)
 
 > Read the terms of service by following the [link](https://hh.ru/conditions) (para. 3.40.)
 
@@ -26,13 +26,13 @@ There is a special [method](/docs_eng/payable/employer_payable_methods.md) they 
 
 > !Note that there is a cap on the number of requests for the [resume viewing method](/docs_eng/resumes.md#item) in relation to resumes retrieved through the use of [resume database search](/docs_eng/resumes_search.md). To receive your current request quota, there is a special [method](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/operation/get-payable-api-actions) you can use , "id": "API_LIMITED". Once the quota is exceeded, an error will return when a request is lodged for the [resume viewing method](/docs_eng/resumes.md#item).
 
-Where not a single manager has thus far viewed a resume with contact info, in all places where that [full](/docs_eng/resumes.md#items)
+Where not a single manager has thus far viewed a resume with contact info, in all places where that [full](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume)
 or [short](/docs_eng/resumes.md#resume-short) resume appears, the resume will be displayed without the contact info (null in the respective fields).
 
 From the moment when a manager of the company has viewed a resume with contact info, the resume will start to be displayed with contact info in all places and for all
 managers for as long as the current database access service with the option of viewing contact info remains enabled.
 
-To view and download a resume with contact info in API, dedicated [links](/docs_eng/resumes.md#actions-object-for-employer) will arrive when resumes are retrieved by their ID.
+To view and download a resume with contact info in API, dedicated [links in `actions`](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) will arrive when resumes are retrieved by their ID.
 When those links are used, the contact will be debited to the client. The contact will also be debited when the candidate is invited to fill a vacancy.
 However, the debit will happen once only: either when the resume is viewed with the contact info, or when the candidate is offered to fill one of the vacancies in the company.
 There will be no debit where the candidate responded first. In this case, the contact info will be visible immediately, without any further action.

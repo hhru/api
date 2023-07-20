@@ -165,14 +165,14 @@ job:
 }
 ```
 
-Please see the [full resume](resumes.md#resume-fields) for a description of the fields.
+Please see the [full resume](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) for a description of the fields.
 
 In addition, the `requires_completion` field is displayed for each resume; this field depends on the presence 
 of the "accept incomplete resumes" flag in the corresponding job.
 
 Name | Type | Description
 ---- | --- | --------
-requires_completion | boolean | `true` if a resume is incomplete (only for vacancies without flagged "accept incomplete resumes"). In this case, you must complete mandatory fields (available in [full resume](resumes.md#author-progress)) before applying for this job. Otherwise — `false`. 
+requires_completion | boolean | `true` if a resume is incomplete (only for vacancies without flagged "accept incomplete resumes"). In this case, you must complete mandatory fields (available in [full resume](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume)) before applying for this job. Otherwise — `false`. 
 
 If the list is empty, it is impossible to know if the user has resumes, but none of them is suitable or if
 he or she does not have any at all. For this, there is additional information in the `overall` key:

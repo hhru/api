@@ -2,10 +2,10 @@
 
 * [List of CVs for current user](#mine)
 * [View a CV](#item)
-  * [Additional fields for the resume publisher](#additional-author-fields)
-  * [Resume-related paid services for the resume publisher](#applicant-paid-services)
-  * [Additional fields for the employer](#additional-employer-fields)
-  * [Resume-related paid services for the resume publisher](#paid-services)
+  * [Additional fields for the resume publisher](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume)
+  * [Resume-related paid services for the resume publisher](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume)
+  * [Additional fields for the employer](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume)
+  * [Resume-related paid services for the resume publisher (field paid_services)](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume)
 * [Creating and editing a resume](#create_edit)
 * [Publishing a resume](#publish)
 * [Information on a resume's status and readiness for publication](#status-and-publication)
@@ -153,7 +153,7 @@ Consists of the fields:
         * `year` — year the test/exam was passed;
     * `primary` — education higher than secondary (list). It consists of the following fields:
         * `name` — name of educational institution;
-        * `name_id` — the id of the educational institution can be found in the [tips for college names](suggests.md#universities);
+        * `name_id` — the id of the educational institution can be found in the [tips for college names](https://api.hh.ru/openapi/en/redoc#tag/Suggestions/operation/get-educational-institutions-suggests);
         * `organization` — faculty;
         * `organization_id` — faculty ID can be found in the [faculties directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-faculties);
         * `result` — profession / specialist area;
@@ -714,7 +714,7 @@ A resume with this status is searchable if permitted by the settings for
 After receiving the `published` status, the resume is available for moderators and
 can be banned (the `blocked` status), if the fields are invalid or
 contain insufficient information. Reasons for banning a resume can be found in
-the [`moderation_note` key](#author-moderation-notes). A banned resume
+the [`moderation_note` key](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-information/Resume-status). A banned resume
 is not searchable and cannot be used to respond to a job.
 
 After editing, the resume can be sent to the moderator for secondary revision.

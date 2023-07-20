@@ -267,7 +267,7 @@ real queries will be shorter):
 }
 ```
 
-The list only includes those arguments that [affect vacancy search](vacancies.md#search-params), 
+The list only includes those arguments that [affect vacancy search](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-search/operation/get-vacancies), 
 unknown arguments are ignored. A list item with one `argument` value
 can be repeated several times if the argument has several values.
 

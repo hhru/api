@@ -6,7 +6,7 @@
 * [Editing vacancies](#edit)
 * [Editing billing type or vacancy manager](#edit_more)
 * [Extending vacancies](#prolongate)
-* [Information about possible vacancy extension](#prolongate-info)
+* [Information about possible vacancy extension](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-prolongation-vacancy-info)
 * [Published vacancy list](#active)
 * [Storing vacancies](#archive)
 * [Archived vacancy list](#archived)

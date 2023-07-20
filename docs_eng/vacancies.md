@@ -208,7 +208,7 @@ Name| Type| Description
 --- | --- | -----------
  id | string| Vacancy identifier
  premium | logical | Whether it is a premium vacancy
- address | object, null | [vacancy address](address.md#Address)
+ address | object, null | [vacancy address](address.md)
  alternate_url | string, null | Link to the full vacancy presentation in web site
  apply_alternate_url | string, null | Link to the vacancy respond page in web site
  department | object, null | department from the [directory](https://api.hh.ru/openapi/en/redoc#tag/Employer-info/operation/get-employer-departments), on behalf of which the vacancy is being posted (if this feature is available for the company)
@@ -224,7 +224,7 @@ Name| Type| Description
  type | object | Vacancy type, one of the elements `vacancy_type` in the [Directory](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries)
  archived | logical | Whether it is an archived vacancy
 
-Please see the [full vacancy](#vacancy-fields) for a description of the fields.
+Please see the [full vacancy](https://api.hh.ru/openapi/en/redoc#tag/Vacancies/operation/get-vacancy) for a description of the fields.
 
 `url` and `alternate_url` can have the `null` meaning if the detailed
 information on the vacancy is unavailable (for instance, when the vacancy has

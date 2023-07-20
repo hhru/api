@@ -196,7 +196,7 @@ api and your authorization is not valid for any reason, an error with `type`
 | HTTP code | type  | value                   | description  |
 |-----------|-------|-------------------------|--------------|
 | 403       | oauth | bad_authorization      | authorization token doesn't exist or is not valid |
-| 403       | oauth | token_expired          | access_token validity period has expired, it is necessary to [refresh the access_token](authorization.md#refresh_token)  authorization.md#refresh_token |
+| 403       | oauth | token_expired          | access_token validity period has expired, it is necessary to [refresh the access_token](https://api.hh.ru/openapi/en/redoc#tag/Employer-authorization/operation/authorize)  |
 | 403       | oauth | token_revoked          | the token is revoked by the user, the application should [request a new authorization](authorization.md) |
 | 403       | oauth | application_not_found  | your application has been deleted
 
@@ -301,7 +301,7 @@ HTTP code| type| value| description
 400 | vacancies | *field_name* | the is an error in a job's field, where the *field_name* is the key of the upper level field and the reason field may be missing
 403 | vacancies | not_enough_purchased_services | the purchased services are not enough to publish or update this type of job
 403 | vacancies | quota_exceeded | the manager's quota for the publication of this type of job is exhausted
-403 | vacancies | duplicate | a similar job has already been published; the [response](#vacancy-duplicate-response) contains information about duplicate jobs; this error can be disabled by force (when [adding](employer_vacancies.md#creation) or [editing](employer_vacancies.md#edit-ignore-duplicates))
+403 | vacancies | duplicate | a similar job has already been published; the [response](#vacancies-duplicate-response) contains information about duplicate jobs; this error can be disabled by force (when [adding](employer_vacancies.md#creation) or [editing](employer_vacancies.md#edit-ignore-duplicates))
 403 | vacancies | creation_forbidden | jobs cannot be published by the current manager
 403 | vacancies | unavailable_for_archived | you cannot edit an archived job
 403 | vacancies | conflict_changes | a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
