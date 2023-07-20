@@ -198,7 +198,10 @@ returned.
         "id": "open",
         "name": "Open"
     },
-    "archived": "false"
+    "archived": "false",
+    "video_vacancy": {
+        "video_url": "https://host/video/123"
+    }
 }
 ```
 

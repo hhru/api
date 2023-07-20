@@ -122,6 +122,9 @@
     "employment": {
       "id": "full",
       "name": "Полная занятость"
+    },
+    "video_vacancy": {
+      "video_url": "https://host/video/123"
     }
 }
 ```
