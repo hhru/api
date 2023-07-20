@@ -205,7 +205,7 @@ error_description | строка | Дополнительное описание
 HTTP code | type | value | описание
 ----------|------|-------|-----------
 403 | oauth | bad_authorization | токен авторизации не существует или не валидный
-403 | oauth | token_expired | время жизни access_token завершилось, необходимо [выполнить обновление access_token](authorization.md#refresh_token)
+403 | oauth | token_expired | время жизни access_token завершилось, необходимо [выполнить обновление access_token](https://api.hh.ru/openapi/redoc#tag/Avtorizaciya-rabotodatelya/operation/authorize)
 403 | oauth | token_revoked | токен отозван пользователем, необходимо [запросить новую авторизацию](authorization.md)
 403 | oauth | application_not_found | ваше приложение было удалено
 403 | oauth | user_auth_expected | выполняется запрос с авторизацией приложения, для выполнения которого необходима [авторизация пользователя](authorization_for_user.md)
@@ -381,7 +381,7 @@ HTTP code | type | value | reason | описание
 ### Работа с резюме
 
 Помимо [общих ошибок](#general-errors) при
-[получении](employer_resumes.md#item) и [обновлении](employer_resumes.md#create_edit) резюме могут
+[получении](employer_resumes.md#item) и [обновлении](resumes.md#create_edit) резюме могут
 быть возвращены следующие ошибки:
 
 HTTP code | type | value | описание

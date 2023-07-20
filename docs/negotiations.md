@@ -126,7 +126,7 @@ GET /negotiations
  messaging_status | строка | Текущий статус переписки. Возможные значения находятся в [справочнике `messaging_status`](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries).
  decline_allowed | Логический | Возможно ли [скрыть отклик](#hide_message) вместе с сообщением работодателю об отказе
  source | строка | Источник отклика. Возможные значения NEGOTIATION, PHONE_CALL, CHAT, VR.
- job_search_status | объект, null | [Статус поиска работы кандидатом](employer_resumes.md#job-search-status-object). Для получения данных нужно передать параметр `with_job_search_status=true`.
+ job_search_status | объект, null | [Статус поиска работы кандидатом](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume). Для получения данных нужно передать параметр `with_job_search_status=true`.
 
 В объекте вакансии ключи `url` и `alternate_url` могут быть `null`, если вакансия недоступна (удалена).
 

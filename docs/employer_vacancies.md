@@ -5,7 +5,7 @@
 * [Условия заполнения полей при добавлении и редактировании вакансий](#conditions)
 * [Редактирование вакансий](#edit)
 * [Продление вакансий](#prolongate)
-* [Информация о возможности продления вакансии](#prolongate-info)
+* [Информация о возможности продления вакансии](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/get-prolongation-vacancy-info)
 * [Список опубликованных вакансий](#active)
 * [Архивация вакансий](#archive)
 * [Список архивных вакансий](#archived)

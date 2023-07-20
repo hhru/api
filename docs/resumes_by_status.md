@@ -171,7 +171,7 @@ GET /vacancies/{vacancy_id}/resumes_by_status
 }
 ```
 
-Описание полей смотрите в [выдаче полного резюме](employer_resumes.md#resume-fields).
+Описание полей смотрите в [выдаче полного резюме](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume).
 
 <a name="additional-fields"></a>
 ### Дополнительные поля
@@ -180,9 +180,9 @@ GET /vacancies/{vacancy_id}/resumes_by_status
 
 Имя | Тип | Описание
 ---- | --- | --------
-finished | boolean | флаг о заполненности резюме ([подробнее](resumes.md#author-progress))
+finished | boolean | флаг о заполненности резюме ([подробнее](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume))
 access | object | [видимость резюме](resumes.md#access_type)
-requires_completion | boolean | Требуется ли дозаполнить [обязательные поля](resumes.md#author-progress) резюме для отклика на вакансию. Принимает значение `true` только в случае, если в вакансии не установлен флаг «принимать неполные резюме» и резюме является неполным; в противном случае — `false`.
+requires_completion | boolean | Требуется ли дозаполнить [обязательные поля](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume) резюме для отклика на вакансию. Принимает значение `true` только в случае, если в вакансии не установлен флаг «принимать неполные резюме» и резюме является неполным; в противном случае — `false`.
 
 В ключе `counters` выдается информация о количестве элементов в коллекциях:
 
