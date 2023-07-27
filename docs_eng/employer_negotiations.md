@@ -15,6 +15,7 @@
 * [Actions regarding a response/invitation (status change)](#actions)
 * [Viewing preferred options for sorting responses](#get-preference-order)
 * [Changing preferred options for sorting responses](#update-preference-order)
+* [Mark responses as read](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/post-negotiations-topics-read) 
 
 
 <a name="model"></a>
@@ -606,12 +607,12 @@ enabled | logical | Whether the action is possible
 method | string | HTTP method to perform
 url | string | URL to send the request to
 resulting_employer_state | object, null | [employer's response/invitation status](#term-employer-state) to be assigned after the action is performed. If the action does not change the state, the value is "null".
-templates | list | Email templates. Contains the template ID and URL for [getting the text for the template](negotiation_message_templates.md).
+templates | list | Email templates. Contains the template ID and URL for [getting the text for the template](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/get-mail-templates).
 arguments | list | Mandatory and additional arguments for the request
 
 There is a list of arguments for the action; at this point, you may encounter the following arguments:
 
-* `message` – the message that will be sent to the applicant's email. Use [templates](negotiation_message_templates.md) to obtain texts.
+* `message` – the message that will be sent to the applicant's email. Use [templates](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/get-mail-templates) to obtain texts.
 * `address_id` – [address](https://api.hh.ru/openapi/en/redoc#tag/Employer-addresses) ID that will be specified in the invitation
 * `send_sms` – whether to notify the applicant of the invitation via SMS. To initiate the sending of a message, pass "true"; the default is "false". Note: a template text is used in sms message, this text is not customizable.
 
@@ -1129,66 +1130,14 @@ For example:
 <a name="discard"></a>
 ## Response/invitation actions (status change)
 
-### Request
-
-```
-PUT /negotiations/{collection}/{nid}
-```
-
-where
-
-* `nid` is the response ID
-* `collection` is the collection
-
-The exact URL for the request, as well as the required and optional
-parameters should be obtained from the [list of actions](#actions-info)
-for the response/invitation.
-
-Parameters should be sent in standard format
-`application/x-www-form-urlencoded`.
-
-Action examples:
-
-* Delay the response
-* Invite the applicant to an interview in response to the response
-* Reject the applicant
-
-Possible actions may be different for each response/invitation, for example,
-the above actions may not be available.
-
-### Response
-
-Successful server response is returned with `204 No Content` code and does not have a body.
-
-
-### Errors
-
-* `404 Not Found` – response doesn't exist, refers to other employer, or
-  current manager is not authorized to process it.
-* `400 Bad Request` – one of the mandatory parameters is not sent.
-* `403 Forbidden` – response action is not possible.
-
-In addition to an HTTP code, the server can return
-[error reason](errors.md#negotiations).
-
-For example:
-
-* `wrong_state` – if the action is not possible because of the current response status
-* `resume_not_found` – if the resume from this response was hidden or deleted by the applicant
-* `empty_message` and `too_long_message` – text size limit is
-  violated
-* `address_not_found` – if the sent address does not exist or belongs to
-  another employer
-* `invalid_vacancy` – if the response vacancy was archived or hidden
-* `limit_exceeded` – if the manager's number of invitations per day limit
-  was exceeded
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/put-negotiations-collection-to-next-state)
 
 <a name="get-preference-order"></a>
 ## Viewing preferred options for sorting responses
 
-> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/get-pref-negotiations-order)
+> !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/get-pref-negotiations-order)
 
 <a name="update-preference-order"></a>
 ## Changing preferred options for sorting responses
 
-> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/put-pref-negotiations-order)
+> !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/put-pref-negotiations-order)
