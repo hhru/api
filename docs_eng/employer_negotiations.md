@@ -108,6 +108,7 @@ or [individual application/invitation](#get-negotiation)
 * [request message](#get-messages) by response
 * request resume using the URL received upon request [a list (collection) of applications/invitations](#negotiations-list) 
 or [individual response/invitation](#get-negotiation)  
+* call [the specific method](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/post-negotiations-topics-read) to set certain responses as read
 
 <a name="states"></a>
 <a name="collections"></a>
