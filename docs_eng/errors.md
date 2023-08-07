@@ -304,7 +304,7 @@ HTTP code| type| value| description
 403 | vacancies | duplicate | a similar job has already been published; the [response](#vacancies-duplicate-response) contains information about duplicate jobs; this error can be disabled by force (when [adding](employer_vacancies.md#creation) or [editing](employer_vacancies.md#edit-ignore-duplicates))
 403 | vacancies | creation_forbidden | jobs cannot be published by the current manager
 403 | vacancies | unavailable_for_archived | you cannot edit an archived job
-403 | vacancies | conflict_changes | a conflict was detected between changes to the job's data ([read more](employer_vacancies.md#edit_more))
+403 | vacancies | conflict_changes | a conflict was detected between changes to the job's data ([read more](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/edit-vacancy))
 
 #### Reasons for errors
 
