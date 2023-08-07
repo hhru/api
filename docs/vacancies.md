@@ -14,7 +14,6 @@
 <a name="creation-results"></a>
 <a name="conditions"></a>
 <a name="edit"></a>
-<a name="edit_more"></a>
 <a name="other-actions"></a>
 <a name="prolongate"></a>
 <a name="prolongate-info"></a>

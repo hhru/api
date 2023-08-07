@@ -292,7 +292,7 @@ HTTP code | type | value | reason | описание
 403 | vacancies | duplicate | | аналогичная вакансия уже опубликована. В [ответе](#vacancies-duplicate-response) передается информация по дубликатам вакансии. Данную ошибку можно форсировано отключить (при [добавлении](employer_vacancies.md#creation) и [редактировании](employer_vacancies.md#edit-ignore-duplicates))
 403 | vacancies | creation_forbidden | | публикация вакансий недоступна текущему менеджеру
 403 | vacancies | unavailable_for_archived | | редактирование недоступно для архивной вакансии
-403 | vacancies | conflict_changes | | конфликтные изменения данных вакансии ([подробнее](employer_vacancies.md#edit_more))
+403 | vacancies | conflict_changes | | конфликтные изменения данных вакансии ([подробнее](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/edit-vacancy))
 
 #### Причины возникновения ошибок
 
