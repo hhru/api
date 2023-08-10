@@ -173,8 +173,8 @@ HeadHunter API — это инструментарий для интеграци
 <a name="employers"></a>
 ### Работодатели/компании
 
-* [Поиск компаний](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/operation/search-employer) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Получение информации о компании](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/operation/get-employer-info) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Поиск компаний](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/operation/search-employer) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Получение информации о компании](https://api.hh.ru/openapi/redoc#tag/Rabotodatel/operation/get-employer-info) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Услуги работодателя](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Авторизация работодателя](https://api.hh.ru/openapi/redoc#tag/Avtorizaciya-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Менеджеры работодателя](https://api.hh.ru/openapi/redoc#tag/Menedzhery-rabotodatelya) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
