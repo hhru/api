@@ -156,8 +156,8 @@ Article labels:
 <a name="employers"></a>
 ### Employers / companies
 
-* [Company search](https://api.hh.ru/openapi/en/redoc#tag/Employer/operation/search-employer) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [View an employer/company](https://api.hh.ru/openapi/en/redoc#tag/Employer/operation/get-employer-info) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Company search](https://api.hh.ru/openapi/en/redoc#tag/Employer/operation/search-employer) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [View an employer/company](https://api.hh.ru/openapi/en/redoc#tag/Employer/operation/get-employer-info) <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Employer services](https://api.hh.ru/openapi/en/redoc#tag/Employer-services) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Employer info](https://api.hh.ru/openapi/en/redoc#tag/Employer-info) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Employer managers](https://api.hh.ru/openapi/en/redoc#tag/Employer-managers) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
