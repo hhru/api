@@ -31,11 +31,13 @@ At the moment, support for the new catalog of specializations (professional role
 
 1. [Viewing resumes](resumes.md#item) - the `professional_roles` field is added
 
-2. [Creating and editing resumes](resumes.md#create_edit) - the `with_professional_roles` parameter and the `professional_roles` field are added
+2. [Creating resumes](resumes.md#create) - the `with_professional_roles` parameter and the `professional_roles` field are added
 
-3. [Resume posting](resumes.md#publish) - the `with_professional_roles` parameter is added
+3. [Editing resumes](resumes.md#edit) - the `with_professional_roles` parameter and the `professional_roles` field are added
 
-4. [Conditions for completing the resume fields](resumes.md#conditions) - the `with_professional_roles` parameter and the `professional_roles` field are added
+4. [Resume posting](resumes.md#publish) - the `with_professional_roles` parameter is added
+
+5. [Conditions for completing the resume fields](resumes.md#conditions) - the `with_professional_roles` parameter and the `professional_roles` field are added
 
 ### For search methods:
 

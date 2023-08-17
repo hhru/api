@@ -6,7 +6,8 @@
   * [Resume-related paid services for the resume publisher](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume)
   * [Additional fields for the employer](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume)
   * [Resume-related paid services for the resume publisher (field paid_services)](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume)
-* [Creating and editing a resume](#create_edit)
+* [Creating a resume](#create_edit)
+* [Editing a resume](#create_edit)
 * [Publishing a resume](#publish)
 * [Information on a resume's status and readiness for publication](#status-and-publication)
 * [Cloning a resume](#clone)
@@ -40,10 +41,13 @@
 
 > >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume)
 
-<a name="create_edit"></a>
-## Creating and editing a resume
+<a name="create"></a>
+## Creating a resume
 
-`POST /resumes` — adding a resume
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/create-resume)
+
+<a name="edit"></a>
+## Editing a resume
 
 `PUT /resumes/{resume_id}` — editing an existing resume. JSON of the same format as sent for a GET request
                              is used as a request body. In this case, only id of transferred data is used
@@ -355,34 +359,12 @@ A successful response contains a code `204 No Content` and is body-less.
 <a name="clone"></a>
 ## Cloning a resume
 
-`POST /resumes?source_resume_id={resume_id}`
-
-Successful cloning will return the response code `201 Created` and the header
-`Location` of the response will contain the link to the new resume.
-
-You can only clone your own resumes, otherwise the response code
-will be `404 Not Found`.
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/create-resume)
 
 <a name="delete"></a>
 ## Deleting a resume
 
-```
-DELETE /resumes/{resume_id}
-```
-
-where `resume_id` – resume ID.
-
-This method is only available to applicants. The resume is deleted without the possibility of
-restoration. All responses associated with this resume are also deleted.
-
-### Response
-
-A successful response contains a code `204 No Content` and is body-less.
-
-### Errors
-
-* `403 Forbidden` – The request is not from the applicant.
-* `404 Not Found` – The resume was not found or is not available to the current user.
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/delete-resume)
 
 <a name="availability"></a>
 ## Checking for the ability to create a resume

@@ -87,7 +87,8 @@ Article labels:
 * [Work with CVs for an applicant](resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CVs for an applicant. Phone](https://api.hh.ru/openapi/en/redoc#tag/CVs-for-an-applicant)
   * [List of CVs for current user](resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [CV creation & editing](resumes.md#create_edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [CV creation](resumes.md#create) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [CV editing](resumes.md#edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CV publication & prolongation](resumes.md#publish) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Deleting a resume](resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CV view history](resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />

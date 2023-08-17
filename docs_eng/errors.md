@@ -392,7 +392,7 @@ HTTP code | type | value | reason | description
 ### Working with a resume
 
 In addition to [general errors](#general-errors),
-the following errors can be returned when [getting](resumes.md#item) or [updating](resumes.md#create_edit) a resume:
+the following errors can be returned when [getting](resumes.md#item) or [updating](resumes.md#edit) a resume:
 
 HTTP code | type | value | description
 ----------|------|-------|---------
