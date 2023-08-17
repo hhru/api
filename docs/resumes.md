@@ -2,7 +2,8 @@
 
 * [Список резюме авторизованного пользователя](#mine)
 * [Просмотр резюме](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume)
-* [Создание и редактирование резюме](#create_edit)
+* [Создание резюме](#create)
+* [Редактирование резюме](#edit)
 * [Публикация и продление резюме](#publish)
 * [Информация о статусе резюме и готовности резюме к публикации](#status-and-publication)
 * [Клонирование резюме](#clone)
@@ -28,10 +29,13 @@
 
 > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume)
 
-<a name="create_edit"></a>
-## Создание и редактирование резюме
+<a name="create"></a>
+## Создание резюме
 
-`POST /resumes` — добавление резюме.
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/create-resume)
+
+<a name="edit"></a>
+## Редактирование резюме
 
 `PUT /resumes/{resume_id}` — редактирование существующего. В качестве тела
 запроса используется json в том же формате, что отдается при GET запросе. При
@@ -364,36 +368,12 @@ not_available | недопустимое значение
 <a name="clone"></a>
 ## Клонирование резюме
 
-`POST /resumes?source_resume_id={resume_id}`
-
-В случае успешного клонирования вернётся код ответа `201 Created`, а в заголовке
-`Location` ответа будет содержаться ссылка на новое резюме.
-
-Для клонирования можно использовать только собственные резюме, иначе код ответа
-будет `404 Not Found`.
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/create-resume)
 
 <a name="delete"></a>
 ## Удаление резюме
 
-```
-DELETE /resumes/{resume_id}
-```
-
-где `resume_id` – идентификатор резюме.
-
-Метод доступен только для соискателей. Резюме удаляется без возможности
-восстановления. Все связанные с ним отклики исчезают.
-
-### Ответ
-
-В случае успешного удаления вернётся код ответа `204 No Content` без тела.
-
-### Ошибки
-
-* `403 Forbidden` – запрос не от соискателя.
-* `404 Not Found` – резюме не найдено или недоступно текущему пользователю.
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/delete-resume)
 
 <a name="availability"></a>
 ## Проверка возможности создания резюме

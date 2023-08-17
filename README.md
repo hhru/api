@@ -108,7 +108,8 @@ HeadHunter API — это инструментарий для интеграци
   * [Работа с телефоном](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Rabota-s-telefonom) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Список резюме авторизованного пользователя](docs/resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Просмотр резюме](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Создание и редактирование резюме](docs/resumes.md#create_edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Создание резюме](docs/resumes.md#create) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Редактирование резюме](docs/resumes.md#edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Публикация и продление резюме](docs/resumes.md#publish) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Удаление резюме](docs/resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [История просмотра резюме](docs/resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
