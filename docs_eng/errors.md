@@ -1,5 +1,21 @@
 # Errors and response codes
 
+* [General errors](#general-errors)
+* [System error](#system-errors)
+* [Incorrect User-Agent](#user-agent)
+* [Receiving/updating tokens](#oauth-get-errors)
+* [Authorization use errors](#oauth)
+* [Errors when accessing a paid method](#employer_payable_methods)
+* [Errors of separate resources](#service-errors)
+* [Saved resume searches](#resumes-saved-searches)
+* [Negotiations (responses/invitations)](#negotiations)
+* [Vacancy posting and editing](#vacancies-create-n-edit)
+* [Vacancy prolongation](#vacancies-prolongate)
+* [Employer's managers](#employer_managers)
+* [Working with a resume](#resumes)
+* [Manager work accounts](#manager-accounts)
+* [The captcha requirement](#captcha_required)
+
 API extensively uses informing through HTTP response codes. The application must
 process them correctly.
 
