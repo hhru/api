@@ -127,7 +127,7 @@ The resource is currently out of date, and is supported for backward connectivit
 ## Respond to the vacancy
 
 In order to know with which CVs the specific vacancy can be responded to, one
-can use the [list of suitable CVs](suitable_resumes.md).
+can use the [list of suitable CVs](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-suitable-resumes).
 
 ### Request
 

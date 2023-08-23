@@ -188,7 +188,7 @@ Article labels:
   * [Sending new message](negotiations.md#send_message) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Editing a message in a response](negotiations.md#edit_message) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * Resume to apply for a given job <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [List of resumes that can be used to apply for a given job](suitable_resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [List of resumes that can be used to apply for a given job](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-suitable-resumes) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Resumes grouped by the possibility of responding to a given job](resumes_by_status.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
 * [Messaging for employers](employer_negotiations.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Processing model, terms and procedures](employer_negotiations.md#model) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />

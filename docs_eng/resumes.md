@@ -707,7 +707,7 @@ Once the resume is published (status changed to `published`) it cannot be change
 `not_published` but it can be hidden in the [resume visibility](#access_type) settings.
 
 In `published` status, the resume can be used to [apply for jobs](negotiations.md) and it will appear on the
-[list of suitable vacancies](suitable_resumes.md) if it has not been used yet to apply for this job.
+[list of suitable vacancies](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-suitable-resumes) if it has not been used yet to apply for this job.
 
 
 <a name="access_type"></a>
