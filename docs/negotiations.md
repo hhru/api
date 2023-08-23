@@ -153,7 +153,7 @@ GET /negotiations/active
 ## Откликнуться на вакансию
 
 Для того чтобы узнать, какими резюме возможно откликнуться на конкретную
-вакансию, можно воспользоваться [списком подходящих резюме](suitable_resumes.md).
+вакансию, можно воспользоваться [списком подходящих резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Prosmotr-informacii/operation/get-suitable-resumes).
 
 
 ### Запрос
