@@ -198,9 +198,11 @@ returned.
         "name": "Open"
     },
     "archived": "false",
-    "video_vacancy": {
-        "video_url": "https://host/video/123"
-    }
+    "branding": {
+      "type": "CONSTRUCTOR",
+      "tariff": "BASIC"
+    },
+    "show_logo_in_search": true
 }
 ```
 
