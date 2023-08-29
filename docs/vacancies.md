@@ -122,10 +122,6 @@
       "id": "full",
       "name": "Полная занятость"
     },
-    "branding": {
-      "type": "CONSTRUCTOR",
-      "tariff": "BASIC"
-    },
     "show_logo_in_search": true
 }
 ```
