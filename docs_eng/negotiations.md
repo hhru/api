@@ -407,44 +407,4 @@ In addition to an HTTP code, the server can return
 <a name="edit_message"></a>
 ## Edit messages in the response
 
-Under certain conditions, the message text can be edited after it is sent. In
-order to allow message editing, use the flag `editable`.
-
-> At the moment, editing is available for response message only,
-> and such message should not be read by the other party, the vacancy should be
-> active (not archived) and CV should not be deleted. However, these conditions
-> are subject to change.
-
-
-### Request
-
-```
-PUT /negotiations/{nid}/messages/{mid}
-```
-
-where:
-
- * nid is the response ID
- * mid is the response message ID
-
-Parameters
-
- Name | Required | Description
- --- | --- | ---
- message | yes | Message text
-
-
-### Response
-
-In case of successful message text update the HTTP status
-`204 No Content` is returned.
-
-
-### Errors
-
-* `403 Forbidden` – editing is prohibited.
-  For example, if receiving party has already read the message.
-* `404 Not Found` – the message is not found.
-
-In addition to an HTTP code, the server can return
-[error reason](errors.md#negotiations).
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Negotiations-(responsesinvitations)-for-applicants/operation/edit-negotiation-message)
