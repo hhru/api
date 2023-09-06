@@ -211,30 +211,7 @@ The returned object is completely identical to an individual response from the [
 
 <a name="hide_message"></a>
 ## Hide the response
-To hide the response, use the following request:
-
-```
-DELETE /negotiations/active/{nid}
-```
-
-where:
-
- * nid is the response ID
-
-HTTP status `204 No Content` will be returned
-
-Parameters:
-
- Name | Type | Required | Description
- --- | --- | --- | ---
- with_decline_message | boolean | no | Whether a refusal message should be sent to the employer (default: false). The ability to send a refusal message is determined by the decline_allowed field, which is returned by the system in response to the request for a [list response or one response](#get_negotiation).
-
-### Errors
-
-* `403 Forbidden` – Refusal message cannot be sent.
-* `404 Not Found` – The response does not exist.
-
-In addition to the HTTP code, the server can return a description of the [error cause](errors.md#negotiations).
+> !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Negotiations-(responsesinvitations)-for-applicants/operation/hide-active-response)
 
 
 <a name="get_messages"></a>
