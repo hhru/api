@@ -235,31 +235,7 @@ GET /negotiations/{nid}
 
 <a name="hide_message"></a>
 ## Скрыть отклик
-Для скрытия отклика необходимо выполнить запрос:
-
-```
-DELETE /negotiations/active/{nid}
-```
-
-где:
-
- * nid - идентификатор отклика
-
-Параметры
-
- Имя | Тип | Обязательный | Описание
- --- | --- | --- | ---
- with_decline_message | логический | нет | Должно ли быть отправлено работодателю сообщение об отказе, по умолчанию false. Возможность отправить сообщение об отказе определяется полем decline_allowed получаемым при запросе [списка откликов или одного отклика](#get_negotiation)
-
-Успешный ответ приходит с кодом `204 No Content`.
-
-### Ошибки
-
-* `403 Forbidden` - невозможно отправить сообщение об отказе.
-* `404 Not Found` - отклик не существует.
-
-Дополнительно к HTTP коду сервер может вернуть описание
-[причины ошибки](errors.md#negotiations).
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Perepiska-(otklikipriglasheniya)-dlya-soiskatelya/operation/hide-active-response)
 
 
 <a name="get_messages"></a>
