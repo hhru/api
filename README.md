@@ -19,7 +19,9 @@ HeadHunter API — это инструментарий для интеграци
 логина и пароля.
 
 
-> ‼️ Обратите внимание на [Поддержку нового каталога специализаций (профессиональных ролей)](docs/role_catalog_article.md) . 
+> ‼️ Обратите внимание, что методы для работы с сообщениями в рамках отклика/приглашения от имени [соискателя](docs/negotiations.md#get_messages) и 
+> [менеджера работодателя](docs/employer_negotiations.md#get-messages) устарели, и новые возможности [чатов](https://feedback.hh.ru/knowledge-base/article/1290) в них не будут поддерживаться. 
+> В связи с этим переписка может некорректно отображаться. 
 
 > Доступ к ряду методов для работодателя [платный](docs/payable/employer_methods.md). 
 
@@ -64,7 +66,6 @@ HeadHunter API — это инструментарий для интеграци
 * [Ошибки и коды ответов](docs/errors.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Платный доступ для работодателей к некоторым методом API](docs/payable/employer_methods.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Новая модель работы с базой резюме (поддержка в API)](docs/payable/resume.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-* [Новый каталог специализаций (профессиональных ролей). Поддержка в API HH](docs/role_catalog_article.md)  <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 
 <a name="resources"></a>
 <a name="context"></a>
