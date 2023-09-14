@@ -136,6 +136,7 @@ The `400 Bad Request` error will be returned if `folder` and `include_all_folder
 * `job_search_status` — job search status. 
 Directory with possible values: `job_search_status` in [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-available-user-statuses). 
 You can indicate several values.
+* `resume` — resume identifier to search for similar resumes.
 
 If parameters contain an error, `400 Bad request` will be returned in response
 with the error description in the body. Unknown parameters and parameters with
