@@ -48,28 +48,7 @@
 <a name="publish"></a>
 ## Publishing a resume
 
-`POST /resumes/{resume_id}/publish`
-
-The resume can be used as soon as it is first published.
-
-Subsequent publications will update the renewal date of the resume. `next_publish_at` key
-in the resume indicates when the resume can be updated.
-
-
-### Response
-
-A successful response contains a code `204 No Content` and is body-less.
-
-
-### Errors
-
-* `429 Too Many Requests` - If the update is not available yet.
-* `400 Bad Request` - If publication/extension is not possible. The possible causes are:
-  * Mandatory fields are empty (to understand what exactly is not filled in, you can call the url [get resume](#item) and look at the `mandatory` field),
-  * The fields have not been not edited after banning by a moderator,
-  * The resume is being checked by a moderator.
-* `403 Forbidden` - If the resume cannot be published because of a lack of necessary privileges (for example, for an employer).
-
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Publication/operation/publish-resume)
 
 <a name="status-and-publication"></a>
 ## Information on a resume's status and readiness for publication
