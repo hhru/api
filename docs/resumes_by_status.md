@@ -16,7 +16,7 @@ GET /vacancies/{vacancy_id}/resumes_by_status
 в формате [сокращенных представлений](employer_resumes.md#resume-short) и [дополнительных полей](#additional-fields):
 
 * `suitable` — резюме, которыми возможно откликнуться на данную вакансию
-* `not_published` — неопубликованные резюме (в [статусе](resumes.md#status) `not_published` либо `blocked`)
+* `not_published` — неопубликованные резюме (в [статусе](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Prosmotr-informacii/Status-rezyume) `not_published` либо `blocked`)
 * `already_applied` — резюме, уже использовавшиеся для отклика на данную вакансию
 * `unavailable` — резюме, которыми невозможно откликнуться на данную вакансию (конфликтующие настройки видимости резюме и т.п.)
 
@@ -181,7 +181,7 @@ GET /vacancies/{vacancy_id}/resumes_by_status
 Имя | Тип | Описание
 ---- | --- | --------
 finished | boolean | флаг о заполненности резюме ([подробнее](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume))
-access | object | [видимость резюме](resumes.md#access_type)
+access | object | видимость резюме ([подробнее](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/create-resume))
 requires_completion | boolean | Требуется ли дозаполнить [обязательные поля](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume) резюме для отклика на вакансию. Принимает значение `true` только в случае, если в вакансии не установлен флаг «принимать неполные резюме» и резюме является неполным; в противном случае — `false`.
 
 В ключе `counters` выдается информация о количестве элементов в коллекциях:
@@ -189,7 +189,7 @@ requires_completion | boolean | Требуется ли дозаполнить [
 Имя | Тип | Значение
 ---- | --- | --------
 suitable | number | количество резюме, которыми возможно откликнуться на данную вакансию
-not_published | number | количество неопубликованных резюме (в [статусе](resumes.md#status) `not_published` либо `blocked`)
+not_published | number | количество неопубликованных резюме (в [статусе](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Prosmotr-informacii/Status-rezyume) `not_published` либо `blocked`)
 already_applied | number | количество резюме, которыми пользователь уже откликался на эту вакансию
 unavailable | number | количество резюме, которыми по другим причинам невозможно откликнуться (конфликтующие настройки видимости резюме и т.п.)
 

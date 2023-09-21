@@ -337,7 +337,7 @@
 }
 ```
 
-Поля резюме аналогичны [полям при редактировании резюме](https://github.com/hhru/api/blob/master/docs/resumes.md#resume-keys).
+Поля резюме аналогичны [полям при редактировании резюме](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/edit-resume).
 
 Контактная информация (ФИО) будет присутствовать только после [открытия контактой информации в резюме](/docs/payable/resume.md)
 
