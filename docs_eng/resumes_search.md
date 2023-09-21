@@ -297,7 +297,7 @@ To obtain full information, you should request [the full CV](https://github.com/
 The applicant will have the CV request displayed in the view history.
 
 CV fields are similar to the
-[fields that are displayed when editing the CV](https://github.com/hhru/api/blob/master/docs_eng/resumes.md#resume-keys).
+[fields that are displayed when editing the CV](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/edit-resume).
 
 The employer will have additional fields:
 
