@@ -16,7 +16,7 @@ A successful response contains the `200 OK` code and four lists of the user's CV
 in [resume summaries](resumes.md#resume-short) format and with [additional fields](#additional-fields):
 
 * `suitable` — List of resumes that can be used to apply for this job
-* `not_published` — Unpublished ([status](resumes.md#status) `not_published` or `blocked`) resumes
+* `not_published` — Unpublished ([status](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-information/Resume-status) `not_published` or `blocked`) resumes
 * `already_applied` — Resumes that have already been used to respond to this job
 * `unavailable` — Resumes that cannot be used to apply for this job (because of conflicting resume visibility settings, etc.)
 
@@ -181,7 +181,7 @@ Additionally, the fields are displayed with format [resume summaries](resumes.md
 Имя | Тип | Описание
 ---- | --- | --------
 finished | boolean | mark for the CV completion percentage ([more info](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume))
-access | object | [the CV access type](resumes.md#access_type)
+access | object | the CV access type ([more info](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/create-resume))
 requires_completion | boolean | Whether additional information is required in the [required fields](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) of the resume to apply for this job. This parameter is set to `true` only if the "accept incomplete resumes" flag is not set for the job, and the resume is incomplete; otherwise, the value is set to `false`.
 
 The `counters` key displays information about the number of items in collections:
@@ -189,7 +189,7 @@ The `counters` key displays information about the number of items in collections
 Имя | Тип | Значение
 ---- | --- | --------
 suitable | number | number of resumes that can be used to apply for this job
-not_published | number | number of unpublished ([status](resumes.md#status) `not_published` or `blocked`) resumes 
+not_published | number | number of unpublished ([status](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-information/Resume-status) `not_published` or `blocked`) resumes 
 already_applied | number | number of resumes that have already been used by the user to respond to this job
 unavailable | number | number of resumes that cannot be used to apply for this job for other reasons (conflicting resume visibility settings, etc.)
 
