@@ -58,7 +58,7 @@
 <a name="active"></a>
 ## Список опубликованных вакансий
 
-> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Vakansii/operation/get-active-vacancy-list)
+> > !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/get-active-vacancy-list)
 
 <a name="archive"></a>
 ## Архивация вакансий
@@ -93,4 +93,4 @@
 <a name="visitors"></a>
 ## Просмотры вакансии
 
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Vakansii/operation/get-vacancy-visitors)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Upravlenie-vakansiyami/operation/get-vacancy-visitors)

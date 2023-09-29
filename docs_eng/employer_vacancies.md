@@ -57,7 +57,7 @@ See also:
 <a name="active"></a>
 ## Published vacancy list
 
-> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancies/operation/get-active-vacancy-list)
+> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-active-vacancy-list)
 
 <a name="archive"></a>
 ## Storing vacancies
@@ -91,4 +91,4 @@ See also:
 
 <a name="visitors"></a>
 
-> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancies/operation/get-vacancy-visitors)
+> > !! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-vacancy-visitors)
