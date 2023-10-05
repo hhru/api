@@ -96,7 +96,7 @@ HeadHunter API — это инструментарий для интеграци
 <a name="resume"></a>
 ### Резюме
 
-* [Поиск резюме](docs/resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Поиск резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/operation/search-for-resumes) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Сохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Список сохраненных поисков резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/operation/get-saved-resume-searches) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Получение единичного сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/operation/get-saved-resume-search) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />

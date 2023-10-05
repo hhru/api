@@ -16,7 +16,7 @@
 
 Для работодателей с определенными конфигурациями данной услуги (подробнее в блоке "API и автоматизация процессов" в [статье](https://hh.ru/article/27029)) появляются возможности в API:
 
-* [Поиск резюме](/docs/resumes_search.md)
+* [Поиск резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/operation/search-for-resumes)
 * [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/operation/get-saved-resume-searches)
 
 Для уточнения наличия доступа к описанным возможностям можно воспользоваться специальным [методом](/docs/payable/employer_methods.md)
@@ -24,7 +24,7 @@
 <a name="contact-data"></a>
 ## Просмотр резюме с контактами
 
-> !Обратите внимание, существует ограничение на кол-во запросов к [методу просмотра резюме](/docs/employer_resumes.md#item), для резюме полученных при использовании [поиска по базе резюме](/docs/resumes_search.md). Для получение текущего лимита на кол-во запросов, можно воспользоваться специальным [методом](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/operation/get-payable-api-actions), "id": "API_LIMITED". После превышения этого лимита, при запросе к [методу просмотра резюме](/docs/employer_resumes.md#item) вернется ошибка.
+> !Обратите внимание, существует ограничение на кол-во запросов к [методу просмотра резюме](/docs/employer_resumes.md#item), для резюме полученных при использовании [поиска по базе резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/operation/search-for-resumes). Для получение текущего лимита на кол-во запросов, можно воспользоваться специальным [методом](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/operation/get-payable-api-actions), "id": "API_LIMITED". После превышения этого лимита, при запросе к [методу просмотра резюме](/docs/employer_resumes.md#item) вернется ошибка.
 
 Если ни один менеджер пока что не просматривал резюме с контактами, то во всех местах, где показывается [полное](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume) 
 или [сокращенное](/docs/employer_resumes.md#resume-short) резюме, будет отображаться резюме без контактов (null в соответствующих полях).

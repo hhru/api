@@ -34,10 +34,10 @@ GET /employers/{employer_id}/managers/{manager_id}/method_access
     * [Работа с откликами](/docs/employer_negotiations.md)
     * [Переписка](/docs/employer_negotiations.md#get-messages)
 2. Наличие доступа к методам:
-    * [Поиск резюме](/docs/resumes_search.md)
+    * [Поиск резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/operation/search-for-resumes)
     * [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/operation/get-saved-resume-searches)
 3. Наличие доступа к [просмотру резюме](/docs/employer_resumes.md#item), у которого есть отклик или приглашение
-4. Наличие доступа к [просмотру резюме](/docs/employer_resumes.md#item) для резюме найденных через [поиск по базе](/docs/resumes_search.md)
+4. Наличие доступа к [просмотру резюме](/docs/employer_resumes.md#item) для резюме найденных через [поиск по базе](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/operation/search-for-resumes)
 
 >!! Внимание произошли изменения в доступе к контактной информации. Прочитайте внимательно информацию про [поконтактный доступ к резюме](/docs/payable/resume.md)
 ### Ответ
