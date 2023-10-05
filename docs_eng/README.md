@@ -99,7 +99,7 @@ Article labels:
     * [Removing companies from the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/delete-employer-from-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Clearing the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/delete-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Searching for employers to add to the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/get-resume-visibility-employers-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-* [Search for CV](resumes_search.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+* [Search for CV](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/operation/search-for-resumes) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Saved CV search](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [List of saved CV searches](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/operation/get-saved-resume-searches) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Getting single saved CV search](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/operation/get-saved-resume-search) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
