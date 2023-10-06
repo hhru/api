@@ -56,38 +56,7 @@
 <a name="availability"></a>
 ## Проверка возможности создания резюме
 
-### Запрос
-
-```
-GET /resumes/creation_availability
-```
-
-### Ответ
-
-Успешный ответ приходит с кодом `200 OK` и содержит тело:
-
-```json
-{
-    "is_creation_available": true,
-    "max": 20,
-    "created": 2,
-    "remaining": 18
-}
-```
-
-где:
-
-Имя  | Тип    | Описание
----- | ------ | ---
-is_creation_available  | boolean | Флаг, который показывает, доступно ли создание новых резюме для данного пользователя
-max | number | Максимально возможное количество резюме
-created  | number | Количество уже созданных резюме
-remaining  | number | Количество доступных для создания резюме
-
-### Ошибки
-
-* `403 Forbidden` – запрос не от соискателя.
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/get-resume-creation-availability)
 
 <a name="conditions"></a>
 ## Условия заполнения полей резюме
