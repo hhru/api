@@ -397,7 +397,7 @@ HTTP code | type | value | reason | описание
 ### Работа с резюме
 
 Помимо [общих ошибок](#general-errors) при
-[получении](employer_resumes.md#item) и [обновлении](resumes.md#edit) резюме могут
+[получении](employer_resumes.md#item) и [обновлении](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/edit-resume) резюме могут
 быть возвращены следующие ошибки:
 
 HTTP code | type | value | описание

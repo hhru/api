@@ -105,18 +105,22 @@ HeadHunter API — это инструментарий для интеграци
   * [Удаление сохраненного поиска резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/operation/delete-saved-resume-search) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Передача сохраненного поиска резюме другому менеджеру](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/operation/move-saved-resume-search) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Просмотр резюме](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Работа с резюме для соискателя](docs/resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* Работа с резюме для соискателя <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Работа с телефоном](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Rabota-s-telefonom) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Список резюме авторизованного пользователя](docs/resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Список резюме авторизованного пользователя](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Prosmotr-informacii/operation/get-mine-resumes) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Просмотр резюме](https://api.hh.ru/openapi/redoc#tag/Prosmotr-rezyume/operation/get-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Создание резюме](docs/resumes.md#create) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Редактирование резюме](docs/resumes.md#edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Публикация и продление резюме](docs/resumes.md#publish) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Удаление резюме](docs/resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [История просмотра резюме](docs/resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Создание резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/create-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Редактирование резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/edit-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Публикация и продление резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Publikaciya/operation/publish-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Клонирование резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/create-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Удаление резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/delete-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Проверка возможности создания резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Sozdanie-i-obnovlenie/operation/get-resume-creation-availability) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [История просмотра резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Prosmotr-informacii/operation/get-resume-view-history) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Условия заполнения полей нового резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Usloviya-zapolneniya-polej/operation/get-new-resume-conditions) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Информация о статусе резюме и готовности резюме к публикации](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Prosmotr-informacii/operation/get-resume-status) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Списки видимости резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Получение списков видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/get-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Получение списка типов видимости резюме](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/get-resume-access-types) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Добавление компаний в список видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/add-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Удаление компаний из списка видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/delete-employer-from-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Очистка списка видимости](https://api.hh.ru/openapi/redoc#tag/Rezyume.-Spiski-vidimosti/operation/delete-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
