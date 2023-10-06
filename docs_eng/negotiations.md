@@ -94,7 +94,7 @@ The `items` entity contains response data:
  created_at| string| Response creation date and time
  updated_at| string| Response update date and time
  url| string| Link to the full response
- resume| object, null| [CV short view](resumes.md#resume-nano)
+ resume| object, null| CV short view
  vacancy| object, null| [Vacancy short view](vacancies.md#nano)
 has_updates | logical | Are there any unread messages in the topic. The flag is reset by a variety of response acts, such as [viewing the list of messages](#get_messages).
  viewed_by_opponent| logical| Whether the response was viewed by the employer

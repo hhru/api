@@ -84,17 +84,22 @@ Article labels:
 ### CV
 
 * [View a CV](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-* [Work with CVs for an applicant](resumes.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+* Work with CVs for an applicant <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [CVs for an applicant. Phone](https://api.hh.ru/openapi/en/redoc#tag/CVs-for-an-applicant)
-  * [List of CVs for current user](resumes.md#mine) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [CV creation](resumes.md#create) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [CV editing](resumes.md#edit) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [CV publication & prolongation](resumes.md#publish) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [Deleting a resume](resumes.md#delete) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
-  * [CV view history](resumes.md#views) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [List of CVs for current user](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-mine-resumes) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [View a CV](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [CV creation](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/create-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [CV editing](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/edit-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [CV publication & prolongation](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Publication/operation/publish-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Cloning a resume](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/create-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Deleting a resume](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/delete-resume) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [CV view history](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-resume-view-history) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Information on a resume's status and readiness for publication](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-information/operation/get-resume-status) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Checking for the ability to create a resume](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/get-resume-creation-availability) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+  * [Conditions to fill in the fields of a resume](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Field-conditions/operation/get-resume-conditions) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
   * [Resume visibility lists](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Getting visibility lists](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/get-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
+    * [Retrieving a list of resume visibility types](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/get-resume-access-types) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Adding companies to the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/add-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Removing companies from the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/delete-employer-from-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
     * [Clearing the visibility list](https://api.hh.ru/openapi/en/redoc#tag/Resume-visibility-lists/operation/delete-resume-visibility-list) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" />
