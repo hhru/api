@@ -30,14 +30,14 @@ All existing method groups will return complete with their access details.
 
 The following groups currently exist:
 1. Availability of access to the methods:
-    * [Resume viewing](/docs_eng/resumes.md#item)
+    * [Resume viewing](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume)
     * [Response management](/docs_eng/employer_negotiations.md)
     * [Correspondence](/docs_eng/employer_negotiations.md#get-messages)
 2. Availability of access to the methods:
     * [Resume search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/operation/search-for-resumes)
     * [Saved resume searches](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/operation/get-saved-resume-searches)
-3. Availability of access to the [viewing of resumes](/docs_eng/resumes.md#item) that have a response or invite
-4. Availability of access to the [viewing of resumes](/docs_eng/resumes.md#item) for resumes found via [database search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/operation/search-for-resumes)
+3. Availability of access to the [viewing of resumes](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) that have a response or invite
+4. Availability of access to the [viewing of resumes](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) for resumes found via [database search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/operation/search-for-resumes)
 
 >!! Note that there have been changes in access to contact details. Please read the information on [contact-by-contact resume access](/docs_eng/payable/resume.md) carefully
 

@@ -13,7 +13,7 @@ The response will include the user's resumes grouped into four lists depending o
 ### Response
 
 A successful response contains the `200 OK` code and four lists of the user's CVs 
-in [resume summaries](resumes.md#resume-short) format and with [additional fields](#additional-fields):
+in resume summaries format and with [additional fields](#additional-fields):
 
 * `suitable` — List of resumes that can be used to apply for this job
 * `not_published` — Unpublished ([status](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-information/Resume-status) `not_published` or `blocked`) resumes
@@ -176,7 +176,7 @@ Please see the [full resume](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/
 <a name="additional-fields"></a>
 ### Additional fields
 
-Additionally, the fields are displayed with format [resume summaries](resumes.md#resume-short):
+Additionally, the fields are displayed with format resume summaries:
 
 Имя | Тип | Описание
 ---- | --- | --------

@@ -562,7 +562,7 @@ employer_state | object | The current [employer's response status](#term-employe
 actions | list | list of possible [actions on response/invitation](#actions-info)
 url | string | URL to get [the full version of response/invitation](#get-negotiation)
 messages_url | string | URL to get [the list of messages in the response](#get-messages)
-resume | object, null  | [Short CV](resumes.md#resume-short). To get full CV, send a GET request to URL from key `url`. It can be `null`, if the applicant deleted the CV or disabled access to it.
+resume | object, null  | Short CV. To get full CV, send a GET request to URL from key `url`. It can be `null`, if the applicant deleted the CV or disabled access to it.
 has_updates | logical | <a name="has_updates"></a> Whether the response/invitation includes updates that require attention. The flag can be disabled upon different response/invitation actions, e.g. upon [viewing message list](#get-messages), and [appropriate view of CV on response/invitation](#view-resume).
 viewed_by_opponent | logical | Whether the response was viewed by the applicant
 counters | object | Counters

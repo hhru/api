@@ -408,7 +408,7 @@ HTTP code | type | value | reason | description
 ### Working with a resume
 
 In addition to [general errors](#general-errors),
-the following errors can be returned when [getting](resumes.md#item) or [updating](resumes.md#edit) a resume:
+the following errors can be returned when [getting](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) or [updating](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/edit-resume) a resume:
 
 HTTP code | type | value | description
 ----------|------|-------|---------

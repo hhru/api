@@ -4,7 +4,7 @@
 
 Employers subscribed to the new rate plan are expected to expressly expose contact details when viewing resumes from the database.
 
-The website has a dedicated "Show Contacts" button to open contact information. In API, the appropriate [links in `actions`](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) will arrive when [resumes are retrieved by their ID](/docs_eng/resumes.md#item)
+The website has a dedicated "Show Contacts" button to open contact information. In API, the appropriate [links in `actions`](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) will arrive when [resumes are retrieved by their ID](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume)
 
 > Read the terms of service by following the [link](https://hh.ru/conditions) (para. 3.40.)
 
@@ -24,10 +24,10 @@ There is a special [method](/docs_eng/payable/employer_payable_methods.md) they 
 <a name="contact-data"></a>
 ## Viewing of resumes with contact info
 
-> !Note that there is a cap on the number of requests for the [resume viewing method](/docs_eng/resumes.md#item) in relation to resumes retrieved through the use of [resume database search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/operation/search-for-resumes). To receive your current request quota, there is a special [method](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/operation/get-payable-api-actions) you can use , "id": "API_LIMITED". Once the quota is exceeded, an error will return when a request is lodged for the [resume viewing method](/docs_eng/resumes.md#item).
+> !Note that there is a cap on the number of requests for the [resume viewing method](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume) in relation to resumes retrieved through the use of [resume database search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/operation/search-for-resumes). To receive your current request quota, there is a special [method](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/operation/get-payable-api-actions) you can use , "id": "API_LIMITED". Once the quota is exceeded, an error will return when a request is lodged for the [resume viewing method](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume).
 
 Where not a single manager has thus far viewed a resume with contact info, in all places where that [full](https://api.hh.ru/openapi/en/redoc#tag/Resume-view/operation/get-resume)
-or [short](/docs_eng/resumes.md#resume-short) resume appears, the resume will be displayed without the contact info (null in the respective fields).
+or short resume appears, the resume will be displayed without the contact info (null in the respective fields).
 
 From the moment when a manager of the company has viewed a resume with contact info, the resume will start to be displayed with contact info in all places and for all
 managers for as long as the current database access service with the option of viewing contact info remains enabled.
@@ -50,4 +50,4 @@ Contact info is deemed to include:
 
 ## Viewing contact info in an "anonymous" resume
 
-> Note that when contact details are requested, it may transpire that the user has hidden their contact details. In this case, the viewing will be debited regardless while the reply body will return null in the respective contact data fields. To safeguard against this eventuality, make sure the fields you want are available in [hidden_fields](/docs_eng/resumes.md#hidden-fields) the resume.
+> Note that when contact details are requested, it may transpire that the user has hidden their contact details. In this case, the viewing will be debited regardless while the reply body will return null in the respective contact data fields. To safeguard against this eventuality, make sure the fields you want are available in hidden_fields the resume.
