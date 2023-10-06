@@ -68,37 +68,7 @@
 <a name="availability"></a>
 ## Checking for the ability to create a resume
 
-### Request
-
-```
-GET /resumes/creation_availability
-```
-
-### Response
-
-Successful server response is returned with `200 OK` code and contains:
-
-```json
-{
-    "is_creation_available": true,
-    "max": 20,
-    "created": 2,
-    "remaining": 18
-}
-```
-
-where:
-
-Name | Type | Description
----- | ------ | ---
-is_creation_available  | boolean | This is a flag that indicates whether the creation of new resumes is available to this user
-max | number | Maximum number of resumes
-created  | number | The number of previously created resumes
-remaining  | number | The number of resumes that can be created
-
-### Errors
-
-* `403 Forbidden` – The request is not from the applicant.
+> >!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Creating-and-updating/operation/get-resume-creation-availability)
 
 <a name="conditions"></a>
 ## Conditions to fill in the fields of a resume
