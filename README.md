@@ -267,8 +267,8 @@ HeadHunter API — это инструментарий для интеграци
 <a name="salary"></a>
 ### Банк данных заработных плат
 
-* [Отчёты Банка данных заработных плат](docs/salary_reports.md) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
-  * [Оценка заработной платы без прогнозов](docs/salary_reports.md#salary-evaluation) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+* [Отчёты Банка данных заработных плат](https://api.hh.ru/openapi/redoc#tag/Bank-dannyh-o-zarplatah) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
+  * [Оценка заработной платы без прогнозов](https://api.hh.ru/openapi/redoc#tag/Bank-dannyh-o-zarplatah/operation/get-salary-evaluation) <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
 * [Справочники Банка данных заработных плат](docs/salary_dictionaries.md) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Отрасли](docs/salary_dictionaries.md#salary-industries) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
   * [Уровни специалистов](docs/salary_dictionaries.md#employee-levels) <img src="http://hhru.github.io/api/badges/anon.png" alt="anonymous" /> <img src="http://hhru.github.io/api/badges/client.png" alt="client" /> <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp.png" alt="employer" />
