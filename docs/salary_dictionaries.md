@@ -8,36 +8,7 @@
 <a name="salary-industries"></a>
 ## Отрасли и сферы деятельности
 
-```
-GET /salary_statistics/dictionaries/salary_industries
-```
-
-В ответе содержится список отраслей и сфер деятельности.
-
-```json
-[
-    {
-        "id": "49",
-        "name": "Услуги для населения",
-        "industries": [
-            {
-                "id": "409",
-                "name": "Салоны красоты"
-            }
-        ]
-    }
-]
-```
-
-Поля отрасли:
-
-Имя | Тип | Описание
---- | --- | ---
-id | string | Идентификатор отрасли
-name | string | Название отрасли
-industries | array | Список сфер деятельности
-industries[].id | string | Идентификатор сферы деятельности
-industries[].name | string | Название сферы деятельности
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Spravochniki-Banka-dannyh-zarabotnyh-plat/operation/get-salary-industries)
  
 <a name="employee-levels"></a>
 ## Уровни специалистов
