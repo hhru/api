@@ -277,7 +277,7 @@ per_page | нет | Количество выдаваемых элементов
 age_from | нет | Возраст соискателя в годах, диапазон от
 age_to | нет | Возраст соискателя в годах, диапазон до
 area | нет | Регион. Можно передать множественные значения. Возможные значения: [/areas](https://github.com/hhru/api/blob/master/docs/areas.md)
-citizenship | нет | Страна желаемого гражданства. Можно передать множественные значения. Возможные значения можно посмотреть в [справочнике стран](areas.md#countries)
+citizenship | нет | Страна желаемого гражданства. Можно передать множественные значения. Возможные значения можно посмотреть в [справочнике стран](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-countries)
 currency | нет | Код валюты. Возможные значения: `currency` (ключ code) в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries
 driver_license_types | нет | Категории водительских прав. Можно передать множественные значения. Возможные значения: `driver_license_types` в [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 educational_institution | нет | Идентификатор [учебного заведения](https://github.com/hhru/api/blob/master/docs/suggests.md). Можно передать множественные значения
