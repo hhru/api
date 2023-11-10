@@ -283,7 +283,7 @@ per_page | no | Number of items per page: default value is 20; the maximum value
 age_from | no | Applicant's age in years, range from
 age_to | no | Applicant's age in years, range up to
 area | no | Area. Multiple values can be specified. Possible values: [/areas](https://github.com/hhru/api/blob/master/docs/areas.md)
-citizenship | no | Country of desired citizenship. Multiple values can be specified. Possible values can be found in the [country dictionary](areas.md#countries)
+citizenship | no | Country of desired citizenship. Multiple values can be specified. Possible values can be found in the [country dictionary](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-countries)
 currency | no | Currency code. Possible values: `currency` (key=code) from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries
 driver_license_types | no | Driver license categories. Multiple values can be specified. Possible values: `driver_license_types` from [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries)
 educational_institution | no | ID of the [educational institution](https://github.com/hhru/api/blob/master/docs_eng/suggests.md). Multiple values can be specified
