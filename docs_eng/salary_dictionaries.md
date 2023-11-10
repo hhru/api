@@ -8,36 +8,7 @@
 <a name="salary-industries"></a>
 ## Industries and fields of expertise
 
-```
-GET /salary_statistics/dictionaries/salary_industries
-```
-
-The response contains a list of industries and fields of expertise.
-
-```json
-[
-    {
-        "id": "49",
-        "name": "Услуги для населения",
-        "industries": [
-            {
-                "id": "409",
-                "name": "Салоны красоты"
-            }
-        ]
-    }
-]
-```
-
-Industry fields:
-
-Name | Type | Description
---- | --- | ---
-id | string | Industry ID
-name | string | Industry name
-industries | array | A list of fields of expertise
-industries[].id | string | Field of expertise ID
-industries[].name | string | Field of expertise name
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Salary-Database-directories/operation/get-salary-industries)
  
 <a name="employee-levels"></a>
 ## Competency levels
