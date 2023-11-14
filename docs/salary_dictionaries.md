@@ -70,39 +70,7 @@ description | string | Описание уровня
 <a name="professional-areas"></a>
 ## Профобласти и специализации
 
-```
-GET /salary_statistics/dictionaries/professional_areas
-```
-
-В ответе содержится список профобластей и специализаций.
-
-```json
-[
-    {
-        "id": "1030000",
-        "name": "Административная поддержка",
-        "specializations": [
-            {
-                "id": "1030015",
-                "name": "Архив",
-                "description": "Организация социальной работы с сотрудниками, распределение фонда материальной и социальной помощи"
-            }
-        ]
-    }
-]
-```
-
-Поля профобласти:
-
-Имя | Тип | Описание
---- | --- | ---
-id | string | Код профобласти
-name | string | Название профобласти
-specialiaztions | array | Список специализаций профобласти
-specialiaztions[].id | string | Код специализации
-specialiaztions[].name | string | Название специализации
-specialiaztions[].description | string | Описание специализации
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Spravochniki-Banka-dannyh-zarabotnyh-plat/operation/get-salary-professional-areas)
 
 <a name="salary-areas"></a>
 ## Регионы и города
