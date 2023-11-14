@@ -70,39 +70,7 @@ description | string | Level description
 <a name="professional-areas"></a>
 ## Professions and specialisations
 
-```
-GET /salary_statistics/dictionaries/professional_areas
-```
-
-The response contains a list of professions and specialisations.
-
-```json
-[
-    {
-        "id": "1030000",
-        "name": "Административная поддержка",
-        "specializations": [
-            {
-                "id": "1030015",
-                "name": "Архив",
-                "description": "Организация социальной работы с сотрудниками, распределение фонда материальной и социальной помощи"
-            }
-        ]
-    }
-]
-```
-
-The fields of a profession:
-
-Name | Type | Description
---- | --- | ---
-id | string | Profession code
-name | string | Profession name
-specialiaztions | array | A list of profession specialisations
-specialiaztions[].id | string | Specialisation code
-specialiaztions[].name | string | Specialisation name
-specialiaztions[].description | string | Specialisation description
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Salary-Database-directories/operation/get-salary-professional-areas)
 
 <a name="salary-areas"></a>
 ## Regions and cities
