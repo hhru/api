@@ -13,31 +13,8 @@
 <a name="employee-levels"></a>
 ## Competency levels
 
-```
-GET /salary_statistics/dictionaries/employee_levels
-```
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Salary-Database-directories/operation/get-salary-employee-levels)
 
-The response contains a list of competency levels.
-
-```json
-[
-    {
-        "id": "specialist",
-        "name": "специалист",
-        "description": "Прямые подчиненные отсутствуют, периодически координирует работу других сотрудников в рамках поставленной задачи."
-    }
-]
-```
-
-The fields of a competency level:
-
-Name | Type | Description
---- | --- | ---
-id | string | Level ID
-name | string | Level name
-description | string | Level description
- 
- 
 <a name="professional-areas"></a>
 ## Professions and specialisations
 
