@@ -13,31 +13,8 @@
 <a name="employee-levels"></a>
 ## Уровни специалистов
 
-```
-GET /salary_statistics/dictionaries/employee_levels
-```
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Spravochniki-Banka-dannyh-zarabotnyh-plat/operation/get-salary-employee-levels)
 
-В ответе содержится список уровней специалистов.
-
-```json
-[
-    {
-        "id": "specialist",
-        "name": "специалист",
-        "description": "Прямые подчиненные отсутствуют, периодически координирует работу других сотрудников в рамках поставленной задачи."
-    }
-]
-```
-
-Поля уровня специалиста:
-
-Имя | Тип | Описание
---- | --- | ---
-id | string | Идентификатор уровня
-name | string | Название уровня
-description | string | Описание уровня
- 
- 
 <a name="professional-areas"></a>
 ## Профобласти и специализации
 
