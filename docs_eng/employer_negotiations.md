@@ -296,9 +296,9 @@ salary_from | no | Desired salary (range from)
 salary_to | no | Desired salary (range up to)
 search_radius_meters | no | Distance to a potential candidate (in meters)
 search_text | no | Search string
-show_only_new_responses | no | Show only new responses (these responses have not been viewed yet). Only for the "All unsorted" collection (`/responses`)
+show_only_new_responses | no | Show only new responses (these responses have not been viewed yet). Only for the "All unsorted" collection (`/response`)
 show_only_with_vehicle | no | Filter by car availability
-show_only_new | no | Shows responses that have new messages. For collections **other than** "All unsorted" (`/responses`)
+show_only_new | no | Shows responses that have new messages. For collections **other than** "All unsorted" (`/response`)
 
 
 ### Response
