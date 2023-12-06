@@ -376,6 +376,7 @@ comment:
 
 * `404 Not Found` – response with this ID doesn't exist
 * `403 Forbidden` – if a message was not sent
+* `425 Too Early` – if chat of response/invitation is not ready yet
 
 In addition to an HTTP code, the server can return
 [error reason](errors.md#negotiations).
