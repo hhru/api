@@ -126,67 +126,7 @@ The resource is currently out of date, and is supported for backward connectivit
 <a name="post_negotiation"></a>
 ## Respond to the vacancy
 
-In order to know with which CVs the specific vacancy can be responded to, one
-can use the [list of suitable CVs](https://api.hh.ru/openapi/en/redoc#tag/Resume.-Viewing-info/operation/get-suitable-resumes).
-
-### Request
-
-```
-POST /negotiations
-```
-Request should be `Content-Type = multipart/form-data` with parameters:
-
- Name| Required| Description
-  --- | --- | ---
- vacancy_id| yes| ID of the vacancy that was responded
- resume_id| yes| ID of the CV an applicant responded with
- message| yes| Response cover letter. Is required if the vacancy specifies the cover letter as mandatory, max length of message - 10000 characters
-
-
-### Response
-
-If successful, the status `201 Created` will be returned and the response
-`Location` header will contain a link to the response created (except for
-`direct` see below)
-
-```
-HTTP/1.1 201 Created
-...
-Location: /negotiations/123
-...
-```
-
-For vacancies with `direct` type, a response with `303 See Other` code will be
-returned.
-
-```
-HTTP/1.1 303 See Other
-...
-Location: http://example.com/respond/vacancy
-...
-```
-
-Vacancies with `direct` type are vacancies with direct responses. Such vacancies
-have non-empty `response_url` – an external url of the employer website that is
-returned in the `Location` header at the response attempt. Use `response_url` to
-offer a user to respond to the vacancy via the employer website instead of the
-standard response mechanism.
-
-
-### Errors
-
-* `400 Bad Request` – indicated vacancy or CV doesn't exist;
-  or you need to pass the test or fill in the cover letter to respond;
-  or employer closed the option to respond to the vacancy;
-  or number of responses per day is exceeded for the user.
-* `403 Forbidden` – you can't respond to indicated vacancy because you
-  don't have access to it, responded to the vacancy beforehand or
-  display visibility settings of selected CV prevent from responding to
-  vacancy.
-
-In addition to an HTTP code, the server can return
-[error reason](errors.md#negotiations).
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Vacancies/operation/apply-to-vacancy)
 
 <a name="get_negotiation"></a>
 ## View the response/invitation
