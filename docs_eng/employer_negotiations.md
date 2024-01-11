@@ -573,7 +573,7 @@ test_result.url | string | Full test's result link
 test_result.alternate_url | string | Full test's result site link
 test_result.score | number | Test's score
 test_result.mark | string | Test's mark (`UNFAIR` - from 0 to 14  points, `FAIR` - from 15 to 44 points, `GOOD` - from 45 to 79 points, `EXCELLENT` from 80 to 100 points)
-source | string | Response source. Available values are NEGOTIATION, PHONE_CALL, CHAT, VR.
+source | string | Response source. Available values are NEGOTIATION, PHONE_CALL, CHAT, VR, AUTO_INVITE.
 
 <a name="view-resume"></a>
 
@@ -871,8 +871,10 @@ contains key `vacancy` giving
 
 <a name="messaging_status"></a>
 Additionally, field `messaging_status` showing negotiation status
-is returned for the response/invitation. Possible values
+is returned for the response/invitation and field `professional_roles` containing professional roles list. Possible values
 see in [messaging_status](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) reference guide.
+Possible values
+see in [professional_roles](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-professional-roles-dictionary) reference guide.
 
 If response/invitation doesn't exist or not available to the current user,
 `404 Not Found` response will be returned.
