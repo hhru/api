@@ -264,63 +264,7 @@ where:
 <a name="send_message"></a>
 ## Sending new message
 
-You can send new message to employer only after the employer
-invited the applicant for a vacancy. Also, messages can be sent if there is a rejection
-after the interview. Negotiation is unavailable if the vacancy is archived or
-the applicant deleted the CV. Employer can also disable the negotiation for
-the vacation manually.
-
-
-### Request
-
-```
-POST /negotiations/{nid}/messages
-```
-
-where:
-
- * nid is the response ID
-
-Parameters
-
-Name | Required | Description
---- | ------------ | --------
-message | yes | Message text
-
-
-### Response
-
-Successful response is returned with `201 Created` code and contains added
-comment:
-
-```json
-{
-    "id": "124",
-    "viewed_by_me": true,
-    "viewed_by_opponent": false,
-    "created_at": "2013-10-08T10:12:23+0400",
-    "text": "Give me a camel and a horse!",
-    "state": {
-        "id": "text",
-        "name": "Text"
-    },
-    "author": {
-        "participant_type": "applicant"
-    },
-    "address": null,
-    "editable": false
-}
-```
-
-### Errors
-
-* `404 Not Found` – response with this ID doesn't exist
-* `403 Forbidden` – if a message was not sent
-* `425 Too Early` – if chat of response/invitation is not ready yet
-
-In addition to an HTTP code, the server can return
-[error reason](errors.md#negotiations).
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Negotiations-(responsesinvitations)-for-applicants/operation/send-negotiation-message)
 
 <a name="edit_message"></a>
 ## Edit messages in the response
