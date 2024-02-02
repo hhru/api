@@ -87,7 +87,7 @@ API широко использует информирование при пом
 <a name="user-agent"></a>
 ### Неверный User-Agent
 
-Подробнее про [заголовок User-Agent](general.md#request-requirements).
+Подробнее про [заголовок User-Agent](https://api.hh.ru/openapi/redoc#section/Obshaya-informaciya/Trebovaniya-k-zaprosam).
 
 HTTP code | type | value | описание
 ----------|------|-------|-----------

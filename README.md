@@ -5,7 +5,7 @@
 HeadHunter API — это инструментарий для интеграции
 [HeadHunter](http://hh.ru/) в ваш продукт.
 
-Для начала ознакомьтесь с [общей информацией](docs/general.md) по работе API,
+Для начала ознакомьтесь с [общей информацией](https://api.hh.ru/openapi/redoc#section/Obshaya-informaciya) по работе API,
 [часто задаваемыми вопросами](docs/FAQ.md) и
 с требованиями к [использованию логотипов](https://dev.hh.ru/articles/logos) и
 [названию приложений](https://dev.hh.ru/articles/apps).

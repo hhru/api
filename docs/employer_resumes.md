@@ -176,7 +176,7 @@
 
 ### Запрос
 
-Для скачивания резюме нужно использовать полученный из ответа API url, передавая [стандартные для API заголовки](general.md#request-requirements).
+Для скачивания резюме нужно использовать полученный из ответа API url, передавая [стандартные для API заголовки](https://api.hh.ru/openapi/redoc#section/Obshaya-informaciya/Trebovaniya-k-zaprosam).
 
 ```
 GET https://....(ссылка, полученная в полной или сокращенной выдаче резюме API)
