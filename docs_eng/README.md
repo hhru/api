@@ -4,7 +4,7 @@
 
 HeadHunter API lets you integrate [HeadHunter](https://hh.ru/) into your product.
 
-First of all, read the [general information](general.md) on work with API and
+First of all, read the [general information](https://api.hh.ru/openapi/en/redoc#section/General-information) on work with API and
 the [requirements](https://dev.hh.ru/articles/logos) for logos and application
 names use.
 

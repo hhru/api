@@ -87,7 +87,7 @@ response code.
 <a name="user-agent"></a>
 ### Incorrect User-Agent
 
-More detail on the [User-Agent title](general.md#request-requirements).
+More detail on the [User-Agent title](https://api.hh.ru/openapi/en/redoc#section/General-information/Request-requirements).
 
 | HTTP code | type             | value       | description                         |
 |-----------|------------------|-------------|-------------------------------------|
