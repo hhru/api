@@ -221,7 +221,7 @@ HeadHunter API — это инструментарий для интеграци
   * [Действия по отклику/приглашению (смена состояния)](docs/employer_negotiations.md#actions) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Отметить отклики прочитанными](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/post-negotiations-topics-read) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Статистика по работе с откликами](docs/employer_negotiations_statistics.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Тексты сообщений](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/get-mail-templates) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Тексты сообщений](docs/negotiation_message_templates.md) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Изменение шаблона ответа соискателю](https://api.hh.ru/openapi/redoc#tag/Otklikipriglasheniya-rabotodatelya/operation/put-mail-templates-item) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Инструменты оценки](docs/assessment.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
