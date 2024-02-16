@@ -205,7 +205,7 @@ Article labels:
   * [Inviting an applicant for a vacancy](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-active-vacancy-list) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Response/invitation actions (status change)](employer_negotiations.md#actions) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Mark responses as read](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/post-negotiations-topics-read) <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
-  * [Message templates](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/get-mail-templates) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
+  * [Message templates](negotiation_message_templates.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
   * [Edit a template for response to an applicant](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/put-mail-templates-item) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 * [Assessments](assessment.md) <img src="http://hhru.github.io/api/badges/app.png" alt="applicant" /> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" />
 
