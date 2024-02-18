@@ -54,23 +54,7 @@ The resource is currently out of date, and is supported for backward connectivit
 <a name="get_negotiation"></a>
 ## View the response/invitation
 
-
-### Request
-
-```
-GET /negotiations/{nid}
-```
-where nid is the response ID.
-
-
-### Response
-
-The returned object is completely identical to an individual response from the [response list](#get_negotiations).
-
- Name | Type | Description
- --- | --- | ---
- messaging_status | string | Current negotiation status. Possible values are provided in the [`messaging_status` reference guide](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries).
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Negotiations-(responsesinvitations)-for-applicants/operation/get-negotiation-item)
 
 <a name="hide_message"></a>
 ## Hide the response
@@ -80,109 +64,7 @@ The returned object is completely identical to an individual response from the [
 <a name="get_messages"></a>
 ## View the list of messages in the response
 
-### Request
-
-```
-GET /negotiations/{nid}/messages
-```
-
-where:
-
- * nid is the response ID
-
-Optional parameters
-
- Name| Type| Required| Description
- --- | --- | --- | ---
- page| number| no| Page number, default is 0
- per_page| number| no| Number of elements per page, default is 20
-
-
-### Response
-
-```json
-{
-    "found": 1,
-    "pages": 1,
-    "per_page": 20,
-    "page": 0,
-    "items": [
-        {
-            "id": "123",
-            "viewed_by_me": true,
-            "viewed_by_opponent": true,
-            "created_at": "2013-10-07T18:30:57+0400",
-            "text": "A major bank invites you for a job with salary that Arab sheikhs can only dream of",
-            "state": {
-                "id": "invitation",
-                "name": "Invitation"
-            },
-            "author": {
-                "participant_type": "employer"
-            },
-            "address": null,
-            "assessments": [
-                {
-                    "id": "123",
-                    "name": "Dynamic numerical ability test",
-                    "actions": [
-                        {
-                            "id": "proceed",
-                            "name": "Go to testing",
-                            "enabled": true,
-                            "alternate_url": "https://hh.ru/applicant/assessment/123"
-                        }
-                    ]
-                }
-            ],
-            "editable": false
-        },
-        {
-            "id": "124",
-            "viewed_by_me": true,
-            "viewed_by_opponent": false,
-            "created_at": "2013-10-08T10:12:23+0400",
-            "text": "Give me a camel and a horse!",
-            "state": {
-                "id": "text",
-                "name": "Text"
-            },
-            "author": {
-                "participant_type": "applicant"
-            },
-            "address": null,
-            "editable": false
-        }
-    ]
-}
-```
-
-where:
-
- Name| Type| Description
- --- | --- | ---
- found| number| Number of messages found
- pages| number| Number of pages with messages found
- per_page| number| Number of elements per page
- page| number| Current page number (starts with 0)
- items| array| Message array, see below
-
- Individual message has the following structure:
-
- Name| Type| Description
- --- | --- | ---
- id| string| Message ID
- viewed_by_me| logical| Whether the message was read by the viewer (for messages sent by applicants, the value is always `true`)
- viewed_by_opponent| logical| Whether the message was read by the employer (for messages sent by employers, the value is always `true`)
- editable| logical| Whether the message text can be edited
- created_at| string| Message creation date and time
- text| string| Message text
- state| object| Current state of the application. Possible values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) reference, section `negotiations_state`
- author| object| Who is the message author
- author.participant_type| string| Message author role. Possible values are listed in the [/dictionaries](https://api.hh.ru/openapi/en/redoc#tag/Public-directories/operation/get-dictionaries) reference, section `negotiations_participant_type`
- address| object, null| [Address](./address.md) linked to the response/invitation
- assessments| array| [assessment tools](assessment.md) linked to the message
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Negotiations-(responsesinvitations)-for-applicants/operation/get-negotiation-messages)
 
 <a name="send_message"></a>
 ## Sending new message
