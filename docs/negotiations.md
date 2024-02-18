@@ -55,19 +55,7 @@ GET /negotiations/active
 <a name="get_negotiation"></a>
 ## Просмотр отклика/приглашения
 
-
-### Запрос
-
-```
-GET /negotiations/{nid}
-```
-где nid - идентификатор отклика.
-
-
-### Ответ
-
-Возвращаемый объект полностью идентичен отдельному отклику, получаемому в [списке откликов](#get_negotiations)
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Perepiska-(otklikipriglasheniya)-dlya-soiskatelya/operation/get-negotiation-item)
 
 <a name="hide_message"></a>
 ## Скрыть отклик
@@ -77,107 +65,7 @@ GET /negotiations/{nid}
 <a name="get_messages"></a>
 ## Просмотр списка сообщений в отклике
 
-### Запрос
-
-```
-GET /negotiations/{nid}/messages
-```
-где:
-
- * nid - идентификатор отклика
-
-Параметры
-
- Имя | Тип | Обязательный | Описание
- --- | --- | --- | ---
- page | число | нет | Номер страницы, значение по умолчанию 0
- per_page | число | нет | Количество элементов на страницу, по умолчанию 20
-
-### Ответ:
-
-```json
-{
-    "found": 1,
-    "pages": 1,
-    "per_page": 20,
-    "page": 0,
-    "items": [
-        {
-            "id": "123",
-            "viewed_by_me": true,
-            "viewed_by_opponent": true,
-            "created_at": "2013-10-07T18:30:57+0400",
-            "text": "Вас приглашает очень крупный иностранный банк на зарплату, о которой мечтают арабские шейхи",
-            "state": {
-                "id": "invitation",
-                "name": "Приглашение"
-            },
-            "author": {
-                "participant_type": "employer"
-            },
-            "address": null,
-            "assessments": [
-                {
-                    "id": "123",
-                    "name": "Динамический тест числовых способностей",
-                    "actions": [
-                        {
-                            "id": "proceed",
-                            "name": "Перейти к тестированию",
-                            "enabled": true,
-                            "alternate_url": "https://hh.ru/applicant/assessment/123"
-                        }
-                    ]
-                }
-            ],
-            "editable": false
-        },
-        {
-            "id": "124",
-            "viewed_by_me": true,
-            "viewed_by_opponent": false,
-            "created_at": "2013-10-08T10:12:23+0400",
-            "text": "Верблюда и коня мне!",
-            "state": {
-                "id": "text",
-                "name": "Текст"
-            },
-            "author": {
-                "participant_type": "applicant"
-            },
-            "address": null,
-            "editable": false
-        }
-    ]
-}
-```
-
-где:
-
- Имя | Тип  | Описание
- --- | --- | ---
- found | число | Количество найденных сообщений
- pages | число | Количество найденных страниц с сообщениями
- per_page | число | Количество элементов на страницу
- page | число | Номер текущией страницы (начинается с 0)
- items | массив | Массив сообщений, см. ниже
-
- Отдельное сообщение имеет следующую структуру:
-
- Имя | Тип | Описание
- --- | --- | ---
- id | строка | Идентификатор сообщения
- viewed_by_me | логический | Прочитано ли сообщение смотрящим (для сообщений отправленных соискателем - всегда `true`)
- viewed_by_opponent | логический | Прочитано ли сообщение работодателем (для сообщений работодателя - `true`)
- editable | логический | Можно ли редактировать текст сообщения
- created_at | строка | Дата и время создания сообщения
- text | строка | Текст сообщения
- state | объект | Текущее состояние отклика. Возможные значения находятся в справочнике [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries) в разделе `negotiations_state`
- author | объект | Кто автор сообщения
- author.participant_type | строка | Роль автора сообщения. Возможные значения находятся в справочнике [/dictionaries](https://api.hh.ru/openapi/redoc#tag/Obshie-spravochniki/operation/get-dictionaries) в разделе `negotiations_participant_type`
- address | объект, null | [Адрес](./address.md), привязанный к отклику/приглашению
- assessments | массив | [инструменты оценки](assessment.md), привязанные к сообщению
-
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Perepiska-(otklikipriglasheniya)-dlya-soiskatelya/operation/get-negotiation-messages)
 
 <a name="send_message"></a>
 ## Отправка нового сообщения
