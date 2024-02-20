@@ -880,11 +880,12 @@ If response/invitation doesn't exist or not available to the current user,
 `404 Not Found` response will be returned.
 
 
+
+## View the list of messages in the response/invitation
+
 <a name="get-messages"></a>
 >‼️ Please note that the methods for handling response/invitation messages on behalf of the [applicant](negotiations.md#get_messages) and
 > [employer manager](employer_negotiations.md#get-messages) are deprecated and the new chat capabilities will not be supported in these methods. As such, correspondence may not display correctly.
-
-## View the list of messages in the response/invitation
 
 Messages contained in the response/invitation can be made as:
 
