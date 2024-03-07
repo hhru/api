@@ -890,47 +890,7 @@ If response/invitation doesn't exist or negotiation not available to the current
 <a name="add-messages"></a>
 ## Sending a message in the response/invitation
 
-Messaging is possible after invitation of the applicant. Find out whether you can
-leave the message from
-[field `messages_status` in response/invitation](#messaging_status).
-
-### Request
-
-```
-POST /negotiations/{nid}/messages
-```
-
-where `nid` is the response/invitation ID.
-
-Additionally, the `message` parameter – message text – must be specified.
-
-### Response
-
-Successful server response is returned with `201 Created` code and does not have a body.
-
-### Errors
-
-* `400 Bad Request` – error in the request parameters.
-* `403 Forbidden` – message cannot be sent.
-* `404 Not Found` – sent response/invitation doesn't exist or current
-  manager is not authorized to process it.
-
-In addition to an HTTP code, the server can return
-[error reason](errors.md#negotiations).
-
-For example:
-
-* `resume_not_found` – if the CV in the response/invitation was hidden
-  or deleted
-* `invalid_vacancy` – if the vacancy in the response/invitation was archived
-  or hidden
-* `no_invitation` – if the response/invitation is not in the "invitation" status.
-  For example, it is already in the "rejected" status or still in the "response" status.
-* `in_a_row_limit` – if the number of successive messages is exceeded.
-  The applicant must reply to the message in order the employer is able to send
-  new messages.
-* `overall_limit` – if the messages limit is exceeded
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/send-negotiation-message)
 
 <a name="add-invite"></a>
 ## Inviting an applicant for a vacancy
