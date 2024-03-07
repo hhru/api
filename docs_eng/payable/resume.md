@@ -19,7 +19,7 @@ Employers subscribed to certain service configurations (more on this in "API and
 * [Resume search](https://api.hh.ru/openapi/en/redoc#tag/Resume-search/operation/search-for-resumes)
 * [Saved resume searches](https://api.hh.ru/openapi/en/redoc#tag/Saved-resume-searches/operation/get-saved-resume-searches)
 
-There is a special [method](/docs_eng/payable/employer_payable_methods.md) they can use to find out if they have access to the options listed above
+There is a special [method](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/operation/get-payable-api-method-access) they can use to find out if they have access to the options listed above
 
 <a name="contact-data"></a>
 ## Viewing of resumes with contact info

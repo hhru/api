@@ -1,6 +1,6 @@
 # Assessment tools
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Assessment tools require [paid access](/docs_eng/payable/employer_payable_methods.md) for the employer.
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Assessment tools require [paid access](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/operation/get-payable-api-method-access) for the employer.
 
 Assessment tools are tests and questionnaires designed to be taken by
 applicants.

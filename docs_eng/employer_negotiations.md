@@ -1,6 +1,6 @@
 # Negotiations (responses/invitations) for employers
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](/docs_eng/payable/employer_payable_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Methods require [paid access for the employer](https://api.hh.ru/openapi/en/redoc#tag/Employer-services/operation/get-payable-api-method-access)
 
 *Negotiations documentation for the applicant is available in the [separate article](negotiations.md).*
 
