@@ -19,7 +19,7 @@
 * [Поиск резюме](https://api.hh.ru/openapi/redoc#tag/Poisk-rezyume/operation/search-for-resumes)
 * [Cохраненные поиски резюме](https://api.hh.ru/openapi/redoc#tag/Sohranennye-poiski-rezyume/operation/get-saved-resume-searches)
 
-Для уточнения наличия доступа к описанным возможностям можно воспользоваться специальным [методом](/docs/payable/employer_methods.md)
+Для уточнения наличия доступа к описанным возможностям можно воспользоваться специальным [методом](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/operation/get-payable-api-method-access)
 
 <a name="contact-data"></a>
 ## Просмотр резюме с контактами

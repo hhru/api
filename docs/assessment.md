@@ -1,6 +1,6 @@
 # Инструменты оценки
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Для работодателя работа с инструментами оценки требует [наличия платного доступа](/docs/payable/employer_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Для работодателя работа с инструментами оценки требует [наличия платного доступа](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/operation/get-payable-api-method-access)
 
 Инструменты оценки – это тесты или опросники, предназначеные для
 прохождения соискателями.

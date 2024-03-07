@@ -229,7 +229,7 @@ HTTP code | type | value | описание
 <a name="employer_payable_methods"></a>
 ## Ошибки доступа к платному методу
 
-В случае, если вы запрашиваете один из [платных методов](payable/employer_methods.md) 
+В случае, если вы запрашиваете один из [платных методов](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/operation/get-payable-api-method-access) 
 без купленного доступа, вернётся следующая ошибка:
 
 HTTP code | type | value | описание

@@ -1,6 +1,6 @@
 # Переписка (отклики/приглашения) для работодателя
 
-> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Методы требуют наличия [платного доступа для работодателя](/docs/payable/employer_methods.md)
+> <img src="http://hhru.github.io/api/badges/emp_paid.png" alt="employer with paid access" /> : Методы требуют наличия [платного доступа для работодателя](https://api.hh.ru/openapi/redoc#tag/Uslugi-rabotodatelya/operation/get-payable-api-method-access)
 
 *Документация по переписке для соискателя доступна в [отдельной статье](negotiations.md).*
 
