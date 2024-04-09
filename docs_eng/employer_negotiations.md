@@ -428,7 +428,7 @@ viewed_by_opponent | logical | Whether the response was viewed by the applicant
 counters | object | Counters
 counters.messages | number | Total number of messages
 counters.unread_messages | number | Number of messages that have not been read by the employer
-test_result | object, null | [Test](employer_negotiations_tests.md)'s result
+test_result | object, null | [Test](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/get-negotiation-test-results)'s result
 test_result.url | string | Full test's result link
 test_result.alternate_url | string | Full test's result site link
 test_result.score | number | Test's score
