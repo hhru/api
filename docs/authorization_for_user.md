@@ -7,4 +7,4 @@
 <a name="invalidate_token"></a>
 <a name="force_login"></a>
 <a name="implant"></a>
-> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#tag/Avtorizaciya-polzovatelya)
+> !! Данный метод доступен в [OpenAPI](https://api.hh.ru/openapi/redoc#section/Avtorizaciya/Avtorizaciya-polzovatelya)
