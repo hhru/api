@@ -142,61 +142,7 @@ or [individual response/invitation](#get-negotiation)
 <a name="add-invite"></a>
 ## Inviting an applicant for a vacancy
 
-The invitation defines the relationship between the employer's job and the applicant's resume
-at the employer's initiative. To perform a request, you need to know the initial
-status for this "job + resume" pair. For more information, please see
-[general description of the process of working with responses/invitations](#flow).
-
-### Request
-
-```
-POST /negotiations/{state}
-```
-
-where `state` – is the initial state of the invitation
-
-You can get the invitation parameters from the
-[action list](https://api.hh.ru/openapi/en/redoc#tag/Vacancy-management/operation/get-active-vacancy-list).
-
-Parameters should be sent in standard format
-`application/x-www-form-urlencoded`.
-
-
-### Response
-
-Successful server response is returned with `201 Created` code, does not have a body and contains
-title `Location` indicating created invitation:
-
-```
-HTTP/1.1 201 Created
-
-Location: /negotiations/321
-```
-
-
-### Errors
-
-* `400 Bad Request` – error in the request parameters.
-* `403 Forbidden` – invitation is impossible.
-
-In addition to an HTTP code, the server can return
-[error reason](errors.md#negotiations).
-
-For example:
-
-* `already_invited` – if the response between the sent CV and the vacancy
-  already exists
-* `resume_not_found` – if the sent CV was hidden or deleted
-* `invalid_vacancy` – if the sent vacancy was archived or hidden
-* `limit_exceeded` – if the manager's number of invitations per day limit
-  was exceeded
-* `application_denied` – general invitation denial error
-  if additional information is unavailable
-* `address_not_found` – if the sent address does not exist or belongs to
-  another employer
-* `not_enough_purchased_services` – the paid services are insufficient, usually
-  [CV database services](https://hh.ru/price#dbaccess)
-
+>!! Method is defined in [OpenAPI](https://api.hh.ru/openapi/en/redoc#tag/Employer-responsesinvitations/operation/invite-applicant-to-vacancy)
 
 <a name="actions"></a>
 <a name="put-on-hold"></a>
