@@ -283,6 +283,10 @@ HTTP code| type| value| description
 403 | negotiations | address_not_found | the address sent for the action does not exist or belongs to another employer
 403 | negotiations | not_enough_purchased_services | the required paid services are not available, this usually refers to [access to the resume database](https://hh.ru/price#dbaccess)
 403 | negotiations | not_enough_purchased_services | the paid services are insufficient, usually [CV database service](https://hh.ru/price#dbaccess)
+403 | negotiations | reached_the_daily_limit_for_the_manager | reached the daily limit for the manager (500)
+403 | negotiations | reached_employers_daily_limit | reached the daily limit for the employer (8000)
+403 | negotiations | reached_quota_limit | reached quota limit
+403 | negotiations | no_access_to_resume_database | no access to resume database
 403 | negotiations | in_a_row_limit | the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
 403 | negotiations | overall_limit | messages limit exceeded
 403 | negotiations | no_invitation | negotiations are unavailable as there was no invitation in the response
@@ -316,6 +320,10 @@ HTTP code| type| value| description
 ----------|------|-------|---------
 400 | vacancies | *field_name* | the is an error in a job's field, where the *field_name* is the key of the upper level field and the reason field may be missing
 403 | vacancies | not_enough_purchased_services | the purchased services are not enough to publish or update this type of job
+403 | vacancies | reached_the_daily_limit_for_the_manager | reached the daily limit for the manager (500)
+403 | vacancies | reached_employers_daily_limit | reached the daily limit for the employer (8000)
+403 | vacancies | reached_quota_limit | reached quota limit
+403 | vacancies | no_access_to_resume_database | no access to resume database
 403 | vacancies | quota_exceeded | the manager's quota for the publication of this type of job is exhausted
 403 | vacancies | duplicate | a similar job has already been published; the [response](#vacancies-duplicate-response) contains information about duplicate jobs; this error can be disabled by force (when [adding](employer_vacancies.md#creation) or [editing](employer_vacancies.md#edit-ignore-duplicates))
 403 | vacancies | creation_forbidden | jobs cannot be published by the current manager
@@ -385,6 +393,10 @@ In addition to the error code, the following errors can be returned when [extend
 HTTP code | type | value | description
 ----------|------|-------|---------
 403 | vacancies | not_enough_purchased_services | the purchased services are insufficient for prolongation of this type of vacancy
+403 | vacancies | reached_the_daily_limit_for_the_manager | reached the daily limit for the manager (500)
+403 | vacancies | reached_employers_daily_limit | reached the daily limit for the employer (8000)
+403 | vacancies | reached_quota_limit | reached quota limit
+403 | vacancies | no_access_to_resume_database | no access to resume database
 403 | vacancies | quota_exceeded | the manager's quota for posting of this type of vacancies has been exceeded
 403 | vacancies | prolongation_forbidden | extension of vacancies is unavailable for the current manager
 403 | vacancies | unavailable_for_archived | extension of vacancies is unavailable for the archived vacancy
