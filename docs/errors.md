@@ -283,8 +283,8 @@ HTTP code | type | value | описание
 403 | negotiations | too_long_message | передан слишком длинный текст письма
 403 | negotiations | address_not_found | переданный к действию по адрес не существует, либо принадлежит другому работодателю
 403 | negotiations | not_enough_purchased_services | не хватает оплаченных услуг, обычно [доступа к базе резюме](https://hh.ru/price#dbaccess)
-403 | negotiations | reached_the_daily_limit_for_the_manager | достигли суточного лимита по менеджеру (500)
-403 | negotiations | reached_employers_daily_limit | достигли суточного лимита по работодателю (8000)
+403 | negotiations | reached_the_daily_limit_for_the_manager | достигли суточного лимита по менеджеру
+403 | negotiations | reached_employers_daily_limit | достигли суточного лимита по работодателю
 403 | negotiations | reached_quota_limit | достигли лимита по квоте
 403 | negotiations | no_access_to_resume_database | нет доступа к базе резюме
 403 | negotiations | in_a_row_limit | превышено количество последовательных сообщений в переписке, оппонент должен ответить на сообщение, чтобы появилась возможность писать вновь
@@ -308,10 +308,6 @@ HTTP code | type | value | reason | описание
 ----------|------|-------|-------|---------
 400 | bad_json_data | *field_name* | *reason* | ошибка в поле вакансии, где *field_name* – ключ поля верхнего уровня, поле reason может не присутствовать
 403 | vacancies | not_enough_purchased_services | | купленных услуг для публикации или обновления данного типа вакансии не достаточно
-403 | vacancies | reached_the_daily_limit_for_the_manager | достигли суточного лимита по менеджеру (500)
-403 | vacancies | reached_employers_daily_limit | достигли суточного лимита по работодателю (8000)
-403 | vacancies | reached_quota_limit | достигли лимита по квоте
-403 | vacancies | no_access_to_resume_database | нет доступа к базе резюме
 403 | vacancies | quota_exceeded | | квота менеджера на публикацию данного типа вакансии закончилась
 403 | vacancies | duplicate | | аналогичная вакансия уже опубликована. В [ответе](#vacancies-duplicate-response) передается информация по дубликатам вакансии. Данную ошибку можно форсировано отключить (при [добавлении](employer_vacancies.md#creation) и [редактировании](employer_vacancies.md#edit-ignore-duplicates))
 403 | vacancies | creation_forbidden | | публикация вакансий недоступна текущему менеджеру
@@ -382,10 +378,6 @@ items[].id | number | Идентификатор вакансии
 HTTP code | type | value | описание
 ----------|------|-------|---------
 403 | vacancies | not_enough_purchased_services | купленных услуг для продления данного типа вакансии не достаточно
-403 | vacancies | reached_the_daily_limit_for_the_manager | достигли суточного лимита по менеджеру (500)
-403 | vacancies | reached_employers_daily_limit | достигли суточного лимита по работодателю (8000)
-403 | vacancies | reached_quota_limit | достигли лимита по квоте
-403 | vacancies | no_access_to_resume_database | нет доступа к базе резюме
 403 | vacancies | quota_exceeded | квота менеджера на публикацию данного типа вакансии закончилась
 403 | vacancies | prolongation_forbidden | продление вакансий недоступно текущему менеджеру
 403 | vacancies | unavailable_for_archived | продление недоступно для архивной вакансии
