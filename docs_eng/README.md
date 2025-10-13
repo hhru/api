@@ -264,7 +264,7 @@ Stay in touch with us via twitter [@apihhru](https://twitter.com/apihhru) or
 email api@hh.ru.
 
 If you found a bug in HeadHunter API or
-[widgets](https://dev.hh.ru/admin/widgets), please look at
+[widgets](https://widgets.hh.ru/), please look at
 [issues](https://github.com/hhru/api/issues). We probably know and are fixing it
 already. If we don't, it's better to report the bug there. There you can also
 leave your wishes and suggestions.
