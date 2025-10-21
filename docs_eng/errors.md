@@ -283,6 +283,10 @@ HTTP code| type| value| description
 403 | negotiations | address_not_found | the address sent for the action does not exist or belongs to another employer
 403 | negotiations | not_enough_purchased_services | the required paid services are not available, this usually refers to [access to the resume database](https://hh.ru/price#dbaccess)
 403 | negotiations | not_enough_purchased_services | the paid services are insufficient, usually [CV database service](https://hh.ru/price#dbaccess)
+403 | negotiations | reached_the_daily_limit_for_the_manager | reached the daily limit for the manager
+403 | negotiations | reached_employers_daily_limit | reached the daily limit for the employer
+403 | negotiations | reached_quota_limit | reached quota limit
+403 | negotiations | no_access_to_resume_database | no access to resume database
 403 | negotiations | in_a_row_limit | the number of successive messages is exceeded; the opponent must reply to the message in order the employer is able to send new messages
 403 | negotiations | overall_limit | messages limit exceeded
 403 | negotiations | no_invitation | negotiations are unavailable as there was no invitation in the response
