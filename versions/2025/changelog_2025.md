@@ -1,6 +1,35 @@
 # Обновления API
 
 <details>
+<summary><strong>1.22.0 (2025-09-10)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /areas` | Нет | • добавлены поля ответа: utc_offset |
+| `GET /areas/{area_id}` | Нет | • добавлены поля ответа: utc_offset |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `GET /negotiations` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• изменены поля ответа: show_contacts |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• изменены поля ответа: show_contacts |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume, tags, vacancy<br>• изменены поля ответа: show_contacts<br>• изменены поля ответа: viewed |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: viewed |
+| `GET /resumes/{resume_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `POST /vacancies` | Да ⚠️ | • изменены поля тела запроса: accept_kids, manager, show_contacts<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/blacklisted` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: accept_kids, age_restriction, manager<br>• изменено описание схемы ответа<br>• изменены поля ответа: id |
+| `GET /vacancies/favorited` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: accept_kids, age_restriction, manager, show_contacts<br>• изменено описание схемы ответа<br>• изменены поля ответа: id |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля тела запроса: accept_kids, show_contacts<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: show_contacts |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.21.0 (2025-09-02)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
