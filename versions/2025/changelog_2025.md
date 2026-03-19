@@ -1,6 +1,19 @@
 # Обновления API
 
 <details>
+<summary><strong>1.9.0 (2025-03-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /resumes/{resume_id}/similar_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: video_vacancy |
+| `GET /vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: video_vacancy |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: video_vacancy |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: video_vacancy |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: video_vacancy |
+
+</details>
+
+<details>
 <summary><strong>1.8.0 (2025-02-26)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
