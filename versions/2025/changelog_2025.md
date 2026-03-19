@@ -1,6 +1,27 @@
 # Обновления API
 
 <details>
+<summary><strong>1.18.1 (2025-07-29)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: employment_form, work_format |
+| `POST /resume_profile` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: employment_form, work_format |
+| `GET /resume_profile/{resume_id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: employment_form, work_format |
+| `PUT /resume_profile/{resume_id}` | Нет | • изменены поля тела запроса: resume<br>• изменены поля ответа: resume<br>• добавлены поля тела запроса: employment_form, work_format<br>• добавлены поля ответа: employment_form, work_format |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form, work_format |
+| `POST /resumes` | Нет | • добавлены поля тела запроса: employment_form, work_format |
+| `GET /resumes/mine` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form, work_format |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: employment_form, work_format |
+| `PUT /resumes/{resume_id}` | Нет | • добавлены поля тела запроса: employment_form, work_format |
+| `GET /vacancies/{vacancy_id}/resumes_by_status` | Нет | • изменены поля ответа: already_applied<br>• добавлены поля ответа: employment_form, work_format<br>• изменён заголовок схемы ответа |
+| `GET /vacancies/{vacancy_id}/suitable_resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form, work_format<br>• изменён заголовок схемы ответа |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.18.0 (2025-07-22)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
