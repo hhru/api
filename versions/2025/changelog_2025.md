@@ -1,6 +1,28 @@
 # Обновления API
 
 <details>
+<summary><strong>1.18.0 (2025-07-22)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: age_restriction |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items<br>• изменены обязательные поля ответа: удалены organization |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: resume<br>• изменены поля ответа: education<br>• изменены обязательные поля ответа: удалены organization |
+| `POST /resume_profile` | Да ⚠️ | • изменены поля ответа: profile, resume<br>• изменены поля ответа: education<br>• изменены обязательные поля ответа: удалены organization |
+| `GET /resume_profile/{resume_id}` | Да ⚠️ | • изменены поля ответа: profile, resume<br>• изменены поля ответа: education<br>• изменены обязательные поля ответа: удалены organization |
+| `PUT /resume_profile/{resume_id}` | Да ⚠️ | • изменены поля тела запроса: profile<br>• изменены поля ответа: profile, resume<br>• изменены поля тела запроса: education<br>• изменены поля ответа: education<br>• изменены поля тела запроса: additional<br>• изменены обязательные поля ответа: удалены organization<br>• изменены обязательные поля тела запроса: удалены organization |
+| `GET /resumes` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: education<br>• изменены обязательные поля ответа: удалены organization |
+| `POST /resumes` | Да ⚠️ | • изменены поля тела запроса: education<br>• изменены обязательные поля тела запроса: удалены organization |
+| `GET /resumes/mine` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: education<br>• изменены обязательные поля ответа: удалены organization |
+| `GET /resumes/{resume_id}` | Да ⚠️ | • изменены поля ответа: education<br>• изменены обязательные поля ответа: удалены organization |
+| `PUT /resumes/{resume_id}` | Да ⚠️ | • изменены поля тела запроса: education<br>• изменены поля тела запроса: additional<br>• изменены обязательные поля тела запроса: удалены organization |
+| `GET /vacancies/{vacancy_id}/resumes_by_status` | Да ⚠️ | • изменены поля ответа: already_applied<br>• изменены поля ответа: education<br>• изменены обязательные поля ответа: удалены organization |
+| `GET /vacancies/{vacancy_id}/suitable_resumes` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: education<br>• изменены обязательные поля ответа: удалены organization |
+| `GET /vacancies/{vacancy_id}/visitors` | Да ⚠️ | • изменены поля ответа: items<br>• изменены обязательные поля ответа: удалены organization |
+
+</details>
+
+<details>
 <summary><strong>1.17.1 (2025-07-15)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
