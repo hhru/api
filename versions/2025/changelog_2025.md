@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.26.2 (2025-12-03)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /suggests/resume_search_keyword` | Нет | • добавлены поля ответа: suggest_id |
+| `GET /suggests/vacancy_search_keyword` | Нет | • добавлены поля ответа: suggest_id |
+
+</details>
+
+<details>
 <summary><strong>1.26.1 (2025-11-26)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
