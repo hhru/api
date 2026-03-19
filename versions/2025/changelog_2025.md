@@ -1,6 +1,35 @@
 # Обновления API
 
 <details>
+<summary><strong>1.16.0 (2025-06-24)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: negotiations_actions<br>• добавлены поля ответа: sub_actions |
+| `GET /negotiations` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: source |
+| `GET /negotiations/active` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: source |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items<br>• добавлены поля ответа: sub_actions |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: actions, resume, source<br>• добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id<br>• добавлены поля ответа: sub_actions |
+| `POST /resume_profile` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id |
+| `GET /resume_profile/{resume_id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id |
+| `PUT /resume_profile/{resume_id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id |
+| `GET /resumes/mine` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id |
+| `POST /vacancies` | Да ⚠️ | • изменены обязательные поля тела запроса: добавлены area, description, name |
+| `POST /vacancies/drafts` | Нет | • изменено описание схемы тела запроса<br>• изменён заголовок схемы тела запроса |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: closed_for_applicants |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменено описание схемы тела запроса<br>• изменён заголовок схемы тела запроса |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: closed_for_applicants |
+| `GET /vacancies/{vacancy_id}/prolongate` | Нет | • обновлено описание метода |
+| `POST /vacancies/{vacancy_id}/prolongate` | Нет | • обновлено описание метода |
+| `GET /vacancies/{vacancy_id}/resumes_by_status` | Нет | • изменены поля ответа: already_applied<br>• добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id |
+| `GET /vacancies/{vacancy_id}/suitable_resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: real_id<br>• изменены обязательные поля ответа: добавлены real_id |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.15.1 (2025-06-10)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
