@@ -1,6 +1,26 @@
 # Обновления API
 
 <details>
+<summary><strong>1.30.1 (2026-01-22)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: civil_law_contracts |
+| `GET /resumes` | Нет | • добавлены параметры: business_trip_readiness |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `POST /vacancies` | Нет | • добавлены поля тела запроса: accept_labor_contract, civil_law_contracts<br>• изменены поля тела запроса: accept_temporary<br>• изменено описание схемы тела запроса |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: accept_labor_contract, civil_law_contracts<br>• изменены поля тела запроса: accept_temporary |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: accept_labor_contract, civil_law_contracts<br>• изменены поля тела запроса: accept_temporary |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `PUT /vacancies/{vacancy_id}` | Нет | • добавлены поля тела запроса: accept_labor_contract, civil_law_contracts<br>• изменены поля тела запроса: accept_temporary<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `GET /vacancy_conditions` | Нет | • добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary |
+
+</details>
+
+<details>
 <summary><strong>1.30.0 (2026-01-15)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
