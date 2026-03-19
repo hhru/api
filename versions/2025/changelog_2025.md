@@ -1,6 +1,24 @@
 # Обновления API
 
 <details>
+<summary><strong>1.13.0 (2025-04-22)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/services/payable_api_actions/active` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: balance |
+| `GET /message_templates/{template}` | Да ⚠️ | • изменены поля ответа: mail |
+| `GET /negotiations` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: viewed_by_opponent |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: viewed_by_opponent |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: viewed_by_opponent |
+| `POST /resume_profile` | Да ⚠️ | • изменены поля ответа: profile |
+| `GET /resume_profile/{resume_id}` | Да ⚠️ | • изменены поля ответа: profile |
+| `PUT /resume_profile/{resume_id}` | Да ⚠️ | • изменены поля ответа: profile |
+| `PUT /resumes/{resume_id}` | Да ⚠️ | • изменены поля тела запроса: area, education, gender |
+
+</details>
+
+<details>
 <summary><strong>1.12.0 (2025-04-15)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
