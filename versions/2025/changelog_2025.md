@@ -1,6 +1,28 @@
 # Обновления API
 
 <details>
+<summary><strong>1.25.0 (2025-10-29)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: linked_socials |
+| `GET /me` | Нет | • добавлены поля ответа: linked_socials<br>• изменены обязательные поля ответа: добавлены linked_socials |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: citizenship |
+| `POST /resume_profile` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: citizenship |
+| `GET /resume_profile/{resume_id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: citizenship |
+| `PUT /resume_profile/{resume_id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: citizenship |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: citizenship |
+| `GET /suggests/area_leaves` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: parent |
+| `GET /suggests/areas` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: parent |
+| `POST /vacancies/drafts` | Да ⚠️ | • удалены поля тела запроса: auction |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • удалены поля ответа: auction |
+| `PUT /vacancies/drafts/{draft_id}` | Да ⚠️ | • удалены поля тела запроса: auction |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.24.3 (2025-10-22)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
