@@ -1,6 +1,22 @@
 # Обновления API
 
 <details>
+<summary><strong>1.26.1 (2025-11-26)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: vacancy_search_employment_form<br>• изменены обязательные поля ответа: добавлены vacancy_search_employment_form |
+| `POST /employers/{employer_id}/managers` | Нет | • изменены поля тела запроса: manager_type<br>• изменены поля тела запроса: id |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: premium |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: premium |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: premium |
+| `GET /vacancies` | Нет | • изменены параметры: employment_form |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: premium<br>• изменено описание схемы ответа |
+| `GET /vacancy_conditions` | Нет | • добавлены поля ответа: closed_for_applicants, vacancy_properties<br>• изменены поля ответа: billing_type, type |
+
+</details>
+
+<details>
 <summary><strong>1.26.0 (2025-11-19)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
