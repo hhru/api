@@ -1,6 +1,22 @@
 # Обновления API
 
 <details>
+<summary><strong>1.25.1 (2025-11-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /vacancies` | Нет | • добавлены поля тела запроса: auto_response |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: auto_response |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: auto_response |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: auto_response |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: auto_response |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: auto_response |
+| `PUT /vacancies/{vacancy_id}` | Нет | • добавлены поля тела запроса: auto_response |
+| `GET /vacancy_conditions` | Нет | • добавлены поля ответа: auto_response |
+
+</details>
+
+<details>
 <summary><strong>1.25.0 (2025-10-29)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
