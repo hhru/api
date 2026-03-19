@@ -1,6 +1,20 @@
 # Обновления API
 
 <details>
+<summary><strong>1.8.0 (2025-02-26)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants, vacancy_properties<br>• изменены обязательные поля ответа: добавлены closed_for_applicants, vacancy_properties |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants, vacancy_properties<br>• изменены обязательные поля ответа: добавлены closed_for_applicants, vacancy_properties |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: resume<br>• изменены поля ответа: actions, photo |
+| `GET /resumes` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: actions, photo |
+| `GET /vacancies/{vacancy_id}/visitors` | Да ⚠️ | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.7.0 (2025-02-19)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
