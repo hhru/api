@@ -1,6 +1,24 @@
 # Обновления API
 
 <details>
+<summary><strong>1.13.3 (2025-05-13)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `POST /resume_profile` | Нет | • изменены поля ответа: profile<br>• добавлены поля ответа: communication_methods, other_communication_methods |
+| `GET /resume_profile/dictionaries` | Нет | • добавлены поля ответа: resume_profile_communication_methods<br>• изменены обязательные поля ответа: добавлены resume_profile_communication_methods |
+| `GET /resume_profile/{resume_id}` | Нет | • изменены поля ответа: profile<br>• добавлены поля ответа: communication_methods, other_communication_methods |
+| `PUT /resume_profile/{resume_id}` | Нет | • изменены поля ответа: profile<br>• добавлены поля ответа: communication_methods, other_communication_methods |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+
+</details>
+
+<details>
 <summary><strong>1.13.2 (2025-05-06)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
