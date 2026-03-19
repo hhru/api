@@ -1,6 +1,20 @@
 # Обновления API
 
 <details>
+<summary><strong>1.4.0 (2025-01-29)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/managers/{manager_id}` | Нет | • добавлены ответы 403 |
+| `GET /negotiations` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: source |
+| `GET /negotiations/active` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: source |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: source |
+| `GET /vacancies/{vacancy_id}/visitors` | Да ⚠️ | • изменены параметры: page, per_page<br>• добавлены ответы 403 |
+
+</details>
+
+<details>
 <summary><strong>1.3.0 (2025-01-15)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
