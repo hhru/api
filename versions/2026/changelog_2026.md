@@ -1,6 +1,15 @@
 # Обновления API
 
 <details>
+<summary><strong>1.34.1 (2026-03-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /common/chats/counters/unread` | Нет | • изменены поля ответа: unread_chats_count<br>• изменён заголовок схемы ответа |
+
+</details>
+
+<details>
 <summary><strong>1.34.0 (2026-02-26)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
