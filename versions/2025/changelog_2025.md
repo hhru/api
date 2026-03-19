@@ -1,6 +1,18 @@
 # Обновления API
 
 <details>
+<summary><strong>1.24.2 (2025-10-15)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /areas` | Нет | • добавлены поля ответа: lat, lng |
+| `GET /areas/{area_id}` | Нет | • добавлены поля ответа: lat, lng |
+| `GET /clickme/statistics` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: vacancy_area_name<br>• изменены обязательные поля ответа: добавлены vacancy_area_name |
+| `GET /resumes` | Нет | • добавлены ответы 429 |
+
+</details>
+
+<details>
 <summary><strong>1.24.1 (2025-10-08)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
