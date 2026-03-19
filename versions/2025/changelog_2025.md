@@ -1,6 +1,21 @@
 # Обновления API
 
 <details>
+<summary><strong>1.23.0 (2025-09-17)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types` | Нет | • обновлено описание метода<br>• эндпоинт помечен deprecated |
+| `POST /vacancies` | Да ⚠️ | • добавлены поля тела запроса: closed_for_applicants, vacancy_properties<br>• изменены поля тела запроса: billing_type, type<br>• изменены обязательные поля тела запроса: добавлены area, description, name, professional_roles, vacancy_properties<br>• изменено описание схемы тела запроса<br>• изменён заголовок схемы тела запроса<br>• изменены поля тела запроса: id |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены поля ответа: publication_type, vacancy_type |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: closed_for_applicants, vacancy_properties<br>• изменены поля тела запроса: billing_type, type<br>• изменён заголовок схемы тела запроса |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: billing_type, closed_for_applicants, type<br>• изменены поля ответа: id<br>• изменено описание схемы ответа |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: closed_for_applicants, vacancy_properties<br>• изменены поля тела запроса: billing_type, type<br>• изменён заголовок схемы тела запроса |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: closed_for_applicants, type |
+
+</details>
+
+<details>
 <summary><strong>1.22.0 (2025-09-10)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
