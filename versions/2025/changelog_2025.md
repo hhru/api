@@ -1,6 +1,36 @@
 # Обновления API
 
 <details>
+<summary><strong>1.13.1 (2025-04-29)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/addresses` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: metro_stations<br>• изменены поля ответа: line_name |
+| `GET /employers/{employer_id}/addresses/{address_id}` | Нет | • изменены поля ответа: metro_stations<br>• изменены поля ответа: line_name |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `GET /negotiations` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: vacancy<br>• изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `GET /negotiations/{nid}/messages` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `POST /negotiations/{nid}/messages` | Нет | • изменены поля ответа: address<br>• изменены поля ответа: metro_stations<br>• изменены поля ответа: line_name |
+| `GET /resumes/{resume_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: metro_stations<br>• изменены поля ответа: line_name |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: metro_stations<br>• изменены поля ответа: line_name |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: fly_in_fly_out_duration<br>• изменено описание схемы тела запроса |
+| `POST /vacancies/drafts` | Нет | • изменены поля тела запроса: fly_in_fly_out_duration |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: address<br>• изменены поля ответа: metro_stations<br>• изменены поля ответа: line_name |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены поля тела запроса: fly_in_fly_out_duration |
+| `GET /vacancies/favorited` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: address<br>• изменены поля ответа: metro<br>• изменены поля ответа: line_name |
+| `PUT /vacancies/{vacancy_id}` | Нет | • изменены поля тела запроса: fly_in_fly_out_duration<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: metro_stations<br>• изменены поля ответа: line_name |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: metro_stations<br>• изменены поля ответа: line_name |
+| `DELETE /webhook/subscriptions/{subscription_id}` | Нет | • обновлены теги метода<br>• изменены ответы 403 |
+
+</details>
+
+<details>
 <summary><strong>1.13.0 (2025-04-22)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
