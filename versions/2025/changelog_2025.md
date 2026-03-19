@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.10.0 (2025-03-19)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /vacancies` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+
+</details>
+
+<details>
 <summary><strong>1.9.1 (2025-03-12)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
