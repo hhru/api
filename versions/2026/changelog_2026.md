@@ -1,6 +1,143 @@
 # Обновления API
 
 <details>
+<summary><strong>1.36.0 (2026-03-19)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /applicant_comments/{applicant_id}` | Да ⚠️ | • прочие изменения |
+| `POST /applicant_comments/{applicant_id}` | Да ⚠️ | • прочие изменения |
+| `DELETE /applicant_comments/{applicant_id}/{comment_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /applicant_comments/{applicant_id}/{comment_id}` | Да ⚠️ | • прочие изменения |
+| `GET /areas` | Да ⚠️ | • прочие изменения |
+| `GET /areas/countries` | Да ⚠️ | • прочие изменения |
+| `GET /areas/{area_id}` | Да ⚠️ | • прочие изменения |
+| `GET /clickme/statistics` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats/counters/unread` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats/files/conditions` | Да ⚠️ | • прочие изменения |
+| `POST /common/chats/files/upload_links` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/leave` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats/{chat_id}/messages` | Да ⚠️ | • прочие изменения |
+| `POST /common/chats/{chat_id}/messages` | Да ⚠️ | • прочие изменения |
+| `DELETE /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats/{chat_id}/participants` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/participants` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/write_possibility` | Да ⚠️ | • прочие изменения |
+| `GET /dictionaries` | Да ⚠️ | • прочие изменения |
+| `GET /districts` | Да ⚠️ | • прочие изменения |
+| `GET /educational_institutions` | Да ⚠️ | • прочие изменения |
+| `GET /educational_institutions/{id}/faculties` | Да ⚠️ | • прочие изменения |
+| `GET /employers` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/addresses` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/addresses/{address_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/departments` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/mail_templates` | Да ⚠️ | • прочие изменения |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/manager_types` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers` | Да ⚠️ | • прочие изменения |
+| `POST /employers/{employer_id}/managers` | Да ⚠️ | • прочие изменения |
+| `DELETE /employers/{employer_id}/managers/{manager_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /employers/{employer_id}/managers/{manager_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/limits/resume` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/method_access` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/settings` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/negotiations_statistics` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/services/available_publications` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/services/payable_api_actions/active` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/tests` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancies/active` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancies/archived` | Да ⚠️ | • прочие изменения |
+| `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancies/hidden` | Да ⚠️ | • прочие изменения |
+| `DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancy_areas/active` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancy_branded_templates` | Да ⚠️ | • прочие изменения |
+| `GET /industries` | Да ⚠️ | • прочие изменения |
+| `GET /languages` | Да ⚠️ | • прочие изменения |
+| `GET /locales` | Да ⚠️ | • прочие изменения |
+| `GET /locales/resume` | Да ⚠️ | • прочие изменения |
+| `GET /manager_accounts/mine` | Да ⚠️ | • прочие изменения |
+| `GET /me` | Да ⚠️ | • прочие изменения |
+| `GET /message_templates/{template}` | Да ⚠️ | • прочие изменения |
+| `GET /metro` | Да ⚠️ | • прочие изменения |
+| `GET /metro/{city_id}` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations` | Да ⚠️ | • прочие изменения |
+| `POST /negotiations/phone_interview` | Да ⚠️ | • прочие изменения |
+| `POST /negotiations/read` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations/response` | Да ⚠️ | • прочие изменения |
+| `PUT /negotiations/{collection_name}/{nid}` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations/{id}` | Да ⚠️ | • прочие изменения |
+| `PUT /negotiations/{id}` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations/{nid}/messages` | Да ⚠️ | • прочие изменения |
+| `POST /negotiations/{nid}/messages` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations/{nid}/test/solution` | Да ⚠️ | • прочие изменения |
+| `GET /professional_roles` | Да ⚠️ | • прочие изменения |
+| `GET /resumes` | Да ⚠️ | • прочие изменения |
+| `GET /resumes/{resume_id}` | Да ⚠️ | • прочие изменения |
+| `GET /resumes/{resume_id}/negotiations_history` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/dictionaries/employee_levels` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/dictionaries/professional_areas` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/dictionaries/salary_areas` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/dictionaries/salary_industries` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Да ⚠️ | • изменены поля ответа: resulting_parameters<br>• изменены поля ответа: specialities |
+| `GET /saved_searches/resumes` | Да ⚠️ | • прочие изменения |
+| `POST /saved_searches/resumes` | Да ⚠️ | • прочие изменения |
+| `DELETE /saved_searches/resumes/{id}` | Да ⚠️ | • прочие изменения |
+| `GET /saved_searches/resumes/{id}` | Да ⚠️ | • прочие изменения |
+| `PUT /saved_searches/resumes/{id}` | Да ⚠️ | • прочие изменения |
+| `PUT /saved_searches/resumes/{saved_search_id}/managers/{manager_id}` | Да ⚠️ | • прочие изменения |
+| `GET /skills` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/area_leaves` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/areas` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/companies` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/educational_institutions` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/fields_of_study` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/positions` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/professional_roles` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/resume_search_keyword` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/skill_set` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/vacancy_positions` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/vacancy_search_keyword` | Да ⚠️ | • прочие изменения |
+| `DELETE /token` | Да ⚠️ | • прочие изменения |
+| `POST /token` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies` | Да ⚠️ | • прочие изменения |
+| `POST /vacancies` | Да ⚠️ | • прочие изменения |
+| `DELETE /vacancies/auto_publication` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/drafts` | Да ⚠️ | • прочие изменения |
+| `POST /vacancies/drafts` | Да ⚠️ | • прочие изменения |
+| `DELETE /vacancies/drafts/{draft_id}` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /vacancies/drafts/{draft_id}` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/drafts/{draft_id}/duplicates` | Да ⚠️ | • прочие изменения |
+| `POST /vacancies/drafts/{draft_id}/publish` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{id}/preferred_negotiations_order` | Да ⚠️ | • прочие изменения |
+| `PUT /vacancies/{id}/preferred_negotiations_order` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/prolongate` | Да ⚠️ | • прочие изменения |
+| `POST /vacancies/{vacancy_id}/prolongate` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/stats` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/upgrades` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/visitors` | Да ⚠️ | • прочие изменения |
+| `GET /vacancy_conditions` | Да ⚠️ | • прочие изменения |
+| `GET /webhook/subscriptions` | Да ⚠️ | • прочие изменения |
+| `POST /webhook/subscriptions` | Да ⚠️ | • прочие изменения |
+| `DELETE /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • прочие изменения |
+
+</details>
+
+<details>
 <summary><strong>1.35.0 (2026-03-12)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
