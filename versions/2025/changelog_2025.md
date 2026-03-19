@@ -1,6 +1,27 @@
 # Обновления API
 
 <details>
+<summary><strong>1.29.0 (2025-12-24)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /me` | Да ⚠️ | • удален эндпоинт |
+| `GET /negotiations` | Да ⚠️ | • обновлено описание метода<br>• изменены ответы 200, 403<br>• удалены поля ответа: found, items, page, pages, per_page<br>• изменены обязательные поля ответа: удалены found, items, page, pages, per_page |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: id |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены ответы 200<br>• удалены поля ответа: decline_allowed, hidden, job_search_status, phone_calls, url<br>• изменены поля ответа: resume<br>• изменены обязательные поля ответа: удалены decline_allowed, hidden, url<br>• изменены поля ответа: experience<br>• добавлены поля ответа: id |
+| `POST /negotiations/{nid}/messages` | Нет | • изменены ответы 201 |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: experience<br>• добавлены поля ответа: id |
+| `POST /resumes` | Нет | • изменены поля тела запроса: experience<br>• добавлены поля тела запроса: id |
+| `GET /resumes/{resume_id}` | Да ⚠️ | • изменены ответы 200<br>• удалены поля ответа: access, blocked, can_publish_or_update, finished, moderation_note, new_views, next_publish_at, progress и еще 4<br>• изменены поля ответа: actions, can_view_full_info, experience, paid_services, photo, portfolio<br>• изменены обязательные поля ответа: удалены access, blocked, finished, moderation_note, new_views, progress, publish_url, status и еще 2<br>• изменено описание схемы ответа<br>• изменён заголовок схемы ответа<br>• добавлены поля ответа: id<br>• удалены поля ответа: id<br>• изменены поля ответа: description<br>• изменены обязательные поля ответа: удалены id |
+| `PUT /resumes/{resume_id}` | Нет | • изменены поля тела запроса: experience<br>• добавлены поля тела запроса: id |
+| `GET /vacancies` | Нет | • обновлено описание метода<br>• обновлены теги метода |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены ответы 200 |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • обновлено описание метода<br>• обновлены теги метода |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: id |
+
+</details>
+
+<details>
 <summary><strong>1.28.0 (2025-12-17)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
