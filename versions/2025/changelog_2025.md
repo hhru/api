@@ -1,6 +1,39 @@
 # Обновления API
 
 <details>
+<summary><strong>1.5.0 (2025-02-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `DELETE /employers/blacklisted/{employer_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /employers/blacklisted/{employer_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Нет | • добавлены поля ответа: bad_argument, bad_arguments, description |
+| `POST /employers/{employer_id}/managers` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `DELETE /employers/{employer_id}/managers/{manager_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `PUT /employers/{employer_id}/managers/{manager_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: negotiations_actions<br>• добавлены поля ответа: hidden<br>• изменены обязательные поля ответа: добавлены hidden |
+| `GET /negotiations` | Нет | • изменены поля ответа: collections<br>• добавлены поля ответа: hidden |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: collections<br>• добавлены поля ответа: hidden |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: hidden<br>• изменены обязательные поля ответа: добавлены hidden |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: actions<br>• добавлены поля ответа: hidden<br>• изменены обязательные поля ответа: добавлены hidden |
+| `PUT /negotiations/{nid}/messages/{mid}` | Да ⚠️ | • изменены поля ответа: description, errors<br>• добавлены поля ответа: description<br>• изменены поля ответа: value |
+| `POST /resume_phone_confirm` | Да ⚠️ | • изменены ответы 400, 403 |
+| `POST /resume_phone_generate_code` | Да ⚠️ | • изменены ответы 400, 403 |
+| `POST /resumes` | Нет | • добавлены ответы 409 |
+| `GET /resumes/{resume_id}` | Да ⚠️ | • изменены ответы 429<br>• изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `POST /resumes/{resume_id}/publish` | Нет | • изменены ответы 429<br>• изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `POST /vacancies` | Нет | • добавлены поля ответа: bad_argument, bad_arguments, description |
+| `DELETE /vacancies/blacklisted/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /vacancies/blacklisted/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `POST /vacancies/drafts` | Нет | • добавлены поля ответа: bad_argument, bad_arguments, description |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: bad_argument, bad_arguments, description |
+| `PUT /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: bad_argument, bad_arguments, description |
+| `POST /webhook/subscriptions` | Нет | • добавлены поля ответа: bad_argument, bad_arguments, description |
+| `PUT /webhook/subscriptions/{subscription_id}` | Нет | • добавлены поля ответа: bad_argument, bad_arguments, description |
+
+</details>
+
+<details>
 <summary><strong>1.4.0 (2025-01-29)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
