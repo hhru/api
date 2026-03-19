@@ -1,6 +1,28 @@
 # Обновления API
 
 <details>
+<summary><strong>1.34.0 (2026-02-26)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /negotiations/read` | Нет | • изменено тело запроса |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • обновлено описание метода<br>• изменены поля ответа: resume<br>• добавлены поля ответа: experience_group_by_company |
+| `GET /negotiations/{nid}/messages` | Нет | • обновлено описание метода |
+| `POST /negotiations/{nid}/messages` | Нет | • обновлено описание метода |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: experience_group_by_company |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: experience_group_by_company |
+| `GET /vacancies` | Нет | • добавлены параметры: salary_frequency, salary_mode <br>изменены параметры: employment, only_with_salary, part_time, schedule |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • добавлены параметры: driver_license_types, education, employment_form, salary_frequency, salary_mode, work_format, work_schedule_by_days, working_hours <br>изменены параметры: employment, only_with_salary, part_time, schedule |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • добавлены параметры: driver_license_types, education, employment_form, salary_frequency, salary_mode, work_format, work_schedule_by_days, working_hours <br>изменены параметры: employment, only_with_salary, part_time, schedule |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+| `GET /webhook/subscriptions` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: actions |
+| `POST /webhook/subscriptions` | Да ⚠️ | • изменены поля тела запроса: actions |
+| `PUT /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • изменены поля тела запроса: actions |
+
+</details>
+
+<details>
 <summary><strong>1.33.1 (2026-02-19)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
