@@ -1,6 +1,17 @@
 # Обновления API
 
 <details>
+<summary><strong>1.31.0 (2026-01-29)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /resumes/{resume_id}` | Нет | • изменены поля ответа: negotiations_history<br>• изменены поля ответа: url |
+| `GET /resumes/{resume_id}/negotiations_history` | Нет | • изменены поля ответа: vacancies<br>• изменены поля ответа: url |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: address<br>• добавлены поля ответа: can_edit<br>• изменены обязательные поля ответа: добавлены can_edit |
+
+</details>
+
+<details>
 <summary><strong>1.30.1 (2026-01-22)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
