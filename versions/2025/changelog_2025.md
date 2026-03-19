@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.15.1 (2025-06-10)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations` | Нет | • изменены поля ответа: collections<br>• добавлены поля ответа: sub_collections |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: collections<br>• добавлены поля ответа: sub_collections |
+
+</details>
+
+<details>
 <summary><strong>1.15.0 (2025-06-03)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
