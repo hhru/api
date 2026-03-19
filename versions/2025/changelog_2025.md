@@ -1,6 +1,18 @@
 # Обновления API
 
 <details>
+<summary><strong>1.27.0 (2025-12-10)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • изменены поля ответа: employment_form |
+| `GET /employers/{employer_id}/vacancy_branded_templates` | Нет | • обновлено описание метода |
+| `GET /vacancies` | Нет | • добавлены параметры: driver_license_types |
+| `POST /vacancies/{vacancy_id}/prolongate` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+
+</details>
+
+<details>
 <summary><strong>1.26.2 (2025-12-03)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
