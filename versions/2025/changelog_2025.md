@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.6.0 (2025-02-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /vacancies` | Да ⚠️ | • изменены поля ответа: errors<br>• добавлены поля ответа: description<br>• изменены поля ответа: value |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • добавлены параметры: ignore_replacement_warning<br>• изменены поля ответа: errors<br>• добавлены поля ответа: description<br>• изменены поля ответа: value |
+
+</details>
+
+<details>
 <summary><strong>1.5.0 (2025-02-05)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
