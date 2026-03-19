@@ -1,6 +1,25 @@
 # Обновления API
 
 <details>
+<summary><strong>1.7.0 (2025-02-19)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• добавлены поля ответа: appearance<br>• изменены поля ответа: properties |
+| `POST /me` | Да ⚠️ | • изменены ответы 400 |
+| `GET /resumes` | Нет | • добавлены параметры: district, education_levels, last_used, last_used_timestamp, saved_search_id, search_by_vacancy_id, text.company_size, text.industry <br>изменены параметры: education_level |
+| `POST /resumes` | Да ⚠️ | • изменено тело запроса<br>• изменены ответы 400 |
+| `PUT /resumes/{resume_id}` | Да ⚠️ | • изменены ответы 400 |
+| `GET /vacancies` | Да ⚠️ | • изменены ответы 400 |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: vacancy_properties |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: vacancy_properties |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: vacancy_properties |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• добавлены поля ответа: appearance<br>• изменены поля ответа: properties |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • изменены ответы 400 |
+
+</details>
+
+<details>
 <summary><strong>1.6.0 (2025-02-12)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
