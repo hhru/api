@@ -1,6 +1,15 @@
 # Обновления API
 
 <details>
+<summary><strong>1.17.1 (2025-07-15)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /vacancies` | Нет | • добавлены параметры: education, employment_form, excluded_text, work_format, work_schedule_by_days, working_hours <br>изменены параметры: employment, part_time, schedule |
+
+</details>
+
+<details>
 <summary><strong>1.17.0 (2025-07-08)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
