@@ -1,6 +1,18 @@
 # Обновления API
 
 <details>
+<summary><strong>1.14.0 (2025-05-21)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /resume_profile` | Да ⚠️ | • изменено тело запроса |
+| `PUT /resume_profile/{resume_id}` | Да ⚠️ | • изменено тело запроса |
+| `PUT /resumes/{resume_id}` | Нет | • обновлено описание метода<br>• эндпоинт помечен deprecated |
+| `POST /webhook/subscriptions` | Нет | • обновлено описание метода |
+
+</details>
+
+<details>
 <summary><strong>1.13.3 (2025-05-13)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
