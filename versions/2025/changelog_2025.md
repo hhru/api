@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.25.2 (2025-11-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}` | Нет | • изменены поля ответа: branding<br>• изменены поля ответа: makeup |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.25.1 (2025-11-05)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
