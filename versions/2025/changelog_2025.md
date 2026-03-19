@@ -1,6 +1,19 @@
 # Обновления API
 
 <details>
+<summary><strong>1.13.2 (2025-05-06)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• добавлены поля ответа: show_contacts<br>• изменены обязательные поля ответа: добавлены show_contacts |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• добавлены поля ответа: show_contacts<br>• изменены обязательные поля ответа: добавлены show_contacts |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: vacancy<br>• добавлены поля ответа: show_contacts<br>• изменены обязательные поля ответа: добавлены show_contacts |
+| `GET /vacancies/blacklisted` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: show_contacts |
+| `GET /vacancies/favorited` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: show_contacts |
+
+</details>
+
+<details>
 <summary><strong>1.13.1 (2025-04-29)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
