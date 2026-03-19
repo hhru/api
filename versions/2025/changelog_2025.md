@@ -1,6 +1,29 @@
 # Обновления API
 
 <details>
+<summary><strong>1.12.0 (2025-04-15)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties |
+| `GET /employers/{employer_id}/vacancies/archived` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties |
+| `GET /employers/{employer_id}/vacancies/hidden` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: contacts_open_until_date, employment_form, fly_in_fly_out_duration, internship, night_shifts, ready_for_temporary_job, work_format, work_schedule_by_days и еще 1 |
+| `GET /resumes` | Нет | • изменены параметры: education_level<br>• изменены поля ответа: items<br>• добавлены поля ответа: contacts_open_until_date, employment_form, fly_in_fly_out_duration, internship, night_shifts, ready_for_temporary_job, work_format, work_schedule_by_days и еще 1 |
+| `POST /resumes` | Нет | • обновлено описание метода<br>• добавлены поля тела запроса: employment_form, fly_in_fly_out_duration, internship, night_shifts, ready_for_temporary_job, work_format, work_schedule_by_days, working_hours<br>• эндпоинт помечен deprecated |
+| `GET /resumes/mine` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form, fly_in_fly_out_duration, internship, night_shifts, ready_for_temporary_job, work_format, work_schedule_by_days, working_hours |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: contacts_open_until_date, employment_form, fly_in_fly_out_duration, internship, night_shifts, ready_for_temporary_job, work_format, work_schedule_by_days и еще 1 |
+| `PUT /resumes/{resume_id}` | Нет | • добавлены поля тела запроса: employment_form, fly_in_fly_out_duration, internship, night_shifts, ready_for_temporary_job, work_format, work_schedule_by_days, working_hours |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: vacancy_properties |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties |
+| `GET /vacancies/{vacancy_id}/resumes_by_status` | Нет | • изменены поля ответа: already_applied<br>• добавлены поля ответа: employment_form, fly_in_fly_out_duration, internship, night_shifts, ready_for_temporary_job, work_format, work_schedule_by_days, working_hours<br>• изменён заголовок схемы ответа |
+| `GET /vacancies/{vacancy_id}/suitable_resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form, fly_in_fly_out_duration, internship, night_shifts, ready_for_temporary_job, work_format, work_schedule_by_days, working_hours<br>• изменён заголовок схемы ответа |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.11.1 (2025-04-08)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
