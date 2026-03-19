@@ -1,6 +1,15 @@
 # Обновления API
 
 <details>
+<summary><strong>1.20.0 (2025-08-26)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `PUT /resume_profile/{resume_id}` | Да ⚠️ | • изменены обязательные поля тела запроса: удалены current_screen_id |
+
+</details>
+
+<details>
 <summary><strong>1.19.2 (2025-08-19)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
