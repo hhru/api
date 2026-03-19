@@ -1,6 +1,15 @@
 # Обновления API
 
 <details>
+<summary><strong>1.24.1 (2025-10-08)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • добавлены поля ответа: hidden_count |
+
+</details>
+
+<details>
 <summary><strong>1.24.0 (2025-09-24)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
