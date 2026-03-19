@@ -1,6 +1,20 @@
 # Обновления API
 
 <details>
+<summary><strong>1.35.0 (2026-03-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `POST /common/chats/{chat_id}/messages` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/write_possibility` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • добавлены поля ответа: chat_id |
+
+</details>
+
+<details>
 <summary><strong>1.34.1 (2026-03-05)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
