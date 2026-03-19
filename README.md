@@ -25,10 +25,15 @@ HeadHunter API — это инструментарий для интеграци
 
 ## [OpenAPI](https://api.hh.ru/openapi/redoc)
 
-Доступная в [OpenAPI](https://api.hh.ru/openapi/redoc) документация будет со временем дополняться.
+Доступная в [OpenAPI](https://api.hh.ru/openapi/redoc) документация содержит всю актуальную информацию на текущий момент.
 Методы, описанные в данной документации и доступные в OpenAPI, имеют соответствующую ссылку.
 
-Спецификация HeadHunter API: [openapi.yml](https://api.hh.ru/openapi/specification/public).
+История версий хранится в папке [versions](versions), [/versions/openapi.yml](versions/openapi.yml) содержит общую документацию, 
+предоставлен для ознакомления, информация в нем может "отставать", поэтому для получения актуальной документации лучше пользоваться страницей https://api.hh.ru/openapi/redoc.
+Если не удается посмотреть изменения в файле openapi.yml в конкретном комите ([пример](https://github.com/hhru/api/commit/28745291577c518a72540bc1243415da26cbec64), 
+ github не отображает крупные изменения в виде diff), можно сформировать файл с изменениями самостоятельно по [инструкции](docs/diff_instruction.md).  
+
+Актуальная спецификация HeadHunter API: [openapi.yml](https://api.hh.ru/openapi/specification/public).
 
 <a name="content"></a>
 ## Содержание
