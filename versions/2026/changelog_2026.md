@@ -1,6 +1,21 @@
 # Обновления API
 
 <details>
+<summary><strong>1.33.1 (2026-02-19)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /clickme/statistics` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: date_end, date_start |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: source |
+| `GET /suggests/companies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: logo_urls<br>• добавлены поля ответа: 240<br>• изменены поля ответа: 90 |
+
+</details>
+
+<details>
 <summary><strong>1.33.0 (2026-02-12)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
