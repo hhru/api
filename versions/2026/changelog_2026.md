@@ -1,6 +1,19 @@
 # Обновления API
 
 <details>
+<summary><strong>1.33.0 (2026-02-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /negotiations/phone_interview` | Да ⚠️ | • изменены поля ответа: errors |
+| `PUT /negotiations/{collection_name}/{nid}` | Да ⚠️ | • изменены поля ответа: errors |
+| `POST /negotiations/{nid}/messages` | Да ⚠️ | • изменены поля ответа: errors |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены обязательные поля ответа: удалены schedule |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены обязательные поля ответа: удалены schedule |
+
+</details>
+
+<details>
 <summary><strong>1.32.0 (2026-02-05)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
