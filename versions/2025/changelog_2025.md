@@ -1,6 +1,23 @@
 # Обновления API
 
 <details>
+<summary><strong>1.26.0 (2025-11-19)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Да ⚠️ | • изменены ответы 400 |
+| `GET /me` | Да ⚠️ | • добавлены поля ответа: auth_type, is_admin, is_applicant, is_application, is_employer, is_employer_integration<br>• изменены поля ответа: counters, first_name, id, last_name, linked_socials, negotiations_url, profile_videos, resumes_url и еще 1<br>• изменены обязательные поля ответа: добавлены auth_type, is_admin, is_applicant, is_application, is_employer, is_employer_integration<br>• изменено описание схемы ответа<br>• изменён заголовок схемы ответа |
+| `GET /negotiations/{nid}/messages` | Нет | • добавлены параметры: page, per_page |
+| `POST /resume_profile` | Нет | • изменены поля ответа: profile<br>• добавлены поля ответа: experience |
+| `GET /resume_profile/{resume_id}` | Нет | • изменены поля ответа: profile<br>• добавлены поля ответа: experience |
+| `PUT /resume_profile/{resume_id}` | Нет | • изменены поля ответа: profile<br>• добавлены поля ответа: experience |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • добавлены поля тела запроса: vacancy_properties<br>• изменены поля тела запроса: billing_type<br>• изменены обязательные поля тела запроса: добавлены vacancy_properties<br>• изменены поля тела запроса: id<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}/upgrades` | Нет | • добавлены поля ответа: error_reason<br>• изменены поля ответа: items<br>• добавлены поля ответа: appearance, vacancy_properties<br>• изменены поля ответа: vacancy_billing_type |
+| `GET /vacancy_conditions` | Нет | • изменены поля ответа: fly_in_fly_out_duration, work_format, work_schedule_by_days, working_hours |
+
+</details>
+
+<details>
 <summary><strong>1.25.2 (2025-11-12)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
