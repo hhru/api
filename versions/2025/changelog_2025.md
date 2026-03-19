@@ -1,6 +1,51 @@
 # Обновления API
 
 <details>
+<summary><strong>1.21.0 (2025-09-02)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /applicant_comments/{applicant_id}` | Нет | • изменены параметры: applicant_id |
+| `POST /applicant_comments/{applicant_id}` | Нет | • изменены параметры: applicant_id |
+| `DELETE /applicant_comments/{applicant_id}/{comment_id}` | Нет | • изменены параметры: applicant_id |
+| `PUT /applicant_comments/{applicant_id}/{comment_id}` | Нет | • изменены параметры: applicant_id |
+| `GET /dictionaries` | Нет | • изменены поля ответа: resume_hidden_fields |
+| `GET /educational_institutions` | Нет | • изменены ответы 400 |
+| `GET /employers/{employer_id}/mail_templates` | Нет | • обновлено описание метода |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Нет | • обновлено описание метода |
+| `POST /employers/{employer_id}/managers` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `DELETE /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `PUT /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `GET /employers/{employer_id}/managers/{manager_id}/method_access` | Нет | • обновлено описание метода |
+| `GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics` | Нет | • изменены поля ответа: manager_statistics<br>• изменены поля ответа: replied_percent |
+| `GET /employers/{employer_id}/negotiations_statistics` | Нет | • изменены поля ответа: employer_statistics<br>• изменены поля ответа: replied_percent |
+| `GET /negotiations` | Нет | • изменены параметры: with_generated_collections<br>• изменены поля ответа: employer_states |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: employer_states |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: download_with_contact<br>• изменено описание схемы ответа |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: actions, resume<br>• изменены поля ответа: actions, hidden_fields<br>• изменены поля ответа: download_with_contact<br>• изменено описание схемы ответа |
+| `PUT /negotiations/{id}` | Нет | • обновлено описание метода |
+| `POST /oauth/token` | Нет | • изменены ответы 400<br>• изменены поля ответа: error_description |
+| `POST /resume_profile` | Нет | • изменены поля ответа: resume<br>• изменены поля ответа: hidden_fields |
+| `GET /resume_profile/{resume_id}` | Нет | • изменены поля ответа: resume<br>• изменены поля ответа: hidden_fields |
+| `PUT /resume_profile/{resume_id}` | Нет | • изменены поля ответа: resume<br>• изменены поля ответа: hidden_fields |
+| `GET /resumes` | Нет | • обновлено описание метода<br>• изменены параметры: area, citizenship, work_ticket<br>• изменены поля ответа: items<br>• изменены поля ответа: actions, hidden_fields<br>• изменены поля ответа: download_with_contact<br>• изменено описание схемы ответа |
+| `POST /resumes` | Нет | • изменены поля тела запроса: hidden_fields |
+| `GET /resumes/mine` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: hidden_fields |
+| `GET /resumes/{resume_id}` | Нет | • обновлено описание метода<br>• изменены поля ответа: hidden_fields |
+| `PUT /resumes/{resume_id}` | Нет | • изменены поля тела запроса: hidden_fields |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Нет | • изменены поля ответа: error_description |
+| `GET /skills` | Нет | • изменены ответы 400 |
+| `POST /vacancies` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `POST /vacancies/drafts` | Да ⚠️ | • удалены поля тела запроса: side_job |
+| `PUT /vacancies/drafts/{draft_id}` | Да ⚠️ | • удалены поля тела запроса: side_job |
+| `PUT /vacancies/{vacancy_id}` | Нет | • изменены параметры: ignore_duplicates<br>• изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `GET /vacancies/{vacancy_id}/resumes_by_status` | Нет | • изменены поля ответа: already_applied<br>• изменены поля ответа: hidden_fields |
+| `GET /vacancies/{vacancy_id}/suitable_resumes` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: hidden_fields |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: download_with_contact<br>• изменено описание схемы ответа |
+
+</details>
+
+<details>
 <summary><strong>1.20.0 (2025-08-26)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
