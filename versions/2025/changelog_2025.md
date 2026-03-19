@@ -1,6 +1,31 @@
 # Обновления API
 
 <details>
+<summary><strong>1.19.0 (2025-08-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: resume_employment_form, resume_work_format<br>• изменены обязательные поля ответа: добавлены resume_employment_form, resume_work_format |
+| `GET /employers/{employer_id}/managers/{manager_id}/method_access` | Нет | • обновлено описание метода |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • добавлены параметры: all_accessible, department_id, manager_ids <br>изменены параметры: manager_id |
+| `GET /negotiations` | Да ⚠️ | • изменены поля ответа: items<br>• добавлены поля ответа: tags<br>• изменены поля ответа: source |
+| `GET /negotiations/active` | Да ⚠️ | • изменены поля ответа: items<br>• добавлены поля ответа: tags<br>• изменены поля ответа: source |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Да ⚠️ | • добавлены поля ответа: tags<br>• изменены поля ответа: source |
+| `GET /resumes` | Нет | • изменены параметры: text |
+| `POST /resumes` | Нет | • изменены поля тела запроса: contact<br>• добавлены поля тела запроса: contact_value, kind, links<br>• изменены поля тела запроса: type, value |
+| `GET /resumes/mine` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contact<br>• добавлены поля ответа: contact_value, kind, links<br>• изменены поля ответа: type, value<br>• изменены обязательные поля ответа: добавлены contact_value, kind; удалены value |
+| `GET /resumes/{resume_id}` | Да ⚠️ | • изменены поля ответа: contact<br>• добавлены поля ответа: contact_value, kind, links<br>• изменены поля ответа: type, value<br>• изменены обязательные поля ответа: добавлены contact_value, kind; удалены value |
+| `PUT /resumes/{resume_id}` | Да ⚠️ | • изменены поля тела запроса: contact<br>• добавлены поля тела запроса: contact_value, kind, links<br>• изменены поля тела запроса: type, value<br>• изменены обязательные поля тела запроса: удалены preferred |
+| `POST /saved_searches/resumes` | Нет | • изменены параметры: text |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: side_job |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: side_job |
+| `GET /vacancies/{vacancy_id}/prolongate` | Нет | • обновлено описание метода |
+| `POST /vacancies/{vacancy_id}/prolongate` | Нет | • обновлено описание метода |
+
+</details>
+
+<details>
 <summary><strong>1.18.1 (2025-07-29)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
