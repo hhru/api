@@ -1,6 +1,34 @@
 # Обновления API
 
 <details>
+<summary><strong>1.11.0 (2025-03-26)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range, show_contacts<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range, show_contacts<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range, show_contacts<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /negotiations` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• добавлены поля ответа: salary_range<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• добавлены поля ответа: salary_range<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: vacancy<br>• добавлены поля ответа: salary_range<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /resumes/{resume_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range, show_contacts<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range, show_contacts<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `POST /vacancies` | Нет | • добавлены поля тела запроса: salary_range, show_contacts<br>• изменены поля тела запроса: salary |
+| `GET /vacancies/blacklisted` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: salary_range<br>• изменены поля тела запроса: salary |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: salary_range<br>• изменены поля ответа: salary |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: salary_range<br>• изменены поля тела запроса: salary |
+| `GET /vacancies/favorited` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: salary_range, show_contacts<br>• изменены поля ответа: salary |
+| `PUT /vacancies/{vacancy_id}` | Нет | • обновлено описание метода<br>• добавлены поля тела запроса: salary_range, show_contacts<br>• изменены поля тела запроса: salary |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range, show_contacts<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /vacancies/{vacancy_id}/resumes_by_status` | Да ⚠️ | • удалены параметры: with_profile_inconsistencies<br>• удалены поля ответа: profile_inconsistencies |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: salary_range, show_contacts<br>• изменены поля ответа: salary<br>• изменены обязательные поля ответа: добавлены salary_range |
+| `GET /vacancy_conditions` | Нет | • добавлены поля ответа: salary_range<br>• изменены поля ответа: salary |
+
+</details>
+
+<details>
 <summary><strong>1.10.0 (2025-03-19)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
