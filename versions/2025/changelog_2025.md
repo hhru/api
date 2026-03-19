@@ -1,6 +1,35 @@
 # Обновления API
 
 <details>
+<summary><strong>1.19.1 (2025-08-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}` | Нет | • изменены поля ответа: accredited_it_employer, trusted |
+| `GET /employers/{employer_id}/mail_templates` | Нет | • добавлены поля ответа: editable<br>• изменены обязательные поля ответа: добавлены editable |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Нет | • изменены поля ответа: errors |
+| `GET /employers/{employer_id}/services/payable_api_actions/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: activated_at, expires_at |
+| `POST /negotiations` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `POST /negotiations/phone_interview` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `PUT /negotiations/{collection_name}/{nid}` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `POST /negotiations/{nid}/messages` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `POST /oauth/token` | Нет | • изменены поля ответа: error |
+| `PUT /resumes/{resume_id}` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: pointer |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Нет | • обновлено описание метода<br>• изменены поля ответа: error |
+| `POST /vacancies` | Нет | • добавлены поля тела запроса: age_restriction<br>• изменены поля тела запроса: accept_kids, allow_messages<br>• изменены поля ответа: errors<br>• изменено описание схемы тела запроса<br>• изменены поля ответа: pointer |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: scheduled_at<br>• изменено описание схемы ответа |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: age_restriction<br>• изменены поля тела запроса: accept_kids, scheduled_at<br>• изменены поля ответа: errors<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: age_restriction<br>• изменены поля ответа: accept_kids, allow_messages, meta_info<br>• изменено описание схемы ответа<br>• изменены поля ответа: scheduled_at |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: age_restriction<br>• изменены поля тела запроса: accept_kids, scheduled_at<br>• изменены поля ответа: errors<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: age_restriction<br>• изменены поля ответа: accept_kids, allow_messages<br>• изменено описание схемы ответа |
+| `PUT /vacancies/{vacancy_id}` | Нет | • добавлены поля тела запроса: age_restriction<br>• изменены поля тела запроса: accept_kids, allow_messages<br>• изменены поля ответа: errors<br>• изменено описание схемы тела запроса<br>• изменены поля ответа: pointer |
+| `GET /vacancy_conditions` | Нет | • добавлены поля ответа: age_restriction<br>• изменены поля ответа: accept_kids |
+| `POST /webhook/subscriptions` | Нет | • изменены поля ответа: errors |
+| `PUT /webhook/subscriptions/{subscription_id}` | Нет | • изменены поля ответа: errors |
+
+</details>
+
+<details>
 <summary><strong>1.19.0 (2025-08-05)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
