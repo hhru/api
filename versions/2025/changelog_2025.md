@@ -1,6 +1,24 @@
 # Обновления API
 
 <details>
+<summary><strong>1.24.0 (2025-09-24)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/services/available_publications` | Нет | • изменены поля ответа: publication_variants<br>• изменены поля ответа: appearance, available_publications_count, suitable_packages, vacancy_properties<br>• изменены поля ответа: count, invalid<br>• изменён заголовок схемы ответа |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• изменено описание схемы ответа<br>• изменены поля ответа: title |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• изменено описание схемы ответа<br>• изменены поля ответа: title |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• изменено описание схемы ответа<br>• изменены поля ответа: title |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: billing_type, type, vacancy_properties<br>• изменены поля тела запроса: id<br>• изменено описание схемы тела запроса<br>• изменены поля тела запроса: properties<br>• изменён заголовок схемы тела запроса |
+| `GET /vacancies/drafts` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• удалены поля ответа: id<br>• изменены поля ответа: appearance, properties<br>• изменено описание схемы ответа<br>• изменён заголовок схемы ответа<br>• изменены поля ответа: title |
+| `POST /vacancies/drafts` | Нет | • изменены поля тела запроса: billing_type, type, vacancy_properties |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены поля ответа: billing_type, type, vacancy_properties<br>• изменены поля ответа: id<br>• изменено описание схемы ответа<br>• удалены поля ответа: id<br>• изменены поля ответа: appearance, properties<br>• изменён заголовок схемы ответа<br>• изменены поля ответа: title |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены поля тела запроса: billing_type, type, vacancy_properties |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: type, vacancy_properties<br>• изменены поля ответа: appearance<br>• изменено описание схемы ответа<br>• изменены поля ответа: title |
+
+</details>
+
+<details>
 <summary><strong>1.23.0 (2025-09-17)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
