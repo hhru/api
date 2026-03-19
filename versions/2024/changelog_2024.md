@@ -1,6 +1,18 @@
 # Обновления API
 
 <details>
+<summary><strong>1.2.0 (2024-12-24)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: source |
+| `GET /negotiations/active` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: source |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: source |
+
+</details>
+
+<details>
 <summary><strong>1.1.0 (2024-12-17)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
