@@ -1,6 +1,19 @@
 # Обновления API
 
 <details>
+<summary><strong>1.15.0 (2025-06-03)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /resume_phone_generate_code` | Нет | • добавлены поля ответа: code_length |
+| `POST /resume_profile` | Да ⚠️ | • изменены поля ответа: profile<br>• добавлены поля ответа: address_coordinates<br>• изменены поля ответа: area |
+| `GET /resume_profile/{resume_id}` | Да ⚠️ | • изменены поля ответа: profile<br>• добавлены поля ответа: address_coordinates<br>• изменены поля ответа: area |
+| `PUT /resume_profile/{resume_id}` | Да ⚠️ | • изменены поля тела запроса: profile<br>• изменены поля ответа: profile<br>• добавлены поля тела запроса: address_coordinates<br>• добавлены поля ответа: address_coordinates<br>• изменены поля ответа: area |
+| `GET /resumes/{resume_id}` | Нет | • обновлено описание метода |
+
+</details>
+
+<details>
 <summary><strong>1.14.1 (2025-05-27)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
