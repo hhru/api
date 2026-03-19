@@ -1,6 +1,33 @@
 # Обновления API
 
 <details>
+<summary><strong>1.28.0 (2025-12-17)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /employers/{employer_id}` | Нет | • добавлены поля ответа: is_identified_by_esia |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /me` | Да ⚠️ | • удалены поля ответа: auth_type, is_admin, is_applicant, is_application, is_employer, is_employer_integration<br>• изменены поля ответа: counters, first_name, id, last_name, linked_socials, negotiations_url, profile_videos, resumes_url и еще 1<br>• изменены обязательные поля ответа: удалены auth_type, is_admin, is_applicant, is_application, is_employer, is_employer_integration<br>• изменено описание схемы ответа<br>• изменён заголовок схемы ответа |
+| `GET /negotiations` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume, vacancy<br>• изменены поля ответа: employer<br>• изменены поля ответа: experience<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: experience |
+| `GET /resumes/{resume_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /vacancies/blacklisted` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /vacancies/favorited` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: is_identified_by_esia |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.27.0 (2025-12-10)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
