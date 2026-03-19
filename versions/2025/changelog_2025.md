@@ -1,6 +1,107 @@
 # Обновления API
 
 <details>
+<summary><strong>1.9.1 (2025-03-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /applicant_comments/{applicant_id}` | Нет | • добавлены поля ответа: description |
+| `POST /applicant_comments/{applicant_id}` | Нет | • добавлены поля ответа: description |
+| `DELETE /applicant_comments/{applicant_id}/{comment_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /applicant_comments/{applicant_id}/{comment_id}` | Нет | • добавлены поля ответа: description |
+| `DELETE /artifacts/{id}` | Нет | • добавлены поля ответа: description |
+| `PUT /artifacts/{id}` | Нет | • добавлены поля ответа: description |
+| `GET /educational_institutions/{id}/faculties` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/addresses` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/addresses/{address_id}` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/departments` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/mail_templates` | Нет | • добавлены поля ответа: description |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/manager_types` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/managers` | Нет | • добавлены поля ответа: description |
+| `POST /employers/{employer_id}/managers` | Нет | • добавлены поля ответа: description |
+| `DELETE /employers/{employer_id}/managers/{manager_id}` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/managers/{manager_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /employers/{employer_id}/managers/{manager_id}` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/managers/{manager_id}/limits/resume` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/managers/{manager_id}/method_access` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/managers/{manager_id}/settings` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/negotiations_statistics` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/services/payable_api_actions/active` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/tests` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • добавлены поля ответа: description |
+| `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • добавлены поля ответа: description |
+| `DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancy_areas/active` | Нет | • добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancy_branded_templates` | Нет | • добавлены поля ответа: description |
+| `GET /message_templates/{template}` | Нет | • добавлены поля ответа: description |
+| `GET /metro/{city_id}` | Нет | • добавлены поля ответа: description |
+| `GET /negotiations` | Нет | • добавлены поля ответа: description |
+| `DELETE /negotiations/active/{nid}` | Нет | • добавлены поля ответа: description |
+| `POST /negotiations/read` | Нет | • добавлены поля ответа: description |
+| `GET /negotiations/response` | Нет | • добавлены поля ответа: description |
+| `PUT /negotiations/{collection_name}/{nid}` | Нет | • добавлены поля ответа: description |
+| `GET /negotiations/{id}` | Нет | • добавлены поля ответа: description |
+| `PUT /negotiations/{id}` | Нет | • добавлены поля ответа: description |
+| `POST /negotiations/{nid}/messages` | Нет | • добавлены поля ответа: description |
+| `PUT /negotiations/{nid}/messages/{mid}` | Нет | • добавлены поля ответа: description |
+| `GET /negotiations/{nid}/test/solution` | Нет | • добавлены поля ответа: description |
+| `POST /resumes` | Нет | • добавлены поля ответа: description |
+| `DELETE /resumes/{resume_id}` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /resumes/{resume_id}` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}/access_types` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}/conditions` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}/negotiations_history` | Нет | • добавлены поля ответа: description |
+| `POST /resumes/{resume_id}/publish` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}/similar_vacancies` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}/status` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}/views` | Нет | • добавлены поля ответа: description |
+| `DELETE /resumes/{resume_id}/{list_type}` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}/{list_type}` | Нет | • добавлены поля ответа: description |
+| `POST /resumes/{resume_id}/{list_type}` | Нет | • добавлены поля ответа: description |
+| `DELETE /resumes/{resume_id}/{list_type}/employer` | Нет | • добавлены поля ответа: description |
+| `GET /resumes/{resume_id}/{list_type}/search` | Нет | • добавлены поля ответа: description |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Нет | • добавлены поля ответа: description |
+| `DELETE /saved_searches/resumes/{id}` | Нет | • добавлены поля ответа: description |
+| `GET /saved_searches/resumes/{id}` | Нет | • добавлены поля ответа: description |
+| `PUT /saved_searches/resumes/{id}` | Нет | • добавлены поля ответа: description |
+| `DELETE /saved_searches/vacancies/{id}` | Нет | • добавлены поля ответа: description |
+| `GET /saved_searches/vacancies/{id}` | Нет | • добавлены поля ответа: description |
+| `PUT /saved_searches/vacancies/{id}` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies` | Нет | • добавлены поля ответа: description |
+| `DELETE /vacancies/auto_publication` | Нет | • добавлены поля ответа: description |
+| `DELETE /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/drafts/{draft_id}/duplicates` | Нет | • добавлены поля ответа: description |
+| `POST /vacancies/drafts/{draft_id}/publish` | Нет | • добавлены поля ответа: description |
+| `DELETE /vacancies/favorited/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /vacancies/favorited/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{id}/preferred_negotiations_order` | Нет | • добавлены поля ответа: description |
+| `PUT /vacancies/{id}/preferred_negotiations_order` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/prolongate` | Нет | • добавлены поля ответа: description |
+| `POST /vacancies/{vacancy_id}/prolongate` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/stats` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/suitable_resumes` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/upgrades` | Нет | • добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: description |
+| `DELETE /webhook/subscriptions/{subscription_id}` | Нет | • добавлены поля ответа: description |
+| `PUT /webhook/subscriptions/{subscription_id}` | Нет | • добавлены поля ответа: description |
+
+</details>
+
+<details>
 <summary><strong>1.9.0 (2025-03-05)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
