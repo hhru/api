@@ -1,6 +1,29 @@
 # Обновления API
 
 <details>
+<summary><strong>1.24.3 (2025-10-22)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}` | Нет | • добавлены поля ответа: country_code |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /negotiations` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /negotiations/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: vacancy<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /negotiations/{nid}/test/solution` | Нет | • изменены ответы 404 |
+| `GET /resumes/{resume_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /vacancies/blacklisted` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /vacancies/favorited` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: employer<br>• добавлены поля ответа: country_id |
+
+</details>
+
+<details>
 <summary><strong>1.24.2 (2025-10-15)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
