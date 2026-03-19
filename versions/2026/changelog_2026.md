@@ -1,6 +1,18 @@
 # Обновления API
 
 <details>
+<summary><strong>1.32.0 (2026-02-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• удалены поля ответа: video_vacancy |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: address, video_vacancy<br>• удалены поля ответа: snippet_picture, snippet_picture_url, snippet_video, snippet_video_url |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• удалены поля ответа: video_vacancy |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• удалены поля ответа: video_vacancy |
+
+</details>
+
+<details>
 <summary><strong>1.31.0 (2026-01-29)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
