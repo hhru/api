@@ -1,6 +1,18 @@
 # Обновления API
 
 <details>
+<summary><strong>1.19.2 (2025-08-19)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /vacancies` | Нет | • обновлено описание метода |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: auction |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: auction |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: auction |
+
+</details>
+
+<details>
 <summary><strong>1.19.1 (2025-08-12)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
