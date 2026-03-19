@@ -1,6 +1,17 @@
 # Обновления API
 
 <details>
+<summary><strong>1.11.1 (2025-04-08)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • изменены параметры: driver_license_types, experience |
+| `GET /resumes` | Нет | • изменены параметры: driver_license_types, experience |
+| `POST /saved_searches/resumes` | Нет | • изменены параметры: driver_license_types, experience |
+
+</details>
+
+<details>
 <summary><strong>1.11.0 (2025-03-26)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
