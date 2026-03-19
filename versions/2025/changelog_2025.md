@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.14.1 (2025-05-27)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • обновлено описание метода |
+| `PUT /negotiations/{collection_name}/{nid}` | Нет | • изменены параметры: collection_name |
+
+</details>
+
+<details>
 <summary><strong>1.14.0 (2025-05-21)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
