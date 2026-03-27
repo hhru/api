@@ -1,6 +1,24 @@
 # Обновления API
 
 <details>
+<summary><strong>1.37.0 (2026-03-27)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /common/chats/without_vacancy` | Нет | • добавлен новый эндпоинт |
+| `GET /employers/{employer_id}/services/available_publications` | Нет | • изменены поля ответа: publication_variants<br>• изменены поля ответа: appearance, vacancy_properties |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /me` | Нет | • изменены поля ответа: user_statuses<br>• изменены поля ответа: job_search_status<br>• изменены поля ответа: last_change_time |
+| `GET /vacancies/drafts` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: insufficient_publications, vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены поля ответа: meta_info, vacancy_properties<br>• изменены поля ответа: insufficient_publications<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/upgrades` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: required<br>• изменены обязательные поля ответа: добавлены required |
+
+</details>
+
+<details>
 <summary><strong>1.36.0 (2026-03-19)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
