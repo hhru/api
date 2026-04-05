@@ -1,6 +1,18 @@
 # Обновления API
 
 <details>
+<summary><strong>1.37.1 (2026-04-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: description<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: description<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: description<br>• изменено описание схемы ответа |
+| `PUT /vacancies/{vacancy_id}` | Нет | • изменены поля тела запроса: description<br>• изменено описание схемы тела запроса |
+
+</details>
+
+<details>
 <summary><strong>1.37.0 (2026-03-27)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
