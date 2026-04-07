@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.38.0 (2026-04-07)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /common/chats` | Нет | • изменены поля ответа: items |
+| `GET /common/chats/{chat_id}/messages` | Да ⚠️ | • изменены поля ответа: messages |
+
+</details>
+
+<details>
 <summary><strong>1.37.1 (2026-04-05)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
