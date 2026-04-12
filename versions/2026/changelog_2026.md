@@ -1,6 +1,15 @@
 # Обновления API
 
 <details>
+<summary><strong>1.38.1 (2026-04-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/managers/{manager_id}` | Нет | • добавлены поля ответа: creation_time |
+
+</details>
+
+<details>
 <summary><strong>1.38.0 (2026-04-07)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
