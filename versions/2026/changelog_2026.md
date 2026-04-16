@@ -1,6 +1,24 @@
 # Обновления API
 
 <details>
+<summary><strong>1.39.0 (2026-04-16)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: complaint_status<br>• изменены обязательные поля ответа: добавлены complaint_status |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• изменены поля ответа: email |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: contacts<br>• изменены поля тела запроса: email |
+| `POST /vacancies/drafts` | Нет | • изменены поля тела запроса: contacts |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены поля ответа: contacts<br>• изменены поля ответа: email<br>• изменены обязательные поля ответа: удалены email |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены поля тела запроса: contacts |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: contacts<br>• изменены поля ответа: email |
+| `PUT /vacancies/{vacancy_id}` | Нет | • изменены поля тела запроса: contacts<br>• изменены поля тела запроса: email |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• изменены поля ответа: email |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• изменены поля ответа: email |
+
+</details>
+
+<details>
 <summary><strong>1.38.1 (2026-04-12)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
