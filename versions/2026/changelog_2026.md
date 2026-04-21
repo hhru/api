@@ -1,6 +1,17 @@
 # Обновления API
 
 <details>
+<summary><strong>1.40.0 (2026-04-21)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: contact_view_status |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Да ⚠️ | • изменены поля ответа: error_description |
+| `POST /token` | Да ⚠️ | • добавлены поля тела запроса: code_verifier<br>• изменены поля ответа: error_description |
+
+</details>
+
+<details>
 <summary><strong>1.39.0 (2026-04-16)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
