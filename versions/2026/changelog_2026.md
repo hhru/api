@@ -1,6 +1,22 @@
 # Обновления API
 
 <details>
+<summary><strong>1.40.1 (2026-05-03)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /common/chats` | Нет | • изменены поля ответа: items |
+| `GET /common/chats/{chat_id}/messages` | Нет | • добавлены поля ответа: vacancy_id |
+| `GET /common/chats/{chat_id}/participants` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: contact_view_status |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: contact_view_status |
+| `GET /resumes/{resume_id}` | Нет | • обновлено описание метода |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.40.0 (2026-04-21)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
