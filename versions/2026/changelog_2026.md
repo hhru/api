@@ -1,6 +1,15 @@
 # Обновления API
 
 <details>
+<summary><strong>1.40.2 (2026-05-10)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /common/chats` | Нет | • обновлено описание метода<br>• добавлены параметры: filter_with_vacancy_ids, vacancy_status |
+
+</details>
+
+<details>
 <summary><strong>1.40.1 (2026-05-03)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
