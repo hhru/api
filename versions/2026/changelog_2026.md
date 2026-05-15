@@ -1,6 +1,22 @@
 # Обновления API
 
 <details>
+<summary><strong>1.41.0 (2026-05-15)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: inclusiveness_types<br>• изменены обязательные поля ответа: добавлены inclusiveness_types |
+| `POST /vacancies` | Да ⚠️ | • добавлены поля тела запроса: inclusiveness_description, inclusiveness_types<br>• изменены поля тела запроса: accept_handicapped |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: inclusiveness_description, inclusiveness_types<br>• изменены поля тела запроса: accept_handicapped |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: inclusiveness_description, inclusiveness_types<br>• изменены поля ответа: accept_handicapped |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: inclusiveness_description, inclusiveness_types<br>• изменены поля тела запроса: accept_handicapped |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: inclusiveness_description, inclusiveness_types<br>• изменены поля ответа: accept_handicapped |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • добавлены поля тела запроса: inclusiveness_description, inclusiveness_types<br>• изменены поля тела запроса: accept_handicapped |
+| `GET /vacancy_conditions` | Нет | • добавлены поля ответа: inclusiveness_description, inclusiveness_types<br>• изменены поля ответа: accept_handicapped |
+
+</details>
+
+<details>
 <summary><strong>1.40.2 (2026-05-10)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
