@@ -1,6 +1,15 @@
 # Обновления API
 
 <details>
+<summary><strong>1.42.0 (2026-05-16)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /vacancy_conditions` | Да ⚠️ | • изменены поля ответа: inclusiveness_types<br>• удалены поля ответа: fields<br>• изменено описание схемы ответа |
+
+</details>
+
+<details>
 <summary><strong>1.41.0 (2026-05-15)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
