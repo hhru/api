@@ -1,6 +1,17 @@
 # Обновления API
 
 <details>
+<summary><strong>1.43.0 (2026-05-20)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /webhook/subscriptions` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: actions |
+| `POST /webhook/subscriptions` | Да ⚠️ | • изменены поля тела запроса: actions |
+| `PUT /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • изменены поля тела запроса: actions |
+
+</details>
+
+<details>
 <summary><strong>1.42.0 (2026-05-16)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
