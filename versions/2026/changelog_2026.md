@@ -1,6 +1,30 @@
 # Обновления API
 
 <details>
+<summary><strong>1.44.0 (2026-05-30)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: large |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• изменены поля ответа: photo<br>• добавлены поля ответа: large |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: photo<br>• добавлены поля ответа: large |
+| `GET /resumes/{resume_id}` | Нет | • изменены поля ответа: photo, portfolio<br>• добавлены поля ответа: large |
+| `GET /vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• удалены поля ответа: email |
+| `POST /vacancies` | Да ⚠️ | • изменены поля тела запроса: contacts<br>• удалены поля тела запроса: email<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: ignored_fields, validation_errors |
+| `POST /vacancies/drafts` | Нет | • изменены поля тела запроса: contacts |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены поля ответа: contacts, meta_info<br>• удалены поля ответа: email<br>• добавлены поля ответа: ignored_fields, validation_errors |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены поля тела запроса: contacts |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: contacts<br>• удалены поля ответа: email |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля тела запроса: contacts<br>• удалены поля тела запроса: email<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• удалены поля ответа: email |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• удалены поля ответа: email |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: large |
+| `GET /vacancy_conditions` | Да ⚠️ | • изменены поля ответа: contacts<br>• изменены поля ответа: fields<br>• удалены поля ответа: email |
+
+</details>
+
+<details>
 <summary><strong>1.43.0 (2026-05-20)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
