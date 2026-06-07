@@ -1,6 +1,24 @@
 # Обновления API
 
 <details>
+<summary><strong>1.44.1 (2026-06-07)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: setka_access_type<br>• изменены обязательные поля ответа: добавлены setka_access_type |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: vacancy<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /resumes` | Нет | • добавлены параметры: employment_form, work_format <br>изменены параметры: employment, schedule |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+
+</details>
+
+<details>
 <summary><strong>1.44.0 (2026-05-30)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
