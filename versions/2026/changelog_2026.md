@@ -1,6 +1,31 @@
 # Обновления API
 
 <details>
+<summary><strong>1.45.0 (2026-06-16)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, negotiations_actions, premium, vacancy_properties<br>• изменено описание схемы ответа<br>• изменены поля ответа: properties<br>• изменены обязательные поля ответа: удалены properties |
+| `GET /employers/{employer_id}/vacancies/archived` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, vacancy_properties<br>• изменено описание схемы ответа<br>• изменены поля ответа: properties<br>• изменены обязательные поля ответа: удалены properties |
+| `GET /employers/{employer_id}/vacancies/hidden` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, vacancy_properties<br>• изменено описание схемы ответа<br>• изменены поля ответа: properties<br>• изменены обязательные поля ответа: удалены properties |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Да ⚠️ | • добавлены поля ответа: chat_bot, relevant_experience, url<br>• изменены поля ответа: actions, resume, vacancy<br>• изменён заголовок схемы ответа<br>• изменены обязательные поля ответа: добавлены experience<br>• изменены поля ответа: closed_for_applicants, premium, type<br>• изменено описание схемы ответа |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены обязательные поля ответа: добавлены experience |
+| `GET /resumes/{resume_id}` | Нет | • изменены обязательные поля ответа: добавлены experience |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, type<br>• изменено описание схемы ответа |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: closed_for_applicants<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants<br>• изменено описание схемы ответа |
+| `POST /vacancies/drafts` | Нет | • изменены поля тела запроса: closed_for_applicants<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: closed_for_applicants<br>• изменено описание схемы ответа |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены поля тела запроса: closed_for_applicants<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: closed_for_applicants, premium, type, vacancy_properties<br>• изменено описание схемы ответа<br>• изменены поля ответа: properties |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, type<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, type<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.44.1 (2026-06-07)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
