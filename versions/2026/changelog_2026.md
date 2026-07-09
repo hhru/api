@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.46.0 (2026-07-09)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Да ⚠️ | • изменены поля ответа: error_description |
+| `POST /token` | Да ⚠️ | • изменены поля ответа: error_description |
+
+</details>
+
+<details>
 <summary><strong>1.45.1 (2026-06-21)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
