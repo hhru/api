@@ -1,6 +1,15 @@
 # Обновления API
 
 <details>
+<summary><strong>1.47.0 (2026-07-10)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /saved_searches/resumes` | Да ⚠️ | • удалены параметры: vacancy_id |
+
+</details>
+
+<details>
 <summary><strong>1.46.0 (2026-07-09)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
