@@ -1,6 +1,30 @@
 # Обновления API
 
 <details>
+<summary><strong>1.48.0 (2026-07-24)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /common/chats/files/upload_links` | Нет | • добавлено тело запроса |
+| `PUT /common/chats/{chat_id}/leave` | Нет | • добавлено тело запроса |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Нет | • добавлено тело запроса |
+| `PUT /common/chats/{chat_id}/write_possibility` | Нет | • добавлено тело запроса |
+| `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}` | Нет | • добавлено тело запроса |
+| `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Нет | • добавлено тело запроса |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `PUT /negotiations/{collection_name}/{nid}` | Нет | • добавлено тело запроса |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: resume<br>• изменены поля ответа: contact_view_status, work_ticket |
+| `GET /resumes` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contact_view_status, work_ticket |
+| `POST /saved_searches/resumes` | Нет | • добавлено тело запроса |
+| `PUT /saved_searches/resumes/{id}` | Нет | • добавлено тело запроса |
+| `PUT /saved_searches/resumes/{saved_search_id}/managers/{manager_id}` | Нет | • добавлено тело запроса |
+| `POST /vacancies/drafts/{draft_id}/publish` | Нет | • добавлено тело запроса |
+| `POST /vacancies/{vacancy_id}/prolongate` | Нет | • добавлено тело запроса |
+| `GET /vacancies/{vacancy_id}/visitors` | Да ⚠️ | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.47.0 (2026-07-10)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
