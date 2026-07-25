@@ -1,6 +1,22 @@
 # Обновления API
 
 <details>
+<summary><strong>1.49.0 (2026-07-25)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /common/chats/without_vacancy` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `POST /common/chats/{chat_id}/messages` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/write_possibility` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics` | Нет | • обновлено описание метода |
+| `GET /employers/{employer_id}/negotiations_statistics` | Нет | • обновлено описание метода |
+| `POST /webhook/subscriptions` | Нет | • обновлено описание метода |
+
+</details>
+
+<details>
 <summary><strong>1.48.0 (2026-07-24)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
