@@ -1,6 +1,17 @@
 # Обновления API
 
 <details>
+<summary><strong>1.49.1 (2026-08-02)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /calls/link` | Нет | • добавлен новый эндпоинт |
+| `GET /clickme/statistics` | Нет | • добавлены параметры: with_banners<br>• изменены поля ответа: items<br>• добавлены поля ответа: after_clickme_responses, banner_id, before_clickme_responses, date_archive, date_create<br>• изменены обязательные поля ответа: добавлены after_clickme_responses, banner_id, before_clickme_responses, date_archive, date_create |
+| `GET /resumes/{resume_id}` | Нет | • изменены поля ответа: experience<br>• добавлены поля ответа: verification |
+
+</details>
+
+<details>
 <summary><strong>1.49.0 (2026-07-25)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
