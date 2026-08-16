@@ -1,6 +1,101 @@
 # Обновления API
 
 <details>
+<summary><strong>1.49.2 (2026-08-16)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /applicant_comments/{applicant_id}` | Нет | • изменены ответы 403 |
+| `POST /applicant_comments/{applicant_id}` | Нет | • изменены ответы 403 |
+| `DELETE /applicant_comments/{applicant_id}/{comment_id}` | Нет | • изменены ответы 403 |
+| `PUT /applicant_comments/{applicant_id}/{comment_id}` | Нет | • изменены ответы 403 |
+| `GET /calls/link` | Нет | • изменены ответы 403 |
+| `GET /clickme/statistics` | Нет | • изменены ответы 403 |
+| `GET /common/chats` | Нет | • изменены ответы 403 |
+| `GET /common/chats/counters/unread` | Нет | • изменены ответы 403 |
+| `GET /common/chats/files/conditions` | Нет | • изменены ответы 403 |
+| `POST /common/chats/files/upload_links` | Нет | • изменены ответы 403 |
+| `POST /common/chats/without_vacancy` | Нет | • изменены ответы 403<br>• изменено тело запроса |
+| `PUT /common/chats/{chat_id}/leave` | Нет | • изменены ответы 403 |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Нет | • изменены ответы 403 |
+| `GET /common/chats/{chat_id}/messages` | Нет | • изменены ответы 403 |
+| `POST /common/chats/{chat_id}/messages` | Нет | • изменены ответы 403 |
+| `DELETE /common/chats/{chat_id}/messages/{message_id}` | Нет | • изменены ответы 403 |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Нет | • изменены ответы 403 |
+| `GET /common/chats/{chat_id}/participants` | Нет | • изменены ответы 403 |
+| `PUT /common/chats/{chat_id}/participants` | Нет | • изменены ответы 403 |
+| `PUT /common/chats/{chat_id}/write_possibility` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/addresses` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/addresses/{address_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/departments` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/mail_templates` | Нет | • изменены ответы 403 |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/manager_types` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers` | Нет | • изменены ответы 403 |
+| `POST /employers/{employer_id}/managers` | Нет | • изменены ответы 403 |
+| `DELETE /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены ответы 403 |
+| `PUT /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/limits/resume` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/method_access` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/settings` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/negotiations_statistics` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/services/available_publications` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/services/payable_api_actions/active` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/tests` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены ответы 403 |
+| `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены ответы 403 |
+| `DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Нет | • изменены ответы 403 |
+| `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancy_areas/active` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancy_branded_templates` | Нет | • изменены ответы 403 |
+| `GET /manager_accounts/mine` | Нет | • изменены ответы 200, 403 |
+| `GET /me` | Нет | • изменены ответы 403 |
+| `GET /message_templates/{template}` | Нет | • изменены ответы 403 |
+| `GET /negotiations` | Нет | • изменены ответы 403 |
+| `POST /negotiations/read` | Нет | • изменены ответы 403 |
+| `GET /negotiations/response` | Нет | • изменены ответы 200, 403 |
+| `GET /negotiations/{id}` | Нет | • изменены ответы 200, 403 |
+| `PUT /negotiations/{id}` | Нет | • изменены ответы 403 |
+| `POST /negotiations/{nid}/messages` | Нет | • изменены ответы 403 |
+| `GET /negotiations/{nid}/test/solution` | Нет | • изменены ответы 403 |
+| `GET /resumes` | Нет | • изменены ответы 200, 403 |
+| `GET /resumes/{resume_id}` | Нет | • изменены ответы 200, 403 |
+| `GET /resumes/{resume_id}/negotiations_history` | Нет | • изменены ответы 403 |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Нет | • изменены ответы 403 |
+| `GET /saved_searches/resumes` | Нет | • изменены ответы 403 |
+| `POST /saved_searches/resumes` | Нет | • изменены ответы 403 |
+| `DELETE /saved_searches/resumes/{id}` | Нет | • изменены ответы 403 |
+| `GET /saved_searches/resumes/{id}` | Нет | • изменены ответы 403 |
+| `PUT /saved_searches/resumes/{id}` | Нет | • изменены ответы 403 |
+| `PUT /saved_searches/resumes/{saved_search_id}/managers/{manager_id}` | Нет | • изменены ответы 403 |
+| `DELETE /token` | Нет | • изменены ответы 403 |
+| `POST /token` | Нет | • изменены ответы 403 |
+| `DELETE /vacancies/auto_publication` | Нет | • изменены ответы 403 |
+| `GET /vacancies/drafts` | Нет | • изменены ответы 403 |
+| `POST /vacancies/drafts` | Нет | • изменены ответы 403 |
+| `DELETE /vacancies/drafts/{draft_id}` | Нет | • изменены ответы 403 |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены ответы 403 |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены ответы 403 |
+| `GET /vacancies/drafts/{draft_id}/duplicates` | Нет | • изменены ответы 403 |
+| `POST /vacancies/drafts/{draft_id}/publish` | Нет | • изменены ответы 403 |
+| `GET /vacancies/{vacancy_id}/prolongate` | Нет | • изменены ответы 403 |
+| `GET /vacancies/{vacancy_id}/stats` | Нет | • изменены ответы 403 |
+| `GET /vacancies/{vacancy_id}/upgrades` | Нет | • изменены ответы 403 |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены ответы 200, 403 |
+| `GET /vacancy_conditions` | Нет | • изменены ответы 403 |
+| `GET /webhook/subscriptions` | Нет | • изменены ответы 403 |
+| `POST /webhook/subscriptions` | Нет | • изменены ответы 403 |
+| `DELETE /webhook/subscriptions/{subscription_id}` | Нет | • изменены ответы 403 |
+| `PUT /webhook/subscriptions/{subscription_id}` | Нет | • изменены ответы 403 |
+
+</details>
+
+<details>
 <summary><strong>1.49.1 (2026-08-02)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
