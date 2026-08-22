@@ -1,6 +1,22 @@
 # Обновления API
 
 <details>
+<summary><strong>1.50.0 (2026-08-22)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /clickme/statistics` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: banner_title<br>• изменены обязательные поля ответа: добавлены banner_title |
+| `POST /common/chats/without_vacancy` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `POST /common/chats/{chat_id}/messages` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/write_possibility` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: source |
+
+</details>
+
+<details>
 <summary><strong>1.49.2 (2026-08-16)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
