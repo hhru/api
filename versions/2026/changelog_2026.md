@@ -1,6 +1,21 @@
 # Обновления API
 
 <details>
+<summary><strong>1.50.1 (2026-08-30)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• изменены поля ответа: contact_view_status |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: contact_view_status |
+| `GET /vacancies` | Нет | • изменены параметры: premium |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены параметры: premium |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены параметры: premium |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
 <summary><strong>1.50.0 (2026-08-22)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
