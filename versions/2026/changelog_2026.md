@@ -1,6 +1,22 @@
 # Обновления API
 
 <details>
+<summary><strong>1.50.2 (2026-09-06)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /negotiations/response` | Нет | • добавлены параметры: show_only_with_medical_book, show_only_with_self_employment<br>• изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: has_medical_book, has_self_employment, has_vehicle |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+
+</details>
+
+<details>
 <summary><strong>1.50.1 (2026-08-30)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
