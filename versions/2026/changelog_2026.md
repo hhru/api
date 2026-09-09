@@ -1,6 +1,17 @@
 # Обновления API
 
 <details>
+<summary><strong>1.51.0 (2026-09-09)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /vacancies/drafts` | Да ⚠️ | • удалены поля тела запроса: with_zp |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • удалены поля ответа: with_zp<br>• изменены обязательные поля ответа: удалены with_zp |
+| `PUT /vacancies/drafts/{draft_id}` | Да ⚠️ | • удалены поля тела запроса: with_zp |
+
+</details>
+
+<details>
 <summary><strong>1.50.2 (2026-09-06)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
