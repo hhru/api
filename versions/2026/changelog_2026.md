@@ -1,0 +1,734 @@
+# Обновления API
+
+<details>
+<summary><strong>1.51.0 (2026-09-09)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /vacancies/drafts` | Да ⚠️ | • удалены поля тела запроса: with_zp |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • удалены поля ответа: with_zp<br>• изменены обязательные поля ответа: удалены with_zp |
+| `PUT /vacancies/drafts/{draft_id}` | Да ⚠️ | • удалены поля тела запроса: with_zp |
+
+</details>
+
+<details>
+<summary><strong>1.50.2 (2026-09-06)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /negotiations/response` | Нет | • добавлены параметры: show_only_with_medical_book, show_only_with_self_employment<br>• изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: has_medical_book, has_self_employment, has_vehicle |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+
+</details>
+
+<details>
+<summary><strong>1.50.1 (2026-08-30)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• изменены поля ответа: contact_view_status |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: contact_view_status |
+| `GET /vacancies` | Нет | • изменены параметры: premium |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены параметры: premium |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены параметры: premium |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
+<summary><strong>1.50.0 (2026-08-22)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /clickme/statistics` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: banner_title<br>• изменены обязательные поля ответа: добавлены banner_title |
+| `POST /common/chats/without_vacancy` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `POST /common/chats/{chat_id}/messages` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/write_possibility` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: source |
+
+</details>
+
+<details>
+<summary><strong>1.49.2 (2026-08-16)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /applicant_comments/{applicant_id}` | Нет | • изменены ответы 403 |
+| `POST /applicant_comments/{applicant_id}` | Нет | • изменены ответы 403 |
+| `DELETE /applicant_comments/{applicant_id}/{comment_id}` | Нет | • изменены ответы 403 |
+| `PUT /applicant_comments/{applicant_id}/{comment_id}` | Нет | • изменены ответы 403 |
+| `GET /calls/link` | Нет | • изменены ответы 403 |
+| `GET /clickme/statistics` | Нет | • изменены ответы 403 |
+| `GET /common/chats` | Нет | • изменены ответы 403 |
+| `GET /common/chats/counters/unread` | Нет | • изменены ответы 403 |
+| `GET /common/chats/files/conditions` | Нет | • изменены ответы 403 |
+| `POST /common/chats/files/upload_links` | Нет | • изменены ответы 403 |
+| `POST /common/chats/without_vacancy` | Нет | • изменены ответы 403<br>• изменено тело запроса |
+| `PUT /common/chats/{chat_id}/leave` | Нет | • изменены ответы 403 |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Нет | • изменены ответы 403 |
+| `GET /common/chats/{chat_id}/messages` | Нет | • изменены ответы 403 |
+| `POST /common/chats/{chat_id}/messages` | Нет | • изменены ответы 403 |
+| `DELETE /common/chats/{chat_id}/messages/{message_id}` | Нет | • изменены ответы 403 |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Нет | • изменены ответы 403 |
+| `GET /common/chats/{chat_id}/participants` | Нет | • изменены ответы 403 |
+| `PUT /common/chats/{chat_id}/participants` | Нет | • изменены ответы 403 |
+| `PUT /common/chats/{chat_id}/write_possibility` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/addresses` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/addresses/{address_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/departments` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/mail_templates` | Нет | • изменены ответы 403 |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/manager_types` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers` | Нет | • изменены ответы 403 |
+| `POST /employers/{employer_id}/managers` | Нет | • изменены ответы 403 |
+| `DELETE /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены ответы 403 |
+| `PUT /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/limits/resume` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/method_access` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/settings` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/negotiations_statistics` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/services/available_publications` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/services/payable_api_actions/active` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/tests` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены ответы 403 |
+| `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены ответы 403 |
+| `DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Нет | • изменены ответы 403 |
+| `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancy_areas/active` | Нет | • изменены ответы 403 |
+| `GET /employers/{employer_id}/vacancy_branded_templates` | Нет | • изменены ответы 403 |
+| `GET /manager_accounts/mine` | Нет | • изменены ответы 200, 403 |
+| `GET /me` | Нет | • изменены ответы 403 |
+| `GET /message_templates/{template}` | Нет | • изменены ответы 403 |
+| `GET /negotiations` | Нет | • изменены ответы 403 |
+| `POST /negotiations/read` | Нет | • изменены ответы 403 |
+| `GET /negotiations/response` | Нет | • изменены ответы 200, 403 |
+| `GET /negotiations/{id}` | Нет | • изменены ответы 200, 403 |
+| `PUT /negotiations/{id}` | Нет | • изменены ответы 403 |
+| `POST /negotiations/{nid}/messages` | Нет | • изменены ответы 403 |
+| `GET /negotiations/{nid}/test/solution` | Нет | • изменены ответы 403 |
+| `GET /resumes` | Нет | • изменены ответы 200, 403 |
+| `GET /resumes/{resume_id}` | Нет | • изменены ответы 200, 403 |
+| `GET /resumes/{resume_id}/negotiations_history` | Нет | • изменены ответы 403 |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Нет | • изменены ответы 403 |
+| `GET /saved_searches/resumes` | Нет | • изменены ответы 403 |
+| `POST /saved_searches/resumes` | Нет | • изменены ответы 403 |
+| `DELETE /saved_searches/resumes/{id}` | Нет | • изменены ответы 403 |
+| `GET /saved_searches/resumes/{id}` | Нет | • изменены ответы 403 |
+| `PUT /saved_searches/resumes/{id}` | Нет | • изменены ответы 403 |
+| `PUT /saved_searches/resumes/{saved_search_id}/managers/{manager_id}` | Нет | • изменены ответы 403 |
+| `DELETE /token` | Нет | • изменены ответы 403 |
+| `POST /token` | Нет | • изменены ответы 403 |
+| `DELETE /vacancies/auto_publication` | Нет | • изменены ответы 403 |
+| `GET /vacancies/drafts` | Нет | • изменены ответы 403 |
+| `POST /vacancies/drafts` | Нет | • изменены ответы 403 |
+| `DELETE /vacancies/drafts/{draft_id}` | Нет | • изменены ответы 403 |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены ответы 403 |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены ответы 403 |
+| `GET /vacancies/drafts/{draft_id}/duplicates` | Нет | • изменены ответы 403 |
+| `POST /vacancies/drafts/{draft_id}/publish` | Нет | • изменены ответы 403 |
+| `GET /vacancies/{vacancy_id}/prolongate` | Нет | • изменены ответы 403 |
+| `GET /vacancies/{vacancy_id}/stats` | Нет | • изменены ответы 403 |
+| `GET /vacancies/{vacancy_id}/upgrades` | Нет | • изменены ответы 403 |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены ответы 200, 403 |
+| `GET /vacancy_conditions` | Нет | • изменены ответы 403 |
+| `GET /webhook/subscriptions` | Нет | • изменены ответы 403 |
+| `POST /webhook/subscriptions` | Нет | • изменены ответы 403 |
+| `DELETE /webhook/subscriptions/{subscription_id}` | Нет | • изменены ответы 403 |
+| `PUT /webhook/subscriptions/{subscription_id}` | Нет | • изменены ответы 403 |
+
+</details>
+
+<details>
+<summary><strong>1.49.1 (2026-08-02)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /calls/link` | Нет | • добавлен новый эндпоинт |
+| `GET /clickme/statistics` | Нет | • добавлены параметры: with_banners<br>• изменены поля ответа: items<br>• добавлены поля ответа: after_clickme_responses, banner_id, before_clickme_responses, date_archive, date_create<br>• изменены обязательные поля ответа: добавлены after_clickme_responses, banner_id, before_clickme_responses, date_archive, date_create |
+| `GET /resumes/{resume_id}` | Нет | • изменены поля ответа: experience<br>• добавлены поля ответа: verification |
+
+</details>
+
+<details>
+<summary><strong>1.49.0 (2026-07-25)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /common/chats/without_vacancy` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `POST /common/chats/{chat_id}/messages` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/write_possibility` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics` | Нет | • обновлено описание метода |
+| `GET /employers/{employer_id}/negotiations_statistics` | Нет | • обновлено описание метода |
+| `POST /webhook/subscriptions` | Нет | • обновлено описание метода |
+
+</details>
+
+<details>
+<summary><strong>1.48.0 (2026-07-24)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /common/chats/files/upload_links` | Нет | • добавлено тело запроса |
+| `PUT /common/chats/{chat_id}/leave` | Нет | • добавлено тело запроса |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Нет | • добавлено тело запроса |
+| `PUT /common/chats/{chat_id}/write_possibility` | Нет | • добавлено тело запроса |
+| `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}` | Нет | • добавлено тело запроса |
+| `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Нет | • добавлено тело запроса |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `PUT /negotiations/{collection_name}/{nid}` | Нет | • добавлено тело запроса |
+| `GET /negotiations/{id}` | Да ⚠️ | • изменены поля ответа: resume<br>• изменены поля ответа: contact_view_status, work_ticket |
+| `GET /resumes` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contact_view_status, work_ticket |
+| `POST /saved_searches/resumes` | Нет | • добавлено тело запроса |
+| `PUT /saved_searches/resumes/{id}` | Нет | • добавлено тело запроса |
+| `PUT /saved_searches/resumes/{saved_search_id}/managers/{manager_id}` | Нет | • добавлено тело запроса |
+| `POST /vacancies/drafts/{draft_id}/publish` | Нет | • добавлено тело запроса |
+| `POST /vacancies/{vacancy_id}/prolongate` | Нет | • добавлено тело запроса |
+| `GET /vacancies/{vacancy_id}/visitors` | Да ⚠️ | • изменены поля ответа: items |
+
+</details>
+
+<details>
+<summary><strong>1.47.0 (2026-07-10)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /saved_searches/resumes` | Да ⚠️ | • удалены параметры: vacancy_id |
+
+</details>
+
+<details>
+<summary><strong>1.46.0 (2026-07-09)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Да ⚠️ | • изменены поля ответа: error_description |
+| `POST /token` | Да ⚠️ | • изменены поля ответа: error_description |
+
+</details>
+
+<details>
+<summary><strong>1.45.1 (2026-06-21)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: work_ticket |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: work_ticket |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
+<summary><strong>1.45.0 (2026-06-16)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, negotiations_actions, premium, vacancy_properties<br>• изменено описание схемы ответа<br>• изменены поля ответа: properties<br>• изменены обязательные поля ответа: удалены properties |
+| `GET /employers/{employer_id}/vacancies/archived` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, vacancy_properties<br>• изменено описание схемы ответа<br>• изменены поля ответа: properties<br>• изменены обязательные поля ответа: удалены properties |
+| `GET /employers/{employer_id}/vacancies/hidden` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, vacancy_properties<br>• изменено описание схемы ответа<br>• изменены поля ответа: properties<br>• изменены обязательные поля ответа: удалены properties |
+| `GET /negotiations/response` | Да ⚠️ | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Да ⚠️ | • добавлены поля ответа: chat_bot, relevant_experience, url<br>• изменены поля ответа: actions, resume, vacancy<br>• изменён заголовок схемы ответа<br>• изменены обязательные поля ответа: добавлены experience<br>• изменены поля ответа: closed_for_applicants, premium, type<br>• изменено описание схемы ответа |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены обязательные поля ответа: добавлены experience |
+| `GET /resumes/{resume_id}` | Нет | • изменены обязательные поля ответа: добавлены experience |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, type<br>• изменено описание схемы ответа |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: closed_for_applicants<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants<br>• изменено описание схемы ответа |
+| `POST /vacancies/drafts` | Нет | • изменены поля тела запроса: closed_for_applicants<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: closed_for_applicants<br>• изменено описание схемы ответа |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены поля тела запроса: closed_for_applicants<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: closed_for_applicants, premium, type, vacancy_properties<br>• изменено описание схемы ответа<br>• изменены поля ответа: properties |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, type<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: closed_for_applicants, premium, type<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
+<summary><strong>1.44.1 (2026-06-07)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: setka_access_type<br>• изменены обязательные поля ответа: добавлены setka_access_type |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: vacancy<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /resumes` | Нет | • добавлены параметры: employment_form, work_format <br>изменены параметры: employment, schedule |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: closed_for_applicants<br>• изменены обязательные поля ответа: добавлены closed_for_applicants |
+
+</details>
+
+<details>
+<summary><strong>1.44.0 (2026-05-30)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: large |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• изменены поля ответа: photo<br>• добавлены поля ответа: large |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: photo<br>• добавлены поля ответа: large |
+| `GET /resumes/{resume_id}` | Нет | • изменены поля ответа: photo, portfolio<br>• добавлены поля ответа: large |
+| `GET /vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• удалены поля ответа: email |
+| `POST /vacancies` | Да ⚠️ | • изменены поля тела запроса: contacts<br>• удалены поля тела запроса: email<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: ignored_fields, validation_errors |
+| `POST /vacancies/drafts` | Нет | • изменены поля тела запроса: contacts |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены поля ответа: contacts, meta_info<br>• удалены поля ответа: email<br>• добавлены поля ответа: ignored_fields, validation_errors |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены поля тела запроса: contacts |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: contacts<br>• удалены поля ответа: email |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля тела запроса: contacts<br>• удалены поля тела запроса: email<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• удалены поля ответа: email |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• удалены поля ответа: email |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: large |
+| `GET /vacancy_conditions` | Да ⚠️ | • изменены поля ответа: contacts<br>• изменены поля ответа: fields<br>• удалены поля ответа: email |
+
+</details>
+
+<details>
+<summary><strong>1.43.0 (2026-05-20)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /webhook/subscriptions` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: actions |
+| `POST /webhook/subscriptions` | Да ⚠️ | • изменены поля тела запроса: actions |
+| `PUT /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • изменены поля тела запроса: actions |
+
+</details>
+
+<details>
+<summary><strong>1.42.0 (2026-05-16)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /vacancy_conditions` | Да ⚠️ | • изменены поля ответа: inclusiveness_types<br>• удалены поля ответа: fields<br>• изменено описание схемы ответа |
+
+</details>
+
+<details>
+<summary><strong>1.41.0 (2026-05-15)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: inclusiveness_types<br>• изменены обязательные поля ответа: добавлены inclusiveness_types |
+| `POST /vacancies` | Да ⚠️ | • добавлены поля тела запроса: inclusiveness_description, inclusiveness_types<br>• изменены поля тела запроса: accept_handicapped |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: inclusiveness_description, inclusiveness_types<br>• изменены поля тела запроса: accept_handicapped |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: inclusiveness_description, inclusiveness_types<br>• изменены поля ответа: accept_handicapped |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: inclusiveness_description, inclusiveness_types<br>• изменены поля тела запроса: accept_handicapped |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: inclusiveness_description, inclusiveness_types<br>• изменены поля ответа: accept_handicapped |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • добавлены поля тела запроса: inclusiveness_description, inclusiveness_types<br>• изменены поля тела запроса: accept_handicapped |
+| `GET /vacancy_conditions` | Нет | • добавлены поля ответа: inclusiveness_description, inclusiveness_types<br>• изменены поля ответа: accept_handicapped |
+
+</details>
+
+<details>
+<summary><strong>1.40.2 (2026-05-10)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /common/chats` | Нет | • обновлено описание метода<br>• добавлены параметры: filter_with_vacancy_ids, vacancy_status |
+
+</details>
+
+<details>
+<summary><strong>1.40.1 (2026-05-03)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /common/chats` | Нет | • изменены поля ответа: items |
+| `GET /common/chats/{chat_id}/messages` | Нет | • добавлены поля ответа: vacancy_id |
+| `GET /common/chats/{chat_id}/participants` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: resume<br>• добавлены поля ответа: contact_view_status |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: contact_view_status |
+| `GET /resumes/{resume_id}` | Нет | • обновлено описание метода |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+
+</details>
+
+<details>
+<summary><strong>1.40.0 (2026-04-21)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: contact_view_status |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Да ⚠️ | • изменены поля ответа: error_description |
+| `POST /token` | Да ⚠️ | • добавлены поля тела запроса: code_verifier<br>• изменены поля ответа: error_description |
+
+</details>
+
+<details>
+<summary><strong>1.39.0 (2026-04-16)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: complaint_status<br>• изменены обязательные поля ответа: добавлены complaint_status |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• изменены поля ответа: email |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: contacts<br>• изменены поля тела запроса: email |
+| `POST /vacancies/drafts` | Нет | • изменены поля тела запроса: contacts |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены поля ответа: contacts<br>• изменены поля ответа: email<br>• изменены обязательные поля ответа: удалены email |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • изменены поля тела запроса: contacts |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: contacts<br>• изменены поля ответа: email |
+| `PUT /vacancies/{vacancy_id}` | Нет | • изменены поля тела запроса: contacts<br>• изменены поля тела запроса: email |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• изменены поля ответа: email |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: contacts<br>• изменены поля ответа: email |
+
+</details>
+
+<details>
+<summary><strong>1.38.1 (2026-04-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/managers/{manager_id}` | Нет | • добавлены поля ответа: creation_time |
+
+</details>
+
+<details>
+<summary><strong>1.38.0 (2026-04-07)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /common/chats` | Нет | • изменены поля ответа: items |
+| `GET /common/chats/{chat_id}/messages` | Да ⚠️ | • изменены поля ответа: messages |
+
+</details>
+
+<details>
+<summary><strong>1.37.1 (2026-04-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: description<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: description<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: description<br>• изменено описание схемы ответа |
+| `PUT /vacancies/{vacancy_id}` | Нет | • изменены поля тела запроса: description<br>• изменено описание схемы тела запроса |
+
+</details>
+
+<details>
+<summary><strong>1.37.0 (2026-03-27)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /common/chats/without_vacancy` | Нет | • добавлен новый эндпоинт |
+| `GET /employers/{employer_id}/services/available_publications` | Нет | • изменены поля ответа: publication_variants<br>• изменены поля ответа: appearance, vacancy_properties |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /me` | Нет | • изменены поля ответа: user_statuses<br>• изменены поля ответа: job_search_status<br>• изменены поля ответа: last_change_time |
+| `GET /vacancies/drafts` | Да ⚠️ | • изменены поля ответа: items<br>• изменены поля ответа: insufficient_publications, vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены поля ответа: meta_info, vacancy_properties<br>• изменены поля ответа: insufficient_publications<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: appearance<br>• добавлены поля ответа: description |
+| `GET /vacancies/{vacancy_id}/upgrades` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: required<br>• изменены обязательные поля ответа: добавлены required |
+
+</details>
+
+<details>
+<summary><strong>1.36.0 (2026-03-19)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /applicant_comments/{applicant_id}` | Да ⚠️ | • прочие изменения |
+| `POST /applicant_comments/{applicant_id}` | Да ⚠️ | • прочие изменения |
+| `DELETE /applicant_comments/{applicant_id}/{comment_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /applicant_comments/{applicant_id}/{comment_id}` | Да ⚠️ | • прочие изменения |
+| `GET /areas` | Да ⚠️ | • прочие изменения |
+| `GET /areas/countries` | Да ⚠️ | • прочие изменения |
+| `GET /areas/{area_id}` | Да ⚠️ | • прочие изменения |
+| `GET /clickme/statistics` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats/counters/unread` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats/files/conditions` | Да ⚠️ | • прочие изменения |
+| `POST /common/chats/files/upload_links` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/leave` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats/{chat_id}/messages` | Да ⚠️ | • прочие изменения |
+| `POST /common/chats/{chat_id}/messages` | Да ⚠️ | • прочие изменения |
+| `DELETE /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • прочие изменения |
+| `GET /common/chats/{chat_id}/participants` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/participants` | Да ⚠️ | • прочие изменения |
+| `PUT /common/chats/{chat_id}/write_possibility` | Да ⚠️ | • прочие изменения |
+| `GET /dictionaries` | Да ⚠️ | • прочие изменения |
+| `GET /districts` | Да ⚠️ | • прочие изменения |
+| `GET /educational_institutions` | Да ⚠️ | • прочие изменения |
+| `GET /educational_institutions/{id}/faculties` | Да ⚠️ | • прочие изменения |
+| `GET /employers` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/addresses` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/addresses/{address_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/departments` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/mail_templates` | Да ⚠️ | • прочие изменения |
+| `PUT /employers/{employer_id}/mail_templates/{template_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/manager_types` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers` | Да ⚠️ | • прочие изменения |
+| `POST /employers/{employer_id}/managers` | Да ⚠️ | • прочие изменения |
+| `DELETE /employers/{employer_id}/managers/{manager_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /employers/{employer_id}/managers/{manager_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/limits/resume` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/method_access` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/negotiations_statistics` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/settings` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/managers/{manager_id}/vacancies/available_types` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/negotiations_statistics` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/services/available_publications` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/services/payable_api_actions/active` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/tests` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancies/active` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancies/archived` | Да ⚠️ | • прочие изменения |
+| `PUT /employers/{employer_id}/vacancies/archived/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancies/hidden` | Да ⚠️ | • прочие изменения |
+| `DELETE /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /employers/{employer_id}/vacancies/hidden/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancy_areas/active` | Да ⚠️ | • прочие изменения |
+| `GET /employers/{employer_id}/vacancy_branded_templates` | Да ⚠️ | • прочие изменения |
+| `GET /industries` | Да ⚠️ | • прочие изменения |
+| `GET /languages` | Да ⚠️ | • прочие изменения |
+| `GET /locales` | Да ⚠️ | • прочие изменения |
+| `GET /locales/resume` | Да ⚠️ | • прочие изменения |
+| `GET /manager_accounts/mine` | Да ⚠️ | • прочие изменения |
+| `GET /me` | Да ⚠️ | • прочие изменения |
+| `GET /message_templates/{template}` | Да ⚠️ | • прочие изменения |
+| `GET /metro` | Да ⚠️ | • прочие изменения |
+| `GET /metro/{city_id}` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations` | Да ⚠️ | • прочие изменения |
+| `POST /negotiations/phone_interview` | Да ⚠️ | • прочие изменения |
+| `POST /negotiations/read` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations/response` | Да ⚠️ | • прочие изменения |
+| `PUT /negotiations/{collection_name}/{nid}` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations/{id}` | Да ⚠️ | • прочие изменения |
+| `PUT /negotiations/{id}` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations/{nid}/messages` | Да ⚠️ | • прочие изменения |
+| `POST /negotiations/{nid}/messages` | Да ⚠️ | • прочие изменения |
+| `GET /negotiations/{nid}/test/solution` | Да ⚠️ | • прочие изменения |
+| `GET /professional_roles` | Да ⚠️ | • прочие изменения |
+| `GET /resumes` | Да ⚠️ | • прочие изменения |
+| `GET /resumes/{resume_id}` | Да ⚠️ | • прочие изменения |
+| `GET /resumes/{resume_id}/negotiations_history` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/dictionaries/employee_levels` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/dictionaries/professional_areas` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/dictionaries/salary_areas` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/dictionaries/salary_industries` | Да ⚠️ | • прочие изменения |
+| `GET /salary_statistics/paid/salary_evaluation/{area_id}` | Да ⚠️ | • изменены поля ответа: resulting_parameters<br>• изменены поля ответа: specialities |
+| `GET /saved_searches/resumes` | Да ⚠️ | • прочие изменения |
+| `POST /saved_searches/resumes` | Да ⚠️ | • прочие изменения |
+| `DELETE /saved_searches/resumes/{id}` | Да ⚠️ | • прочие изменения |
+| `GET /saved_searches/resumes/{id}` | Да ⚠️ | • прочие изменения |
+| `PUT /saved_searches/resumes/{id}` | Да ⚠️ | • прочие изменения |
+| `PUT /saved_searches/resumes/{saved_search_id}/managers/{manager_id}` | Да ⚠️ | • прочие изменения |
+| `GET /skills` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/area_leaves` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/areas` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/companies` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/educational_institutions` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/fields_of_study` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/positions` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/professional_roles` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/resume_search_keyword` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/skill_set` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/vacancy_positions` | Да ⚠️ | • прочие изменения |
+| `GET /suggests/vacancy_search_keyword` | Да ⚠️ | • прочие изменения |
+| `DELETE /token` | Да ⚠️ | • прочие изменения |
+| `POST /token` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies` | Да ⚠️ | • прочие изменения |
+| `POST /vacancies` | Да ⚠️ | • прочие изменения |
+| `DELETE /vacancies/auto_publication` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/drafts` | Да ⚠️ | • прочие изменения |
+| `POST /vacancies/drafts` | Да ⚠️ | • прочие изменения |
+| `DELETE /vacancies/drafts/{draft_id}` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /vacancies/drafts/{draft_id}` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/drafts/{draft_id}/duplicates` | Да ⚠️ | • прочие изменения |
+| `POST /vacancies/drafts/{draft_id}/publish` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{id}/preferred_negotiations_order` | Да ⚠️ | • прочие изменения |
+| `PUT /vacancies/{id}/preferred_negotiations_order` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/prolongate` | Да ⚠️ | • прочие изменения |
+| `POST /vacancies/{vacancy_id}/prolongate` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/stats` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/upgrades` | Да ⚠️ | • прочие изменения |
+| `GET /vacancies/{vacancy_id}/visitors` | Да ⚠️ | • прочие изменения |
+| `GET /vacancy_conditions` | Да ⚠️ | • прочие изменения |
+| `GET /webhook/subscriptions` | Да ⚠️ | • прочие изменения |
+| `POST /webhook/subscriptions` | Да ⚠️ | • прочие изменения |
+| `DELETE /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • прочие изменения |
+| `PUT /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • прочие изменения |
+
+</details>
+
+<details>
+<summary><strong>1.35.0 (2026-03-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `PUT /common/chats/{chat_id}/message/{message_id}/read` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `POST /common/chats/{chat_id}/messages` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/messages/{message_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /common/chats/{chat_id}/write_possibility` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • добавлены поля ответа: chat_id |
+
+</details>
+
+<details>
+<summary><strong>1.34.1 (2026-03-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /common/chats/counters/unread` | Нет | • изменены поля ответа: unread_chats_count<br>• изменён заголовок схемы ответа |
+
+</details>
+
+<details>
+<summary><strong>1.34.0 (2026-02-26)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /negotiations/read` | Нет | • изменено тело запроса |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • обновлено описание метода<br>• изменены поля ответа: resume<br>• добавлены поля ответа: experience_group_by_company |
+| `GET /negotiations/{nid}/messages` | Нет | • обновлено описание метода |
+| `POST /negotiations/{nid}/messages` | Нет | • обновлено описание метода |
+| `GET /resumes` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: experience_group_by_company |
+| `GET /resumes/{resume_id}` | Нет | • добавлены поля ответа: experience_group_by_company |
+| `GET /vacancies` | Нет | • добавлены параметры: salary_frequency, salary_mode <br>изменены параметры: employment, only_with_salary, part_time, schedule |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • добавлены параметры: driver_license_types, education, employment_form, salary_frequency, salary_mode, work_format, work_schedule_by_days, working_hours <br>изменены параметры: employment, only_with_salary, part_time, schedule |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • добавлены параметры: driver_license_types, education, employment_form, salary_frequency, salary_mode, work_format, work_schedule_by_days, working_hours <br>изменены параметры: employment, only_with_salary, part_time, schedule |
+| `GET /vacancies/{vacancy_id}/visitors` | Нет | • изменены поля ответа: items |
+| `GET /webhook/subscriptions` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: actions |
+| `POST /webhook/subscriptions` | Да ⚠️ | • изменены поля тела запроса: actions |
+| `PUT /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • изменены поля тела запроса: actions |
+
+</details>
+
+<details>
+<summary><strong>1.33.1 (2026-02-19)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /clickme/statistics` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: date_end, date_start |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: employment_form |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • изменены поля ответа: source |
+| `GET /suggests/companies` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: logo_urls<br>• добавлены поля ответа: 240<br>• изменены поля ответа: 90 |
+
+</details>
+
+<details>
+<summary><strong>1.33.0 (2026-02-12)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `POST /negotiations/phone_interview` | Да ⚠️ | • изменены поля ответа: errors |
+| `PUT /negotiations/{collection_name}/{nid}` | Да ⚠️ | • изменены поля ответа: errors |
+| `POST /negotiations/{nid}/messages` | Да ⚠️ | • изменены поля ответа: errors |
+| `GET /vacancies/drafts/{draft_id}` | Да ⚠️ | • изменены обязательные поля ответа: удалены schedule |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены обязательные поля ответа: удалены schedule |
+
+</details>
+
+<details>
+<summary><strong>1.32.0 (2026-02-05)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• удалены поля ответа: video_vacancy |
+| `GET /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: address, video_vacancy<br>• удалены поля ответа: snippet_picture, snippet_picture_url, snippet_video, snippet_video_url |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• удалены поля ответа: video_vacancy |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Да ⚠️ | • изменены поля ответа: items<br>• удалены поля ответа: video_vacancy |
+
+</details>
+
+<details>
+<summary><strong>1.31.0 (2026-01-29)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /resumes/{resume_id}` | Нет | • изменены поля ответа: negotiations_history<br>• изменены поля ответа: url |
+| `GET /resumes/{resume_id}/negotiations_history` | Нет | • изменены поля ответа: vacancies<br>• изменены поля ответа: url |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: address<br>• добавлены поля ответа: can_edit<br>• изменены обязательные поля ответа: добавлены can_edit |
+
+</details>
+
+<details>
+<summary><strong>1.30.1 (2026-01-22)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: civil_law_contracts |
+| `GET /resumes` | Нет | • добавлены параметры: business_trip_readiness |
+| `GET /vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `POST /vacancies` | Нет | • добавлены поля тела запроса: accept_labor_contract, civil_law_contracts<br>• изменены поля тела запроса: accept_temporary<br>• изменено описание схемы тела запроса |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: accept_labor_contract, civil_law_contracts<br>• изменены поля тела запроса: accept_temporary |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: accept_labor_contract, civil_law_contracts<br>• изменены поля тела запроса: accept_temporary |
+| `GET /vacancies/{vacancy_id}` | Нет | • добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `PUT /vacancies/{vacancy_id}` | Нет | • добавлены поля тела запроса: accept_labor_contract, civil_law_contracts<br>• изменены поля тела запроса: accept_temporary<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены поля ответа: items<br>• добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary<br>• изменено описание схемы ответа |
+| `GET /vacancy_conditions` | Нет | • добавлены поля ответа: accept_labor_contract, civil_law_contracts<br>• изменены поля ответа: accept_temporary |
+
+</details>
+
+<details>
+<summary><strong>1.30.0 (2026-01-15)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: salary_range_frequency, salary_range_mode |
+| `POST /employers/{employer_id}/managers` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `DELETE /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `PUT /employers/{employer_id}/managers/{manager_id}` | Нет | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `GET /employers/{employer_id}/managers/{manager_id}/method_access` | Нет | • обновлено описание метода |
+| `GET /locales/resume` | Нет | • обновлено описание метода |
+| `POST /negotiations` | Да ⚠️ | • удален эндпоинт |
+| `GET /negotiations/response` | Нет | • изменены поля ответа: items |
+| `GET /negotiations/{id}` | Нет | • обновлено описание метода<br>• изменены поля ответа: messages_url |
+| `GET /negotiations/{nid}/messages` | Нет | • обновлено описание метода |
+| `POST /negotiations/{nid}/messages` | Нет | • обновлено описание метода |
+| `GET /resumes` | Нет | • изменены параметры: text |
+| `POST /resumes` | Да ⚠️ | • удален эндпоинт |
+| `DELETE /resumes/{resume_id}` | Да ⚠️ | • удален эндпоинт |
+| `PUT /resumes/{resume_id}` | Да ⚠️ | • удален эндпоинт |
+| `POST /saved_searches/resumes` | Нет | • изменены параметры: text |
+| `GET /suggests/companies` | Нет | • обновлено описание метода |
+| `GET /suggests/educational_institutions` | Нет | • обновлено описание метода |
+| `GET /vacancies` | Нет | • изменены параметры: text |
+| `POST /vacancies` | Нет | • изменены поля тела запроса: accept_kids<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: accept_kids<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: accept_kids, branded_description, employer<br>• изменено описание схемы ответа<br>• изменены поля ответа: blacklisted |
+| `PUT /vacancies/{vacancy_id}` | Нет | • изменены поля тела запроса: accept_kids<br>• изменено описание схемы тела запроса |
+| `GET /vacancies/{vacancy_id}/related_vacancies` | Нет | • изменены параметры: text |
+| `GET /vacancies/{vacancy_id}/similar_vacancies` | Нет | • изменены параметры: text |
+
+</details>
