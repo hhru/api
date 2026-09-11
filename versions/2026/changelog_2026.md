@@ -1,6 +1,19 @@
 # Обновления API
 
 <details>
+<summary><strong>1.52.0 (2026-09-11)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /calls/history` | Нет | • добавлен новый эндпоинт |
+| `GET /calls/link` | Нет | • обновлено описание метода<br>• изменены ответы 200<br>• добавлены поля ответа: link_id<br>• изменены обязательные поля ответа: добавлены link_id |
+| `POST /calls/transcripts/search` | Нет | • добавлен новый эндпоинт |
+| `POST /vacancies` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+| `PUT /vacancies/{vacancy_id}` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: reason |
+
+</details>
+
+<details>
 <summary><strong>1.51.0 (2026-09-09)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
