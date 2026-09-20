@@ -1,6 +1,19 @@
 # Обновления API
 
 <details>
+<summary><strong>1.53.1 (2026-09-20)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/services/available_publications` | Нет | • обновлено описание метода<br>• изменены поля ответа: publication_variants<br>• изменены поля ответа: suitable_packages<br>• добавлены поля ответа: employer_service_id, expiration_time, included_properties, prof_role_group<br>• изменены обязательные поля ответа: добавлены employer_service_id, expiration_time, included_properties, prof_role_group |
+| `POST /vacancies` | Нет | • обновлено описание метода<br>• добавлены поля тела запроса: employer_service_id |
+| `POST /vacancies/drafts` | Нет | • добавлены поля тела запроса: employer_service_id |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • добавлены поля ответа: employer_service_id |
+| `PUT /vacancies/drafts/{draft_id}` | Нет | • добавлены поля тела запроса: employer_service_id |
+
+</details>
+
+<details>
 <summary><strong>1.53.0 (2026-09-12)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
