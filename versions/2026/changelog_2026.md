@@ -1,6 +1,21 @@
 # Обновления API
 
 <details>
+<summary><strong>1.53.2 (2026-09-27)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /employers/{employer_id}/vacancies/active` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/archived` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /employers/{employer_id}/vacancies/hidden` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /resumes/{resume_id}` | Нет | • изменены поля ответа: paid_services |
+| `GET /vacancies/drafts` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/drafts/{draft_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+| `GET /vacancies/{vacancy_id}` | Нет | • изменены поля ответа: vacancy_properties<br>• изменены поля ответа: properties<br>• изменено описание схемы ответа |
+
+</details>
+
+<details>
 <summary><strong>1.53.1 (2026-09-20)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
