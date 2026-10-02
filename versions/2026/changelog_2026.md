@@ -1,6 +1,19 @@
 # Обновления API
 
 <details>
+<summary><strong>1.54.0 (2026-10-02)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /resumes` | Да ⚠️ | • изменены поля ответа: errors<br>• изменены поля ответа: value |
+| `PUT /vacancies/{vacancy_id}` | Нет | • изменены поля тела запроса: vacancy_properties |
+| `GET /webhook/subscriptions` | Нет | • изменены поля ответа: items<br>• изменены поля ответа: actions |
+| `POST /webhook/subscriptions` | Да ⚠️ | • изменены поля тела запроса: actions |
+| `PUT /webhook/subscriptions/{subscription_id}` | Да ⚠️ | • изменены поля тела запроса: actions |
+
+</details>
+
+<details>
 <summary><strong>1.53.2 (2026-09-27)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
