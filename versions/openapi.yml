@@ -4843,6 +4843,12 @@ components:
         link: 'https://my.hh.ru/b/1pe1cmz'
         link_id: 7d4efdb4-f445-47f1-8928-5d94e932afea
         qr_code: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bCg==
+    WebCallCallRecordsResponse:
+      value:
+        records:
+          '114':
+            expires_at: '2026-09-11T12:00:00+00:00'
+            record_url: 'https://disk.hh.ru/download/redirect?service_token=.eJxExampleServiceToken.signature'
     WebCallCallTranscriptsResponse:
       value:
         transcripts:
@@ -4879,8 +4885,15 @@ components:
               last_name: Петров
               real_phone: +7 (903) 882-86-14
               role: APPLICANT
+            record:
+              expires_at: '2026-09-11T12:00:00+00:00'
+              record_url: 'https://disk.hh.ru/download/redirect?service_token=.eJxExampleServiceToken.signature'
             start_date_time: '2026-09-10T08:07:40+00:00'
             successful: true
+            transcript:
+              expires_at: '2026-09-11T12:00:00+00:00'
+              status: SUCCESS
+              transcript_url: 'https://disk.hh.ru/download/redirect?service_token=.eJxExampleServiceToken.signature'
         next_cursor: eyJ0aW1lc3RhbXAiOjE3ODkwMjc2NjAsImNhbGxJZCI6MTE0fQ==
         total: 5
     ProfileVideosProfileVideosList:
@@ -9587,9 +9600,10 @@ components:
             Причина ошибки. Возможные значения:
               * `must_be_positive_integer` — значение должно быть положительным целым числом.
                 Для `vacancy_id` и `per_page`
+              * `max_value` — значение превышает допустимый максимум. Для `per_page` максимум 500
               * `must_be_one_of` — значение должно быть одним из допустимых. Для `direction`
-                допустимы `outgoing` и `incoming`. Для `successful`, `with_resume` и
-                `without_vacancy` допустимы `true` и `false`
+                допустимы `outgoing` и `incoming`. Для `successful`, `with_resume`,
+                `without_vacancy`, `with_records` и `with_transcripts` допустимы `true` и `false`
               * `must_be_uuid` — значение должно быть UUID
               * `must_be_datetime` — значение должно быть датой и временем ISO 8601 с offset.
                 Дата без времени или без пояса не принимается
@@ -9598,6 +9612,7 @@ components:
               * `invalid` — запрос некорректный
           enum:
             - must_be_positive_integer
+            - max_value
             - must_be_one_of
             - must_be_uuid
             - must_be_datetime
@@ -9626,6 +9641,8 @@ components:
             - previous_cursor
             - date_from
             - date_to
+            - with_records
+            - with_transcripts
           example: vacancy_id
           type: string
       required:
@@ -9677,6 +9694,65 @@ components:
       required:
         - type
       title: Ошибка в параметре запроса
+      type: object
+    ErrorsWebCallCallRecordsBadArgumentErrors:
+      allOf:
+        - $ref: '#/components/schemas/ErrorsCommonErrorRequestId'
+        - properties:
+            errors:
+              description: Массив с данными ошибок
+              items:
+                $ref: '#/components/schemas/ErrorsWebCallCallRecordsBadArgumentError'
+              minItems: 1
+              type: array
+          required:
+            - errors
+          type: object
+      description: Информация о возникших ошибках
+      title: Ошибки в параметрах запроса записей звонков
+    ErrorsWebCallCallRecordsBadArgumentError:
+      additionalProperties: false
+      properties:
+        description:
+          description: Описание ошибки
+          type: string
+        reason:
+          description: |
+            Причина ошибки. Возможные значения:
+              * `mutually_exclusive` — заполнено и `call_ids`, и `link_ids` одновременно
+              * `required` — не заполнено ни `call_ids`, ни `link_ids`
+              * `too_many_items` — превышено максимальное количество элементов
+              * `must_be_positive_integer` — значение `call_ids` должно быть положительным целым числом
+              * `must_be_uuid` — значение `link_ids` должно быть UUID
+              * `matches_too_many_calls` — по переданным `link_ids` найдено больше звонков,
+                чем допускает этот запрос. Сократите список ссылок или разбейте на несколько запросов
+              * `invalid` — запрос некорректный
+          enum:
+            - mutually_exclusive
+            - required
+            - too_many_items
+            - must_be_positive_integer
+            - must_be_uuid
+            - matches_too_many_calls
+            - invalid
+          example: too_many_items
+          type: string
+        type:
+          description: Текстовый идентификатор типа ошибки
+          enum:
+            - bad_argument
+          example: bad_argument
+          type: string
+        value:
+          description: Название поля с ошибкой
+          enum:
+            - call_ids
+            - link_ids
+          example: link_ids
+          type: string
+      required:
+        - type
+      title: Ошибка в параметре запроса записей звонков
       type: object
     ErrorsWebCallCallTranscriptsBadArgumentErrors:
       allOf:
@@ -19009,6 +19085,58 @@ components:
         - link_id
       title: Данные ссылки на звонок
       type: object
+    WebCallCallRecordsResponse:
+      properties:
+        records:
+          additionalProperties:
+            allOf:
+              - $ref: '#/components/schemas/WebCallCallRecordItem'
+            x-additionalPropertiesName: call_id
+          description: |
+            Записи по звонкам, сгруппированные по идентификатору звонка из `GET /calls/history`.
+            Звонки без доступной записи или без доступа отсутствуют в объекте
+          type: object
+      required:
+        - records
+      title: Записи звонков
+      type: object
+    WebCallCallRecordItem:
+      description: |
+        Запись завершённого звонка в ответе поиска записей.
+        Ключом в `records` является `call_id`
+      properties:
+        expires_at:
+          description: 'Момент, после которого `record_url` перестаёт работать. Формат ISO 8601 UTC'
+          format: date-time
+          type: string
+        record_url:
+          description: |
+            Временная ссылка на файл записи звонка.
+            Работает до момента, указанного в `expires_at`
+          type: string
+      required:
+        - record_url
+      title: Запись звонка
+      type: object
+    WebCallCallRecordsSearchRequest:
+      description: |
+        Ровно одно из полей `call_ids` / `link_ids` должно быть заполнено
+      properties:
+        call_ids:
+          description: |
+            Идентификаторы звонков из `GET /calls/history`. Максимум 250 элементов
+          items:
+            type: string
+          type: array
+        link_ids:
+          description: |
+            Идентификаторы ссылок из ответа `GET /calls/link`. Максимум 50 элементов
+          items:
+            format: uuid
+            type: string
+          type: array
+      title: Поиск записей звонков
+      type: object
     WebCallCallTranscriptsResponse:
       properties:
         transcripts:
@@ -19131,6 +19259,11 @@ components:
           type: string
         recipient_info:
           $ref: '#/components/schemas/WebCallCallRecipientInfo'
+        record:
+          $ref: '#/components/schemas/WebCallCallRecordHistoryItem'
+          description: |
+            Запись звонка. Присутствует, только если запрошена параметром `with_records`
+            и запись доступна. Отсутствует в противном случае
         start_date_time:
           description: Время начала звонка в формате ISO 8601 UTC
           format: date-time
@@ -19140,6 +19273,11 @@ components:
             Признак успешного завершения звонка.
             Если `false`, проверьте `context.voicemail_detected` — звонок мог завершиться на автоответчике
           type: boolean
+        transcript:
+          $ref: '#/components/schemas/WebCallCallTranscriptHistoryItem'
+          description: |
+            Расшифровка звонка. Присутствует, только если запрошена параметром `with_transcripts`
+            и расшифровка доступна. Отсутствует в противном случае
       required:
         - id
         - successful
@@ -19336,6 +19474,59 @@ components:
         - client
         - role
       title: Информация о получателе — менеджере работодателя
+      type: object
+    WebCallCallRecordHistoryItem:
+      description: |
+        Объект присутствует в ответе только при `with_records=true`,
+        если запись доступна. Иначе поле `record` в `CallResponse` отсутствует
+      properties:
+        expires_at:
+          description: 'Момент, после которого `record_url` перестаёт работать. Формат ISO 8601 UTC'
+          format: date-time
+          nullable: true
+          type: string
+        record_url:
+          description: |
+            Временная ссылка на файл записи звонка.
+            Работает до момента, указанного в `expires_at`
+          nullable: true
+          type: string
+      title: Запись звонка из истории
+      type: object
+    WebCallCallTranscriptHistoryItem:
+      description: |
+        Объект присутствует в ответе только при `with_transcripts=true`,
+        если расшифровка доступна. Иначе поле `transcript` в `CallResponse` отсутствует
+      properties:
+        expires_at:
+          description: 'Момент, после которого `transcript_url` перестаёт работать. Формат ISO 8601 UTC'
+          format: date-time
+          nullable: true
+          type: string
+        status:
+          description: |
+            Статус расшифровки.
+
+            * `SUCCESS` — расшифровка готова, есть `transcript_url` и `expires_at`
+            * `NEW` — задача на расшифровку создана
+            * `IN_PROGRESS` — расшифровка в процессе
+            * `ERROR` — расшифровку получить не удалось. Статус финальный
+            * `NOT_TRANSCRIBED` — расшифровки не будет. Статус финальный
+          enum:
+            - NEW
+            - IN_PROGRESS
+            - SUCCESS
+            - ERROR
+            - NOT_TRANSCRIBED
+          nullable: true
+          type: string
+        transcript_url:
+          description: |
+            Временная ссылка на файл расшифровки.
+            Присутствует при `status=SUCCESS`, иначе отсутствует
+          nullable: true
+          type: string
+      title: Расшифровка звонка из истории
       type: object
     WebhookBadDataError:
       description: Ошибка параметров запроса
@@ -22750,11 +22941,10 @@ paths:
           required: false
           schema:
             type: string
-        - name: employment
+        - name: employment_form
           in: query
           description: |
-            Тип занятости. Возможные значения перечислены в поле `employment` в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать несколько значений
-          required: false
+            Тип занятости. Возможные значения перечислены в поле `resume_employment_form` в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать несколько значений
           schema:
             type: string
         - name: experience
@@ -22831,13 +23021,6 @@ paths:
           required: false
           schema:
             type: number
-        - name: schedule
-          in: query
-          description: |
-            График работы. Возможные значения перечислены в поле `schedule` в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать несколько значений
-          required: false
-          schema:
-            type: string
         - name: order_by
           in: query
           description: |
@@ -23083,16 +23266,6 @@ paths:
             Количество значений этого параметра должно соответствовать количеству значений в `text`, `text.field` и `text.logic`
           schema:
             type: string
-        - name: text.industry
-          deprecated: true
-          in: query
-          description: |
-            Идентификатор отрасли, в которой соискатель должен иметь опыт работы.
-            Возможные значения перечислены в [справочнике отраслей](#tag/Obshie-spravochniki/operation/get-industries) (поле id). 
-
-            Количество значений этого параметра должно соответствовать количеству значений в `text`, `text.field` и `text.logic`
-          schema:
-            type: string
         - name: age_from
           in: query
           description: |
@@ -23148,13 +23321,6 @@ paths:
             Уровень образования. Возможные значения перечислены в поле `education_level` в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Если параметр не указан, поиск ведется без ограничений на уровень образования.
 
             Заменен на параметр `education_levels`. В настоящее время поддерживается для обратной совместимости
-          schema:
-            type: string
-        - name: employment
-          deprecated: true
-          in: query
-          description: |
-            Тип занятости. Возможные значения перечислены в поле `employment` в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать несколько значений
           schema:
             type: string
         - name: employment_form
@@ -23230,13 +23396,6 @@ paths:
             По умолчанию в выдачу добавляются также резюме с неуказанной ЗП. Для выдачи резюме только с указанной ЗП передайте параметр `label=only_with_salary`
           schema:
             type: number
-        - name: schedule
-          deprecated: true
-          in: query
-          description: |
-            График работы. Возможные значения перечислены в поле `schedule` в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать несколько значений
-          schema:
-            type: string
         - name: work_format
           in: query
           description: |
@@ -24636,6 +24795,10 @@ paths:
         ```
         POST /negotiations/phone_interview?resume_id=123456&vacancy_id=654321&message=new_msg
         ```
+      parameters:
+        - $ref: '#/components/parameters/Host'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/HHUserAgent'
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -24683,10 +24846,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorsVacancyApplyForbiddenErrors'
-      parameters:
-        - $ref: '#/components/parameters/Host'
-        - $ref: '#/components/parameters/Locale'
-        - $ref: '#/components/parameters/HHUserAgent'
   '/message_templates/{template}':
     x-name: '/message_templates/{template}'
     get:
@@ -25662,6 +25821,51 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/ErrorsCommonBadAuthorizationErrors'
                   - $ref: '#/components/schemas/ErrorsWebCallAccessErrors'
+  /calls/records/search:
+    x-name: /calls/records/search
+    post:
+      summary: Записи звонков по call_ids или link_ids
+      description: |
+        Возвращает записи завершённых звонков по списку `call_ids`
+        или по списку `link_ids` из `GET /calls/link` — ровно одно из полей тела
+        запроса должно быть заполнено.
+
+        `record_url` — временная ссылка на файл записи звонка
+      operationId: search-calls-records
+      tags:
+        - Звонки от работодателя соискателю
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebCallCallRecordsSearchRequest'
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebCallCallRecordsResponse'
+              examples:
+                Пример ответа:
+                  $ref: '#/components/examples/WebCallCallRecordsResponse'
+        '400':
+          description: Неверный запрос
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsWebCallCallRecordsBadArgumentErrors'
+        '403':
+          description: Недоступно для текущего пользователя
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsCommonBadAuthorizationErrors'
+      parameters:
+        - $ref: '#/components/parameters/Host'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/HHUserAgent'
   /calls/history:
     x-name: /calls/history
     get:
@@ -25719,6 +25923,7 @@ paths:
           schema:
             type: integer
             minimum: 1
+            maximum: 500
         - name: next_cursor
           in: query
           description: Курсор следующей страницы из предыдущего ответа. Передайте значение поля `next_cursor` из ответа предыдущего запроса
@@ -25773,6 +25978,22 @@ paths:
           schema:
             type: string
             format: uuid
+        - name: with_records
+          in: query
+          description: |
+            Возвращать в каждом звонке запись (`record`) при её наличии.
+            По умолчанию `false`
+          required: false
+          schema:
+            type: boolean
+        - name: with_transcripts
+          in: query
+          description: |
+            Возвращать в каждом звонке расшифровку (`transcript`) при её наличии.
+            По умолчанию `false`
+          required: false
+          schema:
+            type: boolean
         - $ref: '#/components/parameters/Host'
         - $ref: '#/components/parameters/Locale'
         - $ref: '#/components/parameters/HHUserAgent'

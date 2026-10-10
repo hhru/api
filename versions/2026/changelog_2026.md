@@ -1,6 +1,18 @@
 # Обновления API
 
 <details>
+<summary><strong>1.55.0 (2026-10-10)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /calls/history` | Да ⚠️ | • добавлены параметры: with_records, with_transcripts <br>изменены параметры: per_page<br>• изменены поля ответа: calls<br>• изменены поля ответа: errors<br>• добавлены поля ответа: record, transcript<br>• изменены поля ответа: reason, value |
+| `POST /calls/records/search` | Нет | • добавлен новый эндпоинт |
+| `GET /resumes` | Да ⚠️ | • удалены параметры: employment, schedule, text.industry |
+| `POST /saved_searches/resumes` | Да ⚠️ | • добавлены параметры: employment_form <br>удалены параметры: employment, schedule |
+
+</details>
+
+<details>
 <summary><strong>1.54.0 (2026-10-02)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
