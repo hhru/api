@@ -766,6 +766,17 @@ components:
             name: по возрастанию зарплаты
           - id: relevance
             name: по соответствию
+        resume_search_profession_experience:
+          - id: some
+            name: Любой
+          - id: at_least_one
+            name: От 1 года
+          - id: at_least_three
+            name: От 3 лет
+          - id: at_least_six
+            name: От 6 лет
+          - id: at_least_ten
+            name: От 10 лет
         resume_search_relocation:
           - id: living_or_relocation
             name: Живут в указанном регионе или готовы переехать в него
@@ -1228,6 +1239,7 @@ components:
           makeup:
             header_picture:
               mob_app_path: 'https://hhcdn.ru/branding-pictures/001.jpeg'
+              mob_app_url: 'https://img.hhcdn.ru/branding-pictures/001.jpeg'
               web_path: 'https://hhcdn.ru/branding-pictures/000.jpeg'
             url: /employer/makeup/webview/12
           template_code: 'makeup:123'
@@ -6689,6 +6701,12 @@ components:
             $ref: '#/components/schemas/_IncludesIdName'
           title: Справочник параметров поиска резюме
           type: array
+        resume_search_profession_experience:
+          description: Минимальный опыт в профессии
+          items:
+            $ref: '#/components/schemas/_IncludesIdName'
+          title: Справочник параметров поиска резюме
+          type: array
         resume_search_relocation:
           description: Условие поиска по проживанию в регионе и готовности к переезду
           items:
@@ -7912,7 +7930,12 @@ components:
       description: Изображение из шапки бренд страницы
       properties:
         resized_path:
-          description: Путь к изображению на cdn хранилище
+          deprecated: true
+          description: Путь к изображению на cdn хранилище. Используйте resized_url
+          type: string
+        resized_url:
+          description: Ссылка на изображение на cdn хранилище
+          nullable: true
           type: string
       required:
         - resized_path
@@ -7925,7 +7948,12 @@ components:
             header_picture:
               properties:
                 mob_app_path:
-                  description: Путь к изображению обложки страницы для мобильной версии и мобильных приложений
+                  deprecated: true
+                  description: Путь к изображению обложки страницы для мобильной версии и мобильных приложений. Используйте mob_app_url
+                  type: string
+                mob_app_url:
+                  description: Ссылка на изображение обложки страницы для мобильных приложений
+                  nullable: true
                   type: string
                 web_path:
                   description: Путь к изображению обложки страницы для web-версии
@@ -19932,6 +19960,10 @@ components:
       properties:
         creation_date:
           description: 'Дата создания вакансии в формате [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) с точностью до секунды: `YYYY-MM-DDThh:mm:ss±hhmm'
+          type: string
+        draft_id:
+          description: 'Идентификатор черновика, из которого опубликована вакансия'
+          nullable: true
           type: string
         employer_manager_id:
           description: Идентификатор модератора вакансии

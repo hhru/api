@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.55.1 (2026-10-18)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /dictionaries` | Нет | • добавлены поля ответа: resume_search_profession_experience |
+| `GET /employers/{employer_id}` | Нет | • изменены поля ответа: branding<br>• изменены поля ответа: makeup<br>• изменены поля ответа: constructor<br>• добавлены поля ответа: resized_url<br>• изменены поля ответа: resized_path |
+
+</details>
+
+<details>
 <summary><strong>1.55.0 (2026-10-10)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |
