@@ -1,6 +1,16 @@
 # Обновления API
 
 <details>
+<summary><strong>1.55.2 (2026-10-25)</strong></summary>
+
+| Эндпоинт | Breaking | Пояснение |
+| --- | --- | --- |
+| `GET /negotiations/response` | Нет | • добавлены параметры: education_levels <br>изменены параметры: education_level |
+| `GET /resumes/{resume_id}/phone` | Нет | • добавлен новый эндпоинт |
+
+</details>
+
+<details>
 <summary><strong>1.55.1 (2026-10-18)</strong></summary>
 
 | Эндпоинт | Breaking | Пояснение |

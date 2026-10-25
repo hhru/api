@@ -2572,6 +2572,23 @@ components:
             name: Тестовая вакансия
             negotiations_url: 'https://api.hh.ru/negotiations/123'
             url: 'https://api.hh.ru/vacancies/321'
+    ResumesResumePhoneReal:
+      value:
+        phone:
+          city: '999'
+          country: '7'
+          formatted: +7 (999) 000-00-00
+          number: '0000000'
+        virtual_phone_state: NONE
+    ResumesResumePhoneVirtual:
+      value:
+        expires_at: '2026-09-25T15:03:00+0300'
+        phone:
+          city: '495'
+          country: '7'
+          formatted: +7 (495) 000-00-00
+          number: '0000000'
+        virtual_phone_state: CREATED
     ResumesSearchForResumes:
       value:
         found: 1
@@ -8435,6 +8452,50 @@ components:
         - type
       title: Ошибка
       type: object
+    ErrorsCommonBadApplicationErrors:
+      allOf:
+        - $ref: '#/components/schemas/ErrorsCommonErrorRequestId'
+        - properties:
+            errors:
+              description: Массив с данными ошибок
+              items:
+                oneOf:
+                  - $ref: '#/components/schemas/ErrorsCommonBadApplicationError'
+              minItems: 1
+              type: array
+          required:
+            - errors
+          type: object
+      description: Информация о возникших ошибках
+      title: Ошибки авторизации приложения
+    ErrorsCommonBadApplicationError:
+      additionalProperties: false
+      properties:
+        type:
+          description: Текстовый идентификатор типа ошибки
+          enum:
+            - bad_application
+          example: bad_application
+          type: string
+        value:
+          description: Причина ошибки
+          enum:
+            - no_permission
+            - bad_pair_client_id_secret
+            - no_access_for_hhrating_mailing
+            - no_access_for_employer_registration
+            - no_access_for_one_time_password_authorization
+            - no_access_to_employer_change_email
+            - no_access_to_employer_change_phone
+            - no_access_for_employer_documents
+            - no_access_for_outgoing_call_authorization
+          example: no_permission
+          type: string
+      required:
+        - type
+        - value
+      title: Ошибка авторизации приложения
+      type: object
     ErrorsCommonBadAuthCaptchaPrivate:
       oneOf:
         - $ref: '#/components/schemas/ErrorsCommonBadAuthorizationErrors'
@@ -9126,6 +9187,47 @@ components:
         - type
         - value
       title: Ошибка
+      type: object
+    ErrorsResumePhoneForbiddenErrors:
+      allOf:
+        - $ref: '#/components/schemas/ErrorsCommonErrorRequestId'
+        - properties:
+            errors:
+              description: Массив с данными ошибок
+              items:
+                $ref: '#/components/schemas/ErrorsResumePhoneForbiddenError'
+              minItems: 1
+              type: array
+          required:
+            - errors
+          type: object
+      description: Информация о возникших ошибках
+      title: Ошибки получения номера телефона для звонка соискателю
+    ErrorsResumePhoneForbiddenError:
+      additionalProperties: false
+      properties:
+        type:
+          description: Текстовый идентификатор типа ошибки
+          enum:
+            - resumes
+          example: resumes
+          type: string
+        value:
+          description: |
+            Причина ошибки:
+            * `cant_view_contacts` — у работодателя нет доступа к контактам резюме без списания или в рамках IPC
+            * `phone_not_available` — в резюме нет телефона или соискатель его скрыл
+            * `virtual_phone_unavailable` — для телефона соискателя нельзя выдать виртуальный номер
+          enum:
+            - cant_view_contacts
+            - phone_not_available
+            - virtual_phone_unavailable
+          example: cant_view_contacts
+          type: string
+      required:
+        - type
+        - value
+      title: Ошибка получения номера телефона для звонка соискателю
       type: object
     ErrorsResumeTooManyRequestsEmployerErrors:
       allOf:
@@ -13740,6 +13842,52 @@ components:
       required:
         - vacancies
       title: История откликов/приглашений по резюме
+      type: object
+    ResumesResumePhoneResponse:
+      properties:
+        expires_at:
+          description: 'Крайний момент начала звонка на виртуальный номер в формате [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) с точностью до секунды: `YYYY-MM-DDThh:mm:ss±hhmm`. Возвращается только для виртуального номера'
+          example: '2026-09-25T15:03:00+0300'
+          type: string
+        phone:
+          description: Номер телефона
+          properties:
+            city:
+              description: Код города
+              example: '495'
+              type: string
+            country:
+              description: Код страны
+              example: '7'
+              type: string
+            formatted:
+              description: Отформатированный номер телефона
+              example: +7 (495) 000-00-00
+              type: string
+            number:
+              description: Номер телефона
+              example: '0000000'
+              type: string
+          required:
+            - country
+            - city
+            - number
+            - formatted
+          type: object
+        virtual_phone_state:
+          description: |
+            Тип номера:
+            * `CREATED` — виртуальный номер, звонок на него нужно начать до `expires_at`
+            * `NONE` — реальный номер соискателя
+          enum:
+            - CREATED
+            - NONE
+          example: CREATED
+          type: string
+      required:
+        - phone
+        - virtual_phone_state
+      title: Номер телефона для звонка соискателю
       type: object
     ResumesSearchForResumesResponse:
       allOf:
@@ -23236,6 +23384,58 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorsResumeTooManyRequestsEmployerErrors'
+  '/resumes/{resume_id}/phone':
+    x-name: '/resumes/{resume_id}/phone'
+    get:
+      operationId: get-resume-phone
+      tags:
+        - Колл трекинг
+      summary: Получение номера телефона для звонка соискателю
+      description: |
+        Возвращает номер, по которому внешняя система работодателя звонит соискателю. Метод нужно вызывать непосредственно перед набором номера. Услуги при вызове не списываются
+
+        * Если контакты резюме доступны работодателю без списания, возвращается реальный номер соискателя: `virtual_phone_state` равен `NONE`, поле `expires_at` отсутствует
+        * Если доступ к резюме получен в рамках IPC, возвращается виртуальный номер: `virtual_phone_state` равен `CREATED`. Звонок нужно начать до `expires_at`, уже начатый разговор после этого момента не прерывается
+        * В остальных случаях возвращается ошибка, реальный номер не возвращается
+
+        Пока виртуальный номер действует, повторный запрос по тому же резюме от того же работодателя возвращает тот же номер и то же значение `expires_at`: срок не продлевается. После `expires_at` запрос выдаёт новый номер, он может отличаться от предыдущего
+      parameters:
+        - name: resume_id
+          in: path
+          description: Идентификатор резюме
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Host'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/HHUserAgent'
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResumesResumePhoneResponse'
+              examples:
+                Виртуальный номер:
+                  $ref: '#/components/examples/ResumesResumePhoneVirtual'
+                Реальный номер:
+                  $ref: '#/components/examples/ResumesResumePhoneReal'
+        '403':
+          description: Недоступно для текущего пользователя или приложения либо номер для звонка недоступен
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ErrorsCommonBadAuthorizationErrors'
+                  - $ref: '#/components/schemas/ErrorsCommonBadApplicationErrors'
+                  - $ref: '#/components/schemas/ErrorsResumePhoneForbiddenErrors'
+        '404':
+          description: Резюме не существует или недоступно текущему работодателю
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsCommonNotFoundErrors'
   /resumes:
     x-name: /resumes
     get:
@@ -24310,12 +24510,23 @@ paths:
           schema:
             type: string
         - name: education_level
+          deprecated: true
           in: query
           description: |
-            Уровень образования. Возможные значения перечислены в поле `education_level` в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Если параметр не указан, поиск ведется без ограничений на уровень образования
+            Уровень образования. Возможные значения перечислены в поле `education_level` в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Если параметр не указан, поиск ведется без ограничений на уровень образования.
+
+            Заменен на параметр `education_levels`. В настоящее время поддерживается для обратной совместимости
           required: false
           schema:
             type: string
+        - name: education_levels
+          in: query
+          description: |
+            Требуемый уровень образования соискателя. Возможные значения для `education_levels` приведены в [справочнике полей](#tag/Obshie-spravochniki/operation/get-dictionaries). Можно указать несколько значений: `education_levels=higher&education_levels=master`. Если параметр не указан, поиск ведется без ограничений на уровень образования
+          schema:
+            type: array
+            items:
+              type: string
         - name: experience
           in: query
           description: |
